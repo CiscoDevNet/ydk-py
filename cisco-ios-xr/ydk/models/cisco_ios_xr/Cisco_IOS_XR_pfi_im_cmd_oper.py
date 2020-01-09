@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -563,6 +566,12 @@ class BmMbrStateReason(Enum):
     bm_mbr_state_reason_count = Enum.YLeaf(77, "bm-mbr-state-reason-count")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['BmMbrStateReason']
+
+
 class BmMuxreason(Enum):
     """
     BmMuxreason (Enum Class)
@@ -698,6 +707,12 @@ class BmMuxreason(Enum):
     bm_mux_reason_count = Enum.YLeaf(19, "bm-mux-reason-count")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['BmMuxreason']
+
+
 class BmMuxstate(Enum):
     """
     BmMuxstate (Enum Class)
@@ -743,6 +758,12 @@ class BmMuxstate(Enum):
     collecting_distributing = Enum.YLeaf(6, "collecting-distributing")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['BmMuxstate']
+
+
 class BmSeverity(Enum):
     """
     BmSeverity (Enum Class)
@@ -782,6 +803,12 @@ class BmSeverity(Enum):
     error = Enum.YLeaf(5, "error")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['BmSeverity']
+
+
 class BmStateReasonTarget(Enum):
     """
     BmStateReasonTarget (Enum Class)
@@ -801,6 +828,12 @@ class BmStateReasonTarget(Enum):
     member_reason = Enum.YLeaf(0, "member-reason")
 
     bundle_reason = Enum.YLeaf(1, "bundle-reason")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['BmStateReasonTarget']
 
 
 class BmdMemberState(Enum):
@@ -848,6 +881,12 @@ class BmdMemberState(Enum):
     bmd_mbr_state_active = Enum.YLeaf(6, "bmd-mbr-state-active")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['BmdMemberState']
+
+
 class BmdMemberTypeEnum(Enum):
     """
     BmdMemberTypeEnum (Enum Class)
@@ -877,6 +916,12 @@ class BmdMemberTypeEnum(Enum):
     bmd_mbr_unknown = Enum.YLeaf(2, "bmd-mbr-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['BmdMemberTypeEnum']
+
+
 class EfpPayloadEtype(Enum):
     """
     EfpPayloadEtype (Enum Class)
@@ -904,6 +949,12 @@ class EfpPayloadEtype(Enum):
     payload_ethertype_pppoe = Enum.YLeaf(2, "payload-ethertype-pppoe")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['EfpPayloadEtype']
+
+
 class EfpTagEtype(Enum):
     """
     EfpTagEtype (Enum Class)
@@ -929,6 +980,12 @@ class EfpTagEtype(Enum):
     dot1q = Enum.YLeaf(33024, "dot1q")
 
     dot1ad = Enum.YLeaf(34984, "dot1ad")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['EfpTagEtype']
 
 
 class EfpTagPriority(Enum):
@@ -994,6 +1051,12 @@ class EfpTagPriority(Enum):
     priority_any = Enum.YLeaf(8, "priority-any")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['EfpTagPriority']
+
+
 class GccDerState(Enum):
     """
     GccDerState (Enum Class)
@@ -1027,6 +1090,12 @@ class GccDerState(Enum):
     ais = Enum.YLeaf(3, "ais")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['GccDerState']
+
+
 class GccSecState(Enum):
     """
     GccSecState (Enum Class)
@@ -1054,6 +1123,12 @@ class GccSecState(Enum):
     ais = Enum.YLeaf(2, "ais")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['GccSecState']
+
+
 class ImAttrDuplex(Enum):
     """
     ImAttrDuplex (Enum Class)
@@ -1079,6 +1154,12 @@ class ImAttrDuplex(Enum):
     im_attr_duplex_half = Enum.YLeaf(1, "im-attr-duplex-half")
 
     im_attr_duplex_full = Enum.YLeaf(2, "im-attr-duplex-full")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['ImAttrDuplex']
 
 
 class ImAttrFlowControl(Enum):
@@ -1114,6 +1195,12 @@ class ImAttrFlowControl(Enum):
     im_attr_flow_control_priority = Enum.YLeaf(3, "im-attr-flow-control-priority")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['ImAttrFlowControl']
+
+
 class ImAttrLink(Enum):
     """
     ImAttrLink (Enum Class)
@@ -1133,6 +1220,12 @@ class ImAttrLink(Enum):
     im_attr_link_type_auto = Enum.YLeaf(0, "im-attr-link-type-auto")
 
     im_attr_link_type_force = Enum.YLeaf(1, "im-attr-link-type-force")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['ImAttrLink']
 
 
 class ImAttrMedia(Enum):
@@ -2689,6 +2782,34 @@ class ImAttrMedia(Enum):
 
     	im attr media 1000base 2bx u i
 
+    .. data:: im_attr_media_100gbase_fr = 387
+
+    	im attr media 100gbase fr
+
+    .. data:: im_attr_media_25gbase_aoc1m = 388
+
+    	im attr media 25gbase aoc1m
+
+    .. data:: im_attr_media_25gbase_aoc2m = 389
+
+    	im attr media 25gbase aoc2m
+
+    .. data:: im_attr_media_25gbase_aoc3m = 390
+
+    	im attr media 25gbase aoc3m
+
+    .. data:: im_attr_media_25gbase_aoc5m = 391
+
+    	im attr media 25gbase aoc5m
+
+    .. data:: im_attr_media_25gbase_aoc7m = 392
+
+    	im attr media 25gbase aoc7m
+
+    .. data:: im_attr_media_25gbase_aoc10m = 393
+
+    	im attr media 25gbase aoc10m
+
     """
 
     im_attr_media_other = Enum.YLeaf(0, "im-attr-media-other")
@@ -3465,6 +3586,26 @@ class ImAttrMedia(Enum):
 
     im_attr_media_1000base_2bx_u_i = Enum.YLeaf(386, "im-attr-media-1000base-2bx-u-i")
 
+    im_attr_media_100gbase_fr = Enum.YLeaf(387, "im-attr-media-100gbase-fr")
+
+    im_attr_media_25gbase_aoc1m = Enum.YLeaf(388, "im-attr-media-25gbase-aoc1m")
+
+    im_attr_media_25gbase_aoc2m = Enum.YLeaf(389, "im-attr-media-25gbase-aoc2m")
+
+    im_attr_media_25gbase_aoc3m = Enum.YLeaf(390, "im-attr-media-25gbase-aoc3m")
+
+    im_attr_media_25gbase_aoc5m = Enum.YLeaf(391, "im-attr-media-25gbase-aoc5m")
+
+    im_attr_media_25gbase_aoc7m = Enum.YLeaf(392, "im-attr-media-25gbase-aoc7m")
+
+    im_attr_media_25gbase_aoc10m = Enum.YLeaf(393, "im-attr-media-25gbase-aoc10m")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['ImAttrMedia']
+
 
 class ImAttrTransportMode(Enum):
     """
@@ -3517,6 +3658,12 @@ class ImAttrTransportMode(Enum):
     im_attr_transport_mode_otn_opu4 = Enum.YLeaf(6, "im-attr-transport-mode-otn-opu4")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['ImAttrTransportMode']
+
+
 class ImCmdEncapsEnum(Enum):
     """
     ImCmdEncapsEnum (Enum Class)
@@ -3544,6 +3691,12 @@ class ImCmdEncapsEnum(Enum):
     ppp = Enum.YLeaf(2, "ppp")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['ImCmdEncapsEnum']
+
+
 class ImCmdFrTypeEnum(Enum):
     """
     ImCmdFrTypeEnum (Enum Class)
@@ -3563,6 +3716,12 @@ class ImCmdFrTypeEnum(Enum):
     frame_relay_cisco = Enum.YLeaf(0, "frame-relay-cisco")
 
     frame_relay_ietf = Enum.YLeaf(1, "frame-relay-ietf")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['ImCmdFrTypeEnum']
 
 
 class ImCmdIntfTypeEnum(Enum):
@@ -3628,6 +3787,12 @@ class ImCmdIntfTypeEnum(Enum):
     gcc = Enum.YLeaf(8, "gcc")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['ImCmdIntfTypeEnum']
+
+
 class ImCmdLmiTypeEnum(Enum):
     """
     ImCmdLmiTypeEnum (Enum Class)
@@ -3659,6 +3824,12 @@ class ImCmdLmiTypeEnum(Enum):
     lmi_type_ccitt = Enum.YLeaf(2, "lmi-type-ccitt")
 
     lmi_type_cisco = Enum.YLeaf(3, "lmi-type-cisco")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['ImCmdLmiTypeEnum']
 
 
 class ImCmdLoopbackEnum(Enum):
@@ -3694,6 +3865,12 @@ class ImCmdLoopbackEnum(Enum):
     line_loopback = Enum.YLeaf(3, "line-loopback")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['ImCmdLoopbackEnum']
+
+
 class ImCmdStatsEnum(Enum):
     """
     ImCmdStatsEnum (Enum Class)
@@ -3713,6 +3890,12 @@ class ImCmdStatsEnum(Enum):
     full = Enum.YLeaf(1, "full")
 
     basic = Enum.YLeaf(2, "basic")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['ImCmdStatsEnum']
 
 
 class ImStateEnum(Enum):
@@ -3838,6 +4021,12 @@ class ImStateEnum(Enum):
     im_state_last = Enum.YLeaf(18, "im-state-last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['ImStateEnum']
+
+
 class InterfaceTypeSet(Enum):
     """
     InterfaceTypeSet (Enum Class)
@@ -3851,6 +4040,12 @@ class InterfaceTypeSet(Enum):
     """
 
     hardware_interfaces = Enum.YLeaf(0, "hardware-interfaces")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['InterfaceTypeSet']
 
 
 class NcpIdent(Enum):
@@ -3896,6 +4091,12 @@ class NcpIdent(Enum):
     mplscp = Enum.YLeaf(5, "mplscp")
 
     osicp = Enum.YLeaf(6, "osicp")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['NcpIdent']
 
 
 class PppFsmState(Enum):
@@ -3967,6 +4168,12 @@ class PppFsmState(Enum):
     ppp_fsm_state_opened_9 = Enum.YLeaf(9, "ppp-fsm-state-opened-9")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['PppFsmState']
+
+
 class SonetApsEt(Enum):
     """
     SonetApsEt (Enum Class)
@@ -4004,6 +4211,12 @@ class SonetApsEt(Enum):
     working_inactive = Enum.YLeaf(3, "working-inactive")
 
     protect_inactive = Enum.YLeaf(4, "protect-inactive")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['SonetApsEt']
 
 
 class SrpMgmtFailureEt(Enum):
@@ -4061,6 +4274,12 @@ class SrpMgmtFailureEt(Enum):
     side_mismatch_failure = Enum.YLeaf(6, "side-mismatch-failure")
 
     unknown_failure = Enum.YLeaf(7, "unknown-failure")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['SrpMgmtFailureEt']
 
 
 class SrpMgmtFailureStateEt(Enum):
@@ -4126,6 +4345,12 @@ class SrpMgmtFailureStateEt(Enum):
     unknown_failure_state = Enum.YLeaf(8, "unknown-failure-state")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['SrpMgmtFailureStateEt']
+
+
 class SrpMgmtIpsPathInd(Enum):
     """
     SrpMgmtIpsPathInd (Enum Class)
@@ -4151,6 +4376,12 @@ class SrpMgmtIpsPathInd(Enum):
     long_path = Enum.YLeaf(1, "long-path")
 
     unknown_path = Enum.YLeaf(2, "unknown-path")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['SrpMgmtIpsPathInd']
 
 
 class SrpMgmtIpsReq(Enum):
@@ -4204,6 +4435,12 @@ class SrpMgmtIpsReq(Enum):
     unknown_ips_request = Enum.YLeaf(6, "unknown-ips-request")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['SrpMgmtIpsReq']
+
+
 class SrpMgmtIpsWrapState(Enum):
     """
     SrpMgmtIpsWrapState (Enum Class)
@@ -4235,6 +4472,12 @@ class SrpMgmtIpsWrapState(Enum):
     locked_out_wrap_state = Enum.YLeaf(2, "locked-out-wrap-state")
 
     unknown_wrap_state = Enum.YLeaf(3, "unknown-wrap-state")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['SrpMgmtIpsWrapState']
 
 
 class SrpMgmtSrrFailure(Enum):
@@ -4276,6 +4519,12 @@ class SrpMgmtSrrFailure(Enum):
     unknown_srr_failure = Enum.YLeaf(4, "unknown-srr-failure")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['SrpMgmtSrrFailure']
+
+
 class SrpMgmtSrrNodeState(Enum):
     """
     SrpMgmtSrrNodeState (Enum Class)
@@ -4301,6 +4550,12 @@ class SrpMgmtSrrNodeState(Enum):
     discovery_srr_state = Enum.YLeaf(1, "discovery-srr-state")
 
     unknown_srr_state = Enum.YLeaf(2, "unknown-srr-state")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['SrpMgmtSrrNodeState']
 
 
 class StatsCounter(Enum):
@@ -4426,6 +4681,12 @@ class StatsCounter(Enum):
     stats_counter_comp_flow = Enum.YLeaf(18, "stats-counter-comp-flow")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['StatsCounter']
+
+
 class StatsId(Enum):
     """
     StatsId (Enum Class)
@@ -4477,6 +4738,12 @@ class StatsId(Enum):
     stats_id_type_max = Enum.YLeaf(6, "stats-id-type-max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['StatsId']
+
+
 class StatsTypeContents(Enum):
     """
     StatsTypeContents (Enum Class)
@@ -4496,6 +4763,12 @@ class StatsTypeContents(Enum):
     stats_type_single = Enum.YLeaf(100, "stats-type-single")
 
     stats_type_variable = Enum.YLeaf(101, "stats-type-variable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['StatsTypeContents']
 
 
 class TunlIpModeDir(Enum):
@@ -4531,6 +4804,12 @@ class TunlIpModeDir(Enum):
     tunl_ip_mode_dir_max = Enum.YLeaf(3, "tunl-ip-mode-dir-max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['TunlIpModeDir']
+
+
 class TunlPfiAfId(Enum):
     """
     TunlPfiAfId (Enum Class)
@@ -4556,6 +4835,12 @@ class TunlPfiAfId(Enum):
     tunl_pfi_af_id_ipv4 = Enum.YLeaf(2, "tunl-pfi-af-id-ipv4")
 
     tunl_pfi_af_id_ipv6 = Enum.YLeaf(10, "tunl-pfi-af-id-ipv6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['TunlPfiAfId']
 
 
 class TunnelGreMode(Enum):
@@ -4609,6 +4894,12 @@ class TunnelGreMode(Enum):
     ipv6 = Enum.YLeaf(6, "ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['TunnelGreMode']
+
+
 class TunnelKaDfState(Enum):
     """
     TunnelKaDfState (Enum Class)
@@ -4630,6 +4921,12 @@ class TunnelKaDfState(Enum):
     enable = Enum.YLeaf(1, "enable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['TunnelKaDfState']
+
+
 class TunnelKeyState(Enum):
     """
     TunnelKeyState (Enum Class)
@@ -4649,6 +4946,12 @@ class TunnelKeyState(Enum):
     absent = Enum.YLeaf(0, "absent")
 
     present = Enum.YLeaf(1, "present")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['TunnelKeyState']
 
 
 class VlanEncaps(Enum):
@@ -4720,6 +5023,12 @@ class VlanEncaps(Enum):
     dot1ad_any = Enum.YLeaf(9, "dot1ad-any")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['VlanEncaps']
+
+
 class VlanSwitchedMode(Enum):
     """
     VlanSwitchedMode (Enum Class)
@@ -4747,8 +5056,14 @@ class VlanSwitchedMode(Enum):
     access_port = Enum.YLeaf(2, "access-port")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['VlanSwitchedMode']
 
-class Interfaces(Entity):
+
+
+class Interfaces(_Entity_):
     """
     Interface operational data
     
@@ -4802,7 +5117,10 @@ class Interfaces(Entity):
     _revision = '2017-06-26'
 
     def __init__(self):
-        super(Interfaces, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Interfaces, self).__init__()
         self._top_entity = None
 
         self.yang_name = "interfaces"
@@ -4843,7 +5161,7 @@ class Interfaces(Entity):
         self._perform_setattr(Interfaces, [], name, value)
 
 
-    class InterfaceXr(Entity):
+    class InterfaceXr(_Entity_):
         """
         Detailed operational data for interfaces and
         configured features
@@ -4863,7 +5181,10 @@ class Interfaces(Entity):
         _revision = '2017-06-26'
 
         def __init__(self):
-            super(Interfaces.InterfaceXr, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Interfaces.InterfaceXr, self).__init__()
 
             self.yang_name = "interface-xr"
             self.yang_parent_name = "interfaces"
@@ -4882,7 +5203,7 @@ class Interfaces(Entity):
             self._perform_setattr(Interfaces.InterfaceXr, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             Detailed operational data for a particular
             interface
@@ -5231,7 +5552,10 @@ class Interfaces(Entity):
             _revision = '2017-06-26'
 
             def __init__(self):
-                super(Interfaces.InterfaceXr.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Interfaces.InterfaceXr.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interface-xr"
@@ -5359,7 +5683,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.InterfaceXr.Interface, ['interface_name', 'interface_handle', 'interface_type', 'hardware_type_string', 'state', 'line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'is_l2_transport_enabled', 'state_transition_count', 'last_state_transition_time', 'is_dampening_enabled', 'speed', 'crc_length', 'is_scramble_enabled', 'duplexity', 'media_type', 'link_type', 'in_flow_control', 'out_flow_control', 'bandwidth', 'max_bandwidth', 'keepalive', 'is_l2_looped', 'parent_interface_name', 'loopback_configuration', 'description', 'is_maintenance_enabled', 'is_data_inverted', 'transport_mode', 'fast_shutdown', 'if_index'], name, value)
 
 
-            class DampeningInformation(Entity):
+            class DampeningInformation(_Entity_):
                 """
                 State dampening information
                 
@@ -5447,7 +5771,10 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.DampeningInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.InterfaceXr.Interface.DampeningInformation, self).__init__()
 
                     self.yang_name = "dampening-information"
                     self.yang_parent_name = "interface"
@@ -5479,9 +5806,13 @@ class Interfaces(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.DampeningInformation, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'half_life', 'reuse_threshold', 'suppress_threshold', 'maximum_suppress_time', 'restart_penalty'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.DampeningInformation']['meta_info']
 
 
-            class MacAddress(Entity):
+            class MacAddress(_Entity_):
                 """
                 Interface MAC address
                 
@@ -5502,7 +5833,10 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.MacAddress, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.InterfaceXr.Interface.MacAddress, self).__init__()
 
                     self.yang_name = "mac-address"
                     self.yang_parent_name = "interface"
@@ -5520,9 +5854,13 @@ class Interfaces(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.MacAddress, ['address'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.MacAddress']['meta_info']
 
 
-            class BurnedInAddress(Entity):
+            class BurnedInAddress(_Entity_):
                 """
                 Interface burned in address
                 
@@ -5543,7 +5881,10 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.BurnedInAddress, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.InterfaceXr.Interface.BurnedInAddress, self).__init__()
 
                     self.yang_name = "burned-in-address"
                     self.yang_parent_name = "interface"
@@ -5561,9 +5902,13 @@ class Interfaces(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.BurnedInAddress, ['address'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.BurnedInAddress']['meta_info']
 
 
-            class CarrierDelay(Entity):
+            class CarrierDelay(_Entity_):
                 """
                 Carrier Delay
                 
@@ -5593,7 +5938,10 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.CarrierDelay, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.InterfaceXr.Interface.CarrierDelay, self).__init__()
 
                     self.yang_name = "carrier-delay"
                     self.yang_parent_name = "interface"
@@ -5613,9 +5961,13 @@ class Interfaces(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.CarrierDelay, ['carrier_delay_up', 'carrier_delay_down'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.CarrierDelay']['meta_info']
 
 
-            class ArpInformation(Entity):
+            class ArpInformation(_Entity_):
                 """
                 Interface ARP type and timeout
                 
@@ -5652,7 +6004,10 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.ArpInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.InterfaceXr.Interface.ArpInformation, self).__init__()
 
                     self.yang_name = "arp-information"
                     self.yang_parent_name = "interface"
@@ -5674,9 +6029,13 @@ class Interfaces(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.ArpInformation, ['arp_timeout', 'arp_type_name', 'arp_is_learning_disabled'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.ArpInformation']['meta_info']
 
 
-            class IpInformation(Entity):
+            class IpInformation(_Entity_):
                 """
                 Interface IP address info
                 
@@ -5706,7 +6065,10 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.IpInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.InterfaceXr.Interface.IpInformation, self).__init__()
 
                     self.yang_name = "ip-information"
                     self.yang_parent_name = "interface"
@@ -5726,9 +6088,13 @@ class Interfaces(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.IpInformation, ['ip_address', 'subnet_mask_length'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.IpInformation']['meta_info']
 
 
-            class EncapsulationInformation(Entity):
+            class EncapsulationInformation(_Entity_):
                 """
                 Information specific to the encapsulation
                 
@@ -5768,7 +6134,10 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.EncapsulationInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation, self).__init__()
 
                     self.yang_name = "encapsulation-information"
                     self.yang_parent_name = "interface"
@@ -5799,7 +6168,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation, ['encapsulation_type'], name, value)
 
 
-                class FrameRelayInformation(Entity):
+                class FrameRelayInformation(_Entity_):
                     """
                     Frame Relay information
                     
@@ -5923,7 +6292,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation, self).__init__()
 
                         self.yang_name = "frame-relay-information"
                         self.yang_parent_name = "encapsulation-information"
@@ -5967,9 +6339,13 @@ class Interfaces(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation, ['fr_encapsulation_type', 'lmi_type', 'lmidlci', 'is_nni', 'is_dte', 'is_lmi_up', 'is_lmi_nni_dce_up', 'is_lmi_enabled', 'enquiries_received', 'enquiries_sent', 'status_received', 'status_sent', 'update_status_received', 'update_status_sent'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation']['meta_info']
 
 
-                class Dot1qInformation(Entity):
+                class Dot1qInformation(_Entity_):
                     """
                     VLAN 802.1q information
                     
@@ -5995,7 +6371,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation, self).__init__()
 
                         self.yang_name = "dot1q-information"
                         self.yang_parent_name = "encapsulation-information"
@@ -6019,7 +6398,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation, [], name, value)
 
 
-                    class EncapsulationDetails(Entity):
+                    class EncapsulationDetails(_Entity_):
                         """
                         Encapsulation type and tag stack
                         
@@ -6113,7 +6492,10 @@ class Interfaces(Entity):
                         _revision = '2017-06-26'
 
                         def __init__(self):
-                            super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails, self).__init__()
 
                             self.yang_name = "encapsulation-details"
                             self.yang_parent_name = "dot1q-information"
@@ -6156,7 +6538,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails, ['vlan_encapsulation', 'tag', 'outer_tag', 'native_tag', 'dot1ad_tag', 'dot1ad_native_tag', 'dot1ad_outer_tag'], name, value)
 
 
-                        class Stack(Entity):
+                        class Stack(_Entity_):
                             """
                             Stack value
                             
@@ -6186,7 +6568,10 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack, self).__init__()
 
                                 self.yang_name = "stack"
                                 self.yang_parent_name = "encapsulation-details"
@@ -6206,9 +6591,13 @@ class Interfaces(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack, ['outer_tag', 'second_tag'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack']['meta_info']
 
 
-                        class ServiceInstanceDetails(Entity):
+                        class ServiceInstanceDetails(_Entity_):
                             """
                             Service Instance encapsulation
                             
@@ -6302,7 +6691,10 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails, self).__init__()
 
                                 self.yang_name = "service-instance-details"
                                 self.yang_parent_name = "encapsulation-details"
@@ -6340,7 +6732,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
 
 
-                            class LocalTrafficStack(Entity):
+                            class LocalTrafficStack(_Entity_):
                                 """
                                 VLAN tags for locally\-sourced traffic
                                 
@@ -6359,7 +6751,10 @@ class Interfaces(Entity):
                                 _revision = '2017-06-26'
 
                                 def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, self).__init__()
 
                                     self.yang_name = "local-traffic-stack"
                                     self.yang_parent_name = "service-instance-details"
@@ -6377,7 +6772,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, [], name, value)
 
 
-                                class LocalTrafficTag(Entity):
+                                class LocalTrafficTag(_Entity_):
                                     """
                                     VLAN tags for locally\-sourced traffic
                                     
@@ -6405,7 +6800,10 @@ class Interfaces(Entity):
                                     _revision = '2017-06-26'
 
                                     def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, self).__init__()
 
                                         self.yang_name = "local-traffic-tag"
                                         self.yang_parent_name = "local-traffic-stack"
@@ -6425,10 +6823,18 @@ class Interfaces(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack']['meta_info']
 
 
-
-                            class TagsToMatch(Entity):
+                            class TagsToMatch(_Entity_):
                                 """
                                 Tags to match on ingress packets
                                 
@@ -6461,7 +6867,10 @@ class Interfaces(Entity):
                                 _revision = '2017-06-26'
 
                                 def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, self).__init__()
 
                                     self.yang_name = "tags-to-match"
                                     self.yang_parent_name = "service-instance-details"
@@ -6484,7 +6893,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, ['ethertype', 'priority'], name, value)
 
 
-                                class VlanRange(Entity):
+                                class VlanRange(_Entity_):
                                     """
                                     VLAN Ids to match
                                     
@@ -6514,7 +6923,10 @@ class Interfaces(Entity):
                                     _revision = '2017-06-26'
 
                                     def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, self).__init__()
 
                                         self.yang_name = "vlan-range"
                                         self.yang_parent_name = "tags-to-match"
@@ -6534,10 +6946,18 @@ class Interfaces(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch']['meta_info']
 
 
-
-                            class Pushe(Entity):
+                            class Pushe(_Entity_):
                                 """
                                 VLAN tags pushed on egress
                                 
@@ -6565,7 +6985,10 @@ class Interfaces(Entity):
                                 _revision = '2017-06-26'
 
                                 def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe, self).__init__()
 
                                     self.yang_name = "pushe"
                                     self.yang_parent_name = "service-instance-details"
@@ -6585,10 +7008,18 @@ class Interfaces(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe, ['ethertype', 'vlan_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails']['meta_info']
 
 
-
-                        class Dot1adDot1qStack(Entity):
+                        class Dot1adDot1qStack(_Entity_):
                             """
                             802.1ad 802.1Q stack value
                             
@@ -6618,7 +7049,10 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack, self).__init__()
 
                                 self.yang_name = "dot1ad-dot1q-stack"
                                 self.yang_parent_name = "encapsulation-details"
@@ -6638,10 +7072,18 @@ class Interfaces(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack, ['outer_tag', 'second_tag'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                            return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails']['meta_info']
 
 
-
-                    class VlanSwitched(Entity):
+                    class VlanSwitched(_Entity_):
                         """
                         VLAN\-Switched information
                         
@@ -6676,7 +7118,10 @@ class Interfaces(Entity):
                         _revision = '2017-06-26'
 
                         def __init__(self):
-                            super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched, self).__init__()
 
                             self.yang_name = "vlan-switched"
                             self.yang_parent_name = "dot1q-information"
@@ -6701,7 +7146,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched, ['mode', 'access_vlan'], name, value)
 
 
-                        class TrunkVlanRanges(Entity):
+                        class TrunkVlanRanges(_Entity_):
                             """
                             VLAN\-Switched Trunk VLAN ranges
                             
@@ -6795,7 +7240,10 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges, self).__init__()
 
                                 self.yang_name = "trunk-vlan-ranges"
                                 self.yang_parent_name = "vlan-switched"
@@ -6833,7 +7281,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
 
 
-                            class LocalTrafficStack(Entity):
+                            class LocalTrafficStack(_Entity_):
                                 """
                                 VLAN tags for locally\-sourced traffic
                                 
@@ -6852,7 +7300,10 @@ class Interfaces(Entity):
                                 _revision = '2017-06-26'
 
                                 def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack, self).__init__()
 
                                     self.yang_name = "local-traffic-stack"
                                     self.yang_parent_name = "trunk-vlan-ranges"
@@ -6870,7 +7321,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack, [], name, value)
 
 
-                                class LocalTrafficTag(Entity):
+                                class LocalTrafficTag(_Entity_):
                                     """
                                     VLAN tags for locally\-sourced traffic
                                     
@@ -6898,7 +7349,10 @@ class Interfaces(Entity):
                                     _revision = '2017-06-26'
 
                                     def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, self).__init__()
 
                                         self.yang_name = "local-traffic-tag"
                                         self.yang_parent_name = "local-traffic-stack"
@@ -6918,10 +7372,18 @@ class Interfaces(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack']['meta_info']
 
 
-
-                            class TagsToMatch(Entity):
+                            class TagsToMatch(_Entity_):
                                 """
                                 Tags to match on ingress packets
                                 
@@ -6954,7 +7416,10 @@ class Interfaces(Entity):
                                 _revision = '2017-06-26'
 
                                 def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch, self).__init__()
 
                                     self.yang_name = "tags-to-match"
                                     self.yang_parent_name = "trunk-vlan-ranges"
@@ -6977,7 +7442,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch, ['ethertype', 'priority'], name, value)
 
 
-                                class VlanRange(Entity):
+                                class VlanRange(_Entity_):
                                     """
                                     VLAN Ids to match
                                     
@@ -7007,7 +7472,10 @@ class Interfaces(Entity):
                                     _revision = '2017-06-26'
 
                                     def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, self).__init__()
 
                                         self.yang_name = "vlan-range"
                                         self.yang_parent_name = "tags-to-match"
@@ -7027,10 +7495,18 @@ class Interfaces(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch']['meta_info']
 
 
-
-                            class Pushe(Entity):
+                            class Pushe(_Entity_):
                                 """
                                 VLAN tags pushed on egress
                                 
@@ -7058,7 +7534,10 @@ class Interfaces(Entity):
                                 _revision = '2017-06-26'
 
                                 def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.Pushe, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.Pushe, self).__init__()
 
                                     self.yang_name = "pushe"
                                     self.yang_parent_name = "trunk-vlan-ranges"
@@ -7078,12 +7557,28 @@ class Interfaces(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.Pushe, ['ethertype', 'vlan_id'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.Pushe']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                            return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation']['meta_info']
 
 
-
-
-
-                class PppInformation(Entity):
+                class PppInformation(_Entity_):
                     """
                     PPP information
                     
@@ -7145,7 +7640,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation, self).__init__()
 
                         self.yang_name = "ppp-information"
                         self.yang_parent_name = "encapsulation-information"
@@ -7174,7 +7672,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation, ['lcp_state', 'is_loopback_detected', 'keepalive_period', 'is_mp_bundle_member', 'is_multilink_open'], name, value)
 
 
-                    class NcpInfoArray(Entity):
+                    class NcpInfoArray(_Entity_):
                         """
                         Array of per\-NCP data
                         
@@ -7200,7 +7698,10 @@ class Interfaces(Entity):
                         _revision = '2017-06-26'
 
                         def __init__(self):
-                            super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray, self).__init__()
 
                             self.yang_name = "ncp-info-array"
                             self.yang_parent_name = "ppp-information"
@@ -7220,11 +7721,23 @@ class Interfaces(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray, ['ncp_state', 'ncp_identifier'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                            return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.EncapsulationInformation']['meta_info']
 
 
-
-
-            class InterfaceTypeInformation(Entity):
+            class InterfaceTypeInformation(_Entity_):
                 """
                 Information specific to the interface type
                 
@@ -7306,7 +7819,10 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation, self).__init__()
 
                     self.yang_name = "interface-type-information"
                     self.yang_parent_name = "interface"
@@ -7361,7 +7877,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation, ['interface_type_info'], name, value)
 
 
-                class SrpInformation(Entity):
+                class SrpInformation(_Entity_):
                     """
                     SRP interface information
                     
@@ -7387,7 +7903,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation, self).__init__()
 
                         self.yang_name = "srp-information"
                         self.yang_parent_name = "interface-type-information"
@@ -7411,7 +7930,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation, [], name, value)
 
 
-                    class SrpInformation_(Entity):
+                    class SrpInformation_(_Entity_):
                         """
                         SRP\-specific data
                         
@@ -7451,7 +7970,10 @@ class Interfaces(Entity):
                         _revision = '2017-06-26'
 
                         def __init__(self):
-                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_, self).__init__()
 
                             self.yang_name = "srp-information"
                             self.yang_parent_name = "srp-information"
@@ -7483,7 +8005,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_, [], name, value)
 
 
-                        class IpsInfo(Entity):
+                        class IpsInfo(_Entity_):
                             """
                             SRP IPS information
                             
@@ -7511,7 +8033,10 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo, self).__init__()
 
                                 self.yang_name = "ips-info"
                                 self.yang_parent_name = "srp-information"
@@ -7532,7 +8057,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo, ['is_admin_down'], name, value)
 
 
-                            class LocalInformation(Entity):
+                            class LocalInformation(_Entity_):
                                 """
                                 IPS information
                                 
@@ -7585,7 +8110,10 @@ class Interfaces(Entity):
                                 _revision = '2017-06-26'
 
                                 def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation, self).__init__()
 
                                     self.yang_name = "local-information"
                                     self.yang_parent_name = "ips-info"
@@ -7616,7 +8144,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation, ['mac_address', 'is_inter_card_bus_enabled', 'wtr_timer_period'], name, value)
 
 
-                                class SideA(Entity):
+                                class SideA(_Entity_):
                                     """
                                     Side A IPS details
                                     
@@ -7785,7 +8313,10 @@ class Interfaces(Entity):
                                     _revision = '2017-06-26'
 
                                     def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA, self).__init__()
 
                                         self.yang_name = "side-a"
                                         self.yang_parent_name = "local-information"
@@ -7840,7 +8371,7 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA, ['mac_address', 'wrap_state', 'packet_sent_timer', 'send_timer_time_remaining', 'wtr_timer_remaining', 'self_detected_request', 'remote_request', 'rx_neighbor_mac_address', 'rx_message_type', 'rx_path_type', 'rx_ttl', 'rx_packet_test', 'tx_neighbor_mac_address', 'tx_message_type', 'tx_path_type', 'tx_ttl', 'tx_packet_test', 'delay_keep_alive_trigger'], name, value)
 
 
-                                    class AssertedFailure(Entity):
+                                    class AssertedFailure(_Entity_):
                                         """
                                         Failures presently asserted
                                         
@@ -7898,7 +8429,10 @@ class Interfaces(Entity):
                                         _revision = '2017-06-26'
 
                                         def __init__(self):
-                                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA.AssertedFailure, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA.AssertedFailure, self).__init__()
 
                                             self.yang_name = "asserted-failure"
                                             self.yang_parent_name = "side-a"
@@ -7926,10 +8460,18 @@ class Interfaces(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA.AssertedFailure, ['type', 'reported_state', 'debounced_state', 'current_state', 'stable_time', 'debounced_delay'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                            return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA.AssertedFailure']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA']['meta_info']
 
 
-
-                                class SideB(Entity):
+                                class SideB(_Entity_):
                                     """
                                     Side B IPS details
                                     
@@ -8098,7 +8640,10 @@ class Interfaces(Entity):
                                     _revision = '2017-06-26'
 
                                     def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB, self).__init__()
 
                                         self.yang_name = "side-b"
                                         self.yang_parent_name = "local-information"
@@ -8153,7 +8698,7 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB, ['mac_address', 'wrap_state', 'packet_sent_timer', 'send_timer_time_remaining', 'wtr_timer_remaining', 'self_detected_request', 'remote_request', 'rx_neighbor_mac_address', 'rx_message_type', 'rx_path_type', 'rx_ttl', 'rx_packet_test', 'tx_neighbor_mac_address', 'tx_message_type', 'tx_path_type', 'tx_ttl', 'tx_packet_test', 'delay_keep_alive_trigger'], name, value)
 
 
-                                    class AssertedFailure(Entity):
+                                    class AssertedFailure(_Entity_):
                                         """
                                         Failures presently asserted
                                         
@@ -8211,7 +8756,10 @@ class Interfaces(Entity):
                                         _revision = '2017-06-26'
 
                                         def __init__(self):
-                                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB.AssertedFailure, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB.AssertedFailure, self).__init__()
 
                                             self.yang_name = "asserted-failure"
                                             self.yang_parent_name = "side-b"
@@ -8239,12 +8787,28 @@ class Interfaces(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB.AssertedFailure, ['type', 'reported_state', 'debounced_state', 'current_state', 'stable_time', 'debounced_delay'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                            return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB.AssertedFailure']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo']['meta_info']
 
 
-
-
-
-                        class TopologyInfo(Entity):
+                        class TopologyInfo(_Entity_):
                             """
                             SRP topology information
                             
@@ -8272,7 +8836,10 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo, self).__init__()
 
                                 self.yang_name = "topology-info"
                                 self.yang_parent_name = "srp-information"
@@ -8293,7 +8860,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo, ['is_admin_down'], name, value)
 
 
-                            class LocalInformation(Entity):
+                            class LocalInformation(_Entity_):
                                 """
                                 Detailed SRP topology information
                                 
@@ -8357,7 +8924,10 @@ class Interfaces(Entity):
                                 _revision = '2017-06-26'
 
                                 def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation, self).__init__()
 
                                     self.yang_name = "local-information"
                                     self.yang_parent_name = "topology-info"
@@ -8386,7 +8956,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation, ['topology_timer', 'next_topology_packet_delay', 'time_since_last_topology_packet_received', 'time_since_last_topology_change', 'number_of_nodes_on_ring'], name, value)
 
 
-                                class RingNode(Entity):
+                                class RingNode(_Entity_):
                                     """
                                     List of nodes on the ring info
                                     
@@ -8448,7 +9018,10 @@ class Interfaces(Entity):
                                     _revision = '2017-06-26'
 
                                     def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation.RingNode, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation.RingNode, self).__init__()
 
                                         self.yang_name = "ring-node"
                                         self.yang_parent_name = "local-information"
@@ -8476,11 +9049,23 @@ class Interfaces(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation.RingNode, ['hop_count', 'mac_address', 'ipv4_address', 'is_wrapped', 'is_srr_supported', 'node_name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation.RingNode']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo']['meta_info']
 
 
-
-
-                        class SrrInfo(Entity):
+                        class SrrInfo(_Entity_):
                             """
                             SRP SRR information
                             
@@ -8517,7 +9102,10 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo, self).__init__()
 
                                 self.yang_name = "srr-info"
                                 self.yang_parent_name = "srp-information"
@@ -8540,7 +9128,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo, ['is_admin_down', 'is_srr_enabled'], name, value)
 
 
-                            class SrrDetailedInfo(Entity):
+                            class SrrDetailedInfo(_Entity_):
                                 """
                                 SRP information
                                 
@@ -8714,7 +9302,10 @@ class Interfaces(Entity):
                                 _revision = '2017-06-26'
 
                                 def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo, self).__init__()
 
                                     self.yang_name = "srr-detailed-info"
                                     self.yang_parent_name = "srr-info"
@@ -8766,7 +9357,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo, ['version_number', 'is_wrong_version_received', 'last_wrong_version_receive_time', 'mac_address', 'node_state', 'is_outer_ring_in_use', 'is_inner_ring_in_use', 'is_announce', 'outer_fail_type', 'inner_fail_type', 'packet_send_timer', 'next_srr_packet_send_time', 'single_ring_bw', 'wtr_time', 'wtr_timer_remaining_outer_ring', 'wtr_timer_remaining_inner_ring'], name, value)
 
 
-                                class NodesOnRing(Entity):
+                                class NodesOnRing(_Entity_):
                                     """
                                     List of nodes on the ring info
                                     
@@ -8833,7 +9424,10 @@ class Interfaces(Entity):
                                     _revision = '2017-06-26'
 
                                     def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesOnRing, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesOnRing, self).__init__()
 
                                         self.yang_name = "nodes-on-ring"
                                         self.yang_parent_name = "srr-detailed-info"
@@ -8863,9 +9457,13 @@ class Interfaces(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesOnRing, ['node_name', 'srr_entry_exits', 'mac_address', 'outer_failure', 'inner_failure', 'is_last_announce_received', 'last_announce_received_time'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesOnRing']['meta_info']
 
 
-                                class NodesNotOnRing(Entity):
+                                class NodesNotOnRing(_Entity_):
                                     """
                                     nodes not in topology map
                                     
@@ -8932,7 +9530,10 @@ class Interfaces(Entity):
                                     _revision = '2017-06-26'
 
                                     def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesNotOnRing, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesNotOnRing, self).__init__()
 
                                         self.yang_name = "nodes-not-on-ring"
                                         self.yang_parent_name = "srr-detailed-info"
@@ -8962,11 +9563,23 @@ class Interfaces(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesNotOnRing, ['node_name', 'srr_entry_exits', 'mac_address', 'outer_failure', 'inner_failure', 'is_last_announce_received', 'last_announce_received_time'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesNotOnRing']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo']['meta_info']
 
 
-
-
-                        class RateLimitInfo(Entity):
+                        class RateLimitInfo(_Entity_):
                             """
                             SRP rate limit information
                             
@@ -8994,7 +9607,10 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo, self).__init__()
 
                                 self.yang_name = "rate-limit-info"
                                 self.yang_parent_name = "srp-information"
@@ -9015,7 +9631,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo, ['is_admin_down'], name, value)
 
 
-                            class RateLimitDetailedInfo(Entity):
+                            class RateLimitDetailedInfo(_Entity_):
                                 """
                                 SRP rate limit information
                                 
@@ -9036,7 +9652,10 @@ class Interfaces(Entity):
                                 _revision = '2017-06-26'
 
                                 def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo.RateLimitDetailedInfo, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo.RateLimitDetailedInfo, self).__init__()
 
                                     self.yang_name = "rate-limit-detailed-info"
                                     self.yang_parent_name = "rate-limit-info"
@@ -9054,11 +9673,23 @@ class Interfaces(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo.RateLimitDetailedInfo, ['min_priority_value'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo.RateLimitDetailedInfo']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                            return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_']['meta_info']
 
 
-
-
-                    class SrpStatistics(Entity):
+                    class SrpStatistics(_Entity_):
                         """
                         SRP\-specific packet and byte counters
                         
@@ -9109,7 +9740,10 @@ class Interfaces(Entity):
                         _revision = '2017-06-26'
 
                         def __init__(self):
-                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics, self).__init__()
 
                             self.yang_name = "srp-statistics"
                             self.yang_parent_name = "srp-information"
@@ -9144,7 +9778,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics, ['data_rate_interval'], name, value)
 
 
-                        class SideADataRate(Entity):
+                        class SideADataRate(_Entity_):
                             """
                             Data rates for side A interface
                             
@@ -9192,7 +9826,10 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate, self).__init__()
 
                                 self.yang_name = "side-a-data-rate"
                                 self.yang_parent_name = "srp-statistics"
@@ -9216,9 +9853,13 @@ class Interfaces(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate, ['bit_rate_sent', 'packet_rate_sent', 'bit_rate_received', 'packet_rate_received'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate']['meta_info']
 
 
-                        class SideBDataRate(Entity):
+                        class SideBDataRate(_Entity_):
                             """
                             Data rates for side B interface
                             
@@ -9266,7 +9907,10 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate, self).__init__()
 
                                 self.yang_name = "side-b-data-rate"
                                 self.yang_parent_name = "srp-statistics"
@@ -9290,9 +9934,13 @@ class Interfaces(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate, ['bit_rate_sent', 'packet_rate_sent', 'bit_rate_received', 'packet_rate_received'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate']['meta_info']
 
 
-                        class SideAErrors(Entity):
+                        class SideAErrors(_Entity_):
                             """
                             Errors for side A interface
                             
@@ -9385,7 +10033,10 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors, self).__init__()
 
                                 self.yang_name = "side-a-errors"
                                 self.yang_parent_name = "srp-statistics"
@@ -9419,9 +10070,13 @@ class Interfaces(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors, ['error_packets_received', 'crc_errors', 'input_insufficient_resource_events', 'mac_aborts_received', 'mac_runt_packets_received', 'mac_giant_packets_received', 'framer_runt_packets_received', 'framer_giant_packets_received', 'framer_aborts_received'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors']['meta_info']
 
 
-                        class SideBErrors(Entity):
+                        class SideBErrors(_Entity_):
                             """
                             Errors for side B interface
                             
@@ -9514,7 +10169,10 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors, self).__init__()
 
                                 self.yang_name = "side-b-errors"
                                 self.yang_parent_name = "srp-statistics"
@@ -9548,11 +10206,23 @@ class Interfaces(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors, ['error_packets_received', 'crc_errors', 'input_insufficient_resource_events', 'mac_aborts_received', 'mac_runt_packets_received', 'mac_giant_packets_received', 'framer_runt_packets_received', 'framer_giant_packets_received', 'framer_aborts_received'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                            return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation']['meta_info']
 
 
-
-
-                class TunnelInformation(Entity):
+                class TunnelInformation(_Entity_):
                     """
                     Tunnel interface information
                     
@@ -9614,7 +10284,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation, self).__init__()
 
                         self.yang_name = "tunnel-information"
                         self.yang_parent_name = "interface-type-information"
@@ -9642,9 +10315,13 @@ class Interfaces(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation, ['source_name', 'source_ipv4_address', 'destination_ipv4_address', 'tunnel_type', 'key', 'ttl'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation']['meta_info']
 
 
-                class BundleInformation(Entity):
+                class BundleInformation(_Entity_):
                     """
                     Bundle interface information
                     
@@ -9663,7 +10340,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation, self).__init__()
 
                         self.yang_name = "bundle-information"
                         self.yang_parent_name = "interface-type-information"
@@ -9681,7 +10361,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation, [], name, value)
 
 
-                    class Member(Entity):
+                    class Member(_Entity_):
                         """
                         List of bundle members and their properties
                         
@@ -9816,7 +10496,10 @@ class Interfaces(Entity):
                         _revision = '2017-06-26'
 
                         def __init__(self):
-                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member, self).__init__()
 
                             self.yang_name = "member"
                             self.yang_parent_name = "bundle-information"
@@ -9871,7 +10554,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member, ['interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name', 'replication_error'], name, value)
 
 
-                        class Counters(Entity):
+                        class Counters(_Entity_):
                             """
                             Counters data about member link
                             
@@ -9982,7 +10665,10 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters, self).__init__()
 
                                 self.yang_name = "counters"
                                 self.yang_parent_name = "member"
@@ -10020,9 +10706,13 @@ class Interfaces(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters, ['lacpd_us_received', 'lacpd_us_transmitted', 'marker_packets_received', 'marker_responses_transmitted', 'illegal_packets_received', 'excess_lacpd_us_received', 'excess_marker_packets_received', 'defaulted', 'expired', 'last_cleared_sec', 'last_cleared_nsec'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters']['meta_info']
 
 
-                        class LinkData(Entity):
+                        class LinkData(_Entity_):
                             """
                             Lacp data about member link
                             
@@ -10169,7 +10859,10 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData, self).__init__()
 
                                 self.yang_name = "link-data"
                                 self.yang_parent_name = "member"
@@ -10215,9 +10908,13 @@ class Interfaces(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData, ['interface_handle', 'actor_system_priority', 'actor_system_mac_address', 'actor_operational_key', 'partner_system_priority', 'partner_system_mac_address', 'partner_operational_key', 'selected_aggregator_id', 'attached_aggregator_id', 'actor_port_id', 'actor_port_priority', 'partner_port_id', 'partner_port_priority', 'actor_port_state', 'partner_port_state'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData']['meta_info']
 
 
-                        class MemberMuxData(Entity):
+                        class MemberMuxData(_Entity_):
                             """
                             Mux state machine data
                             
@@ -10273,7 +10970,10 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData, self).__init__()
 
                                 self.yang_name = "member-mux-data"
                                 self.yang_parent_name = "member"
@@ -10304,7 +11004,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData, ['mux_state', 'error', 'member_mux_state_reason', 'member_state', 'mux_state_reason'], name, value)
 
 
-                            class MemberMuxStateReasonData(Entity):
+                            class MemberMuxStateReasonData(_Entity_):
                                 """
                                 Data regarding the reason for last Mux state
                                 change
@@ -10331,7 +11031,10 @@ class Interfaces(Entity):
                                 _revision = '2017-06-26'
 
                                 def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData, self).__init__()
 
                                     self.yang_name = "member-mux-state-reason-data"
                                     self.yang_parent_name = "member-mux-data"
@@ -10351,10 +11054,18 @@ class Interfaces(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData, ['reason_type', 'severity'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                    return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData']['meta_info']
 
 
-
-                        class MacAddress(Entity):
+                        class MacAddress(_Entity_):
                             """
                             MAC address of this member (deprecated)
                             
@@ -10375,7 +11086,10 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress, self).__init__()
 
                                 self.yang_name = "mac-address"
                                 self.yang_parent_name = "member"
@@ -10393,11 +11107,23 @@ class Interfaces(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress, ['address'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                            return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation']['meta_info']
 
 
-
-
-                class SerialInformation(Entity):
+                class SerialInformation(_Entity_):
                     """
                     Serial interface information
                     
@@ -10416,7 +11142,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation, self).__init__()
 
                         self.yang_name = "serial-information"
                         self.yang_parent_name = "interface-type-information"
@@ -10434,9 +11163,13 @@ class Interfaces(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation, ['timeslots'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation']['meta_info']
 
 
-                class SonetPosInformation(Entity):
+                class SonetPosInformation(_Entity_):
                     """
                     SONET POS interface information
                     
@@ -10455,7 +11188,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation, self).__init__()
 
                         self.yang_name = "sonet-pos-information"
                         self.yang_parent_name = "interface-type-information"
@@ -10473,9 +11209,13 @@ class Interfaces(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation, ['aps_state'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation']['meta_info']
 
 
-                class TunnelGreInformation(Entity):
+                class TunnelGreInformation(_Entity_):
                     """
                     Tunnel GRE interface information
                     
@@ -10599,7 +11339,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation, self).__init__()
 
                         self.yang_name = "tunnel-gre-information"
                         self.yang_parent_name = "interface-type-information"
@@ -10648,7 +11391,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation, ['source_name', 'destination_ip_address_length', 'tunnel_tos', 'tunnel_ttl', 'key', 'keepalive_period', 'keepalive_maximum_retry', 'tunnel_mode', 'tunnel_mode_direction', 'keepalive_state', 'df_bit_state', 'key_bit_state'], name, value)
 
 
-                    class SourceIpAddress(Entity):
+                    class SourceIpAddress(_Entity_):
                         """
                         Tunnel source IP address
                         
@@ -10685,7 +11428,10 @@ class Interfaces(Entity):
                         _revision = '2017-06-26'
 
                         def __init__(self):
-                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress, self).__init__()
 
                             self.yang_name = "source-ip-address"
                             self.yang_parent_name = "tunnel-gre-information"
@@ -10707,9 +11453,13 @@ class Interfaces(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress, ['afi', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                            return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress']['meta_info']
 
 
-                    class DestinationIpAddress(Entity):
+                    class DestinationIpAddress(_Entity_):
                         """
                         Tunnel destination IP address
                         
@@ -10746,7 +11496,10 @@ class Interfaces(Entity):
                         _revision = '2017-06-26'
 
                         def __init__(self):
-                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress, self).__init__()
 
                             self.yang_name = "destination-ip-address"
                             self.yang_parent_name = "tunnel-gre-information"
@@ -10768,10 +11521,18 @@ class Interfaces(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress, ['afi', 'ipv4', 'ipv6'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                            return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation']['meta_info']
 
 
-
-                class PseudowireHeadEndInformation(Entity):
+                class PseudowireHeadEndInformation(_Entity_):
                     """
                     PseudowireHeadEnd interface information
                     
@@ -10808,7 +11569,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation, self).__init__()
 
                         self.yang_name = "pseudowire-head-end-information"
                         self.yang_parent_name = "interface-type-information"
@@ -10830,9 +11594,13 @@ class Interfaces(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation, ['interface_list_name', 'l2_overhead', 'internal_label'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation']['meta_info']
 
 
-                class CemInformation(Entity):
+                class CemInformation(_Entity_):
                     """
                     Cem interface information
                     
@@ -10882,7 +11650,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation, self).__init__()
 
                         self.yang_name = "cem-information"
                         self.yang_parent_name = "interface-type-information"
@@ -10906,9 +11677,13 @@ class Interfaces(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation, ['timeslots', 'payload', 'dejitter_buffer', 'framing'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation']['meta_info']
 
 
-                class GccInformation(Entity):
+                class GccInformation(_Entity_):
                     """
                     GCC interface information
                     
@@ -10934,7 +11709,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation, self).__init__()
 
                         self.yang_name = "gcc-information"
                         self.yang_parent_name = "interface-type-information"
@@ -10954,10 +11732,18 @@ class Interfaces(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation, ['derived_mode', 'sec_state'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation']['meta_info']
 
 
-
-            class DataRates(Entity):
+            class DataRates(_Entity_):
                 """
                 Packet and byte rates
                 
@@ -11096,7 +11882,10 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.DataRates, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.InterfaceXr.Interface.DataRates, self).__init__()
 
                     self.yang_name = "data-rates"
                     self.yang_parent_name = "interface"
@@ -11138,9 +11927,13 @@ class Interfaces(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.DataRates, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.DataRates']['meta_info']
 
 
-            class InterfaceStatistics(Entity):
+            class InterfaceStatistics(_Entity_):
                 """
                 Packet, byte and error counters
                 
@@ -11173,7 +11966,10 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.InterfaceStatistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.InterfaceXr.Interface.InterfaceStatistics, self).__init__()
 
                     self.yang_name = "interface-statistics"
                     self.yang_parent_name = "interface"
@@ -11200,7 +11996,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics, ['stats_type'], name, value)
 
 
-                class FullInterfaceStats(Entity):
+                class FullInterfaceStats(_Entity_):
                     """
                     Packet, byte and all error counters
                     
@@ -11550,7 +12346,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats, self).__init__()
 
                         self.yang_name = "full-interface-stats"
                         self.yang_parent_name = "interface-statistics"
@@ -11638,9 +12437,13 @@ class Interfaces(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats']['meta_info']
 
 
-                class BasicInterfaceStats(Entity):
+                class BasicInterfaceStats(_Entity_):
                     """
                     Packet, byte and selected error counters
                     
@@ -11810,7 +12613,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats, self).__init__()
 
                         self.yang_name = "basic-interface-stats"
                         self.yang_parent_name = "interface-statistics"
@@ -11858,10 +12664,18 @@ class Interfaces(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'input_drops', 'input_queue_drops', 'input_errors', 'unknown_protocol_packets_received', 'output_drops', 'output_queue_drops', 'output_errors', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceStatistics']['meta_info']
 
 
-
-            class L2InterfaceStatistics(Entity):
+            class L2InterfaceStatistics(_Entity_):
                 """
                 L2 Protocol Statistics
                 
@@ -11910,7 +12724,10 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics, self).__init__()
 
                     self.yang_name = "l2-interface-statistics"
                     self.yang_parent_name = "interface"
@@ -11938,7 +12755,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics, ['stats_type', 'contents'], name, value)
 
 
-                class StatsId(Entity):
+                class StatsId(_Entity_):
                     """
                     Identifier
                     
@@ -12002,7 +12819,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId, self).__init__()
 
                         self.yang_name = "stats-id"
                         self.yang_parent_name = "l2-interface-statistics"
@@ -12030,9 +12850,13 @@ class Interfaces(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId, ['id_type', 'unused', 'interface_handle', 'node_id', 'feature_id', 'id'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId']['meta_info']
 
 
-                class BlockArray(Entity):
+                class BlockArray(_Entity_):
                     """
                     Block Array
                     
@@ -12069,7 +12893,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray, self).__init__()
 
                         self.yang_name = "block-array"
                         self.yang_parent_name = "l2-interface-statistics"
@@ -12091,9 +12918,13 @@ class Interfaces(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray, ['type', 'count', 'data'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray']['meta_info']
 
 
-                class ElementArray(Entity):
+                class ElementArray(_Entity_):
                     """
                     Element Array
                     
@@ -12121,7 +12952,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray, self).__init__()
 
                         self.yang_name = "element-array"
                         self.yang_parent_name = "l2-interface-statistics"
@@ -12142,7 +12976,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray, ['key'], name, value)
 
 
-                    class BlockArray(Entity):
+                    class BlockArray(_Entity_):
                         """
                         block array
                         
@@ -12179,7 +13013,10 @@ class Interfaces(Entity):
                         _revision = '2017-06-26'
 
                         def __init__(self):
-                            super(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray, self).__init__()
 
                             self.yang_name = "block-array"
                             self.yang_parent_name = "element-array"
@@ -12201,13 +13038,33 @@ class Interfaces(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray, ['type', 'count', 'data'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                            return meta._meta_table['Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InterfaceXr.Interface.L2InterfaceStatistics']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                return meta._meta_table['Interfaces.InterfaceXr.Interface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+            return meta._meta_table['Interfaces.InterfaceXr']['meta_info']
 
 
-
-
-
-
-    class NodeTypeSets(Entity):
+    class NodeTypeSets(_Entity_):
         """
         Node and/or interface type specific view of
         interface summary data
@@ -12227,7 +13084,10 @@ class Interfaces(Entity):
         _revision = '2017-06-26'
 
         def __init__(self):
-            super(Interfaces.NodeTypeSets, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Interfaces.NodeTypeSets, self).__init__()
 
             self.yang_name = "node-type-sets"
             self.yang_parent_name = "interfaces"
@@ -12246,7 +13106,7 @@ class Interfaces(Entity):
             self._perform_setattr(Interfaces.NodeTypeSets, [], name, value)
 
 
-        class NodeTypeSet(Entity):
+        class NodeTypeSet(_Entity_):
             """
             Summary data for all interfaces on a particular
             node
@@ -12282,7 +13142,10 @@ class Interfaces(Entity):
             _revision = '2017-06-26'
 
             def __init__(self):
-                super(Interfaces.NodeTypeSets.NodeTypeSet, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Interfaces.NodeTypeSets.NodeTypeSet, self).__init__()
 
                 self.yang_name = "node-type-set"
                 self.yang_parent_name = "node-type-sets"
@@ -12308,7 +13171,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet, ['node_name', 'type_set_name'], name, value)
 
 
-            class InterfaceSummary(Entity):
+            class InterfaceSummary(_Entity_):
                 """
                 Interface summary information
                 
@@ -12334,7 +13197,10 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary, self).__init__()
 
                     self.yang_name = "interface-summary"
                     self.yang_parent_name = "node-type-set"
@@ -12357,7 +13223,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary, [], name, value)
 
 
-                class InterfaceCounts(Entity):
+                class InterfaceCounts(_Entity_):
                     """
                     Counts for all interfaces
                     
@@ -12405,7 +13271,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceCounts, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceCounts, self).__init__()
 
                         self.yang_name = "interface-counts"
                         self.yang_parent_name = "interface-summary"
@@ -12430,9 +13299,13 @@ class Interfaces(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceCounts']['meta_info']
 
 
-                class InterfaceType(Entity):
+                class InterfaceType(_Entity_):
                     """
                     List of per interface type summary information
                     
@@ -12465,7 +13338,10 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType, self).__init__()
 
                         self.yang_name = "interface-type"
                         self.yang_parent_name = "interface-summary"
@@ -12491,7 +13367,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType, ['interface_type_name', 'interface_type_description'], name, value)
 
 
-                    class InterfaceCounts(Entity):
+                    class InterfaceCounts(_Entity_):
                         """
                         Counts for interfaces of this type
                         
@@ -12539,7 +13415,10 @@ class Interfaces(Entity):
                         _revision = '2017-06-26'
 
                         def __init__(self):
-                            super(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts, self).__init__()
 
                             self.yang_name = "interface-counts"
                             self.yang_parent_name = "interface-type"
@@ -12564,13 +13443,33 @@ class Interfaces(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                            return meta._meta_table['Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                        return meta._meta_table['Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                return meta._meta_table['Interfaces.NodeTypeSets.NodeTypeSet']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+            return meta._meta_table['Interfaces.NodeTypeSets']['meta_info']
 
 
-
-
-
-
-    class InterfaceBriefs(Entity):
+    class InterfaceBriefs(_Entity_):
         """
         Brief operational data for interfaces
         
@@ -12589,7 +13488,10 @@ class Interfaces(Entity):
         _revision = '2017-06-26'
 
         def __init__(self):
-            super(Interfaces.InterfaceBriefs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Interfaces.InterfaceBriefs, self).__init__()
 
             self.yang_name = "interface-briefs"
             self.yang_parent_name = "interfaces"
@@ -12608,7 +13510,7 @@ class Interfaces(Entity):
             self._perform_setattr(Interfaces.InterfaceBriefs, [], name, value)
 
 
-        class InterfaceBrief(Entity):
+        class InterfaceBrief(_Entity_):
             """
             Brief operational attributes for a particular
             interface
@@ -12735,7 +13637,10 @@ class Interfaces(Entity):
             _revision = '2017-06-26'
 
             def __init__(self):
-                super(Interfaces.InterfaceBriefs.InterfaceBrief, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Interfaces.InterfaceBriefs.InterfaceBrief, self).__init__()
 
                 self.yang_name = "interface-brief"
                 self.yang_parent_name = "interface-briefs"
@@ -12780,10 +13685,18 @@ class Interfaces(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.InterfaceBriefs.InterfaceBrief, ['interface_name', 'interface', 'parent_interface', 'type', 'state', 'actual_state', 'line_state', 'actual_line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'sub_interface_mtu_overhead', 'l2_transport', 'bandwidth'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                return meta._meta_table['Interfaces.InterfaceBriefs.InterfaceBrief']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+            return meta._meta_table['Interfaces.InterfaceBriefs']['meta_info']
 
 
-
-    class InventorySummary(Entity):
+    class InventorySummary(_Entity_):
         """
         Inventory summary information
         
@@ -12809,7 +13722,10 @@ class Interfaces(Entity):
         _revision = '2017-06-26'
 
         def __init__(self):
-            super(Interfaces.InventorySummary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Interfaces.InventorySummary, self).__init__()
 
             self.yang_name = "inventory-summary"
             self.yang_parent_name = "interfaces"
@@ -12832,7 +13748,7 @@ class Interfaces(Entity):
             self._perform_setattr(Interfaces.InventorySummary, [], name, value)
 
 
-        class InterfaceCounts(Entity):
+        class InterfaceCounts(_Entity_):
             """
             Counts for all interfaces
             
@@ -12880,7 +13796,10 @@ class Interfaces(Entity):
             _revision = '2017-06-26'
 
             def __init__(self):
-                super(Interfaces.InventorySummary.InterfaceCounts, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Interfaces.InventorySummary.InterfaceCounts, self).__init__()
 
                 self.yang_name = "interface-counts"
                 self.yang_parent_name = "inventory-summary"
@@ -12905,9 +13824,13 @@ class Interfaces(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.InventorySummary.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                return meta._meta_table['Interfaces.InventorySummary.InterfaceCounts']['meta_info']
 
 
-        class InterfaceType(Entity):
+        class InterfaceType(_Entity_):
             """
             List of per interface type summary information
             
@@ -12940,7 +13863,10 @@ class Interfaces(Entity):
             _revision = '2017-06-26'
 
             def __init__(self):
-                super(Interfaces.InventorySummary.InterfaceType, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Interfaces.InventorySummary.InterfaceType, self).__init__()
 
                 self.yang_name = "interface-type"
                 self.yang_parent_name = "inventory-summary"
@@ -12966,7 +13892,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.InventorySummary.InterfaceType, ['interface_type_name', 'interface_type_description'], name, value)
 
 
-            class InterfaceCounts(Entity):
+            class InterfaceCounts(_Entity_):
                 """
                 Counts for interfaces of this type
                 
@@ -13014,7 +13940,10 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.InventorySummary.InterfaceType.InterfaceCounts, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.InventorySummary.InterfaceType.InterfaceCounts, self).__init__()
 
                     self.yang_name = "interface-counts"
                     self.yang_parent_name = "interface-type"
@@ -13039,11 +13968,23 @@ class Interfaces(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.InventorySummary.InterfaceType.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InventorySummary.InterfaceType.InterfaceCounts']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                return meta._meta_table['Interfaces.InventorySummary.InterfaceType']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+            return meta._meta_table['Interfaces.InventorySummary']['meta_info']
 
 
-
-
-    class Interfaces_(Entity):
+    class Interfaces_(_Entity_):
         """
         Descriptions for interfaces
         
@@ -13062,7 +14003,10 @@ class Interfaces(Entity):
         _revision = '2017-06-26'
 
         def __init__(self):
-            super(Interfaces.Interfaces_, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Interfaces.Interfaces_, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "interfaces"
@@ -13081,7 +14025,7 @@ class Interfaces(Entity):
             self._perform_setattr(Interfaces.Interfaces_, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             Description for a particular interface
             
@@ -13132,7 +14076,10 @@ class Interfaces(Entity):
             _revision = '2017-06-26'
 
             def __init__(self):
-                super(Interfaces.Interfaces_.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Interfaces.Interfaces_.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -13159,10 +14106,18 @@ class Interfaces(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.Interfaces_.Interface, ['interface_name', 'interface', 'state', 'line_state', 'description'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                return meta._meta_table['Interfaces.Interfaces_.Interface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+            return meta._meta_table['Interfaces.Interfaces_']['meta_info']
 
 
-
-    class InterfaceSummary(Entity):
+    class InterfaceSummary(_Entity_):
         """
         Interface summary information
         
@@ -13188,7 +14143,10 @@ class Interfaces(Entity):
         _revision = '2017-06-26'
 
         def __init__(self):
-            super(Interfaces.InterfaceSummary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Interfaces.InterfaceSummary, self).__init__()
 
             self.yang_name = "interface-summary"
             self.yang_parent_name = "interfaces"
@@ -13211,7 +14169,7 @@ class Interfaces(Entity):
             self._perform_setattr(Interfaces.InterfaceSummary, [], name, value)
 
 
-        class InterfaceCounts(Entity):
+        class InterfaceCounts(_Entity_):
             """
             Counts for all interfaces
             
@@ -13259,7 +14217,10 @@ class Interfaces(Entity):
             _revision = '2017-06-26'
 
             def __init__(self):
-                super(Interfaces.InterfaceSummary.InterfaceCounts, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Interfaces.InterfaceSummary.InterfaceCounts, self).__init__()
 
                 self.yang_name = "interface-counts"
                 self.yang_parent_name = "interface-summary"
@@ -13284,9 +14245,13 @@ class Interfaces(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.InterfaceSummary.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                return meta._meta_table['Interfaces.InterfaceSummary.InterfaceCounts']['meta_info']
 
 
-        class InterfaceType(Entity):
+        class InterfaceType(_Entity_):
             """
             List of per interface type summary information
             
@@ -13319,7 +14284,10 @@ class Interfaces(Entity):
             _revision = '2017-06-26'
 
             def __init__(self):
-                super(Interfaces.InterfaceSummary.InterfaceType, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Interfaces.InterfaceSummary.InterfaceType, self).__init__()
 
                 self.yang_name = "interface-type"
                 self.yang_parent_name = "interface-summary"
@@ -13345,7 +14313,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.InterfaceSummary.InterfaceType, ['interface_type_name', 'interface_type_description'], name, value)
 
 
-            class InterfaceCounts(Entity):
+            class InterfaceCounts(_Entity_):
                 """
                 Counts for interfaces of this type
                 
@@ -13393,7 +14361,10 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts, self).__init__()
 
                     self.yang_name = "interface-counts"
                     self.yang_parent_name = "interface-type"
@@ -13418,12 +14389,28 @@ class Interfaces(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                    return meta._meta_table['Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                return meta._meta_table['Interfaces.InterfaceSummary.InterfaceType']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+            return meta._meta_table['Interfaces.InterfaceSummary']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Interfaces()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+        return meta._meta_table['Interfaces']['meta_info']
 
 

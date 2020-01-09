@@ -433,6 +433,11 @@ module Cisco-IOS-XR-subscriber-srg-cfg {
           "Value of revertive time in minutes";
       }
     }
+    leaf cpe-tracking {
+      type empty;
+      description
+        "Enable";
+    }
     leaf enable {
       type empty;
       mandatory true;

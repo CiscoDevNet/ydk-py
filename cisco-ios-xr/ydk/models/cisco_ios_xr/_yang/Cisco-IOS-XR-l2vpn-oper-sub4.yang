@@ -13,7 +13,7 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub4 {
     prefix xr;
   }
   include Cisco-IOS-XR-l2vpn-oper-sub2 {
-    revision-date 2018-08-01;
+    revision-date 2019-03-30;
   }
 
   organization
@@ -35,6 +35,10 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub4 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-03-30 {
+    description
+      "- Rename l2fib-mac-learning-mac* interface-handle to interface-name - Rename l2fib-pw-group tunnel-if-handle to tunnel-interface-name - Convert several array from leaf-list to list syntax. - Implement range datatypes for all L2FIB integers.";
+  }
   revision 2018-08-01 {
     description
       "Removed empty groupings.";
@@ -1983,20 +1987,32 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub4 {
       description
         "Virtual Main IfName";
     }
-    leaf-list instance-id {
-      type uint32;
+    list instance-id {
       description
         "Instance IDs";
+      leaf entry {
+        type uint32;
+        description
+          "Instance IDs";
+      }
     }
-    leaf-list instances-state {
-      type L2fib-main-if-instance-state;
+    list instances-state {
       description
         "State for each instance";
+      leaf entry {
+        type L2fib-main-if-instance-state;
+        description
+          "State for each instance";
+      }
     }
-    leaf-list instances-provisioned {
-      type boolean;
+    list instances-provisioned {
       description
         "Instances provisioned flag";
+      leaf entry {
+        type boolean;
+        description
+          "Instances provisioned flag";
+      }
     }
   }
 
@@ -2063,30 +2079,50 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub4 {
       description
         "EVPN Service Carving Mcast Mode";
     }
-    leaf-list instance-id {
-      type uint32;
+    list instance-id {
       description
         "Instance IDs";
+      leaf entry {
+        type uint32;
+        description
+          "Instance IDs";
+      }
     }
-    leaf-list instances-state {
-      type L2fib-main-if-instance-state;
+    list instances-state {
       description
         "State for each instance";
+      leaf entry {
+        type L2fib-main-if-instance-state;
+        description
+          "State for each instance";
+      }
     }
-    leaf-list instances-provisioned {
-      type boolean;
+    list instances-provisioned {
       description
         "Instances provisioned flag";
+      leaf entry {
+        type boolean;
+        description
+          "Instances provisioned flag";
+      }
     }
-    leaf-list bridge-port-count-instance {
-      type uint32;
+    list bridge-port-count-instance {
       description
         "Number of bridge ports per instance";
+      leaf entry {
+        type uint32;
+        description
+          "Number of bridge ports per instance";
+      }
     }
-    leaf-list ethernet-segment-identifier {
-      type uint8;
+    list ethernet-segment-identifier {
       description
         "Ethernet Segment Identifier";
+      leaf entry {
+        type uint8;
+        description
+          "Ethernet Segment Identifier";
+      }
     }
     list evpn-shg-remote-info {
       description
@@ -2198,10 +2234,14 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub4 {
       description
         "Opaque hardware resource info";
     }
-    leaf-list hardware-resource-mode {
-      type uint32;
+    list hardware-resource-mode {
       description
         "Hardware resource mode";
+      leaf entry {
+        type uint32;
+        description
+          "Hardware resource mode";
+      }
     }
   }
 
@@ -2980,7 +3020,7 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub4 {
       description
         "MAC Address";
     }
-    leaf interface-handle-xr {
+    leaf interface-handle {
       type uint32;
       description
         "Interface Handle";
@@ -3041,11 +3081,15 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub4 {
       description
         "Platform data bytes";
     }
-    leaf-list irb-plat-data {
-      type uint32;
+    list irb-plat-data {
       max-elements "16";
       description
         "IRB platform data";
+      leaf entry {
+        type uint32;
+        description
+          "IRB platform data";
+      }
     }
   }
 
@@ -3353,17 +3397,25 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub4 {
       description
         "number of item in the array";
     }
-    leaf-list extra-information1 {
-      type uint32;
+    list extra-information1 {
       max-elements "256";
       description
         "extra information1";
+      leaf entry {
+        type uint32;
+        description
+          "entry";
+      }
     }
-    leaf-list extra-information2 {
-      type uint32;
+    list extra-information2 {
       max-elements "256";
       description
         "extra information2";
+      leaf entry {
+        type uint32;
+        description
+          "entry";
+      }
     }
     list event-entry {
       max-elements "256";
@@ -3387,7 +3439,6 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub4 {
       uses L2FIB-GBL-RTD;
     }
     list message {
-      max-elements "89";
       description
         "message";
       uses L2FIB-GBL-MSG-INFO;
@@ -3403,9 +3454,7 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub4 {
         "number of message";
     }
     leaf time {
-      type string {
-        length "0..32";
-      }
+      type string;
       description
         "Time string";
     }
@@ -3418,6 +3467,11 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub4 {
       type uint32;
       description
         "Extra info 2";
+    }
+    leaf description {
+      type string;
+      description
+        "Description of the message";
     }
   }
 
@@ -3507,7 +3561,6 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub4 {
         "Stale XID Deleted";
     }
     list message {
-      max-elements "15";
       description
         "Global Message Information";
       uses L2FIB-GBL-MSG-INFO;
@@ -4911,7 +4964,7 @@ submodule Cisco-IOS-XR-l2vpn-oper-sub4 {
           "../DataType != 'MGMT_L2FIB_DATA_TYPE_AC' and .
            ./DataType != 'MGMT_L2FIB_DATA_TYPE_PBB' and .
            ./DataType != 'MGMT_L2FIB_DATA_TYPE_VNI' and .
-           ./DataType != 'MGMT_L2FIB_DATA_TYPE_EVPN' and 
+           ./DataType != 'MGMT_L2FIB_DATA_TYPE_EVPN' and
            ../DataType != 'MGMT_L2FIB_DATA_TYPE_SPAN'";
       }
       description

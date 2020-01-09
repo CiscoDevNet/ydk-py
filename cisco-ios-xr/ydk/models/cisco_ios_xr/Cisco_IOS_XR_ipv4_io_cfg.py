@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -45,6 +48,12 @@ class Ipv4DefaultPing(Enum):
     enabled = Enum.YLeaf(1, "enabled")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_cfg as meta
+        return meta._meta_table['Ipv4DefaultPing']
+
+
 class Ipv4InterfaceQppb(Enum):
     """
     Ipv4InterfaceQppb (Enum Class)
@@ -74,6 +83,12 @@ class Ipv4InterfaceQppb(Enum):
     both = Enum.YLeaf(3, "both")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_cfg as meta
+        return meta._meta_table['Ipv4InterfaceQppb']
+
+
 class Ipv4Reachable(Enum):
     """
     Ipv4Reachable (Enum Class)
@@ -97,6 +112,12 @@ class Ipv4Reachable(Enum):
     received = Enum.YLeaf(1, "received")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_cfg as meta
+        return meta._meta_table['Ipv4Reachable']
+
+
 class Ipv4SelfPing(Enum):
     """
     Ipv4SelfPing (Enum Class)
@@ -116,6 +137,12 @@ class Ipv4SelfPing(Enum):
     disabled = Enum.YLeaf(0, "disabled")
 
     enabled = Enum.YLeaf(1, "enabled")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_io_cfg as meta
+        return meta._meta_table['Ipv4SelfPing']
 
 
 

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class ControlPlane(Entity):
+class ControlPlane(_Entity_):
     """
     Configure control Plane
     
@@ -38,7 +41,10 @@ class ControlPlane(Entity):
     _revision = '2018-07-23'
 
     def __init__(self):
-        super(ControlPlane, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ControlPlane, self).__init__()
         self._top_entity = None
 
         self.yang_name = "control-plane"
@@ -59,7 +65,7 @@ class ControlPlane(Entity):
         self._perform_setattr(ControlPlane, [], name, value)
 
 
-    class ManagementPlaneProtection(Entity):
+    class ManagementPlaneProtection(_Entity_):
         """
         Configure management plane protection
         
@@ -81,7 +87,10 @@ class ControlPlane(Entity):
         _revision = '2018-07-23'
 
         def __init__(self):
-            super(ControlPlane.ManagementPlaneProtection, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ControlPlane.ManagementPlaneProtection, self).__init__()
 
             self.yang_name = "management-plane-protection"
             self.yang_parent_name = "control-plane"
@@ -106,7 +115,7 @@ class ControlPlane(Entity):
             self._perform_setattr(ControlPlane.ManagementPlaneProtection, [], name, value)
 
 
-        class Outband(Entity):
+        class Outband(_Entity_):
             """
             Outband Configuration
             
@@ -128,7 +137,10 @@ class ControlPlane(Entity):
             _revision = '2018-07-23'
 
             def __init__(self):
-                super(ControlPlane.ManagementPlaneProtection.Outband, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ControlPlane.ManagementPlaneProtection.Outband, self).__init__()
 
                 self.yang_name = "outband"
                 self.yang_parent_name = "management-plane-protection"
@@ -152,7 +164,7 @@ class ControlPlane(Entity):
                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband, ['outband_vrf'], name, value)
 
 
-            class InterfaceSelection(Entity):
+            class InterfaceSelection(_Entity_):
                 """
                 Configure interfaces
                 
@@ -174,7 +186,10 @@ class ControlPlane(Entity):
                 _revision = '2018-07-23'
 
                 def __init__(self):
-                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection, self).__init__()
 
                     self.yang_name = "interface-selection"
                     self.yang_parent_name = "outband"
@@ -199,7 +214,7 @@ class ControlPlane(Entity):
                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection, [], name, value)
 
 
-                class Interfaces(Entity):
+                class Interfaces(_Entity_):
                     """
                     Configure a specific interface
                     
@@ -216,7 +231,10 @@ class ControlPlane(Entity):
                     _revision = '2018-07-23'
 
                     def __init__(self):
-                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "interface-selection"
@@ -235,7 +253,7 @@ class ControlPlane(Entity):
                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         Specific interface
                         
@@ -294,7 +312,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
@@ -346,7 +367,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface, ['interface_name'], name, value)
 
 
-                        class HttpProtocol(Entity):
+                        class HttpProtocol(_Entity_):
                             """
                             Configure HTTP on this interface
                             
@@ -363,7 +384,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol, self).__init__()
 
                                 self.yang_name = "http-protocol"
                                 self.yang_parent_name = "interface"
@@ -383,7 +407,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol, [], name, value)
 
 
-                            class PeerClass(Entity):
+                            class PeerClass(_Entity_):
                                 """
                                 Configure peer addresses
                                 
@@ -410,7 +434,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass, self).__init__()
 
                                     self.yang_name = "peer-class"
                                     self.yang_parent_name = "http-protocol"
@@ -437,7 +464,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                                class PeerV4(Entity):
+                                class PeerV4(_Entity_):
                                     """
                                     Configure v4 peer addresses
                                     
@@ -459,7 +486,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4, self).__init__()
 
                                         self.yang_name = "peer-v4"
                                         self.yang_parent_name = "peer-class"
@@ -483,7 +513,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -500,7 +530,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v4"
@@ -518,7 +551,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -543,7 +576,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -561,10 +597,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -581,7 +625,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v4"
@@ -599,7 +646,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -624,7 +671,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -642,11 +692,23 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                                class PeerV6(Entity):
+                                class PeerV6(_Entity_):
                                     """
                                     Configure v6 peer addresses
                                     
@@ -668,7 +730,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6, self).__init__()
 
                                         self.yang_name = "peer-v6"
                                         self.yang_parent_name = "peer-class"
@@ -692,7 +757,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -709,7 +774,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v6"
@@ -727,7 +795,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -752,7 +820,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -770,10 +841,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -790,7 +869,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v6"
@@ -808,7 +890,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -833,7 +915,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -851,13 +936,33 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol']['meta_info']
 
 
-
-
-
-
-                        class TftpProtocol(Entity):
+                        class TftpProtocol(_Entity_):
                             """
                             Configure TFTP on this interface
                             
@@ -874,7 +979,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol, self).__init__()
 
                                 self.yang_name = "tftp-protocol"
                                 self.yang_parent_name = "interface"
@@ -894,7 +1002,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol, [], name, value)
 
 
-                            class PeerClass(Entity):
+                            class PeerClass(_Entity_):
                                 """
                                 Configure peer addresses
                                 
@@ -921,7 +1029,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass, self).__init__()
 
                                     self.yang_name = "peer-class"
                                     self.yang_parent_name = "tftp-protocol"
@@ -948,7 +1059,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                                class PeerV4(Entity):
+                                class PeerV4(_Entity_):
                                     """
                                     Configure v4 peer addresses
                                     
@@ -970,7 +1081,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4, self).__init__()
 
                                         self.yang_name = "peer-v4"
                                         self.yang_parent_name = "peer-class"
@@ -994,7 +1108,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -1011,7 +1125,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v4"
@@ -1029,7 +1146,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -1054,7 +1171,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -1072,10 +1192,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -1092,7 +1220,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v4"
@@ -1110,7 +1241,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -1135,7 +1266,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -1153,11 +1287,23 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                                class PeerV6(Entity):
+                                class PeerV6(_Entity_):
                                     """
                                     Configure v6 peer addresses
                                     
@@ -1179,7 +1325,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6, self).__init__()
 
                                         self.yang_name = "peer-v6"
                                         self.yang_parent_name = "peer-class"
@@ -1203,7 +1352,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -1220,7 +1369,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v6"
@@ -1238,7 +1390,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -1263,7 +1415,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -1281,10 +1436,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -1301,7 +1464,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v6"
@@ -1319,7 +1485,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -1344,7 +1510,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -1362,13 +1531,33 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol']['meta_info']
 
 
-
-
-
-
-                        class NetconfProtocol(Entity):
+                        class NetconfProtocol(_Entity_):
                             """
                             Configure NETCONF protocol and peer addresses
                             
@@ -1385,7 +1574,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol, self).__init__()
 
                                 self.yang_name = "netconf-protocol"
                                 self.yang_parent_name = "interface"
@@ -1405,7 +1597,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol, [], name, value)
 
 
-                            class PeerClass(Entity):
+                            class PeerClass(_Entity_):
                                 """
                                 Configure peer addresses
                                 
@@ -1432,7 +1624,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass, self).__init__()
 
                                     self.yang_name = "peer-class"
                                     self.yang_parent_name = "netconf-protocol"
@@ -1459,7 +1654,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                                class PeerV4(Entity):
+                                class PeerV4(_Entity_):
                                     """
                                     Configure v4 peer addresses
                                     
@@ -1481,7 +1676,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4, self).__init__()
 
                                         self.yang_name = "peer-v4"
                                         self.yang_parent_name = "peer-class"
@@ -1505,7 +1703,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -1522,7 +1720,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v4"
@@ -1540,7 +1741,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -1565,7 +1766,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -1583,10 +1787,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -1603,7 +1815,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v4"
@@ -1621,7 +1836,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -1646,7 +1861,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -1664,11 +1882,23 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                                class PeerV6(Entity):
+                                class PeerV6(_Entity_):
                                     """
                                     Configure v6 peer addresses
                                     
@@ -1690,7 +1920,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6, self).__init__()
 
                                         self.yang_name = "peer-v6"
                                         self.yang_parent_name = "peer-class"
@@ -1714,7 +1947,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -1731,7 +1964,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v6"
@@ -1749,7 +1985,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -1774,7 +2010,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -1792,10 +2031,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -1812,7 +2059,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v6"
@@ -1830,7 +2080,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -1855,7 +2105,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -1873,13 +2126,33 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol']['meta_info']
 
 
-
-
-
-
-                        class XrXml(Entity):
+                        class XrXml(_Entity_):
                             """
                             Configure XML and peer addresses
                             
@@ -1896,7 +2169,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml, self).__init__()
 
                                 self.yang_name = "xr-xml"
                                 self.yang_parent_name = "interface"
@@ -1916,7 +2192,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml, [], name, value)
 
 
-                            class PeerClass(Entity):
+                            class PeerClass(_Entity_):
                                 """
                                 Configure peer addresses
                                 
@@ -1943,7 +2219,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass, self).__init__()
 
                                     self.yang_name = "peer-class"
                                     self.yang_parent_name = "xr-xml"
@@ -1970,7 +2249,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass, ['peer_all'], name, value)
 
 
-                                class PeerV4(Entity):
+                                class PeerV4(_Entity_):
                                     """
                                     Configure v4 peer addresses
                                     
@@ -1992,7 +2271,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4, self).__init__()
 
                                         self.yang_name = "peer-v4"
                                         self.yang_parent_name = "peer-class"
@@ -2016,7 +2298,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -2033,7 +2315,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v4"
@@ -2051,7 +2336,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -2076,7 +2361,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -2094,10 +2382,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -2114,7 +2410,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v4"
@@ -2132,7 +2431,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -2157,7 +2456,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -2175,11 +2477,23 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                                class PeerV6(Entity):
+                                class PeerV6(_Entity_):
                                     """
                                     Configure v6 peer addresses
                                     
@@ -2201,7 +2515,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6, self).__init__()
 
                                         self.yang_name = "peer-v6"
                                         self.yang_parent_name = "peer-class"
@@ -2225,7 +2542,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -2242,7 +2559,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v6"
@@ -2260,7 +2580,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -2285,7 +2605,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -2303,10 +2626,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -2323,7 +2654,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v6"
@@ -2341,7 +2675,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -2366,7 +2700,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -2384,13 +2721,33 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml']['meta_info']
 
 
-
-
-
-
-                        class SshProtocol(Entity):
+                        class SshProtocol(_Entity_):
                             """
                             Configure SSH protocol and peer addresses
                             
@@ -2407,7 +2764,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol, self).__init__()
 
                                 self.yang_name = "ssh-protocol"
                                 self.yang_parent_name = "interface"
@@ -2427,7 +2787,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol, [], name, value)
 
 
-                            class PeerClass(Entity):
+                            class PeerClass(_Entity_):
                                 """
                                 Configure peer addresses
                                 
@@ -2454,7 +2814,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass, self).__init__()
 
                                     self.yang_name = "peer-class"
                                     self.yang_parent_name = "ssh-protocol"
@@ -2481,7 +2844,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                                class PeerV4(Entity):
+                                class PeerV4(_Entity_):
                                     """
                                     Configure v4 peer addresses
                                     
@@ -2503,7 +2866,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4, self).__init__()
 
                                         self.yang_name = "peer-v4"
                                         self.yang_parent_name = "peer-class"
@@ -2527,7 +2893,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -2544,7 +2910,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v4"
@@ -2562,7 +2931,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -2587,7 +2956,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -2605,10 +2977,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -2625,7 +3005,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v4"
@@ -2643,7 +3026,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -2668,7 +3051,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -2686,11 +3072,23 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                                class PeerV6(Entity):
+                                class PeerV6(_Entity_):
                                     """
                                     Configure v6 peer addresses
                                     
@@ -2712,7 +3110,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6, self).__init__()
 
                                         self.yang_name = "peer-v6"
                                         self.yang_parent_name = "peer-class"
@@ -2736,7 +3137,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -2753,7 +3154,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v6"
@@ -2771,7 +3175,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -2796,7 +3200,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -2814,10 +3221,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -2834,7 +3249,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v6"
@@ -2852,7 +3270,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -2877,7 +3295,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -2895,13 +3316,33 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol']['meta_info']
 
 
-
-
-
-
-                        class SnmpProtocol(Entity):
+                        class SnmpProtocol(_Entity_):
                             """
                             Configure SNMP for this interface
                             
@@ -2918,7 +3359,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol, self).__init__()
 
                                 self.yang_name = "snmp-protocol"
                                 self.yang_parent_name = "interface"
@@ -2938,7 +3382,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol, [], name, value)
 
 
-                            class PeerClass(Entity):
+                            class PeerClass(_Entity_):
                                 """
                                 Configure peer addresses
                                 
@@ -2965,7 +3409,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass, self).__init__()
 
                                     self.yang_name = "peer-class"
                                     self.yang_parent_name = "snmp-protocol"
@@ -2992,7 +3439,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                                class PeerV4(Entity):
+                                class PeerV4(_Entity_):
                                     """
                                     Configure v4 peer addresses
                                     
@@ -3014,7 +3461,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4, self).__init__()
 
                                         self.yang_name = "peer-v4"
                                         self.yang_parent_name = "peer-class"
@@ -3038,7 +3488,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -3055,7 +3505,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v4"
@@ -3073,7 +3526,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -3098,7 +3551,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -3116,10 +3572,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -3136,7 +3600,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v4"
@@ -3154,7 +3621,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -3179,7 +3646,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -3197,11 +3667,23 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                                class PeerV6(Entity):
+                                class PeerV6(_Entity_):
                                     """
                                     Configure v6 peer addresses
                                     
@@ -3223,7 +3705,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6, self).__init__()
 
                                         self.yang_name = "peer-v6"
                                         self.yang_parent_name = "peer-class"
@@ -3247,7 +3732,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -3264,7 +3749,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v6"
@@ -3282,7 +3770,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -3307,7 +3795,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -3325,10 +3816,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -3345,7 +3844,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v6"
@@ -3363,7 +3865,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -3388,7 +3890,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -3406,13 +3911,33 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol']['meta_info']
 
 
-
-
-
-
-                        class TelnetProtocol(Entity):
+                        class TelnetProtocol(_Entity_):
                             """
                             Configure Telnet for this interface
                             
@@ -3429,7 +3954,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol, self).__init__()
 
                                 self.yang_name = "telnet-protocol"
                                 self.yang_parent_name = "interface"
@@ -3449,7 +3977,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol, [], name, value)
 
 
-                            class PeerClass(Entity):
+                            class PeerClass(_Entity_):
                                 """
                                 Configure peer addresses
                                 
@@ -3476,7 +4004,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass, self).__init__()
 
                                     self.yang_name = "peer-class"
                                     self.yang_parent_name = "telnet-protocol"
@@ -3503,7 +4034,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                                class PeerV4(Entity):
+                                class PeerV4(_Entity_):
                                     """
                                     Configure v4 peer addresses
                                     
@@ -3525,7 +4056,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4, self).__init__()
 
                                         self.yang_name = "peer-v4"
                                         self.yang_parent_name = "peer-class"
@@ -3549,7 +4083,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -3566,7 +4100,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v4"
@@ -3584,7 +4121,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -3609,7 +4146,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -3627,10 +4167,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -3647,7 +4195,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v4"
@@ -3665,7 +4216,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -3690,7 +4241,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -3708,11 +4262,23 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                                class PeerV6(Entity):
+                                class PeerV6(_Entity_):
                                     """
                                     Configure v6 peer addresses
                                     
@@ -3734,7 +4300,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6, self).__init__()
 
                                         self.yang_name = "peer-v6"
                                         self.yang_parent_name = "peer-class"
@@ -3758,7 +4327,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -3775,7 +4344,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v6"
@@ -3793,7 +4365,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -3818,7 +4390,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -3836,10 +4411,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -3856,7 +4439,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v6"
@@ -3874,7 +4460,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -3899,7 +4485,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -3917,13 +4506,33 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol']['meta_info']
 
 
-
-
-
-
-                        class AllProtocols(Entity):
+                        class AllProtocols(_Entity_):
                             """
                             Configure all protocols on this interface
                             
@@ -3940,7 +4549,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols, self).__init__()
 
                                 self.yang_name = "all-protocols"
                                 self.yang_parent_name = "interface"
@@ -3960,7 +4572,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols, [], name, value)
 
 
-                            class PeerClass(Entity):
+                            class PeerClass(_Entity_):
                                 """
                                 Configure peer addresses
                                 
@@ -3987,7 +4599,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass, self).__init__()
 
                                     self.yang_name = "peer-class"
                                     self.yang_parent_name = "all-protocols"
@@ -4014,7 +4629,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass, ['peer_all'], name, value)
 
 
-                                class PeerV4(Entity):
+                                class PeerV4(_Entity_):
                                     """
                                     Configure v4 peer addresses
                                     
@@ -4036,7 +4651,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4, self).__init__()
 
                                         self.yang_name = "peer-v4"
                                         self.yang_parent_name = "peer-class"
@@ -4060,7 +4678,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -4077,7 +4695,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v4"
@@ -4095,7 +4716,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -4120,7 +4741,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -4138,10 +4762,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -4158,7 +4790,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v4"
@@ -4176,7 +4811,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -4201,7 +4836,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -4219,11 +4857,23 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                                class PeerV6(Entity):
+                                class PeerV6(_Entity_):
                                     """
                                     Configure v6 peer addresses
                                     
@@ -4245,7 +4895,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6, self).__init__()
 
                                         self.yang_name = "peer-v6"
                                         self.yang_parent_name = "peer-class"
@@ -4269,7 +4922,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -4286,7 +4939,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v6"
@@ -4304,7 +4960,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -4329,7 +4985,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -4347,10 +5006,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -4367,7 +5034,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v6"
@@ -4385,7 +5055,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -4410,7 +5080,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -4428,15 +5101,43 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces']['meta_info']
 
 
-
-
-
-
-
-
-                class AllInterfaces(Entity):
+                class AllInterfaces(_Entity_):
                     """
                     Configure all Inband interfaces
                     
@@ -4488,7 +5189,10 @@ class ControlPlane(Entity):
                     _revision = '2018-07-23'
 
                     def __init__(self):
-                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces, self).__init__()
 
                         self.yang_name = "all-interfaces"
                         self.yang_parent_name = "interface-selection"
@@ -4537,7 +5241,7 @@ class ControlPlane(Entity):
                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces, [], name, value)
 
 
-                    class HttpProtocol(Entity):
+                    class HttpProtocol(_Entity_):
                         """
                         Configure HTTP on this interface
                         
@@ -4554,7 +5258,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol, self).__init__()
 
                             self.yang_name = "http-protocol"
                             self.yang_parent_name = "all-interfaces"
@@ -4575,7 +5282,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol, [], name, value)
 
 
-                        class PeerClass(Entity):
+                        class PeerClass(_Entity_):
                             """
                             Configure peer addresses
                             
@@ -4602,7 +5309,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass, self).__init__()
 
                                 self.yang_name = "peer-class"
                                 self.yang_parent_name = "http-protocol"
@@ -4630,7 +5340,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                            class PeerV4(Entity):
+                            class PeerV4(_Entity_):
                                 """
                                 Configure v4 peer addresses
                                 
@@ -4652,7 +5362,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4, self).__init__()
 
                                     self.yang_name = "peer-v4"
                                     self.yang_parent_name = "peer-class"
@@ -4677,7 +5390,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -4694,7 +5407,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v4"
@@ -4713,7 +5429,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -4738,7 +5454,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -4757,10 +5476,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -4777,7 +5504,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v4"
@@ -4796,7 +5526,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -4821,7 +5551,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -4840,11 +5573,23 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                            class PeerV6(Entity):
+                            class PeerV6(_Entity_):
                                 """
                                 Configure v6 peer addresses
                                 
@@ -4866,7 +5611,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6, self).__init__()
 
                                     self.yang_name = "peer-v6"
                                     self.yang_parent_name = "peer-class"
@@ -4891,7 +5639,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -4908,7 +5656,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v6"
@@ -4927,7 +5678,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -4952,7 +5703,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -4971,10 +5725,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -4991,7 +5753,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v6"
@@ -5010,7 +5775,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -5035,7 +5800,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -5054,13 +5822,33 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol']['meta_info']
 
 
-
-
-
-
-                    class TftpProtocol(Entity):
+                    class TftpProtocol(_Entity_):
                         """
                         Configure TFTP on this interface
                         
@@ -5077,7 +5865,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol, self).__init__()
 
                             self.yang_name = "tftp-protocol"
                             self.yang_parent_name = "all-interfaces"
@@ -5098,7 +5889,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol, [], name, value)
 
 
-                        class PeerClass(Entity):
+                        class PeerClass(_Entity_):
                             """
                             Configure peer addresses
                             
@@ -5125,7 +5916,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass, self).__init__()
 
                                 self.yang_name = "peer-class"
                                 self.yang_parent_name = "tftp-protocol"
@@ -5153,7 +5947,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                            class PeerV4(Entity):
+                            class PeerV4(_Entity_):
                                 """
                                 Configure v4 peer addresses
                                 
@@ -5175,7 +5969,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4, self).__init__()
 
                                     self.yang_name = "peer-v4"
                                     self.yang_parent_name = "peer-class"
@@ -5200,7 +5997,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -5217,7 +6014,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v4"
@@ -5236,7 +6036,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -5261,7 +6061,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -5280,10 +6083,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -5300,7 +6111,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v4"
@@ -5319,7 +6133,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -5344,7 +6158,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -5363,11 +6180,23 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                            class PeerV6(Entity):
+                            class PeerV6(_Entity_):
                                 """
                                 Configure v6 peer addresses
                                 
@@ -5389,7 +6218,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6, self).__init__()
 
                                     self.yang_name = "peer-v6"
                                     self.yang_parent_name = "peer-class"
@@ -5414,7 +6246,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -5431,7 +6263,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v6"
@@ -5450,7 +6285,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -5475,7 +6310,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -5494,10 +6332,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -5514,7 +6360,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v6"
@@ -5533,7 +6382,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -5558,7 +6407,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -5577,13 +6429,33 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol']['meta_info']
 
 
-
-
-
-
-                    class NetconfProtocol(Entity):
+                    class NetconfProtocol(_Entity_):
                         """
                         Configure NETCONF protocol and peer addresses
                         
@@ -5600,7 +6472,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol, self).__init__()
 
                             self.yang_name = "netconf-protocol"
                             self.yang_parent_name = "all-interfaces"
@@ -5621,7 +6496,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol, [], name, value)
 
 
-                        class PeerClass(Entity):
+                        class PeerClass(_Entity_):
                             """
                             Configure peer addresses
                             
@@ -5648,7 +6523,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass, self).__init__()
 
                                 self.yang_name = "peer-class"
                                 self.yang_parent_name = "netconf-protocol"
@@ -5676,7 +6554,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                            class PeerV4(Entity):
+                            class PeerV4(_Entity_):
                                 """
                                 Configure v4 peer addresses
                                 
@@ -5698,7 +6576,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4, self).__init__()
 
                                     self.yang_name = "peer-v4"
                                     self.yang_parent_name = "peer-class"
@@ -5723,7 +6604,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -5740,7 +6621,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v4"
@@ -5759,7 +6643,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -5784,7 +6668,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -5803,10 +6690,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -5823,7 +6718,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v4"
@@ -5842,7 +6740,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -5867,7 +6765,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -5886,11 +6787,23 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                            class PeerV6(Entity):
+                            class PeerV6(_Entity_):
                                 """
                                 Configure v6 peer addresses
                                 
@@ -5912,7 +6825,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6, self).__init__()
 
                                     self.yang_name = "peer-v6"
                                     self.yang_parent_name = "peer-class"
@@ -5937,7 +6853,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -5954,7 +6870,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v6"
@@ -5973,7 +6892,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -5998,7 +6917,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -6017,10 +6939,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -6037,7 +6967,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v6"
@@ -6056,7 +6989,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -6081,7 +7014,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -6100,13 +7036,33 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol']['meta_info']
 
 
-
-
-
-
-                    class XrXml(Entity):
+                    class XrXml(_Entity_):
                         """
                         Configure XML and peer addresses
                         
@@ -6123,7 +7079,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml, self).__init__()
 
                             self.yang_name = "xr-xml"
                             self.yang_parent_name = "all-interfaces"
@@ -6144,7 +7103,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml, [], name, value)
 
 
-                        class PeerClass(Entity):
+                        class PeerClass(_Entity_):
                             """
                             Configure peer addresses
                             
@@ -6171,7 +7130,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass, self).__init__()
 
                                 self.yang_name = "peer-class"
                                 self.yang_parent_name = "xr-xml"
@@ -6199,7 +7161,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass, ['peer_all'], name, value)
 
 
-                            class PeerV4(Entity):
+                            class PeerV4(_Entity_):
                                 """
                                 Configure v4 peer addresses
                                 
@@ -6221,7 +7183,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4, self).__init__()
 
                                     self.yang_name = "peer-v4"
                                     self.yang_parent_name = "peer-class"
@@ -6246,7 +7211,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -6263,7 +7228,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v4"
@@ -6282,7 +7250,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -6307,7 +7275,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -6326,10 +7297,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -6346,7 +7325,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v4"
@@ -6365,7 +7347,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -6390,7 +7372,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -6409,11 +7394,23 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                            class PeerV6(Entity):
+                            class PeerV6(_Entity_):
                                 """
                                 Configure v6 peer addresses
                                 
@@ -6435,7 +7432,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6, self).__init__()
 
                                     self.yang_name = "peer-v6"
                                     self.yang_parent_name = "peer-class"
@@ -6460,7 +7460,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -6477,7 +7477,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v6"
@@ -6496,7 +7499,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -6521,7 +7524,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -6540,10 +7546,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -6560,7 +7574,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v6"
@@ -6579,7 +7596,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -6604,7 +7621,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -6623,13 +7643,33 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml']['meta_info']
 
 
-
-
-
-
-                    class SshProtocol(Entity):
+                    class SshProtocol(_Entity_):
                         """
                         Configure SSH protocol and peer addresses
                         
@@ -6646,7 +7686,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol, self).__init__()
 
                             self.yang_name = "ssh-protocol"
                             self.yang_parent_name = "all-interfaces"
@@ -6667,7 +7710,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol, [], name, value)
 
 
-                        class PeerClass(Entity):
+                        class PeerClass(_Entity_):
                             """
                             Configure peer addresses
                             
@@ -6694,7 +7737,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass, self).__init__()
 
                                 self.yang_name = "peer-class"
                                 self.yang_parent_name = "ssh-protocol"
@@ -6722,7 +7768,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                            class PeerV4(Entity):
+                            class PeerV4(_Entity_):
                                 """
                                 Configure v4 peer addresses
                                 
@@ -6744,7 +7790,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4, self).__init__()
 
                                     self.yang_name = "peer-v4"
                                     self.yang_parent_name = "peer-class"
@@ -6769,7 +7818,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -6786,7 +7835,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v4"
@@ -6805,7 +7857,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -6830,7 +7882,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -6849,10 +7904,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -6869,7 +7932,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v4"
@@ -6888,7 +7954,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -6913,7 +7979,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -6932,11 +8001,23 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                            class PeerV6(Entity):
+                            class PeerV6(_Entity_):
                                 """
                                 Configure v6 peer addresses
                                 
@@ -6958,7 +8039,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6, self).__init__()
 
                                     self.yang_name = "peer-v6"
                                     self.yang_parent_name = "peer-class"
@@ -6983,7 +8067,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -7000,7 +8084,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v6"
@@ -7019,7 +8106,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -7044,7 +8131,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -7063,10 +8153,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -7083,7 +8181,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v6"
@@ -7102,7 +8203,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -7127,7 +8228,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -7146,13 +8250,33 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol']['meta_info']
 
 
-
-
-
-
-                    class SnmpProtocol(Entity):
+                    class SnmpProtocol(_Entity_):
                         """
                         Configure SNMP for this interface
                         
@@ -7169,7 +8293,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol, self).__init__()
 
                             self.yang_name = "snmp-protocol"
                             self.yang_parent_name = "all-interfaces"
@@ -7190,7 +8317,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol, [], name, value)
 
 
-                        class PeerClass(Entity):
+                        class PeerClass(_Entity_):
                             """
                             Configure peer addresses
                             
@@ -7217,7 +8344,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass, self).__init__()
 
                                 self.yang_name = "peer-class"
                                 self.yang_parent_name = "snmp-protocol"
@@ -7245,7 +8375,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                            class PeerV4(Entity):
+                            class PeerV4(_Entity_):
                                 """
                                 Configure v4 peer addresses
                                 
@@ -7267,7 +8397,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4, self).__init__()
 
                                     self.yang_name = "peer-v4"
                                     self.yang_parent_name = "peer-class"
@@ -7292,7 +8425,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -7309,7 +8442,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v4"
@@ -7328,7 +8464,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -7353,7 +8489,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -7372,10 +8511,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -7392,7 +8539,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v4"
@@ -7411,7 +8561,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -7436,7 +8586,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -7455,11 +8608,23 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                            class PeerV6(Entity):
+                            class PeerV6(_Entity_):
                                 """
                                 Configure v6 peer addresses
                                 
@@ -7481,7 +8646,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6, self).__init__()
 
                                     self.yang_name = "peer-v6"
                                     self.yang_parent_name = "peer-class"
@@ -7506,7 +8674,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -7523,7 +8691,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v6"
@@ -7542,7 +8713,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -7567,7 +8738,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -7586,10 +8760,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -7606,7 +8788,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v6"
@@ -7625,7 +8810,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -7650,7 +8835,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -7669,13 +8857,33 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol']['meta_info']
 
 
-
-
-
-
-                    class TelnetProtocol(Entity):
+                    class TelnetProtocol(_Entity_):
                         """
                         Configure Telnet for this interface
                         
@@ -7692,7 +8900,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol, self).__init__()
 
                             self.yang_name = "telnet-protocol"
                             self.yang_parent_name = "all-interfaces"
@@ -7713,7 +8924,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol, [], name, value)
 
 
-                        class PeerClass(Entity):
+                        class PeerClass(_Entity_):
                             """
                             Configure peer addresses
                             
@@ -7740,7 +8951,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass, self).__init__()
 
                                 self.yang_name = "peer-class"
                                 self.yang_parent_name = "telnet-protocol"
@@ -7768,7 +8982,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                            class PeerV4(Entity):
+                            class PeerV4(_Entity_):
                                 """
                                 Configure v4 peer addresses
                                 
@@ -7790,7 +9004,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4, self).__init__()
 
                                     self.yang_name = "peer-v4"
                                     self.yang_parent_name = "peer-class"
@@ -7815,7 +9032,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -7832,7 +9049,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v4"
@@ -7851,7 +9071,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -7876,7 +9096,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -7895,10 +9118,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -7915,7 +9146,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v4"
@@ -7934,7 +9168,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -7959,7 +9193,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -7978,11 +9215,23 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                            class PeerV6(Entity):
+                            class PeerV6(_Entity_):
                                 """
                                 Configure v6 peer addresses
                                 
@@ -8004,7 +9253,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6, self).__init__()
 
                                     self.yang_name = "peer-v6"
                                     self.yang_parent_name = "peer-class"
@@ -8029,7 +9281,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -8046,7 +9298,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v6"
@@ -8065,7 +9320,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -8090,7 +9345,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -8109,10 +9367,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -8129,7 +9395,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v6"
@@ -8148,7 +9417,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -8173,7 +9442,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -8192,13 +9464,33 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol']['meta_info']
 
 
-
-
-
-
-                    class AllProtocols(Entity):
+                    class AllProtocols(_Entity_):
                         """
                         Configure all protocols on this interface
                         
@@ -8215,7 +9507,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols, self).__init__()
 
                             self.yang_name = "all-protocols"
                             self.yang_parent_name = "all-interfaces"
@@ -8236,7 +9531,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols, [], name, value)
 
 
-                        class PeerClass(Entity):
+                        class PeerClass(_Entity_):
                             """
                             Configure peer addresses
                             
@@ -8263,7 +9558,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass, self).__init__()
 
                                 self.yang_name = "peer-class"
                                 self.yang_parent_name = "all-protocols"
@@ -8291,7 +9589,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass, ['peer_all'], name, value)
 
 
-                            class PeerV4(Entity):
+                            class PeerV4(_Entity_):
                                 """
                                 Configure v4 peer addresses
                                 
@@ -8313,7 +9611,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4, self).__init__()
 
                                     self.yang_name = "peer-v4"
                                     self.yang_parent_name = "peer-class"
@@ -8338,7 +9639,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -8355,7 +9656,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v4"
@@ -8374,7 +9678,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -8399,7 +9703,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -8418,10 +9725,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -8438,7 +9753,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v4"
@@ -8457,7 +9775,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -8482,7 +9800,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -8501,11 +9822,23 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                            class PeerV6(Entity):
+                            class PeerV6(_Entity_):
                                 """
                                 Configure v6 peer addresses
                                 
@@ -8527,7 +9860,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6, self).__init__()
 
                                     self.yang_name = "peer-v6"
                                     self.yang_parent_name = "peer-class"
@@ -8552,7 +9888,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -8569,7 +9905,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v6"
@@ -8588,7 +9927,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -8613,7 +9952,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -8632,10 +9974,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -8652,7 +10002,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v6"
@@ -8671,7 +10024,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -8696,7 +10049,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -8715,16 +10071,48 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Outband']['meta_info']
 
 
-
-
-
-
-
-
-
-        class Inband(Entity):
+        class Inband(_Entity_):
             """
             Inband Configuration
             
@@ -8741,7 +10129,10 @@ class ControlPlane(Entity):
             _revision = '2018-07-23'
 
             def __init__(self):
-                super(ControlPlane.ManagementPlaneProtection.Inband, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ControlPlane.ManagementPlaneProtection.Inband, self).__init__()
 
                 self.yang_name = "inband"
                 self.yang_parent_name = "management-plane-protection"
@@ -8762,7 +10153,7 @@ class ControlPlane(Entity):
                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband, [], name, value)
 
 
-            class InterfaceSelection(Entity):
+            class InterfaceSelection(_Entity_):
                 """
                 Configure interfaces
                 
@@ -8784,7 +10175,10 @@ class ControlPlane(Entity):
                 _revision = '2018-07-23'
 
                 def __init__(self):
-                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection, self).__init__()
 
                     self.yang_name = "interface-selection"
                     self.yang_parent_name = "inband"
@@ -8809,7 +10203,7 @@ class ControlPlane(Entity):
                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection, [], name, value)
 
 
-                class Interfaces(Entity):
+                class Interfaces(_Entity_):
                     """
                     Configure a specific interface
                     
@@ -8826,7 +10220,10 @@ class ControlPlane(Entity):
                     _revision = '2018-07-23'
 
                     def __init__(self):
-                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces, self).__init__()
 
                         self.yang_name = "interfaces"
                         self.yang_parent_name = "interface-selection"
@@ -8845,7 +10242,7 @@ class ControlPlane(Entity):
                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces, [], name, value)
 
 
-                    class Interface(Entity):
+                    class Interface(_Entity_):
                         """
                         Specific interface
                         
@@ -8904,7 +10301,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface, self).__init__()
 
                             self.yang_name = "interface"
                             self.yang_parent_name = "interfaces"
@@ -8956,7 +10356,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface, ['interface_name'], name, value)
 
 
-                        class HttpProtocol(Entity):
+                        class HttpProtocol(_Entity_):
                             """
                             Configure HTTP on this interface
                             
@@ -8973,7 +10373,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol, self).__init__()
 
                                 self.yang_name = "http-protocol"
                                 self.yang_parent_name = "interface"
@@ -8993,7 +10396,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol, [], name, value)
 
 
-                            class PeerClass(Entity):
+                            class PeerClass(_Entity_):
                                 """
                                 Configure peer addresses
                                 
@@ -9020,7 +10423,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass, self).__init__()
 
                                     self.yang_name = "peer-class"
                                     self.yang_parent_name = "http-protocol"
@@ -9047,7 +10453,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                                class PeerV4(Entity):
+                                class PeerV4(_Entity_):
                                     """
                                     Configure v4 peer addresses
                                     
@@ -9069,7 +10475,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4, self).__init__()
 
                                         self.yang_name = "peer-v4"
                                         self.yang_parent_name = "peer-class"
@@ -9093,7 +10502,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -9110,7 +10519,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v4"
@@ -9128,7 +10540,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -9153,7 +10565,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -9171,10 +10586,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -9191,7 +10614,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v4"
@@ -9209,7 +10635,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -9234,7 +10660,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -9252,11 +10681,23 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                                class PeerV6(Entity):
+                                class PeerV6(_Entity_):
                                     """
                                     Configure v6 peer addresses
                                     
@@ -9278,7 +10719,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6, self).__init__()
 
                                         self.yang_name = "peer-v6"
                                         self.yang_parent_name = "peer-class"
@@ -9302,7 +10746,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -9319,7 +10763,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v6"
@@ -9337,7 +10784,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -9362,7 +10809,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -9380,10 +10830,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -9400,7 +10858,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v6"
@@ -9418,7 +10879,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -9443,7 +10904,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -9461,13 +10925,33 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol']['meta_info']
 
 
-
-
-
-
-                        class TftpProtocol(Entity):
+                        class TftpProtocol(_Entity_):
                             """
                             Configure TFTP on this interface
                             
@@ -9484,7 +10968,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol, self).__init__()
 
                                 self.yang_name = "tftp-protocol"
                                 self.yang_parent_name = "interface"
@@ -9504,7 +10991,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol, [], name, value)
 
 
-                            class PeerClass(Entity):
+                            class PeerClass(_Entity_):
                                 """
                                 Configure peer addresses
                                 
@@ -9531,7 +11018,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass, self).__init__()
 
                                     self.yang_name = "peer-class"
                                     self.yang_parent_name = "tftp-protocol"
@@ -9558,7 +11048,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                                class PeerV4(Entity):
+                                class PeerV4(_Entity_):
                                     """
                                     Configure v4 peer addresses
                                     
@@ -9580,7 +11070,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4, self).__init__()
 
                                         self.yang_name = "peer-v4"
                                         self.yang_parent_name = "peer-class"
@@ -9604,7 +11097,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -9621,7 +11114,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v4"
@@ -9639,7 +11135,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -9664,7 +11160,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -9682,10 +11181,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -9702,7 +11209,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v4"
@@ -9720,7 +11230,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -9745,7 +11255,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -9763,11 +11276,23 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                                class PeerV6(Entity):
+                                class PeerV6(_Entity_):
                                     """
                                     Configure v6 peer addresses
                                     
@@ -9789,7 +11314,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6, self).__init__()
 
                                         self.yang_name = "peer-v6"
                                         self.yang_parent_name = "peer-class"
@@ -9813,7 +11341,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -9830,7 +11358,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v6"
@@ -9848,7 +11379,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -9873,7 +11404,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -9891,10 +11425,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -9911,7 +11453,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v6"
@@ -9929,7 +11474,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -9954,7 +11499,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -9972,13 +11520,33 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol']['meta_info']
 
 
-
-
-
-
-                        class NetconfProtocol(Entity):
+                        class NetconfProtocol(_Entity_):
                             """
                             Configure NETCONF protocol and peer addresses
                             
@@ -9995,7 +11563,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol, self).__init__()
 
                                 self.yang_name = "netconf-protocol"
                                 self.yang_parent_name = "interface"
@@ -10015,7 +11586,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol, [], name, value)
 
 
-                            class PeerClass(Entity):
+                            class PeerClass(_Entity_):
                                 """
                                 Configure peer addresses
                                 
@@ -10042,7 +11613,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass, self).__init__()
 
                                     self.yang_name = "peer-class"
                                     self.yang_parent_name = "netconf-protocol"
@@ -10069,7 +11643,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                                class PeerV4(Entity):
+                                class PeerV4(_Entity_):
                                     """
                                     Configure v4 peer addresses
                                     
@@ -10091,7 +11665,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4, self).__init__()
 
                                         self.yang_name = "peer-v4"
                                         self.yang_parent_name = "peer-class"
@@ -10115,7 +11692,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -10132,7 +11709,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v4"
@@ -10150,7 +11730,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -10175,7 +11755,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -10193,10 +11776,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -10213,7 +11804,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v4"
@@ -10231,7 +11825,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -10256,7 +11850,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -10274,11 +11871,23 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                                class PeerV6(Entity):
+                                class PeerV6(_Entity_):
                                     """
                                     Configure v6 peer addresses
                                     
@@ -10300,7 +11909,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6, self).__init__()
 
                                         self.yang_name = "peer-v6"
                                         self.yang_parent_name = "peer-class"
@@ -10324,7 +11936,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -10341,7 +11953,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v6"
@@ -10359,7 +11974,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -10384,7 +11999,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -10402,10 +12020,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -10422,7 +12048,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v6"
@@ -10440,7 +12069,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -10465,7 +12094,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -10483,13 +12115,33 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol']['meta_info']
 
 
-
-
-
-
-                        class XrXml(Entity):
+                        class XrXml(_Entity_):
                             """
                             Configure XML and peer addresses
                             
@@ -10506,7 +12158,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml, self).__init__()
 
                                 self.yang_name = "xr-xml"
                                 self.yang_parent_name = "interface"
@@ -10526,7 +12181,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml, [], name, value)
 
 
-                            class PeerClass(Entity):
+                            class PeerClass(_Entity_):
                                 """
                                 Configure peer addresses
                                 
@@ -10553,7 +12208,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass, self).__init__()
 
                                     self.yang_name = "peer-class"
                                     self.yang_parent_name = "xr-xml"
@@ -10580,7 +12238,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass, ['peer_all'], name, value)
 
 
-                                class PeerV4(Entity):
+                                class PeerV4(_Entity_):
                                     """
                                     Configure v4 peer addresses
                                     
@@ -10602,7 +12260,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4, self).__init__()
 
                                         self.yang_name = "peer-v4"
                                         self.yang_parent_name = "peer-class"
@@ -10626,7 +12287,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -10643,7 +12304,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v4"
@@ -10661,7 +12325,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -10686,7 +12350,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -10704,10 +12371,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -10724,7 +12399,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v4"
@@ -10742,7 +12420,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -10767,7 +12445,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -10785,11 +12466,23 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                                class PeerV6(Entity):
+                                class PeerV6(_Entity_):
                                     """
                                     Configure v6 peer addresses
                                     
@@ -10811,7 +12504,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6, self).__init__()
 
                                         self.yang_name = "peer-v6"
                                         self.yang_parent_name = "peer-class"
@@ -10835,7 +12531,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -10852,7 +12548,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v6"
@@ -10870,7 +12569,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -10895,7 +12594,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -10913,10 +12615,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -10933,7 +12643,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v6"
@@ -10951,7 +12664,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -10976,7 +12689,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -10994,13 +12710,33 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml']['meta_info']
 
 
-
-
-
-
-                        class SshProtocol(Entity):
+                        class SshProtocol(_Entity_):
                             """
                             Configure SSH protocol and peer addresses
                             
@@ -11017,7 +12753,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol, self).__init__()
 
                                 self.yang_name = "ssh-protocol"
                                 self.yang_parent_name = "interface"
@@ -11037,7 +12776,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol, [], name, value)
 
 
-                            class PeerClass(Entity):
+                            class PeerClass(_Entity_):
                                 """
                                 Configure peer addresses
                                 
@@ -11064,7 +12803,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass, self).__init__()
 
                                     self.yang_name = "peer-class"
                                     self.yang_parent_name = "ssh-protocol"
@@ -11091,7 +12833,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                                class PeerV4(Entity):
+                                class PeerV4(_Entity_):
                                     """
                                     Configure v4 peer addresses
                                     
@@ -11113,7 +12855,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4, self).__init__()
 
                                         self.yang_name = "peer-v4"
                                         self.yang_parent_name = "peer-class"
@@ -11137,7 +12882,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -11154,7 +12899,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v4"
@@ -11172,7 +12920,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -11197,7 +12945,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -11215,10 +12966,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -11235,7 +12994,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v4"
@@ -11253,7 +13015,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -11278,7 +13040,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -11296,11 +13061,23 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                                class PeerV6(Entity):
+                                class PeerV6(_Entity_):
                                     """
                                     Configure v6 peer addresses
                                     
@@ -11322,7 +13099,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6, self).__init__()
 
                                         self.yang_name = "peer-v6"
                                         self.yang_parent_name = "peer-class"
@@ -11346,7 +13126,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -11363,7 +13143,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v6"
@@ -11381,7 +13164,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -11406,7 +13189,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -11424,10 +13210,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -11444,7 +13238,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v6"
@@ -11462,7 +13259,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -11487,7 +13284,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -11505,13 +13305,33 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol']['meta_info']
 
 
-
-
-
-
-                        class SnmpProtocol(Entity):
+                        class SnmpProtocol(_Entity_):
                             """
                             Configure SNMP for this interface
                             
@@ -11528,7 +13348,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol, self).__init__()
 
                                 self.yang_name = "snmp-protocol"
                                 self.yang_parent_name = "interface"
@@ -11548,7 +13371,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol, [], name, value)
 
 
-                            class PeerClass(Entity):
+                            class PeerClass(_Entity_):
                                 """
                                 Configure peer addresses
                                 
@@ -11575,7 +13398,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass, self).__init__()
 
                                     self.yang_name = "peer-class"
                                     self.yang_parent_name = "snmp-protocol"
@@ -11602,7 +13428,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                                class PeerV4(Entity):
+                                class PeerV4(_Entity_):
                                     """
                                     Configure v4 peer addresses
                                     
@@ -11624,7 +13450,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4, self).__init__()
 
                                         self.yang_name = "peer-v4"
                                         self.yang_parent_name = "peer-class"
@@ -11648,7 +13477,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -11665,7 +13494,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v4"
@@ -11683,7 +13515,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -11708,7 +13540,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -11726,10 +13561,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -11746,7 +13589,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v4"
@@ -11764,7 +13610,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -11789,7 +13635,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -11807,11 +13656,23 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                                class PeerV6(Entity):
+                                class PeerV6(_Entity_):
                                     """
                                     Configure v6 peer addresses
                                     
@@ -11833,7 +13694,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6, self).__init__()
 
                                         self.yang_name = "peer-v6"
                                         self.yang_parent_name = "peer-class"
@@ -11857,7 +13721,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -11874,7 +13738,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v6"
@@ -11892,7 +13759,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -11917,7 +13784,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -11935,10 +13805,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -11955,7 +13833,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v6"
@@ -11973,7 +13854,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -11998,7 +13879,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -12016,13 +13900,33 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol']['meta_info']
 
 
-
-
-
-
-                        class TelnetProtocol(Entity):
+                        class TelnetProtocol(_Entity_):
                             """
                             Configure Telnet for this interface
                             
@@ -12039,7 +13943,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol, self).__init__()
 
                                 self.yang_name = "telnet-protocol"
                                 self.yang_parent_name = "interface"
@@ -12059,7 +13966,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol, [], name, value)
 
 
-                            class PeerClass(Entity):
+                            class PeerClass(_Entity_):
                                 """
                                 Configure peer addresses
                                 
@@ -12086,7 +13993,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass, self).__init__()
 
                                     self.yang_name = "peer-class"
                                     self.yang_parent_name = "telnet-protocol"
@@ -12113,7 +14023,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                                class PeerV4(Entity):
+                                class PeerV4(_Entity_):
                                     """
                                     Configure v4 peer addresses
                                     
@@ -12135,7 +14045,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4, self).__init__()
 
                                         self.yang_name = "peer-v4"
                                         self.yang_parent_name = "peer-class"
@@ -12159,7 +14072,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -12176,7 +14089,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v4"
@@ -12194,7 +14110,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -12219,7 +14135,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -12237,10 +14156,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -12257,7 +14184,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v4"
@@ -12275,7 +14205,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -12300,7 +14230,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -12318,11 +14251,23 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                                class PeerV6(Entity):
+                                class PeerV6(_Entity_):
                                     """
                                     Configure v6 peer addresses
                                     
@@ -12344,7 +14289,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6, self).__init__()
 
                                         self.yang_name = "peer-v6"
                                         self.yang_parent_name = "peer-class"
@@ -12368,7 +14316,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -12385,7 +14333,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v6"
@@ -12403,7 +14354,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -12428,7 +14379,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -12446,10 +14400,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -12466,7 +14428,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v6"
@@ -12484,7 +14449,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -12509,7 +14474,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -12527,13 +14495,33 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol']['meta_info']
 
 
-
-
-
-
-                        class AllProtocols(Entity):
+                        class AllProtocols(_Entity_):
                             """
                             Configure all protocols on this interface
                             
@@ -12550,7 +14538,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols, self).__init__()
 
                                 self.yang_name = "all-protocols"
                                 self.yang_parent_name = "interface"
@@ -12570,7 +14561,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols, [], name, value)
 
 
-                            class PeerClass(Entity):
+                            class PeerClass(_Entity_):
                                 """
                                 Configure peer addresses
                                 
@@ -12597,7 +14588,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass, self).__init__()
 
                                     self.yang_name = "peer-class"
                                     self.yang_parent_name = "all-protocols"
@@ -12624,7 +14618,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass, ['peer_all'], name, value)
 
 
-                                class PeerV4(Entity):
+                                class PeerV4(_Entity_):
                                     """
                                     Configure v4 peer addresses
                                     
@@ -12646,7 +14640,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4, self).__init__()
 
                                         self.yang_name = "peer-v4"
                                         self.yang_parent_name = "peer-class"
@@ -12670,7 +14667,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -12687,7 +14684,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v4"
@@ -12705,7 +14705,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -12730,7 +14730,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -12748,10 +14751,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -12768,7 +14779,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v4"
@@ -12786,7 +14800,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -12811,7 +14825,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -12829,11 +14846,23 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                                class PeerV6(Entity):
+                                class PeerV6(_Entity_):
                                     """
                                     Configure v6 peer addresses
                                     
@@ -12855,7 +14884,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6, self).__init__()
 
                                         self.yang_name = "peer-v6"
                                         self.yang_parent_name = "peer-class"
@@ -12879,7 +14911,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6, [], name, value)
 
 
-                                    class Peers(Entity):
+                                    class Peers(_Entity_):
                                         """
                                         Configure peer addresses
                                         
@@ -12896,7 +14928,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers, self).__init__()
 
                                             self.yang_name = "peers"
                                             self.yang_parent_name = "peer-v6"
@@ -12914,7 +14949,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                        class Peer(Entity):
+                                        class Peer(_Entity_):
                                             """
                                             Configure peer on the interface
                                             
@@ -12939,7 +14974,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                                 self.yang_name = "peer"
                                                 self.yang_parent_name = "peers"
@@ -12957,10 +14995,18 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                    class PeerPrefixes(Entity):
+                                    class PeerPrefixes(_Entity_):
                                         """
                                         Configure peer addresses with prefix
                                         
@@ -12977,7 +15023,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                             self.yang_name = "peer-prefixes"
                                             self.yang_parent_name = "peer-v6"
@@ -12995,7 +15044,7 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                        class PeerPrefix(Entity):
+                                        class PeerPrefix(_Entity_):
                                             """
                                             Peer address (with prefix)
                                             
@@ -13020,7 +15069,10 @@ class ControlPlane(Entity):
                                             _revision = '2018-07-23'
 
                                             def __init__(self):
-                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                                 self.yang_name = "peer-prefix"
                                                 self.yang_parent_name = "peer-prefixes"
@@ -13038,15 +15090,43 @@ class ControlPlane(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces']['meta_info']
 
 
-
-
-
-
-
-
-                class AllInterfaces(Entity):
+                class AllInterfaces(_Entity_):
                     """
                     Configure all Inband interfaces
                     
@@ -13098,7 +15178,10 @@ class ControlPlane(Entity):
                     _revision = '2018-07-23'
 
                     def __init__(self):
-                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces, self).__init__()
 
                         self.yang_name = "all-interfaces"
                         self.yang_parent_name = "interface-selection"
@@ -13147,7 +15230,7 @@ class ControlPlane(Entity):
                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces, [], name, value)
 
 
-                    class HttpProtocol(Entity):
+                    class HttpProtocol(_Entity_):
                         """
                         Configure HTTP on this interface
                         
@@ -13164,7 +15247,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol, self).__init__()
 
                             self.yang_name = "http-protocol"
                             self.yang_parent_name = "all-interfaces"
@@ -13185,7 +15271,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol, [], name, value)
 
 
-                        class PeerClass(Entity):
+                        class PeerClass(_Entity_):
                             """
                             Configure peer addresses
                             
@@ -13212,7 +15298,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass, self).__init__()
 
                                 self.yang_name = "peer-class"
                                 self.yang_parent_name = "http-protocol"
@@ -13240,7 +15329,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                            class PeerV4(Entity):
+                            class PeerV4(_Entity_):
                                 """
                                 Configure v4 peer addresses
                                 
@@ -13262,7 +15351,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4, self).__init__()
 
                                     self.yang_name = "peer-v4"
                                     self.yang_parent_name = "peer-class"
@@ -13287,7 +15379,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -13304,7 +15396,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v4"
@@ -13323,7 +15418,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -13348,7 +15443,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -13367,10 +15465,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -13387,7 +15493,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v4"
@@ -13406,7 +15515,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -13431,7 +15540,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -13450,11 +15562,23 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                            class PeerV6(Entity):
+                            class PeerV6(_Entity_):
                                 """
                                 Configure v6 peer addresses
                                 
@@ -13476,7 +15600,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6, self).__init__()
 
                                     self.yang_name = "peer-v6"
                                     self.yang_parent_name = "peer-class"
@@ -13501,7 +15628,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -13518,7 +15645,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v6"
@@ -13537,7 +15667,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -13562,7 +15692,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -13581,10 +15714,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -13601,7 +15742,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v6"
@@ -13620,7 +15764,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -13645,7 +15789,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -13664,13 +15811,33 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol']['meta_info']
 
 
-
-
-
-
-                    class TftpProtocol(Entity):
+                    class TftpProtocol(_Entity_):
                         """
                         Configure TFTP on this interface
                         
@@ -13687,7 +15854,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol, self).__init__()
 
                             self.yang_name = "tftp-protocol"
                             self.yang_parent_name = "all-interfaces"
@@ -13708,7 +15878,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol, [], name, value)
 
 
-                        class PeerClass(Entity):
+                        class PeerClass(_Entity_):
                             """
                             Configure peer addresses
                             
@@ -13735,7 +15905,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass, self).__init__()
 
                                 self.yang_name = "peer-class"
                                 self.yang_parent_name = "tftp-protocol"
@@ -13763,7 +15936,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                            class PeerV4(Entity):
+                            class PeerV4(_Entity_):
                                 """
                                 Configure v4 peer addresses
                                 
@@ -13785,7 +15958,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4, self).__init__()
 
                                     self.yang_name = "peer-v4"
                                     self.yang_parent_name = "peer-class"
@@ -13810,7 +15986,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -13827,7 +16003,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v4"
@@ -13846,7 +16025,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -13871,7 +16050,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -13890,10 +16072,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -13910,7 +16100,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v4"
@@ -13929,7 +16122,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -13954,7 +16147,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -13973,11 +16169,23 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                            class PeerV6(Entity):
+                            class PeerV6(_Entity_):
                                 """
                                 Configure v6 peer addresses
                                 
@@ -13999,7 +16207,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6, self).__init__()
 
                                     self.yang_name = "peer-v6"
                                     self.yang_parent_name = "peer-class"
@@ -14024,7 +16235,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -14041,7 +16252,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v6"
@@ -14060,7 +16274,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -14085,7 +16299,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -14104,10 +16321,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -14124,7 +16349,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v6"
@@ -14143,7 +16371,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -14168,7 +16396,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -14187,13 +16418,33 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol']['meta_info']
 
 
-
-
-
-
-                    class NetconfProtocol(Entity):
+                    class NetconfProtocol(_Entity_):
                         """
                         Configure NETCONF protocol and peer addresses
                         
@@ -14210,7 +16461,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol, self).__init__()
 
                             self.yang_name = "netconf-protocol"
                             self.yang_parent_name = "all-interfaces"
@@ -14231,7 +16485,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol, [], name, value)
 
 
-                        class PeerClass(Entity):
+                        class PeerClass(_Entity_):
                             """
                             Configure peer addresses
                             
@@ -14258,7 +16512,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass, self).__init__()
 
                                 self.yang_name = "peer-class"
                                 self.yang_parent_name = "netconf-protocol"
@@ -14286,7 +16543,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                            class PeerV4(Entity):
+                            class PeerV4(_Entity_):
                                 """
                                 Configure v4 peer addresses
                                 
@@ -14308,7 +16565,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4, self).__init__()
 
                                     self.yang_name = "peer-v4"
                                     self.yang_parent_name = "peer-class"
@@ -14333,7 +16593,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -14350,7 +16610,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v4"
@@ -14369,7 +16632,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -14394,7 +16657,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -14413,10 +16679,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -14433,7 +16707,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v4"
@@ -14452,7 +16729,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -14477,7 +16754,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -14496,11 +16776,23 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                            class PeerV6(Entity):
+                            class PeerV6(_Entity_):
                                 """
                                 Configure v6 peer addresses
                                 
@@ -14522,7 +16814,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6, self).__init__()
 
                                     self.yang_name = "peer-v6"
                                     self.yang_parent_name = "peer-class"
@@ -14547,7 +16842,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -14564,7 +16859,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v6"
@@ -14583,7 +16881,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -14608,7 +16906,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -14627,10 +16928,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -14647,7 +16956,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v6"
@@ -14666,7 +16978,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -14691,7 +17003,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -14710,13 +17025,33 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol']['meta_info']
 
 
-
-
-
-
-                    class XrXml(Entity):
+                    class XrXml(_Entity_):
                         """
                         Configure XML and peer addresses
                         
@@ -14733,7 +17068,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml, self).__init__()
 
                             self.yang_name = "xr-xml"
                             self.yang_parent_name = "all-interfaces"
@@ -14754,7 +17092,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml, [], name, value)
 
 
-                        class PeerClass(Entity):
+                        class PeerClass(_Entity_):
                             """
                             Configure peer addresses
                             
@@ -14781,7 +17119,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass, self).__init__()
 
                                 self.yang_name = "peer-class"
                                 self.yang_parent_name = "xr-xml"
@@ -14809,7 +17150,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass, ['peer_all'], name, value)
 
 
-                            class PeerV4(Entity):
+                            class PeerV4(_Entity_):
                                 """
                                 Configure v4 peer addresses
                                 
@@ -14831,7 +17172,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4, self).__init__()
 
                                     self.yang_name = "peer-v4"
                                     self.yang_parent_name = "peer-class"
@@ -14856,7 +17200,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -14873,7 +17217,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v4"
@@ -14892,7 +17239,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -14917,7 +17264,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -14936,10 +17286,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -14956,7 +17314,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v4"
@@ -14975,7 +17336,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -15000,7 +17361,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -15019,11 +17383,23 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                            class PeerV6(Entity):
+                            class PeerV6(_Entity_):
                                 """
                                 Configure v6 peer addresses
                                 
@@ -15045,7 +17421,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6, self).__init__()
 
                                     self.yang_name = "peer-v6"
                                     self.yang_parent_name = "peer-class"
@@ -15070,7 +17449,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -15087,7 +17466,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v6"
@@ -15106,7 +17488,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -15131,7 +17513,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -15150,10 +17535,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -15170,7 +17563,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v6"
@@ -15189,7 +17585,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -15214,7 +17610,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -15233,13 +17632,33 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml']['meta_info']
 
 
-
-
-
-
-                    class SshProtocol(Entity):
+                    class SshProtocol(_Entity_):
                         """
                         Configure SSH protocol and peer addresses
                         
@@ -15256,7 +17675,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol, self).__init__()
 
                             self.yang_name = "ssh-protocol"
                             self.yang_parent_name = "all-interfaces"
@@ -15277,7 +17699,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol, [], name, value)
 
 
-                        class PeerClass(Entity):
+                        class PeerClass(_Entity_):
                             """
                             Configure peer addresses
                             
@@ -15304,7 +17726,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass, self).__init__()
 
                                 self.yang_name = "peer-class"
                                 self.yang_parent_name = "ssh-protocol"
@@ -15332,7 +17757,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                            class PeerV4(Entity):
+                            class PeerV4(_Entity_):
                                 """
                                 Configure v4 peer addresses
                                 
@@ -15354,7 +17779,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4, self).__init__()
 
                                     self.yang_name = "peer-v4"
                                     self.yang_parent_name = "peer-class"
@@ -15379,7 +17807,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -15396,7 +17824,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v4"
@@ -15415,7 +17846,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -15440,7 +17871,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -15459,10 +17893,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -15479,7 +17921,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v4"
@@ -15498,7 +17943,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -15523,7 +17968,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -15542,11 +17990,23 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                            class PeerV6(Entity):
+                            class PeerV6(_Entity_):
                                 """
                                 Configure v6 peer addresses
                                 
@@ -15568,7 +18028,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6, self).__init__()
 
                                     self.yang_name = "peer-v6"
                                     self.yang_parent_name = "peer-class"
@@ -15593,7 +18056,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -15610,7 +18073,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v6"
@@ -15629,7 +18095,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -15654,7 +18120,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -15673,10 +18142,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -15693,7 +18170,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v6"
@@ -15712,7 +18192,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -15737,7 +18217,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -15756,13 +18239,33 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol']['meta_info']
 
 
-
-
-
-
-                    class SnmpProtocol(Entity):
+                    class SnmpProtocol(_Entity_):
                         """
                         Configure SNMP for this interface
                         
@@ -15779,7 +18282,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol, self).__init__()
 
                             self.yang_name = "snmp-protocol"
                             self.yang_parent_name = "all-interfaces"
@@ -15800,7 +18306,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol, [], name, value)
 
 
-                        class PeerClass(Entity):
+                        class PeerClass(_Entity_):
                             """
                             Configure peer addresses
                             
@@ -15827,7 +18333,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass, self).__init__()
 
                                 self.yang_name = "peer-class"
                                 self.yang_parent_name = "snmp-protocol"
@@ -15855,7 +18364,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                            class PeerV4(Entity):
+                            class PeerV4(_Entity_):
                                 """
                                 Configure v4 peer addresses
                                 
@@ -15877,7 +18386,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4, self).__init__()
 
                                     self.yang_name = "peer-v4"
                                     self.yang_parent_name = "peer-class"
@@ -15902,7 +18414,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -15919,7 +18431,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v4"
@@ -15938,7 +18453,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -15963,7 +18478,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -15982,10 +18500,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -16002,7 +18528,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v4"
@@ -16021,7 +18550,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -16046,7 +18575,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -16065,11 +18597,23 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                            class PeerV6(Entity):
+                            class PeerV6(_Entity_):
                                 """
                                 Configure v6 peer addresses
                                 
@@ -16091,7 +18635,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6, self).__init__()
 
                                     self.yang_name = "peer-v6"
                                     self.yang_parent_name = "peer-class"
@@ -16116,7 +18663,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -16133,7 +18680,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v6"
@@ -16152,7 +18702,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -16177,7 +18727,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -16196,10 +18749,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -16216,7 +18777,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v6"
@@ -16235,7 +18799,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -16260,7 +18824,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -16279,13 +18846,33 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol']['meta_info']
 
 
-
-
-
-
-                    class TelnetProtocol(Entity):
+                    class TelnetProtocol(_Entity_):
                         """
                         Configure Telnet for this interface
                         
@@ -16302,7 +18889,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol, self).__init__()
 
                             self.yang_name = "telnet-protocol"
                             self.yang_parent_name = "all-interfaces"
@@ -16323,7 +18913,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol, [], name, value)
 
 
-                        class PeerClass(Entity):
+                        class PeerClass(_Entity_):
                             """
                             Configure peer addresses
                             
@@ -16350,7 +18940,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass, self).__init__()
 
                                 self.yang_name = "peer-class"
                                 self.yang_parent_name = "telnet-protocol"
@@ -16378,7 +18971,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass, ['peer_all'], name, value)
 
 
-                            class PeerV4(Entity):
+                            class PeerV4(_Entity_):
                                 """
                                 Configure v4 peer addresses
                                 
@@ -16400,7 +18993,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4, self).__init__()
 
                                     self.yang_name = "peer-v4"
                                     self.yang_parent_name = "peer-class"
@@ -16425,7 +19021,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -16442,7 +19038,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v4"
@@ -16461,7 +19060,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -16486,7 +19085,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -16505,10 +19107,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -16525,7 +19135,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v4"
@@ -16544,7 +19157,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -16569,7 +19182,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -16588,11 +19204,23 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                            class PeerV6(Entity):
+                            class PeerV6(_Entity_):
                                 """
                                 Configure v6 peer addresses
                                 
@@ -16614,7 +19242,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6, self).__init__()
 
                                     self.yang_name = "peer-v6"
                                     self.yang_parent_name = "peer-class"
@@ -16639,7 +19270,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -16656,7 +19287,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v6"
@@ -16675,7 +19309,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -16700,7 +19334,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -16719,10 +19356,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -16739,7 +19384,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v6"
@@ -16758,7 +19406,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -16783,7 +19431,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -16802,13 +19453,33 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol']['meta_info']
 
 
-
-
-
-
-                    class AllProtocols(Entity):
+                    class AllProtocols(_Entity_):
                         """
                         Configure all protocols on this interface
                         
@@ -16825,7 +19496,10 @@ class ControlPlane(Entity):
                         _revision = '2018-07-23'
 
                         def __init__(self):
-                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols, self).__init__()
 
                             self.yang_name = "all-protocols"
                             self.yang_parent_name = "all-interfaces"
@@ -16846,7 +19520,7 @@ class ControlPlane(Entity):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols, [], name, value)
 
 
-                        class PeerClass(Entity):
+                        class PeerClass(_Entity_):
                             """
                             Configure peer addresses
                             
@@ -16873,7 +19547,10 @@ class ControlPlane(Entity):
                             _revision = '2018-07-23'
 
                             def __init__(self):
-                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass, self).__init__()
 
                                 self.yang_name = "peer-class"
                                 self.yang_parent_name = "all-protocols"
@@ -16901,7 +19578,7 @@ class ControlPlane(Entity):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass, ['peer_all'], name, value)
 
 
-                            class PeerV4(Entity):
+                            class PeerV4(_Entity_):
                                 """
                                 Configure v4 peer addresses
                                 
@@ -16923,7 +19600,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4, self).__init__()
 
                                     self.yang_name = "peer-v4"
                                     self.yang_parent_name = "peer-class"
@@ -16948,7 +19628,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -16965,7 +19645,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v4"
@@ -16984,7 +19667,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -17009,7 +19692,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -17028,10 +19714,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -17048,7 +19742,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v4"
@@ -17067,7 +19764,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -17092,7 +19789,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -17111,11 +19811,23 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4']['meta_info']
 
 
-
-
-                            class PeerV6(Entity):
+                            class PeerV6(_Entity_):
                                 """
                                 Configure v6 peer addresses
                                 
@@ -17137,7 +19849,10 @@ class ControlPlane(Entity):
                                 _revision = '2018-07-23'
 
                                 def __init__(self):
-                                    super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6, self).__init__()
 
                                     self.yang_name = "peer-v6"
                                     self.yang_parent_name = "peer-class"
@@ -17162,7 +19877,7 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6, [], name, value)
 
 
-                                class Peers(Entity):
+                                class Peers(_Entity_):
                                     """
                                     Configure peer addresses
                                     
@@ -17179,7 +19894,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers, self).__init__()
 
                                         self.yang_name = "peers"
                                         self.yang_parent_name = "peer-v6"
@@ -17198,7 +19916,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers, [], name, value)
 
 
-                                    class Peer(Entity):
+                                    class Peer(_Entity_):
                                         """
                                         Configure peer on the interface
                                         
@@ -17223,7 +19941,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer, self).__init__()
 
                                             self.yang_name = "peer"
                                             self.yang_parent_name = "peers"
@@ -17242,10 +19963,18 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers']['meta_info']
 
 
-
-                                class PeerPrefixes(Entity):
+                                class PeerPrefixes(_Entity_):
                                     """
                                     Configure peer addresses with prefix
                                     
@@ -17262,7 +19991,10 @@ class ControlPlane(Entity):
                                     _revision = '2018-07-23'
 
                                     def __init__(self):
-                                        super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes, self).__init__()
 
                                         self.yang_name = "peer-prefixes"
                                         self.yang_parent_name = "peer-v6"
@@ -17281,7 +20013,7 @@ class ControlPlane(Entity):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes, [], name, value)
 
 
-                                    class PeerPrefix(Entity):
+                                    class PeerPrefix(_Entity_):
                                         """
                                         Peer address (with prefix)
                                         
@@ -17306,7 +20038,10 @@ class ControlPlane(Entity):
                                         _revision = '2018-07-23'
 
                                         def __init__(self):
-                                            super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, self).__init__()
 
                                             self.yang_name = "peer-prefix"
                                             self.yang_parent_name = "peer-prefixes"
@@ -17325,18 +20060,58 @@ class ControlPlane(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix']['meta_info']
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes']['meta_info']
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                            return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                        return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                    return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+                return meta._meta_table['ControlPlane.ManagementPlaneProtection.Inband']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+            return meta._meta_table['ControlPlane.ManagementPlaneProtection']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ControlPlane()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_cfg as meta
+        return meta._meta_table['ControlPlane']['meta_info']
 
 

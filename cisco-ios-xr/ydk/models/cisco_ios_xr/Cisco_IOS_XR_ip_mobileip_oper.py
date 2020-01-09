@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -51,6 +54,12 @@ class Pmipv6Addr(Enum):
     ipv6 = Enum.YLeaf(2, "ipv6")
 
     pmipv6_addr_ipv4_ipv6 = Enum.YLeaf(3, "pmipv6-addr-ipv4-ipv6")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+        return meta._meta_table['Pmipv6Addr']
 
 
 class Pmipv6Encap(Enum):
@@ -134,6 +143,12 @@ class Pmipv6Encap(Enum):
     max = Enum.YLeaf(11, "max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+        return meta._meta_table['Pmipv6Encap']
+
+
 class Pmipv6Role(Enum):
     """
     Pmipv6Role (Enum Class)
@@ -179,8 +194,14 @@ class Pmipv6Role(Enum):
     rmax = Enum.YLeaf(5, "rmax")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+        return meta._meta_table['Pmipv6Role']
 
-class Pmipv6(Entity):
+
+
+class Pmipv6(_Entity_):
     """
     Proxy Mobile IPv6
     
@@ -199,7 +220,10 @@ class Pmipv6(Entity):
     _revision = '2016-03-10'
 
     def __init__(self):
-        super(Pmipv6, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Pmipv6, self).__init__()
         self._top_entity = None
 
         self.yang_name = "pmipv6"
@@ -220,7 +244,7 @@ class Pmipv6(Entity):
         self._perform_setattr(Pmipv6, [], name, value)
 
 
-    class Lma(Entity):
+    class Lma(_Entity_):
         """
         None
         
@@ -260,7 +284,10 @@ class Pmipv6(Entity):
         _revision = '2016-03-10'
 
         def __init__(self):
-            super(Pmipv6.Lma, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Pmipv6.Lma, self).__init__()
 
             self.yang_name = "lma"
             self.yang_parent_name = "pmipv6"
@@ -293,7 +320,7 @@ class Pmipv6(Entity):
             self._perform_setattr(Pmipv6.Lma, [], name, value)
 
 
-        class Statistics(Entity):
+        class Statistics(_Entity_):
             """
             None
             
@@ -333,7 +360,10 @@ class Pmipv6(Entity):
             _revision = '2016-03-10'
 
             def __init__(self):
-                super(Pmipv6.Lma.Statistics, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pmipv6.Lma.Statistics, self).__init__()
 
                 self.yang_name = "statistics"
                 self.yang_parent_name = "lma"
@@ -366,7 +396,7 @@ class Pmipv6(Entity):
                 self._perform_setattr(Pmipv6.Lma.Statistics, [], name, value)
 
 
-            class CustomerStatistics(Entity):
+            class CustomerStatistics(_Entity_):
                 """
                 Table of CustomerStatistics
                 
@@ -385,7 +415,10 @@ class Pmipv6(Entity):
                 _revision = '2016-03-10'
 
                 def __init__(self):
-                    super(Pmipv6.Lma.Statistics.CustomerStatistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pmipv6.Lma.Statistics.CustomerStatistics, self).__init__()
 
                     self.yang_name = "customer-statistics"
                     self.yang_parent_name = "statistics"
@@ -404,7 +437,7 @@ class Pmipv6(Entity):
                     self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics, [], name, value)
 
 
-                class CustomerStatistic(Entity):
+                class CustomerStatistic(_Entity_):
                     """
                     Customer statistics
                     
@@ -482,7 +515,10 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic, self).__init__()
 
                         self.yang_name = "customer-statistic"
                         self.yang_parent_name = "customer-statistics"
@@ -520,7 +556,7 @@ class Pmipv6(Entity):
                         self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic, ['customer_name', 'lma_identifier', 'bce_count', 'handoff_count', 'ipv4_mnp_count', 'ipv6_mnp_count'], name, value)
 
 
-                    class ProtocolStatistics(Entity):
+                    class ProtocolStatistics(_Entity_):
                         """
                         LMA Protocol Statistics
                         
@@ -574,7 +610,10 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics, self).__init__()
 
                             self.yang_name = "protocol-statistics"
                             self.yang_parent_name = "customer-statistic"
@@ -614,7 +653,7 @@ class Pmipv6(Entity):
                             self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics, [], name, value)
 
 
-                        class PbuReceiveStatistics(Entity):
+                        class PbuReceiveStatistics(_Entity_):
                             """
                             PBU Receive Statistics
                             
@@ -644,7 +683,10 @@ class Pmipv6(Entity):
                             _revision = '2016-03-10'
 
                             def __init__(self):
-                                super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics, self).__init__()
 
                                 self.yang_name = "pbu-receive-statistics"
                                 self.yang_parent_name = "protocol-statistics"
@@ -664,9 +706,13 @@ class Pmipv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics, ['pbu_count', 'pbu_drop_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                                return meta._meta_table['Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics']['meta_info']
 
 
-                        class PbaSendStatistics(Entity):
+                        class PbaSendStatistics(_Entity_):
                             """
                             PBA Send Statistics
                             
@@ -930,7 +976,10 @@ class Pmipv6(Entity):
                             _revision = '2016-03-10'
 
                             def __init__(self):
-                                super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbaSendStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbaSendStatistics, self).__init__()
 
                                 self.yang_name = "pba-send-statistics"
                                 self.yang_parent_name = "protocol-statistics"
@@ -1002,9 +1051,13 @@ class Pmipv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbaSendStatistics, ['pba_count', 'pba_drop_count', 'accepted_count', 'unknown_count', 'unspecified_failure_count', 'admin_failure_count', 'resource_failure_count', 'home_reg_failure_count', 'home_subnet_failure_count', 'bad_sequence_failure_count', 'reg_type_failure_count', 'authen_failure_count', 'proxy_reg_not_enabled_count', 'not_lma_for_this_mn_count', 'no_author_for_proxy_reg_count', 'no_author_for_hnp_count', 'timestamp_mismatch_count', 'timestamp_lower_than_previous_accepted_count', 'missing_hnp_opt_count', 'received_hnps_do_not_match_bce_hnps_count', 'missing_mn_id_opt_count', 'missing_hi_opt_count', 'missing_access_tech_type_opt_count', 'no_author_for_ipv4_mobility_count', 'no_author_for_ipv4_hoa_count', 'no_author_for_ipv6_mobility_count', 'multiple_ipv4_ho_a_not_supported_count', 'gre_key_opt_required_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                                return meta._meta_table['Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbaSendStatistics']['meta_info']
 
 
-                        class PbriSendStatistics(Entity):
+                        class PbriSendStatistics(_Entity_):
                             """
                             PBRI Send Statistics
                             
@@ -1124,7 +1177,10 @@ class Pmipv6(Entity):
                             _revision = '2016-03-10'
 
                             def __init__(self):
-                                super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriSendStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriSendStatistics, self).__init__()
 
                                 self.yang_name = "pbri-send-statistics"
                                 self.yang_parent_name = "protocol-statistics"
@@ -1164,9 +1220,13 @@ class Pmipv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriSendStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                                return meta._meta_table['Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriSendStatistics']['meta_info']
 
 
-                        class PbriReceiveStatistics(Entity):
+                        class PbriReceiveStatistics(_Entity_):
                             """
                             PBRI Receive Statistics
                             
@@ -1286,7 +1346,10 @@ class Pmipv6(Entity):
                             _revision = '2016-03-10'
 
                             def __init__(self):
-                                super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriReceiveStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriReceiveStatistics, self).__init__()
 
                                 self.yang_name = "pbri-receive-statistics"
                                 self.yang_parent_name = "protocol-statistics"
@@ -1326,9 +1389,13 @@ class Pmipv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriReceiveStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                                return meta._meta_table['Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriReceiveStatistics']['meta_info']
 
 
-                        class PbraSendStatistics(Entity):
+                        class PbraSendStatistics(_Entity_):
                             """
                             PBRA Send Statistics
                             
@@ -1448,7 +1515,10 @@ class Pmipv6(Entity):
                             _revision = '2016-03-10'
 
                             def __init__(self):
-                                super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraSendStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraSendStatistics, self).__init__()
 
                                 self.yang_name = "pbra-send-statistics"
                                 self.yang_parent_name = "protocol-statistics"
@@ -1488,9 +1558,13 @@ class Pmipv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraSendStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                                return meta._meta_table['Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraSendStatistics']['meta_info']
 
 
-                        class PbraReceiveStatistics(Entity):
+                        class PbraReceiveStatistics(_Entity_):
                             """
                             PBRA Receive Statistics
                             
@@ -1610,7 +1684,10 @@ class Pmipv6(Entity):
                             _revision = '2016-03-10'
 
                             def __init__(self):
-                                super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraReceiveStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraReceiveStatistics, self).__init__()
 
                                 self.yang_name = "pbra-receive-statistics"
                                 self.yang_parent_name = "protocol-statistics"
@@ -1650,10 +1727,18 @@ class Pmipv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraReceiveStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                                return meta._meta_table['Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraReceiveStatistics']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                            return meta._meta_table['Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics']['meta_info']
 
 
-
-                    class AccountingStatistics(Entity):
+                    class AccountingStatistics(_Entity_):
                         """
                         LMA Accounting Statistics
                         
@@ -1692,7 +1777,10 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.AccountingStatistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.AccountingStatistics, self).__init__()
 
                             self.yang_name = "accounting-statistics"
                             self.yang_parent_name = "customer-statistic"
@@ -1714,11 +1802,23 @@ class Pmipv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.AccountingStatistics, ['accounting_start_sent_count', 'accounting_update_sent_count', 'accounting_stop_sent_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                            return meta._meta_table['Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.AccountingStatistics']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                        return meta._meta_table['Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                    return meta._meta_table['Pmipv6.Lma.Statistics.CustomerStatistics']['meta_info']
 
 
-
-
-            class License(Entity):
+            class License(_Entity_):
                 """
                 LMA License Statistics
                 
@@ -1764,7 +1864,10 @@ class Pmipv6(Entity):
                 _revision = '2016-03-10'
 
                 def __init__(self):
-                    super(Pmipv6.Lma.Statistics.License, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pmipv6.Lma.Statistics.License, self).__init__()
 
                     self.yang_name = "license"
                     self.yang_parent_name = "statistics"
@@ -1789,9 +1892,13 @@ class Pmipv6(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pmipv6.Lma.Statistics.License, ['lma_identifier', 'bce_count', 'peak_bce_count', 'peak_bce_count_reset_timestamp'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                    return meta._meta_table['Pmipv6.Lma.Statistics.License']['meta_info']
 
 
-            class Global(Entity):
+            class Global(_Entity_):
                 """
                 Global Statistics
                 
@@ -1867,7 +1974,10 @@ class Pmipv6(Entity):
                 _revision = '2016-03-10'
 
                 def __init__(self):
-                    super(Pmipv6.Lma.Statistics.Global, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pmipv6.Lma.Statistics.Global, self).__init__()
 
                     self.yang_name = "global"
                     self.yang_parent_name = "statistics"
@@ -1907,7 +2017,7 @@ class Pmipv6(Entity):
                     self._perform_setattr(Pmipv6.Lma.Statistics.Global, ['lma_identifier', 'bce_count', 'handoff_count', 'single_tenant_count', 'multi_tenant_count'], name, value)
 
 
-                class PacketStatistics(Entity):
+                class PacketStatistics(_Entity_):
                     """
                     Packet Statistics
                     
@@ -2000,7 +2110,10 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.Statistics.Global.PacketStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pmipv6.Lma.Statistics.Global.PacketStatistics, self).__init__()
 
                         self.yang_name = "packet-statistics"
                         self.yang_parent_name = "global"
@@ -2035,9 +2148,13 @@ class Pmipv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pmipv6.Lma.Statistics.Global.PacketStatistics, ['checksum_errors', 'send_drops', 'receive_drops', 'packets_received', 'packets_sent', 'send_drops_ipv6', 'receive_drops_ipv6', 'packets_received_ipv6', 'packets_sent_ipv6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                        return meta._meta_table['Pmipv6.Lma.Statistics.Global.PacketStatistics']['meta_info']
 
 
-                class ProtocolStatistics(Entity):
+                class ProtocolStatistics(_Entity_):
                     """
                     LMA Protocol Statistics
                     
@@ -2091,7 +2208,10 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics, self).__init__()
 
                         self.yang_name = "protocol-statistics"
                         self.yang_parent_name = "global"
@@ -2132,7 +2252,7 @@ class Pmipv6(Entity):
                         self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics, [], name, value)
 
 
-                    class PbuReceiveStatistics(Entity):
+                    class PbuReceiveStatistics(_Entity_):
                         """
                         PBU Receive Statistics
                         
@@ -2162,7 +2282,10 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics, self).__init__()
 
                             self.yang_name = "pbu-receive-statistics"
                             self.yang_parent_name = "protocol-statistics"
@@ -2183,9 +2306,13 @@ class Pmipv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics, ['pbu_count', 'pbu_drop_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                            return meta._meta_table['Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics']['meta_info']
 
 
-                    class PbaSendStatistics(Entity):
+                    class PbaSendStatistics(_Entity_):
                         """
                         PBA Send Statistics
                         
@@ -2449,7 +2576,10 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics, self).__init__()
 
                             self.yang_name = "pba-send-statistics"
                             self.yang_parent_name = "protocol-statistics"
@@ -2522,9 +2652,13 @@ class Pmipv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics, ['pba_count', 'pba_drop_count', 'accepted_count', 'unknown_count', 'unspecified_failure_count', 'admin_failure_count', 'resource_failure_count', 'home_reg_failure_count', 'home_subnet_failure_count', 'bad_sequence_failure_count', 'reg_type_failure_count', 'authen_failure_count', 'proxy_reg_not_enabled_count', 'not_lma_for_this_mn_count', 'no_author_for_proxy_reg_count', 'no_author_for_hnp_count', 'timestamp_mismatch_count', 'timestamp_lower_than_previous_accepted_count', 'missing_hnp_opt_count', 'received_hnps_do_not_match_bce_hnps_count', 'missing_mn_id_opt_count', 'missing_hi_opt_count', 'missing_access_tech_type_opt_count', 'no_author_for_ipv4_mobility_count', 'no_author_for_ipv4_hoa_count', 'no_author_for_ipv6_mobility_count', 'multiple_ipv4_ho_a_not_supported_count', 'gre_key_opt_required_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                            return meta._meta_table['Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics']['meta_info']
 
 
-                    class PbriSendStatistics(Entity):
+                    class PbriSendStatistics(_Entity_):
                         """
                         PBRI Send Statistics
                         
@@ -2644,7 +2778,10 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics, self).__init__()
 
                             self.yang_name = "pbri-send-statistics"
                             self.yang_parent_name = "protocol-statistics"
@@ -2685,9 +2822,13 @@ class Pmipv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                            return meta._meta_table['Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics']['meta_info']
 
 
-                    class PbriReceiveStatistics(Entity):
+                    class PbriReceiveStatistics(_Entity_):
                         """
                         PBRI Receive Statistics
                         
@@ -2807,7 +2948,10 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics, self).__init__()
 
                             self.yang_name = "pbri-receive-statistics"
                             self.yang_parent_name = "protocol-statistics"
@@ -2848,9 +2992,13 @@ class Pmipv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                            return meta._meta_table['Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics']['meta_info']
 
 
-                    class PbraSendStatistics(Entity):
+                    class PbraSendStatistics(_Entity_):
                         """
                         PBRA Send Statistics
                         
@@ -2970,7 +3118,10 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics, self).__init__()
 
                             self.yang_name = "pbra-send-statistics"
                             self.yang_parent_name = "protocol-statistics"
@@ -3011,9 +3162,13 @@ class Pmipv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                            return meta._meta_table['Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics']['meta_info']
 
 
-                    class PbraReceiveStatistics(Entity):
+                    class PbraReceiveStatistics(_Entity_):
                         """
                         PBRA Receive Statistics
                         
@@ -3133,7 +3288,10 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics, self).__init__()
 
                             self.yang_name = "pbra-receive-statistics"
                             self.yang_parent_name = "protocol-statistics"
@@ -3174,10 +3332,18 @@ class Pmipv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                            return meta._meta_table['Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                        return meta._meta_table['Pmipv6.Lma.Statistics.Global.ProtocolStatistics']['meta_info']
 
 
-
-                class AccountingStatistics(Entity):
+                class AccountingStatistics(_Entity_):
                     """
                     LMA Accounting Statistics
                     
@@ -3216,7 +3382,10 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.Statistics.Global.AccountingStatistics, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pmipv6.Lma.Statistics.Global.AccountingStatistics, self).__init__()
 
                         self.yang_name = "accounting-statistics"
                         self.yang_parent_name = "global"
@@ -3239,10 +3408,18 @@ class Pmipv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pmipv6.Lma.Statistics.Global.AccountingStatistics, ['accounting_start_sent_count', 'accounting_update_sent_count', 'accounting_stop_sent_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                        return meta._meta_table['Pmipv6.Lma.Statistics.Global.AccountingStatistics']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                    return meta._meta_table['Pmipv6.Lma.Statistics.Global']['meta_info']
 
 
-
-            class MagStatistics(Entity):
+            class MagStatistics(_Entity_):
                 """
                 Table of MAGStatistics
                 
@@ -3261,7 +3438,10 @@ class Pmipv6(Entity):
                 _revision = '2016-03-10'
 
                 def __init__(self):
-                    super(Pmipv6.Lma.Statistics.MagStatistics, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pmipv6.Lma.Statistics.MagStatistics, self).__init__()
 
                     self.yang_name = "mag-statistics"
                     self.yang_parent_name = "statistics"
@@ -3280,7 +3460,7 @@ class Pmipv6(Entity):
                     self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics, [], name, value)
 
 
-                class MagStatistic(Entity):
+                class MagStatistic(_Entity_):
                     """
                     Peer MAG statistics
                     
@@ -3315,7 +3495,10 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic, self).__init__()
 
                         self.yang_name = "mag-statistic"
                         self.yang_parent_name = "mag-statistics"
@@ -3341,7 +3524,7 @@ class Pmipv6(Entity):
                         self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic, ['mag_name', 'lma_identifier'], name, value)
 
 
-                    class ProtocolStatistics(Entity):
+                    class ProtocolStatistics(_Entity_):
                         """
                         LMA Protocol Statistics
                         
@@ -3395,7 +3578,10 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics, self).__init__()
 
                             self.yang_name = "protocol-statistics"
                             self.yang_parent_name = "mag-statistic"
@@ -3435,7 +3621,7 @@ class Pmipv6(Entity):
                             self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics, [], name, value)
 
 
-                        class PbuReceiveStatistics(Entity):
+                        class PbuReceiveStatistics(_Entity_):
                             """
                             PBU Receive Statistics
                             
@@ -3465,7 +3651,10 @@ class Pmipv6(Entity):
                             _revision = '2016-03-10'
 
                             def __init__(self):
-                                super(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics, self).__init__()
 
                                 self.yang_name = "pbu-receive-statistics"
                                 self.yang_parent_name = "protocol-statistics"
@@ -3485,9 +3674,13 @@ class Pmipv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics, ['pbu_count', 'pbu_drop_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                                return meta._meta_table['Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics']['meta_info']
 
 
-                        class PbaSendStatistics(Entity):
+                        class PbaSendStatistics(_Entity_):
                             """
                             PBA Send Statistics
                             
@@ -3751,7 +3944,10 @@ class Pmipv6(Entity):
                             _revision = '2016-03-10'
 
                             def __init__(self):
-                                super(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbaSendStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbaSendStatistics, self).__init__()
 
                                 self.yang_name = "pba-send-statistics"
                                 self.yang_parent_name = "protocol-statistics"
@@ -3823,9 +4019,13 @@ class Pmipv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbaSendStatistics, ['pba_count', 'pba_drop_count', 'accepted_count', 'unknown_count', 'unspecified_failure_count', 'admin_failure_count', 'resource_failure_count', 'home_reg_failure_count', 'home_subnet_failure_count', 'bad_sequence_failure_count', 'reg_type_failure_count', 'authen_failure_count', 'proxy_reg_not_enabled_count', 'not_lma_for_this_mn_count', 'no_author_for_proxy_reg_count', 'no_author_for_hnp_count', 'timestamp_mismatch_count', 'timestamp_lower_than_previous_accepted_count', 'missing_hnp_opt_count', 'received_hnps_do_not_match_bce_hnps_count', 'missing_mn_id_opt_count', 'missing_hi_opt_count', 'missing_access_tech_type_opt_count', 'no_author_for_ipv4_mobility_count', 'no_author_for_ipv4_hoa_count', 'no_author_for_ipv6_mobility_count', 'multiple_ipv4_ho_a_not_supported_count', 'gre_key_opt_required_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                                return meta._meta_table['Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbaSendStatistics']['meta_info']
 
 
-                        class PbriSendStatistics(Entity):
+                        class PbriSendStatistics(_Entity_):
                             """
                             PBRI Send Statistics
                             
@@ -3945,7 +4145,10 @@ class Pmipv6(Entity):
                             _revision = '2016-03-10'
 
                             def __init__(self):
-                                super(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriSendStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriSendStatistics, self).__init__()
 
                                 self.yang_name = "pbri-send-statistics"
                                 self.yang_parent_name = "protocol-statistics"
@@ -3985,9 +4188,13 @@ class Pmipv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriSendStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                                return meta._meta_table['Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriSendStatistics']['meta_info']
 
 
-                        class PbriReceiveStatistics(Entity):
+                        class PbriReceiveStatistics(_Entity_):
                             """
                             PBRI Receive Statistics
                             
@@ -4107,7 +4314,10 @@ class Pmipv6(Entity):
                             _revision = '2016-03-10'
 
                             def __init__(self):
-                                super(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriReceiveStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriReceiveStatistics, self).__init__()
 
                                 self.yang_name = "pbri-receive-statistics"
                                 self.yang_parent_name = "protocol-statistics"
@@ -4147,9 +4357,13 @@ class Pmipv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriReceiveStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                                return meta._meta_table['Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriReceiveStatistics']['meta_info']
 
 
-                        class PbraSendStatistics(Entity):
+                        class PbraSendStatistics(_Entity_):
                             """
                             PBRA Send Statistics
                             
@@ -4269,7 +4483,10 @@ class Pmipv6(Entity):
                             _revision = '2016-03-10'
 
                             def __init__(self):
-                                super(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraSendStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraSendStatistics, self).__init__()
 
                                 self.yang_name = "pbra-send-statistics"
                                 self.yang_parent_name = "protocol-statistics"
@@ -4309,9 +4526,13 @@ class Pmipv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraSendStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                                return meta._meta_table['Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraSendStatistics']['meta_info']
 
 
-                        class PbraReceiveStatistics(Entity):
+                        class PbraReceiveStatistics(_Entity_):
                             """
                             PBRA Receive Statistics
                             
@@ -4431,7 +4652,10 @@ class Pmipv6(Entity):
                             _revision = '2016-03-10'
 
                             def __init__(self):
-                                super(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraReceiveStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraReceiveStatistics, self).__init__()
 
                                 self.yang_name = "pbra-receive-statistics"
                                 self.yang_parent_name = "protocol-statistics"
@@ -4471,13 +4695,33 @@ class Pmipv6(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraReceiveStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                                return meta._meta_table['Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraReceiveStatistics']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                            return meta._meta_table['Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                        return meta._meta_table['Pmipv6.Lma.Statistics.MagStatistics.MagStatistic']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                    return meta._meta_table['Pmipv6.Lma.Statistics.MagStatistics']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                return meta._meta_table['Pmipv6.Lma.Statistics']['meta_info']
 
 
-
-
-
-
-        class Bindings(Entity):
+        class Bindings(_Entity_):
             """
             Table of Binding
             
@@ -4496,7 +4740,10 @@ class Pmipv6(Entity):
             _revision = '2016-03-10'
 
             def __init__(self):
-                super(Pmipv6.Lma.Bindings, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pmipv6.Lma.Bindings, self).__init__()
 
                 self.yang_name = "bindings"
                 self.yang_parent_name = "lma"
@@ -4515,7 +4762,7 @@ class Pmipv6(Entity):
                 self._perform_setattr(Pmipv6.Lma.Bindings, [], name, value)
 
 
-            class Binding(Entity):
+            class Binding(_Entity_):
                 """
                 Binding Parameters
                 
@@ -4791,7 +5038,10 @@ class Pmipv6(Entity):
                 _revision = '2016-03-10'
 
                 def __init__(self):
-                    super(Pmipv6.Lma.Bindings.Binding, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pmipv6.Lma.Bindings.Binding, self).__init__()
 
                     self.yang_name = "binding"
                     self.yang_parent_name = "bindings"
@@ -4871,7 +5121,7 @@ class Pmipv6(Entity):
                     self._perform_setattr(Pmipv6.Lma.Bindings.Binding, ['mag_name', 'nai_string', 'imsi_string', 'customer_name', 'mnnai', 'customer_name_xr', 'llid', 'peer_id', 'phyintf', 'tunnel', 'state', 'apn', 'att', 'hoa', 'dflt', 'lifetime', 'liferem', 'refresh', 'refresh_rem', 'prefix_len', 'num_hnps', 'num_coa', 'num_dmnp_v4', 'num_dmnp_v6', 'hnps', 'ignore_home_address', 'up_stream_grekey', 'down_stream_grekey', 'vrfid'], name, value)
 
 
-                class Coa(Entity):
+                class Coa(_Entity_):
                     """
                     COA entries
                     
@@ -5048,7 +5298,10 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.Bindings.Binding.Coa, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pmipv6.Lma.Bindings.Binding.Coa, self).__init__()
 
                         self.yang_name = "coa"
                         self.yang_parent_name = "binding"
@@ -5107,9 +5360,13 @@ class Pmipv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pmipv6.Lma.Bindings.Binding.Coa, ['llid', 'peer_name', 'tunnel', 'e_label', 'color', 'roa_min_tf', 'pstate', 'msisdn', 'imsi', 'cdma_nai', 'pgw_apn', 'pgw_trans_vrf', 'att', 'lifetime', 'lifetime_remaining', 'refresh', 'refresh_rem', 'dnkey', 'upkey', 'coa_v4', 'coa_v6'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                        return meta._meta_table['Pmipv6.Lma.Bindings.Binding.Coa']['meta_info']
 
 
-                class DmnpV4(Entity):
+                class DmnpV4(_Entity_):
                     """
                     IPv4 DMNP prefixes
                     
@@ -5139,7 +5396,10 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.Bindings.Binding.DmnpV4, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pmipv6.Lma.Bindings.Binding.DmnpV4, self).__init__()
 
                         self.yang_name = "dmnp-v4"
                         self.yang_parent_name = "binding"
@@ -5160,9 +5420,13 @@ class Pmipv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pmipv6.Lma.Bindings.Binding.DmnpV4, ['pfxlen', 'prefix'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                        return meta._meta_table['Pmipv6.Lma.Bindings.Binding.DmnpV4']['meta_info']
 
 
-                class DmnpV6(Entity):
+                class DmnpV6(_Entity_):
                     """
                     IPv6 DMNP prefixes
                     
@@ -5192,7 +5456,10 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.Bindings.Binding.DmnpV6, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pmipv6.Lma.Bindings.Binding.DmnpV6, self).__init__()
 
                         self.yang_name = "dmnp-v6"
                         self.yang_parent_name = "binding"
@@ -5213,11 +5480,23 @@ class Pmipv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pmipv6.Lma.Bindings.Binding.DmnpV6, ['pfxlen', 'prefix'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                        return meta._meta_table['Pmipv6.Lma.Bindings.Binding.DmnpV6']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                    return meta._meta_table['Pmipv6.Lma.Bindings.Binding']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                return meta._meta_table['Pmipv6.Lma.Bindings']['meta_info']
 
 
-
-
-        class Heartbeats(Entity):
+        class Heartbeats(_Entity_):
             """
             Table of Heartbeat
             
@@ -5236,7 +5515,10 @@ class Pmipv6(Entity):
             _revision = '2016-03-10'
 
             def __init__(self):
-                super(Pmipv6.Lma.Heartbeats, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pmipv6.Lma.Heartbeats, self).__init__()
 
                 self.yang_name = "heartbeats"
                 self.yang_parent_name = "lma"
@@ -5255,7 +5537,7 @@ class Pmipv6(Entity):
                 self._perform_setattr(Pmipv6.Lma.Heartbeats, [], name, value)
 
 
-            class Heartbeat(Entity):
+            class Heartbeat(_Entity_):
                 """
                 Heartbeat information
                 
@@ -5364,7 +5646,10 @@ class Pmipv6(Entity):
                 _revision = '2016-03-10'
 
                 def __init__(self):
-                    super(Pmipv6.Lma.Heartbeats.Heartbeat, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pmipv6.Lma.Heartbeats.Heartbeat, self).__init__()
 
                     self.yang_name = "heartbeat"
                     self.yang_parent_name = "heartbeats"
@@ -5403,10 +5688,18 @@ class Pmipv6(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pmipv6.Lma.Heartbeats.Heartbeat, ['peer_addr', 'vrf', 'customer_name', 'source_port', 'destination_port', 'source_ipv4_address', 'destination_ipv4_address', 'source_ipv6_address', 'destination_ipv6_address', 'status', 'ipv6_path'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                    return meta._meta_table['Pmipv6.Lma.Heartbeats.Heartbeat']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                return meta._meta_table['Pmipv6.Lma.Heartbeats']['meta_info']
 
 
-
-        class ConfigVariables(Entity):
+        class ConfigVariables(_Entity_):
             """
             Global Configuration Variables
             
@@ -5432,7 +5725,10 @@ class Pmipv6(Entity):
             _revision = '2016-03-10'
 
             def __init__(self):
-                super(Pmipv6.Lma.ConfigVariables, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Pmipv6.Lma.ConfigVariables, self).__init__()
 
                 self.yang_name = "config-variables"
                 self.yang_parent_name = "lma"
@@ -5457,7 +5753,7 @@ class Pmipv6(Entity):
                 self._perform_setattr(Pmipv6.Lma.ConfigVariables, [], name, value)
 
 
-            class CustomerVariables(Entity):
+            class CustomerVariables(_Entity_):
                 """
                 Table of CustomerVariables
                 
@@ -5476,7 +5772,10 @@ class Pmipv6(Entity):
                 _revision = '2016-03-10'
 
                 def __init__(self):
-                    super(Pmipv6.Lma.ConfigVariables.CustomerVariables, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pmipv6.Lma.ConfigVariables.CustomerVariables, self).__init__()
 
                     self.yang_name = "customer-variables"
                     self.yang_parent_name = "config-variables"
@@ -5495,7 +5794,7 @@ class Pmipv6(Entity):
                     self._perform_setattr(Pmipv6.Lma.ConfigVariables.CustomerVariables, [], name, value)
 
 
-                class CustomerVariable(Entity):
+                class CustomerVariable(_Entity_):
                     """
                     Customer name string
                     
@@ -5544,7 +5843,10 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable, self).__init__()
 
                         self.yang_name = "customer-variable"
                         self.yang_parent_name = "customer-variables"
@@ -5574,7 +5876,7 @@ class Pmipv6(Entity):
                         self._perform_setattr(Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable, ['customer_name', 'cust_name', 'vrf_name', 'auth_option'], name, value)
 
 
-                    class MllService(Entity):
+                    class MllService(_Entity_):
                         """
                         MLL service parameters
                         
@@ -5665,7 +5967,10 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService, self).__init__()
 
                             self.yang_name = "mll-service"
                             self.yang_parent_name = "customer-variable"
@@ -5699,11 +6004,23 @@ class Pmipv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService, ['ignore_hoa', 'mnp_ipv4_lmn_max', 'mnp_ipv6_lmn_max', 'mnp_lmn_max', 'mnp_ipv4_cust_max', 'mnp_ipv6_cust_max', 'mnp_cust_max', 'mnp_ipv4_cust_cur', 'mnp_ipv6_cust_cur'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                            return meta._meta_table['Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                        return meta._meta_table['Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                    return meta._meta_table['Pmipv6.Lma.ConfigVariables.CustomerVariables']['meta_info']
 
 
-
-
-            class GlobalVariables(Entity):
+            class GlobalVariables(_Entity_):
                 """
                 Global Configuration Variables
                 
@@ -5913,7 +6230,10 @@ class Pmipv6(Entity):
                 _revision = '2016-03-10'
 
                 def __init__(self):
-                    super(Pmipv6.Lma.ConfigVariables.GlobalVariables, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Pmipv6.Lma.ConfigVariables.GlobalVariables, self).__init__()
 
                     self.yang_name = "global-variables"
                     self.yang_parent_name = "config-variables"
@@ -5984,7 +6304,7 @@ class Pmipv6(Entity):
                     self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables, ['domain', 'selfid', 'apn_name', 'role', 'count', 'peers', 'customers', 'num_network', 'discover_mn', 'local_routing', 'aaa_accounting', 'default_mn', 'apn', 'learn_mag', 'session_mgr', 'service', 'profile', 'ddp', 'ddt', 'ddr'], name, value)
 
 
-                class Parameters(Entity):
+                class Parameters(_Entity_):
                     """
                     Domain Parameters
                     
@@ -6150,7 +6470,10 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters, self).__init__()
 
                         self.yang_name = "parameters"
                         self.yang_parent_name = "global-variables"
@@ -6206,7 +6529,7 @@ class Pmipv6(Entity):
                         self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters, ['timestamp', 'window', 'auth_option', 'reg_time', 'ref_time', 'retx', 'ret_max', 'bri_init', 'bri_retries', 'bri_max', 'max_bindings', 'hnp', 'encap', 'delete_time', 'create_time', 'up_grekey', 'down_grekey'], name, value)
 
 
-                    class SelfId(Entity):
+                    class SelfId(_Entity_):
                         """
                         Self Identifier
                         
@@ -6250,7 +6573,10 @@ class Pmipv6(Entity):
                         _revision = '2016-03-10'
 
                         def __init__(self):
-                            super(Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId, self).__init__()
 
                             self.yang_name = "self-id"
                             self.yang_parent_name = "parameters"
@@ -6275,10 +6601,18 @@ class Pmipv6(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId, ['entity_', 'addr_type', 'address', 'ipv4_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                            return meta._meta_table['Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                        return meta._meta_table['Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters']['meta_info']
 
 
-
-                class MllService(Entity):
+                class MllService(_Entity_):
                     """
                     MLL service parameters
                     
@@ -6369,7 +6703,10 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.ConfigVariables.GlobalVariables.MllService, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pmipv6.Lma.ConfigVariables.GlobalVariables.MllService, self).__init__()
 
                         self.yang_name = "mll-service"
                         self.yang_parent_name = "global-variables"
@@ -6404,9 +6741,13 @@ class Pmipv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.MllService, ['ignore_hoa', 'mnp_ipv4_lmn_max', 'mnp_ipv6_lmn_max', 'mnp_lmn_max', 'mnp_ipv4_cust_max', 'mnp_ipv6_cust_max', 'mnp_cust_max', 'mnp_ipv4_cust_cur', 'mnp_ipv6_cust_cur'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                        return meta._meta_table['Pmipv6.Lma.ConfigVariables.GlobalVariables.MllService']['meta_info']
 
 
-                class Intf(Entity):
+                class Intf(_Entity_):
                     """
                     MAG Access List
                     
@@ -6439,7 +6780,10 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.ConfigVariables.GlobalVariables.Intf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pmipv6.Lma.ConfigVariables.GlobalVariables.Intf, self).__init__()
 
                         self.yang_name = "intf"
                         self.yang_parent_name = "global-variables"
@@ -6462,9 +6806,13 @@ class Pmipv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Intf, ['apn', 'interface', 'apn_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                        return meta._meta_table['Pmipv6.Lma.ConfigVariables.GlobalVariables.Intf']['meta_info']
 
 
-                class Peer(Entity):
+                class Peer(_Entity_):
                     """
                     Peer Parameters
                     
@@ -6525,7 +6873,10 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.ConfigVariables.GlobalVariables.Peer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pmipv6.Lma.ConfigVariables.GlobalVariables.Peer, self).__init__()
 
                         self.yang_name = "peer"
                         self.yang_parent_name = "global-variables"
@@ -6556,9 +6907,13 @@ class Pmipv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Peer, ['peer', 'vrf_name', 'interface', 'encap', 'auth', 'vrf', 'statictunnel'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                        return meta._meta_table['Pmipv6.Lma.ConfigVariables.GlobalVariables.Peer']['meta_info']
 
 
-                class Network(Entity):
+                class Network(_Entity_):
                     """
                     LMA Network Parameters
                     
@@ -6636,7 +6991,10 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.ConfigVariables.GlobalVariables.Network, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pmipv6.Lma.ConfigVariables.GlobalVariables.Network, self).__init__()
 
                         self.yang_name = "network"
                         self.yang_parent_name = "global-variables"
@@ -6669,9 +7027,13 @@ class Pmipv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Network, ['v4pool', 'v6pool', 'network', 'ipv4', 'ipv6', 'v4pfx_len', 'v6pfx_len', 'mrnet'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                        return meta._meta_table['Pmipv6.Lma.ConfigVariables.GlobalVariables.Network']['meta_info']
 
 
-                class Cust(Entity):
+                class Cust(_Entity_):
                     """
                     Customer parameters
                     
@@ -6748,7 +7110,10 @@ class Pmipv6(Entity):
                     _revision = '2016-03-10'
 
                     def __init__(self):
-                        super(Pmipv6.Lma.ConfigVariables.GlobalVariables.Cust, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Pmipv6.Lma.ConfigVariables.GlobalVariables.Cust, self).__init__()
 
                         self.yang_name = "cust"
                         self.yang_parent_name = "global-variables"
@@ -6783,13 +7148,33 @@ class Pmipv6(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Cust, ['cust', 'vrf', 't_vrf', 'auth_option', 'heart_beat', 'reg_time', 'cust_name', 'vrf_name', 't_vrf_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                        return meta._meta_table['Pmipv6.Lma.ConfigVariables.GlobalVariables.Cust']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                    return meta._meta_table['Pmipv6.Lma.ConfigVariables.GlobalVariables']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+                return meta._meta_table['Pmipv6.Lma.ConfigVariables']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+            return meta._meta_table['Pmipv6.Lma']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Pmipv6()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_mobileip_oper as meta
+        return meta._meta_table['Pmipv6']['meta_info']
 
 

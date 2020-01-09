@@ -868,6 +868,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
         description
           "Short reach Bi-Directional";
       }
+      enum "far-reach" {
+        value 74;
+        description
+          "Far reach duplex SMF";
+      }
     }
     description
       "Optics phy type";
@@ -970,6 +975,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
         description
           "Other";
       }
+      enum "sfp28" {
+        value 19;
+        description
+          "SFP28";
+      }
     }
     description
       "Optics form factor";
@@ -1033,6 +1043,11 @@ submodule Cisco-IOS-XR-controller-optics-oper-sub1 {
         value 6;
         description
           "Red Flashing";
+      }
+      enum "na" {
+        value 7;
+        description
+          "N/A";
       }
     }
     description

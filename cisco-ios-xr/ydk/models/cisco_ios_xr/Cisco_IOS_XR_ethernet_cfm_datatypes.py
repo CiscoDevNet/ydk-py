@@ -7,8 +7,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -37,6 +40,12 @@ class CfmAisInterval(Enum):
     Y_1m = Enum.YLeaf(6, "1m")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_datatypes as meta
+        return meta._meta_table['CfmAisInterval']
+
+
 class CfmBandwidthNotificationState(Enum):
     """
     CfmBandwidthNotificationState (Enum Class)
@@ -56,6 +65,12 @@ class CfmBandwidthNotificationState(Enum):
     ok = Enum.YLeaf(1, "ok")
 
     degraded = Enum.YLeaf(2, "degraded")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_datatypes as meta
+        return meta._meta_table['CfmBandwidthNotificationState']
 
 
 class CfmCcmInterval(Enum):
@@ -109,6 +124,12 @@ class CfmCcmInterval(Enum):
     Y_10m = Enum.YLeaf(7, "10m")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_datatypes as meta
+        return meta._meta_table['CfmCcmInterval']
+
+
 class CfmMepDir(Enum):
     """
     CfmMepDir (Enum Class)
@@ -128,6 +149,12 @@ class CfmMepDir(Enum):
     up = Enum.YLeaf(0, "up")
 
     down = Enum.YLeaf(1, "down")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_datatypes as meta
+        return meta._meta_table['CfmMepDir']
 
 
 

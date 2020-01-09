@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -42,6 +45,12 @@ class XrXmlSessionAlarmRegister(Enum):
     not_registered = Enum.YLeaf(2, "not-registered")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+        return meta._meta_table['XrXmlSessionAlarmRegister']
+
+
 class XrXmlSessionState(Enum):
     """
     XrXmlSessionState (Enum Class)
@@ -63,8 +72,14 @@ class XrXmlSessionState(Enum):
     busy = Enum.YLeaf(2, "busy")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+        return meta._meta_table['XrXmlSessionState']
 
-class Netconf(Entity):
+
+
+class Netconf(_Entity_):
     """
     NETCONF operational information
     
@@ -83,7 +98,10 @@ class Netconf(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(Netconf, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Netconf, self).__init__()
         self._top_entity = None
 
         self.yang_name = "netconf"
@@ -104,7 +122,7 @@ class Netconf(Entity):
         self._perform_setattr(Netconf, [], name, value)
 
 
-    class Agent(Entity):
+    class Agent(_Entity_):
         """
         NETCONF agent operational information
         
@@ -123,7 +141,10 @@ class Netconf(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(Netconf.Agent, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Netconf.Agent, self).__init__()
 
             self.yang_name = "agent"
             self.yang_parent_name = "netconf"
@@ -144,7 +165,7 @@ class Netconf(Entity):
             self._perform_setattr(Netconf.Agent, [], name, value)
 
 
-        class Tty(Entity):
+        class Tty(_Entity_):
             """
             NETCONF agent over TTY
             
@@ -163,7 +184,10 @@ class Netconf(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(Netconf.Agent.Tty, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Netconf.Agent.Tty, self).__init__()
 
                 self.yang_name = "tty"
                 self.yang_parent_name = "agent"
@@ -184,7 +208,7 @@ class Netconf(Entity):
                 self._perform_setattr(Netconf.Agent.Tty, [], name, value)
 
 
-            class Sessions(Entity):
+            class Sessions(_Entity_):
                 """
                 Session information
                 
@@ -203,7 +227,10 @@ class Netconf(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(Netconf.Agent.Tty.Sessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Netconf.Agent.Tty.Sessions, self).__init__()
 
                     self.yang_name = "sessions"
                     self.yang_parent_name = "tty"
@@ -222,7 +249,7 @@ class Netconf(Entity):
                     self._perform_setattr(Netconf.Agent.Tty.Sessions, [], name, value)
 
 
-                class Session(Entity):
+                class Session(_Entity_):
                     """
                     Session information
                     
@@ -334,7 +361,10 @@ class Netconf(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(Netconf.Agent.Tty.Sessions.Session, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Netconf.Agent.Tty.Sessions.Session, self).__init__()
 
                         self.yang_name = "session"
                         self.yang_parent_name = "sessions"
@@ -375,17 +405,37 @@ class Netconf(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Netconf.Agent.Tty.Sessions.Session, ['session_id', 'username', 'state', 'client_address', 'client_port', 'config_session_id', 'admin_config_session_id', 'alarm_notification', 'vrf_name', 'start_time', 'elapsed_time', 'last_state_change'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+                        return meta._meta_table['Netconf.Agent.Tty.Sessions.Session']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+                    return meta._meta_table['Netconf.Agent.Tty.Sessions']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+                return meta._meta_table['Netconf.Agent.Tty']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+            return meta._meta_table['Netconf.Agent']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Netconf()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+        return meta._meta_table['Netconf']['meta_info']
 
 
-class XrXml(Entity):
+class XrXml(_Entity_):
     """
     xr xml
     
@@ -404,7 +454,10 @@ class XrXml(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(XrXml, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(XrXml, self).__init__()
         self._top_entity = None
 
         self.yang_name = "xr-xml"
@@ -425,7 +478,7 @@ class XrXml(Entity):
         self._perform_setattr(XrXml, [], name, value)
 
 
-    class Agent(Entity):
+    class Agent(_Entity_):
         """
         XML agents
         
@@ -458,7 +511,10 @@ class XrXml(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(XrXml.Agent, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(XrXml.Agent, self).__init__()
 
             self.yang_name = "agent"
             self.yang_parent_name = "xr-xml"
@@ -487,7 +543,7 @@ class XrXml(Entity):
             self._perform_setattr(XrXml.Agent, [], name, value)
 
 
-        class Tty(Entity):
+        class Tty(_Entity_):
             """
             TTY sessions information
             
@@ -506,7 +562,10 @@ class XrXml(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(XrXml.Agent.Tty, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(XrXml.Agent.Tty, self).__init__()
 
                 self.yang_name = "tty"
                 self.yang_parent_name = "agent"
@@ -527,7 +586,7 @@ class XrXml(Entity):
                 self._perform_setattr(XrXml.Agent.Tty, [], name, value)
 
 
-            class Sessions(Entity):
+            class Sessions(_Entity_):
                 """
                 sessions information
                 
@@ -546,7 +605,10 @@ class XrXml(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(XrXml.Agent.Tty.Sessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(XrXml.Agent.Tty.Sessions, self).__init__()
 
                     self.yang_name = "sessions"
                     self.yang_parent_name = "tty"
@@ -565,7 +627,7 @@ class XrXml(Entity):
                     self._perform_setattr(XrXml.Agent.Tty.Sessions, [], name, value)
 
 
-                class Session(Entity):
+                class Session(_Entity_):
                     """
                     xml sessions information
                     
@@ -677,7 +739,10 @@ class XrXml(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(XrXml.Agent.Tty.Sessions.Session, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(XrXml.Agent.Tty.Sessions.Session, self).__init__()
 
                         self.yang_name = "session"
                         self.yang_parent_name = "sessions"
@@ -718,11 +783,23 @@ class XrXml(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(XrXml.Agent.Tty.Sessions.Session, ['session_id', 'username', 'state', 'client_address', 'client_port', 'config_session_id', 'admin_config_session_id', 'alarm_notification', 'vrf_name', 'start_time', 'elapsed_time', 'last_state_change'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+                        return meta._meta_table['XrXml.Agent.Tty.Sessions.Session']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+                    return meta._meta_table['XrXml.Agent.Tty.Sessions']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+                return meta._meta_table['XrXml.Agent.Tty']['meta_info']
 
 
-
-
-        class Default(Entity):
+        class Default(_Entity_):
             """
             Default sessions information
             
@@ -741,7 +818,10 @@ class XrXml(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(XrXml.Agent.Default, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(XrXml.Agent.Default, self).__init__()
 
                 self.yang_name = "default"
                 self.yang_parent_name = "agent"
@@ -762,7 +842,7 @@ class XrXml(Entity):
                 self._perform_setattr(XrXml.Agent.Default, [], name, value)
 
 
-            class Sessions(Entity):
+            class Sessions(_Entity_):
                 """
                 sessions information
                 
@@ -781,7 +861,10 @@ class XrXml(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(XrXml.Agent.Default.Sessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(XrXml.Agent.Default.Sessions, self).__init__()
 
                     self.yang_name = "sessions"
                     self.yang_parent_name = "default"
@@ -800,7 +883,7 @@ class XrXml(Entity):
                     self._perform_setattr(XrXml.Agent.Default.Sessions, [], name, value)
 
 
-                class Session(Entity):
+                class Session(_Entity_):
                     """
                     xml sessions information
                     
@@ -912,7 +995,10 @@ class XrXml(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(XrXml.Agent.Default.Sessions.Session, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(XrXml.Agent.Default.Sessions.Session, self).__init__()
 
                         self.yang_name = "session"
                         self.yang_parent_name = "sessions"
@@ -953,11 +1039,23 @@ class XrXml(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(XrXml.Agent.Default.Sessions.Session, ['session_id', 'username', 'state', 'client_address', 'client_port', 'config_session_id', 'admin_config_session_id', 'alarm_notification', 'vrf_name', 'start_time', 'elapsed_time', 'last_state_change'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+                        return meta._meta_table['XrXml.Agent.Default.Sessions.Session']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+                    return meta._meta_table['XrXml.Agent.Default.Sessions']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+                return meta._meta_table['XrXml.Agent.Default']['meta_info']
 
 
-
-
-        class Ssl(Entity):
+        class Ssl(_Entity_):
             """
             SSL sessions information
             
@@ -976,7 +1074,10 @@ class XrXml(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(XrXml.Agent.Ssl, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(XrXml.Agent.Ssl, self).__init__()
 
                 self.yang_name = "ssl"
                 self.yang_parent_name = "agent"
@@ -997,7 +1098,7 @@ class XrXml(Entity):
                 self._perform_setattr(XrXml.Agent.Ssl, [], name, value)
 
 
-            class Sessions(Entity):
+            class Sessions(_Entity_):
                 """
                 sessions information
                 
@@ -1016,7 +1117,10 @@ class XrXml(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(XrXml.Agent.Ssl.Sessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(XrXml.Agent.Ssl.Sessions, self).__init__()
 
                     self.yang_name = "sessions"
                     self.yang_parent_name = "ssl"
@@ -1035,7 +1139,7 @@ class XrXml(Entity):
                     self._perform_setattr(XrXml.Agent.Ssl.Sessions, [], name, value)
 
 
-                class Session(Entity):
+                class Session(_Entity_):
                     """
                     xml sessions information
                     
@@ -1147,7 +1251,10 @@ class XrXml(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(XrXml.Agent.Ssl.Sessions.Session, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(XrXml.Agent.Ssl.Sessions.Session, self).__init__()
 
                         self.yang_name = "session"
                         self.yang_parent_name = "sessions"
@@ -1188,13 +1295,33 @@ class XrXml(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(XrXml.Agent.Ssl.Sessions.Session, ['session_id', 'username', 'state', 'client_address', 'client_port', 'config_session_id', 'admin_config_session_id', 'alarm_notification', 'vrf_name', 'start_time', 'elapsed_time', 'last_state_change'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+                        return meta._meta_table['XrXml.Agent.Ssl.Sessions.Session']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+                    return meta._meta_table['XrXml.Agent.Ssl.Sessions']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+                return meta._meta_table['XrXml.Agent.Ssl']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+            return meta._meta_table['XrXml.Agent']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = XrXml()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
+        return meta._meta_table['XrXml']['meta_info']
 
 

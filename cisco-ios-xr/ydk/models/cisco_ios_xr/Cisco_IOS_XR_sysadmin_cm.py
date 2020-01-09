@@ -15,8 +15,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -43,23 +46,29 @@ class AreaType(Enum):
     UNKNOWN = Enum.YLeaf(2, "UNKNOWN")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+        return meta._meta_table['AreaType']
 
-class NodeInventory(Entity):
+
+
+class NodeInventory(_Entity_):
     """
-    System Admin Manager Node Inventory. All accesses are 
+    System Admin Manager Node Inventory. All accesses are
     read\-only. CLI show command looks like show node\-inventory
     location <location>
     
     .. attribute:: summary
     
-    	System Admin Manager Node Inventory. All accesses are  read\-only. CLI show command looks like show node\-inventory location <location>
+    	System Admin Manager Node Inventory. All accesses are read\-only. CLI show command looks like show node\-inventory location <location>
     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.NodeInventory.Summary>`
     
     	**config**\: False
     
     .. attribute:: detail
     
-    	System Admin Manager Node Inventory. All accesses are  read\-only. CLI show command looks like show node\-inventory location <location>
+    	System Admin Manager Node Inventory. All accesses are read\-only. CLI show command looks like show node\-inventory location <location>
     	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.NodeInventory.Detail>`
     
     	**config**\: False
@@ -72,7 +81,10 @@ class NodeInventory(Entity):
     _revision = '2018-07-03'
 
     def __init__(self):
-        super(NodeInventory, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(NodeInventory, self).__init__()
         self._top_entity = None
 
         self.yang_name = "node-inventory"
@@ -97,9 +109,9 @@ class NodeInventory(Entity):
         self._perform_setattr(NodeInventory, [], name, value)
 
 
-    class Summary(Entity):
+    class Summary(_Entity_):
         """
-        System Admin Manager Node Inventory. All accesses are 
+        System Admin Manager Node Inventory. All accesses are
         read\-only. CLI show command looks like show node\-inventory
         location <location>
         
@@ -118,7 +130,10 @@ class NodeInventory(Entity):
         _revision = '2018-07-03'
 
         def __init__(self):
-            super(NodeInventory.Summary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NodeInventory.Summary, self).__init__()
 
             self.yang_name = "summary"
             self.yang_parent_name = "node-inventory"
@@ -137,7 +152,7 @@ class NodeInventory(Entity):
             self._perform_setattr(NodeInventory.Summary, [], name, value)
 
 
-        class NodeLocations(Entity):
+        class NodeLocations(_Entity_):
             """
             
             
@@ -165,7 +180,10 @@ class NodeInventory(Entity):
             _revision = '2018-07-03'
 
             def __init__(self):
-                super(NodeInventory.Summary.NodeLocations, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NodeInventory.Summary.NodeLocations, self).__init__()
 
                 self.yang_name = "node_locations"
                 self.yang_parent_name = "summary"
@@ -187,7 +205,7 @@ class NodeInventory(Entity):
                 self._perform_setattr(NodeInventory.Summary.NodeLocations, ['node_location'], name, value)
 
 
-            class Nodei(Entity):
+            class Nodei(_Entity_):
                 """
                 
                 
@@ -246,7 +264,10 @@ class NodeInventory(Entity):
                 _revision = '2018-07-03'
 
                 def __init__(self):
-                    super(NodeInventory.Summary.NodeLocations.Nodei, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NodeInventory.Summary.NodeLocations.Nodei, self).__init__()
 
                     self.yang_name = "nodei"
                     self.yang_parent_name = "node_locations"
@@ -272,13 +293,25 @@ class NodeInventory(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NodeInventory.Summary.NodeLocations.Nodei, ['ip_address', 'type', 'mac_address', 'card_serial', 'nti'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+                    return meta._meta_table['NodeInventory.Summary.NodeLocations.Nodei']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+                return meta._meta_table['NodeInventory.Summary.NodeLocations']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+            return meta._meta_table['NodeInventory.Summary']['meta_info']
 
 
-
-
-    class Detail(Entity):
+    class Detail(_Entity_):
         """
-        System Admin Manager Node Inventory. All accesses are 
+        System Admin Manager Node Inventory. All accesses are
         read\-only. CLI show command looks like show node\-inventory
         location <location>
         
@@ -297,7 +330,10 @@ class NodeInventory(Entity):
         _revision = '2018-07-03'
 
         def __init__(self):
-            super(NodeInventory.Detail, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NodeInventory.Detail, self).__init__()
 
             self.yang_name = "detail"
             self.yang_parent_name = "node-inventory"
@@ -316,7 +352,7 @@ class NodeInventory(Entity):
             self._perform_setattr(NodeInventory.Detail, [], name, value)
 
 
-        class NodeLocations(Entity):
+        class NodeLocations(_Entity_):
             """
             
             
@@ -344,7 +380,10 @@ class NodeInventory(Entity):
             _revision = '2018-07-03'
 
             def __init__(self):
-                super(NodeInventory.Detail.NodeLocations, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NodeInventory.Detail.NodeLocations, self).__init__()
 
                 self.yang_name = "node_locations"
                 self.yang_parent_name = "detail"
@@ -366,7 +405,7 @@ class NodeInventory(Entity):
                 self._perform_setattr(NodeInventory.Detail.NodeLocations, ['node_location'], name, value)
 
 
-            class Nodei(Entity):
+            class Nodei(_Entity_):
                 """
                 
                 
@@ -446,7 +485,10 @@ class NodeInventory(Entity):
                 _revision = '2018-07-03'
 
                 def __init__(self):
-                    super(NodeInventory.Detail.NodeLocations.Nodei, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NodeInventory.Detail.NodeLocations.Nodei, self).__init__()
 
                     self.yang_name = "nodei"
                     self.yang_parent_name = "node_locations"
@@ -478,18 +520,34 @@ class NodeInventory(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NodeInventory.Detail.NodeLocations.Nodei, ['ip_address', 'type', 'mac_address', 'card_serial', 'nti', 'restart', 'data', 'sdr'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+                    return meta._meta_table['NodeInventory.Detail.NodeLocations.Nodei']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+                return meta._meta_table['NodeInventory.Detail.NodeLocations']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+            return meta._meta_table['NodeInventory.Detail']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = NodeInventory()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+        return meta._meta_table['NodeInventory']['meta_info']
 
 
-class CardInventory(Entity):
+class CardInventory(_Entity_):
     """
-    System Admin Manager Card Inventory. All accesses are 
+    System Admin Manager Card Inventory. All accesses are
     read\-only. CLI show command looks like show card\-inventory
     location <location>
     
@@ -508,7 +566,10 @@ class CardInventory(Entity):
     _revision = '2018-07-03'
 
     def __init__(self):
-        super(CardInventory, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(CardInventory, self).__init__()
         self._top_entity = None
 
         self.yang_name = "card-inventory"
@@ -527,7 +588,7 @@ class CardInventory(Entity):
         self._perform_setattr(CardInventory, [], name, value)
 
 
-    class CardLocations(Entity):
+    class CardLocations(_Entity_):
         """
         
         
@@ -555,7 +616,10 @@ class CardInventory(Entity):
         _revision = '2018-07-03'
 
         def __init__(self):
-            super(CardInventory.CardLocations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(CardInventory.CardLocations, self).__init__()
 
             self.yang_name = "card_locations"
             self.yang_parent_name = "card-inventory"
@@ -577,7 +641,7 @@ class CardInventory(Entity):
             self._perform_setattr(CardInventory.CardLocations, ['card_location'], name, value)
 
 
-        class Cardi(Entity):
+        class Cardi(_Entity_):
             """
             
             
@@ -642,7 +706,10 @@ class CardInventory(Entity):
             _revision = '2018-07-03'
 
             def __init__(self):
-                super(CardInventory.CardLocations.Cardi, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(CardInventory.CardLocations.Cardi, self).__init__()
 
                 self.yang_name = "cardi"
                 self.yang_parent_name = "card_locations"
@@ -672,15 +739,27 @@ class CardInventory(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CardInventory.CardLocations.Cardi, ['card_serial', 'node_id', 'card_type', 'hw_state', 'sw_state', 'slot', 'cti'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+                return meta._meta_table['CardInventory.CardLocations.Cardi']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+            return meta._meta_table['CardInventory.CardLocations']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = CardInventory()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+        return meta._meta_table['CardInventory']['meta_info']
 
 
-class RackInventory(Entity):
+class RackInventory(_Entity_):
     """
     System Admin Manager Rack Inventory
     
@@ -699,7 +778,10 @@ class RackInventory(Entity):
     _revision = '2018-07-03'
 
     def __init__(self):
-        super(RackInventory, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RackInventory, self).__init__()
         self._top_entity = None
 
         self.yang_name = "rack-inventory"
@@ -718,7 +800,7 @@ class RackInventory(Entity):
         self._perform_setattr(RackInventory, [], name, value)
 
 
-    class RackLocations(Entity):
+    class RackLocations(_Entity_):
         """
         
         
@@ -746,7 +828,10 @@ class RackInventory(Entity):
         _revision = '2018-07-03'
 
         def __init__(self):
-            super(RackInventory.RackLocations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RackInventory.RackLocations, self).__init__()
 
             self.yang_name = "rack_locations"
             self.yang_parent_name = "rack-inventory"
@@ -768,7 +853,7 @@ class RackInventory(Entity):
             self._perform_setattr(RackInventory.RackLocations, ['rack_location'], name, value)
 
 
-        class Racki(Entity):
+        class Racki(_Entity_):
             """
             
             
@@ -805,7 +890,10 @@ class RackInventory(Entity):
             _revision = '2018-07-03'
 
             def __init__(self):
-                super(RackInventory.RackLocations.Racki, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RackInventory.RackLocations.Racki, self).__init__()
 
                 self.yang_name = "racki"
                 self.yang_parent_name = "rack_locations"
@@ -827,15 +915,27 @@ class RackInventory(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RackInventory.RackLocations.Racki, ['rack_serial', 'rack_number', 'rack_state'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+                return meta._meta_table['RackInventory.RackLocations.Racki']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+            return meta._meta_table['RackInventory.RackLocations']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RackInventory()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+        return meta._meta_table['RackInventory']['meta_info']
 
 
-class SystemServiceInventory(Entity):
+class SystemServiceInventory(_Entity_):
     """
     System Admin Manager System Services Inventory
     
@@ -854,7 +954,10 @@ class SystemServiceInventory(Entity):
     _revision = '2018-07-03'
 
     def __init__(self):
-        super(SystemServiceInventory, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SystemServiceInventory, self).__init__()
         self._top_entity = None
 
         self.yang_name = "system-service-inventory"
@@ -873,7 +976,7 @@ class SystemServiceInventory(Entity):
         self._perform_setattr(SystemServiceInventory, [], name, value)
 
 
-    class SsvcLocations(Entity):
+    class SsvcLocations(_Entity_):
         """
         
         
@@ -901,7 +1004,10 @@ class SystemServiceInventory(Entity):
         _revision = '2018-07-03'
 
         def __init__(self):
-            super(SystemServiceInventory.SsvcLocations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SystemServiceInventory.SsvcLocations, self).__init__()
 
             self.yang_name = "ssvc_locations"
             self.yang_parent_name = "system-service-inventory"
@@ -923,7 +1029,7 @@ class SystemServiceInventory(Entity):
             self._perform_setattr(SystemServiceInventory.SsvcLocations, ['ssvc_location'], name, value)
 
 
-        class Ssvci(Entity):
+        class Ssvci(_Entity_):
             """
             
             
@@ -979,7 +1085,10 @@ class SystemServiceInventory(Entity):
             _revision = '2018-07-03'
 
             def __init__(self):
-                super(SystemServiceInventory.SsvcLocations.Ssvci, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SystemServiceInventory.SsvcLocations.Ssvci, self).__init__()
 
                 self.yang_name = "ssvci"
                 self.yang_parent_name = "ssvc_locations"
@@ -1007,15 +1116,27 @@ class SystemServiceInventory(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SystemServiceInventory.SsvcLocations.Ssvci, ['svc_name', 'placement_first', 'nodeid_first', 'placement_second', 'nodeid_second', 'svc_load'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+                return meta._meta_table['SystemServiceInventory.SsvcLocations.Ssvci']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+            return meta._meta_table['SystemServiceInventory.SsvcLocations']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SystemServiceInventory()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+        return meta._meta_table['SystemServiceInventory']['meta_info']
 
 
-class RackServiceInventory(Entity):
+class RackServiceInventory(_Entity_):
     """
     System Admin Manager Rack Services Inventory
     
@@ -1034,7 +1155,10 @@ class RackServiceInventory(Entity):
     _revision = '2018-07-03'
 
     def __init__(self):
-        super(RackServiceInventory, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RackServiceInventory, self).__init__()
         self._top_entity = None
 
         self.yang_name = "rack-service-inventory"
@@ -1053,7 +1177,7 @@ class RackServiceInventory(Entity):
         self._perform_setattr(RackServiceInventory, [], name, value)
 
 
-    class RsvcLocations(Entity):
+    class RsvcLocations(_Entity_):
         """
         
         
@@ -1081,7 +1205,10 @@ class RackServiceInventory(Entity):
         _revision = '2018-07-03'
 
         def __init__(self):
-            super(RackServiceInventory.RsvcLocations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RackServiceInventory.RsvcLocations, self).__init__()
 
             self.yang_name = "rsvc_locations"
             self.yang_parent_name = "rack-service-inventory"
@@ -1103,7 +1230,7 @@ class RackServiceInventory(Entity):
             self._perform_setattr(RackServiceInventory.RsvcLocations, ['rsvc_location'], name, value)
 
 
-        class Rsvci(Entity):
+        class Rsvci(_Entity_):
             """
             
             
@@ -1159,7 +1286,10 @@ class RackServiceInventory(Entity):
             _revision = '2018-07-03'
 
             def __init__(self):
-                super(RackServiceInventory.RsvcLocations.Rsvci, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RackServiceInventory.RsvcLocations.Rsvci, self).__init__()
 
                 self.yang_name = "rsvci"
                 self.yang_parent_name = "rsvc_locations"
@@ -1187,15 +1317,27 @@ class RackServiceInventory(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RackServiceInventory.RsvcLocations.Rsvci, ['svc_name', 'placement_first', 'nodeid_first', 'placement_second', 'nodeid_second', 'svc_load'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+                return meta._meta_table['RackServiceInventory.RsvcLocations.Rsvci']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+            return meta._meta_table['RackServiceInventory.RsvcLocations']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RackServiceInventory()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+        return meta._meta_table['RackServiceInventory']['meta_info']
 
 
-class SdrInventory(Entity):
+class SdrInventory(_Entity_):
     """
     System Admin Manager SDR Inventory
     
@@ -1214,7 +1356,10 @@ class SdrInventory(Entity):
     _revision = '2018-07-03'
 
     def __init__(self):
-        super(SdrInventory, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SdrInventory, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sdr-inventory"
@@ -1233,7 +1378,7 @@ class SdrInventory(Entity):
         self._perform_setattr(SdrInventory, [], name, value)
 
 
-    class SdrLocations(Entity):
+    class SdrLocations(_Entity_):
         """
         
         
@@ -1261,7 +1406,10 @@ class SdrInventory(Entity):
         _revision = '2018-07-03'
 
         def __init__(self):
-            super(SdrInventory.SdrLocations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SdrInventory.SdrLocations, self).__init__()
 
             self.yang_name = "sdr_locations"
             self.yang_parent_name = "sdr-inventory"
@@ -1283,7 +1431,7 @@ class SdrInventory(Entity):
             self._perform_setattr(SdrInventory.SdrLocations, ['sdr_location'], name, value)
 
 
-        class Sdri(Entity):
+        class Sdri(_Entity_):
             """
             
             
@@ -1329,7 +1477,10 @@ class SdrInventory(Entity):
             _revision = '2018-07-03'
 
             def __init__(self):
-                super(SdrInventory.SdrLocations.Sdri, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SdrInventory.SdrLocations.Sdri, self).__init__()
 
                 self.yang_name = "sdri"
                 self.yang_parent_name = "sdr_locations"
@@ -1353,15 +1504,27 @@ class SdrInventory(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SdrInventory.SdrLocations.Sdri, ['sdr_name', 'sdr_id', 'sdr_vlan_baseid', 'sdr_version'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+                return meta._meta_table['SdrInventory.SdrLocations.Sdri']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+            return meta._meta_table['SdrInventory.SdrLocations']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SdrInventory()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+        return meta._meta_table['SdrInventory']['meta_info']
 
 
-class LeaderStatistics(Entity):
+class LeaderStatistics(_Entity_):
     """
     System Admin Manager Leader Statistics
     
@@ -1380,7 +1543,10 @@ class LeaderStatistics(Entity):
     _revision = '2018-07-03'
 
     def __init__(self):
-        super(LeaderStatistics, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(LeaderStatistics, self).__init__()
         self._top_entity = None
 
         self.yang_name = "leader-statistics"
@@ -1399,7 +1565,7 @@ class LeaderStatistics(Entity):
         self._perform_setattr(LeaderStatistics, [], name, value)
 
 
-    class LdrLocations(Entity):
+    class LdrLocations(_Entity_):
         """
         
         
@@ -1462,7 +1628,10 @@ class LeaderStatistics(Entity):
         _revision = '2018-07-03'
 
         def __init__(self):
-            super(LeaderStatistics.LdrLocations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(LeaderStatistics.LdrLocations, self).__init__()
 
             self.yang_name = "ldr_locations"
             self.yang_parent_name = "leader-statistics"
@@ -1493,14 +1662,22 @@ class LeaderStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(LeaderStatistics.LdrLocations, ['ldr_location', 'syslead', 'bkup_syslead', 'racklead', 'bkup_racklead', 'l1_dis', 'l2_dis'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+            return meta._meta_table['LeaderStatistics.LdrLocations']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = LeaderStatistics()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+        return meta._meta_table['LeaderStatistics']['meta_info']
 
 
-class TopologyNeighbors(Entity):
+class TopologyNeighbors(_Entity_):
     """
     System Admin Manager Neighbors of a location
     
@@ -1519,7 +1696,10 @@ class TopologyNeighbors(Entity):
     _revision = '2018-07-03'
 
     def __init__(self):
-        super(TopologyNeighbors, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(TopologyNeighbors, self).__init__()
         self._top_entity = None
 
         self.yang_name = "topology-neighbors"
@@ -1538,7 +1718,7 @@ class TopologyNeighbors(Entity):
         self._perform_setattr(TopologyNeighbors, [], name, value)
 
 
-    class NbrLocations(Entity):
+    class NbrLocations(_Entity_):
         """
         
         
@@ -1566,7 +1746,10 @@ class TopologyNeighbors(Entity):
         _revision = '2018-07-03'
 
         def __init__(self):
-            super(TopologyNeighbors.NbrLocations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TopologyNeighbors.NbrLocations, self).__init__()
 
             self.yang_name = "nbr_locations"
             self.yang_parent_name = "topology-neighbors"
@@ -1588,7 +1771,7 @@ class TopologyNeighbors(Entity):
             self._perform_setattr(TopologyNeighbors.NbrLocations, ['nbr_location'], name, value)
 
 
-        class Nbri(Entity):
+        class Nbri(_Entity_):
             """
             
             
@@ -1644,7 +1827,10 @@ class TopologyNeighbors(Entity):
             _revision = '2018-07-03'
 
             def __init__(self):
-                super(TopologyNeighbors.NbrLocations.Nbri, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TopologyNeighbors.NbrLocations.Nbri, self).__init__()
 
                 self.yang_name = "nbri"
                 self.yang_parent_name = "nbr_locations"
@@ -1672,15 +1858,27 @@ class TopologyNeighbors(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(TopologyNeighbors.NbrLocations.Nbri, ['nbr_system_id', 'nbr_area_type', 'nbr_interface', 'nbr_state', 'nbr_holdtime', 'nbr_uptime'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+                return meta._meta_table['TopologyNeighbors.NbrLocations.Nbri']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+            return meta._meta_table['TopologyNeighbors.NbrLocations']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = TopologyNeighbors()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+        return meta._meta_table['TopologyNeighbors']['meta_info']
 
 
-class Placement(Entity):
+class Placement(_Entity_):
     """
     
     
@@ -1692,7 +1890,10 @@ class Placement(Entity):
     _revision = '2018-07-03'
 
     def __init__(self):
-        super(Placement, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Placement, self).__init__()
         self._top_entity = None
 
         self.yang_name = "placement"
@@ -1709,5 +1910,9 @@ class Placement(Entity):
         self._top_entity = Placement()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_cm as meta
+        return meta._meta_table['Placement']['meta_info']
 
 

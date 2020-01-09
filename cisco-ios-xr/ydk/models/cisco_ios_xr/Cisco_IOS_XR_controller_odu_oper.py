@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -101,6 +104,12 @@ class DpProgrammed(Enum):
     xc_not_set = Enum.YLeaf(11, "xc-not-set")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['DpProgrammed']
+
+
 class GmplsTtiMode(Enum):
     """
     GmplsTtiMode (Enum Class)
@@ -134,6 +143,12 @@ class GmplsTtiMode(Enum):
     gmpls_odu_tti_mode_tcm = Enum.YLeaf(3, "gmpls-odu-tti-mode-tcm")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['GmplsTtiMode']
+
+
 class OduAinsStateEt(Enum):
     """
     OduAinsStateEt (Enum Class)
@@ -159,6 +174,12 @@ class OduAinsStateEt(Enum):
     active_running = Enum.YLeaf(1, "active-running")
 
     active_pending = Enum.YLeaf(2, "active-pending")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduAinsStateEt']
 
 
 class OduDerState(Enum):
@@ -192,6 +213,12 @@ class OduDerState(Enum):
     maintenance = Enum.YLeaf(2, "maintenance")
 
     ains = Enum.YLeaf(3, "ains")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduDerState']
 
 
 class OduEtherMapPingEt(Enum):
@@ -245,6 +272,12 @@ class OduEtherMapPingEt(Enum):
     gfp_ext = Enum.YLeaf(6, "gfp-ext")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduEtherMapPingEt']
+
+
 class OduFlexTypeEt(Enum):
     """
     OduFlexTypeEt (Enum Class)
@@ -278,6 +311,12 @@ class OduFlexTypeEt(Enum):
     gfp_fix = Enum.YLeaf(3, "gfp-fix")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduFlexTypeEt']
+
+
 class OduLoopBackMode(Enum):
     """
     OduLoopBackMode (Enum Class)
@@ -305,6 +344,12 @@ class OduLoopBackMode(Enum):
     internal = Enum.YLeaf(4, "internal")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduLoopBackMode']
+
+
 class OduPerMon(Enum):
     """
     OduPerMon (Enum Class)
@@ -324,6 +369,12 @@ class OduPerMon(Enum):
     disable = Enum.YLeaf(0, "disable")
 
     enable = Enum.YLeaf(1, "enable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduPerMon']
 
 
 class OduPmCaEt(Enum):
@@ -347,6 +398,12 @@ class OduPmCaEt(Enum):
     enable = Enum.YLeaf(1, "enable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduPmCaEt']
+
+
 class OduPmMode(Enum):
     """
     OduPmMode (Enum Class)
@@ -366,6 +423,12 @@ class OduPmMode(Enum):
     nim = Enum.YLeaf(0, "nim")
 
     oper = Enum.YLeaf(1, "oper")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduPmMode']
 
 
 class OduPrbsMode(Enum):
@@ -399,6 +462,12 @@ class OduPrbsMode(Enum):
     sink = Enum.YLeaf(2, "sink")
 
     source_sink = Enum.YLeaf(3, "source-sink")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduPrbsMode']
 
 
 class OduPrbsPattern(Enum):
@@ -446,6 +515,12 @@ class OduPrbsPattern(Enum):
     inverted_pn11 = Enum.YLeaf(16, "inverted-pn11")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduPrbsPattern']
+
+
 class OduPrbsStatus(Enum):
     """
     OduPrbsStatus (Enum Class)
@@ -473,6 +548,12 @@ class OduPrbsStatus(Enum):
     not_applicable = Enum.YLeaf(2, "not-applicable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduPrbsStatus']
+
+
 class OduPrbsTest(Enum):
     """
     OduPrbsTest (Enum Class)
@@ -492,6 +573,12 @@ class OduPrbsTest(Enum):
     disable = Enum.YLeaf(0, "disable")
 
     enable = Enum.YLeaf(1, "enable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduPrbsTest']
 
 
 class OduPtTypeEt(Enum):
@@ -571,6 +658,12 @@ class OduPtTypeEt(Enum):
     twenty_one_odu_multiplex_structure_supporting_odt_ujk_and_odt_ukts = Enum.YLeaf(33, "twenty-one-odu-multiplex-structure-supporting-odt-ujk-and-odt-ukts")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduPtTypeEt']
+
+
 class OduResourceEt(Enum):
     """
     OduResourceEt (Enum Class)
@@ -628,6 +721,12 @@ class OduResourceEt(Enum):
     invalid = Enum.YLeaf(7, "invalid")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduResourceEt']
+
+
 class OduSecState(Enum):
     """
     OduSecState (Enum Class)
@@ -653,6 +752,12 @@ class OduSecState(Enum):
     maintenance = Enum.YLeaf(1, "maintenance")
 
     ains = Enum.YLeaf(2, "ains")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduSecState']
 
 
 class OduStateEt(Enum):
@@ -778,6 +883,12 @@ class OduStateEt(Enum):
     last = Enum.YLeaf(18, "last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduStateEt']
+
+
 class OduTcmMode(Enum):
     """
     OduTcmMode (Enum Class)
@@ -805,6 +916,12 @@ class OduTcmMode(Enum):
     oper = Enum.YLeaf(2, "oper")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduTcmMode']
+
+
 class OduTcmPerMon(Enum):
     """
     OduTcmPerMon (Enum Class)
@@ -826,6 +943,12 @@ class OduTcmPerMon(Enum):
     enable = Enum.YLeaf(1, "enable")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduTcmPerMon']
+
+
 class OduTcmStateEt(Enum):
     """
     OduTcmStateEt (Enum Class)
@@ -845,6 +968,12 @@ class OduTcmStateEt(Enum):
     disable = Enum.YLeaf(0, "disable")
 
     enable = Enum.YLeaf(1, "enable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduTcmStateEt']
 
 
 class OduTsGEt(Enum):
@@ -872,6 +1001,12 @@ class OduTsGEt(Enum):
     two_dot_five_g = Enum.YLeaf(1, "two-dot-five-g")
 
     tsg_not_applicable = Enum.YLeaf(2, "tsg-not-applicable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduTsGEt']
 
 
 class OduTtiEt(Enum):
@@ -907,6 +1042,12 @@ class OduTtiEt(Enum):
     full_hex = Enum.YLeaf(3, "full-hex")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduTtiEt']
+
+
 class OduUserEt(Enum):
     """
     OduUserEt (Enum Class)
@@ -932,6 +1073,12 @@ class OduUserEt(Enum):
     gmpls = Enum.YLeaf(1, "gmpls")
 
     all = Enum.YLeaf(2, "all")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OduUserEt']
 
 
 class OtmMplsLibC(Enum):
@@ -995,6 +1142,12 @@ class OtmMplsLibC(Enum):
     otm_mpls_lib_c_type_ipv4_tp_tunnel = Enum.YLeaf(15, "otm-mpls-lib-c-type-ipv4-tp-tunnel")
 
     otm_mpls_lib_c_type_ipv6_tp_tunnel = Enum.YLeaf(16, "otm-mpls-lib-c-type-ipv6-tp-tunnel")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OtmMplsLibC']
 
 
 class OtmOpticalRmCtxt(Enum):
@@ -1090,6 +1243,12 @@ class OtmOpticalRmCtxt(Enum):
     otm_optical_rm_ctxt_type_last = Enum.YLeaf(13, "otm-optical-rm-ctxt-type-last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OtmOpticalRmCtxt']
+
+
 class OtmOpticalRmCtxtRm(Enum):
     """
     OtmOpticalRmCtxtRm (Enum Class)
@@ -1135,6 +1294,12 @@ class OtmOpticalRmCtxtRm(Enum):
     otm_optical_rm_ctxt_rm_last = Enum.YLeaf(5, "otm-optical-rm-ctxt-rm-last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OtmOpticalRmCtxtRm']
+
+
 class OtmTeTunnelInfo(Enum):
     """
     OtmTeTunnelInfo (Enum Class)
@@ -1168,8 +1333,14 @@ class OtmTeTunnelInfo(Enum):
     otm_te_info_passive_match = Enum.YLeaf(3, "otm-te-info-passive-match")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['OtmTeTunnelInfo']
 
-class Odu(Entity):
+
+
+class Odu(_Entity_):
     """
     ODU operational data
     
@@ -1188,7 +1359,10 @@ class Odu(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Odu, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Odu, self).__init__()
         self._top_entity = None
 
         self.yang_name = "odu"
@@ -1209,7 +1383,7 @@ class Odu(Entity):
         self._perform_setattr(Odu, [], name, value)
 
 
-    class Controllers(Entity):
+    class Controllers(_Entity_):
         """
         All ODU Port operational data
         
@@ -1228,7 +1402,10 @@ class Odu(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Odu.Controllers, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Odu.Controllers, self).__init__()
 
             self.yang_name = "controllers"
             self.yang_parent_name = "odu"
@@ -1247,7 +1424,7 @@ class Odu(Entity):
             self._perform_setattr(Odu.Controllers, [], name, value)
 
 
-        class Controller(Entity):
+        class Controller(_Entity_):
             """
             ODU Port operational data
             
@@ -1282,7 +1459,10 @@ class Odu(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Odu.Controllers.Controller, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Odu.Controllers.Controller, self).__init__()
 
                 self.yang_name = "controller"
                 self.yang_parent_name = "controllers"
@@ -1310,7 +1490,7 @@ class Odu(Entity):
                 self._perform_setattr(Odu.Controllers.Controller, ['controller_name'], name, value)
 
 
-            class Prbs(Entity):
+            class Prbs(_Entity_):
                 """
                 ODU port operational data
                 
@@ -1350,7 +1530,10 @@ class Odu(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Odu.Controllers.Controller.Prbs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Odu.Controllers.Controller.Prbs, self).__init__()
 
                     self.yang_name = "prbs"
                     self.yang_parent_name = "controller"
@@ -1374,9 +1557,13 @@ class Odu(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Odu.Controllers.Controller.Prbs, ['odu_prbs_test', 'odu_prbs_mode', 'odu_prbs_pattern', 'odu_prbs_status'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                    return meta._meta_table['Odu.Controllers.Controller.Prbs']['meta_info']
 
 
-            class Info(Entity):
+            class Info(_Entity_):
                 """
                 ODU port operational data
                 
@@ -1758,7 +1945,10 @@ class Odu(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Odu.Controllers.Controller.Info, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Odu.Controllers.Controller.Info, self).__init__()
 
                     self.yang_name = "info"
                     self.yang_parent_name = "controller"
@@ -1892,7 +2082,7 @@ class Odu(Entity):
                     self._perform_setattr(Odu.Controllers.Controller.Info, ['state', 'sf', 'sd', 'loopback_mode', 'derived_mode', 'inherit_sec_state', 'config_sec_state', 'gcc_mode', 'child_name', 'max_odu_child', 'od_uuser', 'resource_state', 'pt_type', 'flex_type', 'flex_bw', 'flex_tolerence', 'option', 'tpn_value', 'num_ts', 'ts_g', 'ts_b', 'tpn_b', 'pts_b', 'fwd_ref', 'xc_id', 'xconnect_name', 'fwd_ref_ifhandle', 'no_parent_slot', 'xc_resp_code', 'performance_monitoring', 'pmtimca', 'pm_mode', 'nv_optical_support', 'gmpls_tti_mode', 'gmpls_tcm_id'], name, value)
 
 
-                class Local(Entity):
+                class Local(_Entity_):
                     """
                     TTI
                     
@@ -1922,7 +2112,10 @@ class Odu(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Odu.Controllers.Controller.Info.Local, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Odu.Controllers.Controller.Info.Local, self).__init__()
 
                         self.yang_name = "local"
                         self.yang_parent_name = "info"
@@ -1942,9 +2135,13 @@ class Odu(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Odu.Controllers.Controller.Info.Local, ['router_id', 'if_index'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                        return meta._meta_table['Odu.Controllers.Controller.Info.Local']['meta_info']
 
 
-                class Remote(Entity):
+                class Remote(_Entity_):
                     """
                     Remote
                     
@@ -1974,7 +2171,10 @@ class Odu(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Odu.Controllers.Controller.Info.Remote, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Odu.Controllers.Controller.Info.Remote, self).__init__()
 
                         self.yang_name = "remote"
                         self.yang_parent_name = "info"
@@ -1994,9 +2194,13 @@ class Odu(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Odu.Controllers.Controller.Info.Remote, ['router_id', 'if_index'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                        return meta._meta_table['Odu.Controllers.Controller.Info.Remote']['meta_info']
 
 
-                class TtiMode(Entity):
+                class TtiMode(_Entity_):
                     """
                     TTI
                     
@@ -2050,7 +2254,10 @@ class Odu(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Odu.Controllers.Controller.Info.TtiMode, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Odu.Controllers.Controller.Info.TtiMode, self).__init__()
 
                         self.yang_name = "tti-mode"
                         self.yang_parent_name = "info"
@@ -2085,7 +2292,7 @@ class Odu(Entity):
                         self._perform_setattr(Odu.Controllers.Controller.Info.TtiMode, ['g709tti_sent_mode', 'g709tti_exp_mode', 'g709tti_rec_mode'], name, value)
 
 
-                    class Tx(Entity):
+                    class Tx(_Entity_):
                         """
                         String Sent
                         
@@ -2124,7 +2331,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.TtiMode.Tx, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.TtiMode.Tx, self).__init__()
 
                             self.yang_name = "tx"
                             self.yang_parent_name = "tti-mode"
@@ -2146,9 +2356,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.TtiMode.Tx, ['sapi', 'dapi', 'operator_specific'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.TtiMode.Tx']['meta_info']
 
 
-                    class Exp(Entity):
+                    class Exp(_Entity_):
                         """
                         String Expected
                         
@@ -2187,7 +2401,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.TtiMode.Exp, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.TtiMode.Exp, self).__init__()
 
                             self.yang_name = "exp"
                             self.yang_parent_name = "tti-mode"
@@ -2209,9 +2426,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.TtiMode.Exp, ['sapi', 'dapi', 'operator_specific'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.TtiMode.Exp']['meta_info']
 
 
-                    class Rec(Entity):
+                    class Rec(_Entity_):
                         """
                         String Received
                         
@@ -2250,7 +2471,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.TtiMode.Rec, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.TtiMode.Rec, self).__init__()
 
                             self.yang_name = "rec"
                             self.yang_parent_name = "tti-mode"
@@ -2272,10 +2496,18 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.TtiMode.Rec, ['sapi', 'dapi', 'operator_specific'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.TtiMode.Rec']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                        return meta._meta_table['Odu.Controllers.Controller.Info.TtiMode']['meta_info']
 
 
-
-                class OduFwdRef(Entity):
+                class OduFwdRef(_Entity_):
                     """
                     ODU fwd\_ref 
                     
@@ -2301,7 +2533,10 @@ class Odu(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Odu.Controllers.Controller.Info.OduFwdRef, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Odu.Controllers.Controller.Info.OduFwdRef, self).__init__()
 
                         self.yang_name = "odu-fwd-ref"
                         self.yang_parent_name = "info"
@@ -2321,9 +2556,13 @@ class Odu(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Odu.Controllers.Controller.Info.OduFwdRef, ['od_uuser', 'resource_state'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                        return meta._meta_table['Odu.Controllers.Controller.Info.OduFwdRef']['meta_info']
 
 
-                class Alarm(Entity):
+                class Alarm(_Entity_):
                     """
                     Alarm
                     
@@ -2867,7 +3106,10 @@ class Odu(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Odu.Controllers.Controller.Info.Alarm, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Odu.Controllers.Controller.Info.Alarm, self).__init__()
 
                         self.yang_name = "alarm"
                         self.yang_parent_name = "info"
@@ -3187,7 +3429,7 @@ class Odu(Entity):
                         self._perform_setattr(Odu.Controllers.Controller.Info.Alarm, [], name, value)
 
 
-                    class Oci(Entity):
+                    class Oci(_Entity_):
                         """
                         Open Connection Indiction
                         
@@ -3229,7 +3471,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Oci, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Oci, self).__init__()
 
                             self.yang_name = "oci"
                             self.yang_parent_name = "alarm"
@@ -3253,9 +3498,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Oci, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Oci']['meta_info']
 
 
-                    class Ais(Entity):
+                    class Ais(_Entity_):
                         """
                         Alarm Indication Signal
                         
@@ -3297,7 +3546,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Ais, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Ais, self).__init__()
 
                             self.yang_name = "ais"
                             self.yang_parent_name = "alarm"
@@ -3321,9 +3573,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Ais']['meta_info']
 
 
-                    class Lck(Entity):
+                    class Lck(_Entity_):
                         """
                         Upstream Connection Locked
                         
@@ -3365,7 +3621,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Lck, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Lck, self).__init__()
 
                             self.yang_name = "lck"
                             self.yang_parent_name = "alarm"
@@ -3389,9 +3648,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Lck, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Lck']['meta_info']
 
 
-                    class Bdi(Entity):
+                    class Bdi(_Entity_):
                         """
                         Backward Defect Indication
                         
@@ -3433,7 +3696,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Bdi, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Bdi, self).__init__()
 
                             self.yang_name = "bdi"
                             self.yang_parent_name = "alarm"
@@ -3457,9 +3723,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Bdi']['meta_info']
 
 
-                    class Eoc(Entity):
+                    class Eoc(_Entity_):
                         """
                         GCC End of Channel
                         
@@ -3501,7 +3771,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Eoc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Eoc, self).__init__()
 
                             self.yang_name = "eoc"
                             self.yang_parent_name = "alarm"
@@ -3525,9 +3798,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Eoc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Eoc']['meta_info']
 
 
-                    class Ptim(Entity):
+                    class Ptim(_Entity_):
                         """
                         Payload Type Identifier Mismatch
                         
@@ -3569,7 +3846,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Ptim, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Ptim, self).__init__()
 
                             self.yang_name = "ptim"
                             self.yang_parent_name = "alarm"
@@ -3593,9 +3873,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Ptim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Ptim']['meta_info']
 
 
-                    class Tim(Entity):
+                    class Tim(_Entity_):
                         """
                         Trace Identifier Mismatch information
                         
@@ -3637,7 +3921,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tim, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tim, self).__init__()
 
                             self.yang_name = "tim"
                             self.yang_parent_name = "alarm"
@@ -3661,9 +3948,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tim']['meta_info']
 
 
-                    class Iae(Entity):
+                    class Iae(_Entity_):
                         """
                         Incoming Alignment Error
                         
@@ -3705,7 +3996,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Iae, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Iae, self).__init__()
 
                             self.yang_name = "iae"
                             self.yang_parent_name = "alarm"
@@ -3729,9 +4023,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Iae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Iae']['meta_info']
 
 
-                    class Biae(Entity):
+                    class Biae(_Entity_):
                         """
                         Backward Incoming Alignment Error
                         
@@ -3773,7 +4071,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Biae, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Biae, self).__init__()
 
                             self.yang_name = "biae"
                             self.yang_parent_name = "alarm"
@@ -3797,9 +4098,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Biae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Biae']['meta_info']
 
 
-                    class SfBer(Entity):
+                    class SfBer(_Entity_):
                         """
                         SF BER alarm
                         
@@ -3841,7 +4146,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.SfBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.SfBer, self).__init__()
 
                             self.yang_name = "sf-ber"
                             self.yang_parent_name = "alarm"
@@ -3865,9 +4173,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.SfBer']['meta_info']
 
 
-                    class SdBer(Entity):
+                    class SdBer(_Entity_):
                         """
                         SD BER alarm
                         
@@ -3909,7 +4221,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.SdBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.SdBer, self).__init__()
 
                             self.yang_name = "sd-ber"
                             self.yang_parent_name = "alarm"
@@ -3933,9 +4248,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.SdBer']['meta_info']
 
 
-                    class Csf(Entity):
+                    class Csf(_Entity_):
                         """
                         Client Signal Failure
                         
@@ -3977,7 +4296,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Csf, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Csf, self).__init__()
 
                             self.yang_name = "csf"
                             self.yang_parent_name = "alarm"
@@ -4001,9 +4323,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Csf, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Csf']['meta_info']
 
 
-                    class Tcm1Ais(Entity):
+                    class Tcm1Ais(_Entity_):
                         """
                         TCM1 Alarm Indication Signal
                         
@@ -4045,7 +4371,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm1Ais, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm1Ais, self).__init__()
 
                             self.yang_name = "tcm1-ais"
                             self.yang_parent_name = "alarm"
@@ -4069,9 +4398,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm1Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm1Ais']['meta_info']
 
 
-                    class Tcm1Ltc(Entity):
+                    class Tcm1Ltc(_Entity_):
                         """
                         TCM1 Loss of Tandem connection Monitoring
                         
@@ -4113,7 +4446,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm1Ltc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm1Ltc, self).__init__()
 
                             self.yang_name = "tcm1-ltc"
                             self.yang_parent_name = "alarm"
@@ -4137,9 +4473,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm1Ltc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm1Ltc']['meta_info']
 
 
-                    class Tcm1Oci(Entity):
+                    class Tcm1Oci(_Entity_):
                         """
                         TCM1 Open Connection Indiction
                         
@@ -4181,7 +4521,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm1Oci, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm1Oci, self).__init__()
 
                             self.yang_name = "tcm1-oci"
                             self.yang_parent_name = "alarm"
@@ -4205,9 +4548,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm1Oci, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm1Oci']['meta_info']
 
 
-                    class Tcm1Lck(Entity):
+                    class Tcm1Lck(_Entity_):
                         """
                         TCM1  Upstream Connection Locked
                         
@@ -4249,7 +4596,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm1Lck, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm1Lck, self).__init__()
 
                             self.yang_name = "tcm1-lck"
                             self.yang_parent_name = "alarm"
@@ -4273,9 +4623,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm1Lck, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm1Lck']['meta_info']
 
 
-                    class Tcm1Iae(Entity):
+                    class Tcm1Iae(_Entity_):
                         """
                         TCM1 Incoming Alignment Error
                         
@@ -4317,7 +4671,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm1Iae, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm1Iae, self).__init__()
 
                             self.yang_name = "tcm1-iae"
                             self.yang_parent_name = "alarm"
@@ -4341,9 +4698,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm1Iae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm1Iae']['meta_info']
 
 
-                    class Tcm1Biae(Entity):
+                    class Tcm1Biae(_Entity_):
                         """
                         TCM1 Backward Incoming Alignment Error
                         
@@ -4385,7 +4746,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm1Biae, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm1Biae, self).__init__()
 
                             self.yang_name = "tcm1-biae"
                             self.yang_parent_name = "alarm"
@@ -4409,9 +4773,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm1Biae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm1Biae']['meta_info']
 
 
-                    class Tcm1Bdi(Entity):
+                    class Tcm1Bdi(_Entity_):
                         """
                         TCM1 Backward Defect Monitoring
                         
@@ -4453,7 +4821,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm1Bdi, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm1Bdi, self).__init__()
 
                             self.yang_name = "tcm1-bdi"
                             self.yang_parent_name = "alarm"
@@ -4477,9 +4848,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm1Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm1Bdi']['meta_info']
 
 
-                    class Tcm1Tim(Entity):
+                    class Tcm1Tim(_Entity_):
                         """
                         TCM1 Trail Trace Identifier Mismatch 
                         
@@ -4521,7 +4896,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm1Tim, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm1Tim, self).__init__()
 
                             self.yang_name = "tcm1-tim"
                             self.yang_parent_name = "alarm"
@@ -4545,9 +4923,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm1Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm1Tim']['meta_info']
 
 
-                    class Tcm1SfBer(Entity):
+                    class Tcm1SfBer(_Entity_):
                         """
                         TCM1 SF BER alarm
                         
@@ -4589,7 +4971,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm1SfBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm1SfBer, self).__init__()
 
                             self.yang_name = "tcm1-sf-ber"
                             self.yang_parent_name = "alarm"
@@ -4613,9 +4998,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm1SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm1SfBer']['meta_info']
 
 
-                    class Tcm1SdBer(Entity):
+                    class Tcm1SdBer(_Entity_):
                         """
                         TCM1 SD BER alarm
                         
@@ -4657,7 +5046,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm1SdBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm1SdBer, self).__init__()
 
                             self.yang_name = "tcm1-sd-ber"
                             self.yang_parent_name = "alarm"
@@ -4681,9 +5073,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm1SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm1SdBer']['meta_info']
 
 
-                    class Tcm2Ais(Entity):
+                    class Tcm2Ais(_Entity_):
                         """
                         TCM2 Alarm Indication Signal
                         
@@ -4725,7 +5121,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm2Ais, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm2Ais, self).__init__()
 
                             self.yang_name = "tcm2-ais"
                             self.yang_parent_name = "alarm"
@@ -4749,9 +5148,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm2Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm2Ais']['meta_info']
 
 
-                    class Tcm2Ltc(Entity):
+                    class Tcm2Ltc(_Entity_):
                         """
                         TCM2 Loss of Tandem connection Monitoring
                         
@@ -4793,7 +5196,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm2Ltc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm2Ltc, self).__init__()
 
                             self.yang_name = "tcm2-ltc"
                             self.yang_parent_name = "alarm"
@@ -4817,9 +5223,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm2Ltc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm2Ltc']['meta_info']
 
 
-                    class Tcm2Oci(Entity):
+                    class Tcm2Oci(_Entity_):
                         """
                         TCM2 Open Connection Indiction
                         
@@ -4861,7 +5271,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm2Oci, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm2Oci, self).__init__()
 
                             self.yang_name = "tcm2-oci"
                             self.yang_parent_name = "alarm"
@@ -4885,9 +5298,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm2Oci, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm2Oci']['meta_info']
 
 
-                    class Tcm2Lck(Entity):
+                    class Tcm2Lck(_Entity_):
                         """
                         TCM2  Upstream Connection Locked
                         
@@ -4929,7 +5346,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm2Lck, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm2Lck, self).__init__()
 
                             self.yang_name = "tcm2-lck"
                             self.yang_parent_name = "alarm"
@@ -4953,9 +5373,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm2Lck, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm2Lck']['meta_info']
 
 
-                    class Tcm2Iae(Entity):
+                    class Tcm2Iae(_Entity_):
                         """
                         TCM2 Incoming Alignment Error
                         
@@ -4997,7 +5421,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm2Iae, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm2Iae, self).__init__()
 
                             self.yang_name = "tcm2-iae"
                             self.yang_parent_name = "alarm"
@@ -5021,9 +5448,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm2Iae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm2Iae']['meta_info']
 
 
-                    class Tcm2Biae(Entity):
+                    class Tcm2Biae(_Entity_):
                         """
                         TCM2 Backward Incoming Alignment Error
                         
@@ -5065,7 +5496,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm2Biae, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm2Biae, self).__init__()
 
                             self.yang_name = "tcm2-biae"
                             self.yang_parent_name = "alarm"
@@ -5089,9 +5523,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm2Biae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm2Biae']['meta_info']
 
 
-                    class Tcm2Bdi(Entity):
+                    class Tcm2Bdi(_Entity_):
                         """
                         TCM2 Backward Defect Monitoring
                         
@@ -5133,7 +5571,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm2Bdi, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm2Bdi, self).__init__()
 
                             self.yang_name = "tcm2-bdi"
                             self.yang_parent_name = "alarm"
@@ -5157,9 +5598,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm2Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm2Bdi']['meta_info']
 
 
-                    class Tcm2Tim(Entity):
+                    class Tcm2Tim(_Entity_):
                         """
                         TCM2 Trail Trace Identifier Mismatch 
                         
@@ -5201,7 +5646,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm2Tim, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm2Tim, self).__init__()
 
                             self.yang_name = "tcm2-tim"
                             self.yang_parent_name = "alarm"
@@ -5225,9 +5673,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm2Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm2Tim']['meta_info']
 
 
-                    class Tcm2SfBer(Entity):
+                    class Tcm2SfBer(_Entity_):
                         """
                         TCM2 SF BER alarm
                         
@@ -5269,7 +5721,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm2SfBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm2SfBer, self).__init__()
 
                             self.yang_name = "tcm2-sf-ber"
                             self.yang_parent_name = "alarm"
@@ -5293,9 +5748,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm2SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm2SfBer']['meta_info']
 
 
-                    class Tcm2SdBer(Entity):
+                    class Tcm2SdBer(_Entity_):
                         """
                         TCM2 SD BER alarm
                         
@@ -5337,7 +5796,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm2SdBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm2SdBer, self).__init__()
 
                             self.yang_name = "tcm2-sd-ber"
                             self.yang_parent_name = "alarm"
@@ -5361,9 +5823,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm2SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm2SdBer']['meta_info']
 
 
-                    class Tcm3Ais(Entity):
+                    class Tcm3Ais(_Entity_):
                         """
                         TCM3 Alarm Indication Signal
                         
@@ -5405,7 +5871,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm3Ais, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm3Ais, self).__init__()
 
                             self.yang_name = "tcm3-ais"
                             self.yang_parent_name = "alarm"
@@ -5429,9 +5898,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm3Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm3Ais']['meta_info']
 
 
-                    class Tcm3Ltc(Entity):
+                    class Tcm3Ltc(_Entity_):
                         """
                         TCM3 Loss of Tandem connection Monitoring
                         
@@ -5473,7 +5946,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm3Ltc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm3Ltc, self).__init__()
 
                             self.yang_name = "tcm3-ltc"
                             self.yang_parent_name = "alarm"
@@ -5497,9 +5973,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm3Ltc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm3Ltc']['meta_info']
 
 
-                    class Tcm3Oci(Entity):
+                    class Tcm3Oci(_Entity_):
                         """
                         TCM3 Open Connection Indiction
                         
@@ -5541,7 +6021,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm3Oci, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm3Oci, self).__init__()
 
                             self.yang_name = "tcm3-oci"
                             self.yang_parent_name = "alarm"
@@ -5565,9 +6048,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm3Oci, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm3Oci']['meta_info']
 
 
-                    class Tcm3Lck(Entity):
+                    class Tcm3Lck(_Entity_):
                         """
                         TCM3  Upstream Connection Locked
                         
@@ -5609,7 +6096,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm3Lck, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm3Lck, self).__init__()
 
                             self.yang_name = "tcm3-lck"
                             self.yang_parent_name = "alarm"
@@ -5633,9 +6123,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm3Lck, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm3Lck']['meta_info']
 
 
-                    class Tcm3Iae(Entity):
+                    class Tcm3Iae(_Entity_):
                         """
                         TCM3 Incoming Alignment Error
                         
@@ -5677,7 +6171,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm3Iae, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm3Iae, self).__init__()
 
                             self.yang_name = "tcm3-iae"
                             self.yang_parent_name = "alarm"
@@ -5701,9 +6198,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm3Iae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm3Iae']['meta_info']
 
 
-                    class Tcm3Biae(Entity):
+                    class Tcm3Biae(_Entity_):
                         """
                         TCM3 Backward Incoming Alignment Error
                         
@@ -5745,7 +6246,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm3Biae, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm3Biae, self).__init__()
 
                             self.yang_name = "tcm3-biae"
                             self.yang_parent_name = "alarm"
@@ -5769,9 +6273,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm3Biae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm3Biae']['meta_info']
 
 
-                    class Tcm3Bdi(Entity):
+                    class Tcm3Bdi(_Entity_):
                         """
                         TCM3 Backward Defect Monitoring
                         
@@ -5813,7 +6321,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm3Bdi, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm3Bdi, self).__init__()
 
                             self.yang_name = "tcm3-bdi"
                             self.yang_parent_name = "alarm"
@@ -5837,9 +6348,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm3Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm3Bdi']['meta_info']
 
 
-                    class Tcm3Tim(Entity):
+                    class Tcm3Tim(_Entity_):
                         """
                         TCM3 Trail Trace Identifier Mismatch 
                         
@@ -5881,7 +6396,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm3Tim, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm3Tim, self).__init__()
 
                             self.yang_name = "tcm3-tim"
                             self.yang_parent_name = "alarm"
@@ -5905,9 +6423,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm3Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm3Tim']['meta_info']
 
 
-                    class Tcm3SfBer(Entity):
+                    class Tcm3SfBer(_Entity_):
                         """
                         TCM3 SF BER alarm
                         
@@ -5949,7 +6471,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm3SfBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm3SfBer, self).__init__()
 
                             self.yang_name = "tcm3-sf-ber"
                             self.yang_parent_name = "alarm"
@@ -5973,9 +6498,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm3SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm3SfBer']['meta_info']
 
 
-                    class Tcm3SdBer(Entity):
+                    class Tcm3SdBer(_Entity_):
                         """
                         TCM3 SD BER alarm
                         
@@ -6017,7 +6546,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm3SdBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm3SdBer, self).__init__()
 
                             self.yang_name = "tcm3-sd-ber"
                             self.yang_parent_name = "alarm"
@@ -6041,9 +6573,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm3SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm3SdBer']['meta_info']
 
 
-                    class Tcm4Ais(Entity):
+                    class Tcm4Ais(_Entity_):
                         """
                         TCM4 Alarm Indication Signal
                         
@@ -6085,7 +6621,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm4Ais, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm4Ais, self).__init__()
 
                             self.yang_name = "tcm4-ais"
                             self.yang_parent_name = "alarm"
@@ -6109,9 +6648,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm4Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm4Ais']['meta_info']
 
 
-                    class Tcm4Ltc(Entity):
+                    class Tcm4Ltc(_Entity_):
                         """
                         TCM4 Loss of Tandem connection Monitoring
                         
@@ -6153,7 +6696,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm4Ltc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm4Ltc, self).__init__()
 
                             self.yang_name = "tcm4-ltc"
                             self.yang_parent_name = "alarm"
@@ -6177,9 +6723,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm4Ltc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm4Ltc']['meta_info']
 
 
-                    class Tcm4Oci(Entity):
+                    class Tcm4Oci(_Entity_):
                         """
                         TCM4 Open Connection Indiction
                         
@@ -6221,7 +6771,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm4Oci, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm4Oci, self).__init__()
 
                             self.yang_name = "tcm4-oci"
                             self.yang_parent_name = "alarm"
@@ -6245,9 +6798,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm4Oci, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm4Oci']['meta_info']
 
 
-                    class Tcm4Lck(Entity):
+                    class Tcm4Lck(_Entity_):
                         """
                         TCM4  Upstream Connection Locked
                         
@@ -6289,7 +6846,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm4Lck, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm4Lck, self).__init__()
 
                             self.yang_name = "tcm4-lck"
                             self.yang_parent_name = "alarm"
@@ -6313,9 +6873,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm4Lck, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm4Lck']['meta_info']
 
 
-                    class Tcm4Iae(Entity):
+                    class Tcm4Iae(_Entity_):
                         """
                         TCM4 Incoming Alignment Error
                         
@@ -6357,7 +6921,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm4Iae, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm4Iae, self).__init__()
 
                             self.yang_name = "tcm4-iae"
                             self.yang_parent_name = "alarm"
@@ -6381,9 +6948,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm4Iae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm4Iae']['meta_info']
 
 
-                    class Tcm4Biae(Entity):
+                    class Tcm4Biae(_Entity_):
                         """
                         TCM4 Backward Incoming Alignment Error
                         
@@ -6425,7 +6996,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm4Biae, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm4Biae, self).__init__()
 
                             self.yang_name = "tcm4-biae"
                             self.yang_parent_name = "alarm"
@@ -6449,9 +7023,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm4Biae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm4Biae']['meta_info']
 
 
-                    class Tcm4Bdi(Entity):
+                    class Tcm4Bdi(_Entity_):
                         """
                         TCM4 Backward Defect Monitoring
                         
@@ -6493,7 +7071,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm4Bdi, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm4Bdi, self).__init__()
 
                             self.yang_name = "tcm4-bdi"
                             self.yang_parent_name = "alarm"
@@ -6517,9 +7098,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm4Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm4Bdi']['meta_info']
 
 
-                    class Tcm4Tim(Entity):
+                    class Tcm4Tim(_Entity_):
                         """
                         TCM4 Trail Trace Identifier Mismatch 
                         
@@ -6561,7 +7146,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm4Tim, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm4Tim, self).__init__()
 
                             self.yang_name = "tcm4-tim"
                             self.yang_parent_name = "alarm"
@@ -6585,9 +7173,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm4Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm4Tim']['meta_info']
 
 
-                    class Tcm4SfBer(Entity):
+                    class Tcm4SfBer(_Entity_):
                         """
                         TCM4 SF BER alarm
                         
@@ -6629,7 +7221,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm4SfBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm4SfBer, self).__init__()
 
                             self.yang_name = "tcm4-sf-ber"
                             self.yang_parent_name = "alarm"
@@ -6653,9 +7248,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm4SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm4SfBer']['meta_info']
 
 
-                    class Tcm4SdBer(Entity):
+                    class Tcm4SdBer(_Entity_):
                         """
                         TCM4 SD BER alarm
                         
@@ -6697,7 +7296,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm4SdBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm4SdBer, self).__init__()
 
                             self.yang_name = "tcm4-sd-ber"
                             self.yang_parent_name = "alarm"
@@ -6721,9 +7323,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm4SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm4SdBer']['meta_info']
 
 
-                    class Tcm5Ais(Entity):
+                    class Tcm5Ais(_Entity_):
                         """
                         TCM5 Alarm Indication Signal
                         
@@ -6765,7 +7371,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm5Ais, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm5Ais, self).__init__()
 
                             self.yang_name = "tcm5-ais"
                             self.yang_parent_name = "alarm"
@@ -6789,9 +7398,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm5Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm5Ais']['meta_info']
 
 
-                    class Tcm5Ltc(Entity):
+                    class Tcm5Ltc(_Entity_):
                         """
                         TCM5 Loss of Tandem connection Monitoring
                         
@@ -6833,7 +7446,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm5Ltc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm5Ltc, self).__init__()
 
                             self.yang_name = "tcm5-ltc"
                             self.yang_parent_name = "alarm"
@@ -6857,9 +7473,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm5Ltc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm5Ltc']['meta_info']
 
 
-                    class Tcm5Oci(Entity):
+                    class Tcm5Oci(_Entity_):
                         """
                         TCM5 Open Connection Indiction
                         
@@ -6901,7 +7521,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm5Oci, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm5Oci, self).__init__()
 
                             self.yang_name = "tcm5-oci"
                             self.yang_parent_name = "alarm"
@@ -6925,9 +7548,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm5Oci, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm5Oci']['meta_info']
 
 
-                    class Tcm5Lck(Entity):
+                    class Tcm5Lck(_Entity_):
                         """
                         TCM5  Upstream Connection Locked
                         
@@ -6969,7 +7596,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm5Lck, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm5Lck, self).__init__()
 
                             self.yang_name = "tcm5-lck"
                             self.yang_parent_name = "alarm"
@@ -6993,9 +7623,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm5Lck, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm5Lck']['meta_info']
 
 
-                    class Tcm5Iae(Entity):
+                    class Tcm5Iae(_Entity_):
                         """
                         TCM5 Incoming Alignment Error
                         
@@ -7037,7 +7671,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm5Iae, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm5Iae, self).__init__()
 
                             self.yang_name = "tcm5-iae"
                             self.yang_parent_name = "alarm"
@@ -7061,9 +7698,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm5Iae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm5Iae']['meta_info']
 
 
-                    class Tcm5Biae(Entity):
+                    class Tcm5Biae(_Entity_):
                         """
                         TCM5 Backward Incoming Alignment Error
                         
@@ -7105,7 +7746,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm5Biae, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm5Biae, self).__init__()
 
                             self.yang_name = "tcm5-biae"
                             self.yang_parent_name = "alarm"
@@ -7129,9 +7773,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm5Biae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm5Biae']['meta_info']
 
 
-                    class Tcm5Bdi(Entity):
+                    class Tcm5Bdi(_Entity_):
                         """
                         TCM5 Backward Defect Monitoring
                         
@@ -7173,7 +7821,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm5Bdi, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm5Bdi, self).__init__()
 
                             self.yang_name = "tcm5-bdi"
                             self.yang_parent_name = "alarm"
@@ -7197,9 +7848,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm5Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm5Bdi']['meta_info']
 
 
-                    class Tcm5Tim(Entity):
+                    class Tcm5Tim(_Entity_):
                         """
                         TCM5 Trail Trace Identifier Mismatch 
                         
@@ -7241,7 +7896,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm5Tim, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm5Tim, self).__init__()
 
                             self.yang_name = "tcm5-tim"
                             self.yang_parent_name = "alarm"
@@ -7265,9 +7923,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm5Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm5Tim']['meta_info']
 
 
-                    class Tcm5SfBer(Entity):
+                    class Tcm5SfBer(_Entity_):
                         """
                         TCM5 SF BER alarm
                         
@@ -7309,7 +7971,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm5SfBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm5SfBer, self).__init__()
 
                             self.yang_name = "tcm5-sf-ber"
                             self.yang_parent_name = "alarm"
@@ -7333,9 +7998,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm5SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm5SfBer']['meta_info']
 
 
-                    class Tcm5SdBer(Entity):
+                    class Tcm5SdBer(_Entity_):
                         """
                         TCM5 SD BER alarm
                         
@@ -7377,7 +8046,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm5SdBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm5SdBer, self).__init__()
 
                             self.yang_name = "tcm5-sd-ber"
                             self.yang_parent_name = "alarm"
@@ -7401,9 +8073,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm5SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm5SdBer']['meta_info']
 
 
-                    class Tcm6Ais(Entity):
+                    class Tcm6Ais(_Entity_):
                         """
                         TCM6 Alarm Indication Signal
                         
@@ -7445,7 +8121,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm6Ais, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm6Ais, self).__init__()
 
                             self.yang_name = "tcm6-ais"
                             self.yang_parent_name = "alarm"
@@ -7469,9 +8148,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm6Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm6Ais']['meta_info']
 
 
-                    class Tcm6Ltc(Entity):
+                    class Tcm6Ltc(_Entity_):
                         """
                         TCM6 Loss of Tandem connection Monitoring
                         
@@ -7513,7 +8196,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm6Ltc, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm6Ltc, self).__init__()
 
                             self.yang_name = "tcm6-ltc"
                             self.yang_parent_name = "alarm"
@@ -7537,9 +8223,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm6Ltc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm6Ltc']['meta_info']
 
 
-                    class Tcm6Oci(Entity):
+                    class Tcm6Oci(_Entity_):
                         """
                         TCM6 Open Connection Indiction
                         
@@ -7581,7 +8271,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm6Oci, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm6Oci, self).__init__()
 
                             self.yang_name = "tcm6-oci"
                             self.yang_parent_name = "alarm"
@@ -7605,9 +8298,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm6Oci, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm6Oci']['meta_info']
 
 
-                    class Tcm6Lck(Entity):
+                    class Tcm6Lck(_Entity_):
                         """
                         TCM6  Upstream Connection Locked
                         
@@ -7649,7 +8346,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm6Lck, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm6Lck, self).__init__()
 
                             self.yang_name = "tcm6-lck"
                             self.yang_parent_name = "alarm"
@@ -7673,9 +8373,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm6Lck, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm6Lck']['meta_info']
 
 
-                    class Tcm6Iae(Entity):
+                    class Tcm6Iae(_Entity_):
                         """
                         TCM6 Incoming Alignment Error
                         
@@ -7717,7 +8421,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm6Iae, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm6Iae, self).__init__()
 
                             self.yang_name = "tcm6-iae"
                             self.yang_parent_name = "alarm"
@@ -7741,9 +8448,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm6Iae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm6Iae']['meta_info']
 
 
-                    class Tcm6Biae(Entity):
+                    class Tcm6Biae(_Entity_):
                         """
                         TCM6 Backward Incoming Alignment Error
                         
@@ -7785,7 +8496,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm6Biae, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm6Biae, self).__init__()
 
                             self.yang_name = "tcm6-biae"
                             self.yang_parent_name = "alarm"
@@ -7809,9 +8523,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm6Biae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm6Biae']['meta_info']
 
 
-                    class Tcm6Bdi(Entity):
+                    class Tcm6Bdi(_Entity_):
                         """
                         TCM6 Backward Defect Monitoring
                         
@@ -7853,7 +8571,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm6Bdi, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm6Bdi, self).__init__()
 
                             self.yang_name = "tcm6-bdi"
                             self.yang_parent_name = "alarm"
@@ -7877,9 +8598,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm6Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm6Bdi']['meta_info']
 
 
-                    class Tcm6Tim(Entity):
+                    class Tcm6Tim(_Entity_):
                         """
                         TCM6 Trail Trace Identifier Mismatch 
                         
@@ -7921,7 +8646,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm6Tim, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm6Tim, self).__init__()
 
                             self.yang_name = "tcm6-tim"
                             self.yang_parent_name = "alarm"
@@ -7945,9 +8673,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm6Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm6Tim']['meta_info']
 
 
-                    class Tcm6SfBer(Entity):
+                    class Tcm6SfBer(_Entity_):
                         """
                         TCM6 SF BER alarm
                         
@@ -7989,7 +8721,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm6SfBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm6SfBer, self).__init__()
 
                             self.yang_name = "tcm6-sf-ber"
                             self.yang_parent_name = "alarm"
@@ -8013,9 +8748,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm6SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm6SfBer']['meta_info']
 
 
-                    class Tcm6SdBer(Entity):
+                    class Tcm6SdBer(_Entity_):
                         """
                         TCM6 SD BER alarm
                         
@@ -8057,7 +8796,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.Tcm6SdBer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.Tcm6SdBer, self).__init__()
 
                             self.yang_name = "tcm6-sd-ber"
                             self.yang_parent_name = "alarm"
@@ -8081,9 +8823,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.Tcm6SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.Tcm6SdBer']['meta_info']
 
 
-                    class GfpLfd(Entity):
+                    class GfpLfd(_Entity_):
                         """
                         Loss Of Frame Delineation
                         
@@ -8125,7 +8871,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.GfpLfd, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.GfpLfd, self).__init__()
 
                             self.yang_name = "gfp-lfd"
                             self.yang_parent_name = "alarm"
@@ -8149,9 +8898,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.GfpLfd, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.GfpLfd']['meta_info']
 
 
-                    class GfpLocs(Entity):
+                    class GfpLocs(_Entity_):
                         """
                         Loss Of Client Signal
                         
@@ -8193,7 +8946,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.GfpLocs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.GfpLocs, self).__init__()
 
                             self.yang_name = "gfp-locs"
                             self.yang_parent_name = "alarm"
@@ -8217,9 +8973,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.GfpLocs, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.GfpLocs']['meta_info']
 
 
-                    class GfpLoccs(Entity):
+                    class GfpLoccs(_Entity_):
                         """
                         Loss Of Character Synchronization
                         
@@ -8261,7 +9021,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.GfpLoccs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.GfpLoccs, self).__init__()
 
                             self.yang_name = "gfp-loccs"
                             self.yang_parent_name = "alarm"
@@ -8285,9 +9048,13 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.GfpLoccs, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.GfpLoccs']['meta_info']
 
 
-                    class GfpUpm(Entity):
+                    class GfpUpm(_Entity_):
                         """
                         User Payload Mismatch
                         
@@ -8329,7 +9096,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Alarm.GfpUpm, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Alarm.GfpUpm, self).__init__()
 
                             self.yang_name = "gfp-upm"
                             self.yang_parent_name = "alarm"
@@ -8353,10 +9123,18 @@ class Odu(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Alarm.GfpUpm, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Alarm.GfpUpm']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                        return meta._meta_table['Odu.Controllers.Controller.Info.Alarm']['meta_info']
 
 
-
-                class TeCtxData(Entity):
+                class TeCtxData(_Entity_):
                     """
                     Label Get Data
                     
@@ -8398,7 +9176,10 @@ class Odu(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Odu.Controllers.Controller.Info.TeCtxData, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Odu.Controllers.Controller.Info.TeCtxData, self).__init__()
 
                         self.yang_name = "te-ctx-data"
                         self.yang_parent_name = "info"
@@ -8425,7 +9206,7 @@ class Odu(Entity):
                         self._perform_setattr(Odu.Controllers.Controller.Info.TeCtxData, ['gmpls_req_time', 'ctxt_type', 'rm_type'], name, value)
 
 
-                    class TeTunnelInfo(Entity):
+                    class TeTunnelInfo(_Entity_):
                         """
                         Tunnel Information
                         
@@ -8467,7 +9248,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.TeCtxData.TeTunnelInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.TeCtxData.TeTunnelInfo, self).__init__()
 
                             self.yang_name = "te-tunnel-info"
                             self.yang_parent_name = "te-ctx-data"
@@ -8496,7 +9280,7 @@ class Odu(Entity):
                             self._perform_setattr(Odu.Controllers.Controller.Info.TeCtxData.TeTunnelInfo, ['info_type', 'tunnel_id'], name, value)
 
 
-                        class LbCtxt(Entity):
+                        class LbCtxt(_Entity_):
                             """
                             Lbl Ctxt
                             
@@ -8587,7 +9371,10 @@ class Odu(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Odu.Controllers.Controller.Info.TeCtxData.TeTunnelInfo.LbCtxt, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Odu.Controllers.Controller.Info.TeCtxData.TeTunnelInfo.LbCtxt, self).__init__()
 
                                 self.yang_name = "lb-ctxt"
                                 self.yang_parent_name = "te-tunnel-info"
@@ -8621,9 +9408,13 @@ class Odu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Odu.Controllers.Controller.Info.TeCtxData.TeTunnelInfo.LbCtxt, ['s2l_fec_sub_group_id', 's2l_fec_lsp_id', 's2l_fec_tunnel_id', 'ext_tunnel_id', 'fec_source', 'fec_dest', 's2l_fec_p2mp_id', 'sub_group_origin_ator', 'fec_c_type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                                return meta._meta_table['Odu.Controllers.Controller.Info.TeCtxData.TeTunnelInfo.LbCtxt']['meta_info']
 
 
-                        class PassiveMatch(Entity):
+                        class PassiveMatch(_Entity_):
                             """
                             Passive Match
                             
@@ -8653,7 +9444,10 @@ class Odu(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Odu.Controllers.Controller.Info.TeCtxData.TeTunnelInfo.PassiveMatch, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Odu.Controllers.Controller.Info.TeCtxData.TeTunnelInfo.PassiveMatch, self).__init__()
 
                                 self.yang_name = "passive-match"
                                 self.yang_parent_name = "te-tunnel-info"
@@ -8673,11 +9467,23 @@ class Odu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Odu.Controllers.Controller.Info.TeCtxData.TeTunnelInfo.PassiveMatch, ['src_tid', 'src_rid'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                                return meta._meta_table['Odu.Controllers.Controller.Info.TeCtxData.TeTunnelInfo.PassiveMatch']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.TeCtxData.TeTunnelInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                        return meta._meta_table['Odu.Controllers.Controller.Info.TeCtxData']['meta_info']
 
 
-
-
-                class XcAddCtxData(Entity):
+                class XcAddCtxData(_Entity_):
                     """
                     Xconnect Add Data
                     
@@ -8719,7 +9525,10 @@ class Odu(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Odu.Controllers.Controller.Info.XcAddCtxData, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Odu.Controllers.Controller.Info.XcAddCtxData, self).__init__()
 
                         self.yang_name = "xc-add-ctx-data"
                         self.yang_parent_name = "info"
@@ -8746,7 +9555,7 @@ class Odu(Entity):
                         self._perform_setattr(Odu.Controllers.Controller.Info.XcAddCtxData, ['gmpls_req_time', 'ctxt_type', 'rm_type'], name, value)
 
 
-                    class TeTunnelInfo(Entity):
+                    class TeTunnelInfo(_Entity_):
                         """
                         Tunnel Information
                         
@@ -8788,7 +9597,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.XcAddCtxData.TeTunnelInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.XcAddCtxData.TeTunnelInfo, self).__init__()
 
                             self.yang_name = "te-tunnel-info"
                             self.yang_parent_name = "xc-add-ctx-data"
@@ -8817,7 +9629,7 @@ class Odu(Entity):
                             self._perform_setattr(Odu.Controllers.Controller.Info.XcAddCtxData.TeTunnelInfo, ['info_type', 'tunnel_id'], name, value)
 
 
-                        class LbCtxt(Entity):
+                        class LbCtxt(_Entity_):
                             """
                             Lbl Ctxt
                             
@@ -8908,7 +9720,10 @@ class Odu(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Odu.Controllers.Controller.Info.XcAddCtxData.TeTunnelInfo.LbCtxt, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Odu.Controllers.Controller.Info.XcAddCtxData.TeTunnelInfo.LbCtxt, self).__init__()
 
                                 self.yang_name = "lb-ctxt"
                                 self.yang_parent_name = "te-tunnel-info"
@@ -8942,9 +9757,13 @@ class Odu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Odu.Controllers.Controller.Info.XcAddCtxData.TeTunnelInfo.LbCtxt, ['s2l_fec_sub_group_id', 's2l_fec_lsp_id', 's2l_fec_tunnel_id', 'ext_tunnel_id', 'fec_source', 'fec_dest', 's2l_fec_p2mp_id', 'sub_group_origin_ator', 'fec_c_type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                                return meta._meta_table['Odu.Controllers.Controller.Info.XcAddCtxData.TeTunnelInfo.LbCtxt']['meta_info']
 
 
-                        class PassiveMatch(Entity):
+                        class PassiveMatch(_Entity_):
                             """
                             Passive Match
                             
@@ -8974,7 +9793,10 @@ class Odu(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Odu.Controllers.Controller.Info.XcAddCtxData.TeTunnelInfo.PassiveMatch, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Odu.Controllers.Controller.Info.XcAddCtxData.TeTunnelInfo.PassiveMatch, self).__init__()
 
                                 self.yang_name = "passive-match"
                                 self.yang_parent_name = "te-tunnel-info"
@@ -8994,11 +9816,23 @@ class Odu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Odu.Controllers.Controller.Info.XcAddCtxData.TeTunnelInfo.PassiveMatch, ['src_tid', 'src_rid'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                                return meta._meta_table['Odu.Controllers.Controller.Info.XcAddCtxData.TeTunnelInfo.PassiveMatch']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.XcAddCtxData.TeTunnelInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                        return meta._meta_table['Odu.Controllers.Controller.Info.XcAddCtxData']['meta_info']
 
 
-
-
-                class XcRemCtxData(Entity):
+                class XcRemCtxData(_Entity_):
                     """
                     Xconnect Remove Data
                     
@@ -9040,7 +9874,10 @@ class Odu(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Odu.Controllers.Controller.Info.XcRemCtxData, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Odu.Controllers.Controller.Info.XcRemCtxData, self).__init__()
 
                         self.yang_name = "xc-rem-ctx-data"
                         self.yang_parent_name = "info"
@@ -9067,7 +9904,7 @@ class Odu(Entity):
                         self._perform_setattr(Odu.Controllers.Controller.Info.XcRemCtxData, ['gmpls_req_time', 'ctxt_type', 'rm_type'], name, value)
 
 
-                    class TeTunnelInfo(Entity):
+                    class TeTunnelInfo(_Entity_):
                         """
                         Tunnel Information
                         
@@ -9109,7 +9946,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.XcRemCtxData.TeTunnelInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.XcRemCtxData.TeTunnelInfo, self).__init__()
 
                             self.yang_name = "te-tunnel-info"
                             self.yang_parent_name = "xc-rem-ctx-data"
@@ -9138,7 +9978,7 @@ class Odu(Entity):
                             self._perform_setattr(Odu.Controllers.Controller.Info.XcRemCtxData.TeTunnelInfo, ['info_type', 'tunnel_id'], name, value)
 
 
-                        class LbCtxt(Entity):
+                        class LbCtxt(_Entity_):
                             """
                             Lbl Ctxt
                             
@@ -9229,7 +10069,10 @@ class Odu(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Odu.Controllers.Controller.Info.XcRemCtxData.TeTunnelInfo.LbCtxt, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Odu.Controllers.Controller.Info.XcRemCtxData.TeTunnelInfo.LbCtxt, self).__init__()
 
                                 self.yang_name = "lb-ctxt"
                                 self.yang_parent_name = "te-tunnel-info"
@@ -9263,9 +10106,13 @@ class Odu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Odu.Controllers.Controller.Info.XcRemCtxData.TeTunnelInfo.LbCtxt, ['s2l_fec_sub_group_id', 's2l_fec_lsp_id', 's2l_fec_tunnel_id', 'ext_tunnel_id', 'fec_source', 'fec_dest', 's2l_fec_p2mp_id', 'sub_group_origin_ator', 'fec_c_type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                                return meta._meta_table['Odu.Controllers.Controller.Info.XcRemCtxData.TeTunnelInfo.LbCtxt']['meta_info']
 
 
-                        class PassiveMatch(Entity):
+                        class PassiveMatch(_Entity_):
                             """
                             Passive Match
                             
@@ -9295,7 +10142,10 @@ class Odu(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Odu.Controllers.Controller.Info.XcRemCtxData.TeTunnelInfo.PassiveMatch, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Odu.Controllers.Controller.Info.XcRemCtxData.TeTunnelInfo.PassiveMatch, self).__init__()
 
                                 self.yang_name = "passive-match"
                                 self.yang_parent_name = "te-tunnel-info"
@@ -9315,11 +10165,23 @@ class Odu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Odu.Controllers.Controller.Info.XcRemCtxData.TeTunnelInfo.PassiveMatch, ['src_tid', 'src_rid'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                                return meta._meta_table['Odu.Controllers.Controller.Info.XcRemCtxData.TeTunnelInfo.PassiveMatch']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.XcRemCtxData.TeTunnelInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                        return meta._meta_table['Odu.Controllers.Controller.Info.XcRemCtxData']['meta_info']
 
 
-
-
-                class OduDelay(Entity):
+                class OduDelay(_Entity_):
                     """
                     ODU Delay
                     
@@ -9349,7 +10211,10 @@ class Odu(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Odu.Controllers.Controller.Info.OduDelay, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Odu.Controllers.Controller.Info.OduDelay, self).__init__()
 
                         self.yang_name = "odu-delay"
                         self.yang_parent_name = "info"
@@ -9369,9 +10234,13 @@ class Odu(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Odu.Controllers.Controller.Info.OduDelay, ['mode', 'delay'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                        return meta._meta_table['Odu.Controllers.Controller.Info.OduDelay']['meta_info']
 
 
-                class OduTerminateEther(Entity):
+                class OduTerminateEther(_Entity_):
                     """
                     odu terminate ether
                     
@@ -9406,7 +10275,10 @@ class Odu(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Odu.Controllers.Controller.Info.OduTerminateEther, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Odu.Controllers.Controller.Info.OduTerminateEther, self).__init__()
 
                         self.yang_name = "odu-terminate-ether"
                         self.yang_parent_name = "info"
@@ -9428,9 +10300,13 @@ class Odu(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Odu.Controllers.Controller.Info.OduTerminateEther, ['vether_ifhandle', 'ethernet_mapping', 'ethernet_interface'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                        return meta._meta_table['Odu.Controllers.Controller.Info.OduTerminateEther']['meta_info']
 
 
-                class AinsInfo(Entity):
+                class AinsInfo(_Entity_):
                     """
                     AINS information
                     
@@ -9471,7 +10347,10 @@ class Odu(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Odu.Controllers.Controller.Info.AinsInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Odu.Controllers.Controller.Info.AinsInfo, self).__init__()
 
                         self.yang_name = "ains-info"
                         self.yang_parent_name = "info"
@@ -9493,9 +10372,13 @@ class Odu(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Odu.Controllers.Controller.Info.AinsInfo, ['ains_state', 'ains_timer_minutes', 'ains_remaining_secs'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                        return meta._meta_table['Odu.Controllers.Controller.Info.AinsInfo']['meta_info']
 
 
-                class Odu_(Entity):
+                class Odu_(_Entity_):
                     """
                     Child Ts
                     
@@ -9534,7 +10417,10 @@ class Odu(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Odu.Controllers.Controller.Info.Odu_, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Odu.Controllers.Controller.Info.Odu_, self).__init__()
 
                         self.yang_name = "odu"
                         self.yang_parent_name = "info"
@@ -9556,9 +10442,13 @@ class Odu(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Odu.Controllers.Controller.Info.Odu_, ['intf_name', 'tpn_value', 'ts_bitmap'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                        return meta._meta_table['Odu.Controllers.Controller.Info.Odu_']['meta_info']
 
 
-                class Odutcm(Entity):
+                class Odutcm(_Entity_):
                     """
                     ODU TCM
                     
@@ -9646,7 +10536,10 @@ class Odu(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Odu.Controllers.Controller.Info.Odutcm, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Odu.Controllers.Controller.Info.Odutcm, self).__init__()
 
                         self.yang_name = "odutcm"
                         self.yang_parent_name = "info"
@@ -9685,7 +10578,7 @@ class Odu(Entity):
                         self._perform_setattr(Odu.Controllers.Controller.Info.Odutcm, ['tcmsf', 'tcmsd', 'tcm_state', 'tcmper_mon', 'tcm_mode', 'actual_tcm_mode', 'tcmltc_state', 'tcmtim_state', 'tcm_delay'], name, value)
 
 
-                    class TcmttiMode(Entity):
+                    class TcmttiMode(_Entity_):
                         """
                         TTI
                         
@@ -9739,7 +10632,10 @@ class Odu(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Odu.Controllers.Controller.Info.Odutcm.TcmttiMode, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Odu.Controllers.Controller.Info.Odutcm.TcmttiMode, self).__init__()
 
                             self.yang_name = "tcmtti-mode"
                             self.yang_parent_name = "odutcm"
@@ -9774,7 +10670,7 @@ class Odu(Entity):
                             self._perform_setattr(Odu.Controllers.Controller.Info.Odutcm.TcmttiMode, ['g709tti_sent_mode', 'g709tti_exp_mode', 'g709tti_rec_mode'], name, value)
 
 
-                        class Tx(Entity):
+                        class Tx(_Entity_):
                             """
                             String Sent
                             
@@ -9813,7 +10709,10 @@ class Odu(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Odu.Controllers.Controller.Info.Odutcm.TcmttiMode.Tx, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Odu.Controllers.Controller.Info.Odutcm.TcmttiMode.Tx, self).__init__()
 
                                 self.yang_name = "tx"
                                 self.yang_parent_name = "tcmtti-mode"
@@ -9835,9 +10734,13 @@ class Odu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Odu.Controllers.Controller.Info.Odutcm.TcmttiMode.Tx, ['sapi', 'dapi', 'operator_specific'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                                return meta._meta_table['Odu.Controllers.Controller.Info.Odutcm.TcmttiMode.Tx']['meta_info']
 
 
-                        class Exp(Entity):
+                        class Exp(_Entity_):
                             """
                             String Expected
                             
@@ -9876,7 +10779,10 @@ class Odu(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Odu.Controllers.Controller.Info.Odutcm.TcmttiMode.Exp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Odu.Controllers.Controller.Info.Odutcm.TcmttiMode.Exp, self).__init__()
 
                                 self.yang_name = "exp"
                                 self.yang_parent_name = "tcmtti-mode"
@@ -9898,9 +10804,13 @@ class Odu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Odu.Controllers.Controller.Info.Odutcm.TcmttiMode.Exp, ['sapi', 'dapi', 'operator_specific'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                                return meta._meta_table['Odu.Controllers.Controller.Info.Odutcm.TcmttiMode.Exp']['meta_info']
 
 
-                        class Rec(Entity):
+                        class Rec(_Entity_):
                             """
                             String Received
                             
@@ -9939,7 +10849,10 @@ class Odu(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Odu.Controllers.Controller.Info.Odutcm.TcmttiMode.Rec, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Odu.Controllers.Controller.Info.Odutcm.TcmttiMode.Rec, self).__init__()
 
                                 self.yang_name = "rec"
                                 self.yang_parent_name = "tcmtti-mode"
@@ -9961,15 +10874,43 @@ class Odu(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Odu.Controllers.Controller.Info.Odutcm.TcmttiMode.Rec, ['sapi', 'dapi', 'operator_specific'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                                return meta._meta_table['Odu.Controllers.Controller.Info.Odutcm.TcmttiMode.Rec']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                            return meta._meta_table['Odu.Controllers.Controller.Info.Odutcm.TcmttiMode']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                        return meta._meta_table['Odu.Controllers.Controller.Info.Odutcm']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                    return meta._meta_table['Odu.Controllers.Controller.Info']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+                return meta._meta_table['Odu.Controllers.Controller']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+            return meta._meta_table['Odu.Controllers']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Odu()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_odu_oper as meta
+        return meta._meta_table['Odu']['meta_info']
 
 

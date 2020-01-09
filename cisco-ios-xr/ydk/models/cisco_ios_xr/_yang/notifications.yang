@@ -1,23 +1,25 @@
 module notifications {
-  namespace "urn:ietf:params:xml:ns:netconf:notification:1.0";
-  prefix ncEvent;
 
-  import ietf-yang-types {
-    prefix yang;
-  }
+  namespace "urn:ietf:params:xml:ns:netconf:notification:1.0";
+  prefix "ncEvent";
+
+  import ietf-yang-types { prefix yang; }
 
   organization
     "IETF NETCONF WG";
+
   contact
     "netconf@ops.ietf.org";
+
   description
     "Conversion of the 'ncEvent' XSD in the 
      NETCONF Notifications RFC.";
-
+         
   revision 2008-07-14 {
-    description
+    description 
       "Initial revision.";
-    reference "RFC 5277: NETCONF Event Notifications";
+    reference
+      "RFC 5277: NETCONF Event Notifications";
   }
 
   typedef streamNameType {
@@ -35,6 +37,7 @@ module notifications {
        parameters, startTime and stopTime, which can be used to 
        select the time interval of interest to the notification
        replay feature.";
+
     input {
       leaf stream {
         type streamNameType;
@@ -44,6 +47,7 @@ module notifications {
            events is of interest. If not present, then events in the
            default NETCONF stream will be sent.";
       }
+
       anyxml filter {
         description
           "An optional parameter that indicates which subset of all
@@ -53,6 +57,7 @@ module notifications {
            all events not precluded by other parameters will 
            be sent.";
       }
+
       leaf startTime {
         type yang:date-and-time;
         description
@@ -61,6 +66,7 @@ module notifications {
            specified. If start time is not present, this is not a
            replay subscription.";
       }
+
       leaf stopTime {
         type yang:date-and-time;
         description

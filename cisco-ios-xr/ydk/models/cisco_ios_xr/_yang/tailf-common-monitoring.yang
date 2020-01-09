@@ -6,8 +6,8 @@ module tailf-common-monitoring {
     prefix inet;
   }
 
-  organization
-    "Tail-f Systems";
+  organization "Tail-f Systems";
+
   description
     "This module defines common status objects for monitoring of
      Tail-f products.";
@@ -15,40 +15,49 @@ module tailf-common-monitoring {
   revision 2013-06-14 {
     description
       "Released as part of ConfD-4.3 and NCS-2.3.
-       
+
        Added 'relay-slave' enum for HA mode.";
   }
+
   revision 2013-03-07 {
     description
       "Released as part of ConfD-4.2 and NCS-2.2.
-       
+
        Added container 'loaded-data-models'.
-       
+
        Added container 'rest' for status of the REST server.";
   }
+
   revision 2012-11-08 {
     description
       "Released as part of ConfD-4.1 and NCS-2.1.
-       
+
        Fixed bug in 'when' expression in 'cluster-info' choice.";
   }
+
   revision 2012-03-08 {
     description
       "Released as part of ConfD-3.9 and NCS-1.9.
-       
+
        Added 'pending-read' and 'pending-subscription' values for
        internal/cdb/client/lock.";
   }
+
   revision 2011-12-08 {
     description
       "Released as part of ConfD-3.8.
-       
+
        Added CDB status.";
   }
+
   revision 2011-09-22 {
     description
       "Initial revision.";
   }
+
+  /*
+   * Typedefs
+   */
 
   typedef ha-node-id {
     type string;
@@ -58,8 +67,12 @@ module tailf-common-monitoring {
 
   typedef size-in-bytes {
     type uint64;
-    units "bytes";
+    units bytes;
   }
+
+  /*
+   * Groupings
+   */
 
   grouping callpoint-entry {
     leaf id {
@@ -86,6 +99,9 @@ module tailf-common-monitoring {
            registered for a callpoint.";
       }
       leaf error {
+        description
+          "If this leaf exists, there is a problem
+           with the daemon registration.";
         type enumeration {
           enum "PENDING" {
             description
@@ -93,11 +109,9 @@ module tailf-common-monitoring {
                completed the registration (with confd_register_done()).";
           }
         }
-        description
-          "If this leaf exists, there is a problem
-           with the daemon registration.";
       }
     }
+
     choice registration-type {
       case daemon {
         container daemon {
@@ -144,7 +158,11 @@ module tailf-common-monitoring {
         }
       }
     }
+
     leaf error {
+      description
+        "If this leaf exists, there is a problem
+         with the callpoint registration.";
       type enumeration {
         enum "NOT-REGISTERED" {
           description
@@ -157,9 +175,6 @@ module tailf-common-monitoring {
              but there is a registration for it.";
         }
       }
-      description
-        "If this leaf exists, there is a problem
-         with the callpoint registration.";
     }
   }
 
@@ -173,11 +188,18 @@ module tailf-common-monitoring {
         type inet:port-number;
       }
     }
+
+
+    /*
+     * Common Status objects
+     */
+
     leaf version {
       type string;
       description
         "Tail-f product version number.";
     }
+
     container smp {
       presence "Indicates that symmetric multiprocessing is used";
       leaf number-of-threads {
@@ -186,11 +208,13 @@ module tailf-common-monitoring {
           "Number of threads used by the daemon.";
       }
     }
+
     leaf epoll {
       type boolean;
       description
         "Indicates whether an enhanced poll() function is used";
     }
+
     leaf daemon-status {
       type enumeration {
         enum "starting" {
@@ -215,36 +239,46 @@ module tailf-common-monitoring {
         }
       }
     }
+
     leaf read-only-mode {
       type empty;
     }
+
     leaf upgrade-mode {
       type empty;
       description
         "Note that if the node is in upgrade mode, it is not possible to
          get any information from the system over NETCONF.
          The error-app-tag will be upgrade-in-progress.
-         
+
          Existing CLI sessions can get system information.";
     }
+
+    /*
+     * High Availability Status
+     */
+
     container ha {
       presence "The daemon is running in a High Availability (HA) cluster.";
+
       leaf mode {
         type enumeration {
-          enum "none";
-          enum "slave";
-          enum "master";
-          enum "relay-slave";
+          enum none;
+          enum slave;
+          enum master;
+          enum relay-slave;
         }
         description
           "The current HA mode of the node in the HA cluster.";
       }
+
       leaf node-id {
-        when "../mode != 'none'";
         type ha-node-id;
+        when "../mode != 'none'";
         description
           "The node identifier of this node in the HA cluster.";
       }
+
       leaf master-node-id {
         when "../mode = 'slave' or ../mode = 'relay-slave'";
         type string;
@@ -253,6 +287,7 @@ module tailf-common-monitoring {
            This is the HA cluster's master node unless relay slaves
            are used.";
       }
+
       leaf-list connected-slave {
         when "../mode = 'master' or ../mode = 'relay-slave'";
         type string;
@@ -267,15 +302,29 @@ module tailf-common-monitoring {
            of synchronous replication.";
       }
     }
+
+    /*
+     * User sessions are defined in ietf-netconf-monitoring, with
+     *   additional information in tailf-netconf-monitoring.
+     *
+     * Notification streams are defined in netconf_netmod.yang.
+     */
+
+    /*
+     * Data Models
+     */
+
     container loaded-data-models {
       list data-model {
-        key "name";
         description
           "This list contains all loaded YANG data modules.
-           
+
            This list is a superset of the 'schema' list defined in
            ietf-netconf-monitoring, which only lists modules exported
            through NETCONF.";
+
+        key name;
+
         leaf name {
           type string;
           description
@@ -321,12 +370,18 @@ module tailf-common-monitoring {
         }
       }
     }
+
+    /*
+     * NETCONF server
+     */
+
     container netconf {
       presence "Indicates that the NETCONF server is running.";
+
       container listen {
         description
           "The transport addresses the NETCONF server is listening on.
-           
+
            Note that other mechanisms can be put in front of the TCP
            addresses below, e.g., an OpenSSH server.  Such mechanisms
            are not known to the daemon and not listed here.";
@@ -338,15 +393,21 @@ module tailf-common-monitoring {
         }
       }
     }
+
+    /*
+     * CLI server
+     */
+
     container cli {
       presence "Indicates that the CLI server is running.";
+
       container listen {
         description
           "The transport addresses the CLI server is listening on.
-           
+
            In addition to the SSH addresses listen below, the CLI can
            always be invoked through the daemons IPC port.
-           
+
            Note that other mechanisms can be put in front of the IPC
            port, e.g., an OpenSSH server.  Such mechanisms are not
            known to the daemon and not listed here.";
@@ -355,8 +416,14 @@ module tailf-common-monitoring {
         }
       }
     }
+
+    /*
+     * WebUI server
+     */
+
     container webui {
       presence "Indicates that the WebUI server is running.";
+
       container listen {
         description
           "The transport addresses the WebUI server is listening on.";
@@ -368,8 +435,14 @@ module tailf-common-monitoring {
         }
       }
     }
+
+    /*
+     * REST server
+     */
+
     container rest {
       presence "Indicates that the REST server is running.";
+
       container listen {
         description
           "The transport addresses the REST server is listening on.";
@@ -381,8 +454,14 @@ module tailf-common-monitoring {
         }
       }
     }
+
+    /*
+     * SNMP Agent
+     */
+
     container snmp {
       presence "Indicates that the SNMP agent is running.";
+
       container listen {
         description
           "The transport addresses the SNMP agent is listening on.";
@@ -390,11 +469,13 @@ module tailf-common-monitoring {
           uses ip-port;
         }
       }
+
       leaf-list mib {
         type string;
         description
           "MIBs loaded by the SNMP agent.";
       }
+
       container version {
         description
           "SNMP version used by the engine.";
@@ -408,47 +489,62 @@ module tailf-common-monitoring {
           type empty;
         }
       }
+
       leaf engine-id {
         type string {
-          pattern "([0-9a-fA-F]){2}(:([0-9a-fA-F]){2}){4,31}";
+          pattern '([0-9a-fA-F]){2}(:([0-9a-fA-F]){2}){4,31}';
         }
         description
           "The local Engine ID specified as a list of colon-specified
            hexadecimal octets e.g. '4F:4C:41:71'.";
       }
     }
+
+    /*
+     * Internal Information
+     */
+
     container internal {
+
       container callpoints {
+
         list callpoint {
-          key "id";
+          key id;
           uses callpoint-entry;
         }
+
         list validationpoint {
-          key "id";
+          key id;
           uses callpoint-entry;
         }
+
         list actionpoint {
-          key "id";
+          key id;
           uses callpoint-entry;
         }
+
         list snmp-inform-callback {
-          key "id";
+          key id;
           uses callpoint-entry;
         }
+
         list snmp-notification-subscription {
-          key "id";
+          key id;
           uses callpoint-entry;
         }
+
         list error-formatting-callback {
-          key "id";
+          key id;
           uses callpoint-entry;
         }
+
         list typepoint {
-          key "id";
+          key id;
           uses callpoint-entry;
         }
+
         list notification-stream-replay {
-          key "name";
+          key name;
           leaf name {
             type string;
             description
@@ -463,25 +559,27 @@ module tailf-common-monitoring {
           }
           uses registration-info;
         }
+
         container authentication-callback {
-          presence
-            "Indicates that the authentication callback
-             is enabled or registered";
+          presence "Indicates that the authentication callback
+                    is enabled or registered";
           leaf enabled {
             type boolean;
           }
           uses registration-info;
         }
+
         container authorization-callbacks {
-          presence
-            "Indicates that the authorization callbacks
-             are enabled or registered";
+          presence "Indicates that the authorization callbacks
+                    are enabled or registered";
           leaf enabled {
             type boolean;
           }
           uses registration-info;
         }
       }
+
+
       container cdb {
 
         typedef datastore-name {
@@ -507,11 +605,14 @@ module tailf-common-monitoring {
             "The numerical priority associated with a subscripition
              for configuration data changes.";
         }
+
         list datastore {
-          key "name";
+          key name;
+
           leaf name {
             type datastore-name;
           }
+
           leaf transaction-id {
             type string;
             description
@@ -520,6 +621,7 @@ module tailf-common-monitoring {
                For the 'operational' datastore, it is only present when HA
                is enabled.";
           }
+
           leaf write-queue {
             type uint32;
             description
@@ -527,6 +629,7 @@ module tailf-common-monitoring {
                datastore on a HA slave that is in the process of syncronizing
                with the master.";
           }
+
           leaf filename {
             type string;
             description
@@ -534,35 +637,41 @@ module tailf-common-monitoring {
                for the datastore. Not present for 'running' when 'startup'
                exists.";
           }
+
           leaf disk-size {
             type size-in-bytes;
             description
               "The size of the file that is used for persistent storage
                for the datastore. Only present if 'filename' is present.";
           }
+
           leaf ram-size {
             type size-in-bytes;
             description
               "The size of the in-memory representation of the datastore.";
           }
+
           leaf read-locks {
             type uint32;
             description
               "The number of read locks on the datastore. Not present for
                the 'operational' data store.";
           }
+
           leaf write-lock-set {
             type boolean;
             description
               "Indicates whether a write lock is in effect for the datastore.
                Not present for the 'operational' datastore.";
           }
+
           leaf subscription-lock-set {
             type boolean;
             description
               "Indicates whether a subscription lock is in effect for the
                'operational' datastore.";
           }
+
           leaf waiting-for-replication-sync {
             type boolean;
             description
@@ -570,6 +679,7 @@ module tailf-common-monitoring {
                HA slave is in progress for the datastore. Not present for the
                'operational' datastore.";
           }
+
           container pending-subscription-sync {
             presence "waiting for subscription sync";
             description
@@ -601,7 +711,7 @@ module tailf-common-monitoring {
               type union {
                 type uint64;
                 type enumeration {
-                  enum "infinity";
+                  enum infinity;
                 }
               }
               description
@@ -613,6 +723,7 @@ module tailf-common-monitoring {
                  configured in confd.conf.";
             }
           }
+
           list pending-notification-queue {
             description
               "Queues of notifications that have been generated but not
@@ -640,7 +751,9 @@ module tailf-common-monitoring {
               }
             }
           }
+
         }
+
         list client {
           leaf name {
             type string;
@@ -656,10 +769,10 @@ module tailf-common-monitoring {
           }
           leaf type {
             type enumeration {
-              enum "inactive";
-              enum "client";
-              enum "subscriber";
-              enum "waiting";
+              enum inactive;
+              enum client;
+              enum subscriber;
+              enum waiting;
             }
             description
               "The type of client: 'inactive' is a client connection without
@@ -672,7 +785,7 @@ module tailf-common-monitoring {
             type union {
               type datastore-name;
               type enumeration {
-                enum "pre_commit_running" {
+                enum pre_commit_running {
                   value 9;
                 }
               }
@@ -684,10 +797,10 @@ module tailf-common-monitoring {
           }
           leaf lock {
             type enumeration {
-              enum "read";
-              enum "subscription";
-              enum "pending-read";
-              enum "pending-subscription";
+              enum read;
+              enum subscription;
+              enum pending-read;
+              enum pending-subscription;
             }
             description
               "Set when 'type' = 'client' and the client has requested or
@@ -698,6 +811,7 @@ module tailf-common-monitoring {
                a 'subscription' lock is never taken for any other datastore
                than 'operational'.";
           }
+
           list subscription {
             leaf datastore {
               type datastore-name;
@@ -728,6 +842,9 @@ module tailf-common-monitoring {
                 "The path that the subscription pertains to.";
             }
             leaf error {
+              description
+                "If this leaf exists, there is a problem
+                  with the subscription.";
               type enumeration {
                 enum "PENDING" {
                   description
@@ -735,13 +852,12 @@ module tailf-common-monitoring {
                      completed the subscription (with cdb_subscribe_done()).";
                 }
               }
-              description
-                "If this leaf exists, there is a problem
-                  with the subscription.";
             }
           }
         }
       }
     }
   }
+
 }
+

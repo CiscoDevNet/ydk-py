@@ -4,8 +4,11 @@ Conversion of the 'manageEvent' XSD in the NETCONF
 Notifications RFC.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -14,7 +17,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Netconf(Entity):
+class Netconf(_Entity_):
     """
     Top\-level element in the notification namespace
     
@@ -33,7 +36,10 @@ class Netconf(Entity):
     _revision = '2008-07-14'
 
     def __init__(self):
-        super(Netconf, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Netconf, self).__init__()
         self._top_entity = None
 
         self.yang_name = "netconf"
@@ -54,7 +60,7 @@ class Netconf(Entity):
         self._perform_setattr(Netconf, [], name, value)
 
 
-    class Streams(Entity):
+    class Streams(_Entity_):
         """
         The list of event streams supported by the system. When
         a query is issued, the returned set of streams is 
@@ -75,7 +81,10 @@ class Netconf(Entity):
         _revision = '2008-07-14'
 
         def __init__(self):
-            super(Netconf.Streams, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Netconf.Streams, self).__init__()
 
             self.yang_name = "streams"
             self.yang_parent_name = "netconf"
@@ -94,7 +103,7 @@ class Netconf(Entity):
             self._perform_setattr(Netconf.Streams, [], name, value)
 
 
-        class Stream(Entity):
+        class Stream(_Entity_):
             """
             Stream name, description and other information.
             
@@ -140,7 +149,10 @@ class Netconf(Entity):
             _revision = '2008-07-14'
 
             def __init__(self):
-                super(Netconf.Streams.Stream, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Netconf.Streams.Stream, self).__init__()
 
                 self.yang_name = "stream"
                 self.yang_parent_name = "streams"
@@ -165,11 +177,23 @@ class Netconf(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Netconf.Streams.Stream, ['name', 'description', 'replaysupport', 'replaylogcreationtime'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _nc_notifications as meta
+                return meta._meta_table['Netconf.Streams.Stream']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _nc_notifications as meta
+            return meta._meta_table['Netconf.Streams']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Netconf()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _nc_notifications as meta
+        return meta._meta_table['Netconf']['meta_info']
 
 

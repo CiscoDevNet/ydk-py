@@ -16,8 +16,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -56,6 +59,12 @@ class SpanDestination(Enum):
     ipv4_address = Enum.YLeaf(2, "ipv4-address")
 
     ipv6_address = Enum.YLeaf(3, "ipv6-address")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_cfg as meta
+        return meta._meta_table['SpanDestination']
 
 
 class SpanMirrorInterval(Enum):
@@ -103,6 +112,12 @@ class SpanMirrorInterval(Enum):
     Y_16k = Enum.YLeaf(6, "16k")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_cfg as meta
+        return meta._meta_table['SpanMirrorInterval']
+
+
 class SpanTrafficDirection(Enum):
     """
     SpanTrafficDirection (Enum Class)
@@ -124,8 +139,14 @@ class SpanTrafficDirection(Enum):
     tx_only = Enum.YLeaf(2, "tx-only")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_cfg as meta
+        return meta._meta_table['SpanTrafficDirection']
 
-class SpanMonitorSession(Entity):
+
+
+class SpanMonitorSession(_Entity_):
     """
     none
     
@@ -142,7 +163,10 @@ class SpanMonitorSession(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(SpanMonitorSession, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SpanMonitorSession, self).__init__()
         self._top_entity = None
 
         self.yang_name = "span-monitor-session"
@@ -163,7 +187,7 @@ class SpanMonitorSession(Entity):
         self._perform_setattr(SpanMonitorSession, [], name, value)
 
 
-    class Sessions(Entity):
+    class Sessions(_Entity_):
         """
         Monitor\-session configuration commands
         
@@ -180,7 +204,10 @@ class SpanMonitorSession(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(SpanMonitorSession.Sessions, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SpanMonitorSession.Sessions, self).__init__()
 
             self.yang_name = "sessions"
             self.yang_parent_name = "span-monitor-session"
@@ -199,7 +226,7 @@ class SpanMonitorSession(Entity):
             self._perform_setattr(SpanMonitorSession.Sessions, [], name, value)
 
 
-        class Session(Entity):
+        class Session(_Entity_):
             """
             Configuration for a particular Monitor Session
             
@@ -251,7 +278,10 @@ class SpanMonitorSession(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(SpanMonitorSession.Sessions.Session, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SpanMonitorSession.Sessions.Session, self).__init__()
 
                 self.yang_name = "session"
                 self.yang_parent_name = "sessions"
@@ -283,7 +313,7 @@ class SpanMonitorSession(Entity):
                 self._perform_setattr(SpanMonitorSession.Sessions.Session, ['session', 'class_', 'discard_class', 'inject_interface', 'traffic_class'], name, value)
 
 
-            class Destination(Entity):
+            class Destination(_Entity_):
                 """
                 Specify a destination
                 
@@ -321,7 +351,10 @@ class SpanMonitorSession(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(SpanMonitorSession.Sessions.Session.Destination, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SpanMonitorSession.Sessions.Session.Destination, self).__init__()
 
                     self.yang_name = "destination"
                     self.yang_parent_name = "session"
@@ -345,12 +378,28 @@ class SpanMonitorSession(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SpanMonitorSession.Sessions.Session.Destination, ['destination_type', 'destination_interface_name', 'destination_ipv4_address', 'destination_ipv6_address'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_cfg as meta
+                    return meta._meta_table['SpanMonitorSession.Sessions.Session.Destination']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_cfg as meta
+                return meta._meta_table['SpanMonitorSession.Sessions.Session']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_cfg as meta
+            return meta._meta_table['SpanMonitorSession.Sessions']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SpanMonitorSession()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_cfg as meta
+        return meta._meta_table['SpanMonitorSession']['meta_info']
 
 

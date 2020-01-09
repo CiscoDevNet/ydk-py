@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Nve(Entity):
+class Nve(_Entity_):
     """
     NVE operational data
     
@@ -47,7 +50,10 @@ class Nve(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Nve, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Nve, self).__init__()
         self._top_entity = None
 
         self.yang_name = "nve"
@@ -72,7 +78,7 @@ class Nve(Entity):
         self._perform_setattr(Nve, [], name, value)
 
 
-    class Vnis(Entity):
+    class Vnis(_Entity_):
         """
         Table for VNIs
         
@@ -91,7 +97,10 @@ class Nve(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Nve.Vnis, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Nve.Vnis, self).__init__()
 
             self.yang_name = "vnis"
             self.yang_parent_name = "nve"
@@ -110,7 +119,7 @@ class Nve(Entity):
             self._perform_setattr(Nve.Vnis, [], name, value)
 
 
-        class Vni(Entity):
+        class Vni(_Entity_):
             """
             The attributes for a particular VNI
             
@@ -305,7 +314,10 @@ class Nve(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Nve.Vnis.Vni, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Nve.Vnis.Vni, self).__init__()
 
                 self.yang_name = "vni"
                 self.yang_parent_name = "vnis"
@@ -364,10 +376,18 @@ class Nve(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Nve.Vnis.Vni, ['vni', 'interface_name', 'vni_xr', 'state', 'mcast_ipv4_address', 'flags', 'vni_min', 'vni_max', 'mcast_flags', 'udp_port', 'bvi_ifh', 'bvi_state', 'bvi_mac', 'vrf_name', 'vrf_id', 'ipv4_tbl_id', 'ipv6_tbl_id', 'vrf_vni', 'topo_valid', 'topo_id', 'topo_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_oper as meta
+                return meta._meta_table['Nve.Vnis.Vni']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_oper as meta
+            return meta._meta_table['Nve.Vnis']['meta_info']
 
 
-
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         Table for NVE interface attributes
         
@@ -386,7 +406,10 @@ class Nve(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Nve.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Nve.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "nve"
@@ -405,7 +428,7 @@ class Nve(Entity):
             self._perform_setattr(Nve.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             The attributes for a particular interface
             
@@ -555,7 +578,10 @@ class Nve(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Nve.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Nve.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -604,11 +630,23 @@ class Nve(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Nve.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'state', 'admin_state', 'flags', 'encap', 'source_interface_name', 'source_ipv4_address', 'if_handle', 'source_state', 'udp_port', 'any_cast_source_interface_name', 'any_cast_source_ipv4_address', 'any_cast_source_state', 'sync_mcast_ipv4_address', 'sync_mcast_flags'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_oper as meta
+                return meta._meta_table['Nve.Interfaces.Interface']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_oper as meta
+            return meta._meta_table['Nve.Interfaces']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Nve()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_oper as meta
+        return meta._meta_table['Nve']['meta_info']
 
 

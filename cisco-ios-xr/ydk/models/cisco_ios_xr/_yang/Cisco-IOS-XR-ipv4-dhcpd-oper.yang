@@ -6,10 +6,10 @@ module Cisco-IOS-XR-ipv4-dhcpd-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-ipv4-dhcpd-oper-sub2 {
-    revision-date 2018-09-20;
+    revision-date 2019-06-25;
   }
   include Cisco-IOS-XR-ipv4-dhcpd-oper-sub1 {
-    revision-date 2018-09-20;
+    revision-date 2019-06-25;
   }
 
   organization
@@ -36,6 +36,10 @@ module Cisco-IOS-XR-ipv4-dhcpd-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-06-25 {
+    description
+      "Introduced an option to show dhcp rate limit hit counters.";
+  }
   revision 2018-09-20 {
     description
       "Fixing yang gaps.";
@@ -274,6 +278,11 @@ module Cisco-IOS-XR-ipv4-dhcpd-oper {
             description
               "DHCP base statistics";
             uses IPV4-DHCPD-PROXY-STATS;
+          }
+          container drops {
+            description
+              "DHCP base drop statistics";
+            uses IPV4-DHCPD-BASE-DROP-STATS;
           }
           container issu-status {
             description

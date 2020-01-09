@@ -165,6 +165,18 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
       "Bgp ebgp send dmz enable mode";
   }
 
+  typedef Bgp-rpki-binssrc {
+    type enumeration {
+      enum "interface" {
+        value 0;
+        description
+          "Bind Source Interface";
+      }
+    }
+    description
+      "Bgp rpki binssrc";
+  }
+
   typedef Bgp-signal {
     type enumeration {
       enum "bgp-disable" {
@@ -1344,7 +1356,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
       type boolean;
       description
         "TRUE to send extended communities to the
-         external neighbor/neighbor-group/af-group. 
+         external neighbor/neighbor-group/af-group.
          FALSE not to send and to prevent inheritance
          from a parent";
     }
@@ -2188,6 +2200,19 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     }
   }
 
+  grouping CLUSTER-ID-ALLOW-EQUAL {
+    description
+      "Common node of neighbor-group-af, neighbor-af,
+       vrf-neighbor-af, af-group-af";
+    leaf cluster-id-allow-equal {
+      type boolean;
+      description
+        "TRUE to disable cluster-id check for first id in
+         the cluster-id-list. FALSE to enable check for
+         all cluster-ids in the list.";
+    }
+  }
+
   grouping EBGP-SEND-DMZ-ENABLE-MODES {
     description
       "Common node of neighbor-group, neighbor,
@@ -2713,7 +2738,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     leaf accept-route-legacy-rt {
       type boolean;
       description
-        "TRUE to configure as a accept-route-legacy-RT. 
+        "TRUE to configure as a accept-route-legacy-RT.
          FALSE to prevent accept-route-legacy-RT from
          being inherited.";
     }
@@ -2945,7 +2970,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     leaf route-reflector-client {
       type boolean;
       description
-        "TRUE to configure as a route-reflector-client. 
+        "TRUE to configure as a route-reflector-client.
          FALSE to prevent route-reflector-client from
          being inherited.";
     }
@@ -3419,7 +3444,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
     leaf suppress-four-byte-as-capability {
       type boolean;
       description
-        "TRUE to suppress BGP 4-byte-as capability. 
+        "TRUE to suppress BGP 4-byte-as capability.
          FALSE to not suppress it and to prevent
          inheritance from a parent";
     }
@@ -4585,6 +4610,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses SEND-EXT-COMMUNITY-EBGP;
                       uses ACCEPT-ROUTE-LEGACY-RT;
                       uses AIGP-COST-COMMUNITY;
+                      uses CLUSTER-ID-ALLOW-EQUAL;
                       uses SEND-COMMUNITY-EBGP;
                       uses ADVERTISE-DEF-IMP-DISABLE-V6;
                       uses ADVERTISE-DISABLE;
@@ -4755,6 +4781,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses SEND-EXT-COMMUNITY-EBGP;
                       uses ACCEPT-ROUTE-LEGACY-RT;
                       uses AIGP-COST-COMMUNITY;
+                      uses CLUSTER-ID-ALLOW-EQUAL;
                       uses SEND-COMMUNITY-EBGP;
                       uses ADVERTISE-DEF-IMP-DISABLE-V6;
                       uses ADVERTISE-DISABLE;
@@ -4911,6 +4938,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses SEND-EXT-COMMUNITY-EBGP;
                       uses ACCEPT-ROUTE-LEGACY-RT;
                       uses AIGP-COST-COMMUNITY;
+                      uses CLUSTER-ID-ALLOW-EQUAL;
                       uses SEND-COMMUNITY-EBGP;
                       uses ADVERTISE-DEF-IMP-DISABLE-V6;
                       uses ADVERTISE-DISABLE;
@@ -5064,6 +5092,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                       uses SEND-EXT-COMMUNITY-EBGP;
                       uses ACCEPT-ROUTE-LEGACY-RT;
                       uses AIGP-COST-COMMUNITY;
+                      uses CLUSTER-ID-ALLOW-EQUAL;
                       uses SEND-COMMUNITY-EBGP;
                       uses ADVERTISE-DEF-IMP-DISABLE-V6;
                       uses ADVERTISE-DISABLE;
@@ -5298,6 +5327,20 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                   key "server";
                   description
                     "RPKI server configuration";
+                  container bindsrc {
+                    description
+                      "RPKI server transport bind source";
+                    leaf bindsrc-type {
+                      type Bgp-rpki-binssrc;
+                      description
+                        "Bind source type";
+                    }
+                    leaf bind-src {
+                      type string;
+                      description
+                        "server bind source interface";
+                    }
+                  }
                   container transport {
                     description
                       "RPKI server transport";
@@ -5495,20 +5538,22 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                   }
                 }
               }
-              container global-graceful-maintenance-activate {
+              container segment-routing-global {
                 description
-                  "Activate Graceful Maintenance Mode for all
-                   neighbors with graceful maintenance config";
-                leaf all-neighbors {
-                  type boolean;
+                  "Segment-routing Gbl Configurations";
+                container srv6-global {
                   description
-                    "Also for neighbors without graceful
-                     maintenance config";
-                }
-                leaf retain-routes {
-                  type boolean;
-                  description
-                    "Keep routes in RIB once BGP stops";
+                    "SRv6 Configurations";
+                  leaf enable {
+                    type empty;
+                    description
+                      "Enable SRv6 configuration submode";
+                  }
+                  leaf locator-name {
+                    type string;
+                    description
+                      "Configure Locator name for SID allocation";
+                  }
                 }
               }
               container global-afs {
@@ -5573,6 +5618,32 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                     description
                       "Configurations to be inherited to all
                        vrfs";
+                    container segment-routing-vrf-all {
+                      description
+                        "Segment-routing Vrf All Configurations";
+                      container srv6-vrf-all {
+                        description
+                          "SRv6 Configurations";
+                        leaf enable {
+                          type empty;
+                          description
+                            "Enable SRv6 configuration submode";
+                        }
+                        leaf srv6sid-allocation-mode {
+                          type string;
+                          description
+                            "SID allocation mode: per-ce  Set per
+                             CE SID mode,per-vrf Set per VRF SID
+                             mode";
+                        }
+                        leaf locator-name {
+                          type string;
+                          description
+                            "Configure Locator name for SID
+                             allocation";
+                        }
+                      }
+                    }
                     container label-mode {
                       description
                         "MPLS-VPN label allocation mode";
@@ -5611,7 +5682,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                     leaf source-rt-import-policy {
                       type empty;
                       description
-                        "Enable sourcing of import route-targets 
+                        "Enable sourcing of import route-targets
                          from import-policy";
                     }
                   }
@@ -6014,6 +6085,61 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                   uses SEGMENT-ROUTING;
                 }
               }
+              container global-graceful-maintenance-activate {
+                description
+                  "Graceful maintenance activate
+                   configurations";
+                container interfaces {
+                  description
+                    "BGP graceful maintenance interface table";
+                  list interface {
+                    key "interface-name";
+                    description
+                      "Enable graceful maintenance for e-bgp
+                       directly connected neighbors going over
+                       this interface";
+                    leaf interface-name {
+                      type xr:Interface-name;
+                      description
+                        "Name of Interface";
+                    }
+                  }
+                }
+                container locations {
+                  description
+                    "BGP graceful maintenance location table";
+                  list location {
+                    key "location";
+                    description
+                      "Enable graceful maintenance for e-bgp
+                       directly connected neighbors going over
+                       this line-card (location)";
+                    leaf location {
+                      type xr:Node-id;
+                      description
+                        "Name of Location";
+                    }
+                  }
+                }
+                leaf retain-routes {
+                  type boolean;
+                  description
+                    "BGP graceful maintenance retain routes ";
+                }
+                leaf enable {
+                  type empty;
+                  description
+                    "Enable graceful maintenance activate
+                     configuration submode";
+                }
+                leaf all-neighbor {
+                  type boolean;
+                  description
+                    "Enable graceful maintenance for all
+                     neighbors without graceful maintenance
+                     config";
+                }
+              }
               container rpki-static-routes {
                 description
                   "RPKI static route configuration";
@@ -6113,7 +6239,7 @@ module Cisco-IOS-XR-ipv4-bgp-cfg {
                 }
                 units "second";
                 description
-                  "Prefix validation time (in seconds). Range 
+                  "Prefix validation time (in seconds). Range
                    : 5 - 60. Specify 0 for timer off";
               }
               leaf rpki-bestpath-origin-as-allow-invalid {

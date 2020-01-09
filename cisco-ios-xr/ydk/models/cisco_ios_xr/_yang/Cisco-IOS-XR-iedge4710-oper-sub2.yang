@@ -12,6 +12,9 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub2 {
   import Cisco-IOS-XR-types {
     prefix xr;
   }
+  include Cisco-IOS-XR-iedge4710-oper-sub3 {
+    revision-date 2018-09-20;
+  }
 
   organization
     "Cisco Systems, Inc.";
@@ -172,12 +175,6 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub2 {
     }
     description
       "Subscriber session states";
-  }
-
-  typedef Mac-address {
-    type yang:mac-address;
-    description
-      "MAC address type";
   }
 
   typedef Hex-binary {
@@ -352,6 +349,13 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub2 {
       units "second";
       description
         "Time of last successful interim update in
+         epoch-seconds ";
+    }
+    leaf last-unsuccessful-interim-update-time-epoch {
+      type uint64;
+      units "second";
+      description
+        "Time of last unsuccessful interim update in
          epoch-seconds ";
     }
     leaf next-interim-update-attempt-time {
@@ -551,6 +555,12 @@ submodule Cisco-IOS-XR-iedge4710-oper-sub2 {
       description
         "Access interface name associated with the
          session";
+    }
+    leaf accounting-stop-fail-rc {
+      type uint32;
+      description
+        "Accounting Stop Error Code for Accounting
+         Session";
     }
     list sub-policy-data {
       description

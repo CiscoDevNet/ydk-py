@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class NetFlow(Entity):
+class NetFlow(_Entity_):
     """
     NetFlow operational data
     
@@ -40,7 +43,10 @@ class NetFlow(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(NetFlow, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(NetFlow, self).__init__()
         self._top_entity = None
 
         self.yang_name = "net-flow"
@@ -61,7 +67,7 @@ class NetFlow(Entity):
         self._perform_setattr(NetFlow, [], name, value)
 
 
-    class Statistics(Entity):
+    class Statistics(_Entity_):
         """
         Node\-specific NetFlow statistics information
         
@@ -80,7 +86,10 @@ class NetFlow(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(NetFlow.Statistics, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(NetFlow.Statistics, self).__init__()
 
             self.yang_name = "statistics"
             self.yang_parent_name = "net-flow"
@@ -99,7 +108,7 @@ class NetFlow(Entity):
             self._perform_setattr(NetFlow.Statistics, [], name, value)
 
 
-        class Statistic(Entity):
+        class Statistic(_Entity_):
             """
             NetFlow statistics information for a particular
             node
@@ -135,7 +144,10 @@ class NetFlow(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(NetFlow.Statistics.Statistic, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(NetFlow.Statistics.Statistic, self).__init__()
 
                 self.yang_name = "statistic"
                 self.yang_parent_name = "statistics"
@@ -163,7 +175,7 @@ class NetFlow(Entity):
                 self._perform_setattr(NetFlow.Statistics.Statistic, ['node'], name, value)
 
 
-            class Producer(Entity):
+            class Producer(_Entity_):
                 """
                 NetFlow producer statistics
                 
@@ -182,7 +194,10 @@ class NetFlow(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NetFlow.Statistics.Statistic.Producer, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NetFlow.Statistics.Statistic.Producer, self).__init__()
 
                     self.yang_name = "producer"
                     self.yang_parent_name = "statistic"
@@ -202,7 +217,7 @@ class NetFlow(Entity):
                     self._perform_setattr(NetFlow.Statistics.Statistic.Producer, [], name, value)
 
 
-                class Statistics_(Entity):
+                class Statistics_(_Entity_):
                     """
                     Statistics information
                     
@@ -347,7 +362,10 @@ class NetFlow(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(NetFlow.Statistics.Statistic.Producer.Statistics_, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NetFlow.Statistics.Statistic.Producer.Statistics_, self).__init__()
 
                         self.yang_name = "statistics"
                         self.yang_parent_name = "producer"
@@ -393,10 +411,18 @@ class NetFlow(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(NetFlow.Statistics.Statistic.Producer.Statistics_, ['ipv4_ingress_flows', 'ipv4_egress_flows', 'ipv6_ingress_flows', 'ipv6_egress_flows', 'mpls_ingress_flows', 'mpls_egress_flows', 'section_ingress_flows', 'drops_no_space', 'drops_others', 'unknown_ingress_flows', 'unknown_egress_flows', 'waiting_servers', 'spp_rx_counts', 'flow_packet_counts', 'last_cleared'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
+                        return meta._meta_table['NetFlow.Statistics.Statistic.Producer.Statistics_']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
+                    return meta._meta_table['NetFlow.Statistics.Statistic.Producer']['meta_info']
 
 
-
-            class Server(Entity):
+            class Server(_Entity_):
                 """
                 NetFlow server statistics
                 
@@ -415,7 +441,10 @@ class NetFlow(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(NetFlow.Statistics.Statistic.Server, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(NetFlow.Statistics.Statistic.Server, self).__init__()
 
                     self.yang_name = "server"
                     self.yang_parent_name = "statistic"
@@ -435,7 +464,7 @@ class NetFlow(Entity):
                     self._perform_setattr(NetFlow.Statistics.Statistic.Server, [], name, value)
 
 
-                class FlowExporters(Entity):
+                class FlowExporters(_Entity_):
                     """
                     Flow exporter information
                     
@@ -454,7 +483,10 @@ class NetFlow(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(NetFlow.Statistics.Statistic.Server.FlowExporters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(NetFlow.Statistics.Statistic.Server.FlowExporters, self).__init__()
 
                         self.yang_name = "flow-exporters"
                         self.yang_parent_name = "server"
@@ -472,7 +504,7 @@ class NetFlow(Entity):
                         self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters, [], name, value)
 
 
-                    class FlowExporter(Entity):
+                    class FlowExporter(_Entity_):
                         """
                         Exporter information
                         
@@ -500,7 +532,10 @@ class NetFlow(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter, self).__init__()
 
                             self.yang_name = "flow-exporter"
                             self.yang_parent_name = "flow-exporters"
@@ -523,7 +558,7 @@ class NetFlow(Entity):
                             self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter, ['exporter_name'], name, value)
 
 
-                        class Exporter(Entity):
+                        class Exporter(_Entity_):
                             """
                             Statistics information for the exporter
                             
@@ -542,7 +577,10 @@ class NetFlow(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter, self).__init__()
 
                                 self.yang_name = "exporter"
                                 self.yang_parent_name = "flow-exporter"
@@ -560,7 +598,7 @@ class NetFlow(Entity):
                                 self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter, [], name, value)
 
 
-                            class Statistic_(Entity):
+                            class Statistic_(_Entity_):
                                 """
                                 Array of flow exporters
                                 
@@ -602,7 +640,10 @@ class NetFlow(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_, self).__init__()
 
                                     self.yang_name = "statistic"
                                     self.yang_parent_name = "exporter"
@@ -627,7 +668,7 @@ class NetFlow(Entity):
                                     self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_, ['name', 'memory_usage', 'used_by_flow_monitor'], name, value)
 
 
-                                class Collector(Entity):
+                                class Collector(_Entity_):
                                     """
                                     Statistics of all collectors
                                     
@@ -977,7 +1018,10 @@ class NetFlow(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector, self).__init__()
 
                                         self.yang_name = "collector"
                                         self.yang_parent_name = "statistic"
@@ -1065,17 +1109,53 @@ class NetFlow(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector, ['exporter_state', 'destination_address', 'source_address', 'vrf_name', 'destination_port', 'souce_port', 'transport_protocol', 'packets_sent', 'flows_sent', 'templates_sent', 'option_templates_sent', 'option_data_sent', 'bytes_sent', 'flow_bytes_sent', 'template_bytes_sent', 'option_template_bytes_sent', 'option_data_bytes_sent', 'packets_dropped', 'flows_dropped', 'templates_dropped', 'option_templates_dropped', 'option_data_dropped', 'bytes_dropped', 'flow_bytes_dropped', 'template_bytes_dropped', 'option_template_bytes_dropped', 'option_data_bytes_dropped', 'last_hour_packest_sent', 'last_hour_bytes_sent', 'last_hour_flows_sent', 'last_minute_packets', 'last_minute_bytes_sent', 'last_minute_flows_sent', 'last_second_packets_sent', 'last_second_bytes_sent', 'last_second_flows_sent'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
+                                        return meta._meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector']['meta_info']
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
+                                    return meta._meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
+                                return meta._meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
+                            return meta._meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
+                        return meta._meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
+                    return meta._meta_table['NetFlow.Statistics.Statistic.Server']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
+                return meta._meta_table['NetFlow.Statistics.Statistic']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
+            return meta._meta_table['NetFlow.Statistics']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = NetFlow()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
+        return meta._meta_table['NetFlow']['meta_info']
 
 

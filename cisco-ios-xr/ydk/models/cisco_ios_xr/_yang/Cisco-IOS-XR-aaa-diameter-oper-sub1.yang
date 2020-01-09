@@ -3,6 +3,10 @@ submodule Cisco-IOS-XR-aaa-diameter-oper-sub1 {
     prefix Cisco-IOS-XR-aaa-diameter-oper;
   }
 
+  import ietf-yang-types {
+    prefix yang;
+  }
+
   organization
     "Cisco Systems, Inc.";
   contact
@@ -22,6 +26,14 @@ submodule Cisco-IOS-XR-aaa-diameter-oper-sub1 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-09-26 {
+    description
+      "Introduced a peer-closed-reason leaf and transaction related leaves in DIAMETER-SERVERBAG grouping.";
+  }
+  revision 2019-08-25 {
+    description
+      "Fixed the string length to Bounded String.";
+  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -220,6 +232,11 @@ submodule Cisco-IOS-XR-aaa-diameter-oper-sub1 {
       type string;
       description
         "Revalidation Time";
+    }
+    leaf mac-address {
+      type yang:hex-string;
+      description
+        "Mac address of the subscriber session";
     }
   }
 
@@ -1055,10 +1072,42 @@ submodule Cisco-IOS-XR-aaa-diameter-oper-sub1 {
       description
         "Transport Down";
     }
+    leaf transaction-timeout-cnt {
+      type uint32;
+      description
+        "Transcation Timeout Counter";
+    }
+    leaf transaction-remove-cnt {
+      type uint32;
+      description
+        "Transaction Remove Counter";
+    }
+    leaf transaction-retry-cnt {
+      type uint32;
+      description
+        "Transaction Retry Counter";
+    }
+    leaf transaction-normal-cnt {
+      type uint32;
+      description
+        "Transaction Normal Counter";
+    }
+    leaf transaction-sent-cnt {
+      type uint32;
+      description
+        "Transaction transport Counter";
+    }
     leaf state {
       type Peer-state-value;
       description
         "Peer Connection Status";
+    }
+    leaf peer-closed-reason {
+      type string {
+        length "0..255";
+      }
+      description
+        "Peer Closed Reason";
     }
   }
 

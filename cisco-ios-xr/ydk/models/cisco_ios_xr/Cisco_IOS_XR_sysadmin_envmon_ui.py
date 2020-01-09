@@ -9,8 +9,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -19,7 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Environment(Entity):
+class Environment(_Entity_):
     """
     
     
@@ -57,7 +60,10 @@ class Environment(Entity):
     _revision = '2018-04-09'
 
     def __init__(self):
-        super(Environment, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Environment, self).__init__()
         self._top_entity = None
 
         self.yang_name = "environment"
@@ -88,7 +94,7 @@ class Environment(Entity):
         self._perform_setattr(Environment, [], name, value)
 
 
-    class Oper(Entity):
+    class Oper(_Entity_):
         """
         environment operational (show) data
         
@@ -142,7 +148,10 @@ class Environment(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Environment.Oper, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Environment.Oper, self).__init__()
 
             self.yang_name = "oper"
             self.yang_parent_name = "environment"
@@ -183,7 +192,7 @@ class Environment(Entity):
             self._perform_setattr(Environment.Oper, [], name, value)
 
 
-        class Temperatures(Entity):
+        class Temperatures(_Entity_):
             """
             
             
@@ -202,7 +211,10 @@ class Environment(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Environment.Oper.Temperatures, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Environment.Oper.Temperatures, self).__init__()
 
                 self.yang_name = "temperatures"
                 self.yang_parent_name = "oper"
@@ -221,7 +233,7 @@ class Environment(Entity):
                 self._perform_setattr(Environment.Oper.Temperatures, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -247,7 +259,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.Oper.Temperatures.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.Oper.Temperatures.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "temperatures"
@@ -269,7 +284,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.Oper.Temperatures.Location, ['location'], name, value)
 
 
-                class SensorAttributes(Entity):
+                class SensorAttributes(_Entity_):
                     """
                     
                     
@@ -397,7 +412,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.Oper.Temperatures.Location.SensorAttributes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.Oper.Temperatures.Location.SensorAttributes, self).__init__()
 
                         self.yang_name = "sensor_attributes"
                         self.yang_parent_name = "location"
@@ -441,11 +459,23 @@ class Environment(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.Oper.Temperatures.Location.SensorAttributes, ['sensor', 'loc_header', 'print_header', 'location', 'sensor_id', 'alarm', 'temperature_value', 'value', 'critical_lo', 'major_lo', 'minor_lo', 'minor_hi', 'major_hi', 'critical_hi'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.Oper.Temperatures.Location.SensorAttributes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.Oper.Temperatures.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['Environment.Oper.Temperatures']['meta_info']
 
 
-
-
-        class Voltages(Entity):
+        class Voltages(_Entity_):
             """
             
             
@@ -464,7 +494,10 @@ class Environment(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Environment.Oper.Voltages, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Environment.Oper.Voltages, self).__init__()
 
                 self.yang_name = "voltages"
                 self.yang_parent_name = "oper"
@@ -483,7 +516,7 @@ class Environment(Entity):
                 self._perform_setattr(Environment.Oper.Voltages, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -509,7 +542,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.Oper.Voltages.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.Oper.Voltages.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "voltages"
@@ -531,7 +567,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.Oper.Voltages.Location, ['location'], name, value)
 
 
-                class SensorAttributes(Entity):
+                class SensorAttributes(_Entity_):
                     """
                     
                     
@@ -659,7 +695,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.Oper.Voltages.Location.SensorAttributes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.Oper.Voltages.Location.SensorAttributes, self).__init__()
 
                         self.yang_name = "sensor_attributes"
                         self.yang_parent_name = "location"
@@ -703,11 +742,23 @@ class Environment(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.Oper.Voltages.Location.SensorAttributes, ['sensor', 'loc_header', 'print_header', 'location', 'sensor_id', 'alarm', 'value', 'temperature_value', 'critical_lo', 'major_lo', 'minor_lo', 'minor_hi', 'major_hi', 'critical_hi'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.Oper.Voltages.Location.SensorAttributes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.Oper.Voltages.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['Environment.Oper.Voltages']['meta_info']
 
 
-
-
-        class Current(Entity):
+        class Current(_Entity_):
             """
             
             
@@ -726,7 +777,10 @@ class Environment(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Environment.Oper.Current, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Environment.Oper.Current, self).__init__()
 
                 self.yang_name = "current"
                 self.yang_parent_name = "oper"
@@ -745,7 +799,7 @@ class Environment(Entity):
                 self._perform_setattr(Environment.Oper.Current, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -771,7 +825,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.Oper.Current.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.Oper.Current.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "current"
@@ -793,7 +850,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.Oper.Current.Location, ['location'], name, value)
 
 
-                class SensorAttributes(Entity):
+                class SensorAttributes(_Entity_):
                     """
                     
                     
@@ -867,7 +924,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.Oper.Current.Location.SensorAttributes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.Oper.Current.Location.SensorAttributes, self).__init__()
 
                         self.yang_name = "sensor_attributes"
                         self.yang_parent_name = "location"
@@ -899,11 +959,23 @@ class Environment(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.Oper.Current.Location.SensorAttributes, ['sensor', 'loc_header', 'print_header', 'location', 'sensor_id', 'alarm', 'value', 'temperature_value'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.Oper.Current.Location.SensorAttributes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.Oper.Current.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['Environment.Oper.Current']['meta_info']
 
 
-
-
-        class Fan(Entity):
+        class Fan(_Entity_):
             """
             
             
@@ -922,7 +994,10 @@ class Environment(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Environment.Oper.Fan, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Environment.Oper.Fan, self).__init__()
 
                 self.yang_name = "fan"
                 self.yang_parent_name = "oper"
@@ -941,7 +1016,7 @@ class Environment(Entity):
                 self._perform_setattr(Environment.Oper.Fan, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -985,7 +1060,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.Oper.Fan.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.Oper.Fan.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "fan"
@@ -1011,7 +1089,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.Oper.Fan.Location, ['location', 'print_header', 'loc_header'], name, value)
 
 
-                class FanAttributes(Entity):
+                class FanAttributes(_Entity_):
                     """
                     
                     
@@ -1076,7 +1154,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.Oper.Fan.Location.FanAttributes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.Oper.Fan.Location.FanAttributes, self).__init__()
 
                         self.yang_name = "fan_attributes"
                         self.yang_parent_name = "location"
@@ -1106,11 +1187,23 @@ class Environment(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.Oper.Fan.Location.FanAttributes, ['logical_slot', 'print_fan_header', 'location', 'fru_pid', 'fans_speed', 'fan_header', 'speed_space'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.Oper.Fan.Location.FanAttributes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.Oper.Fan.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['Environment.Oper.Fan']['meta_info']
 
 
-
-
-        class Power(Entity):
+        class Power(_Entity_):
             """
             
             
@@ -1129,7 +1222,10 @@ class Environment(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Environment.Oper.Power, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Environment.Oper.Power, self).__init__()
 
                 self.yang_name = "power"
                 self.yang_parent_name = "oper"
@@ -1148,7 +1244,7 @@ class Environment(Entity):
                 self._perform_setattr(Environment.Oper.Power, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -1174,7 +1270,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.Oper.Power.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.Oper.Power.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "power"
@@ -1196,7 +1295,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.Oper.Power.Location, ['location'], name, value)
 
 
-                class PemAttributes(Entity):
+                class PemAttributes(_Entity_):
                     """
                     
                     
@@ -1430,7 +1529,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.Oper.Power.Location.PemAttributes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.Oper.Power.Location.PemAttributes, self).__init__()
 
                         self.yang_name = "pem_attributes"
                         self.yang_parent_name = "location"
@@ -1502,11 +1604,23 @@ class Environment(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.Oper.Power.Location.PemAttributes, ['pem', 'pem_id', 'card_type', 'ps_type', 'shelf_num', 'supply_type', 'input_voltage', 'input_current', 'output_voltage', 'output_current', 'status', 'input_power_to_ps', 'input_current_to_ps', 'output_power_from_ps', 'output_current_from_ps', 'power_allocated', 'power_consumed', 'power_status', 'confgd_power_redundancy_mode', 'usable_power_capacity', 'protection_power_capacity', 'power_resrv_and_alloc', 'system_power_used', 'system_power_input', 'power_level', 'output_header', 'output_footer', 'ps_sum_footer'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.Oper.Power.Location.PemAttributes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.Oper.Power.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['Environment.Oper.Power']['meta_info']
 
 
-
-
-        class Altitude(Entity):
+        class Altitude(_Entity_):
             """
             
             
@@ -1525,7 +1639,10 @@ class Environment(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Environment.Oper.Altitude, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Environment.Oper.Altitude, self).__init__()
 
                 self.yang_name = "altitude"
                 self.yang_parent_name = "oper"
@@ -1544,7 +1661,7 @@ class Environment(Entity):
                 self._perform_setattr(Environment.Oper.Altitude, [], name, value)
 
 
-            class Location(Entity):
+            class Location(_Entity_):
                 """
                 
                 
@@ -1570,7 +1687,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.Oper.Altitude.Location, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.Oper.Altitude.Location, self).__init__()
 
                     self.yang_name = "location"
                     self.yang_parent_name = "altitude"
@@ -1592,7 +1712,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.Oper.Altitude.Location, ['location'], name, value)
 
 
-                class AltAttributes(Entity):
+                class AltAttributes(_Entity_):
                     """
                     
                     
@@ -1643,7 +1763,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.Oper.Altitude.Location.AltAttributes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.Oper.Altitude.Location.AltAttributes, self).__init__()
 
                         self.yang_name = "alt_attributes"
                         self.yang_parent_name = "location"
@@ -1669,12 +1792,28 @@ class Environment(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.Oper.Altitude.Location.AltAttributes, ['sensor', 'rack', 'sensor_value', 'source', 'print_header'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.Oper.Altitude.Location.AltAttributes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.Oper.Altitude.Location']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['Environment.Oper.Altitude']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+            return meta._meta_table['Environment.Oper']['meta_info']
 
 
-
-
-
-    class All(Entity):
+    class All(_Entity_):
         """
         
         
@@ -1693,7 +1832,10 @@ class Environment(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Environment.All, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Environment.All, self).__init__()
 
             self.yang_name = "all"
             self.yang_parent_name = "environment"
@@ -1712,7 +1854,7 @@ class Environment(Entity):
             self._perform_setattr(Environment.All, [], name, value)
 
 
-        class Location(Entity):
+        class Location(_Entity_):
             """
             
             
@@ -1773,7 +1915,10 @@ class Environment(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Environment.All.Location, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Environment.All.Location, self).__init__()
 
                 self.yang_name = "location"
                 self.yang_parent_name = "all"
@@ -1800,7 +1945,7 @@ class Environment(Entity):
                 self._perform_setattr(Environment.All.Location, ['location'], name, value)
 
 
-            class Temperatures(Entity):
+            class Temperatures(_Entity_):
                 """
                 
                 
@@ -1835,7 +1980,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.All.Location.Temperatures, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.All.Location.Temperatures, self).__init__()
 
                     self.yang_name = "temperatures"
                     self.yang_parent_name = "location"
@@ -1858,7 +2006,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.All.Location.Temperatures, ['loc_iden', 'print_header'], name, value)
 
 
-                class SensorAttributes(Entity):
+                class SensorAttributes(_Entity_):
                     """
                     
                     
@@ -1961,7 +2109,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.All.Location.Temperatures.SensorAttributes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.All.Location.Temperatures.SensorAttributes, self).__init__()
 
                         self.yang_name = "sensor_attributes"
                         self.yang_parent_name = "temperatures"
@@ -1999,10 +2150,18 @@ class Environment(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.All.Location.Temperatures.SensorAttributes, ['sensor', 'sensor_id', 'alarm', 'temperature_value', 'value', 'critical_lo', 'major_lo', 'minor_lo', 'minor_hi', 'major_hi', 'critical_hi'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.All.Location.Temperatures.SensorAttributes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.All.Location.Temperatures']['meta_info']
 
 
-
-            class Voltages(Entity):
+            class Voltages(_Entity_):
                 """
                 
                 
@@ -2037,7 +2196,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.All.Location.Voltages, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.All.Location.Voltages, self).__init__()
 
                     self.yang_name = "voltages"
                     self.yang_parent_name = "location"
@@ -2060,7 +2222,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.All.Location.Voltages, ['loc_iden', 'print_header'], name, value)
 
 
-                class SensorAttributes(Entity):
+                class SensorAttributes(_Entity_):
                     """
                     
                     
@@ -2163,7 +2325,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.All.Location.Voltages.SensorAttributes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.All.Location.Voltages.SensorAttributes, self).__init__()
 
                         self.yang_name = "sensor_attributes"
                         self.yang_parent_name = "voltages"
@@ -2201,10 +2366,18 @@ class Environment(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.All.Location.Voltages.SensorAttributes, ['sensor', 'sensor_id', 'alarm', 'value', 'temperature_value', 'critical_lo', 'major_lo', 'minor_lo', 'minor_hi', 'major_hi', 'critical_hi'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.All.Location.Voltages.SensorAttributes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.All.Location.Voltages']['meta_info']
 
 
-
-            class Current(Entity):
+            class Current(_Entity_):
                 """
                 
                 
@@ -2239,7 +2412,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.All.Location.Current, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.All.Location.Current, self).__init__()
 
                     self.yang_name = "current"
                     self.yang_parent_name = "location"
@@ -2262,7 +2438,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.All.Location.Current, ['loc_iden', 'print_header'], name, value)
 
 
-                class SensorAttributes(Entity):
+                class SensorAttributes(_Entity_):
                     """
                     
                     
@@ -2295,7 +2471,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.All.Location.Current.SensorAttributes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.All.Location.Current.SensorAttributes, self).__init__()
 
                         self.yang_name = "sensor_attributes"
                         self.yang_parent_name = "current"
@@ -2317,10 +2496,18 @@ class Environment(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.All.Location.Current.SensorAttributes, ['sensor', 'sensor_id', 'value'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.All.Location.Current.SensorAttributes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.All.Location.Current']['meta_info']
 
 
-
-            class Fan(Entity):
+            class Fan(_Entity_):
                 """
                 
                 
@@ -2346,7 +2533,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.All.Location.Fan, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.All.Location.Fan, self).__init__()
 
                     self.yang_name = "fan"
                     self.yang_parent_name = "location"
@@ -2367,7 +2557,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.All.Location.Fan, ['loc_iden'], name, value)
 
 
-                class FanAttributes(Entity):
+                class FanAttributes(_Entity_):
                     """
                     
                     
@@ -2432,7 +2622,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.All.Location.Fan.FanAttributes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.All.Location.Fan.FanAttributes, self).__init__()
 
                         self.yang_name = "fan_attributes"
                         self.yang_parent_name = "fan"
@@ -2462,10 +2655,18 @@ class Environment(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.All.Location.Fan.FanAttributes, ['logical_slot', 'print_fan_header', 'location', 'fru_pid', 'fans_speed', 'fan_header', 'speed_space'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.All.Location.Fan.FanAttributes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.All.Location.Fan']['meta_info']
 
 
-
-            class Power(Entity):
+            class Power(_Entity_):
                 """
                 
                 
@@ -2491,7 +2692,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.All.Location.Power, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.All.Location.Power, self).__init__()
 
                     self.yang_name = "power"
                     self.yang_parent_name = "location"
@@ -2512,7 +2716,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.All.Location.Power, ['loc_iden'], name, value)
 
 
-                class PemAttributes(Entity):
+                class PemAttributes(_Entity_):
                     """
                     
                     
@@ -2746,7 +2950,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.All.Location.Power.PemAttributes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.All.Location.Power.PemAttributes, self).__init__()
 
                         self.yang_name = "pem_attributes"
                         self.yang_parent_name = "power"
@@ -2818,10 +3025,18 @@ class Environment(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.All.Location.Power.PemAttributes, ['pem', 'pem_id', 'card_type', 'ps_type', 'shelf_num', 'supply_type', 'input_voltage', 'input_current', 'output_voltage', 'output_current', 'status', 'input_power_to_ps', 'input_current_to_ps', 'output_power_from_ps', 'output_current_from_ps', 'power_allocated', 'power_consumed', 'power_status', 'confgd_power_redundancy_mode', 'usable_power_capacity', 'protection_power_capacity', 'power_resrv_and_alloc', 'system_power_used', 'system_power_input', 'power_level', 'output_header', 'output_footer', 'ps_sum_footer'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.All.Location.Power.PemAttributes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.All.Location.Power']['meta_info']
 
 
-
-            class Altitude(Entity):
+            class Altitude(_Entity_):
                 """
                 
                 
@@ -2847,7 +3062,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.All.Location.Altitude, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.All.Location.Altitude, self).__init__()
 
                     self.yang_name = "altitude"
                     self.yang_parent_name = "location"
@@ -2868,7 +3086,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.All.Location.Altitude, ['loc_iden'], name, value)
 
 
-                class AltAttributes(Entity):
+                class AltAttributes(_Entity_):
                     """
                     
                     
@@ -2919,7 +3137,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.All.Location.Altitude.AltAttributes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.All.Location.Altitude.AltAttributes, self).__init__()
 
                         self.yang_name = "alt_attributes"
                         self.yang_parent_name = "altitude"
@@ -2945,12 +3166,28 @@ class Environment(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.All.Location.Altitude.AltAttributes, ['sensor', 'print_header', 'rack', 'sensor_value', 'source'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.All.Location.Altitude.AltAttributes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.All.Location.Altitude']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['Environment.All.Location']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+            return meta._meta_table['Environment.All']['meta_info']
 
 
-
-
-
-    class Config(Entity):
+    class Config(_Entity_):
         """
         environment configurational data
         
@@ -3014,7 +3251,10 @@ class Environment(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Environment.Config, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Environment.Config, self).__init__()
 
             self.yang_name = "config"
             self.yang_parent_name = "environment"
@@ -3058,7 +3298,7 @@ class Environment(Entity):
             self._perform_setattr(Environment.Config, ['raise_fan_speed', 'fan_ctrl_optics', 'graceful_shutdown'], name, value)
 
 
-        class Router(Entity):
+        class Router(_Entity_):
             """
             
             
@@ -3075,7 +3315,10 @@ class Environment(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Environment.Config.Router, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Environment.Config.Router, self).__init__()
 
                 self.yang_name = "router"
                 self.yang_parent_name = "config"
@@ -3096,7 +3339,7 @@ class Environment(Entity):
                 self._perform_setattr(Environment.Config.Router, [], name, value)
 
 
-            class Altitude(Entity):
+            class Altitude(_Entity_):
                 """
                 
                 
@@ -3118,7 +3361,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.Config.Router.Altitude, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.Config.Router.Altitude, self).__init__()
 
                     self.yang_name = "altitude"
                     self.yang_parent_name = "router"
@@ -3143,7 +3389,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.Config.Router.Altitude, [], name, value)
 
 
-                class All(Entity):
+                class All(_Entity_):
                     """
                     
                     
@@ -3162,7 +3408,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.Config.Router.Altitude.All, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.Config.Router.Altitude.All, self).__init__()
 
                         self.yang_name = "all"
                         self.yang_parent_name = "altitude"
@@ -3181,9 +3430,13 @@ class Environment(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.Config.Router.Altitude.All, ['num_meters'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.Config.Router.Altitude.All']['meta_info']
 
 
-                class RackLoc(Entity):
+                class RackLoc(_Entity_):
                     """
                     
                     
@@ -3200,7 +3453,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.Config.Router.Altitude.RackLoc, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.Config.Router.Altitude.RackLoc, self).__init__()
 
                         self.yang_name = "rack_loc"
                         self.yang_parent_name = "altitude"
@@ -3219,7 +3475,7 @@ class Environment(Entity):
                         self._perform_setattr(Environment.Config.Router.Altitude.RackLoc, [], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -3243,7 +3499,10 @@ class Environment(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(Environment.Config.Router.Altitude.RackLoc.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Environment.Config.Router.Altitude.RackLoc.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "rack_loc"
@@ -3264,12 +3523,28 @@ class Environment(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Environment.Config.Router.Altitude.RackLoc.Location, ['rackid', 'num_meters'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                            return meta._meta_table['Environment.Config.Router.Altitude.RackLoc.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.Config.Router.Altitude.RackLoc']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.Config.Router.Altitude']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['Environment.Config.Router']['meta_info']
 
 
-
-
-
-        class AirFilter(Entity):
+        class AirFilter(_Entity_):
             """
             
             
@@ -3286,7 +3561,10 @@ class Environment(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Environment.Config.AirFilter, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Environment.Config.AirFilter, self).__init__()
 
                 self.yang_name = "air-filter"
                 self.yang_parent_name = "config"
@@ -3307,7 +3585,7 @@ class Environment(Entity):
                 self._perform_setattr(Environment.Config.AirFilter, [], name, value)
 
 
-            class Replaced(Entity):
+            class Replaced(_Entity_):
                 """
                 
                 
@@ -3329,7 +3607,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.Config.AirFilter.Replaced, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.Config.AirFilter.Replaced, self).__init__()
 
                     self.yang_name = "replaced"
                     self.yang_parent_name = "air-filter"
@@ -3354,7 +3635,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.Config.AirFilter.Replaced, [], name, value)
 
 
-                class All(Entity):
+                class All(_Entity_):
                     """
                     
                     
@@ -3371,7 +3652,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.Config.AirFilter.Replaced.All, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.Config.AirFilter.Replaced.All, self).__init__()
 
                         self.yang_name = "all"
                         self.yang_parent_name = "replaced"
@@ -3390,9 +3674,13 @@ class Environment(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.Config.AirFilter.Replaced.All, ['date'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.Config.AirFilter.Replaced.All']['meta_info']
 
 
-                class RackLoc(Entity):
+                class RackLoc(_Entity_):
                     """
                     
                     
@@ -3409,7 +3697,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.Config.AirFilter.Replaced.RackLoc, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.Config.AirFilter.Replaced.RackLoc, self).__init__()
 
                         self.yang_name = "rack_loc"
                         self.yang_parent_name = "replaced"
@@ -3428,7 +3719,7 @@ class Environment(Entity):
                         self._perform_setattr(Environment.Config.AirFilter.Replaced.RackLoc, [], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -3450,7 +3741,10 @@ class Environment(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(Environment.Config.AirFilter.Replaced.RackLoc.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Environment.Config.AirFilter.Replaced.RackLoc.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "rack_loc"
@@ -3471,12 +3765,28 @@ class Environment(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Environment.Config.AirFilter.Replaced.RackLoc.Location, ['rackid', 'date'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                            return meta._meta_table['Environment.Config.AirFilter.Replaced.RackLoc.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.Config.AirFilter.Replaced.RackLoc']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.Config.AirFilter.Replaced']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['Environment.Config.AirFilter']['meta_info']
 
 
-
-
-
-        class FanCtrl(Entity):
+        class FanCtrl(_Entity_):
             """
             
             
@@ -3493,7 +3803,10 @@ class Environment(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Environment.Config.FanCtrl, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Environment.Config.FanCtrl, self).__init__()
 
                 self.yang_name = "fan-ctrl"
                 self.yang_parent_name = "config"
@@ -3514,7 +3827,7 @@ class Environment(Entity):
                 self._perform_setattr(Environment.Config.FanCtrl, [], name, value)
 
 
-            class Disable(Entity):
+            class Disable(_Entity_):
                 """
                 
                 
@@ -3531,7 +3844,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.Config.FanCtrl.Disable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.Config.FanCtrl.Disable, self).__init__()
 
                     self.yang_name = "disable"
                     self.yang_parent_name = "fan-ctrl"
@@ -3552,7 +3868,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.Config.FanCtrl.Disable, [], name, value)
 
 
-                class RackLoc(Entity):
+                class RackLoc(_Entity_):
                     """
                     
                     
@@ -3574,7 +3890,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.Config.FanCtrl.Disable.RackLoc, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.Config.FanCtrl.Disable.RackLoc, self).__init__()
 
                         self.yang_name = "rack_loc"
                         self.yang_parent_name = "disable"
@@ -3596,7 +3915,7 @@ class Environment(Entity):
                         self._perform_setattr(Environment.Config.FanCtrl.Disable.RackLoc, ['all'], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -3613,7 +3932,10 @@ class Environment(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(Environment.Config.FanCtrl.Disable.RackLoc.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Environment.Config.FanCtrl.Disable.RackLoc.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "rack_loc"
@@ -3632,12 +3954,28 @@ class Environment(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Environment.Config.FanCtrl.Disable.RackLoc.Location, ['rackid'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                            return meta._meta_table['Environment.Config.FanCtrl.Disable.RackLoc.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.Config.FanCtrl.Disable.RackLoc']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.Config.FanCtrl.Disable']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['Environment.Config.FanCtrl']['meta_info']
 
 
-
-
-
-        class Temperature(Entity):
+        class Temperature(_Entity_):
             """
             
             
@@ -3654,7 +3992,10 @@ class Environment(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Environment.Config.Temperature, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Environment.Config.Temperature, self).__init__()
 
                 self.yang_name = "temperature"
                 self.yang_parent_name = "config"
@@ -3675,7 +4016,7 @@ class Environment(Entity):
                 self._perform_setattr(Environment.Config.Temperature, [], name, value)
 
 
-            class Disable(Entity):
+            class Disable(_Entity_):
                 """
                 
                 
@@ -3692,7 +4033,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.Config.Temperature.Disable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.Config.Temperature.Disable, self).__init__()
 
                     self.yang_name = "disable"
                     self.yang_parent_name = "temperature"
@@ -3713,7 +4057,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.Config.Temperature.Disable, [], name, value)
 
 
-                class RackLoc(Entity):
+                class RackLoc(_Entity_):
                     """
                     
                     
@@ -3735,7 +4079,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.Config.Temperature.Disable.RackLoc, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.Config.Temperature.Disable.RackLoc, self).__init__()
 
                         self.yang_name = "rack_loc"
                         self.yang_parent_name = "disable"
@@ -3757,7 +4104,7 @@ class Environment(Entity):
                         self._perform_setattr(Environment.Config.Temperature.Disable.RackLoc, ['all'], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -3774,7 +4121,10 @@ class Environment(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(Environment.Config.Temperature.Disable.RackLoc.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Environment.Config.Temperature.Disable.RackLoc.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "rack_loc"
@@ -3793,12 +4143,28 @@ class Environment(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Environment.Config.Temperature.Disable.RackLoc.Location, ['rackid'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                            return meta._meta_table['Environment.Config.Temperature.Disable.RackLoc.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.Config.Temperature.Disable.RackLoc']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.Config.Temperature.Disable']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['Environment.Config.Temperature']['meta_info']
 
 
-
-
-
-        class Monitoring(Entity):
+        class Monitoring(_Entity_):
             """
             
             
@@ -3815,7 +4181,10 @@ class Environment(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Environment.Config.Monitoring, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Environment.Config.Monitoring, self).__init__()
 
                 self.yang_name = "monitoring"
                 self.yang_parent_name = "config"
@@ -3836,7 +4205,7 @@ class Environment(Entity):
                 self._perform_setattr(Environment.Config.Monitoring, [], name, value)
 
 
-            class Disable(Entity):
+            class Disable(_Entity_):
                 """
                 
                 
@@ -3853,7 +4222,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.Config.Monitoring.Disable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.Config.Monitoring.Disable, self).__init__()
 
                     self.yang_name = "disable"
                     self.yang_parent_name = "monitoring"
@@ -3874,7 +4246,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.Config.Monitoring.Disable, [], name, value)
 
 
-                class RackLoc(Entity):
+                class RackLoc(_Entity_):
                     """
                     
                     
@@ -3896,7 +4268,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.Config.Monitoring.Disable.RackLoc, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.Config.Monitoring.Disable.RackLoc, self).__init__()
 
                         self.yang_name = "rack_loc"
                         self.yang_parent_name = "disable"
@@ -3918,7 +4293,7 @@ class Environment(Entity):
                         self._perform_setattr(Environment.Config.Monitoring.Disable.RackLoc, ['all'], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -3935,7 +4310,10 @@ class Environment(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(Environment.Config.Monitoring.Disable.RackLoc.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Environment.Config.Monitoring.Disable.RackLoc.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "rack_loc"
@@ -3954,13 +4332,33 @@ class Environment(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Environment.Config.Monitoring.Disable.RackLoc.Location, ['rackid'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                            return meta._meta_table['Environment.Config.Monitoring.Disable.RackLoc.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.Config.Monitoring.Disable.RackLoc']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.Config.Monitoring.Disable']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['Environment.Config.Monitoring']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+            return meta._meta_table['Environment.Config']['meta_info']
 
 
-
-
-
-
-    class Trace(Entity):
+    class Trace(_Entity_):
         """
         show traceable processes
         
@@ -3986,7 +4384,10 @@ class Environment(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(Environment.Trace, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Environment.Trace, self).__init__()
 
             self.yang_name = "trace"
             self.yang_parent_name = "environment"
@@ -4008,7 +4409,7 @@ class Environment(Entity):
             self._perform_setattr(Environment.Trace, ['buffer'], name, value)
 
 
-        class Location(Entity):
+        class Location(_Entity_):
             """
             
             
@@ -4034,7 +4435,10 @@ class Environment(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(Environment.Trace.Location, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Environment.Trace.Location, self).__init__()
 
                 self.yang_name = "location"
                 self.yang_parent_name = "trace"
@@ -4055,7 +4459,7 @@ class Environment(Entity):
                 self._perform_setattr(Environment.Trace.Location, ['location_name'], name, value)
 
 
-            class AllOptions(Entity):
+            class AllOptions(_Entity_):
                 """
                 
                 
@@ -4081,7 +4485,10 @@ class Environment(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(Environment.Trace.Location.AllOptions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Environment.Trace.Location.AllOptions, self).__init__()
 
                     self.yang_name = "all-options"
                     self.yang_parent_name = "location"
@@ -4102,7 +4509,7 @@ class Environment(Entity):
                     self._perform_setattr(Environment.Trace.Location.AllOptions, ['option'], name, value)
 
 
-                class TraceBlocks(Entity):
+                class TraceBlocks(_Entity_):
                     """
                     
                     
@@ -4121,7 +4528,10 @@ class Environment(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(Environment.Trace.Location.AllOptions.TraceBlocks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Environment.Trace.Location.AllOptions.TraceBlocks, self).__init__()
 
                         self.yang_name = "trace-blocks"
                         self.yang_parent_name = "all-options"
@@ -4139,17 +4549,37 @@ class Environment(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['Environment.Trace.Location.AllOptions.TraceBlocks']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['Environment.Trace.Location.AllOptions']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['Environment.Trace.Location']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+            return meta._meta_table['Environment.Trace']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Environment()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+        return meta._meta_table['Environment']['meta_info']
 
 
-class PowerMgmt(Entity):
+class PowerMgmt(_Entity_):
     """
     
     
@@ -4166,7 +4596,10 @@ class PowerMgmt(Entity):
     _revision = '2018-04-09'
 
     def __init__(self):
-        super(PowerMgmt, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PowerMgmt, self).__init__()
         self._top_entity = None
 
         self.yang_name = "power-mgmt"
@@ -4187,7 +4620,7 @@ class PowerMgmt(Entity):
         self._perform_setattr(PowerMgmt, [], name, value)
 
 
-    class Config(Entity):
+    class Config(_Entity_):
         """
         Power Trays and PEMs configurational data
         
@@ -4224,7 +4657,10 @@ class PowerMgmt(Entity):
         _revision = '2018-04-09'
 
         def __init__(self):
-            super(PowerMgmt.Config, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PowerMgmt.Config, self).__init__()
 
             self.yang_name = "config"
             self.yang_parent_name = "power-mgmt"
@@ -4261,7 +4697,7 @@ class PowerMgmt(Entity):
             self._perform_setattr(PowerMgmt.Config, [], name, value)
 
 
-        class Action(Entity):
+        class Action(_Entity_):
             """
             
             
@@ -4278,7 +4714,10 @@ class PowerMgmt(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(PowerMgmt.Config.Action, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PowerMgmt.Config.Action, self).__init__()
 
                 self.yang_name = "action"
                 self.yang_parent_name = "config"
@@ -4299,7 +4738,7 @@ class PowerMgmt(Entity):
                 self._perform_setattr(PowerMgmt.Config.Action, [], name, value)
 
 
-            class Disable(Entity):
+            class Disable(_Entity_):
                 """
                 
                 
@@ -4316,7 +4755,10 @@ class PowerMgmt(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(PowerMgmt.Config.Action.Disable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PowerMgmt.Config.Action.Disable, self).__init__()
 
                     self.yang_name = "disable"
                     self.yang_parent_name = "action"
@@ -4337,7 +4779,7 @@ class PowerMgmt(Entity):
                     self._perform_setattr(PowerMgmt.Config.Action.Disable, [], name, value)
 
 
-                class RackLoc(Entity):
+                class RackLoc(_Entity_):
                     """
                     
                     
@@ -4359,7 +4801,10 @@ class PowerMgmt(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(PowerMgmt.Config.Action.Disable.RackLoc, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PowerMgmt.Config.Action.Disable.RackLoc, self).__init__()
 
                         self.yang_name = "rack_loc"
                         self.yang_parent_name = "disable"
@@ -4381,7 +4826,7 @@ class PowerMgmt(Entity):
                         self._perform_setattr(PowerMgmt.Config.Action.Disable.RackLoc, ['all'], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -4398,7 +4843,10 @@ class PowerMgmt(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(PowerMgmt.Config.Action.Disable.RackLoc.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PowerMgmt.Config.Action.Disable.RackLoc.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "rack_loc"
@@ -4417,12 +4865,28 @@ class PowerMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PowerMgmt.Config.Action.Disable.RackLoc.Location, ['rackid'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                            return meta._meta_table['PowerMgmt.Config.Action.Disable.RackLoc.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['PowerMgmt.Config.Action.Disable.RackLoc']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['PowerMgmt.Config.Action.Disable']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['PowerMgmt.Config.Action']['meta_info']
 
 
-
-
-
-        class SingleFeedMode(Entity):
+        class SingleFeedMode(_Entity_):
             """
             
             
@@ -4439,7 +4903,10 @@ class PowerMgmt(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(PowerMgmt.Config.SingleFeedMode, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PowerMgmt.Config.SingleFeedMode, self).__init__()
 
                 self.yang_name = "single-feed-mode"
                 self.yang_parent_name = "config"
@@ -4460,7 +4927,7 @@ class PowerMgmt(Entity):
                 self._perform_setattr(PowerMgmt.Config.SingleFeedMode, [], name, value)
 
 
-            class Enable(Entity):
+            class Enable(_Entity_):
                 """
                 
                 
@@ -4477,7 +4944,10 @@ class PowerMgmt(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(PowerMgmt.Config.SingleFeedMode.Enable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PowerMgmt.Config.SingleFeedMode.Enable, self).__init__()
 
                     self.yang_name = "enable"
                     self.yang_parent_name = "single-feed-mode"
@@ -4498,7 +4968,7 @@ class PowerMgmt(Entity):
                     self._perform_setattr(PowerMgmt.Config.SingleFeedMode.Enable, [], name, value)
 
 
-                class RackLoc(Entity):
+                class RackLoc(_Entity_):
                     """
                     
                     
@@ -4520,7 +4990,10 @@ class PowerMgmt(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(PowerMgmt.Config.SingleFeedMode.Enable.RackLoc, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PowerMgmt.Config.SingleFeedMode.Enable.RackLoc, self).__init__()
 
                         self.yang_name = "rack_loc"
                         self.yang_parent_name = "enable"
@@ -4542,7 +5015,7 @@ class PowerMgmt(Entity):
                         self._perform_setattr(PowerMgmt.Config.SingleFeedMode.Enable.RackLoc, ['all'], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -4559,7 +5032,10 @@ class PowerMgmt(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(PowerMgmt.Config.SingleFeedMode.Enable.RackLoc.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PowerMgmt.Config.SingleFeedMode.Enable.RackLoc.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "rack_loc"
@@ -4578,12 +5054,28 @@ class PowerMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PowerMgmt.Config.SingleFeedMode.Enable.RackLoc.Location, ['rackid'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                            return meta._meta_table['PowerMgmt.Config.SingleFeedMode.Enable.RackLoc.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['PowerMgmt.Config.SingleFeedMode.Enable.RackLoc']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['PowerMgmt.Config.SingleFeedMode.Enable']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['PowerMgmt.Config.SingleFeedMode']['meta_info']
 
 
-
-
-
-        class ExtendedTemp(Entity):
+        class ExtendedTemp(_Entity_):
             """
             
             
@@ -4600,7 +5092,10 @@ class PowerMgmt(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(PowerMgmt.Config.ExtendedTemp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PowerMgmt.Config.ExtendedTemp, self).__init__()
 
                 self.yang_name = "extended-temp"
                 self.yang_parent_name = "config"
@@ -4621,7 +5116,7 @@ class PowerMgmt(Entity):
                 self._perform_setattr(PowerMgmt.Config.ExtendedTemp, [], name, value)
 
 
-            class Enable(Entity):
+            class Enable(_Entity_):
                 """
                 
                 
@@ -4638,7 +5133,10 @@ class PowerMgmt(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(PowerMgmt.Config.ExtendedTemp.Enable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PowerMgmt.Config.ExtendedTemp.Enable, self).__init__()
 
                     self.yang_name = "enable"
                     self.yang_parent_name = "extended-temp"
@@ -4659,7 +5157,7 @@ class PowerMgmt(Entity):
                     self._perform_setattr(PowerMgmt.Config.ExtendedTemp.Enable, [], name, value)
 
 
-                class RackLoc(Entity):
+                class RackLoc(_Entity_):
                     """
                     
                     
@@ -4681,7 +5179,10 @@ class PowerMgmt(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(PowerMgmt.Config.ExtendedTemp.Enable.RackLoc, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PowerMgmt.Config.ExtendedTemp.Enable.RackLoc, self).__init__()
 
                         self.yang_name = "rack_loc"
                         self.yang_parent_name = "enable"
@@ -4703,7 +5204,7 @@ class PowerMgmt(Entity):
                         self._perform_setattr(PowerMgmt.Config.ExtendedTemp.Enable.RackLoc, ['all'], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -4720,7 +5221,10 @@ class PowerMgmt(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(PowerMgmt.Config.ExtendedTemp.Enable.RackLoc.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PowerMgmt.Config.ExtendedTemp.Enable.RackLoc.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "rack_loc"
@@ -4739,12 +5243,28 @@ class PowerMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PowerMgmt.Config.ExtendedTemp.Enable.RackLoc.Location, ['rackid'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                            return meta._meta_table['PowerMgmt.Config.ExtendedTemp.Enable.RackLoc.Location']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['PowerMgmt.Config.ExtendedTemp.Enable.RackLoc']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['PowerMgmt.Config.ExtendedTemp.Enable']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['PowerMgmt.Config.ExtendedTemp']['meta_info']
 
 
-
-
-
-        class RedundancyNumPms(Entity):
+        class RedundancyNumPms(_Entity_):
             """
             
             
@@ -4766,7 +5286,10 @@ class PowerMgmt(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(PowerMgmt.Config.RedundancyNumPms, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PowerMgmt.Config.RedundancyNumPms, self).__init__()
 
                 self.yang_name = "redundancy-num-pms"
                 self.yang_parent_name = "config"
@@ -4791,7 +5314,7 @@ class PowerMgmt(Entity):
                 self._perform_setattr(PowerMgmt.Config.RedundancyNumPms, [], name, value)
 
 
-            class All(Entity):
+            class All(_Entity_):
                 """
                 
                 
@@ -4810,7 +5333,10 @@ class PowerMgmt(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(PowerMgmt.Config.RedundancyNumPms.All, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PowerMgmt.Config.RedundancyNumPms.All, self).__init__()
 
                     self.yang_name = "all"
                     self.yang_parent_name = "redundancy-num-pms"
@@ -4829,9 +5355,13 @@ class PowerMgmt(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PowerMgmt.Config.RedundancyNumPms.All, ['num_pm'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['PowerMgmt.Config.RedundancyNumPms.All']['meta_info']
 
 
-            class RackLoc(Entity):
+            class RackLoc(_Entity_):
                 """
                 
                 
@@ -4848,7 +5378,10 @@ class PowerMgmt(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(PowerMgmt.Config.RedundancyNumPms.RackLoc, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PowerMgmt.Config.RedundancyNumPms.RackLoc, self).__init__()
 
                     self.yang_name = "rack_loc"
                     self.yang_parent_name = "redundancy-num-pms"
@@ -4867,7 +5400,7 @@ class PowerMgmt(Entity):
                     self._perform_setattr(PowerMgmt.Config.RedundancyNumPms.RackLoc, [], name, value)
 
 
-                class Location(Entity):
+                class Location(_Entity_):
                     """
                     
                     
@@ -4891,7 +5424,10 @@ class PowerMgmt(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(PowerMgmt.Config.RedundancyNumPms.RackLoc.Location, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PowerMgmt.Config.RedundancyNumPms.RackLoc.Location, self).__init__()
 
                         self.yang_name = "location"
                         self.yang_parent_name = "rack_loc"
@@ -4912,11 +5448,23 @@ class PowerMgmt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PowerMgmt.Config.RedundancyNumPms.RackLoc.Location, ['rackid', 'num_pm'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['PowerMgmt.Config.RedundancyNumPms.RackLoc.Location']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['PowerMgmt.Config.RedundancyNumPms.RackLoc']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['PowerMgmt.Config.RedundancyNumPms']['meta_info']
 
 
-
-
-        class Progressive(Entity):
+        class Progressive(_Entity_):
             """
             
             
@@ -4933,7 +5481,10 @@ class PowerMgmt(Entity):
             _revision = '2018-04-09'
 
             def __init__(self):
-                super(PowerMgmt.Config.Progressive, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PowerMgmt.Config.Progressive, self).__init__()
 
                 self.yang_name = "progressive"
                 self.yang_parent_name = "config"
@@ -4952,7 +5503,7 @@ class PowerMgmt(Entity):
                 self._perform_setattr(PowerMgmt.Config.Progressive, [], name, value)
 
 
-            class Enable(Entity):
+            class Enable(_Entity_):
                 """
                 
                 
@@ -4988,7 +5539,10 @@ class PowerMgmt(Entity):
                 _revision = '2018-04-09'
 
                 def __init__(self):
-                    super(PowerMgmt.Config.Progressive.Enable, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PowerMgmt.Config.Progressive.Enable, self).__init__()
 
                     self.yang_name = "enable"
                     self.yang_parent_name = "progressive"
@@ -5026,8 +5580,14 @@ class PowerMgmt(Entity):
                     enable = Enum.YLeaf(0, "enable")
 
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['PowerMgmt.Config.Progressive.Enable.Enabled']
 
-                class Priority(Entity):
+
+
+                class Priority(_Entity_):
                     """
                     
                     
@@ -5044,7 +5604,10 @@ class PowerMgmt(Entity):
                     _revision = '2018-04-09'
 
                     def __init__(self):
-                        super(PowerMgmt.Config.Progressive.Enable.Priority, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PowerMgmt.Config.Progressive.Enable.Priority, self).__init__()
 
                         self.yang_name = "priority"
                         self.yang_parent_name = "enable"
@@ -5062,7 +5625,7 @@ class PowerMgmt(Entity):
                         self._perform_setattr(PowerMgmt.Config.Progressive.Enable.Priority, [], name, value)
 
 
-                    class Location(Entity):
+                    class Location(_Entity_):
                         """
                         
                         
@@ -5088,7 +5651,10 @@ class PowerMgmt(Entity):
                         _revision = '2018-04-09'
 
                         def __init__(self):
-                            super(PowerMgmt.Config.Progressive.Enable.Priority.Location, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PowerMgmt.Config.Progressive.Enable.Priority.Location, self).__init__()
 
                             self.yang_name = "location"
                             self.yang_parent_name = "priority"
@@ -5108,14 +5674,38 @@ class PowerMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PowerMgmt.Config.Progressive.Enable.Priority.Location, ['loc', 'prior'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                            return meta._meta_table['PowerMgmt.Config.Progressive.Enable.Priority.Location']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                        return meta._meta_table['PowerMgmt.Config.Progressive.Enable.Priority']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                    return meta._meta_table['PowerMgmt.Config.Progressive.Enable']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+                return meta._meta_table['PowerMgmt.Config.Progressive']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+            return meta._meta_table['PowerMgmt.Config']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PowerMgmt()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_envmon_ui as meta
+        return meta._meta_table['PowerMgmt']['meta_info']
 
 

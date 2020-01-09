@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -42,8 +45,14 @@ class Dot1xServerDeadAction(Enum):
     auth_retry = Enum.YLeaf(1, "auth-retry")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_cfg as meta
+        return meta._meta_table['Dot1xServerDeadAction']
 
-class Dot1x(Entity):
+
+
+class Dot1x(_Entity_):
     """
     Global Dot1x Configuration
     
@@ -60,7 +69,10 @@ class Dot1x(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Dot1x, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Dot1x, self).__init__()
         self._top_entity = None
 
         self.yang_name = "dot1x"
@@ -79,7 +91,7 @@ class Dot1x(Entity):
         self._perform_setattr(Dot1x, [], name, value)
 
 
-    class Dot1xProfile(Entity):
+    class Dot1xProfile(_Entity_):
         """
         Global Dot1x Profile Name
         
@@ -115,7 +127,10 @@ class Dot1x(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Dot1x.Dot1xProfile, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Dot1x.Dot1xProfile, self).__init__()
 
             self.yang_name = "dot1x-profile"
             self.yang_parent_name = "dot1x"
@@ -145,7 +160,7 @@ class Dot1x(Entity):
             self._perform_setattr(Dot1x.Dot1xProfile, ['profile_name', 'pae'], name, value)
 
 
-        class Supplicant(Entity):
+        class Supplicant(_Entity_):
             """
             Dot1x Supplicant Related Configuration
             
@@ -164,7 +179,10 @@ class Dot1x(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Dot1x.Dot1xProfile.Supplicant, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Dot1x.Dot1xProfile.Supplicant, self).__init__()
 
                 self.yang_name = "supplicant"
                 self.yang_parent_name = "dot1x-profile"
@@ -182,9 +200,13 @@ class Dot1x(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Dot1x.Dot1xProfile.Supplicant, ['eap_profile'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_cfg as meta
+                return meta._meta_table['Dot1x.Dot1xProfile.Supplicant']['meta_info']
 
 
-        class Authenticator(Entity):
+        class Authenticator(_Entity_):
             """
             Dot1x Authenticator Related Configuration
             
@@ -213,7 +235,10 @@ class Dot1x(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Dot1x.Dot1xProfile.Authenticator, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Dot1x.Dot1xProfile.Authenticator, self).__init__()
 
                 self.yang_name = "authenticator"
                 self.yang_parent_name = "dot1x-profile"
@@ -238,7 +263,7 @@ class Dot1x(Entity):
                 self._perform_setattr(Dot1x.Dot1xProfile.Authenticator, ['eap_profile', 'server_dead'], name, value)
 
 
-            class Timers(Entity):
+            class Timers(_Entity_):
                 """
                 Timers for Authenticator
                 
@@ -255,7 +280,10 @@ class Dot1x(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Dot1x.Dot1xProfile.Authenticator.Timers, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Dot1x.Dot1xProfile.Authenticator.Timers, self).__init__()
 
                     self.yang_name = "timers"
                     self.yang_parent_name = "authenticator"
@@ -275,7 +303,7 @@ class Dot1x(Entity):
                     self._perform_setattr(Dot1x.Dot1xProfile.Authenticator.Timers, [], name, value)
 
 
-                class ReauthTime(Entity):
+                class ReauthTime(_Entity_):
                     """
                     After this time ReAuthentication will be
                     trigerred
@@ -302,7 +330,10 @@ class Dot1x(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Dot1x.Dot1xProfile.Authenticator.Timers.ReauthTime, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Dot1x.Dot1xProfile.Authenticator.Timers.ReauthTime, self).__init__()
 
                         self.yang_name = "reauth-time"
                         self.yang_parent_name = "timers"
@@ -322,17 +353,37 @@ class Dot1x(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dot1x.Dot1xProfile.Authenticator.Timers.ReauthTime, ['server', 'local'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_cfg as meta
+                        return meta._meta_table['Dot1x.Dot1xProfile.Authenticator.Timers.ReauthTime']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_cfg as meta
+                    return meta._meta_table['Dot1x.Dot1xProfile.Authenticator.Timers']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_cfg as meta
+                return meta._meta_table['Dot1x.Dot1xProfile.Authenticator']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_cfg as meta
+            return meta._meta_table['Dot1x.Dot1xProfile']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Dot1x()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_cfg as meta
+        return meta._meta_table['Dot1x']['meta_info']
 
 
-class Eap(Entity):
+class Eap(_Entity_):
     """
     eap
     
@@ -349,7 +400,10 @@ class Eap(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Eap, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Eap, self).__init__()
         self._top_entity = None
 
         self.yang_name = "eap"
@@ -368,7 +422,7 @@ class Eap(Entity):
         self._perform_setattr(Eap, [], name, value)
 
 
-    class EapProfile(Entity):
+    class EapProfile(_Entity_):
         """
         Global EAP Profile Configuration
         
@@ -404,7 +458,10 @@ class Eap(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Eap.EapProfile, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Eap.EapProfile, self).__init__()
 
             self.yang_name = "eap-profile"
             self.yang_parent_name = "eap"
@@ -432,7 +489,7 @@ class Eap(Entity):
             self._perform_setattr(Eap.EapProfile, ['profile_name', 'allow_eap_tls1_0', 'identity'], name, value)
 
 
-        class Eaptls(Entity):
+        class Eaptls(_Entity_):
             """
             EAP TLS Configuration
             
@@ -451,7 +508,10 @@ class Eap(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Eap.EapProfile.Eaptls, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Eap.EapProfile.Eaptls, self).__init__()
 
                 self.yang_name = "eaptls"
                 self.yang_parent_name = "eap-profile"
@@ -469,11 +529,23 @@ class Eap(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Eap.EapProfile.Eaptls, ['pki_trustpoint'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_cfg as meta
+                return meta._meta_table['Eap.EapProfile.Eaptls']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_cfg as meta
+            return meta._meta_table['Eap.EapProfile']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Eap()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dot1x_cfg as meta
+        return meta._meta_table['Eap']['meta_info']
 
 

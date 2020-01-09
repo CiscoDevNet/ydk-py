@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -42,8 +45,14 @@ class TcOperAfName(Enum):
     ipv6 = Enum.YLeaf(1, "ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+        return meta._meta_table['TcOperAfName']
 
-class TrafficCollector(Entity):
+
+
+class TrafficCollector(_Entity_):
     """
     Global Traffic Collector configuration commands
     
@@ -80,10 +89,13 @@ class TrafficCollector(Entity):
     """
 
     _prefix = 'infra-tc-oper'
-    _revision = '2015-11-09'
+    _revision = '2019-06-17'
 
     def __init__(self):
-        super(TrafficCollector, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(TrafficCollector, self).__init__()
         self._top_entity = None
 
         self.yang_name = "traffic-collector"
@@ -116,7 +128,7 @@ class TrafficCollector(Entity):
         self._perform_setattr(TrafficCollector, [], name, value)
 
 
-    class ExternalInterfaces(Entity):
+    class ExternalInterfaces(_Entity_):
         """
         External Interface
         
@@ -132,10 +144,13 @@ class TrafficCollector(Entity):
         """
 
         _prefix = 'infra-tc-oper'
-        _revision = '2015-11-09'
+        _revision = '2019-06-17'
 
         def __init__(self):
-            super(TrafficCollector.ExternalInterfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TrafficCollector.ExternalInterfaces, self).__init__()
 
             self.yang_name = "external-interfaces"
             self.yang_parent_name = "traffic-collector"
@@ -154,7 +169,7 @@ class TrafficCollector(Entity):
             self._perform_setattr(TrafficCollector.ExternalInterfaces, [], name, value)
 
 
-        class ExternalInterface(Entity):
+        class ExternalInterface(_Entity_):
             """
             External Interface 
             
@@ -204,10 +219,13 @@ class TrafficCollector(Entity):
             """
 
             _prefix = 'infra-tc-oper'
-            _revision = '2015-11-09'
+            _revision = '2019-06-17'
 
             def __init__(self):
-                super(TrafficCollector.ExternalInterfaces.ExternalInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TrafficCollector.ExternalInterfaces.ExternalInterface, self).__init__()
 
                 self.yang_name = "external-interface"
                 self.yang_parent_name = "external-interfaces"
@@ -234,10 +252,18 @@ class TrafficCollector(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(TrafficCollector.ExternalInterfaces.ExternalInterface, ['interface_name', 'interface_name_xr', 'interface_handle', 'vrfid', 'is_interface_enabled'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                return meta._meta_table['TrafficCollector.ExternalInterfaces.ExternalInterface']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+            return meta._meta_table['TrafficCollector.ExternalInterfaces']['meta_info']
 
 
-
-    class Summary(Entity):
+    class Summary(_Entity_):
         """
         Traffic Collector summary
         
@@ -319,10 +345,13 @@ class TrafficCollector(Entity):
         """
 
         _prefix = 'infra-tc-oper'
-        _revision = '2015-11-09'
+        _revision = '2019-06-17'
 
         def __init__(self):
-            super(TrafficCollector.Summary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TrafficCollector.Summary, self).__init__()
 
             self.yang_name = "summary"
             self.yang_parent_name = "traffic-collector"
@@ -358,7 +387,7 @@ class TrafficCollector(Entity):
             self._perform_setattr(TrafficCollector.Summary, ['collection_interval', 'collection_timer_is_running', 'timeout_interval', 'timeout_timer_is_running', 'history_size'], name, value)
 
 
-        class DatabaseStatisticsExternalInterface(Entity):
+        class DatabaseStatisticsExternalInterface(_Entity_):
             """
             Database statistics for External Interface
             
@@ -403,10 +432,13 @@ class TrafficCollector(Entity):
             """
 
             _prefix = 'infra-tc-oper'
-            _revision = '2015-11-09'
+            _revision = '2019-06-17'
 
             def __init__(self):
-                super(TrafficCollector.Summary.DatabaseStatisticsExternalInterface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TrafficCollector.Summary.DatabaseStatisticsExternalInterface, self).__init__()
 
                 self.yang_name = "database-statistics-external-interface"
                 self.yang_parent_name = "summary"
@@ -431,9 +463,13 @@ class TrafficCollector(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(TrafficCollector.Summary.DatabaseStatisticsExternalInterface, ['number_of_entries', 'number_of_stale_entries', 'number_of_add_o_perations', 'number_of_delete_o_perations'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                return meta._meta_table['TrafficCollector.Summary.DatabaseStatisticsExternalInterface']['meta_info']
 
 
-        class VrfStatistic(Entity):
+        class VrfStatistic(_Entity_):
             """
             VRF table statistics
             
@@ -463,10 +499,13 @@ class TrafficCollector(Entity):
             """
 
             _prefix = 'infra-tc-oper'
-            _revision = '2015-11-09'
+            _revision = '2019-06-17'
 
             def __init__(self):
-                super(TrafficCollector.Summary.VrfStatistic, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TrafficCollector.Summary.VrfStatistic, self).__init__()
 
                 self.yang_name = "vrf-statistic"
                 self.yang_parent_name = "summary"
@@ -494,7 +533,7 @@ class TrafficCollector(Entity):
                 self._perform_setattr(TrafficCollector.Summary.VrfStatistic, ['vrf_name'], name, value)
 
 
-            class DatabaseStatisticsIpv4(Entity):
+            class DatabaseStatisticsIpv4(_Entity_):
                 """
                 Database statistics for IPv4 table
                 
@@ -539,10 +578,13 @@ class TrafficCollector(Entity):
                 """
 
                 _prefix = 'infra-tc-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-06-17'
 
                 def __init__(self):
-                    super(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4, self).__init__()
 
                     self.yang_name = "database-statistics-ipv4"
                     self.yang_parent_name = "vrf-statistic"
@@ -567,9 +609,13 @@ class TrafficCollector(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4, ['number_of_entries', 'number_of_stale_entries', 'number_of_add_o_perations', 'number_of_delete_o_perations'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                    return meta._meta_table['TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4']['meta_info']
 
 
-            class DatabaseStatisticsTunnel(Entity):
+            class DatabaseStatisticsTunnel(_Entity_):
                 """
                 Database statistics for Tunnel table
                 
@@ -614,10 +660,13 @@ class TrafficCollector(Entity):
                 """
 
                 _prefix = 'infra-tc-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-06-17'
 
                 def __init__(self):
-                    super(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel, self).__init__()
 
                     self.yang_name = "database-statistics-tunnel"
                     self.yang_parent_name = "vrf-statistic"
@@ -642,10 +691,18 @@ class TrafficCollector(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel, ['number_of_entries', 'number_of_stale_entries', 'number_of_add_o_perations', 'number_of_delete_o_perations'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                    return meta._meta_table['TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                return meta._meta_table['TrafficCollector.Summary.VrfStatistic']['meta_info']
 
 
-
-        class CollectionMessageStatistic(Entity):
+        class CollectionMessageStatistic(_Entity_):
             """
             Statistics per message type for STAT collector
             
@@ -712,10 +769,13 @@ class TrafficCollector(Entity):
             """
 
             _prefix = 'infra-tc-oper'
-            _revision = '2015-11-09'
+            _revision = '2019-06-17'
 
             def __init__(self):
-                super(TrafficCollector.Summary.CollectionMessageStatistic, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TrafficCollector.Summary.CollectionMessageStatistic, self).__init__()
 
                 self.yang_name = "collection-message-statistic"
                 self.yang_parent_name = "summary"
@@ -744,9 +804,13 @@ class TrafficCollector(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(TrafficCollector.Summary.CollectionMessageStatistic, ['packet_sent', 'byte_sent', 'packet_received', 'byte_received', 'maximum_roundtrip_latency', 'maimum_latency_timestamp'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                return meta._meta_table['TrafficCollector.Summary.CollectionMessageStatistic']['meta_info']
 
 
-        class CheckpointMessageStatistic(Entity):
+        class CheckpointMessageStatistic(_Entity_):
             """
             Statistics per message type for Chkpt
             
@@ -813,10 +877,13 @@ class TrafficCollector(Entity):
             """
 
             _prefix = 'infra-tc-oper'
-            _revision = '2015-11-09'
+            _revision = '2019-06-17'
 
             def __init__(self):
-                super(TrafficCollector.Summary.CheckpointMessageStatistic, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TrafficCollector.Summary.CheckpointMessageStatistic, self).__init__()
 
                 self.yang_name = "checkpoint-message-statistic"
                 self.yang_parent_name = "summary"
@@ -845,10 +912,18 @@ class TrafficCollector(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(TrafficCollector.Summary.CheckpointMessageStatistic, ['packet_sent', 'byte_sent', 'packet_received', 'byte_received', 'maximum_roundtrip_latency', 'maimum_latency_timestamp'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                return meta._meta_table['TrafficCollector.Summary.CheckpointMessageStatistic']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+            return meta._meta_table['TrafficCollector.Summary']['meta_info']
 
 
-
-    class VrfTable(Entity):
+    class VrfTable(_Entity_):
         """
         VRF specific operational data
         
@@ -864,10 +939,13 @@ class TrafficCollector(Entity):
         """
 
         _prefix = 'infra-tc-oper'
-        _revision = '2015-11-09'
+        _revision = '2019-06-17'
 
         def __init__(self):
-            super(TrafficCollector.VrfTable, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TrafficCollector.VrfTable, self).__init__()
 
             self.yang_name = "vrf-table"
             self.yang_parent_name = "traffic-collector"
@@ -888,7 +966,7 @@ class TrafficCollector(Entity):
             self._perform_setattr(TrafficCollector.VrfTable, [], name, value)
 
 
-        class DefaultVrf(Entity):
+        class DefaultVrf(_Entity_):
             """
             DefaultVRF specific operational data
             
@@ -904,10 +982,13 @@ class TrafficCollector(Entity):
             """
 
             _prefix = 'infra-tc-oper'
-            _revision = '2015-11-09'
+            _revision = '2019-06-17'
 
             def __init__(self):
-                super(TrafficCollector.VrfTable.DefaultVrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TrafficCollector.VrfTable.DefaultVrf, self).__init__()
 
                 self.yang_name = "default-vrf"
                 self.yang_parent_name = "vrf-table"
@@ -928,7 +1009,7 @@ class TrafficCollector(Entity):
                 self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf, [], name, value)
 
 
-            class Afs(Entity):
+            class Afs(_Entity_):
                 """
                 Address Family specific operational data
                 
@@ -944,10 +1025,13 @@ class TrafficCollector(Entity):
                 """
 
                 _prefix = 'infra-tc-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-06-17'
 
                 def __init__(self):
-                    super(TrafficCollector.VrfTable.DefaultVrf.Afs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TrafficCollector.VrfTable.DefaultVrf.Afs, self).__init__()
 
                     self.yang_name = "afs"
                     self.yang_parent_name = "default-vrf"
@@ -966,7 +1050,7 @@ class TrafficCollector(Entity):
                     self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs, [], name, value)
 
 
-                class Af(Entity):
+                class Af(_Entity_):
                     """
                     Operational data for given Address Family
                     
@@ -989,10 +1073,13 @@ class TrafficCollector(Entity):
                     """
 
                     _prefix = 'infra-tc-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-06-17'
 
                     def __init__(self):
-                        super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af, self).__init__()
 
                         self.yang_name = "af"
                         self.yang_parent_name = "afs"
@@ -1016,7 +1103,7 @@ class TrafficCollector(Entity):
                         self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af, ['af_name'], name, value)
 
 
-                    class Counters(Entity):
+                    class Counters(_Entity_):
                         """
                         Show Counters
                         
@@ -1039,10 +1126,13 @@ class TrafficCollector(Entity):
                         """
 
                         _prefix = 'infra-tc-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-06-17'
 
                         def __init__(self):
-                            super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters, self).__init__()
 
                             self.yang_name = "counters"
                             self.yang_parent_name = "af"
@@ -1066,7 +1156,7 @@ class TrafficCollector(Entity):
                             self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters, [], name, value)
 
 
-                        class Prefixes(Entity):
+                        class Prefixes(_Entity_):
                             """
                             Prefix Database
                             
@@ -1082,10 +1172,13 @@ class TrafficCollector(Entity):
                             """
 
                             _prefix = 'infra-tc-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-06-17'
 
                             def __init__(self):
-                                super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes, self).__init__()
 
                                 self.yang_name = "prefixes"
                                 self.yang_parent_name = "counters"
@@ -1103,7 +1196,7 @@ class TrafficCollector(Entity):
                                 self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes, [], name, value)
 
 
-                            class Prefix(Entity):
+                            class Prefix(_Entity_):
                                 """
                                 Show Prefix Counter
                                 
@@ -1185,10 +1278,13 @@ class TrafficCollector(Entity):
                                 """
 
                                 _prefix = 'infra-tc-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2019-06-17'
 
                                 def __init__(self):
-                                    super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix, self).__init__()
 
                                     self.yang_name = "prefix"
                                     self.yang_parent_name = "prefixes"
@@ -1227,7 +1323,7 @@ class TrafficCollector(Entity):
                                     self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix, ['ipaddr', 'mask', 'label', 'prefix', 'label_xr', 'ldp_label', 'is_active'], name, value)
 
 
-                                class BaseCounterStatistics(Entity):
+                                class BaseCounterStatistics(_Entity_):
                                     """
                                     Base counter statistics
                                     
@@ -1265,10 +1361,13 @@ class TrafficCollector(Entity):
                                     """
 
                                     _prefix = 'infra-tc-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2019-06-17'
 
                                     def __init__(self):
-                                        super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, self).__init__()
 
                                         self.yang_name = "base-counter-statistics"
                                         self.yang_parent_name = "prefix"
@@ -1291,7 +1390,7 @@ class TrafficCollector(Entity):
                                         self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
 
 
-                                    class CountHistory(Entity):
+                                    class CountHistory(_Entity_):
                                         """
                                         Counter History
                                         
@@ -1345,10 +1444,13 @@ class TrafficCollector(Entity):
                                         """
 
                                         _prefix = 'infra-tc-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2019-06-17'
 
                                         def __init__(self):
-                                            super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, self).__init__()
 
                                             self.yang_name = "count-history"
                                             self.yang_parent_name = "base-counter-statistics"
@@ -1374,10 +1476,18 @@ class TrafficCollector(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                                            return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                                        return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics']['meta_info']
 
 
-
-                                class TrafficMatrixCounterStatistics(Entity):
+                                class TrafficMatrixCounterStatistics(_Entity_):
                                     """
                                     Traffic Matrix (TM) counter statistics
                                     
@@ -1415,10 +1525,13 @@ class TrafficCollector(Entity):
                                     """
 
                                     _prefix = 'infra-tc-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2019-06-17'
 
                                     def __init__(self):
-                                        super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, self).__init__()
 
                                         self.yang_name = "traffic-matrix-counter-statistics"
                                         self.yang_parent_name = "prefix"
@@ -1441,7 +1554,7 @@ class TrafficCollector(Entity):
                                         self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
 
 
-                                    class CountHistory(Entity):
+                                    class CountHistory(_Entity_):
                                         """
                                         Counter History
                                         
@@ -1495,10 +1608,13 @@ class TrafficCollector(Entity):
                                         """
 
                                         _prefix = 'infra-tc-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2019-06-17'
 
                                         def __init__(self):
-                                            super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, self).__init__()
 
                                             self.yang_name = "count-history"
                                             self.yang_parent_name = "traffic-matrix-counter-statistics"
@@ -1524,12 +1640,28 @@ class TrafficCollector(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                                            return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                                        return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                                    return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                                return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes']['meta_info']
 
 
-
-
-
-                        class Tunnels(Entity):
+                        class Tunnels(_Entity_):
                             """
                             Tunnels
                             
@@ -1545,10 +1677,13 @@ class TrafficCollector(Entity):
                             """
 
                             _prefix = 'infra-tc-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-06-17'
 
                             def __init__(self):
-                                super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels, self).__init__()
 
                                 self.yang_name = "tunnels"
                                 self.yang_parent_name = "counters"
@@ -1566,7 +1701,7 @@ class TrafficCollector(Entity):
                                 self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels, [], name, value)
 
 
-                            class Tunnel(Entity):
+                            class Tunnel(_Entity_):
                                 """
                                 Tunnel information
                                 
@@ -1575,7 +1710,7 @@ class TrafficCollector(Entity):
                                 	The Interface Name
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
                                 	**config**\: False
                                 
@@ -1623,10 +1758,13 @@ class TrafficCollector(Entity):
                                 """
 
                                 _prefix = 'infra-tc-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2019-06-17'
 
                                 def __init__(self):
-                                    super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel, self).__init__()
 
                                     self.yang_name = "tunnel"
                                     self.yang_parent_name = "tunnels"
@@ -1657,7 +1795,7 @@ class TrafficCollector(Entity):
                                     self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel, ['interface_name', 'interface_name_xr', 'interface_handle', 'vrfid', 'is_active'], name, value)
 
 
-                                class BaseCounterStatistics(Entity):
+                                class BaseCounterStatistics(_Entity_):
                                     """
                                     Base counter statistics
                                     
@@ -1695,10 +1833,13 @@ class TrafficCollector(Entity):
                                     """
 
                                     _prefix = 'infra-tc-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2019-06-17'
 
                                     def __init__(self):
-                                        super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, self).__init__()
 
                                         self.yang_name = "base-counter-statistics"
                                         self.yang_parent_name = "tunnel"
@@ -1721,7 +1862,7 @@ class TrafficCollector(Entity):
                                         self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
 
 
-                                    class CountHistory(Entity):
+                                    class CountHistory(_Entity_):
                                         """
                                         Counter History
                                         
@@ -1775,10 +1916,13 @@ class TrafficCollector(Entity):
                                         """
 
                                         _prefix = 'infra-tc-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2019-06-17'
 
                                         def __init__(self):
-                                            super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, self).__init__()
 
                                             self.yang_name = "count-history"
                                             self.yang_parent_name = "base-counter-statistics"
@@ -1804,17 +1948,53 @@ class TrafficCollector(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
 
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                                            return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory']['meta_info']
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                                        return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                                    return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                                return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                            return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                        return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs.Af']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                    return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf.Afs']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                return meta._meta_table['TrafficCollector.VrfTable.DefaultVrf']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+            return meta._meta_table['TrafficCollector.VrfTable']['meta_info']
 
 
-
-
-
-
-
-
-
-
-    class Afs(Entity):
+    class Afs(_Entity_):
         """
         Address Family specific operational data
         
@@ -1830,10 +2010,13 @@ class TrafficCollector(Entity):
         """
 
         _prefix = 'infra-tc-oper'
-        _revision = '2015-11-09'
+        _revision = '2019-06-17'
 
         def __init__(self):
-            super(TrafficCollector.Afs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TrafficCollector.Afs, self).__init__()
 
             self.yang_name = "afs"
             self.yang_parent_name = "traffic-collector"
@@ -1852,7 +2035,7 @@ class TrafficCollector(Entity):
             self._perform_setattr(TrafficCollector.Afs, [], name, value)
 
 
-        class Af(Entity):
+        class Af(_Entity_):
             """
             Operational data for given Address Family
             
@@ -1875,10 +2058,13 @@ class TrafficCollector(Entity):
             """
 
             _prefix = 'infra-tc-oper'
-            _revision = '2015-11-09'
+            _revision = '2019-06-17'
 
             def __init__(self):
-                super(TrafficCollector.Afs.Af, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TrafficCollector.Afs.Af, self).__init__()
 
                 self.yang_name = "af"
                 self.yang_parent_name = "afs"
@@ -1902,7 +2088,7 @@ class TrafficCollector(Entity):
                 self._perform_setattr(TrafficCollector.Afs.Af, ['af_name'], name, value)
 
 
-            class Counters(Entity):
+            class Counters(_Entity_):
                 """
                 Show Counters
                 
@@ -1925,10 +2111,13 @@ class TrafficCollector(Entity):
                 """
 
                 _prefix = 'infra-tc-oper'
-                _revision = '2015-11-09'
+                _revision = '2019-06-17'
 
                 def __init__(self):
-                    super(TrafficCollector.Afs.Af.Counters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TrafficCollector.Afs.Af.Counters, self).__init__()
 
                     self.yang_name = "counters"
                     self.yang_parent_name = "af"
@@ -1952,7 +2141,7 @@ class TrafficCollector(Entity):
                     self._perform_setattr(TrafficCollector.Afs.Af.Counters, [], name, value)
 
 
-                class Prefixes(Entity):
+                class Prefixes(_Entity_):
                     """
                     Prefix Database
                     
@@ -1968,10 +2157,13 @@ class TrafficCollector(Entity):
                     """
 
                     _prefix = 'infra-tc-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-06-17'
 
                     def __init__(self):
-                        super(TrafficCollector.Afs.Af.Counters.Prefixes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TrafficCollector.Afs.Af.Counters.Prefixes, self).__init__()
 
                         self.yang_name = "prefixes"
                         self.yang_parent_name = "counters"
@@ -1989,7 +2181,7 @@ class TrafficCollector(Entity):
                         self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes, [], name, value)
 
 
-                    class Prefix(Entity):
+                    class Prefix(_Entity_):
                         """
                         Show Prefix Counter
                         
@@ -2071,10 +2263,13 @@ class TrafficCollector(Entity):
                         """
 
                         _prefix = 'infra-tc-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-06-17'
 
                         def __init__(self):
-                            super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix, self).__init__()
 
                             self.yang_name = "prefix"
                             self.yang_parent_name = "prefixes"
@@ -2113,7 +2308,7 @@ class TrafficCollector(Entity):
                             self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix, ['ipaddr', 'mask', 'label', 'prefix', 'label_xr', 'ldp_label', 'is_active'], name, value)
 
 
-                        class BaseCounterStatistics(Entity):
+                        class BaseCounterStatistics(_Entity_):
                             """
                             Base counter statistics
                             
@@ -2151,10 +2346,13 @@ class TrafficCollector(Entity):
                             """
 
                             _prefix = 'infra-tc-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-06-17'
 
                             def __init__(self):
-                                super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, self).__init__()
 
                                 self.yang_name = "base-counter-statistics"
                                 self.yang_parent_name = "prefix"
@@ -2177,7 +2375,7 @@ class TrafficCollector(Entity):
                                 self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
 
 
-                            class CountHistory(Entity):
+                            class CountHistory(_Entity_):
                                 """
                                 Counter History
                                 
@@ -2231,10 +2429,13 @@ class TrafficCollector(Entity):
                                 """
 
                                 _prefix = 'infra-tc-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2019-06-17'
 
                                 def __init__(self):
-                                    super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, self).__init__()
 
                                     self.yang_name = "count-history"
                                     self.yang_parent_name = "base-counter-statistics"
@@ -2260,10 +2461,18 @@ class TrafficCollector(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                                    return meta._meta_table['TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                                return meta._meta_table['TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics']['meta_info']
 
 
-
-                        class TrafficMatrixCounterStatistics(Entity):
+                        class TrafficMatrixCounterStatistics(_Entity_):
                             """
                             Traffic Matrix (TM) counter statistics
                             
@@ -2301,10 +2510,13 @@ class TrafficCollector(Entity):
                             """
 
                             _prefix = 'infra-tc-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-06-17'
 
                             def __init__(self):
-                                super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, self).__init__()
 
                                 self.yang_name = "traffic-matrix-counter-statistics"
                                 self.yang_parent_name = "prefix"
@@ -2327,7 +2539,7 @@ class TrafficCollector(Entity):
                                 self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
 
 
-                            class CountHistory(Entity):
+                            class CountHistory(_Entity_):
                                 """
                                 Counter History
                                 
@@ -2381,10 +2593,13 @@ class TrafficCollector(Entity):
                                 """
 
                                 _prefix = 'infra-tc-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2019-06-17'
 
                                 def __init__(self):
-                                    super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, self).__init__()
 
                                     self.yang_name = "count-history"
                                     self.yang_parent_name = "traffic-matrix-counter-statistics"
@@ -2410,12 +2625,28 @@ class TrafficCollector(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                                    return meta._meta_table['TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                                return meta._meta_table['TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                            return meta._meta_table['TrafficCollector.Afs.Af.Counters.Prefixes.Prefix']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                        return meta._meta_table['TrafficCollector.Afs.Af.Counters.Prefixes']['meta_info']
 
 
-
-
-
-                class Tunnels(Entity):
+                class Tunnels(_Entity_):
                     """
                     Tunnels
                     
@@ -2431,10 +2662,13 @@ class TrafficCollector(Entity):
                     """
 
                     _prefix = 'infra-tc-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2019-06-17'
 
                     def __init__(self):
-                        super(TrafficCollector.Afs.Af.Counters.Tunnels, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TrafficCollector.Afs.Af.Counters.Tunnels, self).__init__()
 
                         self.yang_name = "tunnels"
                         self.yang_parent_name = "counters"
@@ -2452,7 +2686,7 @@ class TrafficCollector(Entity):
                         self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels, [], name, value)
 
 
-                    class Tunnel(Entity):
+                    class Tunnel(_Entity_):
                         """
                         Tunnel information
                         
@@ -2461,7 +2695,7 @@ class TrafficCollector(Entity):
                         	The Interface Name
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
                         	**config**\: False
                         
@@ -2509,10 +2743,13 @@ class TrafficCollector(Entity):
                         """
 
                         _prefix = 'infra-tc-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2019-06-17'
 
                         def __init__(self):
-                            super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel, self).__init__()
 
                             self.yang_name = "tunnel"
                             self.yang_parent_name = "tunnels"
@@ -2543,7 +2780,7 @@ class TrafficCollector(Entity):
                             self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel, ['interface_name', 'interface_name_xr', 'interface_handle', 'vrfid', 'is_active'], name, value)
 
 
-                        class BaseCounterStatistics(Entity):
+                        class BaseCounterStatistics(_Entity_):
                             """
                             Base counter statistics
                             
@@ -2581,10 +2818,13 @@ class TrafficCollector(Entity):
                             """
 
                             _prefix = 'infra-tc-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2019-06-17'
 
                             def __init__(self):
-                                super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, self).__init__()
 
                                 self.yang_name = "base-counter-statistics"
                                 self.yang_parent_name = "tunnel"
@@ -2607,7 +2847,7 @@ class TrafficCollector(Entity):
                                 self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
 
 
-                            class CountHistory(Entity):
+                            class CountHistory(_Entity_):
                                 """
                                 Counter History
                                 
@@ -2661,10 +2901,13 @@ class TrafficCollector(Entity):
                                 """
 
                                 _prefix = 'infra-tc-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2019-06-17'
 
                                 def __init__(self):
-                                    super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, self).__init__()
 
                                     self.yang_name = "count-history"
                                     self.yang_parent_name = "base-counter-statistics"
@@ -2690,16 +2933,48 @@ class TrafficCollector(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                                    return meta._meta_table['TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory']['meta_info']
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                                return meta._meta_table['TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                            return meta._meta_table['TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                        return meta._meta_table['TrafficCollector.Afs.Af.Counters.Tunnels']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                    return meta._meta_table['TrafficCollector.Afs.Af.Counters']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+                return meta._meta_table['TrafficCollector.Afs.Af']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+            return meta._meta_table['TrafficCollector.Afs']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = TrafficCollector()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_tc_oper as meta
+        return meta._meta_table['TrafficCollector']['meta_info']
 
 

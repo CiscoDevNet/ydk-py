@@ -18,8 +18,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -28,7 +31,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class SubscriberManager(Entity):
+class SubscriberManager(_Entity_):
     """
     iEdge subscriber manager configuration
     
@@ -50,7 +53,10 @@ class SubscriberManager(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(SubscriberManager, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SubscriberManager, self).__init__()
         self._top_entity = None
 
         self.yang_name = "subscriber-manager"
@@ -75,7 +81,7 @@ class SubscriberManager(Entity):
         self._perform_setattr(SubscriberManager, [], name, value)
 
 
-    class Accounting(Entity):
+    class Accounting(_Entity_):
         """
         iEdge accounting feature
         
@@ -97,7 +103,10 @@ class SubscriberManager(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(SubscriberManager.Accounting, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SubscriberManager.Accounting, self).__init__()
 
             self.yang_name = "accounting"
             self.yang_parent_name = "subscriber-manager"
@@ -122,7 +131,7 @@ class SubscriberManager(Entity):
             self._perform_setattr(SubscriberManager.Accounting, [], name, value)
 
 
-        class SendStop(Entity):
+        class SendStop(_Entity_):
             """
             Accounting send stop feature
             
@@ -139,7 +148,10 @@ class SubscriberManager(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(SubscriberManager.Accounting.SendStop, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SubscriberManager.Accounting.SendStop, self).__init__()
 
                 self.yang_name = "send-stop"
                 self.yang_parent_name = "accounting"
@@ -160,7 +172,7 @@ class SubscriberManager(Entity):
                 self._perform_setattr(SubscriberManager.Accounting.SendStop, [], name, value)
 
 
-            class SetupFailure(Entity):
+            class SetupFailure(_Entity_):
                 """
                 Setup failure feature
                 
@@ -177,7 +189,10 @@ class SubscriberManager(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(SubscriberManager.Accounting.SendStop.SetupFailure, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberManager.Accounting.SendStop.SetupFailure, self).__init__()
 
                     self.yang_name = "setup-failure"
                     self.yang_parent_name = "send-stop"
@@ -196,10 +211,18 @@ class SubscriberManager(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SubscriberManager.Accounting.SendStop.SetupFailure, ['method_list_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
+                    return meta._meta_table['SubscriberManager.Accounting.SendStop.SetupFailure']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
+                return meta._meta_table['SubscriberManager.Accounting.SendStop']['meta_info']
 
 
-
-        class Interim(Entity):
+        class Interim(_Entity_):
             """
             interim accounting related
             
@@ -216,7 +239,10 @@ class SubscriberManager(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(SubscriberManager.Accounting.Interim, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SubscriberManager.Accounting.Interim, self).__init__()
 
                 self.yang_name = "interim"
                 self.yang_parent_name = "accounting"
@@ -237,7 +263,7 @@ class SubscriberManager(Entity):
                 self._perform_setattr(SubscriberManager.Accounting.Interim, [], name, value)
 
 
-            class Variation(Entity):
+            class Variation(_Entity_):
                 """
                 variation of first session or service interim
                 record from configured timeout
@@ -259,7 +285,10 @@ class SubscriberManager(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(SubscriberManager.Accounting.Interim.Variation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(SubscriberManager.Accounting.Interim.Variation, self).__init__()
 
                     self.yang_name = "variation"
                     self.yang_parent_name = "interim"
@@ -278,11 +307,23 @@ class SubscriberManager(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SubscriberManager.Accounting.Interim.Variation, ['maximum_percentage_variation'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
+                    return meta._meta_table['SubscriberManager.Accounting.Interim.Variation']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
+                return meta._meta_table['SubscriberManager.Accounting.Interim']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
+            return meta._meta_table['SubscriberManager.Accounting']['meta_info']
 
 
-
-
-    class Srg(Entity):
+    class Srg(_Entity_):
         """
         SRG specific config
         
@@ -299,7 +340,10 @@ class SubscriberManager(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(SubscriberManager.Srg, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SubscriberManager.Srg, self).__init__()
 
             self.yang_name = "srg"
             self.yang_parent_name = "subscriber-manager"
@@ -318,14 +362,22 @@ class SubscriberManager(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SubscriberManager.Srg, ['sync_account_session_id'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
+            return meta._meta_table['SubscriberManager.Srg']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SubscriberManager()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
+        return meta._meta_table['SubscriberManager']['meta_info']
 
 
-class SubscriberFeaturette(Entity):
+class SubscriberFeaturette(_Entity_):
     """
     subscriber featurette
     
@@ -342,7 +394,10 @@ class SubscriberFeaturette(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(SubscriberFeaturette, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SubscriberFeaturette, self).__init__()
         self._top_entity = None
 
         self.yang_name = "subscriber-featurette"
@@ -361,7 +416,7 @@ class SubscriberFeaturette(Entity):
         self._perform_setattr(SubscriberFeaturette, [], name, value)
 
 
-    class FeaturetteName(Entity):
+    class FeaturetteName(_Entity_):
         """
         enable featurette processing
         
@@ -387,7 +442,10 @@ class SubscriberFeaturette(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(SubscriberFeaturette.FeaturetteName, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SubscriberFeaturette.FeaturetteName, self).__init__()
 
             self.yang_name = "featurette-name"
             self.yang_parent_name = "subscriber-featurette"
@@ -408,14 +466,22 @@ class SubscriberFeaturette(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SubscriberFeaturette.FeaturetteName, ['featurette', 'enable'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
+            return meta._meta_table['SubscriberFeaturette.FeaturetteName']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SubscriberFeaturette()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
+        return meta._meta_table['SubscriberFeaturette']['meta_info']
 
 
-class IedgeLicenseManager(Entity):
+class IedgeLicenseManager(_Entity_):
     """
     iedge license manager
     
@@ -434,7 +500,10 @@ class IedgeLicenseManager(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(IedgeLicenseManager, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(IedgeLicenseManager, self).__init__()
         self._top_entity = None
 
         self.yang_name = "iedge-license-manager"
@@ -457,9 +526,13 @@ class IedgeLicenseManager(Entity):
         self._top_entity = IedgeLicenseManager()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
+        return meta._meta_table['IedgeLicenseManager']['meta_info']
 
 
-class SubManager(Entity):
+class SubManager(_Entity_):
     """
     sub manager
     
@@ -476,7 +549,10 @@ class SubManager(Entity):
     _revision = '2017-09-07'
 
     def __init__(self):
-        super(SubManager, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(SubManager, self).__init__()
         self._top_entity = None
 
         self.yang_name = "sub-manager"
@@ -495,7 +571,7 @@ class SubManager(Entity):
         self._perform_setattr(SubManager, [], name, value)
 
 
-    class Location(Entity):
+    class Location(_Entity_):
         """
         Select location
         
@@ -524,7 +600,10 @@ class SubManager(Entity):
         _revision = '2017-09-07'
 
         def __init__(self):
-            super(SubManager.Location, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(SubManager.Location, self).__init__()
 
             self.yang_name = "location"
             self.yang_parent_name = "sub-manager"
@@ -550,7 +629,7 @@ class SubManager(Entity):
             self._perform_setattr(SubManager.Location, ['location1', 'history'], name, value)
 
 
-        class Trace(Entity):
+        class Trace(_Entity_):
             """
             Subscriber manager trace
             
@@ -569,7 +648,10 @@ class SubManager(Entity):
             _revision = '2017-09-07'
 
             def __init__(self):
-                super(SubManager.Location.Trace, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(SubManager.Location.Trace, self).__init__()
 
                 self.yang_name = "trace"
                 self.yang_parent_name = "location"
@@ -587,11 +669,23 @@ class SubManager(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SubManager.Location.Trace, ['trace_level'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
+                return meta._meta_table['SubManager.Location.Trace']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
+            return meta._meta_table['SubManager.Location']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = SubManager()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
+        return meta._meta_table['SubManager']['meta_info']
 
 

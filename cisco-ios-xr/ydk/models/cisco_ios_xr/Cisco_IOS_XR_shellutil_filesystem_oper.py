@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class FileSystem(Entity):
+class FileSystem(_Entity_):
     """
     List of filesystems
     
@@ -40,7 +43,10 @@ class FileSystem(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(FileSystem, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(FileSystem, self).__init__()
         self._top_entity = None
 
         self.yang_name = "file-system"
@@ -59,7 +65,7 @@ class FileSystem(Entity):
         self._perform_setattr(FileSystem, [], name, value)
 
 
-    class Node(Entity):
+    class Node(_Entity_):
         """
         Node ID
         
@@ -87,7 +93,10 @@ class FileSystem(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(FileSystem.Node, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FileSystem.Node, self).__init__()
 
             self.yang_name = "node"
             self.yang_parent_name = "file-system"
@@ -109,7 +118,7 @@ class FileSystem(Entity):
             self._perform_setattr(FileSystem.Node, ['node_name'], name, value)
 
 
-        class FileSystem_(Entity):
+        class FileSystem_(_Entity_):
             """
             Available file systems
             
@@ -160,7 +169,10 @@ class FileSystem(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(FileSystem.Node.FileSystem_, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(FileSystem.Node.FileSystem_, self).__init__()
 
                 self.yang_name = "file-system"
                 self.yang_parent_name = "node"
@@ -186,11 +198,23 @@ class FileSystem(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(FileSystem.Node.FileSystem_, ['size', 'free', 'type', 'flags', 'prefixes'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_shellutil_filesystem_oper as meta
+                return meta._meta_table['FileSystem.Node.FileSystem_']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_shellutil_filesystem_oper as meta
+            return meta._meta_table['FileSystem.Node']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = FileSystem()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_shellutil_filesystem_oper as meta
+        return meta._meta_table['FileSystem']['meta_info']
 
 

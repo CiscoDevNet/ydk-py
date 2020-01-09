@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -41,6 +44,12 @@ class MsdpFilterTypeVrf(Enum):
     outgoing = Enum.YLeaf(2, "outgoing")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+        return meta._meta_table['MsdpFilterTypeVrf']
+
+
 class MsdpListTypeVrf(Enum):
     """
     MsdpListTypeVrf (Enum Class)
@@ -62,8 +71,14 @@ class MsdpListTypeVrf(Enum):
     rp_list = Enum.YLeaf(4, "rp-list")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+        return meta._meta_table['MsdpListTypeVrf']
 
-class Msdp(Entity):
+
+
+class Msdp(_Entity_):
     """
     MSDP Configuration
     
@@ -101,7 +116,10 @@ class Msdp(Entity):
     _revision = '2017-10-15'
 
     def __init__(self):
-        super(Msdp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Msdp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "msdp"
@@ -131,7 +149,7 @@ class Msdp(Entity):
         self._perform_setattr(Msdp, ['global_max_sa', 'nsr_delay'], name, value)
 
 
-    class Vrfs(Entity):
+    class Vrfs(_Entity_):
         """
         VRF Table
         
@@ -148,7 +166,10 @@ class Msdp(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(Msdp.Vrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Msdp.Vrfs, self).__init__()
 
             self.yang_name = "vrfs"
             self.yang_parent_name = "msdp"
@@ -167,7 +188,7 @@ class Msdp(Entity):
             self._perform_setattr(Msdp.Vrfs, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             VRF Name
             
@@ -250,7 +271,10 @@ class Msdp(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Msdp.Vrfs.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Msdp.Vrfs.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "vrfs"
@@ -297,7 +321,7 @@ class Msdp(Entity):
                 self._perform_setattr(Msdp.Vrfs.Vrf, ['vrf_name', 'ttl_threshold', 'max_peer_sa', 'default_peer', 'originator_id', 'max_sa', 'connect_source'], name, value)
 
 
-            class CacheState(Entity):
+            class CacheState(_Entity_):
                 """
                 Configure this systems SA cache access\-lists
                 
@@ -334,7 +358,10 @@ class Msdp(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Msdp.Vrfs.Vrf.CacheState, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Msdp.Vrfs.Vrf.CacheState, self).__init__()
 
                     self.yang_name = "cache-state"
                     self.yang_parent_name = "vrf"
@@ -356,9 +383,13 @@ class Msdp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Msdp.Vrfs.Vrf.CacheState, ['sa_holdtime', 'list', 'rp_list'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                    return meta._meta_table['Msdp.Vrfs.Vrf.CacheState']['meta_info']
 
 
-            class KeepAlive(Entity):
+            class KeepAlive(_Entity_):
                 """
                 MSDP keep alive period
                 
@@ -394,7 +425,10 @@ class Msdp(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Msdp.Vrfs.Vrf.KeepAlive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Msdp.Vrfs.Vrf.KeepAlive, self).__init__()
 
                     self.yang_name = "keep-alive"
                     self.yang_parent_name = "vrf"
@@ -415,9 +449,13 @@ class Msdp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Msdp.Vrfs.Vrf.KeepAlive, ['keep_alive_period', 'peer_timeout_period'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                    return meta._meta_table['Msdp.Vrfs.Vrf.KeepAlive']['meta_info']
 
 
-            class Peers(Entity):
+            class Peers(_Entity_):
                 """
                 Entering Peer Configuration
                 
@@ -434,7 +472,10 @@ class Msdp(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Msdp.Vrfs.Vrf.Peers, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Msdp.Vrfs.Vrf.Peers, self).__init__()
 
                     self.yang_name = "peers"
                     self.yang_parent_name = "vrf"
@@ -452,7 +493,7 @@ class Msdp(Entity):
                     self._perform_setattr(Msdp.Vrfs.Vrf.Peers, [], name, value)
 
 
-                class Peer(Entity):
+                class Peer(_Entity_):
                     """
                     Peer address
                     
@@ -547,7 +588,10 @@ class Msdp(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Msdp.Vrfs.Vrf.Peers.Peer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Msdp.Vrfs.Vrf.Peers.Peer, self).__init__()
 
                         self.yang_name = "peer"
                         self.yang_parent_name = "peers"
@@ -594,7 +638,7 @@ class Msdp(Entity):
                         self._perform_setattr(Msdp.Vrfs.Vrf.Peers.Peer, ['peer_address', 'shutdown', 'description', 'enable', 'max_sa', 'nsr_down', 'peer_password', 'mesh_group', 'ttl_threshold', 'connect_source'], name, value)
 
 
-                    class RemoteAs(Entity):
+                    class RemoteAs(_Entity_):
                         """
                         Configure the remote AS of this peer
                         
@@ -626,7 +670,10 @@ class Msdp(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Msdp.Vrfs.Vrf.Peers.Peer.RemoteAs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Msdp.Vrfs.Vrf.Peers.Peer.RemoteAs, self).__init__()
 
                             self.yang_name = "remote-as"
                             self.yang_parent_name = "peer"
@@ -647,9 +694,13 @@ class Msdp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Msdp.Vrfs.Vrf.Peers.Peer.RemoteAs, ['as_xx', 'as_yy'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                            return meta._meta_table['Msdp.Vrfs.Vrf.Peers.Peer.RemoteAs']['meta_info']
 
 
-                    class KeepAlive(Entity):
+                    class KeepAlive(_Entity_):
                         """
                         MSDP keep alive period
                         
@@ -685,7 +736,10 @@ class Msdp(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Msdp.Vrfs.Vrf.Peers.Peer.KeepAlive, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Msdp.Vrfs.Vrf.Peers.Peer.KeepAlive, self).__init__()
 
                             self.yang_name = "keep-alive"
                             self.yang_parent_name = "peer"
@@ -706,9 +760,13 @@ class Msdp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Msdp.Vrfs.Vrf.Peers.Peer.KeepAlive, ['keep_alive_period', 'peer_timeout_period'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                            return meta._meta_table['Msdp.Vrfs.Vrf.Peers.Peer.KeepAlive']['meta_info']
 
 
-                    class SaFilters(Entity):
+                    class SaFilters(_Entity_):
                         """
                         Filter SA messages from peer
                         
@@ -725,7 +783,10 @@ class Msdp(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Msdp.Vrfs.Vrf.Peers.Peer.SaFilters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Msdp.Vrfs.Vrf.Peers.Peer.SaFilters, self).__init__()
 
                             self.yang_name = "sa-filters"
                             self.yang_parent_name = "peer"
@@ -743,7 +804,7 @@ class Msdp(Entity):
                             self._perform_setattr(Msdp.Vrfs.Vrf.Peers.Peer.SaFilters, [], name, value)
 
 
-                        class SaFilter(Entity):
+                        class SaFilter(_Entity_):
                             """
                             SA\-Filter incoming/outgoing list or RPlist
                             
@@ -774,7 +835,10 @@ class Msdp(Entity):
                             _revision = '2017-10-15'
 
                             def __init__(self):
-                                super(Msdp.Vrfs.Vrf.Peers.Peer.SaFilters.SaFilter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Msdp.Vrfs.Vrf.Peers.Peer.SaFilters.SaFilter, self).__init__()
 
                                 self.yang_name = "sa-filter"
                                 self.yang_parent_name = "sa-filters"
@@ -796,12 +860,28 @@ class Msdp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Msdp.Vrfs.Vrf.Peers.Peer.SaFilters.SaFilter, ['list', 'filter_type', 'access_list_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                                return meta._meta_table['Msdp.Vrfs.Vrf.Peers.Peer.SaFilters.SaFilter']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                            return meta._meta_table['Msdp.Vrfs.Vrf.Peers.Peer.SaFilters']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                        return meta._meta_table['Msdp.Vrfs.Vrf.Peers.Peer']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                    return meta._meta_table['Msdp.Vrfs.Vrf.Peers']['meta_info']
 
 
-
-
-
-            class SaFilters(Entity):
+            class SaFilters(_Entity_):
                 """
                 Filter SA messages from peer
                 
@@ -818,7 +898,10 @@ class Msdp(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Msdp.Vrfs.Vrf.SaFilters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Msdp.Vrfs.Vrf.SaFilters, self).__init__()
 
                     self.yang_name = "sa-filters"
                     self.yang_parent_name = "vrf"
@@ -836,7 +919,7 @@ class Msdp(Entity):
                     self._perform_setattr(Msdp.Vrfs.Vrf.SaFilters, [], name, value)
 
 
-                class SaFilter(Entity):
+                class SaFilter(_Entity_):
                     """
                     SA\-Filter incoming/outgoing list or RPlist
                     
@@ -867,7 +950,10 @@ class Msdp(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Msdp.Vrfs.Vrf.SaFilters.SaFilter, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Msdp.Vrfs.Vrf.SaFilters.SaFilter, self).__init__()
 
                         self.yang_name = "sa-filter"
                         self.yang_parent_name = "sa-filters"
@@ -889,12 +975,28 @@ class Msdp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Msdp.Vrfs.Vrf.SaFilters.SaFilter, ['list', 'filter_type', 'access_list_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                        return meta._meta_table['Msdp.Vrfs.Vrf.SaFilters.SaFilter']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                    return meta._meta_table['Msdp.Vrfs.Vrf.SaFilters']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                return meta._meta_table['Msdp.Vrfs.Vrf']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+            return meta._meta_table['Msdp.Vrfs']['meta_info']
 
 
-
-
-
-    class DefaultContext(Entity):
+    class DefaultContext(_Entity_):
         """
         Default Context
         
@@ -970,7 +1072,10 @@ class Msdp(Entity):
         _revision = '2017-10-15'
 
         def __init__(self):
-            super(Msdp.DefaultContext, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Msdp.DefaultContext, self).__init__()
 
             self.yang_name = "default-context"
             self.yang_parent_name = "msdp"
@@ -1015,7 +1120,7 @@ class Msdp(Entity):
             self._perform_setattr(Msdp.DefaultContext, ['ttl_threshold', 'max_peer_sa', 'default_peer', 'originator_id', 'max_sa', 'connect_source'], name, value)
 
 
-        class CacheState(Entity):
+        class CacheState(_Entity_):
             """
             Configure this systems SA cache access\-lists
             
@@ -1052,7 +1157,10 @@ class Msdp(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Msdp.DefaultContext.CacheState, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Msdp.DefaultContext.CacheState, self).__init__()
 
                 self.yang_name = "cache-state"
                 self.yang_parent_name = "default-context"
@@ -1075,9 +1183,13 @@ class Msdp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Msdp.DefaultContext.CacheState, ['sa_holdtime', 'list', 'rp_list'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                return meta._meta_table['Msdp.DefaultContext.CacheState']['meta_info']
 
 
-        class KeepAlive(Entity):
+        class KeepAlive(_Entity_):
             """
             MSDP keep alive period
             
@@ -1113,7 +1225,10 @@ class Msdp(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Msdp.DefaultContext.KeepAlive, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Msdp.DefaultContext.KeepAlive, self).__init__()
 
                 self.yang_name = "keep-alive"
                 self.yang_parent_name = "default-context"
@@ -1135,9 +1250,13 @@ class Msdp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Msdp.DefaultContext.KeepAlive, ['keep_alive_period', 'peer_timeout_period'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                return meta._meta_table['Msdp.DefaultContext.KeepAlive']['meta_info']
 
 
-        class Peers(Entity):
+        class Peers(_Entity_):
             """
             Entering Peer Configuration
             
@@ -1154,7 +1273,10 @@ class Msdp(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Msdp.DefaultContext.Peers, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Msdp.DefaultContext.Peers, self).__init__()
 
                 self.yang_name = "peers"
                 self.yang_parent_name = "default-context"
@@ -1173,7 +1295,7 @@ class Msdp(Entity):
                 self._perform_setattr(Msdp.DefaultContext.Peers, [], name, value)
 
 
-            class Peer(Entity):
+            class Peer(_Entity_):
                 """
                 Peer address
                 
@@ -1268,7 +1390,10 @@ class Msdp(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Msdp.DefaultContext.Peers.Peer, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Msdp.DefaultContext.Peers.Peer, self).__init__()
 
                     self.yang_name = "peer"
                     self.yang_parent_name = "peers"
@@ -1316,7 +1441,7 @@ class Msdp(Entity):
                     self._perform_setattr(Msdp.DefaultContext.Peers.Peer, ['peer_address', 'shutdown', 'description', 'enable', 'max_sa', 'nsr_down', 'peer_password', 'mesh_group', 'ttl_threshold', 'connect_source'], name, value)
 
 
-                class RemoteAs(Entity):
+                class RemoteAs(_Entity_):
                     """
                     Configure the remote AS of this peer
                     
@@ -1348,7 +1473,10 @@ class Msdp(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Msdp.DefaultContext.Peers.Peer.RemoteAs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Msdp.DefaultContext.Peers.Peer.RemoteAs, self).__init__()
 
                         self.yang_name = "remote-as"
                         self.yang_parent_name = "peer"
@@ -1369,9 +1497,13 @@ class Msdp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Msdp.DefaultContext.Peers.Peer.RemoteAs, ['as_xx', 'as_yy'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                        return meta._meta_table['Msdp.DefaultContext.Peers.Peer.RemoteAs']['meta_info']
 
 
-                class KeepAlive(Entity):
+                class KeepAlive(_Entity_):
                     """
                     MSDP keep alive period
                     
@@ -1407,7 +1539,10 @@ class Msdp(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Msdp.DefaultContext.Peers.Peer.KeepAlive, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Msdp.DefaultContext.Peers.Peer.KeepAlive, self).__init__()
 
                         self.yang_name = "keep-alive"
                         self.yang_parent_name = "peer"
@@ -1428,9 +1563,13 @@ class Msdp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Msdp.DefaultContext.Peers.Peer.KeepAlive, ['keep_alive_period', 'peer_timeout_period'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                        return meta._meta_table['Msdp.DefaultContext.Peers.Peer.KeepAlive']['meta_info']
 
 
-                class SaFilters(Entity):
+                class SaFilters(_Entity_):
                     """
                     Filter SA messages from peer
                     
@@ -1447,7 +1586,10 @@ class Msdp(Entity):
                     _revision = '2017-10-15'
 
                     def __init__(self):
-                        super(Msdp.DefaultContext.Peers.Peer.SaFilters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Msdp.DefaultContext.Peers.Peer.SaFilters, self).__init__()
 
                         self.yang_name = "sa-filters"
                         self.yang_parent_name = "peer"
@@ -1465,7 +1607,7 @@ class Msdp(Entity):
                         self._perform_setattr(Msdp.DefaultContext.Peers.Peer.SaFilters, [], name, value)
 
 
-                    class SaFilter(Entity):
+                    class SaFilter(_Entity_):
                         """
                         SA\-Filter incoming/outgoing list or RPlist
                         
@@ -1496,7 +1638,10 @@ class Msdp(Entity):
                         _revision = '2017-10-15'
 
                         def __init__(self):
-                            super(Msdp.DefaultContext.Peers.Peer.SaFilters.SaFilter, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Msdp.DefaultContext.Peers.Peer.SaFilters.SaFilter, self).__init__()
 
                             self.yang_name = "sa-filter"
                             self.yang_parent_name = "sa-filters"
@@ -1518,12 +1663,28 @@ class Msdp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Msdp.DefaultContext.Peers.Peer.SaFilters.SaFilter, ['list', 'filter_type', 'access_list_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                            return meta._meta_table['Msdp.DefaultContext.Peers.Peer.SaFilters.SaFilter']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                        return meta._meta_table['Msdp.DefaultContext.Peers.Peer.SaFilters']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                    return meta._meta_table['Msdp.DefaultContext.Peers.Peer']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                return meta._meta_table['Msdp.DefaultContext.Peers']['meta_info']
 
 
-
-
-
-        class SaFilters(Entity):
+        class SaFilters(_Entity_):
             """
             Filter SA messages from peer
             
@@ -1540,7 +1701,10 @@ class Msdp(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Msdp.DefaultContext.SaFilters, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Msdp.DefaultContext.SaFilters, self).__init__()
 
                 self.yang_name = "sa-filters"
                 self.yang_parent_name = "default-context"
@@ -1559,7 +1723,7 @@ class Msdp(Entity):
                 self._perform_setattr(Msdp.DefaultContext.SaFilters, [], name, value)
 
 
-            class SaFilter(Entity):
+            class SaFilter(_Entity_):
                 """
                 SA\-Filter incoming/outgoing list or RPlist
                 
@@ -1590,7 +1754,10 @@ class Msdp(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Msdp.DefaultContext.SaFilters.SaFilter, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Msdp.DefaultContext.SaFilters.SaFilter, self).__init__()
 
                     self.yang_name = "sa-filter"
                     self.yang_parent_name = "sa-filters"
@@ -1613,12 +1780,28 @@ class Msdp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Msdp.DefaultContext.SaFilters.SaFilter, ['list', 'filter_type', 'access_list_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                    return meta._meta_table['Msdp.DefaultContext.SaFilters.SaFilter']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+                return meta._meta_table['Msdp.DefaultContext.SaFilters']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+            return meta._meta_table['Msdp.DefaultContext']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Msdp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_msdp_cfg as meta
+        return meta._meta_table['Msdp']['meta_info']
 
 

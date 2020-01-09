@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class ShowFpd(Entity):
+class ShowFpd(_Entity_):
     """
     Show hw\-module fpd
     
@@ -75,7 +78,10 @@ class ShowFpd(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(ShowFpd, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ShowFpd, self).__init__()
         self._top_entity = None
 
         self.yang_name = "show-fpd"
@@ -116,7 +122,7 @@ class ShowFpd(Entity):
         self._perform_setattr(ShowFpd, [], name, value)
 
 
-    class Locations(Entity):
+    class Locations(_Entity_):
         """
         location table
         
@@ -135,7 +141,10 @@ class ShowFpd(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(ShowFpd.Locations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ShowFpd.Locations, self).__init__()
 
             self.yang_name = "locations"
             self.yang_parent_name = "show-fpd"
@@ -154,7 +163,7 @@ class ShowFpd(Entity):
             self._perform_setattr(ShowFpd.Locations, [], name, value)
 
 
-        class Location(Entity):
+        class Location(_Entity_):
             """
             location
             
@@ -182,7 +191,10 @@ class ShowFpd(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ShowFpd.Locations.Location, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ShowFpd.Locations.Location, self).__init__()
 
                 self.yang_name = "location"
                 self.yang_parent_name = "locations"
@@ -206,7 +218,7 @@ class ShowFpd(Entity):
                 self._perform_setattr(ShowFpd.Locations.Location, ['location_name'], name, value)
 
 
-            class Fpds(Entity):
+            class Fpds(_Entity_):
                 """
                 Display fpds on given locations
                 
@@ -225,7 +237,10 @@ class ShowFpd(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(ShowFpd.Locations.Location.Fpds, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ShowFpd.Locations.Location.Fpds, self).__init__()
 
                     self.yang_name = "fpds"
                     self.yang_parent_name = "location"
@@ -243,7 +258,7 @@ class ShowFpd(Entity):
                     self._perform_setattr(ShowFpd.Locations.Location.Fpds, [], name, value)
 
 
-                class Fpd(Entity):
+                class Fpd(_Entity_):
                     """
                     Display fpds detail
                     
@@ -278,7 +293,10 @@ class ShowFpd(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ShowFpd.Locations.Location.Fpds.Fpd, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ShowFpd.Locations.Location.Fpds.Fpd, self).__init__()
 
                         self.yang_name = "fpd"
                         self.yang_parent_name = "fpds"
@@ -301,7 +319,7 @@ class ShowFpd(Entity):
                         self._perform_setattr(ShowFpd.Locations.Location.Fpds.Fpd, ['fpd_name', 'upgrade_status'], name, value)
 
 
-                    class FpdInfoDetaile(Entity):
+                    class FpdInfoDetaile(_Entity_):
                         """
                          fpd list with all detailes
                         
@@ -369,7 +387,10 @@ class ShowFpd(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ShowFpd.Locations.Location.Fpds.Fpd.FpdInfoDetaile, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ShowFpd.Locations.Location.Fpds.Fpd.FpdInfoDetaile, self).__init__()
 
                             self.yang_name = "fpd-info-detaile"
                             self.yang_parent_name = "fpd"
@@ -401,13 +422,33 @@ class ShowFpd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ShowFpd.Locations.Location.Fpds.Fpd.FpdInfoDetaile, ['location', 'card_name', 'fpd_name', 'hw_version', 'secure_boot_attr', 'status', 'running_version', 'programd_version'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+                            return meta._meta_table['ShowFpd.Locations.Location.Fpds.Fpd.FpdInfoDetaile']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+                        return meta._meta_table['ShowFpd.Locations.Location.Fpds.Fpd']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+                    return meta._meta_table['ShowFpd.Locations.Location.Fpds']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+                return meta._meta_table['ShowFpd.Locations.Location']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+            return meta._meta_table['ShowFpd.Locations']['meta_info']
 
 
-
-
-
-
-    class HwModuleFpd(Entity):
+    class HwModuleFpd(_Entity_):
         """
         Display fpds on all locations \-show hw\-module
         fpd
@@ -434,7 +475,10 @@ class ShowFpd(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(ShowFpd.HwModuleFpd, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ShowFpd.HwModuleFpd, self).__init__()
 
             self.yang_name = "hw-module-fpd"
             self.yang_parent_name = "show-fpd"
@@ -456,7 +500,7 @@ class ShowFpd(Entity):
             self._perform_setattr(ShowFpd.HwModuleFpd, ['upgrade_status'], name, value)
 
 
-        class FpdInfoDetaile(Entity):
+        class FpdInfoDetaile(_Entity_):
             """
              fpd list with all detailes
             
@@ -524,7 +568,10 @@ class ShowFpd(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ShowFpd.HwModuleFpd.FpdInfoDetaile, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ShowFpd.HwModuleFpd.FpdInfoDetaile, self).__init__()
 
                 self.yang_name = "fpd-info-detaile"
                 self.yang_parent_name = "hw-module-fpd"
@@ -557,10 +604,18 @@ class ShowFpd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ShowFpd.HwModuleFpd.FpdInfoDetaile, ['location', 'card_name', 'fpd_name', 'hw_version', 'secure_boot_attr', 'status', 'running_version', 'programd_version'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+                return meta._meta_table['ShowFpd.HwModuleFpd.FpdInfoDetaile']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+            return meta._meta_table['ShowFpd.HwModuleFpd']['meta_info']
 
 
-
-    class HelpLocations(Entity):
+    class HelpLocations(_Entity_):
         """
         help location table
         
@@ -579,7 +634,10 @@ class ShowFpd(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(ShowFpd.HelpLocations, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ShowFpd.HelpLocations, self).__init__()
 
             self.yang_name = "help-locations"
             self.yang_parent_name = "show-fpd"
@@ -598,7 +656,7 @@ class ShowFpd(Entity):
             self._perform_setattr(ShowFpd.HelpLocations, [], name, value)
 
 
-        class HelpLocation(Entity):
+        class HelpLocation(_Entity_):
             """
             location
             
@@ -626,7 +684,10 @@ class ShowFpd(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ShowFpd.HelpLocations.HelpLocation, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ShowFpd.HelpLocations.HelpLocation, self).__init__()
 
                 self.yang_name = "help-location"
                 self.yang_parent_name = "help-locations"
@@ -650,7 +711,7 @@ class ShowFpd(Entity):
                 self._perform_setattr(ShowFpd.HelpLocations.HelpLocation, ['location_name'], name, value)
 
 
-            class HelpFpd(Entity):
+            class HelpFpd(_Entity_):
                 """
                 Display fpds on given locations
                 
@@ -669,7 +730,10 @@ class ShowFpd(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(ShowFpd.HelpLocations.HelpLocation.HelpFpd, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ShowFpd.HelpLocations.HelpLocation.HelpFpd, self).__init__()
 
                     self.yang_name = "help-fpd"
                     self.yang_parent_name = "help-location"
@@ -687,7 +751,7 @@ class ShowFpd(Entity):
                     self._perform_setattr(ShowFpd.HelpLocations.HelpLocation.HelpFpd, [], name, value)
 
 
-                class FpdName(Entity):
+                class FpdName(_Entity_):
                     """
                     Fpd name list
                     
@@ -713,7 +777,10 @@ class ShowFpd(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName, self).__init__()
 
                         self.yang_name = "fpd-name"
                         self.yang_parent_name = "help-fpd"
@@ -733,12 +800,28 @@ class ShowFpd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName, ['location', 'fpd_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+                        return meta._meta_table['ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+                    return meta._meta_table['ShowFpd.HelpLocations.HelpLocation.HelpFpd']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+                return meta._meta_table['ShowFpd.HelpLocations.HelpLocation']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+            return meta._meta_table['ShowFpd.HelpLocations']['meta_info']
 
 
-
-
-
-    class HwModuleFpdHelpFpd(Entity):
+    class HwModuleFpdHelpFpd(_Entity_):
         """
         Display help\-fpd \-show hw\-module fpd help\-fpd
         
@@ -757,7 +840,10 @@ class ShowFpd(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(ShowFpd.HwModuleFpdHelpFpd, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ShowFpd.HwModuleFpdHelpFpd, self).__init__()
 
             self.yang_name = "hw-module-fpd-help-fpd"
             self.yang_parent_name = "show-fpd"
@@ -776,7 +862,7 @@ class ShowFpd(Entity):
             self._perform_setattr(ShowFpd.HwModuleFpdHelpFpd, [], name, value)
 
 
-        class FpdName(Entity):
+        class FpdName(_Entity_):
             """
             Fpd name list
             
@@ -802,7 +888,10 @@ class ShowFpd(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ShowFpd.HwModuleFpdHelpFpd.FpdName, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ShowFpd.HwModuleFpdHelpFpd.FpdName, self).__init__()
 
                 self.yang_name = "fpd-name"
                 self.yang_parent_name = "hw-module-fpd-help-fpd"
@@ -823,10 +912,18 @@ class ShowFpd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ShowFpd.HwModuleFpdHelpFpd.FpdName, ['location', 'fpd_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+                return meta._meta_table['ShowFpd.HwModuleFpdHelpFpd.FpdName']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+            return meta._meta_table['ShowFpd.HwModuleFpdHelpFpd']['meta_info']
 
 
-
-    class Package(Entity):
+    class Package(_Entity_):
         """
         gets fpd package info
         
@@ -845,7 +942,10 @@ class ShowFpd(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(ShowFpd.Package, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ShowFpd.Package, self).__init__()
 
             self.yang_name = "package"
             self.yang_parent_name = "show-fpd"
@@ -864,7 +964,7 @@ class ShowFpd(Entity):
             self._perform_setattr(ShowFpd.Package, [], name, value)
 
 
-        class FpdPkgData(Entity):
+        class FpdPkgData(_Entity_):
             """
              fpd pkg list 
             
@@ -918,7 +1018,10 @@ class ShowFpd(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ShowFpd.Package.FpdPkgData, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ShowFpd.Package.FpdPkgData, self).__init__()
 
                 self.yang_name = "fpd-pkg-data"
                 self.yang_parent_name = "package"
@@ -947,10 +1050,18 @@ class ShowFpd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ShowFpd.Package.FpdPkgData, ['card_type', 'fpd_desc', 'upgrade_method', 'fpd_ver', 'min_sw_ver', 'min_hw_ver'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+                return meta._meta_table['ShowFpd.Package.FpdPkgData']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+            return meta._meta_table['ShowFpd.Package']['meta_info']
 
 
-
-    class LocationHelp(Entity):
+    class LocationHelp(_Entity_):
         """
         fpd upgradable locations
         
@@ -969,7 +1080,10 @@ class ShowFpd(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(ShowFpd.LocationHelp, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ShowFpd.LocationHelp, self).__init__()
 
             self.yang_name = "location-help"
             self.yang_parent_name = "show-fpd"
@@ -988,7 +1102,7 @@ class ShowFpd(Entity):
             self._perform_setattr(ShowFpd.LocationHelp, [], name, value)
 
 
-        class LocationName(Entity):
+        class LocationName(_Entity_):
             """
             card location list
             
@@ -1007,7 +1121,10 @@ class ShowFpd(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ShowFpd.LocationHelp.LocationName, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ShowFpd.LocationHelp.LocationName, self).__init__()
 
                 self.yang_name = "location-name"
                 self.yang_parent_name = "location-help"
@@ -1026,11 +1143,23 @@ class ShowFpd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ShowFpd.LocationHelp.LocationName, ['location_name'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+                return meta._meta_table['ShowFpd.LocationHelp.LocationName']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+            return meta._meta_table['ShowFpd.LocationHelp']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ShowFpd()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_show_fpd_loc_ng_oper as meta
+        return meta._meta_table['ShowFpd']['meta_info']
 
 

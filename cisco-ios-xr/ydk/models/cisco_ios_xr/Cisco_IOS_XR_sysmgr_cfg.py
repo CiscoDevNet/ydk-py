@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -22,7 +25,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class ProcessMandatory(Entity):
+class ProcessMandatory(_Entity_):
     """
     Process mandatory configuration
     
@@ -44,7 +47,10 @@ class ProcessMandatory(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(ProcessMandatory, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ProcessMandatory, self).__init__()
         self._top_entity = None
 
         self.yang_name = "process-mandatory"
@@ -69,7 +75,7 @@ class ProcessMandatory(Entity):
         self._perform_setattr(ProcessMandatory, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Table of mandatory nodes
         
@@ -86,7 +92,10 @@ class ProcessMandatory(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(ProcessMandatory.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ProcessMandatory.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "process-mandatory"
@@ -105,7 +114,7 @@ class ProcessMandatory(Entity):
             self._perform_setattr(ProcessMandatory.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Mandatory node
             
@@ -129,7 +138,10 @@ class ProcessMandatory(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(ProcessMandatory.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ProcessMandatory.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -153,7 +165,7 @@ class ProcessMandatory(Entity):
                 self._perform_setattr(ProcessMandatory.Nodes.Node, ['node_name'], name, value)
 
 
-            class Processes(Entity):
+            class Processes(_Entity_):
                 """
                 Table of processes
                 
@@ -170,7 +182,10 @@ class ProcessMandatory(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ProcessMandatory.Nodes.Node.Processes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ProcessMandatory.Nodes.Node.Processes, self).__init__()
 
                     self.yang_name = "processes"
                     self.yang_parent_name = "node"
@@ -188,7 +203,7 @@ class ProcessMandatory(Entity):
                     self._perform_setattr(ProcessMandatory.Nodes.Node.Processes, [], name, value)
 
 
-                class Process(Entity):
+                class Process(_Entity_):
                     """
                     Name of the executable process
                     
@@ -207,7 +222,10 @@ class ProcessMandatory(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(ProcessMandatory.Nodes.Node.Processes.Process, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ProcessMandatory.Nodes.Node.Processes.Process, self).__init__()
 
                         self.yang_name = "process"
                         self.yang_parent_name = "processes"
@@ -225,12 +243,28 @@ class ProcessMandatory(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ProcessMandatory.Nodes.Node.Processes.Process, ['process_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_cfg as meta
+                        return meta._meta_table['ProcessMandatory.Nodes.Node.Processes.Process']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_cfg as meta
+                    return meta._meta_table['ProcessMandatory.Nodes.Node.Processes']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_cfg as meta
+                return meta._meta_table['ProcessMandatory.Nodes.Node']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_cfg as meta
+            return meta._meta_table['ProcessMandatory.Nodes']['meta_info']
 
 
-
-
-
-    class All(Entity):
+    class All(_Entity_):
         """
         Mandatory for all nodes
         
@@ -247,7 +281,10 @@ class ProcessMandatory(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(ProcessMandatory.All, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ProcessMandatory.All, self).__init__()
 
             self.yang_name = "all"
             self.yang_parent_name = "process-mandatory"
@@ -268,7 +305,7 @@ class ProcessMandatory(Entity):
             self._perform_setattr(ProcessMandatory.All, [], name, value)
 
 
-        class Processes(Entity):
+        class Processes(_Entity_):
             """
             Table of processes
             
@@ -285,7 +322,10 @@ class ProcessMandatory(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(ProcessMandatory.All.Processes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ProcessMandatory.All.Processes, self).__init__()
 
                 self.yang_name = "processes"
                 self.yang_parent_name = "all"
@@ -304,7 +344,7 @@ class ProcessMandatory(Entity):
                 self._perform_setattr(ProcessMandatory.All.Processes, [], name, value)
 
 
-            class Process(Entity):
+            class Process(_Entity_):
                 """
                 Name of the executable process
                 
@@ -323,7 +363,10 @@ class ProcessMandatory(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(ProcessMandatory.All.Processes.Process, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ProcessMandatory.All.Processes.Process, self).__init__()
 
                     self.yang_name = "process"
                     self.yang_parent_name = "processes"
@@ -342,16 +385,32 @@ class ProcessMandatory(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(ProcessMandatory.All.Processes.Process, ['process_name'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_cfg as meta
+                    return meta._meta_table['ProcessMandatory.All.Processes.Process']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_cfg as meta
+                return meta._meta_table['ProcessMandatory.All.Processes']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_cfg as meta
+            return meta._meta_table['ProcessMandatory.All']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ProcessMandatory()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_cfg as meta
+        return meta._meta_table['ProcessMandatory']['meta_info']
 
 
-class ProcessSingleCrash(Entity):
+class ProcessSingleCrash(_Entity_):
     """
     process single crash
     
@@ -385,7 +444,10 @@ class ProcessSingleCrash(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(ProcessSingleCrash, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ProcessSingleCrash, self).__init__()
         self._top_entity = None
 
         self.yang_name = "process-single-crash"
@@ -411,5 +473,9 @@ class ProcessSingleCrash(Entity):
         self._top_entity = ProcessSingleCrash()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysmgr_cfg as meta
+        return meta._meta_table['ProcessSingleCrash']['meta_info']
 
 

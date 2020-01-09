@@ -39,6 +39,18 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2019-09-20 {
+    description
+      "Changed the datatype for AddressIpv6 to IPAddress";
+  }
+  revision 2019-07-10 {
+    description
+      "Added origin realm to peer leaf in yang";
+  }
+  revision 2019-06-17 {
+    description
+      "Added new auth session stateless to peer leaf in yang";
+  }
   revision 2019-03-28 {
     description
       "Added new service context id gy leaf in yang";
@@ -120,7 +132,9 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
             "Enable or disable gy";
         }
         leaf dest-host {
-          type string;
+          type string {
+            length "1..256";
+          }
           description
             "Destination Host name in FQDN format";
         }
@@ -130,7 +144,9 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
             "Transaction timer value";
         }
         leaf service-context-id {
-          type string;
+          type string {
+            length "1..256";
+          }
           description
             "Service Context ID in FQDN format";
         }
@@ -139,12 +155,16 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
         description
           "Origin sub commands";
         leaf realm {
-          type string;
+          type string {
+            length "1..256";
+          }
           description
             "Origin Realm String";
         }
         leaf host {
-          type string;
+          type xr:Cisco-ios-xr-string {
+            length "1..256";
+          }
           description
             "Host name in FQDN format";
         }
@@ -153,7 +173,9 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
         description
           "Start diameter Nas";
         leaf dest-host {
-          type string;
+          type string {
+            length "1..256";
+          }
           description
             "Destination Host name in FQDN format";
         }
@@ -202,10 +224,47 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
                 "Enabled or disabled";
             }
           }
+          container origin-realms {
+            description
+              "List of origin realms";
+            list origin-realm {
+              key "origin-realm-name";
+              description
+                "Diameter Origin realm instance";
+              container access-intf-names {
+                description
+                  "List of Access Interfaces";
+                list access-intf-name {
+                  key "access-intf-name";
+                  description
+                    "Diameter Origin realm Access intf instance";
+                  leaf access-intf-name {
+                    type xr:Interface-name;
+                    description
+                      "Specify a access interface";
+                  }
+                }
+              }
+              leaf origin-realm-name {
+                type xr:Cisco-ios-xr-string {
+                  length "1..256";
+                }
+                description
+                  "Origin realm information";
+              }
+            }
+          }
           leaf host-destination {
-            type string;
+            type string {
+              length "1..256";
+            }
             description
               "Destination host information";
+          }
+          leaf auth-session-stateless {
+            type boolean;
+            description
+              "Enabled or disabled";
           }
           leaf ipv4-address {
             type inet:ipv4-address-no-zone;
@@ -213,7 +272,9 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
               "IPv4 address of diameter server";
           }
           leaf realm-destination {
-            type string;
+            type string {
+              length "1..256";
+            }
             description
               "Realm to which the peer belongs to";
           }
@@ -229,7 +290,7 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
                DIAMETER packets";
           }
           leaf ipv6-address {
-            type inet:ipv6-address-no-zone;
+            type inet:ip-address-no-zone;
             description
               "IPv6 address of diameter server";
           }
@@ -384,7 +445,9 @@ module Cisco-IOS-XR-aaa-diameter-cfg {
             "Enable or disable gx";
         }
         leaf dest-host {
-          type string;
+          type string {
+            length "1..256";
+          }
           description
             "Destination Host name in FQDN format";
         }

@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -72,6 +75,12 @@ class ArpGmpBagEncap(Enum):
     srpb = Enum.YLeaf(6, "srpb")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+        return meta._meta_table['ArpGmpBagEncap']
+
+
 class ArpGmpBagEntry(Enum):
     """
     ArpGmpBagEntry (Enum Class)
@@ -97,6 +106,12 @@ class ArpGmpBagEntry(Enum):
     static = Enum.YLeaf(1, "static")
 
     alias = Enum.YLeaf(2, "alias")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+        return meta._meta_table['ArpGmpBagEntry']
 
 
 class ArpIssuPhase(Enum):
@@ -138,6 +153,12 @@ class ArpIssuPhase(Enum):
     phase_aborted = Enum.YLeaf(4, "phase-aborted")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+        return meta._meta_table['ArpIssuPhase']
+
+
 class ArpIssuRole(Enum):
     """
     ArpIssuRole (Enum Class)
@@ -159,6 +180,12 @@ class ArpIssuRole(Enum):
     role_secondary = Enum.YLeaf(1, "role-secondary")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+        return meta._meta_table['ArpIssuRole']
+
+
 class ArpIssuVersion(Enum):
     """
     ArpIssuVersion (Enum Class)
@@ -178,6 +205,12 @@ class ArpIssuVersion(Enum):
     version1 = Enum.YLeaf(0, "version1")
 
     version2 = Enum.YLeaf(1, "version2")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+        return meta._meta_table['ArpIssuVersion']
 
 
 class ArpResolutionHistoryStatus(Enum):
@@ -347,6 +380,12 @@ class ArpResolutionHistoryStatus(Enum):
     status_drop_adjacency_added = Enum.YLeaf(23, "status-drop-adjacency-added")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+        return meta._meta_table['ArpResolutionHistoryStatus']
+
+
 class IpArpBagEncap(Enum):
     """
     IpArpBagEncap (Enum Class)
@@ -398,6 +437,12 @@ class IpArpBagEncap(Enum):
     srpb = Enum.YLeaf(6, "srpb")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+        return meta._meta_table['IpArpBagEncap']
+
+
 class IpArpBagFlags(Enum):
     """
     IpArpBagFlags (Enum Class)
@@ -431,6 +476,12 @@ class IpArpBagFlags(Enum):
     flag_max = Enum.YLeaf(3, "flag-max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+        return meta._meta_table['IpArpBagFlags']
+
+
 class IpArpBagMedia(Enum):
     """
     IpArpBagMedia (Enum Class)
@@ -456,6 +507,12 @@ class IpArpBagMedia(Enum):
     media_srp = Enum.YLeaf(1, "media-srp")
 
     media_unknown = Enum.YLeaf(2, "media-unknown")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+        return meta._meta_table['IpArpBagMedia']
 
 
 class IpArpBagState(Enum):
@@ -581,8 +638,14 @@ class IpArpBagState(Enum):
     state_max = Enum.YLeaf(18, "state-max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+        return meta._meta_table['IpArpBagState']
 
-class ArpGmp(Entity):
+
+
+class ArpGmp(_Entity_):
     """
     ARP\-GMP global operational data
     
@@ -608,7 +671,10 @@ class ArpGmp(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(ArpGmp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ArpGmp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "arp-gmp"
@@ -633,7 +699,7 @@ class ArpGmp(Entity):
         self._perform_setattr(ArpGmp, [], name, value)
 
 
-    class VrfInfos(Entity):
+    class VrfInfos(_Entity_):
         """
         Table of VRF related ARP\-GMP operational data
         
@@ -652,7 +718,10 @@ class ArpGmp(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(ArpGmp.VrfInfos, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ArpGmp.VrfInfos, self).__init__()
 
             self.yang_name = "vrf-infos"
             self.yang_parent_name = "arp-gmp"
@@ -671,7 +740,7 @@ class ArpGmp(Entity):
             self._perform_setattr(ArpGmp.VrfInfos, [], name, value)
 
 
-        class VrfInfo(Entity):
+        class VrfInfo(_Entity_):
             """
             VRF related ARP\-GMP operational data
             
@@ -735,7 +804,10 @@ class ArpGmp(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ArpGmp.VrfInfos.VrfInfo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ArpGmp.VrfInfos.VrfInfo, self).__init__()
 
                 self.yang_name = "vrf-info"
                 self.yang_parent_name = "vrf-infos"
@@ -764,10 +836,18 @@ class ArpGmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ArpGmp.VrfInfos.VrfInfo, ['vrf_name', 'vrf_name_xr', 'vrf_id_number', 'table_id', 'rsi_handle', 'rsi_handle_high'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                return meta._meta_table['ArpGmp.VrfInfos.VrfInfo']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+            return meta._meta_table['ArpGmp.VrfInfos']['meta_info']
 
 
-
-    class Vrfs(Entity):
+    class Vrfs(_Entity_):
         """
         Table of per VRF ARP\-GMP operational data
         
@@ -786,7 +866,10 @@ class ArpGmp(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(ArpGmp.Vrfs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ArpGmp.Vrfs, self).__init__()
 
             self.yang_name = "vrfs"
             self.yang_parent_name = "arp-gmp"
@@ -805,7 +888,7 @@ class ArpGmp(Entity):
             self._perform_setattr(ArpGmp.Vrfs, [], name, value)
 
 
-        class Vrf(Entity):
+        class Vrf(_Entity_):
             """
             Per VRF ARP\-GMP operational data
             
@@ -847,7 +930,10 @@ class ArpGmp(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(ArpGmp.Vrfs.Vrf, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ArpGmp.Vrfs.Vrf, self).__init__()
 
                 self.yang_name = "vrf"
                 self.yang_parent_name = "vrfs"
@@ -879,7 +965,7 @@ class ArpGmp(Entity):
                 self._perform_setattr(ArpGmp.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-            class ConfiguredIpAddresses(Entity):
+            class ConfiguredIpAddresses(_Entity_):
                 """
                 Table of ARP\-GMP configured IP addresses
                 information
@@ -899,7 +985,10 @@ class ArpGmp(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses, self).__init__()
 
                     self.yang_name = "configured-ip-addresses"
                     self.yang_parent_name = "vrf"
@@ -917,7 +1006,7 @@ class ArpGmp(Entity):
                     self._perform_setattr(ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses, [], name, value)
 
 
-                class ConfiguredIpAddress(Entity):
+                class ConfiguredIpAddress(_Entity_):
                     """
                     ARP\-GMP configured IP address information
                     
@@ -970,7 +1059,10 @@ class ArpGmp(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses.ConfiguredIpAddress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses.ConfiguredIpAddress, self).__init__()
 
                         self.yang_name = "configured-ip-address"
                         self.yang_parent_name = "configured-ip-addresses"
@@ -996,10 +1088,18 @@ class ArpGmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses.ConfiguredIpAddress, ['address', 'ip_address', 'hardware_address', 'encapsulation_type', 'entry_type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                        return meta._meta_table['ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses.ConfiguredIpAddress']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                    return meta._meta_table['ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses']['meta_info']
 
 
-
-            class Routes(Entity):
+            class Routes(_Entity_):
                 """
                 Table of ARP GMP route information
                 
@@ -1018,7 +1118,10 @@ class ArpGmp(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(ArpGmp.Vrfs.Vrf.Routes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ArpGmp.Vrfs.Vrf.Routes, self).__init__()
 
                     self.yang_name = "routes"
                     self.yang_parent_name = "vrf"
@@ -1036,7 +1139,7 @@ class ArpGmp(Entity):
                     self._perform_setattr(ArpGmp.Vrfs.Vrf.Routes, [], name, value)
 
 
-                class Route(Entity):
+                class Route(_Entity_):
                     """
                     ARP GMP route information
                     
@@ -1102,7 +1205,10 @@ class ArpGmp(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ArpGmp.Vrfs.Vrf.Routes.Route, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ArpGmp.Vrfs.Vrf.Routes.Route, self).__init__()
 
                         self.yang_name = "route"
                         self.yang_parent_name = "routes"
@@ -1130,10 +1236,18 @@ class ArpGmp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ArpGmp.Vrfs.Vrf.Routes.Route, ['address', 'prefix_length', 'ip_address', 'prefix_length_xr', 'interface_name_xr', 'interface_name'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                        return meta._meta_table['ArpGmp.Vrfs.Vrf.Routes.Route']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                    return meta._meta_table['ArpGmp.Vrfs.Vrf.Routes']['meta_info']
 
 
-
-            class InterfaceConfiguredIps(Entity):
+            class InterfaceConfiguredIps(_Entity_):
                 """
                 Table of ARP GMP interface and associated
                 configured IP data
@@ -1153,7 +1267,10 @@ class ArpGmp(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps, self).__init__()
 
                     self.yang_name = "interface-configured-ips"
                     self.yang_parent_name = "vrf"
@@ -1171,7 +1288,7 @@ class ArpGmp(Entity):
                     self._perform_setattr(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps, [], name, value)
 
 
-                class InterfaceConfiguredIp(Entity):
+                class InterfaceConfiguredIp(_Entity_):
                     """
                     ARP GMP interface and associated configured
                     IP data
@@ -1227,7 +1344,10 @@ class ArpGmp(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp, self).__init__()
 
                         self.yang_name = "interface-configured-ip"
                         self.yang_parent_name = "interface-configured-ips"
@@ -1256,7 +1376,7 @@ class ArpGmp(Entity):
                         self._perform_setattr(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp, ['interface_name', 'address', 'interface_name_xr', 'reference_count'], name, value)
 
 
-                    class AssociatedConfigurationEntry(Entity):
+                    class AssociatedConfigurationEntry(_Entity_):
                         """
                         Associated configuration entry
                         
@@ -1300,7 +1420,10 @@ class ArpGmp(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry, self).__init__()
 
                             self.yang_name = "associated-configuration-entry"
                             self.yang_parent_name = "interface-configured-ip"
@@ -1324,18 +1447,42 @@ class ArpGmp(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry, ['ip_address', 'hardware_address', 'encapsulation_type', 'entry_type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                            return meta._meta_table['ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                        return meta._meta_table['ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                    return meta._meta_table['ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                return meta._meta_table['ArpGmp.Vrfs.Vrf']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+            return meta._meta_table['ArpGmp.Vrfs']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = ArpGmp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+        return meta._meta_table['ArpGmp']['meta_info']
 
 
-class Arp(Entity):
+class Arp(_Entity_):
     """
     arp
     
@@ -1354,7 +1501,10 @@ class Arp(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(Arp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Arp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "arp"
@@ -1375,7 +1525,7 @@ class Arp(Entity):
         self._perform_setattr(Arp, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Table of per\-node ARP operational data
         
@@ -1394,7 +1544,10 @@ class Arp(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Arp.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Arp.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "arp"
@@ -1413,7 +1566,7 @@ class Arp(Entity):
             self._perform_setattr(Arp.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             Per\-node ARP operational data
             
@@ -1483,7 +1636,10 @@ class Arp(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Arp.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Arp.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -1531,7 +1687,7 @@ class Arp(Entity):
                 self._perform_setattr(Arp.Nodes.Node, ['node_name'], name, value)
 
 
-            class ResolutionHistoryDynamic(Entity):
+            class ResolutionHistoryDynamic(_Entity_):
                 """
                 Per node dynamically\-resolved ARP resolution
                 history data
@@ -1551,7 +1707,10 @@ class Arp(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Arp.Nodes.Node.ResolutionHistoryDynamic, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Arp.Nodes.Node.ResolutionHistoryDynamic, self).__init__()
 
                     self.yang_name = "resolution-history-dynamic"
                     self.yang_parent_name = "node"
@@ -1569,7 +1728,7 @@ class Arp(Entity):
                     self._perform_setattr(Arp.Nodes.Node.ResolutionHistoryDynamic, [], name, value)
 
 
-                class ArpEntry(Entity):
+                class ArpEntry(_Entity_):
                     """
                     Resolution history array
                     
@@ -1653,7 +1812,10 @@ class Arp(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Arp.Nodes.Node.ResolutionHistoryDynamic.ArpEntry, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Arp.Nodes.Node.ResolutionHistoryDynamic.ArpEntry, self).__init__()
 
                         self.yang_name = "arp-entry"
                         self.yang_parent_name = "resolution-history-dynamic"
@@ -1685,10 +1847,18 @@ class Arp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Arp.Nodes.Node.ResolutionHistoryDynamic.ArpEntry, ['nsec_timestamp', 'idb_interface_name', 'ipv4_address', 'mac_address', 'status', 'client_id', 'entry_state', 'resolution_request_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                        return meta._meta_table['Arp.Nodes.Node.ResolutionHistoryDynamic.ArpEntry']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                    return meta._meta_table['Arp.Nodes.Node.ResolutionHistoryDynamic']['meta_info']
 
 
-
-            class ArpStatusInfo(Entity):
+            class ArpStatusInfo(_Entity_):
                 """
                 Per node ARP status information
                 
@@ -1831,7 +2001,10 @@ class Arp(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Arp.Nodes.Node.ArpStatusInfo, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Arp.Nodes.Node.ArpStatusInfo, self).__init__()
 
                     self.yang_name = "arp-status-info"
                     self.yang_parent_name = "node"
@@ -1877,9 +2050,13 @@ class Arp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Arp.Nodes.Node.ArpStatusInfo, ['process_start_time', 'issu_sync_complete_time', 'issu_ready_time', 'big_bang_time', 'primary_role_time', 'role', 'phase', 'version', 'dynamic_entries_recovered_count', 'non_operational_entries_count', 'interface_handle_translation_failure_count', 'issu_ready_issu_mgr_connection', 'issu_ready_im', 'issu_ready_dagr_rib', 'issu_ready_entries_replicate'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                    return meta._meta_table['Arp.Nodes.Node.ArpStatusInfo']['meta_info']
 
 
-            class TrafficVrfs(Entity):
+            class TrafficVrfs(_Entity_):
                 """
                 ARP Traffic information per VRF
                 
@@ -1898,7 +2075,10 @@ class Arp(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Arp.Nodes.Node.TrafficVrfs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Arp.Nodes.Node.TrafficVrfs, self).__init__()
 
                     self.yang_name = "traffic-vrfs"
                     self.yang_parent_name = "node"
@@ -1916,7 +2096,7 @@ class Arp(Entity):
                     self._perform_setattr(Arp.Nodes.Node.TrafficVrfs, [], name, value)
 
 
-                class TrafficVrf(Entity):
+                class TrafficVrf(_Entity_):
                     """
                     Per VRF traffic data
                     
@@ -2205,7 +2385,10 @@ class Arp(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Arp.Nodes.Node.TrafficVrfs.TrafficVrf, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Arp.Nodes.Node.TrafficVrfs.TrafficVrf, self).__init__()
 
                         self.yang_name = "traffic-vrf"
                         self.yang_parent_name = "traffic-vrfs"
@@ -2283,10 +2466,18 @@ class Arp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Arp.Nodes.Node.TrafficVrfs.TrafficVrf, ['vrf_name', 'requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'drop_adjacency_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                        return meta._meta_table['Arp.Nodes.Node.TrafficVrfs.TrafficVrf']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                    return meta._meta_table['Arp.Nodes.Node.TrafficVrfs']['meta_info']
 
 
-
-            class TrafficNode(Entity):
+            class TrafficNode(_Entity_):
                 """
                 Per node ARP Traffic data
                 
@@ -2568,7 +2759,10 @@ class Arp(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Arp.Nodes.Node.TrafficNode, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Arp.Nodes.Node.TrafficNode, self).__init__()
 
                     self.yang_name = "traffic-node"
                     self.yang_parent_name = "node"
@@ -2644,9 +2838,13 @@ class Arp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Arp.Nodes.Node.TrafficNode, ['requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'drop_adjacency_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                    return meta._meta_table['Arp.Nodes.Node.TrafficNode']['meta_info']
 
 
-            class ResolutionHistoryClient(Entity):
+            class ResolutionHistoryClient(_Entity_):
                 """
                 Per node client\-installed ARP resolution
                 history data
@@ -2666,7 +2864,10 @@ class Arp(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Arp.Nodes.Node.ResolutionHistoryClient, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Arp.Nodes.Node.ResolutionHistoryClient, self).__init__()
 
                     self.yang_name = "resolution-history-client"
                     self.yang_parent_name = "node"
@@ -2684,7 +2885,7 @@ class Arp(Entity):
                     self._perform_setattr(Arp.Nodes.Node.ResolutionHistoryClient, [], name, value)
 
 
-                class ArpEntry(Entity):
+                class ArpEntry(_Entity_):
                     """
                     Resolution history array
                     
@@ -2768,7 +2969,10 @@ class Arp(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Arp.Nodes.Node.ResolutionHistoryClient.ArpEntry, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Arp.Nodes.Node.ResolutionHistoryClient.ArpEntry, self).__init__()
 
                         self.yang_name = "arp-entry"
                         self.yang_parent_name = "resolution-history-client"
@@ -2800,10 +3004,18 @@ class Arp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Arp.Nodes.Node.ResolutionHistoryClient.ArpEntry, ['nsec_timestamp', 'idb_interface_name', 'ipv4_address', 'mac_address', 'status', 'client_id', 'entry_state', 'resolution_request_count'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                        return meta._meta_table['Arp.Nodes.Node.ResolutionHistoryClient.ArpEntry']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                    return meta._meta_table['Arp.Nodes.Node.ResolutionHistoryClient']['meta_info']
 
 
-
-            class Entries(Entity):
+            class Entries(_Entity_):
                 """
                 Table of ARP entries
                 
@@ -2822,7 +3034,10 @@ class Arp(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Arp.Nodes.Node.Entries, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Arp.Nodes.Node.Entries, self).__init__()
 
                     self.yang_name = "entries"
                     self.yang_parent_name = "node"
@@ -2840,7 +3055,7 @@ class Arp(Entity):
                     self._perform_setattr(Arp.Nodes.Node.Entries, [], name, value)
 
 
-                class Entry(Entity):
+                class Entry(_Entity_):
                     """
                     ARP entry
                     
@@ -2925,7 +3140,10 @@ class Arp(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Arp.Nodes.Node.Entries.Entry, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Arp.Nodes.Node.Entries.Entry, self).__init__()
 
                         self.yang_name = "entry"
                         self.yang_parent_name = "entries"
@@ -2959,10 +3177,18 @@ class Arp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Arp.Nodes.Node.Entries.Entry, ['address', 'interface_name', 'media_type', 'state', 'flag', 'age', 'encapsulation_type', 'hardware_length', 'hardware_address'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                        return meta._meta_table['Arp.Nodes.Node.Entries.Entry']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                    return meta._meta_table['Arp.Nodes.Node.Entries']['meta_info']
 
 
-
-            class TrafficInterfaces(Entity):
+            class TrafficInterfaces(_Entity_):
                 """
                 ARP Traffic information per interface
                 
@@ -2981,7 +3207,10 @@ class Arp(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Arp.Nodes.Node.TrafficInterfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Arp.Nodes.Node.TrafficInterfaces, self).__init__()
 
                     self.yang_name = "traffic-interfaces"
                     self.yang_parent_name = "node"
@@ -2999,7 +3228,7 @@ class Arp(Entity):
                     self._perform_setattr(Arp.Nodes.Node.TrafficInterfaces, [], name, value)
 
 
-                class TrafficInterface(Entity):
+                class TrafficInterface(_Entity_):
                     """
                     Per interface traffic data
                     
@@ -3290,7 +3519,10 @@ class Arp(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Arp.Nodes.Node.TrafficInterfaces.TrafficInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Arp.Nodes.Node.TrafficInterfaces.TrafficInterface, self).__init__()
 
                         self.yang_name = "traffic-interface"
                         self.yang_parent_name = "traffic-interfaces"
@@ -3368,13 +3600,33 @@ class Arp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Arp.Nodes.Node.TrafficInterfaces.TrafficInterface, ['interface_name', 'requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'drop_adjacency_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                        return meta._meta_table['Arp.Nodes.Node.TrafficInterfaces.TrafficInterface']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                    return meta._meta_table['Arp.Nodes.Node.TrafficInterfaces']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+                return meta._meta_table['Arp.Nodes.Node']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+            return meta._meta_table['Arp.Nodes']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Arp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+        return meta._meta_table['Arp']['meta_info']
 
 

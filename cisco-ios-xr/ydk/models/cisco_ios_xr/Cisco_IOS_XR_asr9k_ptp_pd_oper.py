@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class PlatformPtp(Entity):
+class PlatformPtp(_Entity_):
     """
     PTP PD operational data
     
@@ -40,7 +43,10 @@ class PlatformPtp(Entity):
     _revision = '2017-03-16'
 
     def __init__(self):
-        super(PlatformPtp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PlatformPtp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "platform-ptp"
@@ -61,7 +67,7 @@ class PlatformPtp(Entity):
         self._perform_setattr(PlatformPtp, [], name, value)
 
 
-    class PlatformPtpServo(Entity):
+    class PlatformPtpServo(_Entity_):
         """
         PTP PD Servo information
         
@@ -294,7 +300,10 @@ class PlatformPtp(Entity):
         _revision = '2017-03-16'
 
         def __init__(self):
-            super(PlatformPtp.PlatformPtpServo, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PlatformPtp.PlatformPtpServo, self).__init__()
 
             self.yang_name = "platform-ptp-servo"
             self.yang_parent_name = "platform-ptp"
@@ -384,7 +393,7 @@ class PlatformPtp(Entity):
             self._perform_setattr(PlatformPtp.PlatformPtpServo, ['lock_status', 'running', 'device_status', 'log_level', 'phase_accuracy_last', 'num_sync_timestamp', 'num_delay_timestamp', 'num_set_time', 'num_step_time', 'num_adjust_freq', 'num_adjust_freq_time', 'last_adjust_freq', 'last_step_time', 'num_discard_sync_timestamp', 'num_discard_delay_timestamp', 'flagof_last_set_time', 'offset_from_master', 'mean_path_delay'], name, value)
 
 
-        class LastSetTime(Entity):
+        class LastSetTime(_Entity_):
             """
             last input of setTime
             
@@ -414,7 +423,10 @@ class PlatformPtp(Entity):
             _revision = '2017-03-16'
 
             def __init__(self):
-                super(PlatformPtp.PlatformPtpServo.LastSetTime, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PlatformPtp.PlatformPtpServo.LastSetTime, self).__init__()
 
                 self.yang_name = "last-set-time"
                 self.yang_parent_name = "platform-ptp-servo"
@@ -435,9 +447,13 @@ class PlatformPtp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PlatformPtp.PlatformPtpServo.LastSetTime, ['second', 'nano_second'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ptp_pd_oper as meta
+                return meta._meta_table['PlatformPtp.PlatformPtpServo.LastSetTime']['meta_info']
 
 
-        class LastReceivedT1(Entity):
+        class LastReceivedT1(_Entity_):
             """
             last T1 timestamp reveiced
             
@@ -467,7 +483,10 @@ class PlatformPtp(Entity):
             _revision = '2017-03-16'
 
             def __init__(self):
-                super(PlatformPtp.PlatformPtpServo.LastReceivedT1, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PlatformPtp.PlatformPtpServo.LastReceivedT1, self).__init__()
 
                 self.yang_name = "last-received-t1"
                 self.yang_parent_name = "platform-ptp-servo"
@@ -488,9 +507,13 @@ class PlatformPtp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT1, ['second', 'nano_second'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ptp_pd_oper as meta
+                return meta._meta_table['PlatformPtp.PlatformPtpServo.LastReceivedT1']['meta_info']
 
 
-        class LastReceivedT2(Entity):
+        class LastReceivedT2(_Entity_):
             """
             last T2 timestamp reveiced
             
@@ -520,7 +543,10 @@ class PlatformPtp(Entity):
             _revision = '2017-03-16'
 
             def __init__(self):
-                super(PlatformPtp.PlatformPtpServo.LastReceivedT2, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PlatformPtp.PlatformPtpServo.LastReceivedT2, self).__init__()
 
                 self.yang_name = "last-received-t2"
                 self.yang_parent_name = "platform-ptp-servo"
@@ -541,9 +567,13 @@ class PlatformPtp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT2, ['second', 'nano_second'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ptp_pd_oper as meta
+                return meta._meta_table['PlatformPtp.PlatformPtpServo.LastReceivedT2']['meta_info']
 
 
-        class LastReceivedT3(Entity):
+        class LastReceivedT3(_Entity_):
             """
             last T3 timestamp reveiced
             
@@ -573,7 +603,10 @@ class PlatformPtp(Entity):
             _revision = '2017-03-16'
 
             def __init__(self):
-                super(PlatformPtp.PlatformPtpServo.LastReceivedT3, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PlatformPtp.PlatformPtpServo.LastReceivedT3, self).__init__()
 
                 self.yang_name = "last-received-t3"
                 self.yang_parent_name = "platform-ptp-servo"
@@ -594,9 +627,13 @@ class PlatformPtp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT3, ['second', 'nano_second'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ptp_pd_oper as meta
+                return meta._meta_table['PlatformPtp.PlatformPtpServo.LastReceivedT3']['meta_info']
 
 
-        class LastReceivedT4(Entity):
+        class LastReceivedT4(_Entity_):
             """
             last T4 timestamp reveiced
             
@@ -626,7 +663,10 @@ class PlatformPtp(Entity):
             _revision = '2017-03-16'
 
             def __init__(self):
-                super(PlatformPtp.PlatformPtpServo.LastReceivedT4, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PlatformPtp.PlatformPtpServo.LastReceivedT4, self).__init__()
 
                 self.yang_name = "last-received-t4"
                 self.yang_parent_name = "platform-ptp-servo"
@@ -647,9 +687,13 @@ class PlatformPtp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PlatformPtp.PlatformPtpServo.LastReceivedT4, ['second', 'nano_second'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ptp_pd_oper as meta
+                return meta._meta_table['PlatformPtp.PlatformPtpServo.LastReceivedT4']['meta_info']
 
 
-        class PreReceivedT1(Entity):
+        class PreReceivedT1(_Entity_):
             """
             pre T1 timestamp reveiced
             
@@ -679,7 +723,10 @@ class PlatformPtp(Entity):
             _revision = '2017-03-16'
 
             def __init__(self):
-                super(PlatformPtp.PlatformPtpServo.PreReceivedT1, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PlatformPtp.PlatformPtpServo.PreReceivedT1, self).__init__()
 
                 self.yang_name = "pre-received-t1"
                 self.yang_parent_name = "platform-ptp-servo"
@@ -700,9 +747,13 @@ class PlatformPtp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT1, ['second', 'nano_second'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ptp_pd_oper as meta
+                return meta._meta_table['PlatformPtp.PlatformPtpServo.PreReceivedT1']['meta_info']
 
 
-        class PreReceivedT2(Entity):
+        class PreReceivedT2(_Entity_):
             """
             pre T2 timestamp reveiced
             
@@ -732,7 +783,10 @@ class PlatformPtp(Entity):
             _revision = '2017-03-16'
 
             def __init__(self):
-                super(PlatformPtp.PlatformPtpServo.PreReceivedT2, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PlatformPtp.PlatformPtpServo.PreReceivedT2, self).__init__()
 
                 self.yang_name = "pre-received-t2"
                 self.yang_parent_name = "platform-ptp-servo"
@@ -753,9 +807,13 @@ class PlatformPtp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT2, ['second', 'nano_second'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ptp_pd_oper as meta
+                return meta._meta_table['PlatformPtp.PlatformPtpServo.PreReceivedT2']['meta_info']
 
 
-        class PreReceivedT3(Entity):
+        class PreReceivedT3(_Entity_):
             """
             pre T3 timestamp reveiced
             
@@ -785,7 +843,10 @@ class PlatformPtp(Entity):
             _revision = '2017-03-16'
 
             def __init__(self):
-                super(PlatformPtp.PlatformPtpServo.PreReceivedT3, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PlatformPtp.PlatformPtpServo.PreReceivedT3, self).__init__()
 
                 self.yang_name = "pre-received-t3"
                 self.yang_parent_name = "platform-ptp-servo"
@@ -806,9 +867,13 @@ class PlatformPtp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT3, ['second', 'nano_second'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ptp_pd_oper as meta
+                return meta._meta_table['PlatformPtp.PlatformPtpServo.PreReceivedT3']['meta_info']
 
 
-        class PreReceivedT4(Entity):
+        class PreReceivedT4(_Entity_):
             """
             pre T4 timestamp reveiced
             
@@ -838,7 +903,10 @@ class PlatformPtp(Entity):
             _revision = '2017-03-16'
 
             def __init__(self):
-                super(PlatformPtp.PlatformPtpServo.PreReceivedT4, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PlatformPtp.PlatformPtpServo.PreReceivedT4, self).__init__()
 
                 self.yang_name = "pre-received-t4"
                 self.yang_parent_name = "platform-ptp-servo"
@@ -859,11 +927,23 @@ class PlatformPtp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PlatformPtp.PlatformPtpServo.PreReceivedT4, ['second', 'nano_second'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ptp_pd_oper as meta
+                return meta._meta_table['PlatformPtp.PlatformPtpServo.PreReceivedT4']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ptp_pd_oper as meta
+            return meta._meta_table['PlatformPtp.PlatformPtpServo']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PlatformPtp()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_ptp_pd_oper as meta
+        return meta._meta_table['PlatformPtp']['meta_info']
 
 

@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -59,6 +62,12 @@ class BgpRouteTargetFormat(Enum):
     es_import = Enum.YLeaf(1538, "es-import")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['BgpRouteTargetFormat']
+
+
 class BgpRouteTargetRole(Enum):
     """
     BgpRouteTargetRole (Enum Class)
@@ -84,6 +93,12 @@ class BgpRouteTargetRole(Enum):
     import_ = Enum.YLeaf(1, "import")
 
     export = Enum.YLeaf(2, "export")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['BgpRouteTargetRole']
 
 
 class EvpnGrp(Enum):
@@ -119,6 +134,12 @@ class EvpnGrp(Enum):
     incomplete = Enum.YLeaf(3, "incomplete")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['EvpnGrp']
+
+
 class EvpnIgmpGrp(Enum):
     """
     EvpnIgmpGrp (Enum Class)
@@ -138,6 +159,12 @@ class EvpnIgmpGrp(Enum):
     include = Enum.YLeaf(0, "include")
 
     exclude = Enum.YLeaf(1, "exclude")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['EvpnIgmpGrp']
 
 
 class EvpnIgmpMsg(Enum):
@@ -161,6 +188,12 @@ class EvpnIgmpMsg(Enum):
     leave = Enum.YLeaf(1, "leave")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['EvpnIgmpMsg']
+
+
 class EvpnIgmpSource(Enum):
     """
     EvpnIgmpSource (Enum Class)
@@ -180,6 +213,12 @@ class EvpnIgmpSource(Enum):
     local = Enum.YLeaf(0, "local")
 
     remote = Enum.YLeaf(1, "remote")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['EvpnIgmpSource']
 
 
 class EvpnIgmpVersion(Enum):
@@ -207,6 +246,12 @@ class EvpnIgmpVersion(Enum):
     v2 = Enum.YLeaf(1, "v2")
 
     v3 = Enum.YLeaf(2, "v3")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['EvpnIgmpVersion']
 
 
 class ImStateEnum(Enum):
@@ -332,6 +377,12 @@ class ImStateEnum(Enum):
     im_state_last = Enum.YLeaf(18, "im-state-last")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['ImStateEnum']
+
+
 class L2vpnAdRd(Enum):
     """
     L2vpnAdRd (Enum Class)
@@ -369,6 +420,12 @@ class L2vpnAdRd(Enum):
     l2vpn_ad_rd_4byte_as = Enum.YLeaf(3, "l2vpn-ad-rd-4byte-as")
 
     l2vpn_ad_rd_v4_addr = Enum.YLeaf(4, "l2vpn-ad-rd-v4-addr")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['L2vpnAdRd']
 
 
 class L2vpnAdRt(Enum):
@@ -410,6 +467,12 @@ class L2vpnAdRt(Enum):
     es_import = Enum.YLeaf(1538, "es-import")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['L2vpnAdRt']
+
+
 class L2vpnAdRtRole(Enum):
     """
     L2vpnAdRtRole (Enum Class)
@@ -435,6 +498,12 @@ class L2vpnAdRtRole(Enum):
     import_ = Enum.YLeaf(1, "import")
 
     export = Enum.YLeaf(2, "export")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['L2vpnAdRtRole']
 
 
 class L2vpnEvpn(Enum):
@@ -482,6 +551,12 @@ class L2vpnEvpn(Enum):
     evpn_type_max = Enum.YLeaf(5, "evpn-type-max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['L2vpnEvpn']
+
+
 class L2vpnEvpnEsState(Enum):
     """
     L2vpnEvpnEsState (Enum Class)
@@ -519,6 +594,12 @@ class L2vpnEvpnEsState(Enum):
     down = Enum.YLeaf(3, "down")
 
     standby = Enum.YLeaf(4, "standby")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['L2vpnEvpnEsState']
 
 
 class L2vpnEvpnEsi(Enum):
@@ -584,6 +665,12 @@ class L2vpnEvpnEsi(Enum):
     esi_type_invalid = Enum.YLeaf(255, "esi-type-invalid")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['L2vpnEvpnEsi']
+
+
 class L2vpnEvpnLbMode(Enum):
     """
     L2vpnEvpnLbMode (Enum Class)
@@ -633,6 +720,12 @@ class L2vpnEvpnLbMode(Enum):
     multi_homed_port_active = Enum.YLeaf(5, "multi-homed-port-active")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['L2vpnEvpnLbMode']
+
+
 class L2vpnEvpnMfMode(Enum):
     """
     L2vpnEvpnMfMode (Enum Class)
@@ -658,6 +751,12 @@ class L2vpnEvpnMfMode(Enum):
     tcn_stp = Enum.YLeaf(1, "tcn-stp")
 
     mvrp = Enum.YLeaf(2, "mvrp")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['L2vpnEvpnMfMode']
 
 
 class L2vpnEvpnRtOrigin(Enum):
@@ -687,6 +786,12 @@ class L2vpnEvpnRtOrigin(Enum):
     configured = Enum.YLeaf(2, "configured")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['L2vpnEvpnRtOrigin']
+
+
 class L2vpnEvpnScMcastMode(Enum):
     """
     L2vpnEvpnScMcastMode (Enum Class)
@@ -714,6 +819,12 @@ class L2vpnEvpnScMcastMode(Enum):
     hrw_s_g = Enum.YLeaf(1, "hrw-s-g")
 
     hrw_g = Enum.YLeaf(2, "hrw-g")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['L2vpnEvpnScMcastMode']
 
 
 class L2vpnEvpnScMode(Enum):
@@ -759,6 +870,12 @@ class L2vpnEvpnScMode(Enum):
     hrw = Enum.YLeaf(4, "hrw")
 
     pref = Enum.YLeaf(5, "pref")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['L2vpnEvpnScMode']
 
 
 class L2vpnEvpnSmacSrc(Enum):
@@ -812,6 +929,12 @@ class L2vpnEvpnSmacSrc(Enum):
     pbb_bsa_overrride = Enum.YLeaf(6, "pbb-bsa-overrride")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['L2vpnEvpnSmacSrc']
+
+
 class L2vpnRgRole(Enum):
     """
     L2vpnRgRole (Enum Class)
@@ -845,8 +968,14 @@ class L2vpnRgRole(Enum):
     l2vpn_rg_role_max = Enum.YLeaf(3, "l2vpn-rg-role-max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['L2vpnRgRole']
 
-class Evpn(Entity):
+
+
+class Evpn(_Entity_):
     """
     EVPN Operational Table
     
@@ -879,7 +1008,10 @@ class Evpn(Entity):
     _revision = '2018-09-26'
 
     def __init__(self):
-        super(Evpn, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Evpn, self).__init__()
         self._top_entity = None
 
         self.yang_name = "evpn"
@@ -908,7 +1040,7 @@ class Evpn(Entity):
         self._perform_setattr(Evpn, [], name, value)
 
 
-    class Nodes(Entity):
+    class Nodes(_Entity_):
         """
         Table of EVPN operational data for a particular
         node
@@ -928,7 +1060,10 @@ class Evpn(Entity):
         _revision = '2018-09-26'
 
         def __init__(self):
-            super(Evpn.Nodes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Evpn.Nodes, self).__init__()
 
             self.yang_name = "nodes"
             self.yang_parent_name = "evpn"
@@ -947,7 +1082,7 @@ class Evpn(Entity):
             self._perform_setattr(Evpn.Nodes, [], name, value)
 
 
-        class Node(Entity):
+        class Node(_Entity_):
             """
             EVPN operational data for a particular node
             
@@ -1045,7 +1180,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Nodes.Node, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Nodes.Node, self).__init__()
 
                 self.yang_name = "node"
                 self.yang_parent_name = "nodes"
@@ -1109,7 +1247,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Nodes.Node, ['node_id'], name, value)
 
 
-            class EvpnGroups(Entity):
+            class EvpnGroups(_Entity_):
                 """
                 EVPN Group Table
                 
@@ -1128,7 +1266,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Nodes.Node.EvpnGroups, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Nodes.Node.EvpnGroups, self).__init__()
 
                     self.yang_name = "evpn-groups"
                     self.yang_parent_name = "node"
@@ -1146,7 +1287,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Nodes.Node.EvpnGroups, [], name, value)
 
 
-                class EvpnGroup(Entity):
+                class EvpnGroup(_Entity_):
                     """
                     EVPN Group information
                     
@@ -1197,7 +1338,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Nodes.Node.EvpnGroups.EvpnGroup, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Nodes.Node.EvpnGroups.EvpnGroup, self).__init__()
 
                         self.yang_name = "evpn-group"
                         self.yang_parent_name = "evpn-groups"
@@ -1223,7 +1367,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Nodes.Node.EvpnGroups.EvpnGroup, ['group_number', 'group_id', 'state'], name, value)
 
 
-                    class CoreInterface(Entity):
+                    class CoreInterface(_Entity_):
                         """
                         EVPN Group Core Interface table
                         
@@ -1249,7 +1393,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EvpnGroups.EvpnGroup.CoreInterface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EvpnGroups.EvpnGroup.CoreInterface, self).__init__()
 
                             self.yang_name = "core-interface"
                             self.yang_parent_name = "evpn-group"
@@ -1269,9 +1416,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.EvpnGroups.EvpnGroup.CoreInterface, ['interface_name', 'state'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EvpnGroups.EvpnGroup.CoreInterface']['meta_info']
 
 
-                    class AccessInterface(Entity):
+                    class AccessInterface(_Entity_):
                         """
                         EVPN Access Core Interface table
                         
@@ -1297,7 +1448,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EvpnGroups.EvpnGroup.AccessInterface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EvpnGroups.EvpnGroup.AccessInterface, self).__init__()
 
                             self.yang_name = "access-interface"
                             self.yang_parent_name = "evpn-group"
@@ -1317,11 +1471,23 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.EvpnGroups.EvpnGroup.AccessInterface, ['interface_name', 'state'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EvpnGroups.EvpnGroup.AccessInterface']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Nodes.Node.EvpnGroups.EvpnGroup']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Nodes.Node.EvpnGroups']['meta_info']
 
 
-
-
-            class RemoteShgs(Entity):
+            class RemoteShgs(_Entity_):
                 """
                 EVPN Remote SHG table
                 
@@ -1340,7 +1506,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Nodes.Node.RemoteShgs, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Nodes.Node.RemoteShgs, self).__init__()
 
                     self.yang_name = "remote-shgs"
                     self.yang_parent_name = "node"
@@ -1358,7 +1527,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Nodes.Node.RemoteShgs, [], name, value)
 
 
-                class RemoteShg(Entity):
+                class RemoteShg(_Entity_):
                     """
                     EVPN Remote SHG
                     
@@ -1456,7 +1625,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Nodes.Node.RemoteShgs.RemoteShg, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Nodes.Node.RemoteShgs.RemoteShg, self).__init__()
 
                         self.yang_name = "remote-shg"
                         self.yang_parent_name = "remote-shgs"
@@ -1492,7 +1664,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Nodes.Node.RemoteShgs.RemoteShg, ['evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_vpn_id', 'encapsulation'], name, value)
 
 
-                    class EthernetSegmentIdentifier(Entity):
+                    class EthernetSegmentIdentifier(_Entity_):
                         """
                         Ethernet Segment id
                         
@@ -1513,7 +1685,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.RemoteShgs.RemoteShg.EthernetSegmentIdentifier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.RemoteShgs.RemoteShg.EthernetSegmentIdentifier, self).__init__()
 
                             self.yang_name = "ethernet-segment-identifier"
                             self.yang_parent_name = "remote-shg"
@@ -1531,9 +1706,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.RemoteShgs.RemoteShg.EthernetSegmentIdentifier, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.RemoteShgs.RemoteShg.EthernetSegmentIdentifier']['meta_info']
 
 
-                    class RemoteSplitHorizonGroupLabel(Entity):
+                    class RemoteSplitHorizonGroupLabel(_Entity_):
                         """
                         Remote split horizon group labels
                         
@@ -1563,7 +1742,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel, self).__init__()
 
                             self.yang_name = "remote-split-horizon-group-label"
                             self.yang_parent_name = "remote-shg"
@@ -1583,11 +1765,23 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel, ['next_hop', 'label'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Nodes.Node.RemoteShgs.RemoteShg']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Nodes.Node.RemoteShgs']['meta_info']
 
 
-
-
-            class Client(Entity):
+            class Client(_Entity_):
                 """
                 L2VPN EVPN Client
                 
@@ -1599,7 +1793,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Nodes.Node.Client, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Nodes.Node.Client, self).__init__()
 
                     self.yang_name = "client"
                     self.yang_parent_name = "node"
@@ -1611,9 +1808,13 @@ class Evpn(Entity):
                     self._segment_path = lambda: "client"
                     self._is_frozen = True
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Nodes.Node.Client']['meta_info']
 
 
-            class Igmps(Entity):
+            class Igmps(_Entity_):
                 """
                 EVPN IGMP table
                 
@@ -1632,7 +1833,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Nodes.Node.Igmps, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Nodes.Node.Igmps, self).__init__()
 
                     self.yang_name = "igmps"
                     self.yang_parent_name = "node"
@@ -1650,7 +1854,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Nodes.Node.Igmps, [], name, value)
 
 
-                class Igmp(Entity):
+                class Igmp(_Entity_):
                     """
                     IGMP Route
                     
@@ -1894,7 +2098,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Nodes.Node.Igmps.Igmp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Nodes.Node.Igmps.Igmp, self).__init__()
 
                         self.yang_name = "igmp"
                         self.yang_parent_name = "igmps"
@@ -1965,7 +2172,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp, ['source_type', 'is_leave', 'evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'src_ip', 'grp_ip', 'bd_id', 'bp_xcid', 'ethernet_segment_name', 'evi_xr', 'bd_id_xr', 'route_type', 'source_addr', 'group_addr', 'ethernet_tag_id', 'igmp_version', 'igmp_group_type', 'max_response_time', 'resolved'], name, value)
 
 
-                    class SourceInfo(Entity):
+                    class SourceInfo(_Entity_):
                         """
                         Source Info
                         
@@ -2000,7 +2207,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo, self).__init__()
 
                             self.yang_name = "source-info"
                             self.yang_parent_name = "igmp"
@@ -2025,7 +2235,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo, ['type', 'remote_info'], name, value)
 
 
-                        class LocalInfo(Entity):
+                        class LocalInfo(_Entity_):
                             """
                             local info
                             
@@ -2046,7 +2256,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo, self).__init__()
 
                                 self.yang_name = "local-info"
                                 self.yang_parent_name = "source-info"
@@ -2064,10 +2277,18 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo, ['if_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.Igmps.Igmp.SourceInfo']['meta_info']
 
 
-
-                    class EthernetSegmentIdentifier(Entity):
+                    class EthernetSegmentIdentifier(_Entity_):
                         """
                         Ethernet Segment id
                         
@@ -2088,7 +2309,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.Igmps.Igmp.EthernetSegmentIdentifier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.Igmps.Igmp.EthernetSegmentIdentifier, self).__init__()
 
                             self.yang_name = "ethernet-segment-identifier"
                             self.yang_parent_name = "igmp"
@@ -2106,11 +2330,23 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.EthernetSegmentIdentifier, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.Igmps.Igmp.EthernetSegmentIdentifier']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Nodes.Node.Igmps.Igmp']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Nodes.Node.Igmps']['meta_info']
 
 
-
-
-            class Evis(Entity):
+            class Evis(_Entity_):
                 """
                 L2VPN EVPN EVI Table
                 
@@ -2129,7 +2365,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Nodes.Node.Evis, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Nodes.Node.Evis, self).__init__()
 
                     self.yang_name = "evis"
                     self.yang_parent_name = "node"
@@ -2147,7 +2386,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Nodes.Node.Evis, [], name, value)
 
 
-                class Evi(Entity):
+                class Evi(_Entity_):
                     """
                     L2VPN EVPN EVI Entry
                     
@@ -2209,7 +2448,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Nodes.Node.Evis.Evi, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Nodes.Node.Evis.Evi, self).__init__()
 
                         self.yang_name = "evi"
                         self.yang_parent_name = "evis"
@@ -2237,10 +2479,18 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Nodes.Node.Evis.Evi, ['evi', 'encapsulation', 'ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Nodes.Node.Evis.Evi']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Nodes.Node.Evis']['meta_info']
 
 
-
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 L2VPN EVPN Summary
                 
@@ -2466,14 +2716,36 @@ class Evpn(Entity):
                 
                 .. attribute:: startup_cost_in_time
                 
-                	EVPN Node startup cost\-in Time (minutes)
+                	EVPN Node startup cost\-in Time (seconds)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 	**config**\: False
                 
-                	**units**\: minute
+                	**units**\: second
+                
+                .. attribute:: mac_postpone_timer
+                
+                	Configured timer for postponing MAC withdraws (seconds)
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                	**units**\: second
+                
+                .. attribute:: mac_postpone_timer_left
+                
+                	Milliseconds left on MAC withdraw postpone timer
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                	**units**\: millisecond
                 
                 .. attribute:: l2rib_throttle
                 
@@ -2497,7 +2769,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Nodes.Node.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Nodes.Node.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "node"
@@ -2531,6 +2806,8 @@ class Evpn(Entity):
                         ('carving_time', (YLeaf(YType.uint32, 'carving-time'), ['int'])),
                         ('cost_out', (YLeaf(YType.boolean, 'cost-out'), ['bool'])),
                         ('startup_cost_in_time', (YLeaf(YType.uint32, 'startup-cost-in-time'), ['int'])),
+                        ('mac_postpone_timer', (YLeaf(YType.uint32, 'mac-postpone-timer'), ['int'])),
+                        ('mac_postpone_timer_left', (YLeaf(YType.uint32, 'mac-postpone-timer-left'), ['int'])),
                         ('l2rib_throttle', (YLeaf(YType.boolean, 'l2rib-throttle'), ['bool'])),
                         ('logging_df_election_enabled', (YLeaf(YType.boolean, 'logging-df-election-enabled'), ['bool'])),
                     ])
@@ -2559,17 +2836,23 @@ class Evpn(Entity):
                     self.carving_time = None
                     self.cost_out = None
                     self.startup_cost_in_time = None
+                    self.mac_postpone_timer = None
+                    self.mac_postpone_timer_left = None
                     self.l2rib_throttle = None
                     self.logging_df_election_enabled = None
                     self._segment_path = lambda: "summary"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Nodes.Node.Summary, ['router_id', 'as_', 'ev_is', 'tunnel_endpoints', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'carving_time', 'cost_out', 'startup_cost_in_time', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
+                    self._perform_setattr(Evpn.Nodes.Node.Summary, ['router_id', 'as_', 'ev_is', 'tunnel_endpoints', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'carving_time', 'cost_out', 'startup_cost_in_time', 'mac_postpone_timer', 'mac_postpone_timer_left', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Nodes.Node.Summary']['meta_info']
 
 
-
-            class EviDetail(Entity):
+            class EviDetail(_Entity_):
                 """
                 L2VPN EVI Detail Table
                 
@@ -2595,7 +2878,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Nodes.Node.EviDetail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Nodes.Node.EviDetail, self).__init__()
 
                     self.yang_name = "evi-detail"
                     self.yang_parent_name = "node"
@@ -2619,7 +2905,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Nodes.Node.EviDetail, [], name, value)
 
 
-                class Elements(Entity):
+                class Elements(_Entity_):
                     """
                     EVI BGP RT Detail Info Elements
                     
@@ -2638,7 +2924,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Nodes.Node.EviDetail.Elements, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Nodes.Node.EviDetail.Elements, self).__init__()
 
                         self.yang_name = "elements"
                         self.yang_parent_name = "evi-detail"
@@ -2656,7 +2945,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements, [], name, value)
 
 
-                    class Element(Entity):
+                    class Element(_Entity_):
                         """
                         EVI BGP RT Detail Info
                         
@@ -2885,7 +3174,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EviDetail.Elements.Element, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EviDetail.Elements.Element, self).__init__()
 
                             self.yang_name = "element"
                             self.yang_parent_name = "elements"
@@ -2970,7 +3262,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element, ['evi', 'encapsulation', 'evi_xr', 'encapsulation_xr', 'bd_name', 'type', 'description', 'unicast_label', 'multicast_label', 'cw_disable', 'table_policy_name', 'forward_class', 'rt_import_block_set', 'rt_export_block_set', 'advertise_mac', 'etree_leaf', 'advertise_bvi_mac', 'aliasing_disabled', 'unknown_unicast_flooding_disabled', 'reoriginate_disabled', 'stitching', 'multicast_source_connected', 'bgp_implicit_import_disabled', 'vrf_name'], name, value)
 
 
-                        class EvpnInstance(Entity):
+                        class EvpnInstance(_Entity_):
                             """
                             EVPN Instance summary information
                             
@@ -3014,7 +3306,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.Elements.Element.EvpnInstance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.EvpnInstance, self).__init__()
 
                                 self.yang_name = "evpn-instance"
                                 self.yang_parent_name = "element"
@@ -3038,9 +3333,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.EvpnInstance']['meta_info']
 
 
-                        class FlowLabel(Entity):
+                        class FlowLabel(_Entity_):
                             """
                             Flow Label Information
                             
@@ -3066,7 +3365,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel, self).__init__()
 
                                 self.yang_name = "flow-label"
                                 self.yang_parent_name = "element"
@@ -3086,9 +3388,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel, ['static_flow_label', 'global_flow_label'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel']['meta_info']
 
 
-                        class RdAuto(Entity):
+                        class RdAuto(_Entity_):
                             """
                             Automatic Route Distingtuisher
                             
@@ -3135,7 +3441,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto, self).__init__()
 
                                 self.yang_name = "rd-auto"
                                 self.yang_parent_name = "element"
@@ -3170,7 +3479,7 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto, ['rd'], name, value)
 
 
-                            class Auto(Entity):
+                            class Auto(_Entity_):
                                 """
                                 auto
                                 
@@ -3200,7 +3509,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto, self).__init__()
 
                                     self.yang_name = "auto"
                                     self.yang_parent_name = "rd-auto"
@@ -3220,9 +3532,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto, ['router_id', 'auto_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto']['meta_info']
 
 
-                            class TwoByteAs(Entity):
+                            class TwoByteAs(_Entity_):
                                 """
                                 two byte as
                                 
@@ -3252,7 +3568,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs, self).__init__()
 
                                     self.yang_name = "two-byte-as"
                                     self.yang_parent_name = "rd-auto"
@@ -3272,9 +3591,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs']['meta_info']
 
 
-                            class FourByteAs(Entity):
+                            class FourByteAs(_Entity_):
                                 """
                                 four byte as
                                 
@@ -3304,7 +3627,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs, self).__init__()
 
                                     self.yang_name = "four-byte-as"
                                     self.yang_parent_name = "rd-auto"
@@ -3324,9 +3650,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs']['meta_info']
 
 
-                            class V4Addr(Entity):
+                            class V4Addr(_Entity_):
                                 """
                                 v4 addr
                                 
@@ -3356,7 +3686,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr, self).__init__()
 
                                     self.yang_name = "v4-addr"
                                     self.yang_parent_name = "rd-auto"
@@ -3376,10 +3709,18 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto']['meta_info']
 
 
-
-                        class RdConfigured(Entity):
+                        class RdConfigured(_Entity_):
                             """
                             Configured Route Distinguisher
                             
@@ -3426,7 +3767,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured, self).__init__()
 
                                 self.yang_name = "rd-configured"
                                 self.yang_parent_name = "element"
@@ -3461,7 +3805,7 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured, ['rd'], name, value)
 
 
-                            class Auto(Entity):
+                            class Auto(_Entity_):
                                 """
                                 auto
                                 
@@ -3491,7 +3835,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto, self).__init__()
 
                                     self.yang_name = "auto"
                                     self.yang_parent_name = "rd-configured"
@@ -3511,9 +3858,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto, ['router_id', 'auto_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto']['meta_info']
 
 
-                            class TwoByteAs(Entity):
+                            class TwoByteAs(_Entity_):
                                 """
                                 two byte as
                                 
@@ -3543,7 +3894,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs, self).__init__()
 
                                     self.yang_name = "two-byte-as"
                                     self.yang_parent_name = "rd-configured"
@@ -3563,9 +3917,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs']['meta_info']
 
 
-                            class FourByteAs(Entity):
+                            class FourByteAs(_Entity_):
                                 """
                                 four byte as
                                 
@@ -3595,7 +3953,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs, self).__init__()
 
                                     self.yang_name = "four-byte-as"
                                     self.yang_parent_name = "rd-configured"
@@ -3615,9 +3976,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs']['meta_info']
 
 
-                            class V4Addr(Entity):
+                            class V4Addr(_Entity_):
                                 """
                                 v4 addr
                                 
@@ -3647,7 +4012,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr, self).__init__()
 
                                     self.yang_name = "v4-addr"
                                     self.yang_parent_name = "rd-configured"
@@ -3667,10 +4035,18 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured']['meta_info']
 
 
-
-                        class RtAuto(Entity):
+                        class RtAuto(_Entity_):
                             """
                             Automatic Route Target
                             
@@ -3717,7 +4093,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto, self).__init__()
 
                                 self.yang_name = "rt-auto"
                                 self.yang_parent_name = "element"
@@ -3752,7 +4131,7 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto, ['rt'], name, value)
 
 
-                            class TwoByteAs(Entity):
+                            class TwoByteAs(_Entity_):
                                 """
                                 two byte as
                                 
@@ -3782,7 +4161,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs, self).__init__()
 
                                     self.yang_name = "two-byte-as"
                                     self.yang_parent_name = "rt-auto"
@@ -3802,9 +4184,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs']['meta_info']
 
 
-                            class FourByteAs(Entity):
+                            class FourByteAs(_Entity_):
                                 """
                                 four byte as
                                 
@@ -3834,7 +4220,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs, self).__init__()
 
                                     self.yang_name = "four-byte-as"
                                     self.yang_parent_name = "rt-auto"
@@ -3854,9 +4243,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs']['meta_info']
 
 
-                            class V4Addr(Entity):
+                            class V4Addr(_Entity_):
                                 """
                                 v4 addr
                                 
@@ -3886,7 +4279,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr, self).__init__()
 
                                     self.yang_name = "v4-addr"
                                     self.yang_parent_name = "rt-auto"
@@ -3906,9 +4302,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr']['meta_info']
 
 
-                            class EsImport(Entity):
+                            class EsImport(_Entity_):
                                 """
                                 es import
                                 
@@ -3938,7 +4338,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport, self).__init__()
 
                                     self.yang_name = "es-import"
                                     self.yang_parent_name = "rt-auto"
@@ -3958,12 +4361,28 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport, ['high_bytes', 'low_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements.Element']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Nodes.Node.EviDetail.Elements']['meta_info']
 
 
-
-
-
-                class EviChildren(Entity):
+                class EviChildren(_Entity_):
                     """
                     Container for all EVI detail info
                     
@@ -4010,7 +4429,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Nodes.Node.EviDetail.EviChildren, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Nodes.Node.EviDetail.EviChildren, self).__init__()
 
                         self.yang_name = "evi-children"
                         self.yang_parent_name = "evi-detail"
@@ -4046,7 +4468,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren, [], name, value)
 
 
-                    class Neighbors(Entity):
+                    class Neighbors(_Entity_):
                         """
                         EVPN Neighbor table
                         
@@ -4065,7 +4487,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors, self).__init__()
 
                             self.yang_name = "neighbors"
                             self.yang_parent_name = "evi-children"
@@ -4083,7 +4508,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors, [], name, value)
 
 
-                        class Neighbor(Entity):
+                        class Neighbor(_Entity_):
                             """
                             EVPN Neighbor table
                             
@@ -4151,7 +4576,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor, self).__init__()
 
                                 self.yang_name = "neighbor"
                                 self.yang_parent_name = "neighbors"
@@ -4182,7 +4610,7 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor, ['evi', 'encapsulation', 'neighbor_ip', 'neighbor'], name, value)
 
 
-                            class EvpnInstance(Entity):
+                            class EvpnInstance(_Entity_):
                                 """
                                 EVPN Instance summary information
                                 
@@ -4226,7 +4654,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance, self).__init__()
 
                                     self.yang_name = "evpn-instance"
                                     self.yang_parent_name = "neighbor"
@@ -4250,9 +4681,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance']['meta_info']
 
 
-                            class LeafEvis(Entity):
+                            class LeafEvis(_Entity_):
                                 """
                                 Leaf EVIs
                                 
@@ -4273,7 +4708,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor.LeafEvis, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor.LeafEvis, self).__init__()
 
                                     self.yang_name = "leaf-evis"
                                     self.yang_parent_name = "neighbor"
@@ -4291,11 +4729,23 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor.LeafEvis, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor.LeafEvis']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors']['meta_info']
 
 
-
-
-                    class EthernetAutoDiscoveries(Entity):
+                    class EthernetAutoDiscoveries(_Entity_):
                         """
                         EVPN Ethernet Auto\-Discovery table
                         
@@ -4314,7 +4764,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries, self).__init__()
 
                             self.yang_name = "ethernet-auto-discoveries"
                             self.yang_parent_name = "evi-children"
@@ -4332,7 +4785,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries, [], name, value)
 
 
-                        class EthernetAutoDiscovery(Entity):
+                        class EthernetAutoDiscovery(_Entity_):
                             """
                             EVPN Ethernet Auto\-Discovery Entry
                             
@@ -4494,7 +4947,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, self).__init__()
 
                                 self.yang_name = "ethernet-auto-discovery"
                                 self.yang_parent_name = "ethernet-auto-discoveries"
@@ -4548,7 +5004,7 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_tag_xr', 'local_next_hop', 'local_label', 'is_local_ead', 'redundancy_single_active', 'redundancy_single_flow_active', 'num_paths'], name, value)
 
 
-                            class EvpnInstance(Entity):
+                            class EvpnInstance(_Entity_):
                                 """
                                 EVPN Instance summary information
                                 
@@ -4592,7 +5048,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance, self).__init__()
 
                                     self.yang_name = "evpn-instance"
                                     self.yang_parent_name = "ethernet-auto-discovery"
@@ -4616,9 +5075,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance']['meta_info']
 
 
-                            class EthernetSegmentIdentifier(Entity):
+                            class EthernetSegmentIdentifier(_Entity_):
                                 """
                                 Ethernet Segment id
                                 
@@ -4639,7 +5102,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, self).__init__()
 
                                     self.yang_name = "ethernet-segment-identifier"
                                     self.yang_parent_name = "ethernet-auto-discovery"
@@ -4657,9 +5123,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier']['meta_info']
 
 
-                            class PathBuffer(Entity):
+                            class PathBuffer(_Entity_):
                                 """
                                 Path List Buffer
                                 
@@ -4707,7 +5177,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, self).__init__()
 
                                     self.yang_name = "path-buffer"
                                     self.yang_parent_name = "ethernet-auto-discovery"
@@ -4731,11 +5204,23 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries']['meta_info']
 
 
-
-
-                    class InclusiveMulticasts(Entity):
+                    class InclusiveMulticasts(_Entity_):
                         """
                         L2VPN EVPN IMCAST table
                         
@@ -4754,7 +5239,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts, self).__init__()
 
                             self.yang_name = "inclusive-multicasts"
                             self.yang_parent_name = "evi-children"
@@ -4772,7 +5260,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts, [], name, value)
 
 
-                        class InclusiveMulticast(Entity):
+                        class InclusiveMulticast(_Entity_):
                             """
                             L2VPN EVPN IMCAST table
                             
@@ -4917,7 +5405,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, self).__init__()
 
                                 self.yang_name = "inclusive-multicast"
                                 self.yang_parent_name = "inclusive-multicasts"
@@ -4966,7 +5457,7 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, ['evi', 'encapsulation', 'ethernet_tag', 'originating_ip', 'ethernet_tag_xr', 'originating_ip_xr', 'tunnel_endpoint_id', 'pmsi_tunnel_type', 'next_hop', 'output_label', 'is_local_entry', 'is_proxy_entry', 'srte_policy', 'etree_leaf'], name, value)
 
 
-                            class EvpnInstance(Entity):
+                            class EvpnInstance(_Entity_):
                                 """
                                 EVPN Instance summary information
                                 
@@ -5010,7 +5501,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance, self).__init__()
 
                                     self.yang_name = "evpn-instance"
                                     self.yang_parent_name = "inclusive-multicast"
@@ -5034,11 +5528,23 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts']['meta_info']
 
 
-
-
-                    class RouteTargets(Entity):
+                    class RouteTargets(_Entity_):
                         """
                         L2VPN EVPN EVI RT Child Table
                         
@@ -5057,7 +5563,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets, self).__init__()
 
                             self.yang_name = "route-targets"
                             self.yang_parent_name = "evi-children"
@@ -5075,7 +5584,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets, [], name, value)
 
 
-                        class RouteTarget(Entity):
+                        class RouteTarget(_Entity_):
                             """
                             L2VPN EVPN EVI RT Table
                             
@@ -5183,7 +5692,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget, self).__init__()
 
                                 self.yang_name = "route-target"
                                 self.yang_parent_name = "route-targets"
@@ -5228,7 +5740,7 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget, ['evi', 'encapsulation', 'role', 'format', 'as_', 'as_index', 'addr_index', 'address', 'route_target_role', 'route_target_stitching'], name, value)
 
 
-                            class EvpnInstance(Entity):
+                            class EvpnInstance(_Entity_):
                                 """
                                 EVPN Instance summary information
                                 
@@ -5272,7 +5784,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance, self).__init__()
 
                                     self.yang_name = "evpn-instance"
                                     self.yang_parent_name = "route-target"
@@ -5296,9 +5811,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance']['meta_info']
 
 
-                            class RouteTarget_(Entity):
+                            class RouteTarget_(_Entity_):
                                 """
                                 Route Target
                                 
@@ -5345,7 +5864,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, self).__init__()
 
                                     self.yang_name = "route-target"
                                     self.yang_parent_name = "route-target"
@@ -5380,7 +5902,7 @@ class Evpn(Entity):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, ['rt'], name, value)
 
 
-                                class TwoByteAs(Entity):
+                                class TwoByteAs(_Entity_):
                                     """
                                     two byte as
                                     
@@ -5410,7 +5932,10 @@ class Evpn(Entity):
                                     _revision = '2018-09-26'
 
                                     def __init__(self):
-                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, self).__init__()
 
                                         self.yang_name = "two-byte-as"
                                         self.yang_parent_name = "route-target"
@@ -5430,9 +5955,13 @@ class Evpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                        return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs']['meta_info']
 
 
-                                class FourByteAs(Entity):
+                                class FourByteAs(_Entity_):
                                     """
                                     four byte as
                                     
@@ -5462,7 +5991,10 @@ class Evpn(Entity):
                                     _revision = '2018-09-26'
 
                                     def __init__(self):
-                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, self).__init__()
 
                                         self.yang_name = "four-byte-as"
                                         self.yang_parent_name = "route-target"
@@ -5482,9 +6014,13 @@ class Evpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                        return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs']['meta_info']
 
 
-                                class V4Addr(Entity):
+                                class V4Addr(_Entity_):
                                     """
                                     v4 addr
                                     
@@ -5514,7 +6050,10 @@ class Evpn(Entity):
                                     _revision = '2018-09-26'
 
                                     def __init__(self):
-                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, self).__init__()
 
                                         self.yang_name = "v4-addr"
                                         self.yang_parent_name = "route-target"
@@ -5534,9 +6073,13 @@ class Evpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                        return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr']['meta_info']
 
 
-                                class EsImport(Entity):
+                                class EsImport(_Entity_):
                                     """
                                     es import
                                     
@@ -5566,7 +6109,10 @@ class Evpn(Entity):
                                     _revision = '2018-09-26'
 
                                     def __init__(self):
-                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, self).__init__()
 
                                         self.yang_name = "es-import"
                                         self.yang_parent_name = "route-target"
@@ -5586,12 +6132,28 @@ class Evpn(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, ['high_bytes', 'low_bytes'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                        return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets']['meta_info']
 
 
-
-
-
-                    class Macs(Entity):
+                    class Macs(_Entity_):
                         """
                         L2VPN EVPN EVI MAC table
                         
@@ -5610,7 +6172,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs, self).__init__()
 
                             self.yang_name = "macs"
                             self.yang_parent_name = "evi-children"
@@ -5628,7 +6193,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs, [], name, value)
 
 
-                        class Mac(Entity):
+                        class Mac(_Entity_):
                             """
                             L2VPN EVPN MAC table
                             
@@ -5953,7 +6518,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac, self).__init__()
 
                                 self.yang_name = "mac"
                                 self.yang_parent_name = "macs"
@@ -6044,7 +6612,7 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac, ['evi', 'encapsulation', 'ethernet_tag', 'mac_address', 'ip_address', 'ethernet_tag_xr', 'mac_address_xr', 'ip_address_xr', 'local_label', 'num_paths', 'is_local_mac', 'is_proxy_entry', 'is_remote_mac', 'soo_nexthop', 'ipnh_address', 'esi_port_key', 'local_encap_type', 'remote_encap_type', 'learned_bridge_port_name', 'local_seq_id', 'remote_seq_id', 'local_l3_label', 'router_mac_address', 'mac_flush_requested', 'mac_flush_received', 'internal_label', 'resolved', 'local_is_static', 'remote_is_static', 'local_etree_leaf', 'remote_etree_leaf', 'local_attachment_circuit_id', 'remote_attachment_circuit_id'], name, value)
 
 
-                            class EvpnInstance(Entity):
+                            class EvpnInstance(_Entity_):
                                 """
                                 EVPN Instance summary information
                                 
@@ -6088,7 +6656,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.EvpnInstance, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.EvpnInstance, self).__init__()
 
                                     self.yang_name = "evpn-instance"
                                     self.yang_parent_name = "mac"
@@ -6112,9 +6683,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.EvpnInstance']['meta_info']
 
 
-                            class LocalEthernetSegmentIdentifier(Entity):
+                            class LocalEthernetSegmentIdentifier(_Entity_):
                                 """
                                 Local Ethernet Segment id
                                 
@@ -6135,7 +6710,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, self).__init__()
 
                                     self.yang_name = "local-ethernet-segment-identifier"
                                     self.yang_parent_name = "mac"
@@ -6153,9 +6731,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier']['meta_info']
 
 
-                            class RemoteEthernetSegmentIdentifier(Entity):
+                            class RemoteEthernetSegmentIdentifier(_Entity_):
                                 """
                                 Remote Ethernet Segment id
                                 
@@ -6176,7 +6758,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, self).__init__()
 
                                     self.yang_name = "remote-ethernet-segment-identifier"
                                     self.yang_parent_name = "mac"
@@ -6194,9 +6779,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, ['entry'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier']['meta_info']
 
 
-                            class PathBuffer(Entity):
+                            class PathBuffer(_Entity_):
                                 """
                                 Path List Buffer
                                 
@@ -6244,7 +6833,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer, self).__init__()
 
                                     self.yang_name = "path-buffer"
                                     self.yang_parent_name = "mac"
@@ -6268,13 +6860,33 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren.Macs']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Nodes.Node.EviDetail.EviChildren']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Nodes.Node.EviDetail']['meta_info']
 
 
-
-
-
-
-            class Teps(Entity):
+            class Teps(_Entity_):
                 """
                 L2VPN EVPN TEP Table
                 
@@ -6293,7 +6905,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Nodes.Node.Teps, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Nodes.Node.Teps, self).__init__()
 
                     self.yang_name = "teps"
                     self.yang_parent_name = "node"
@@ -6311,7 +6926,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Nodes.Node.Teps, [], name, value)
 
 
-                class Tep(Entity):
+                class Tep(_Entity_):
                     """
                     L2VPN EVPN TEP Entry
                     
@@ -6398,7 +7013,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Nodes.Node.Teps.Tep, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Nodes.Node.Teps.Tep, self).__init__()
 
                         self.yang_name = "tep"
                         self.yang_parent_name = "teps"
@@ -6437,7 +7055,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Nodes.Node.Teps.Tep, ['tep_id', 'tunnel_endpoint_id', 'type', 'use_count', 'vrf_name', 'vrf_table_id', 'udp_port'], name, value)
 
 
-                    class LocalInfo(Entity):
+                    class LocalInfo(_Entity_):
                         """
                         Local TEP Information
                         
@@ -6476,7 +7094,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.Teps.Tep.LocalInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.Teps.Tep.LocalInfo, self).__init__()
 
                             self.yang_name = "local-info"
                             self.yang_parent_name = "tep"
@@ -6498,9 +7119,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.Teps.Tep.LocalInfo, ['ethernet_vpn_id', 'encapsulation', 'ip'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.Teps.Tep.LocalInfo']['meta_info']
 
 
-                    class RemoteInfo(Entity):
+                    class RemoteInfo(_Entity_):
                         """
                         Remote TEP Information
                         
@@ -6539,7 +7164,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.Teps.Tep.RemoteInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.Teps.Tep.RemoteInfo, self).__init__()
 
                             self.yang_name = "remote-info"
                             self.yang_parent_name = "tep"
@@ -6561,11 +7189,23 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.Teps.Tep.RemoteInfo, ['ethernet_vpn_id', 'encapsulation', 'ip'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.Teps.Tep.RemoteInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Nodes.Node.Teps.Tep']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Nodes.Node.Teps']['meta_info']
 
 
-
-
-            class InternalLabels(Entity):
+            class InternalLabels(_Entity_):
                 """
                 EVPN Internal Label Table
                 
@@ -6584,7 +7224,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Nodes.Node.InternalLabels, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Nodes.Node.InternalLabels, self).__init__()
 
                     self.yang_name = "internal-labels"
                     self.yang_parent_name = "node"
@@ -6602,7 +7245,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Nodes.Node.InternalLabels, [], name, value)
 
 
-                class InternalLabel(Entity):
+                class InternalLabel(_Entity_):
                     """
                     L2VPN EVPN Internal Label
                     
@@ -6821,7 +7464,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Nodes.Node.InternalLabels.InternalLabel, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Nodes.Node.InternalLabels.InternalLabel, self).__init__()
 
                         self.yang_name = "internal-label"
                         self.yang_parent_name = "internal-labels"
@@ -6887,7 +7533,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'esi', 'tag', 'internal_label', 'mac_num_paths', 'ead_num_paths', 'evi_num_paths', 'sum_num_paths', 'sum_num_active_paths', 'resolved', 'ecmp_disable', 'redundancy_single_active', 'redundancy_single_flow_active'], name, value)
 
 
-                    class EvpnInstance(Entity):
+                    class EvpnInstance(_Entity_):
                         """
                         EVPN Instance summary information
                         
@@ -6931,7 +7577,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.InternalLabels.InternalLabel.EvpnInstance, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.InternalLabels.InternalLabel.EvpnInstance, self).__init__()
 
                             self.yang_name = "evpn-instance"
                             self.yang_parent_name = "internal-label"
@@ -6955,9 +7604,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.InternalLabels.InternalLabel.EvpnInstance']['meta_info']
 
 
-                    class MacPathBuffer(Entity):
+                    class MacPathBuffer(_Entity_):
                         """
                         MAC Path list buffer
                         
@@ -7005,7 +7658,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.InternalLabels.InternalLabel.MacPathBuffer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.InternalLabels.InternalLabel.MacPathBuffer, self).__init__()
 
                             self.yang_name = "mac-path-buffer"
                             self.yang_parent_name = "internal-label"
@@ -7029,9 +7685,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.MacPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.InternalLabels.InternalLabel.MacPathBuffer']['meta_info']
 
 
-                    class EadPathBuffer(Entity):
+                    class EadPathBuffer(_Entity_):
                         """
                         EAD/ES Path list buffer
                         
@@ -7079,7 +7739,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.InternalLabels.InternalLabel.EadPathBuffer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.InternalLabels.InternalLabel.EadPathBuffer, self).__init__()
 
                             self.yang_name = "ead-path-buffer"
                             self.yang_parent_name = "internal-label"
@@ -7103,9 +7766,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.EadPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.InternalLabels.InternalLabel.EadPathBuffer']['meta_info']
 
 
-                    class EviPathBuffer(Entity):
+                    class EviPathBuffer(_Entity_):
                         """
                         EAD/EVI Path list buffer
                         
@@ -7153,7 +7820,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.InternalLabels.InternalLabel.EviPathBuffer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.InternalLabels.InternalLabel.EviPathBuffer, self).__init__()
 
                             self.yang_name = "evi-path-buffer"
                             self.yang_parent_name = "internal-label"
@@ -7177,9 +7847,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.EviPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.InternalLabels.InternalLabel.EviPathBuffer']['meta_info']
 
 
-                    class SummaryPathBuffer(Entity):
+                    class SummaryPathBuffer(_Entity_):
                         """
                         Summary Path list buffer
                         
@@ -7227,7 +7901,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.InternalLabels.InternalLabel.SummaryPathBuffer, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.InternalLabels.InternalLabel.SummaryPathBuffer, self).__init__()
 
                             self.yang_name = "summary-path-buffer"
                             self.yang_parent_name = "internal-label"
@@ -7251,11 +7928,23 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.SummaryPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.InternalLabels.InternalLabel.SummaryPathBuffer']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Nodes.Node.InternalLabels.InternalLabel']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Nodes.Node.InternalLabels']['meta_info']
 
 
-
-
-            class EthernetSegments(Entity):
+            class EthernetSegments(_Entity_):
                 """
                 EVPN Ethernet\-Segment Table
                 
@@ -7274,7 +7963,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Nodes.Node.EthernetSegments, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Nodes.Node.EthernetSegments, self).__init__()
 
                     self.yang_name = "ethernet-segments"
                     self.yang_parent_name = "node"
@@ -7292,7 +7984,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Nodes.Node.EthernetSegments, [], name, value)
 
 
-                class EthernetSegment(Entity):
+                class EthernetSegment(_Entity_):
                     """
                     EVPN Ethernet\-Segment Entry
                     
@@ -7779,7 +8471,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment, self).__init__()
 
                         self.yang_name = "ethernet-segment"
                         self.yang_parent_name = "ethernet-segments"
@@ -7903,7 +8598,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'esi_system_identifier', 'esi_port_key', 'esi_system_priority', 'ethernet_segment_name', 'ethernet_segment_state', 'if_handle', 'main_port_role', 'main_port_mac', 'num_up_p_ws', 'route_target', 'rt_origin', 'es_bgp_gates', 'es_l2fib_gates', 'mac_flushing_mode_config', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'force_single_home', 'source_mac_oper', 'source_mac_origin', 'peering_timer', 'peering_timer_left', 'recovery_timer', 'recovery_timer_left', 'carving_timer', 'carving_timer_left', 'service_carving_mode', 'service_carving_mcast_mode', 'primary_services_input', 'secondary_services_input', 'forwarder_ports', 'permanent_forwarder_ports', 'elected_forwarder_ports', 'not_elected_forwarder_ports', 'not_config_forwarder_ports', 'mp_protected', 'nve_anycast_vtep', 'nve_ingress_replication', 'local_split_horizon_group_label_valid', 'local_split_horizon_group_label'], name, value)
 
 
-                    class EthernetSegmentIdentifier(Entity):
+                    class EthernetSegmentIdentifier(_Entity_):
                         """
                         Ethernet Segment id
                         
@@ -7924,7 +8619,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, self).__init__()
 
                             self.yang_name = "ethernet-segment-identifier"
                             self.yang_parent_name = "ethernet-segment"
@@ -7942,9 +8640,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier']['meta_info']
 
 
-                    class PrimaryService(Entity):
+                    class PrimaryService(_Entity_):
                         """
                         List of Primary services ESI/I\-SIDs
                         
@@ -7965,7 +8667,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService, self).__init__()
 
                             self.yang_name = "primary-service"
                             self.yang_parent_name = "ethernet-segment"
@@ -7983,9 +8688,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService']['meta_info']
 
 
-                    class SecondaryService(Entity):
+                    class SecondaryService(_Entity_):
                         """
                         List of Secondary services ESI/I\-SIDs
                         
@@ -8006,7 +8715,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService, self).__init__()
 
                             self.yang_name = "secondary-service"
                             self.yang_parent_name = "ethernet-segment"
@@ -8024,9 +8736,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService']['meta_info']
 
 
-                    class ServiceCarvingISidelectedResult(Entity):
+                    class ServiceCarvingISidelectedResult(_Entity_):
                         """
                         Elected ISID service carving results
                         
@@ -8047,7 +8763,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, self).__init__()
 
                             self.yang_name = "service-carving-i-sidelected-result"
                             self.yang_parent_name = "ethernet-segment"
@@ -8065,9 +8784,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult']['meta_info']
 
 
-                    class ServiceCarvingIsidNotElectedResult(Entity):
+                    class ServiceCarvingIsidNotElectedResult(_Entity_):
                         """
                         Not elected ISID service carving results
                         
@@ -8088,7 +8811,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, self).__init__()
 
                             self.yang_name = "service-carving-isid-not-elected-result"
                             self.yang_parent_name = "ethernet-segment"
@@ -8106,9 +8832,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult']['meta_info']
 
 
-                    class ServiceCarvingEviElectedResult(Entity):
+                    class ServiceCarvingEviElectedResult(_Entity_):
                         """
                         Elected EVI service carving results
                         
@@ -8129,7 +8859,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, self).__init__()
 
                             self.yang_name = "service-carving-evi-elected-result"
                             self.yang_parent_name = "ethernet-segment"
@@ -8147,9 +8880,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult']['meta_info']
 
 
-                    class ServiceCarvingEviNotElectedResult(Entity):
+                    class ServiceCarvingEviNotElectedResult(_Entity_):
                         """
                         Not elected EVI service carving results
                         
@@ -8170,7 +8907,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, self).__init__()
 
                             self.yang_name = "service-carving-evi-not-elected-result"
                             self.yang_parent_name = "ethernet-segment"
@@ -8188,9 +8928,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult']['meta_info']
 
 
-                    class ServiceCarvingVniElectedResult(Entity):
+                    class ServiceCarvingVniElectedResult(_Entity_):
                         """
                         Elected VNI service carving results
                         
@@ -8211,7 +8955,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult, self).__init__()
 
                             self.yang_name = "service-carving-vni-elected-result"
                             self.yang_parent_name = "ethernet-segment"
@@ -8229,9 +8976,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult']['meta_info']
 
 
-                    class ServiceCarvingVniNotElectedResult(Entity):
+                    class ServiceCarvingVniNotElectedResult(_Entity_):
                         """
                         Not elected VNI service carving results
                         
@@ -8252,7 +9003,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult, self).__init__()
 
                             self.yang_name = "service-carving-vni-not-elected-result"
                             self.yang_parent_name = "ethernet-segment"
@@ -8270,9 +9024,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult']['meta_info']
 
 
-                    class NextHop(Entity):
+                    class NextHop(_Entity_):
                         """
                         List of nexthop IPv6 addresses
                         
@@ -8318,7 +9076,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop, self).__init__()
 
                             self.yang_name = "next-hop"
                             self.yang_parent_name = "ethernet-segment"
@@ -8342,9 +9103,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop, ['next_hop', 'df_dont_prempt', 'df_type', 'df_pref'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop']['meta_info']
 
 
-                    class ServiceCarvingVpwsPermanentResult(Entity):
+                    class ServiceCarvingVpwsPermanentResult(_Entity_):
                         """
                         Permanent EVPN VPWS service carving results
                         
@@ -8381,7 +9146,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, self).__init__()
 
                             self.yang_name = "service-carving-vpws-permanent-result"
                             self.yang_parent_name = "ethernet-segment"
@@ -8403,9 +9171,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, ['vpn_id', 'type', 'ethernet_tag'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult']['meta_info']
 
 
-                    class RemoteSplitHorizonGroupLabel(Entity):
+                    class RemoteSplitHorizonGroupLabel(_Entity_):
                         """
                         Remote split horizon group labels
                         
@@ -8435,7 +9207,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, self).__init__()
 
                             self.yang_name = "remote-split-horizon-group-label"
                             self.yang_parent_name = "ethernet-segment"
@@ -8455,11 +9230,23 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, ['next_hop', 'label'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Nodes.Node.EthernetSegments.EthernetSegment']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Nodes.Node.EthernetSegments']['meta_info']
 
 
-
-
-            class AcIds(Entity):
+            class AcIds(_Entity_):
                 """
                 EVPN AC ID table
                 
@@ -8478,7 +9265,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Nodes.Node.AcIds, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Nodes.Node.AcIds, self).__init__()
 
                     self.yang_name = "ac-ids"
                     self.yang_parent_name = "node"
@@ -8496,7 +9286,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Nodes.Node.AcIds, [], name, value)
 
 
-                class AcId(Entity):
+                class AcId(_Entity_):
                     """
                     EVPN AC ID table
                     
@@ -8549,7 +9339,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Nodes.Node.AcIds.AcId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Nodes.Node.AcIds.AcId, self).__init__()
 
                         self.yang_name = "ac-id"
                         self.yang_parent_name = "ac-ids"
@@ -8578,7 +9371,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Nodes.Node.AcIds.AcId, ['evi', 'ac_id', 'neighbor'], name, value)
 
 
-                    class EvpnInstance(Entity):
+                    class EvpnInstance(_Entity_):
                         """
                         EVPN Instance summary information
                         
@@ -8622,7 +9415,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.AcIds.AcId.EvpnInstance, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.AcIds.AcId.EvpnInstance, self).__init__()
 
                             self.yang_name = "evpn-instance"
                             self.yang_parent_name = "ac-id"
@@ -8646,9 +9442,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.AcIds.AcId.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.AcIds.AcId.EvpnInstance']['meta_info']
 
 
-                    class LeafEvis(Entity):
+                    class LeafEvis(_Entity_):
                         """
                         Leaf EVIs
                         
@@ -8669,7 +9469,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Nodes.Node.AcIds.AcId.LeafEvis, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Nodes.Node.AcIds.AcId.LeafEvis, self).__init__()
 
                             self.yang_name = "leaf-evis"
                             self.yang_parent_name = "ac-id"
@@ -8687,13 +9490,33 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Nodes.Node.AcIds.AcId.LeafEvis, ['entry'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Nodes.Node.AcIds.AcId.LeafEvis']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Nodes.Node.AcIds.AcId']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Nodes.Node.AcIds']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Nodes.Node']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+            return meta._meta_table['Evpn.Nodes']['meta_info']
 
 
-
-
-
-
-    class Active(Entity):
+    class Active(_Entity_):
         """
         Active EVPN operational data
         
@@ -8782,7 +9605,10 @@ class Evpn(Entity):
         _revision = '2018-09-26'
 
         def __init__(self):
-            super(Evpn.Active, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Evpn.Active, self).__init__()
 
             self.yang_name = "active"
             self.yang_parent_name = "evpn"
@@ -8843,7 +9669,7 @@ class Evpn(Entity):
             self._perform_setattr(Evpn.Active, [], name, value)
 
 
-        class EvpnGroups(Entity):
+        class EvpnGroups(_Entity_):
             """
             EVPN Group Table
             
@@ -8862,7 +9688,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Active.EvpnGroups, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Active.EvpnGroups, self).__init__()
 
                 self.yang_name = "evpn-groups"
                 self.yang_parent_name = "active"
@@ -8881,7 +9710,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Active.EvpnGroups, [], name, value)
 
 
-            class EvpnGroup(Entity):
+            class EvpnGroup(_Entity_):
                 """
                 EVPN Group information
                 
@@ -8932,7 +9761,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Active.EvpnGroups.EvpnGroup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Active.EvpnGroups.EvpnGroup, self).__init__()
 
                     self.yang_name = "evpn-group"
                     self.yang_parent_name = "evpn-groups"
@@ -8959,7 +9791,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Active.EvpnGroups.EvpnGroup, ['group_number', 'group_id', 'state'], name, value)
 
 
-                class CoreInterface(Entity):
+                class CoreInterface(_Entity_):
                     """
                     EVPN Group Core Interface table
                     
@@ -8985,7 +9817,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EvpnGroups.EvpnGroup.CoreInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EvpnGroups.EvpnGroup.CoreInterface, self).__init__()
 
                         self.yang_name = "core-interface"
                         self.yang_parent_name = "evpn-group"
@@ -9005,9 +9840,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.EvpnGroups.EvpnGroup.CoreInterface, ['interface_name', 'state'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EvpnGroups.EvpnGroup.CoreInterface']['meta_info']
 
 
-                class AccessInterface(Entity):
+                class AccessInterface(_Entity_):
                     """
                     EVPN Access Core Interface table
                     
@@ -9033,7 +9872,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EvpnGroups.EvpnGroup.AccessInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EvpnGroups.EvpnGroup.AccessInterface, self).__init__()
 
                         self.yang_name = "access-interface"
                         self.yang_parent_name = "evpn-group"
@@ -9053,11 +9895,23 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.EvpnGroups.EvpnGroup.AccessInterface, ['interface_name', 'state'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EvpnGroups.EvpnGroup.AccessInterface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Active.EvpnGroups.EvpnGroup']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Active.EvpnGroups']['meta_info']
 
 
-
-
-        class RemoteShgs(Entity):
+        class RemoteShgs(_Entity_):
             """
             EVPN Remote SHG table
             
@@ -9076,7 +9930,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Active.RemoteShgs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Active.RemoteShgs, self).__init__()
 
                 self.yang_name = "remote-shgs"
                 self.yang_parent_name = "active"
@@ -9095,7 +9952,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Active.RemoteShgs, [], name, value)
 
 
-            class RemoteShg(Entity):
+            class RemoteShg(_Entity_):
                 """
                 EVPN Remote SHG
                 
@@ -9193,7 +10050,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Active.RemoteShgs.RemoteShg, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Active.RemoteShgs.RemoteShg, self).__init__()
 
                     self.yang_name = "remote-shg"
                     self.yang_parent_name = "remote-shgs"
@@ -9230,7 +10090,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Active.RemoteShgs.RemoteShg, ['evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_vpn_id', 'encapsulation'], name, value)
 
 
-                class EthernetSegmentIdentifier(Entity):
+                class EthernetSegmentIdentifier(_Entity_):
                     """
                     Ethernet Segment id
                     
@@ -9251,7 +10111,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.RemoteShgs.RemoteShg.EthernetSegmentIdentifier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.RemoteShgs.RemoteShg.EthernetSegmentIdentifier, self).__init__()
 
                         self.yang_name = "ethernet-segment-identifier"
                         self.yang_parent_name = "remote-shg"
@@ -9270,9 +10133,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.RemoteShgs.RemoteShg.EthernetSegmentIdentifier, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.RemoteShgs.RemoteShg.EthernetSegmentIdentifier']['meta_info']
 
 
-                class RemoteSplitHorizonGroupLabel(Entity):
+                class RemoteSplitHorizonGroupLabel(_Entity_):
                     """
                     Remote split horizon group labels
                     
@@ -9302,7 +10169,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel, self).__init__()
 
                         self.yang_name = "remote-split-horizon-group-label"
                         self.yang_parent_name = "remote-shg"
@@ -9323,11 +10193,23 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel, ['next_hop', 'label'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Active.RemoteShgs.RemoteShg']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Active.RemoteShgs']['meta_info']
 
 
-
-
-        class Client(Entity):
+        class Client(_Entity_):
             """
             L2VPN EVPN Client
             
@@ -9339,7 +10221,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Active.Client, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Active.Client, self).__init__()
 
                 self.yang_name = "client"
                 self.yang_parent_name = "active"
@@ -9352,9 +10237,13 @@ class Evpn(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/active/%s" % self._segment_path()
                 self._is_frozen = True
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Active.Client']['meta_info']
 
 
-        class Igmps(Entity):
+        class Igmps(_Entity_):
             """
             EVPN IGMP table
             
@@ -9373,7 +10262,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Active.Igmps, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Active.Igmps, self).__init__()
 
                 self.yang_name = "igmps"
                 self.yang_parent_name = "active"
@@ -9392,7 +10284,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Active.Igmps, [], name, value)
 
 
-            class Igmp(Entity):
+            class Igmp(_Entity_):
                 """
                 IGMP Route
                 
@@ -9636,7 +10528,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Active.Igmps.Igmp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Active.Igmps.Igmp, self).__init__()
 
                     self.yang_name = "igmp"
                     self.yang_parent_name = "igmps"
@@ -9708,7 +10603,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Active.Igmps.Igmp, ['source_type', 'is_leave', 'evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'src_ip', 'grp_ip', 'bd_id', 'bp_xcid', 'ethernet_segment_name', 'evi_xr', 'bd_id_xr', 'route_type', 'source_addr', 'group_addr', 'ethernet_tag_id', 'igmp_version', 'igmp_group_type', 'max_response_time', 'resolved'], name, value)
 
 
-                class SourceInfo(Entity):
+                class SourceInfo(_Entity_):
                     """
                     Source Info
                     
@@ -9743,7 +10638,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.Igmps.Igmp.SourceInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.Igmps.Igmp.SourceInfo, self).__init__()
 
                         self.yang_name = "source-info"
                         self.yang_parent_name = "igmp"
@@ -9769,7 +10667,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo, ['type', 'remote_info'], name, value)
 
 
-                    class LocalInfo(Entity):
+                    class LocalInfo(_Entity_):
                         """
                         local info
                         
@@ -9790,7 +10688,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo, self).__init__()
 
                             self.yang_name = "local-info"
                             self.yang_parent_name = "source-info"
@@ -9809,10 +10710,18 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo, ['if_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.Igmps.Igmp.SourceInfo']['meta_info']
 
 
-
-                class EthernetSegmentIdentifier(Entity):
+                class EthernetSegmentIdentifier(_Entity_):
                     """
                     Ethernet Segment id
                     
@@ -9833,7 +10742,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.Igmps.Igmp.EthernetSegmentIdentifier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.Igmps.Igmp.EthernetSegmentIdentifier, self).__init__()
 
                         self.yang_name = "ethernet-segment-identifier"
                         self.yang_parent_name = "igmp"
@@ -9852,11 +10764,23 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.Igmps.Igmp.EthernetSegmentIdentifier, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.Igmps.Igmp.EthernetSegmentIdentifier']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Active.Igmps.Igmp']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Active.Igmps']['meta_info']
 
 
-
-
-        class Evis(Entity):
+        class Evis(_Entity_):
             """
             L2VPN EVPN EVI Table
             
@@ -9875,7 +10799,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Active.Evis, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Active.Evis, self).__init__()
 
                 self.yang_name = "evis"
                 self.yang_parent_name = "active"
@@ -9894,7 +10821,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Active.Evis, [], name, value)
 
 
-            class Evi(Entity):
+            class Evi(_Entity_):
                 """
                 L2VPN EVPN EVI Entry
                 
@@ -9956,7 +10883,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Active.Evis.Evi, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Active.Evis.Evi, self).__init__()
 
                     self.yang_name = "evi"
                     self.yang_parent_name = "evis"
@@ -9985,10 +10915,18 @@ class Evpn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Evpn.Active.Evis.Evi, ['evi', 'encapsulation', 'ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Active.Evis.Evi']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Active.Evis']['meta_info']
 
 
-
-        class Summary(Entity):
+        class Summary(_Entity_):
             """
             L2VPN EVPN Summary
             
@@ -10214,14 +11152,36 @@ class Evpn(Entity):
             
             .. attribute:: startup_cost_in_time
             
-            	EVPN Node startup cost\-in Time (minutes)
+            	EVPN Node startup cost\-in Time (seconds)
             	**type**\: int
             
             	**range:** 0..4294967295
             
             	**config**\: False
             
-            	**units**\: minute
+            	**units**\: second
+            
+            .. attribute:: mac_postpone_timer
+            
+            	Configured timer for postponing MAC withdraws (seconds)
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            	**units**\: second
+            
+            .. attribute:: mac_postpone_timer_left
+            
+            	Milliseconds left on MAC withdraw postpone timer
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            	**units**\: millisecond
             
             .. attribute:: l2rib_throttle
             
@@ -10245,7 +11205,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Active.Summary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Active.Summary, self).__init__()
 
                 self.yang_name = "summary"
                 self.yang_parent_name = "active"
@@ -10279,6 +11242,8 @@ class Evpn(Entity):
                     ('carving_time', (YLeaf(YType.uint32, 'carving-time'), ['int'])),
                     ('cost_out', (YLeaf(YType.boolean, 'cost-out'), ['bool'])),
                     ('startup_cost_in_time', (YLeaf(YType.uint32, 'startup-cost-in-time'), ['int'])),
+                    ('mac_postpone_timer', (YLeaf(YType.uint32, 'mac-postpone-timer'), ['int'])),
+                    ('mac_postpone_timer_left', (YLeaf(YType.uint32, 'mac-postpone-timer-left'), ['int'])),
                     ('l2rib_throttle', (YLeaf(YType.boolean, 'l2rib-throttle'), ['bool'])),
                     ('logging_df_election_enabled', (YLeaf(YType.boolean, 'logging-df-election-enabled'), ['bool'])),
                 ])
@@ -10307,6 +11272,8 @@ class Evpn(Entity):
                 self.carving_time = None
                 self.cost_out = None
                 self.startup_cost_in_time = None
+                self.mac_postpone_timer = None
+                self.mac_postpone_timer_left = None
                 self.l2rib_throttle = None
                 self.logging_df_election_enabled = None
                 self._segment_path = lambda: "summary"
@@ -10314,11 +11281,15 @@ class Evpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.Active.Summary, ['router_id', 'as_', 'ev_is', 'tunnel_endpoints', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'carving_time', 'cost_out', 'startup_cost_in_time', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
+                self._perform_setattr(Evpn.Active.Summary, ['router_id', 'as_', 'ev_is', 'tunnel_endpoints', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'carving_time', 'cost_out', 'startup_cost_in_time', 'mac_postpone_timer', 'mac_postpone_timer_left', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Active.Summary']['meta_info']
 
 
-
-        class EviDetail(Entity):
+        class EviDetail(_Entity_):
             """
             L2VPN EVI Detail Table
             
@@ -10344,7 +11315,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Active.EviDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Active.EviDetail, self).__init__()
 
                 self.yang_name = "evi-detail"
                 self.yang_parent_name = "active"
@@ -10369,7 +11343,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Active.EviDetail, [], name, value)
 
 
-            class Elements(Entity):
+            class Elements(_Entity_):
                 """
                 EVI BGP RT Detail Info Elements
                 
@@ -10388,7 +11362,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Active.EviDetail.Elements, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Active.EviDetail.Elements, self).__init__()
 
                     self.yang_name = "elements"
                     self.yang_parent_name = "evi-detail"
@@ -10407,7 +11384,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Active.EviDetail.Elements, [], name, value)
 
 
-                class Element(Entity):
+                class Element(_Entity_):
                     """
                     EVI BGP RT Detail Info
                     
@@ -10636,7 +11613,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EviDetail.Elements.Element, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EviDetail.Elements.Element, self).__init__()
 
                         self.yang_name = "element"
                         self.yang_parent_name = "elements"
@@ -10722,7 +11702,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Active.EviDetail.Elements.Element, ['evi', 'encapsulation', 'evi_xr', 'encapsulation_xr', 'bd_name', 'type', 'description', 'unicast_label', 'multicast_label', 'cw_disable', 'table_policy_name', 'forward_class', 'rt_import_block_set', 'rt_export_block_set', 'advertise_mac', 'etree_leaf', 'advertise_bvi_mac', 'aliasing_disabled', 'unknown_unicast_flooding_disabled', 'reoriginate_disabled', 'stitching', 'multicast_source_connected', 'bgp_implicit_import_disabled', 'vrf_name'], name, value)
 
 
-                    class EvpnInstance(Entity):
+                    class EvpnInstance(_Entity_):
                         """
                         EVPN Instance summary information
                         
@@ -10766,7 +11746,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Active.EviDetail.Elements.Element.EvpnInstance, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Active.EviDetail.Elements.Element.EvpnInstance, self).__init__()
 
                             self.yang_name = "evpn-instance"
                             self.yang_parent_name = "element"
@@ -10791,9 +11774,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.EvpnInstance']['meta_info']
 
 
-                    class FlowLabel(Entity):
+                    class FlowLabel(_Entity_):
                         """
                         Flow Label Information
                         
@@ -10819,7 +11806,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Active.EviDetail.Elements.Element.FlowLabel, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Active.EviDetail.Elements.Element.FlowLabel, self).__init__()
 
                             self.yang_name = "flow-label"
                             self.yang_parent_name = "element"
@@ -10840,9 +11830,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.FlowLabel, ['static_flow_label', 'global_flow_label'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.FlowLabel']['meta_info']
 
 
-                    class RdAuto(Entity):
+                    class RdAuto(_Entity_):
                         """
                         Automatic Route Distingtuisher
                         
@@ -10889,7 +11883,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Active.EviDetail.Elements.Element.RdAuto, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Active.EviDetail.Elements.Element.RdAuto, self).__init__()
 
                             self.yang_name = "rd-auto"
                             self.yang_parent_name = "element"
@@ -10925,7 +11922,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto, ['rd'], name, value)
 
 
-                        class Auto(Entity):
+                        class Auto(_Entity_):
                             """
                             auto
                             
@@ -10955,7 +11952,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto, self).__init__()
 
                                 self.yang_name = "auto"
                                 self.yang_parent_name = "rd-auto"
@@ -10976,9 +11976,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto, ['router_id', 'auto_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto']['meta_info']
 
 
-                        class TwoByteAs(Entity):
+                        class TwoByteAs(_Entity_):
                             """
                             two byte as
                             
@@ -11008,7 +12012,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs, self).__init__()
 
                                 self.yang_name = "two-byte-as"
                                 self.yang_parent_name = "rd-auto"
@@ -11029,9 +12036,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs']['meta_info']
 
 
-                        class FourByteAs(Entity):
+                        class FourByteAs(_Entity_):
                             """
                             four byte as
                             
@@ -11061,7 +12072,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs, self).__init__()
 
                                 self.yang_name = "four-byte-as"
                                 self.yang_parent_name = "rd-auto"
@@ -11082,9 +12096,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs']['meta_info']
 
 
-                        class V4Addr(Entity):
+                        class V4Addr(_Entity_):
                             """
                             v4 addr
                             
@@ -11114,7 +12132,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RdAuto.V4Addr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.Elements.Element.RdAuto.V4Addr, self).__init__()
 
                                 self.yang_name = "v4-addr"
                                 self.yang_parent_name = "rd-auto"
@@ -11135,10 +12156,18 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.RdAuto.V4Addr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.RdAuto']['meta_info']
 
 
-
-                    class RdConfigured(Entity):
+                    class RdConfigured(_Entity_):
                         """
                         Configured Route Distinguisher
                         
@@ -11185,7 +12214,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Active.EviDetail.Elements.Element.RdConfigured, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Active.EviDetail.Elements.Element.RdConfigured, self).__init__()
 
                             self.yang_name = "rd-configured"
                             self.yang_parent_name = "element"
@@ -11221,7 +12253,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured, ['rd'], name, value)
 
 
-                        class Auto(Entity):
+                        class Auto(_Entity_):
                             """
                             auto
                             
@@ -11251,7 +12283,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto, self).__init__()
 
                                 self.yang_name = "auto"
                                 self.yang_parent_name = "rd-configured"
@@ -11272,9 +12307,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto, ['router_id', 'auto_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto']['meta_info']
 
 
-                        class TwoByteAs(Entity):
+                        class TwoByteAs(_Entity_):
                             """
                             two byte as
                             
@@ -11304,7 +12343,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs, self).__init__()
 
                                 self.yang_name = "two-byte-as"
                                 self.yang_parent_name = "rd-configured"
@@ -11325,9 +12367,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs']['meta_info']
 
 
-                        class FourByteAs(Entity):
+                        class FourByteAs(_Entity_):
                             """
                             four byte as
                             
@@ -11357,7 +12403,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs, self).__init__()
 
                                 self.yang_name = "four-byte-as"
                                 self.yang_parent_name = "rd-configured"
@@ -11378,9 +12427,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs']['meta_info']
 
 
-                        class V4Addr(Entity):
+                        class V4Addr(_Entity_):
                             """
                             v4 addr
                             
@@ -11410,7 +12463,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RdConfigured.V4Addr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.Elements.Element.RdConfigured.V4Addr, self).__init__()
 
                                 self.yang_name = "v4-addr"
                                 self.yang_parent_name = "rd-configured"
@@ -11431,10 +12487,18 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.RdConfigured.V4Addr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.RdConfigured']['meta_info']
 
 
-
-                    class RtAuto(Entity):
+                    class RtAuto(_Entity_):
                         """
                         Automatic Route Target
                         
@@ -11481,7 +12545,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Active.EviDetail.Elements.Element.RtAuto, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Active.EviDetail.Elements.Element.RtAuto, self).__init__()
 
                             self.yang_name = "rt-auto"
                             self.yang_parent_name = "element"
@@ -11517,7 +12584,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto, ['rt'], name, value)
 
 
-                        class TwoByteAs(Entity):
+                        class TwoByteAs(_Entity_):
                             """
                             two byte as
                             
@@ -11547,7 +12614,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs, self).__init__()
 
                                 self.yang_name = "two-byte-as"
                                 self.yang_parent_name = "rt-auto"
@@ -11568,9 +12638,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs']['meta_info']
 
 
-                        class FourByteAs(Entity):
+                        class FourByteAs(_Entity_):
                             """
                             four byte as
                             
@@ -11600,7 +12674,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs, self).__init__()
 
                                 self.yang_name = "four-byte-as"
                                 self.yang_parent_name = "rt-auto"
@@ -11621,9 +12698,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs']['meta_info']
 
 
-                        class V4Addr(Entity):
+                        class V4Addr(_Entity_):
                             """
                             v4 addr
                             
@@ -11653,7 +12734,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RtAuto.V4Addr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.Elements.Element.RtAuto.V4Addr, self).__init__()
 
                                 self.yang_name = "v4-addr"
                                 self.yang_parent_name = "rt-auto"
@@ -11674,9 +12758,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.RtAuto.V4Addr']['meta_info']
 
 
-                        class EsImport(Entity):
+                        class EsImport(_Entity_):
                             """
                             es import
                             
@@ -11706,7 +12794,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport, self).__init__()
 
                                 self.yang_name = "es-import"
                                 self.yang_parent_name = "rt-auto"
@@ -11727,12 +12818,28 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport, ['high_bytes', 'low_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Active.EviDetail.Elements.Element.RtAuto']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EviDetail.Elements.Element']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Active.EviDetail.Elements']['meta_info']
 
 
-
-
-
-            class EviChildren(Entity):
+            class EviChildren(_Entity_):
                 """
                 Container for all EVI detail info
                 
@@ -11779,7 +12886,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Active.EviDetail.EviChildren, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Active.EviDetail.EviChildren, self).__init__()
 
                     self.yang_name = "evi-children"
                     self.yang_parent_name = "evi-detail"
@@ -11816,7 +12926,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Active.EviDetail.EviChildren, [], name, value)
 
 
-                class Neighbors(Entity):
+                class Neighbors(_Entity_):
                     """
                     EVPN Neighbor table
                     
@@ -11835,7 +12945,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EviDetail.EviChildren.Neighbors, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EviDetail.EviChildren.Neighbors, self).__init__()
 
                         self.yang_name = "neighbors"
                         self.yang_parent_name = "evi-children"
@@ -11854,7 +12967,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Neighbors, [], name, value)
 
 
-                    class Neighbor(Entity):
+                    class Neighbor(_Entity_):
                         """
                         EVPN Neighbor table
                         
@@ -11922,7 +13035,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor, self).__init__()
 
                             self.yang_name = "neighbor"
                             self.yang_parent_name = "neighbors"
@@ -11954,7 +13070,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor, ['evi', 'encapsulation', 'neighbor_ip', 'neighbor'], name, value)
 
 
-                        class EvpnInstance(Entity):
+                        class EvpnInstance(_Entity_):
                             """
                             EVPN Instance summary information
                             
@@ -11998,7 +13114,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance, self).__init__()
 
                                 self.yang_name = "evpn-instance"
                                 self.yang_parent_name = "neighbor"
@@ -12023,9 +13142,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance']['meta_info']
 
 
-                        class LeafEvis(Entity):
+                        class LeafEvis(_Entity_):
                             """
                             Leaf EVIs
                             
@@ -12046,7 +13169,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor.LeafEvis, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor.LeafEvis, self).__init__()
 
                                 self.yang_name = "leaf-evis"
                                 self.yang_parent_name = "neighbor"
@@ -12065,11 +13191,23 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor.LeafEvis, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor.LeafEvis']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EviDetail.EviChildren.Neighbors']['meta_info']
 
 
-
-
-                class EthernetAutoDiscoveries(Entity):
+                class EthernetAutoDiscoveries(_Entity_):
                     """
                     EVPN Ethernet Auto\-Discovery table
                     
@@ -12088,7 +13226,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries, self).__init__()
 
                         self.yang_name = "ethernet-auto-discoveries"
                         self.yang_parent_name = "evi-children"
@@ -12107,7 +13248,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries, [], name, value)
 
 
-                    class EthernetAutoDiscovery(Entity):
+                    class EthernetAutoDiscovery(_Entity_):
                         """
                         EVPN Ethernet Auto\-Discovery Entry
                         
@@ -12269,7 +13410,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, self).__init__()
 
                             self.yang_name = "ethernet-auto-discovery"
                             self.yang_parent_name = "ethernet-auto-discoveries"
@@ -12324,7 +13468,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_tag_xr', 'local_next_hop', 'local_label', 'is_local_ead', 'redundancy_single_active', 'redundancy_single_flow_active', 'num_paths'], name, value)
 
 
-                        class EvpnInstance(Entity):
+                        class EvpnInstance(_Entity_):
                             """
                             EVPN Instance summary information
                             
@@ -12368,7 +13512,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance, self).__init__()
 
                                 self.yang_name = "evpn-instance"
                                 self.yang_parent_name = "ethernet-auto-discovery"
@@ -12393,9 +13540,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance']['meta_info']
 
 
-                        class EthernetSegmentIdentifier(Entity):
+                        class EthernetSegmentIdentifier(_Entity_):
                             """
                             Ethernet Segment id
                             
@@ -12416,7 +13567,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, self).__init__()
 
                                 self.yang_name = "ethernet-segment-identifier"
                                 self.yang_parent_name = "ethernet-auto-discovery"
@@ -12435,9 +13589,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier']['meta_info']
 
 
-                        class PathBuffer(Entity):
+                        class PathBuffer(_Entity_):
                             """
                             Path List Buffer
                             
@@ -12485,7 +13643,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, self).__init__()
 
                                 self.yang_name = "path-buffer"
                                 self.yang_parent_name = "ethernet-auto-discovery"
@@ -12510,11 +13671,23 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries']['meta_info']
 
 
-
-
-                class InclusiveMulticasts(Entity):
+                class InclusiveMulticasts(_Entity_):
                     """
                     L2VPN EVPN IMCAST table
                     
@@ -12533,7 +13706,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts, self).__init__()
 
                         self.yang_name = "inclusive-multicasts"
                         self.yang_parent_name = "evi-children"
@@ -12552,7 +13728,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts, [], name, value)
 
 
-                    class InclusiveMulticast(Entity):
+                    class InclusiveMulticast(_Entity_):
                         """
                         L2VPN EVPN IMCAST table
                         
@@ -12697,7 +13873,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, self).__init__()
 
                             self.yang_name = "inclusive-multicast"
                             self.yang_parent_name = "inclusive-multicasts"
@@ -12747,7 +13926,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, ['evi', 'encapsulation', 'ethernet_tag', 'originating_ip', 'ethernet_tag_xr', 'originating_ip_xr', 'tunnel_endpoint_id', 'pmsi_tunnel_type', 'next_hop', 'output_label', 'is_local_entry', 'is_proxy_entry', 'srte_policy', 'etree_leaf'], name, value)
 
 
-                        class EvpnInstance(Entity):
+                        class EvpnInstance(_Entity_):
                             """
                             EVPN Instance summary information
                             
@@ -12791,7 +13970,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance, self).__init__()
 
                                 self.yang_name = "evpn-instance"
                                 self.yang_parent_name = "inclusive-multicast"
@@ -12816,11 +13998,23 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts']['meta_info']
 
 
-
-
-                class RouteTargets(Entity):
+                class RouteTargets(_Entity_):
                     """
                     L2VPN EVPN EVI RT Child Table
                     
@@ -12839,7 +14033,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EviDetail.EviChildren.RouteTargets, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EviDetail.EviChildren.RouteTargets, self).__init__()
 
                         self.yang_name = "route-targets"
                         self.yang_parent_name = "evi-children"
@@ -12858,7 +14055,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets, [], name, value)
 
 
-                    class RouteTarget(Entity):
+                    class RouteTarget(_Entity_):
                         """
                         L2VPN EVPN EVI RT Table
                         
@@ -12966,7 +14163,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget, self).__init__()
 
                             self.yang_name = "route-target"
                             self.yang_parent_name = "route-targets"
@@ -13012,7 +14212,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget, ['evi', 'encapsulation', 'role', 'format', 'as_', 'as_index', 'addr_index', 'address', 'route_target_role', 'route_target_stitching'], name, value)
 
 
-                        class EvpnInstance(Entity):
+                        class EvpnInstance(_Entity_):
                             """
                             EVPN Instance summary information
                             
@@ -13056,7 +14256,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance, self).__init__()
 
                                 self.yang_name = "evpn-instance"
                                 self.yang_parent_name = "route-target"
@@ -13081,9 +14284,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance']['meta_info']
 
 
-                        class RouteTarget_(Entity):
+                        class RouteTarget_(_Entity_):
                             """
                             Route Target
                             
@@ -13130,7 +14337,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, self).__init__()
 
                                 self.yang_name = "route-target"
                                 self.yang_parent_name = "route-target"
@@ -13166,7 +14376,7 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, ['rt'], name, value)
 
 
-                            class TwoByteAs(Entity):
+                            class TwoByteAs(_Entity_):
                                 """
                                 two byte as
                                 
@@ -13196,7 +14406,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, self).__init__()
 
                                     self.yang_name = "two-byte-as"
                                     self.yang_parent_name = "route-target"
@@ -13217,9 +14430,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs']['meta_info']
 
 
-                            class FourByteAs(Entity):
+                            class FourByteAs(_Entity_):
                                 """
                                 four byte as
                                 
@@ -13249,7 +14466,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, self).__init__()
 
                                     self.yang_name = "four-byte-as"
                                     self.yang_parent_name = "route-target"
@@ -13270,9 +14490,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs']['meta_info']
 
 
-                            class V4Addr(Entity):
+                            class V4Addr(_Entity_):
                                 """
                                 v4 addr
                                 
@@ -13302,7 +14526,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, self).__init__()
 
                                     self.yang_name = "v4-addr"
                                     self.yang_parent_name = "route-target"
@@ -13323,9 +14550,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr']['meta_info']
 
 
-                            class EsImport(Entity):
+                            class EsImport(_Entity_):
                                 """
                                 es import
                                 
@@ -13355,7 +14586,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, self).__init__()
 
                                     self.yang_name = "es-import"
                                     self.yang_parent_name = "route-target"
@@ -13376,12 +14610,28 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, ['high_bytes', 'low_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EviDetail.EviChildren.RouteTargets']['meta_info']
 
 
-
-
-
-                class Macs(Entity):
+                class Macs(_Entity_):
                     """
                     L2VPN EVPN EVI MAC table
                     
@@ -13400,7 +14650,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EviDetail.EviChildren.Macs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EviDetail.EviChildren.Macs, self).__init__()
 
                         self.yang_name = "macs"
                         self.yang_parent_name = "evi-children"
@@ -13419,7 +14672,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs, [], name, value)
 
 
-                    class Mac(Entity):
+                    class Mac(_Entity_):
                         """
                         L2VPN EVPN MAC table
                         
@@ -13744,7 +14997,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Active.EviDetail.EviChildren.Macs.Mac, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Active.EviDetail.EviChildren.Macs.Mac, self).__init__()
 
                             self.yang_name = "mac"
                             self.yang_parent_name = "macs"
@@ -13836,7 +15092,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac, ['evi', 'encapsulation', 'ethernet_tag', 'mac_address', 'ip_address', 'ethernet_tag_xr', 'mac_address_xr', 'ip_address_xr', 'local_label', 'num_paths', 'is_local_mac', 'is_proxy_entry', 'is_remote_mac', 'soo_nexthop', 'ipnh_address', 'esi_port_key', 'local_encap_type', 'remote_encap_type', 'learned_bridge_port_name', 'local_seq_id', 'remote_seq_id', 'local_l3_label', 'router_mac_address', 'mac_flush_requested', 'mac_flush_received', 'internal_label', 'resolved', 'local_is_static', 'remote_is_static', 'local_etree_leaf', 'remote_etree_leaf', 'local_attachment_circuit_id', 'remote_attachment_circuit_id'], name, value)
 
 
-                        class EvpnInstance(Entity):
+                        class EvpnInstance(_Entity_):
                             """
                             EVPN Instance summary information
                             
@@ -13880,7 +15136,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.EviChildren.Macs.Mac.EvpnInstance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.EviChildren.Macs.Mac.EvpnInstance, self).__init__()
 
                                 self.yang_name = "evpn-instance"
                                 self.yang_parent_name = "mac"
@@ -13905,9 +15164,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.EviChildren.Macs.Mac.EvpnInstance']['meta_info']
 
 
-                        class LocalEthernetSegmentIdentifier(Entity):
+                        class LocalEthernetSegmentIdentifier(_Entity_):
                             """
                             Local Ethernet Segment id
                             
@@ -13928,7 +15191,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, self).__init__()
 
                                 self.yang_name = "local-ethernet-segment-identifier"
                                 self.yang_parent_name = "mac"
@@ -13947,9 +15213,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier']['meta_info']
 
 
-                        class RemoteEthernetSegmentIdentifier(Entity):
+                        class RemoteEthernetSegmentIdentifier(_Entity_):
                             """
                             Remote Ethernet Segment id
                             
@@ -13970,7 +15240,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, self).__init__()
 
                                 self.yang_name = "remote-ethernet-segment-identifier"
                                 self.yang_parent_name = "mac"
@@ -13989,9 +15262,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier']['meta_info']
 
 
-                        class PathBuffer(Entity):
+                        class PathBuffer(_Entity_):
                             """
                             Path List Buffer
                             
@@ -14039,7 +15316,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer, self).__init__()
 
                                 self.yang_name = "path-buffer"
                                 self.yang_parent_name = "mac"
@@ -14064,13 +15344,33 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Active.EviDetail.EviChildren.Macs.Mac']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EviDetail.EviChildren.Macs']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Active.EviDetail.EviChildren']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Active.EviDetail']['meta_info']
 
 
-
-
-
-
-        class Teps(Entity):
+        class Teps(_Entity_):
             """
             L2VPN EVPN TEP Table
             
@@ -14089,7 +15389,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Active.Teps, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Active.Teps, self).__init__()
 
                 self.yang_name = "teps"
                 self.yang_parent_name = "active"
@@ -14108,7 +15411,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Active.Teps, [], name, value)
 
 
-            class Tep(Entity):
+            class Tep(_Entity_):
                 """
                 L2VPN EVPN TEP Entry
                 
@@ -14195,7 +15498,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Active.Teps.Tep, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Active.Teps.Tep, self).__init__()
 
                     self.yang_name = "tep"
                     self.yang_parent_name = "teps"
@@ -14235,7 +15541,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Active.Teps.Tep, ['tep_id', 'tunnel_endpoint_id', 'type', 'use_count', 'vrf_name', 'vrf_table_id', 'udp_port'], name, value)
 
 
-                class LocalInfo(Entity):
+                class LocalInfo(_Entity_):
                     """
                     Local TEP Information
                     
@@ -14274,7 +15580,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.Teps.Tep.LocalInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.Teps.Tep.LocalInfo, self).__init__()
 
                         self.yang_name = "local-info"
                         self.yang_parent_name = "tep"
@@ -14296,9 +15605,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.Teps.Tep.LocalInfo, ['ethernet_vpn_id', 'encapsulation', 'ip'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.Teps.Tep.LocalInfo']['meta_info']
 
 
-                class RemoteInfo(Entity):
+                class RemoteInfo(_Entity_):
                     """
                     Remote TEP Information
                     
@@ -14337,7 +15650,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.Teps.Tep.RemoteInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.Teps.Tep.RemoteInfo, self).__init__()
 
                         self.yang_name = "remote-info"
                         self.yang_parent_name = "tep"
@@ -14359,11 +15675,23 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.Teps.Tep.RemoteInfo, ['ethernet_vpn_id', 'encapsulation', 'ip'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.Teps.Tep.RemoteInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Active.Teps.Tep']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Active.Teps']['meta_info']
 
 
-
-
-        class InternalLabels(Entity):
+        class InternalLabels(_Entity_):
             """
             EVPN Internal Label Table
             
@@ -14382,7 +15710,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Active.InternalLabels, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Active.InternalLabels, self).__init__()
 
                 self.yang_name = "internal-labels"
                 self.yang_parent_name = "active"
@@ -14401,7 +15732,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Active.InternalLabels, [], name, value)
 
 
-            class InternalLabel(Entity):
+            class InternalLabel(_Entity_):
                 """
                 L2VPN EVPN Internal Label
                 
@@ -14620,7 +15951,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Active.InternalLabels.InternalLabel, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Active.InternalLabels.InternalLabel, self).__init__()
 
                     self.yang_name = "internal-label"
                     self.yang_parent_name = "internal-labels"
@@ -14687,7 +16021,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'esi', 'tag', 'internal_label', 'mac_num_paths', 'ead_num_paths', 'evi_num_paths', 'sum_num_paths', 'sum_num_active_paths', 'resolved', 'ecmp_disable', 'redundancy_single_active', 'redundancy_single_flow_active'], name, value)
 
 
-                class EvpnInstance(Entity):
+                class EvpnInstance(_Entity_):
                     """
                     EVPN Instance summary information
                     
@@ -14731,7 +16065,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.InternalLabels.InternalLabel.EvpnInstance, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.InternalLabels.InternalLabel.EvpnInstance, self).__init__()
 
                         self.yang_name = "evpn-instance"
                         self.yang_parent_name = "internal-label"
@@ -14756,9 +16093,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.InternalLabels.InternalLabel.EvpnInstance']['meta_info']
 
 
-                class MacPathBuffer(Entity):
+                class MacPathBuffer(_Entity_):
                     """
                     MAC Path list buffer
                     
@@ -14806,7 +16147,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.InternalLabels.InternalLabel.MacPathBuffer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.InternalLabels.InternalLabel.MacPathBuffer, self).__init__()
 
                         self.yang_name = "mac-path-buffer"
                         self.yang_parent_name = "internal-label"
@@ -14831,9 +16175,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.MacPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.InternalLabels.InternalLabel.MacPathBuffer']['meta_info']
 
 
-                class EadPathBuffer(Entity):
+                class EadPathBuffer(_Entity_):
                     """
                     EAD/ES Path list buffer
                     
@@ -14881,7 +16229,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.InternalLabels.InternalLabel.EadPathBuffer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.InternalLabels.InternalLabel.EadPathBuffer, self).__init__()
 
                         self.yang_name = "ead-path-buffer"
                         self.yang_parent_name = "internal-label"
@@ -14906,9 +16257,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.EadPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.InternalLabels.InternalLabel.EadPathBuffer']['meta_info']
 
 
-                class EviPathBuffer(Entity):
+                class EviPathBuffer(_Entity_):
                     """
                     EAD/EVI Path list buffer
                     
@@ -14956,7 +16311,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.InternalLabels.InternalLabel.EviPathBuffer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.InternalLabels.InternalLabel.EviPathBuffer, self).__init__()
 
                         self.yang_name = "evi-path-buffer"
                         self.yang_parent_name = "internal-label"
@@ -14981,9 +16339,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.EviPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.InternalLabels.InternalLabel.EviPathBuffer']['meta_info']
 
 
-                class SummaryPathBuffer(Entity):
+                class SummaryPathBuffer(_Entity_):
                     """
                     Summary Path list buffer
                     
@@ -15031,7 +16393,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.InternalLabels.InternalLabel.SummaryPathBuffer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.InternalLabels.InternalLabel.SummaryPathBuffer, self).__init__()
 
                         self.yang_name = "summary-path-buffer"
                         self.yang_parent_name = "internal-label"
@@ -15056,11 +16421,23 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.SummaryPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.InternalLabels.InternalLabel.SummaryPathBuffer']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Active.InternalLabels.InternalLabel']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Active.InternalLabels']['meta_info']
 
 
-
-
-        class EthernetSegments(Entity):
+        class EthernetSegments(_Entity_):
             """
             EVPN Ethernet\-Segment Table
             
@@ -15079,7 +16456,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Active.EthernetSegments, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Active.EthernetSegments, self).__init__()
 
                 self.yang_name = "ethernet-segments"
                 self.yang_parent_name = "active"
@@ -15098,7 +16478,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Active.EthernetSegments, [], name, value)
 
 
-            class EthernetSegment(Entity):
+            class EthernetSegment(_Entity_):
                 """
                 EVPN Ethernet\-Segment Entry
                 
@@ -15585,7 +16965,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Active.EthernetSegments.EthernetSegment, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Active.EthernetSegments.EthernetSegment, self).__init__()
 
                     self.yang_name = "ethernet-segment"
                     self.yang_parent_name = "ethernet-segments"
@@ -15710,7 +17093,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'esi_system_identifier', 'esi_port_key', 'esi_system_priority', 'ethernet_segment_name', 'ethernet_segment_state', 'if_handle', 'main_port_role', 'main_port_mac', 'num_up_p_ws', 'route_target', 'rt_origin', 'es_bgp_gates', 'es_l2fib_gates', 'mac_flushing_mode_config', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'force_single_home', 'source_mac_oper', 'source_mac_origin', 'peering_timer', 'peering_timer_left', 'recovery_timer', 'recovery_timer_left', 'carving_timer', 'carving_timer_left', 'service_carving_mode', 'service_carving_mcast_mode', 'primary_services_input', 'secondary_services_input', 'forwarder_ports', 'permanent_forwarder_ports', 'elected_forwarder_ports', 'not_elected_forwarder_ports', 'not_config_forwarder_ports', 'mp_protected', 'nve_anycast_vtep', 'nve_ingress_replication', 'local_split_horizon_group_label_valid', 'local_split_horizon_group_label'], name, value)
 
 
-                class EthernetSegmentIdentifier(Entity):
+                class EthernetSegmentIdentifier(_Entity_):
                     """
                     Ethernet Segment id
                     
@@ -15731,7 +17114,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, self).__init__()
 
                         self.yang_name = "ethernet-segment-identifier"
                         self.yang_parent_name = "ethernet-segment"
@@ -15750,9 +17136,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier']['meta_info']
 
 
-                class PrimaryService(Entity):
+                class PrimaryService(_Entity_):
                     """
                     List of Primary services ESI/I\-SIDs
                     
@@ -15773,7 +17163,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService, self).__init__()
 
                         self.yang_name = "primary-service"
                         self.yang_parent_name = "ethernet-segment"
@@ -15792,9 +17185,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService']['meta_info']
 
 
-                class SecondaryService(Entity):
+                class SecondaryService(_Entity_):
                     """
                     List of Secondary services ESI/I\-SIDs
                     
@@ -15815,7 +17212,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService, self).__init__()
 
                         self.yang_name = "secondary-service"
                         self.yang_parent_name = "ethernet-segment"
@@ -15834,9 +17234,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService']['meta_info']
 
 
-                class ServiceCarvingISidelectedResult(Entity):
+                class ServiceCarvingISidelectedResult(_Entity_):
                     """
                     Elected ISID service carving results
                     
@@ -15857,7 +17261,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, self).__init__()
 
                         self.yang_name = "service-carving-i-sidelected-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -15876,9 +17283,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult']['meta_info']
 
 
-                class ServiceCarvingIsidNotElectedResult(Entity):
+                class ServiceCarvingIsidNotElectedResult(_Entity_):
                     """
                     Not elected ISID service carving results
                     
@@ -15899,7 +17310,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, self).__init__()
 
                         self.yang_name = "service-carving-isid-not-elected-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -15918,9 +17332,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult']['meta_info']
 
 
-                class ServiceCarvingEviElectedResult(Entity):
+                class ServiceCarvingEviElectedResult(_Entity_):
                     """
                     Elected EVI service carving results
                     
@@ -15941,7 +17359,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, self).__init__()
 
                         self.yang_name = "service-carving-evi-elected-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -15960,9 +17381,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult']['meta_info']
 
 
-                class ServiceCarvingEviNotElectedResult(Entity):
+                class ServiceCarvingEviNotElectedResult(_Entity_):
                     """
                     Not elected EVI service carving results
                     
@@ -15983,7 +17408,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, self).__init__()
 
                         self.yang_name = "service-carving-evi-not-elected-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -16002,9 +17430,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult']['meta_info']
 
 
-                class ServiceCarvingVniElectedResult(Entity):
+                class ServiceCarvingVniElectedResult(_Entity_):
                     """
                     Elected VNI service carving results
                     
@@ -16025,7 +17457,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult, self).__init__()
 
                         self.yang_name = "service-carving-vni-elected-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -16044,9 +17479,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult']['meta_info']
 
 
-                class ServiceCarvingVniNotElectedResult(Entity):
+                class ServiceCarvingVniNotElectedResult(_Entity_):
                     """
                     Not elected VNI service carving results
                     
@@ -16067,7 +17506,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult, self).__init__()
 
                         self.yang_name = "service-carving-vni-not-elected-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -16086,9 +17528,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult']['meta_info']
 
 
-                class NextHop(Entity):
+                class NextHop(_Entity_):
                     """
                     List of nexthop IPv6 addresses
                     
@@ -16134,7 +17580,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.NextHop, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EthernetSegments.EthernetSegment.NextHop, self).__init__()
 
                         self.yang_name = "next-hop"
                         self.yang_parent_name = "ethernet-segment"
@@ -16159,9 +17608,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.NextHop, ['next_hop', 'df_dont_prempt', 'df_type', 'df_pref'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EthernetSegments.EthernetSegment.NextHop']['meta_info']
 
 
-                class ServiceCarvingVpwsPermanentResult(Entity):
+                class ServiceCarvingVpwsPermanentResult(_Entity_):
                     """
                     Permanent EVPN VPWS service carving results
                     
@@ -16198,7 +17651,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, self).__init__()
 
                         self.yang_name = "service-carving-vpws-permanent-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -16221,9 +17677,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, ['vpn_id', 'type', 'ethernet_tag'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult']['meta_info']
 
 
-                class RemoteSplitHorizonGroupLabel(Entity):
+                class RemoteSplitHorizonGroupLabel(_Entity_):
                     """
                     Remote split horizon group labels
                     
@@ -16253,7 +17713,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, self).__init__()
 
                         self.yang_name = "remote-split-horizon-group-label"
                         self.yang_parent_name = "ethernet-segment"
@@ -16274,11 +17737,23 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, ['next_hop', 'label'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Active.EthernetSegments.EthernetSegment']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Active.EthernetSegments']['meta_info']
 
 
-
-
-        class AcIds(Entity):
+        class AcIds(_Entity_):
             """
             EVPN AC ID table
             
@@ -16297,7 +17772,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Active.AcIds, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Active.AcIds, self).__init__()
 
                 self.yang_name = "ac-ids"
                 self.yang_parent_name = "active"
@@ -16316,7 +17794,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Active.AcIds, [], name, value)
 
 
-            class AcId(Entity):
+            class AcId(_Entity_):
                 """
                 EVPN AC ID table
                 
@@ -16369,7 +17847,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Active.AcIds.AcId, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Active.AcIds.AcId, self).__init__()
 
                     self.yang_name = "ac-id"
                     self.yang_parent_name = "ac-ids"
@@ -16399,7 +17880,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Active.AcIds.AcId, ['evi', 'ac_id', 'neighbor'], name, value)
 
 
-                class EvpnInstance(Entity):
+                class EvpnInstance(_Entity_):
                     """
                     EVPN Instance summary information
                     
@@ -16443,7 +17924,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.AcIds.AcId.EvpnInstance, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.AcIds.AcId.EvpnInstance, self).__init__()
 
                         self.yang_name = "evpn-instance"
                         self.yang_parent_name = "ac-id"
@@ -16468,9 +17952,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.AcIds.AcId.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.AcIds.AcId.EvpnInstance']['meta_info']
 
 
-                class LeafEvis(Entity):
+                class LeafEvis(_Entity_):
                     """
                     Leaf EVIs
                     
@@ -16491,7 +17979,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Active.AcIds.AcId.LeafEvis, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Active.AcIds.AcId.LeafEvis, self).__init__()
 
                         self.yang_name = "leaf-evis"
                         self.yang_parent_name = "ac-id"
@@ -16510,12 +18001,28 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Active.AcIds.AcId.LeafEvis, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Active.AcIds.AcId.LeafEvis']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Active.AcIds.AcId']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Active.AcIds']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+            return meta._meta_table['Evpn.Active']['meta_info']
 
 
-
-
-
-    class Standby(Entity):
+    class Standby(_Entity_):
         """
         Standby EVPN operational data
         
@@ -16604,7 +18111,10 @@ class Evpn(Entity):
         _revision = '2018-09-26'
 
         def __init__(self):
-            super(Evpn.Standby, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Evpn.Standby, self).__init__()
 
             self.yang_name = "standby"
             self.yang_parent_name = "evpn"
@@ -16665,7 +18175,7 @@ class Evpn(Entity):
             self._perform_setattr(Evpn.Standby, [], name, value)
 
 
-        class EvpnGroups(Entity):
+        class EvpnGroups(_Entity_):
             """
             EVPN Group Table
             
@@ -16684,7 +18194,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Standby.EvpnGroups, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Standby.EvpnGroups, self).__init__()
 
                 self.yang_name = "evpn-groups"
                 self.yang_parent_name = "standby"
@@ -16703,7 +18216,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Standby.EvpnGroups, [], name, value)
 
 
-            class EvpnGroup(Entity):
+            class EvpnGroup(_Entity_):
                 """
                 EVPN Group information
                 
@@ -16754,7 +18267,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Standby.EvpnGroups.EvpnGroup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Standby.EvpnGroups.EvpnGroup, self).__init__()
 
                     self.yang_name = "evpn-group"
                     self.yang_parent_name = "evpn-groups"
@@ -16781,7 +18297,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Standby.EvpnGroups.EvpnGroup, ['group_number', 'group_id', 'state'], name, value)
 
 
-                class CoreInterface(Entity):
+                class CoreInterface(_Entity_):
                     """
                     EVPN Group Core Interface table
                     
@@ -16807,7 +18323,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EvpnGroups.EvpnGroup.CoreInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EvpnGroups.EvpnGroup.CoreInterface, self).__init__()
 
                         self.yang_name = "core-interface"
                         self.yang_parent_name = "evpn-group"
@@ -16827,9 +18346,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.EvpnGroups.EvpnGroup.CoreInterface, ['interface_name', 'state'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EvpnGroups.EvpnGroup.CoreInterface']['meta_info']
 
 
-                class AccessInterface(Entity):
+                class AccessInterface(_Entity_):
                     """
                     EVPN Access Core Interface table
                     
@@ -16855,7 +18378,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EvpnGroups.EvpnGroup.AccessInterface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EvpnGroups.EvpnGroup.AccessInterface, self).__init__()
 
                         self.yang_name = "access-interface"
                         self.yang_parent_name = "evpn-group"
@@ -16875,11 +18401,23 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.EvpnGroups.EvpnGroup.AccessInterface, ['interface_name', 'state'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EvpnGroups.EvpnGroup.AccessInterface']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Standby.EvpnGroups.EvpnGroup']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Standby.EvpnGroups']['meta_info']
 
 
-
-
-        class RemoteShgs(Entity):
+        class RemoteShgs(_Entity_):
             """
             EVPN Remote SHG table
             
@@ -16898,7 +18436,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Standby.RemoteShgs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Standby.RemoteShgs, self).__init__()
 
                 self.yang_name = "remote-shgs"
                 self.yang_parent_name = "standby"
@@ -16917,7 +18458,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Standby.RemoteShgs, [], name, value)
 
 
-            class RemoteShg(Entity):
+            class RemoteShg(_Entity_):
                 """
                 EVPN Remote SHG
                 
@@ -17015,7 +18556,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Standby.RemoteShgs.RemoteShg, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Standby.RemoteShgs.RemoteShg, self).__init__()
 
                     self.yang_name = "remote-shg"
                     self.yang_parent_name = "remote-shgs"
@@ -17052,7 +18596,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Standby.RemoteShgs.RemoteShg, ['evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_vpn_id', 'encapsulation'], name, value)
 
 
-                class EthernetSegmentIdentifier(Entity):
+                class EthernetSegmentIdentifier(_Entity_):
                     """
                     Ethernet Segment id
                     
@@ -17073,7 +18617,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.RemoteShgs.RemoteShg.EthernetSegmentIdentifier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.RemoteShgs.RemoteShg.EthernetSegmentIdentifier, self).__init__()
 
                         self.yang_name = "ethernet-segment-identifier"
                         self.yang_parent_name = "remote-shg"
@@ -17092,9 +18639,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.RemoteShgs.RemoteShg.EthernetSegmentIdentifier, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.RemoteShgs.RemoteShg.EthernetSegmentIdentifier']['meta_info']
 
 
-                class RemoteSplitHorizonGroupLabel(Entity):
+                class RemoteSplitHorizonGroupLabel(_Entity_):
                     """
                     Remote split horizon group labels
                     
@@ -17124,7 +18675,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel, self).__init__()
 
                         self.yang_name = "remote-split-horizon-group-label"
                         self.yang_parent_name = "remote-shg"
@@ -17145,11 +18699,23 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel, ['next_hop', 'label'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Standby.RemoteShgs.RemoteShg']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Standby.RemoteShgs']['meta_info']
 
 
-
-
-        class Client(Entity):
+        class Client(_Entity_):
             """
             L2VPN EVPN Client
             
@@ -17161,7 +18727,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Standby.Client, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Standby.Client, self).__init__()
 
                 self.yang_name = "client"
                 self.yang_parent_name = "standby"
@@ -17174,9 +18743,13 @@ class Evpn(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-evpn-oper:evpn/standby/%s" % self._segment_path()
                 self._is_frozen = True
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Standby.Client']['meta_info']
 
 
-        class Igmps(Entity):
+        class Igmps(_Entity_):
             """
             EVPN IGMP table
             
@@ -17195,7 +18768,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Standby.Igmps, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Standby.Igmps, self).__init__()
 
                 self.yang_name = "igmps"
                 self.yang_parent_name = "standby"
@@ -17214,7 +18790,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Standby.Igmps, [], name, value)
 
 
-            class Igmp(Entity):
+            class Igmp(_Entity_):
                 """
                 IGMP Route
                 
@@ -17458,7 +19034,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Standby.Igmps.Igmp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Standby.Igmps.Igmp, self).__init__()
 
                     self.yang_name = "igmp"
                     self.yang_parent_name = "igmps"
@@ -17530,7 +19109,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Standby.Igmps.Igmp, ['source_type', 'is_leave', 'evi', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'src_ip', 'grp_ip', 'bd_id', 'bp_xcid', 'ethernet_segment_name', 'evi_xr', 'bd_id_xr', 'route_type', 'source_addr', 'group_addr', 'ethernet_tag_id', 'igmp_version', 'igmp_group_type', 'max_response_time', 'resolved'], name, value)
 
 
-                class SourceInfo(Entity):
+                class SourceInfo(_Entity_):
                     """
                     Source Info
                     
@@ -17565,7 +19144,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.Igmps.Igmp.SourceInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.Igmps.Igmp.SourceInfo, self).__init__()
 
                         self.yang_name = "source-info"
                         self.yang_parent_name = "igmp"
@@ -17591,7 +19173,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo, ['type', 'remote_info'], name, value)
 
 
-                    class LocalInfo(Entity):
+                    class LocalInfo(_Entity_):
                         """
                         local info
                         
@@ -17612,7 +19194,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo, self).__init__()
 
                             self.yang_name = "local-info"
                             self.yang_parent_name = "source-info"
@@ -17631,10 +19216,18 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo, ['if_name'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.Igmps.Igmp.SourceInfo']['meta_info']
 
 
-
-                class EthernetSegmentIdentifier(Entity):
+                class EthernetSegmentIdentifier(_Entity_):
                     """
                     Ethernet Segment id
                     
@@ -17655,7 +19248,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.Igmps.Igmp.EthernetSegmentIdentifier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.Igmps.Igmp.EthernetSegmentIdentifier, self).__init__()
 
                         self.yang_name = "ethernet-segment-identifier"
                         self.yang_parent_name = "igmp"
@@ -17674,11 +19270,23 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.Igmps.Igmp.EthernetSegmentIdentifier, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.Igmps.Igmp.EthernetSegmentIdentifier']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Standby.Igmps.Igmp']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Standby.Igmps']['meta_info']
 
 
-
-
-        class Evis(Entity):
+        class Evis(_Entity_):
             """
             L2VPN EVPN EVI Table
             
@@ -17697,7 +19305,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Standby.Evis, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Standby.Evis, self).__init__()
 
                 self.yang_name = "evis"
                 self.yang_parent_name = "standby"
@@ -17716,7 +19327,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Standby.Evis, [], name, value)
 
 
-            class Evi(Entity):
+            class Evi(_Entity_):
                 """
                 L2VPN EVPN EVI Entry
                 
@@ -17778,7 +19389,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Standby.Evis.Evi, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Standby.Evis.Evi, self).__init__()
 
                     self.yang_name = "evi"
                     self.yang_parent_name = "evis"
@@ -17807,10 +19421,18 @@ class Evpn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Evpn.Standby.Evis.Evi, ['evi', 'encapsulation', 'ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Standby.Evis.Evi']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Standby.Evis']['meta_info']
 
 
-
-        class Summary(Entity):
+        class Summary(_Entity_):
             """
             L2VPN EVPN Summary
             
@@ -18036,14 +19658,36 @@ class Evpn(Entity):
             
             .. attribute:: startup_cost_in_time
             
-            	EVPN Node startup cost\-in Time (minutes)
+            	EVPN Node startup cost\-in Time (seconds)
             	**type**\: int
             
             	**range:** 0..4294967295
             
             	**config**\: False
             
-            	**units**\: minute
+            	**units**\: second
+            
+            .. attribute:: mac_postpone_timer
+            
+            	Configured timer for postponing MAC withdraws (seconds)
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            	**units**\: second
+            
+            .. attribute:: mac_postpone_timer_left
+            
+            	Milliseconds left on MAC withdraw postpone timer
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            	**config**\: False
+            
+            	**units**\: millisecond
             
             .. attribute:: l2rib_throttle
             
@@ -18067,7 +19711,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Standby.Summary, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Standby.Summary, self).__init__()
 
                 self.yang_name = "summary"
                 self.yang_parent_name = "standby"
@@ -18101,6 +19748,8 @@ class Evpn(Entity):
                     ('carving_time', (YLeaf(YType.uint32, 'carving-time'), ['int'])),
                     ('cost_out', (YLeaf(YType.boolean, 'cost-out'), ['bool'])),
                     ('startup_cost_in_time', (YLeaf(YType.uint32, 'startup-cost-in-time'), ['int'])),
+                    ('mac_postpone_timer', (YLeaf(YType.uint32, 'mac-postpone-timer'), ['int'])),
+                    ('mac_postpone_timer_left', (YLeaf(YType.uint32, 'mac-postpone-timer-left'), ['int'])),
                     ('l2rib_throttle', (YLeaf(YType.boolean, 'l2rib-throttle'), ['bool'])),
                     ('logging_df_election_enabled', (YLeaf(YType.boolean, 'logging-df-election-enabled'), ['bool'])),
                 ])
@@ -18129,6 +19778,8 @@ class Evpn(Entity):
                 self.carving_time = None
                 self.cost_out = None
                 self.startup_cost_in_time = None
+                self.mac_postpone_timer = None
+                self.mac_postpone_timer_left = None
                 self.l2rib_throttle = None
                 self.logging_df_election_enabled = None
                 self._segment_path = lambda: "summary"
@@ -18136,11 +19787,15 @@ class Evpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.Standby.Summary, ['router_id', 'as_', 'ev_is', 'tunnel_endpoints', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'carving_time', 'cost_out', 'startup_cost_in_time', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
+                self._perform_setattr(Evpn.Standby.Summary, ['router_id', 'as_', 'ev_is', 'tunnel_endpoints', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'carving_time', 'cost_out', 'startup_cost_in_time', 'mac_postpone_timer', 'mac_postpone_timer_left', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Standby.Summary']['meta_info']
 
 
-
-        class EviDetail(Entity):
+        class EviDetail(_Entity_):
             """
             L2VPN EVI Detail Table
             
@@ -18166,7 +19821,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Standby.EviDetail, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Standby.EviDetail, self).__init__()
 
                 self.yang_name = "evi-detail"
                 self.yang_parent_name = "standby"
@@ -18191,7 +19849,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Standby.EviDetail, [], name, value)
 
 
-            class Elements(Entity):
+            class Elements(_Entity_):
                 """
                 EVI BGP RT Detail Info Elements
                 
@@ -18210,7 +19868,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Standby.EviDetail.Elements, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Standby.EviDetail.Elements, self).__init__()
 
                     self.yang_name = "elements"
                     self.yang_parent_name = "evi-detail"
@@ -18229,7 +19890,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Standby.EviDetail.Elements, [], name, value)
 
 
-                class Element(Entity):
+                class Element(_Entity_):
                     """
                     EVI BGP RT Detail Info
                     
@@ -18458,7 +20119,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EviDetail.Elements.Element, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EviDetail.Elements.Element, self).__init__()
 
                         self.yang_name = "element"
                         self.yang_parent_name = "elements"
@@ -18544,7 +20208,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element, ['evi', 'encapsulation', 'evi_xr', 'encapsulation_xr', 'bd_name', 'type', 'description', 'unicast_label', 'multicast_label', 'cw_disable', 'table_policy_name', 'forward_class', 'rt_import_block_set', 'rt_export_block_set', 'advertise_mac', 'etree_leaf', 'advertise_bvi_mac', 'aliasing_disabled', 'unknown_unicast_flooding_disabled', 'reoriginate_disabled', 'stitching', 'multicast_source_connected', 'bgp_implicit_import_disabled', 'vrf_name'], name, value)
 
 
-                    class EvpnInstance(Entity):
+                    class EvpnInstance(_Entity_):
                         """
                         EVPN Instance summary information
                         
@@ -18588,7 +20252,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Standby.EviDetail.Elements.Element.EvpnInstance, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Standby.EviDetail.Elements.Element.EvpnInstance, self).__init__()
 
                             self.yang_name = "evpn-instance"
                             self.yang_parent_name = "element"
@@ -18613,9 +20280,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.EvpnInstance']['meta_info']
 
 
-                    class FlowLabel(Entity):
+                    class FlowLabel(_Entity_):
                         """
                         Flow Label Information
                         
@@ -18641,7 +20312,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Standby.EviDetail.Elements.Element.FlowLabel, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Standby.EviDetail.Elements.Element.FlowLabel, self).__init__()
 
                             self.yang_name = "flow-label"
                             self.yang_parent_name = "element"
@@ -18662,9 +20336,13 @@ class Evpn(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.FlowLabel, ['static_flow_label', 'global_flow_label'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.FlowLabel']['meta_info']
 
 
-                    class RdAuto(Entity):
+                    class RdAuto(_Entity_):
                         """
                         Automatic Route Distingtuisher
                         
@@ -18711,7 +20389,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Standby.EviDetail.Elements.Element.RdAuto, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Standby.EviDetail.Elements.Element.RdAuto, self).__init__()
 
                             self.yang_name = "rd-auto"
                             self.yang_parent_name = "element"
@@ -18747,7 +20428,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto, ['rd'], name, value)
 
 
-                        class Auto(Entity):
+                        class Auto(_Entity_):
                             """
                             auto
                             
@@ -18777,7 +20458,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto, self).__init__()
 
                                 self.yang_name = "auto"
                                 self.yang_parent_name = "rd-auto"
@@ -18798,9 +20482,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto, ['router_id', 'auto_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto']['meta_info']
 
 
-                        class TwoByteAs(Entity):
+                        class TwoByteAs(_Entity_):
                             """
                             two byte as
                             
@@ -18830,7 +20518,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs, self).__init__()
 
                                 self.yang_name = "two-byte-as"
                                 self.yang_parent_name = "rd-auto"
@@ -18851,9 +20542,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs']['meta_info']
 
 
-                        class FourByteAs(Entity):
+                        class FourByteAs(_Entity_):
                             """
                             four byte as
                             
@@ -18883,7 +20578,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs, self).__init__()
 
                                 self.yang_name = "four-byte-as"
                                 self.yang_parent_name = "rd-auto"
@@ -18904,9 +20602,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs']['meta_info']
 
 
-                        class V4Addr(Entity):
+                        class V4Addr(_Entity_):
                             """
                             v4 addr
                             
@@ -18936,7 +20638,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RdAuto.V4Addr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.Elements.Element.RdAuto.V4Addr, self).__init__()
 
                                 self.yang_name = "v4-addr"
                                 self.yang_parent_name = "rd-auto"
@@ -18957,10 +20662,18 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.RdAuto.V4Addr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.RdAuto']['meta_info']
 
 
-
-                    class RdConfigured(Entity):
+                    class RdConfigured(_Entity_):
                         """
                         Configured Route Distinguisher
                         
@@ -19007,7 +20720,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Standby.EviDetail.Elements.Element.RdConfigured, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Standby.EviDetail.Elements.Element.RdConfigured, self).__init__()
 
                             self.yang_name = "rd-configured"
                             self.yang_parent_name = "element"
@@ -19043,7 +20759,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured, ['rd'], name, value)
 
 
-                        class Auto(Entity):
+                        class Auto(_Entity_):
                             """
                             auto
                             
@@ -19073,7 +20789,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto, self).__init__()
 
                                 self.yang_name = "auto"
                                 self.yang_parent_name = "rd-configured"
@@ -19094,9 +20813,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto, ['router_id', 'auto_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto']['meta_info']
 
 
-                        class TwoByteAs(Entity):
+                        class TwoByteAs(_Entity_):
                             """
                             two byte as
                             
@@ -19126,7 +20849,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs, self).__init__()
 
                                 self.yang_name = "two-byte-as"
                                 self.yang_parent_name = "rd-configured"
@@ -19147,9 +20873,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs']['meta_info']
 
 
-                        class FourByteAs(Entity):
+                        class FourByteAs(_Entity_):
                             """
                             four byte as
                             
@@ -19179,7 +20909,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs, self).__init__()
 
                                 self.yang_name = "four-byte-as"
                                 self.yang_parent_name = "rd-configured"
@@ -19200,9 +20933,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs']['meta_info']
 
 
-                        class V4Addr(Entity):
+                        class V4Addr(_Entity_):
                             """
                             v4 addr
                             
@@ -19232,7 +20969,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.V4Addr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.V4Addr, self).__init__()
 
                                 self.yang_name = "v4-addr"
                                 self.yang_parent_name = "rd-configured"
@@ -19253,10 +20993,18 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.RdConfigured.V4Addr']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.RdConfigured']['meta_info']
 
 
-
-                    class RtAuto(Entity):
+                    class RtAuto(_Entity_):
                         """
                         Automatic Route Target
                         
@@ -19303,7 +21051,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Standby.EviDetail.Elements.Element.RtAuto, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Standby.EviDetail.Elements.Element.RtAuto, self).__init__()
 
                             self.yang_name = "rt-auto"
                             self.yang_parent_name = "element"
@@ -19339,7 +21090,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto, ['rt'], name, value)
 
 
-                        class TwoByteAs(Entity):
+                        class TwoByteAs(_Entity_):
                             """
                             two byte as
                             
@@ -19369,7 +21120,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs, self).__init__()
 
                                 self.yang_name = "two-byte-as"
                                 self.yang_parent_name = "rt-auto"
@@ -19390,9 +21144,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs']['meta_info']
 
 
-                        class FourByteAs(Entity):
+                        class FourByteAs(_Entity_):
                             """
                             four byte as
                             
@@ -19422,7 +21180,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs, self).__init__()
 
                                 self.yang_name = "four-byte-as"
                                 self.yang_parent_name = "rt-auto"
@@ -19443,9 +21204,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs']['meta_info']
 
 
-                        class V4Addr(Entity):
+                        class V4Addr(_Entity_):
                             """
                             v4 addr
                             
@@ -19475,7 +21240,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RtAuto.V4Addr, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.Elements.Element.RtAuto.V4Addr, self).__init__()
 
                                 self.yang_name = "v4-addr"
                                 self.yang_parent_name = "rt-auto"
@@ -19496,9 +21264,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.RtAuto.V4Addr']['meta_info']
 
 
-                        class EsImport(Entity):
+                        class EsImport(_Entity_):
                             """
                             es import
                             
@@ -19528,7 +21300,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport, self).__init__()
 
                                 self.yang_name = "es-import"
                                 self.yang_parent_name = "rt-auto"
@@ -19549,12 +21324,28 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport, ['high_bytes', 'low_bytes'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element.RtAuto']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EviDetail.Elements.Element']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Standby.EviDetail.Elements']['meta_info']
 
 
-
-
-
-            class EviChildren(Entity):
+            class EviChildren(_Entity_):
                 """
                 Container for all EVI detail info
                 
@@ -19601,7 +21392,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Standby.EviDetail.EviChildren, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Standby.EviDetail.EviChildren, self).__init__()
 
                     self.yang_name = "evi-children"
                     self.yang_parent_name = "evi-detail"
@@ -19638,7 +21432,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Standby.EviDetail.EviChildren, [], name, value)
 
 
-                class Neighbors(Entity):
+                class Neighbors(_Entity_):
                     """
                     EVPN Neighbor table
                     
@@ -19657,7 +21451,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EviDetail.EviChildren.Neighbors, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EviDetail.EviChildren.Neighbors, self).__init__()
 
                         self.yang_name = "neighbors"
                         self.yang_parent_name = "evi-children"
@@ -19676,7 +21473,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Neighbors, [], name, value)
 
 
-                    class Neighbor(Entity):
+                    class Neighbor(_Entity_):
                         """
                         EVPN Neighbor table
                         
@@ -19744,7 +21541,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor, self).__init__()
 
                             self.yang_name = "neighbor"
                             self.yang_parent_name = "neighbors"
@@ -19776,7 +21576,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor, ['evi', 'encapsulation', 'neighbor_ip', 'neighbor'], name, value)
 
 
-                        class EvpnInstance(Entity):
+                        class EvpnInstance(_Entity_):
                             """
                             EVPN Instance summary information
                             
@@ -19820,7 +21620,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance, self).__init__()
 
                                 self.yang_name = "evpn-instance"
                                 self.yang_parent_name = "neighbor"
@@ -19845,9 +21648,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance']['meta_info']
 
 
-                        class LeafEvis(Entity):
+                        class LeafEvis(_Entity_):
                             """
                             Leaf EVIs
                             
@@ -19868,7 +21675,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor.LeafEvis, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor.LeafEvis, self).__init__()
 
                                 self.yang_name = "leaf-evis"
                                 self.yang_parent_name = "neighbor"
@@ -19887,11 +21697,23 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor.LeafEvis, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor.LeafEvis']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.Neighbors']['meta_info']
 
 
-
-
-                class EthernetAutoDiscoveries(Entity):
+                class EthernetAutoDiscoveries(_Entity_):
                     """
                     EVPN Ethernet Auto\-Discovery table
                     
@@ -19910,7 +21732,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries, self).__init__()
 
                         self.yang_name = "ethernet-auto-discoveries"
                         self.yang_parent_name = "evi-children"
@@ -19929,7 +21754,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries, [], name, value)
 
 
-                    class EthernetAutoDiscovery(Entity):
+                    class EthernetAutoDiscovery(_Entity_):
                         """
                         EVPN Ethernet Auto\-Discovery Entry
                         
@@ -20091,7 +21916,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, self).__init__()
 
                             self.yang_name = "ethernet-auto-discovery"
                             self.yang_parent_name = "ethernet-auto-discoveries"
@@ -20146,7 +21974,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_tag_xr', 'local_next_hop', 'local_label', 'is_local_ead', 'redundancy_single_active', 'redundancy_single_flow_active', 'num_paths'], name, value)
 
 
-                        class EvpnInstance(Entity):
+                        class EvpnInstance(_Entity_):
                             """
                             EVPN Instance summary information
                             
@@ -20190,7 +22018,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance, self).__init__()
 
                                 self.yang_name = "evpn-instance"
                                 self.yang_parent_name = "ethernet-auto-discovery"
@@ -20215,9 +22046,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance']['meta_info']
 
 
-                        class EthernetSegmentIdentifier(Entity):
+                        class EthernetSegmentIdentifier(_Entity_):
                             """
                             Ethernet Segment id
                             
@@ -20238,7 +22073,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, self).__init__()
 
                                 self.yang_name = "ethernet-segment-identifier"
                                 self.yang_parent_name = "ethernet-auto-discovery"
@@ -20257,9 +22095,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier']['meta_info']
 
 
-                        class PathBuffer(Entity):
+                        class PathBuffer(_Entity_):
                             """
                             Path List Buffer
                             
@@ -20307,7 +22149,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, self).__init__()
 
                                 self.yang_name = "path-buffer"
                                 self.yang_parent_name = "ethernet-auto-discovery"
@@ -20332,11 +22177,23 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries']['meta_info']
 
 
-
-
-                class InclusiveMulticasts(Entity):
+                class InclusiveMulticasts(_Entity_):
                     """
                     L2VPN EVPN IMCAST table
                     
@@ -20355,7 +22212,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts, self).__init__()
 
                         self.yang_name = "inclusive-multicasts"
                         self.yang_parent_name = "evi-children"
@@ -20374,7 +22234,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts, [], name, value)
 
 
-                    class InclusiveMulticast(Entity):
+                    class InclusiveMulticast(_Entity_):
                         """
                         L2VPN EVPN IMCAST table
                         
@@ -20519,7 +22379,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, self).__init__()
 
                             self.yang_name = "inclusive-multicast"
                             self.yang_parent_name = "inclusive-multicasts"
@@ -20569,7 +22432,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, ['evi', 'encapsulation', 'ethernet_tag', 'originating_ip', 'ethernet_tag_xr', 'originating_ip_xr', 'tunnel_endpoint_id', 'pmsi_tunnel_type', 'next_hop', 'output_label', 'is_local_entry', 'is_proxy_entry', 'srte_policy', 'etree_leaf'], name, value)
 
 
-                        class EvpnInstance(Entity):
+                        class EvpnInstance(_Entity_):
                             """
                             EVPN Instance summary information
                             
@@ -20613,7 +22476,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance, self).__init__()
 
                                 self.yang_name = "evpn-instance"
                                 self.yang_parent_name = "inclusive-multicast"
@@ -20638,11 +22504,23 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts']['meta_info']
 
 
-
-
-                class RouteTargets(Entity):
+                class RouteTargets(_Entity_):
                     """
                     L2VPN EVPN EVI RT Child Table
                     
@@ -20661,7 +22539,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EviDetail.EviChildren.RouteTargets, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EviDetail.EviChildren.RouteTargets, self).__init__()
 
                         self.yang_name = "route-targets"
                         self.yang_parent_name = "evi-children"
@@ -20680,7 +22561,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets, [], name, value)
 
 
-                    class RouteTarget(Entity):
+                    class RouteTarget(_Entity_):
                         """
                         L2VPN EVPN EVI RT Table
                         
@@ -20788,7 +22669,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget, self).__init__()
 
                             self.yang_name = "route-target"
                             self.yang_parent_name = "route-targets"
@@ -20834,7 +22718,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget, ['evi', 'encapsulation', 'role', 'format', 'as_', 'as_index', 'addr_index', 'address', 'route_target_role', 'route_target_stitching'], name, value)
 
 
-                        class EvpnInstance(Entity):
+                        class EvpnInstance(_Entity_):
                             """
                             EVPN Instance summary information
                             
@@ -20878,7 +22762,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance, self).__init__()
 
                                 self.yang_name = "evpn-instance"
                                 self.yang_parent_name = "route-target"
@@ -20903,9 +22790,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance']['meta_info']
 
 
-                        class RouteTarget_(Entity):
+                        class RouteTarget_(_Entity_):
                             """
                             Route Target
                             
@@ -20952,7 +22843,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, self).__init__()
 
                                 self.yang_name = "route-target"
                                 self.yang_parent_name = "route-target"
@@ -20988,7 +22882,7 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, ['rt'], name, value)
 
 
-                            class TwoByteAs(Entity):
+                            class TwoByteAs(_Entity_):
                                 """
                                 two byte as
                                 
@@ -21018,7 +22912,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, self).__init__()
 
                                     self.yang_name = "two-byte-as"
                                     self.yang_parent_name = "route-target"
@@ -21039,9 +22936,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs']['meta_info']
 
 
-                            class FourByteAs(Entity):
+                            class FourByteAs(_Entity_):
                                 """
                                 four byte as
                                 
@@ -21071,7 +22972,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, self).__init__()
 
                                     self.yang_name = "four-byte-as"
                                     self.yang_parent_name = "route-target"
@@ -21092,9 +22996,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs']['meta_info']
 
 
-                            class V4Addr(Entity):
+                            class V4Addr(_Entity_):
                                 """
                                 v4 addr
                                 
@@ -21124,7 +23032,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, self).__init__()
 
                                     self.yang_name = "v4-addr"
                                     self.yang_parent_name = "route-target"
@@ -21145,9 +23056,13 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr']['meta_info']
 
 
-                            class EsImport(Entity):
+                            class EsImport(_Entity_):
                                 """
                                 es import
                                 
@@ -21177,7 +23092,10 @@ class Evpn(Entity):
                                 _revision = '2018-09-26'
 
                                 def __init__(self):
-                                    super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, self).__init__()
 
                                     self.yang_name = "es-import"
                                     self.yang_parent_name = "route-target"
@@ -21198,12 +23116,28 @@ class Evpn(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, ['high_bytes', 'low_bytes'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                    return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.RouteTargets']['meta_info']
 
 
-
-
-
-                class Macs(Entity):
+                class Macs(_Entity_):
                     """
                     L2VPN EVPN EVI MAC table
                     
@@ -21222,7 +23156,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EviDetail.EviChildren.Macs, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EviDetail.EviChildren.Macs, self).__init__()
 
                         self.yang_name = "macs"
                         self.yang_parent_name = "evi-children"
@@ -21241,7 +23178,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs, [], name, value)
 
 
-                    class Mac(Entity):
+                    class Mac(_Entity_):
                         """
                         L2VPN EVPN MAC table
                         
@@ -21566,7 +23503,10 @@ class Evpn(Entity):
                         _revision = '2018-09-26'
 
                         def __init__(self):
-                            super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac, self).__init__()
 
                             self.yang_name = "mac"
                             self.yang_parent_name = "macs"
@@ -21658,7 +23598,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac, ['evi', 'encapsulation', 'ethernet_tag', 'mac_address', 'ip_address', 'ethernet_tag_xr', 'mac_address_xr', 'ip_address_xr', 'local_label', 'num_paths', 'is_local_mac', 'is_proxy_entry', 'is_remote_mac', 'soo_nexthop', 'ipnh_address', 'esi_port_key', 'local_encap_type', 'remote_encap_type', 'learned_bridge_port_name', 'local_seq_id', 'remote_seq_id', 'local_l3_label', 'router_mac_address', 'mac_flush_requested', 'mac_flush_received', 'internal_label', 'resolved', 'local_is_static', 'remote_is_static', 'local_etree_leaf', 'remote_etree_leaf', 'local_attachment_circuit_id', 'remote_attachment_circuit_id'], name, value)
 
 
-                        class EvpnInstance(Entity):
+                        class EvpnInstance(_Entity_):
                             """
                             EVPN Instance summary information
                             
@@ -21702,7 +23642,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.EvpnInstance, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.EvpnInstance, self).__init__()
 
                                 self.yang_name = "evpn-instance"
                                 self.yang_parent_name = "mac"
@@ -21727,9 +23670,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.Macs.Mac.EvpnInstance']['meta_info']
 
 
-                        class LocalEthernetSegmentIdentifier(Entity):
+                        class LocalEthernetSegmentIdentifier(_Entity_):
                             """
                             Local Ethernet Segment id
                             
@@ -21750,7 +23697,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, self).__init__()
 
                                 self.yang_name = "local-ethernet-segment-identifier"
                                 self.yang_parent_name = "mac"
@@ -21769,9 +23719,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier']['meta_info']
 
 
-                        class RemoteEthernetSegmentIdentifier(Entity):
+                        class RemoteEthernetSegmentIdentifier(_Entity_):
                             """
                             Remote Ethernet Segment id
                             
@@ -21792,7 +23746,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, self).__init__()
 
                                 self.yang_name = "remote-ethernet-segment-identifier"
                                 self.yang_parent_name = "mac"
@@ -21811,9 +23768,13 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, ['entry'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier']['meta_info']
 
 
-                        class PathBuffer(Entity):
+                        class PathBuffer(_Entity_):
                             """
                             Path List Buffer
                             
@@ -21861,7 +23822,10 @@ class Evpn(Entity):
                             _revision = '2018-09-26'
 
                             def __init__(self):
-                                super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer, self).__init__()
 
                                 self.yang_name = "path-buffer"
                                 self.yang_parent_name = "mac"
@@ -21886,13 +23850,33 @@ class Evpn(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                                return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                            return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.Macs.Mac']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EviDetail.EviChildren.Macs']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Standby.EviDetail.EviChildren']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Standby.EviDetail']['meta_info']
 
 
-
-
-
-
-        class Teps(Entity):
+        class Teps(_Entity_):
             """
             L2VPN EVPN TEP Table
             
@@ -21911,7 +23895,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Standby.Teps, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Standby.Teps, self).__init__()
 
                 self.yang_name = "teps"
                 self.yang_parent_name = "standby"
@@ -21930,7 +23917,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Standby.Teps, [], name, value)
 
 
-            class Tep(Entity):
+            class Tep(_Entity_):
                 """
                 L2VPN EVPN TEP Entry
                 
@@ -22017,7 +24004,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Standby.Teps.Tep, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Standby.Teps.Tep, self).__init__()
 
                     self.yang_name = "tep"
                     self.yang_parent_name = "teps"
@@ -22057,7 +24047,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Standby.Teps.Tep, ['tep_id', 'tunnel_endpoint_id', 'type', 'use_count', 'vrf_name', 'vrf_table_id', 'udp_port'], name, value)
 
 
-                class LocalInfo(Entity):
+                class LocalInfo(_Entity_):
                     """
                     Local TEP Information
                     
@@ -22096,7 +24086,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.Teps.Tep.LocalInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.Teps.Tep.LocalInfo, self).__init__()
 
                         self.yang_name = "local-info"
                         self.yang_parent_name = "tep"
@@ -22118,9 +24111,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.Teps.Tep.LocalInfo, ['ethernet_vpn_id', 'encapsulation', 'ip'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.Teps.Tep.LocalInfo']['meta_info']
 
 
-                class RemoteInfo(Entity):
+                class RemoteInfo(_Entity_):
                     """
                     Remote TEP Information
                     
@@ -22159,7 +24156,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.Teps.Tep.RemoteInfo, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.Teps.Tep.RemoteInfo, self).__init__()
 
                         self.yang_name = "remote-info"
                         self.yang_parent_name = "tep"
@@ -22181,11 +24181,23 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.Teps.Tep.RemoteInfo, ['ethernet_vpn_id', 'encapsulation', 'ip'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.Teps.Tep.RemoteInfo']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Standby.Teps.Tep']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Standby.Teps']['meta_info']
 
 
-
-
-        class InternalLabels(Entity):
+        class InternalLabels(_Entity_):
             """
             EVPN Internal Label Table
             
@@ -22204,7 +24216,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Standby.InternalLabels, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Standby.InternalLabels, self).__init__()
 
                 self.yang_name = "internal-labels"
                 self.yang_parent_name = "standby"
@@ -22223,7 +24238,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Standby.InternalLabels, [], name, value)
 
 
-            class InternalLabel(Entity):
+            class InternalLabel(_Entity_):
                 """
                 L2VPN EVPN Internal Label
                 
@@ -22442,7 +24457,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Standby.InternalLabels.InternalLabel, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Standby.InternalLabels.InternalLabel, self).__init__()
 
                     self.yang_name = "internal-label"
                     self.yang_parent_name = "internal-labels"
@@ -22509,7 +24527,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'esi', 'tag', 'internal_label', 'mac_num_paths', 'ead_num_paths', 'evi_num_paths', 'sum_num_paths', 'sum_num_active_paths', 'resolved', 'ecmp_disable', 'redundancy_single_active', 'redundancy_single_flow_active'], name, value)
 
 
-                class EvpnInstance(Entity):
+                class EvpnInstance(_Entity_):
                     """
                     EVPN Instance summary information
                     
@@ -22553,7 +24571,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.InternalLabels.InternalLabel.EvpnInstance, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.InternalLabels.InternalLabel.EvpnInstance, self).__init__()
 
                         self.yang_name = "evpn-instance"
                         self.yang_parent_name = "internal-label"
@@ -22578,9 +24599,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.InternalLabels.InternalLabel.EvpnInstance']['meta_info']
 
 
-                class MacPathBuffer(Entity):
+                class MacPathBuffer(_Entity_):
                     """
                     MAC Path list buffer
                     
@@ -22628,7 +24653,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.InternalLabels.InternalLabel.MacPathBuffer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.InternalLabels.InternalLabel.MacPathBuffer, self).__init__()
 
                         self.yang_name = "mac-path-buffer"
                         self.yang_parent_name = "internal-label"
@@ -22653,9 +24681,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.MacPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.InternalLabels.InternalLabel.MacPathBuffer']['meta_info']
 
 
-                class EadPathBuffer(Entity):
+                class EadPathBuffer(_Entity_):
                     """
                     EAD/ES Path list buffer
                     
@@ -22703,7 +24735,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.InternalLabels.InternalLabel.EadPathBuffer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.InternalLabels.InternalLabel.EadPathBuffer, self).__init__()
 
                         self.yang_name = "ead-path-buffer"
                         self.yang_parent_name = "internal-label"
@@ -22728,9 +24763,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.EadPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.InternalLabels.InternalLabel.EadPathBuffer']['meta_info']
 
 
-                class EviPathBuffer(Entity):
+                class EviPathBuffer(_Entity_):
                     """
                     EAD/EVI Path list buffer
                     
@@ -22778,7 +24817,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.InternalLabels.InternalLabel.EviPathBuffer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.InternalLabels.InternalLabel.EviPathBuffer, self).__init__()
 
                         self.yang_name = "evi-path-buffer"
                         self.yang_parent_name = "internal-label"
@@ -22803,9 +24845,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.EviPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.InternalLabels.InternalLabel.EviPathBuffer']['meta_info']
 
 
-                class SummaryPathBuffer(Entity):
+                class SummaryPathBuffer(_Entity_):
                     """
                     Summary Path list buffer
                     
@@ -22853,7 +24899,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.InternalLabels.InternalLabel.SummaryPathBuffer, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.InternalLabels.InternalLabel.SummaryPathBuffer, self).__init__()
 
                         self.yang_name = "summary-path-buffer"
                         self.yang_parent_name = "internal-label"
@@ -22878,11 +24927,23 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.SummaryPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.InternalLabels.InternalLabel.SummaryPathBuffer']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Standby.InternalLabels.InternalLabel']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Standby.InternalLabels']['meta_info']
 
 
-
-
-        class EthernetSegments(Entity):
+        class EthernetSegments(_Entity_):
             """
             EVPN Ethernet\-Segment Table
             
@@ -22901,7 +24962,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Standby.EthernetSegments, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Standby.EthernetSegments, self).__init__()
 
                 self.yang_name = "ethernet-segments"
                 self.yang_parent_name = "standby"
@@ -22920,7 +24984,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Standby.EthernetSegments, [], name, value)
 
 
-            class EthernetSegment(Entity):
+            class EthernetSegment(_Entity_):
                 """
                 EVPN Ethernet\-Segment Entry
                 
@@ -23407,7 +25471,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Standby.EthernetSegments.EthernetSegment, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Standby.EthernetSegments.EthernetSegment, self).__init__()
 
                     self.yang_name = "ethernet-segment"
                     self.yang_parent_name = "ethernet-segments"
@@ -23532,7 +25599,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'esi_system_identifier', 'esi_port_key', 'esi_system_priority', 'ethernet_segment_name', 'ethernet_segment_state', 'if_handle', 'main_port_role', 'main_port_mac', 'num_up_p_ws', 'route_target', 'rt_origin', 'es_bgp_gates', 'es_l2fib_gates', 'mac_flushing_mode_config', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'force_single_home', 'source_mac_oper', 'source_mac_origin', 'peering_timer', 'peering_timer_left', 'recovery_timer', 'recovery_timer_left', 'carving_timer', 'carving_timer_left', 'service_carving_mode', 'service_carving_mcast_mode', 'primary_services_input', 'secondary_services_input', 'forwarder_ports', 'permanent_forwarder_ports', 'elected_forwarder_ports', 'not_elected_forwarder_ports', 'not_config_forwarder_ports', 'mp_protected', 'nve_anycast_vtep', 'nve_ingress_replication', 'local_split_horizon_group_label_valid', 'local_split_horizon_group_label'], name, value)
 
 
-                class EthernetSegmentIdentifier(Entity):
+                class EthernetSegmentIdentifier(_Entity_):
                     """
                     Ethernet Segment id
                     
@@ -23553,7 +25620,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, self).__init__()
 
                         self.yang_name = "ethernet-segment-identifier"
                         self.yang_parent_name = "ethernet-segment"
@@ -23572,9 +25642,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier']['meta_info']
 
 
-                class PrimaryService(Entity):
+                class PrimaryService(_Entity_):
                     """
                     List of Primary services ESI/I\-SIDs
                     
@@ -23595,7 +25669,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService, self).__init__()
 
                         self.yang_name = "primary-service"
                         self.yang_parent_name = "ethernet-segment"
@@ -23614,9 +25691,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService']['meta_info']
 
 
-                class SecondaryService(Entity):
+                class SecondaryService(_Entity_):
                     """
                     List of Secondary services ESI/I\-SIDs
                     
@@ -23637,7 +25718,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService, self).__init__()
 
                         self.yang_name = "secondary-service"
                         self.yang_parent_name = "ethernet-segment"
@@ -23656,9 +25740,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService']['meta_info']
 
 
-                class ServiceCarvingISidelectedResult(Entity):
+                class ServiceCarvingISidelectedResult(_Entity_):
                     """
                     Elected ISID service carving results
                     
@@ -23679,7 +25767,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, self).__init__()
 
                         self.yang_name = "service-carving-i-sidelected-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -23698,9 +25789,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult']['meta_info']
 
 
-                class ServiceCarvingIsidNotElectedResult(Entity):
+                class ServiceCarvingIsidNotElectedResult(_Entity_):
                     """
                     Not elected ISID service carving results
                     
@@ -23721,7 +25816,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, self).__init__()
 
                         self.yang_name = "service-carving-isid-not-elected-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -23740,9 +25838,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult']['meta_info']
 
 
-                class ServiceCarvingEviElectedResult(Entity):
+                class ServiceCarvingEviElectedResult(_Entity_):
                     """
                     Elected EVI service carving results
                     
@@ -23763,7 +25865,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, self).__init__()
 
                         self.yang_name = "service-carving-evi-elected-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -23782,9 +25887,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult']['meta_info']
 
 
-                class ServiceCarvingEviNotElectedResult(Entity):
+                class ServiceCarvingEviNotElectedResult(_Entity_):
                     """
                     Not elected EVI service carving results
                     
@@ -23805,7 +25914,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, self).__init__()
 
                         self.yang_name = "service-carving-evi-not-elected-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -23824,9 +25936,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult']['meta_info']
 
 
-                class ServiceCarvingVniElectedResult(Entity):
+                class ServiceCarvingVniElectedResult(_Entity_):
                     """
                     Elected VNI service carving results
                     
@@ -23847,7 +25963,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult, self).__init__()
 
                         self.yang_name = "service-carving-vni-elected-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -23866,9 +25985,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult']['meta_info']
 
 
-                class ServiceCarvingVniNotElectedResult(Entity):
+                class ServiceCarvingVniNotElectedResult(_Entity_):
                     """
                     Not elected VNI service carving results
                     
@@ -23889,7 +26012,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult, self).__init__()
 
                         self.yang_name = "service-carving-vni-not-elected-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -23908,9 +26034,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult']['meta_info']
 
 
-                class NextHop(Entity):
+                class NextHop(_Entity_):
                     """
                     List of nexthop IPv6 addresses
                     
@@ -23956,7 +26086,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.NextHop, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EthernetSegments.EthernetSegment.NextHop, self).__init__()
 
                         self.yang_name = "next-hop"
                         self.yang_parent_name = "ethernet-segment"
@@ -23981,9 +26114,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.NextHop, ['next_hop', 'df_dont_prempt', 'df_type', 'df_pref'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EthernetSegments.EthernetSegment.NextHop']['meta_info']
 
 
-                class ServiceCarvingVpwsPermanentResult(Entity):
+                class ServiceCarvingVpwsPermanentResult(_Entity_):
                     """
                     Permanent EVPN VPWS service carving results
                     
@@ -24020,7 +26157,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, self).__init__()
 
                         self.yang_name = "service-carving-vpws-permanent-result"
                         self.yang_parent_name = "ethernet-segment"
@@ -24043,9 +26183,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, ['vpn_id', 'type', 'ethernet_tag'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult']['meta_info']
 
 
-                class RemoteSplitHorizonGroupLabel(Entity):
+                class RemoteSplitHorizonGroupLabel(_Entity_):
                     """
                     Remote split horizon group labels
                     
@@ -24075,7 +26219,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, self).__init__()
 
                         self.yang_name = "remote-split-horizon-group-label"
                         self.yang_parent_name = "ethernet-segment"
@@ -24096,11 +26243,23 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, ['next_hop', 'label'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Standby.EthernetSegments.EthernetSegment']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Standby.EthernetSegments']['meta_info']
 
 
-
-
-        class AcIds(Entity):
+        class AcIds(_Entity_):
             """
             EVPN AC ID table
             
@@ -24119,7 +26278,10 @@ class Evpn(Entity):
             _revision = '2018-09-26'
 
             def __init__(self):
-                super(Evpn.Standby.AcIds, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Evpn.Standby.AcIds, self).__init__()
 
                 self.yang_name = "ac-ids"
                 self.yang_parent_name = "standby"
@@ -24138,7 +26300,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.Standby.AcIds, [], name, value)
 
 
-            class AcId(Entity):
+            class AcId(_Entity_):
                 """
                 EVPN AC ID table
                 
@@ -24191,7 +26353,10 @@ class Evpn(Entity):
                 _revision = '2018-09-26'
 
                 def __init__(self):
-                    super(Evpn.Standby.AcIds.AcId, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Evpn.Standby.AcIds.AcId, self).__init__()
 
                     self.yang_name = "ac-id"
                     self.yang_parent_name = "ac-ids"
@@ -24221,7 +26386,7 @@ class Evpn(Entity):
                     self._perform_setattr(Evpn.Standby.AcIds.AcId, ['evi', 'ac_id', 'neighbor'], name, value)
 
 
-                class EvpnInstance(Entity):
+                class EvpnInstance(_Entity_):
                     """
                     EVPN Instance summary information
                     
@@ -24265,7 +26430,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.AcIds.AcId.EvpnInstance, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.AcIds.AcId.EvpnInstance, self).__init__()
 
                         self.yang_name = "evpn-instance"
                         self.yang_parent_name = "ac-id"
@@ -24290,9 +26458,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.AcIds.AcId.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.AcIds.AcId.EvpnInstance']['meta_info']
 
 
-                class LeafEvis(Entity):
+                class LeafEvis(_Entity_):
                     """
                     Leaf EVIs
                     
@@ -24313,7 +26485,10 @@ class Evpn(Entity):
                     _revision = '2018-09-26'
 
                     def __init__(self):
-                        super(Evpn.Standby.AcIds.AcId.LeafEvis, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Evpn.Standby.AcIds.AcId.LeafEvis, self).__init__()
 
                         self.yang_name = "leaf-evis"
                         self.yang_parent_name = "ac-id"
@@ -24332,13 +26507,33 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.Standby.AcIds.AcId.LeafEvis, ['entry'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                        return meta._meta_table['Evpn.Standby.AcIds.AcId.LeafEvis']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                    return meta._meta_table['Evpn.Standby.AcIds.AcId']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+                return meta._meta_table['Evpn.Standby.AcIds']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+            return meta._meta_table['Evpn.Standby']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Evpn()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_evpn_oper as meta
+        return meta._meta_table['Evpn']['meta_info']
 
 

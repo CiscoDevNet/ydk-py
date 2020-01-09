@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -21,7 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class MplsOam(Entity):
+class MplsOam(_Entity_):
     """
     MPLS LSP verification configuration
     
@@ -48,7 +51,10 @@ class MplsOam(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(MplsOam, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(MplsOam, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mpls-oam"
@@ -74,7 +80,7 @@ class MplsOam(Entity):
         self._perform_setattr(MplsOam, ['enable_oam', 'disable_vendor_extension'], name, value)
 
 
-    class ReplyMode(Entity):
+    class ReplyMode(_Entity_):
         """
         Echo request reply mode attributes
         
@@ -91,7 +97,10 @@ class MplsOam(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(MplsOam.ReplyMode, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(MplsOam.ReplyMode, self).__init__()
 
             self.yang_name = "reply-mode"
             self.yang_parent_name = "mpls-oam"
@@ -112,7 +121,7 @@ class MplsOam(Entity):
             self._perform_setattr(MplsOam.ReplyMode, [], name, value)
 
 
-        class ControlChannel(Entity):
+        class ControlChannel(_Entity_):
             """
             Configure control channel reply mode
             
@@ -129,7 +138,10 @@ class MplsOam(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(MplsOam.ReplyMode.ControlChannel, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(MplsOam.ReplyMode.ControlChannel, self).__init__()
 
                 self.yang_name = "control-channel"
                 self.yang_parent_name = "reply-mode"
@@ -148,11 +160,23 @@ class MplsOam(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsOam.ReplyMode.ControlChannel, ['allow_reverse_lsp'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_cfg as meta
+                return meta._meta_table['MplsOam.ReplyMode.ControlChannel']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_cfg as meta
+            return meta._meta_table['MplsOam.ReplyMode']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = MplsOam()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_oam_cfg as meta
+        return meta._meta_table['MplsOam']['meta_info']
 
 

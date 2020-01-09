@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -45,6 +48,12 @@ class DpmProtoHostState(Enum):
     dpm_proto_host_state_discovered = Enum.YLeaf(1, "dpm-proto-host-state-discovered")
 
     dpm_proto_host_state_rejecting = Enum.YLeaf(2, "dpm-proto-host-state-rejecting")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_sdacp_oper as meta
+        return meta._meta_table['DpmProtoHostState']
 
 
 class DpmProtoState(Enum):
@@ -98,6 +107,12 @@ class DpmProtoState(Enum):
     dpm_proto_state_seen = Enum.YLeaf(6, "dpm-proto-state-seen")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_sdacp_oper as meta
+        return meta._meta_table['DpmProtoState']
+
+
 class IcpeCpmChanFsmState(Enum):
     """
     IcpeCpmChanFsmState (Enum Class)
@@ -143,6 +158,12 @@ class IcpeCpmChanFsmState(Enum):
     icpe_cpm_chan_fsm_state_open = Enum.YLeaf(5, "icpe-cpm-chan-fsm-state-open")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_sdacp_oper as meta
+        return meta._meta_table['IcpeCpmChanFsmState']
+
+
 class IcpeCpmChannelResyncState(Enum):
     """
     IcpeCpmChannelResyncState (Enum Class)
@@ -174,6 +195,12 @@ class IcpeCpmChannelResyncState(Enum):
     icpe_cpm_channel_resync_state_in_client_resync = Enum.YLeaf(2, "icpe-cpm-channel-resync-state-in-client-resync")
 
     icpe_cpm_channel_resync_state_in_satellite_resync = Enum.YLeaf(3, "icpe-cpm-channel-resync-state-in-satellite-resync")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_sdacp_oper as meta
+        return meta._meta_table['IcpeCpmChannelResyncState']
 
 
 class IcpeCpmControlFsmState(Enum):
@@ -219,6 +246,12 @@ class IcpeCpmControlFsmState(Enum):
     icpe_cpm_control_fsm_state_connected = Enum.YLeaf(4, "icpe-cpm-control-fsm-state-connected")
 
     icpe_cpm_control_fsm_state_issu = Enum.YLeaf(5, "icpe-cpm-control-fsm-state-issu")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_sdacp_oper as meta
+        return meta._meta_table['IcpeCpmControlFsmState']
 
 
 

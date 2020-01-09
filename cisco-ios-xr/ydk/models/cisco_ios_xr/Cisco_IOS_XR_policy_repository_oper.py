@@ -12,8 +12,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -66,6 +69,12 @@ class AddressFamily(Enum):
     af_unknown = Enum.YLeaf(5, "af-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+        return meta._meta_table['AddressFamily']
+
+
 class AttachPointDirection(Enum):
     """
     AttachPointDirection (Enum Class)
@@ -85,6 +94,12 @@ class AttachPointDirection(Enum):
     in_ = Enum.YLeaf(0, "in")
 
     out = Enum.YLeaf(1, "out")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+        return meta._meta_table['AttachPointDirection']
 
 
 class Group(Enum):
@@ -126,6 +141,12 @@ class Group(Enum):
     error_group = Enum.YLeaf(4, "error-group")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+        return meta._meta_table['Group']
+
+
 class ObjectStatus(Enum):
     """
     ObjectStatus (Enum Class)
@@ -153,6 +174,12 @@ class ObjectStatus(Enum):
     inactive = Enum.YLeaf(1, "inactive")
 
     unused = Enum.YLeaf(2, "unused")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+        return meta._meta_table['ObjectStatus']
 
 
 class SubAddressFamily(Enum):
@@ -248,8 +275,14 @@ class SubAddressFamily(Enum):
     saf_unknown = Enum.YLeaf(13, "saf-unknown")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+        return meta._meta_table['SubAddressFamily']
 
-class RoutingPolicy(Entity):
+
+
+class RoutingPolicy(_Entity_):
     """
     Routing policy operational data
     
@@ -282,7 +315,10 @@ class RoutingPolicy(Entity):
     _revision = '2017-09-22'
 
     def __init__(self):
-        super(RoutingPolicy, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingPolicy, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-policy"
@@ -311,7 +347,7 @@ class RoutingPolicy(Entity):
         self._perform_setattr(RoutingPolicy, [], name, value)
 
 
-    class Limits(Entity):
+    class Limits(_Entity_):
         """
         Information about configured limits and the
         current values
@@ -387,7 +423,10 @@ class RoutingPolicy(Entity):
         _revision = '2017-09-22'
 
         def __init__(self):
-            super(RoutingPolicy.Limits, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RoutingPolicy.Limits, self).__init__()
 
             self.yang_name = "limits"
             self.yang_parent_name = "routing-policy"
@@ -418,9 +457,13 @@ class RoutingPolicy(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingPolicy.Limits, ['maximum_lines_of_policy', 'current_lines_of_policy_limit', 'current_lines_of_policy_used', 'maximum_number_of_policies', 'current_number_of_policies_limit', 'current_number_of_policies_used', 'compiled_policies_length'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+            return meta._meta_table['RoutingPolicy.Limits']['meta_info']
 
 
-    class Policies(Entity):
+    class Policies(_Entity_):
         """
         Information about configured route policies
         
@@ -460,7 +503,10 @@ class RoutingPolicy(Entity):
         _revision = '2017-09-22'
 
         def __init__(self):
-            super(RoutingPolicy.Policies, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RoutingPolicy.Policies, self).__init__()
 
             self.yang_name = "policies"
             self.yang_parent_name = "routing-policy"
@@ -493,7 +539,7 @@ class RoutingPolicy(Entity):
             self._perform_setattr(RoutingPolicy.Policies, [], name, value)
 
 
-        class RoutePolicies(Entity):
+        class RoutePolicies(_Entity_):
             """
             Information about individual policies
             
@@ -512,7 +558,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Policies.RoutePolicies, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Policies.RoutePolicies, self).__init__()
 
                 self.yang_name = "route-policies"
                 self.yang_parent_name = "policies"
@@ -531,7 +580,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Policies.RoutePolicies, [], name, value)
 
 
-            class RoutePolicy(Entity):
+            class RoutePolicy(_Entity_):
                 """
                 Information about an individual policy
                 
@@ -573,7 +622,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy, self).__init__()
 
                     self.yang_name = "route-policy"
                     self.yang_parent_name = "route-policies"
@@ -605,7 +657,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy, ['route_policy_name'], name, value)
 
 
-                class PolicyUses(Entity):
+                class PolicyUses(_Entity_):
                     """
                     Information about which policies and sets
                     this policy uses
@@ -646,7 +698,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses, self).__init__()
 
                         self.yang_name = "policy-uses"
                         self.yang_parent_name = "route-policy"
@@ -678,7 +733,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses, [], name, value)
 
 
-                    class DirectlyUsedPolicies(Entity):
+                    class DirectlyUsedPolicies(_Entity_):
                         """
                         Policies that this policy uses directly
                         
@@ -697,7 +752,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies, self).__init__()
 
                             self.yang_name = "directly-used-policies"
                             self.yang_parent_name = "policy-uses"
@@ -715,9 +773,13 @@ class RoutingPolicy(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies, ['object'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies']['meta_info']
 
 
-                    class AllUsedSets(Entity):
+                    class AllUsedSets(_Entity_):
                         """
                         Sets used by this policy, or by policies
                         that it uses
@@ -737,7 +799,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets, self).__init__()
 
                             self.yang_name = "all-used-sets"
                             self.yang_parent_name = "policy-uses"
@@ -755,7 +820,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets, [], name, value)
 
 
-                        class Sets(Entity):
+                        class Sets(_Entity_):
                             """
                             List of sets in several domains
                             
@@ -781,7 +846,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets.Sets, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets.Sets, self).__init__()
 
                                 self.yang_name = "sets"
                                 self.yang_parent_name = "all-used-sets"
@@ -801,10 +869,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets.Sets, ['set_domain', 'set_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets.Sets']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets']['meta_info']
 
 
-
-                    class DirectlyUsedSets(Entity):
+                    class DirectlyUsedSets(_Entity_):
                         """
                         Sets that this policy uses directly
                         
@@ -823,7 +899,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets, self).__init__()
 
                             self.yang_name = "directly-used-sets"
                             self.yang_parent_name = "policy-uses"
@@ -841,7 +920,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets, [], name, value)
 
 
-                        class Sets(Entity):
+                        class Sets(_Entity_):
                             """
                             List of sets in several domains
                             
@@ -867,7 +946,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets.Sets, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets.Sets, self).__init__()
 
                                 self.yang_name = "sets"
                                 self.yang_parent_name = "directly-used-sets"
@@ -887,10 +969,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets.Sets, ['set_domain', 'set_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets.Sets']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets']['meta_info']
 
 
-
-                    class AllUsedPolicies(Entity):
+                    class AllUsedPolicies(_Entity_):
                         """
                         Policies used by this policy, or by policies
                         that it uses
@@ -910,7 +1000,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedPolicies, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedPolicies, self).__init__()
 
                             self.yang_name = "all-used-policies"
                             self.yang_parent_name = "policy-uses"
@@ -928,10 +1021,18 @@ class RoutingPolicy(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedPolicies, ['object'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedPolicies']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses']['meta_info']
 
 
-
-                class UsedBy(Entity):
+                class UsedBy(_Entity_):
                     """
                     Policies that use this object, directly or
                     indirectly
@@ -951,7 +1052,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy, self).__init__()
 
                         self.yang_name = "used-by"
                         self.yang_parent_name = "route-policy"
@@ -969,7 +1073,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy, [], name, value)
 
 
-                    class Reference(Entity):
+                    class Reference(_Entity_):
                         """
                         Information about policies referring to this
                         object
@@ -1003,7 +1107,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy.Reference, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy.Reference, self).__init__()
 
                             self.yang_name = "reference"
                             self.yang_parent_name = "used-by"
@@ -1025,10 +1132,18 @@ class RoutingPolicy(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy.Reference']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy']['meta_info']
 
 
-
-                class Attached(Entity):
+                class Attached(_Entity_):
                     """
                     Information about where this policy or set is
                     attached
@@ -1048,7 +1163,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached, self).__init__()
 
                         self.yang_name = "attached"
                         self.yang_parent_name = "route-policy"
@@ -1066,7 +1184,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached, [], name, value)
 
 
-                    class Binding(Entity):
+                    class Binding(_Entity_):
                         """
                         bindings list
                         
@@ -1222,7 +1340,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached.Binding, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached.Binding, self).__init__()
 
                             self.yang_name = "binding"
                             self.yang_parent_name = "attached"
@@ -1278,12 +1399,28 @@ class RoutingPolicy(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached.Binding']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Policies.RoutePolicies.RoutePolicy']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Policies.RoutePolicies']['meta_info']
 
 
-
-
-
-        class Unused(Entity):
+        class Unused(_Entity_):
             """
             All objects of a given type that are not
             referenced at all
@@ -1303,7 +1440,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Policies.Unused, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Policies.Unused, self).__init__()
 
                 self.yang_name = "unused"
                 self.yang_parent_name = "policies"
@@ -1322,9 +1462,13 @@ class RoutingPolicy(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Policies.Unused, ['object'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Policies.Unused']['meta_info']
 
 
-        class Inactive(Entity):
+        class Inactive(_Entity_):
             """
             All objects of a given type that are not
             attached to a protocol
@@ -1344,7 +1488,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Policies.Inactive, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Policies.Inactive, self).__init__()
 
                 self.yang_name = "inactive"
                 self.yang_parent_name = "policies"
@@ -1363,9 +1510,13 @@ class RoutingPolicy(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Policies.Inactive, ['object'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Policies.Inactive']['meta_info']
 
 
-        class Active(Entity):
+        class Active(_Entity_):
             """
             All objects of a given type that are attached to
             a protocol
@@ -1385,7 +1536,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Policies.Active, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Policies.Active, self).__init__()
 
                 self.yang_name = "active"
                 self.yang_parent_name = "policies"
@@ -1404,10 +1558,18 @@ class RoutingPolicy(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Policies.Active, ['object'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Policies.Active']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+            return meta._meta_table['RoutingPolicy.Policies']['meta_info']
 
 
-
-    class Sets(Entity):
+    class Sets(_Entity_):
         """
         Information about configured sets
         
@@ -1531,7 +1693,10 @@ class RoutingPolicy(Entity):
         _revision = '2017-09-22'
 
         def __init__(self):
-            super(RoutingPolicy.Sets, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RoutingPolicy.Sets, self).__init__()
 
             self.yang_name = "sets"
             self.yang_parent_name = "routing-policy"
@@ -1612,7 +1777,7 @@ class RoutingPolicy(Entity):
             self._perform_setattr(RoutingPolicy.Sets, [], name, value)
 
 
-        class Etag(Entity):
+        class Etag(_Entity_):
             """
             Information about Etag sets
             
@@ -1652,7 +1817,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Sets.Etag, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Sets.Etag, self).__init__()
 
                 self.yang_name = "etag"
                 self.yang_parent_name = "sets"
@@ -1685,7 +1853,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Sets.Etag, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -1704,7 +1872,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Etag.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Etag.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "etag"
@@ -1723,7 +1894,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.Etag.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -1758,7 +1929,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.Etag.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Sets.Etag.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -1786,7 +1960,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Sets.Etag.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -1806,7 +1980,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -1824,7 +2001,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -1858,7 +2035,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -1880,10 +2060,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -1903,7 +2091,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Etag.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.Etag.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -1921,7 +2112,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.Etag.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -2077,7 +2268,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Etag.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.Etag.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -2133,12 +2327,28 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.Etag.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Etag.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Etag.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.Etag.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Etag.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -2158,7 +2368,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Etag.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Etag.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "etag"
@@ -2177,9 +2390,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Etag.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Etag.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -2199,7 +2416,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Etag.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Etag.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "etag"
@@ -2218,9 +2438,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Etag.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Etag.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -2240,7 +2464,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Etag.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Etag.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "etag"
@@ -2259,10 +2486,18 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Etag.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Etag.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.Etag']['meta_info']
 
 
-
-        class OspfArea(Entity):
+        class OspfArea(_Entity_):
             """
             Information about OSPF Area sets
             
@@ -2302,7 +2537,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Sets.OspfArea, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Sets.OspfArea, self).__init__()
 
                 self.yang_name = "ospf-area"
                 self.yang_parent_name = "sets"
@@ -2335,7 +2573,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Sets.OspfArea, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -2354,7 +2592,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.OspfArea.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.OspfArea.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "ospf-area"
@@ -2373,7 +2614,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -2408,7 +2649,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.OspfArea.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Sets.OspfArea.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -2436,7 +2680,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -2456,7 +2700,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -2474,7 +2721,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -2508,7 +2755,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -2530,10 +2780,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -2553,7 +2811,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -2571,7 +2832,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -2727,7 +2988,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -2783,12 +3047,28 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -2808,7 +3088,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.OspfArea.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.OspfArea.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "ospf-area"
@@ -2827,9 +3110,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.OspfArea.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.OspfArea.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -2849,7 +3136,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.OspfArea.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.OspfArea.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "ospf-area"
@@ -2868,9 +3158,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.OspfArea.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.OspfArea.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -2890,7 +3184,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.OspfArea.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.OspfArea.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "ospf-area"
@@ -2909,10 +3206,18 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.OspfArea.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.OspfArea.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.OspfArea']['meta_info']
 
 
-
-        class ExtendedCommunityOpaque(Entity):
+        class ExtendedCommunityOpaque(_Entity_):
             """
             Information about Extended Community Opaque
             sets
@@ -2953,7 +3258,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Sets.ExtendedCommunityOpaque, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Sets.ExtendedCommunityOpaque, self).__init__()
 
                 self.yang_name = "extended-community-opaque"
                 self.yang_parent_name = "sets"
@@ -2986,7 +3294,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -3005,7 +3313,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-opaque"
@@ -3024,7 +3335,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -3059,7 +3370,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -3087,7 +3401,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -3107,7 +3421,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -3125,7 +3442,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -3159,7 +3476,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -3181,10 +3501,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -3204,7 +3532,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -3222,7 +3553,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -3378,7 +3709,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -3434,12 +3768,28 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -3459,7 +3809,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "extended-community-opaque"
@@ -3478,9 +3831,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -3500,7 +3857,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "extended-community-opaque"
@@ -3519,9 +3879,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -3541,7 +3905,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunityOpaque.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "extended-community-opaque"
@@ -3560,10 +3927,18 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaque.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque']['meta_info']
 
 
-
-        class ExtendedCommunitySegNh(Entity):
+        class ExtendedCommunitySegNh(_Entity_):
             """
             Information about Extended Community SegNH sets
             
@@ -3603,7 +3978,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Sets.ExtendedCommunitySegNh, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Sets.ExtendedCommunitySegNh, self).__init__()
 
                 self.yang_name = "extended-community-seg-nh"
                 self.yang_parent_name = "sets"
@@ -3636,7 +4014,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -3655,7 +4033,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-seg-nh"
@@ -3674,7 +4055,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -3709,7 +4090,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -3737,7 +4121,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -3757,7 +4141,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -3775,7 +4162,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -3809,7 +4196,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -3831,10 +4221,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -3854,7 +4252,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -3872,7 +4273,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -4028,7 +4429,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -4084,12 +4488,28 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -4109,7 +4529,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "extended-community-seg-nh"
@@ -4128,9 +4551,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -4150,7 +4577,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "extended-community-seg-nh"
@@ -4169,9 +4599,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -4191,7 +4625,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunitySegNh.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "extended-community-seg-nh"
@@ -4210,10 +4647,18 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNh.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh']['meta_info']
 
 
-
-        class ExtendedCommunitySoo(Entity):
+        class ExtendedCommunitySoo(_Entity_):
             """
             Information about Extended Community SOO sets
             
@@ -4253,7 +4698,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Sets.ExtendedCommunitySoo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Sets.ExtendedCommunitySoo, self).__init__()
 
                 self.yang_name = "extended-community-soo"
                 self.yang_parent_name = "sets"
@@ -4286,7 +4734,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -4305,7 +4753,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-soo"
@@ -4324,7 +4775,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -4359,7 +4810,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -4387,7 +4841,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -4407,7 +4861,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -4425,7 +4882,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -4459,7 +4916,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -4481,10 +4941,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -4504,7 +4972,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -4522,7 +4993,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -4678,7 +5149,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -4734,12 +5208,28 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -4759,7 +5249,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunitySoo.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunitySoo.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "extended-community-soo"
@@ -4778,9 +5271,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -4800,7 +5297,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunitySoo.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunitySoo.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "extended-community-soo"
@@ -4819,9 +5319,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -4841,7 +5345,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunitySoo.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunitySoo.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "extended-community-soo"
@@ -4860,10 +5367,18 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySoo.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo']['meta_info']
 
 
-
-        class Tag(Entity):
+        class Tag(_Entity_):
             """
             Information about Tag sets
             
@@ -4903,7 +5418,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Sets.Tag, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Sets.Tag, self).__init__()
 
                 self.yang_name = "tag"
                 self.yang_parent_name = "sets"
@@ -4936,7 +5454,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Sets.Tag, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -4955,7 +5473,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Tag.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Tag.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "tag"
@@ -4974,7 +5495,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.Tag.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -5009,7 +5530,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.Tag.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Sets.Tag.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -5037,7 +5561,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Sets.Tag.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -5057,7 +5581,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -5075,7 +5602,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -5109,7 +5636,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -5131,10 +5661,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -5154,7 +5692,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Tag.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.Tag.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -5172,7 +5713,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.Tag.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -5328,7 +5869,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Tag.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.Tag.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -5384,12 +5928,28 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.Tag.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Tag.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Tag.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.Tag.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Tag.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -5409,7 +5969,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Tag.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Tag.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "tag"
@@ -5428,9 +5991,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Tag.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Tag.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -5450,7 +6017,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Tag.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Tag.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "tag"
@@ -5469,9 +6039,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Tag.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Tag.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -5491,7 +6065,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Tag.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Tag.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "tag"
@@ -5510,10 +6087,18 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Tag.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Tag.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.Tag']['meta_info']
 
 
-
-        class Prefix(Entity):
+        class Prefix(_Entity_):
             """
             Information about AS Path sets
             
@@ -5553,7 +6138,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Sets.Prefix, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Sets.Prefix, self).__init__()
 
                 self.yang_name = "prefix"
                 self.yang_parent_name = "sets"
@@ -5586,7 +6174,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Sets.Prefix, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -5605,7 +6193,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Prefix.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Prefix.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "prefix"
@@ -5624,7 +6215,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -5659,7 +6250,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.Prefix.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Sets.Prefix.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -5687,7 +6281,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -5707,7 +6301,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -5725,7 +6322,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -5759,7 +6356,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -5781,10 +6381,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -5804,7 +6412,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Prefix.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.Prefix.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -5822,7 +6433,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -5978,7 +6589,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Prefix.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.Prefix.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -6034,12 +6648,28 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.Prefix.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -6059,7 +6689,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Prefix.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Prefix.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "prefix"
@@ -6078,9 +6711,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Prefix.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Prefix.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -6100,7 +6737,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Prefix.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Prefix.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "prefix"
@@ -6119,9 +6759,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Prefix.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Prefix.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -6141,7 +6785,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Prefix.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Prefix.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "prefix"
@@ -6160,10 +6807,18 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Prefix.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Prefix.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.Prefix']['meta_info']
 
 
-
-        class Community(Entity):
+        class Community(_Entity_):
             """
             Information about Community sets
             
@@ -6203,7 +6858,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Sets.Community, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Sets.Community, self).__init__()
 
                 self.yang_name = "community"
                 self.yang_parent_name = "sets"
@@ -6236,7 +6894,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Sets.Community, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -6255,7 +6913,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Community.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Community.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "community"
@@ -6274,7 +6935,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.Community.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -6309,7 +6970,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.Community.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Sets.Community.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -6337,7 +7001,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Sets.Community.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -6357,7 +7021,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Community.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.Community.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -6375,7 +7042,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.Community.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -6409,7 +7076,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Community.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.Community.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -6431,10 +7101,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.Community.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Community.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Community.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -6454,7 +7132,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Community.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.Community.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -6472,7 +7153,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.Community.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -6628,7 +7309,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Community.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.Community.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -6684,12 +7368,28 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.Community.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Community.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Community.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.Community.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Community.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -6709,7 +7409,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Community.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Community.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "community"
@@ -6728,9 +7431,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Community.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Community.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -6750,7 +7457,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Community.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Community.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "community"
@@ -6769,9 +7479,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Community.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Community.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -6791,7 +7505,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Community.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Community.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "community"
@@ -6810,10 +7527,18 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Community.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Community.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.Community']['meta_info']
 
 
-
-        class AsPath(Entity):
+        class AsPath(_Entity_):
             """
             Information about AS Path sets
             
@@ -6853,7 +7578,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Sets.AsPath, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Sets.AsPath, self).__init__()
 
                 self.yang_name = "as-path"
                 self.yang_parent_name = "sets"
@@ -6886,7 +7614,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Sets.AsPath, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -6905,7 +7633,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.AsPath.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.AsPath.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "as-path"
@@ -6924,7 +7655,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -6959,7 +7690,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.AsPath.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Sets.AsPath.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -6987,7 +7721,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -7007,7 +7741,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -7025,7 +7762,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -7059,7 +7796,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -7081,10 +7821,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -7104,7 +7852,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.AsPath.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.AsPath.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -7122,7 +7873,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -7278,7 +8029,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.AsPath.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.AsPath.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -7334,12 +8088,28 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.AsPath.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -7359,7 +8129,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.AsPath.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.AsPath.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "as-path"
@@ -7378,9 +8151,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.AsPath.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.AsPath.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -7400,7 +8177,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.AsPath.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.AsPath.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "as-path"
@@ -7419,9 +8199,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.AsPath.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.AsPath.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -7441,7 +8225,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.AsPath.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.AsPath.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "as-path"
@@ -7460,10 +8247,18 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.AsPath.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.AsPath.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.AsPath']['meta_info']
 
 
-
-        class LargeCommunity(Entity):
+        class LargeCommunity(_Entity_):
             """
             Information about Large Community sets
             
@@ -7503,7 +8298,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Sets.LargeCommunity, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Sets.LargeCommunity, self).__init__()
 
                 self.yang_name = "large-community"
                 self.yang_parent_name = "sets"
@@ -7536,7 +8334,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Sets.LargeCommunity, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -7555,7 +8353,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.LargeCommunity.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.LargeCommunity.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "large-community"
@@ -7574,7 +8375,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -7609,7 +8410,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.LargeCommunity.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Sets.LargeCommunity.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -7637,7 +8441,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -7657,7 +8461,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -7675,7 +8482,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -7709,7 +8516,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -7731,10 +8541,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.LargeCommunity.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -7754,7 +8572,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -7772,7 +8593,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -7928,7 +8749,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -7984,12 +8808,28 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.LargeCommunity.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.LargeCommunity.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.LargeCommunity.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -8009,7 +8849,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.LargeCommunity.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.LargeCommunity.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "large-community"
@@ -8028,9 +8871,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.LargeCommunity.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -8050,7 +8897,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.LargeCommunity.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.LargeCommunity.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "large-community"
@@ -8069,9 +8919,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.LargeCommunity.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -8091,7 +8945,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.LargeCommunity.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.LargeCommunity.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "large-community"
@@ -8110,10 +8967,18 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.LargeCommunity.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.LargeCommunity.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.LargeCommunity']['meta_info']
 
 
-
-        class Esi(Entity):
+        class Esi(_Entity_):
             """
             Information about Esi sets
             
@@ -8153,7 +9018,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Sets.Esi, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Sets.Esi, self).__init__()
 
                 self.yang_name = "esi"
                 self.yang_parent_name = "sets"
@@ -8186,7 +9054,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Sets.Esi, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -8205,7 +9073,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Esi.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Esi.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "esi"
@@ -8224,7 +9095,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.Esi.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -8259,7 +9130,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.Esi.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Sets.Esi.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -8287,7 +9161,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Sets.Esi.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -8307,7 +9181,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -8325,7 +9202,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -8359,7 +9236,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -8381,10 +9261,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -8404,7 +9292,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Esi.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.Esi.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -8422,7 +9313,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.Esi.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -8578,7 +9469,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Esi.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.Esi.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -8634,12 +9528,28 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.Esi.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Esi.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Esi.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.Esi.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Esi.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -8659,7 +9569,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Esi.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Esi.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "esi"
@@ -8678,9 +9591,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Esi.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Esi.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -8700,7 +9617,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Esi.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Esi.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "esi"
@@ -8719,9 +9639,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Esi.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Esi.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -8741,7 +9665,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Esi.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Esi.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "esi"
@@ -8760,10 +9687,18 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Esi.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Esi.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.Esi']['meta_info']
 
 
-
-        class ExtendedCommunityBandwidth(Entity):
+        class ExtendedCommunityBandwidth(_Entity_):
             """
             Information about Extended Community Bandwidth
             sets
@@ -8797,7 +9732,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Sets.ExtendedCommunityBandwidth, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Sets.ExtendedCommunityBandwidth, self).__init__()
 
                 self.yang_name = "extended-community-bandwidth"
                 self.yang_parent_name = "sets"
@@ -8826,7 +9764,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -8845,7 +9783,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-bandwidth"
@@ -8864,7 +9805,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -8899,7 +9840,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -8927,7 +9871,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -8947,7 +9891,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -8965,7 +9912,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -8999,7 +9946,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -9021,10 +9971,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -9044,7 +10002,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -9062,7 +10023,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -9218,7 +10179,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -9274,12 +10238,28 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -9299,7 +10279,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "extended-community-bandwidth"
@@ -9318,9 +10301,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -9340,7 +10327,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "extended-community-bandwidth"
@@ -9359,10 +10349,18 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidth.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Inactive']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth']['meta_info']
 
 
-
-        class ExtendedCommunityRt(Entity):
+        class ExtendedCommunityRt(_Entity_):
             """
             Information about Extended Community RT sets
             
@@ -9402,7 +10400,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Sets.ExtendedCommunityRt, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Sets.ExtendedCommunityRt, self).__init__()
 
                 self.yang_name = "extended-community-rt"
                 self.yang_parent_name = "sets"
@@ -9435,7 +10436,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -9454,7 +10455,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-rt"
@@ -9473,7 +10477,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -9508,7 +10512,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -9536,7 +10543,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -9556,7 +10563,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -9574,7 +10584,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -9608,7 +10618,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -9630,10 +10643,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -9653,7 +10674,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -9671,7 +10695,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -9827,7 +10851,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -9883,12 +10910,28 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -9908,7 +10951,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityRt.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunityRt.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "extended-community-rt"
@@ -9927,9 +10973,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -9949,7 +10999,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityRt.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunityRt.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "extended-community-rt"
@@ -9968,9 +11021,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -9990,7 +11047,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityRt.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunityRt.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "extended-community-rt"
@@ -10009,10 +11069,18 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRt.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt']['meta_info']
 
 
-
-        class Rd(Entity):
+        class Rd(_Entity_):
             """
             Information about RD sets
             
@@ -10052,7 +11120,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Sets.Rd, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Sets.Rd, self).__init__()
 
                 self.yang_name = "rd"
                 self.yang_parent_name = "sets"
@@ -10085,7 +11156,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Sets.Rd, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -10104,7 +11175,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Rd.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Rd.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "rd"
@@ -10123,7 +11197,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.Rd.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -10158,7 +11232,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.Rd.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Sets.Rd.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -10186,7 +11263,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Sets.Rd.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -10206,7 +11283,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -10224,7 +11304,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -10258,7 +11338,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -10280,10 +11363,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -10303,7 +11394,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Rd.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.Rd.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -10321,7 +11415,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.Rd.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -10477,7 +11571,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Rd.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.Rd.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -10533,12 +11630,28 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.Rd.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Rd.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Rd.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.Rd.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Rd.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -10558,7 +11671,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Rd.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Rd.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "rd"
@@ -10577,9 +11693,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Rd.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Rd.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -10599,7 +11719,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Rd.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Rd.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "rd"
@@ -10618,9 +11741,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Rd.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Rd.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -10640,7 +11767,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Rd.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Rd.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "rd"
@@ -10659,10 +11789,18 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Rd.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Rd.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.Rd']['meta_info']
 
 
-
-        class Mac(Entity):
+        class Mac(_Entity_):
             """
             Information about Mac sets
             
@@ -10702,7 +11840,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Sets.Mac, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Sets.Mac, self).__init__()
 
                 self.yang_name = "mac"
                 self.yang_parent_name = "sets"
@@ -10735,7 +11876,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Sets.Mac, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -10754,7 +11895,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Mac.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Mac.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "mac"
@@ -10773,7 +11917,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.Mac.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -10808,7 +11952,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.Mac.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Sets.Mac.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -10836,7 +11983,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Sets.Mac.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -10856,7 +12003,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -10874,7 +12024,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -10908,7 +12058,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -10930,10 +12083,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -10953,7 +12114,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.Mac.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.Mac.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -10971,7 +12135,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.Mac.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -11127,7 +12291,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.Mac.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.Mac.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -11183,12 +12350,28 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.Mac.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.Mac.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.Mac.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.Mac.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Mac.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -11208,7 +12391,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Mac.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Mac.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "mac"
@@ -11227,9 +12413,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Mac.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Mac.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -11249,7 +12439,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Mac.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Mac.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "mac"
@@ -11268,9 +12461,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Mac.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Mac.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -11290,7 +12487,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.Mac.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.Mac.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "mac"
@@ -11309,10 +12509,18 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.Mac.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.Mac.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.Mac']['meta_info']
 
 
-
-        class ExtendedCommunityCost(Entity):
+        class ExtendedCommunityCost(_Entity_):
             """
             Information about Extended Community Cost sets
             
@@ -11352,7 +12560,10 @@ class RoutingPolicy(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicy.Sets.ExtendedCommunityCost, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.Sets.ExtendedCommunityCost, self).__init__()
 
                 self.yang_name = "extended-community-cost"
                 self.yang_parent_name = "sets"
@@ -11385,7 +12596,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -11404,7 +12615,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-cost"
@@ -11423,7 +12637,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -11458,7 +12672,10 @@ class RoutingPolicy(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -11486,7 +12703,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -11506,7 +12723,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -11524,7 +12744,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -11558,7 +12778,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -11580,10 +12803,18 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -11603,7 +12834,10 @@ class RoutingPolicy(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -11621,7 +12855,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -11777,7 +13011,10 @@ class RoutingPolicy(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -11833,12 +13070,28 @@ class RoutingPolicy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -11858,7 +13111,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityCost.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunityCost.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "extended-community-cost"
@@ -11877,9 +13133,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -11899,7 +13159,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityCost.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunityCost.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "extended-community-cost"
@@ -11918,9 +13181,13 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -11940,7 +13207,10 @@ class RoutingPolicy(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicy.Sets.ExtendedCommunityCost.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.Sets.ExtendedCommunityCost.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "extended-community-cost"
@@ -11959,16 +13229,32 @@ class RoutingPolicy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCost.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Active']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+            return meta._meta_table['RoutingPolicy.Sets']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RoutingPolicy()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+        return meta._meta_table['RoutingPolicy']['meta_info']
 
 
-class RoutingPolicyShadow(Entity):
+class RoutingPolicyShadow(_Entity_):
     """
     routing policy shadow
     
@@ -12001,7 +13287,10 @@ class RoutingPolicyShadow(Entity):
     _revision = '2017-09-22'
 
     def __init__(self):
-        super(RoutingPolicyShadow, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingPolicyShadow, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-policy-shadow"
@@ -12030,7 +13319,7 @@ class RoutingPolicyShadow(Entity):
         self._perform_setattr(RoutingPolicyShadow, [], name, value)
 
 
-    class Limits(Entity):
+    class Limits(_Entity_):
         """
         Information about configured limits and the
         current values
@@ -12106,7 +13395,10 @@ class RoutingPolicyShadow(Entity):
         _revision = '2017-09-22'
 
         def __init__(self):
-            super(RoutingPolicyShadow.Limits, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RoutingPolicyShadow.Limits, self).__init__()
 
             self.yang_name = "limits"
             self.yang_parent_name = "routing-policy-shadow"
@@ -12137,9 +13429,13 @@ class RoutingPolicyShadow(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingPolicyShadow.Limits, ['maximum_lines_of_policy', 'current_lines_of_policy_limit', 'current_lines_of_policy_used', 'maximum_number_of_policies', 'current_number_of_policies_limit', 'current_number_of_policies_used', 'compiled_policies_length'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+            return meta._meta_table['RoutingPolicyShadow.Limits']['meta_info']
 
 
-    class Policies(Entity):
+    class Policies(_Entity_):
         """
         Information about configured route policies
         
@@ -12179,7 +13475,10 @@ class RoutingPolicyShadow(Entity):
         _revision = '2017-09-22'
 
         def __init__(self):
-            super(RoutingPolicyShadow.Policies, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RoutingPolicyShadow.Policies, self).__init__()
 
             self.yang_name = "policies"
             self.yang_parent_name = "routing-policy-shadow"
@@ -12212,7 +13511,7 @@ class RoutingPolicyShadow(Entity):
             self._perform_setattr(RoutingPolicyShadow.Policies, [], name, value)
 
 
-        class RoutePolicies(Entity):
+        class RoutePolicies(_Entity_):
             """
             Information about individual policies
             
@@ -12231,7 +13530,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Policies.RoutePolicies, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Policies.RoutePolicies, self).__init__()
 
                 self.yang_name = "route-policies"
                 self.yang_parent_name = "policies"
@@ -12250,7 +13552,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies, [], name, value)
 
 
-            class RoutePolicy(Entity):
+            class RoutePolicy(_Entity_):
                 """
                 Information about an individual policy
                 
@@ -12292,7 +13594,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy, self).__init__()
 
                     self.yang_name = "route-policy"
                     self.yang_parent_name = "route-policies"
@@ -12324,7 +13629,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy, ['route_policy_name'], name, value)
 
 
-                class PolicyUses(Entity):
+                class PolicyUses(_Entity_):
                     """
                     Information about which policies and sets
                     this policy uses
@@ -12365,7 +13670,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses, self).__init__()
 
                         self.yang_name = "policy-uses"
                         self.yang_parent_name = "route-policy"
@@ -12397,7 +13705,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses, [], name, value)
 
 
-                    class DirectlyUsedPolicies(Entity):
+                    class DirectlyUsedPolicies(_Entity_):
                         """
                         Policies that this policy uses directly
                         
@@ -12416,7 +13724,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies, self).__init__()
 
                             self.yang_name = "directly-used-policies"
                             self.yang_parent_name = "policy-uses"
@@ -12434,9 +13745,13 @@ class RoutingPolicyShadow(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies, ['object'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies']['meta_info']
 
 
-                    class AllUsedSets(Entity):
+                    class AllUsedSets(_Entity_):
                         """
                         Sets used by this policy, or by policies
                         that it uses
@@ -12456,7 +13771,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets, self).__init__()
 
                             self.yang_name = "all-used-sets"
                             self.yang_parent_name = "policy-uses"
@@ -12474,7 +13792,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets, [], name, value)
 
 
-                        class Sets(Entity):
+                        class Sets(_Entity_):
                             """
                             List of sets in several domains
                             
@@ -12500,7 +13818,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets.Sets, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets.Sets, self).__init__()
 
                                 self.yang_name = "sets"
                                 self.yang_parent_name = "all-used-sets"
@@ -12520,10 +13841,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets.Sets, ['set_domain', 'set_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets.Sets']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets']['meta_info']
 
 
-
-                    class DirectlyUsedSets(Entity):
+                    class DirectlyUsedSets(_Entity_):
                         """
                         Sets that this policy uses directly
                         
@@ -12542,7 +13871,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets, self).__init__()
 
                             self.yang_name = "directly-used-sets"
                             self.yang_parent_name = "policy-uses"
@@ -12560,7 +13892,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets, [], name, value)
 
 
-                        class Sets(Entity):
+                        class Sets(_Entity_):
                             """
                             List of sets in several domains
                             
@@ -12586,7 +13918,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets.Sets, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets.Sets, self).__init__()
 
                                 self.yang_name = "sets"
                                 self.yang_parent_name = "directly-used-sets"
@@ -12606,10 +13941,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets.Sets, ['set_domain', 'set_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets.Sets']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets']['meta_info']
 
 
-
-                    class AllUsedPolicies(Entity):
+                    class AllUsedPolicies(_Entity_):
                         """
                         Policies used by this policy, or by policies
                         that it uses
@@ -12629,7 +13972,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedPolicies, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedPolicies, self).__init__()
 
                             self.yang_name = "all-used-policies"
                             self.yang_parent_name = "policy-uses"
@@ -12647,10 +13993,18 @@ class RoutingPolicyShadow(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedPolicies, ['object'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedPolicies']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.PolicyUses']['meta_info']
 
 
-
-                class UsedBy(Entity):
+                class UsedBy(_Entity_):
                     """
                     Policies that use this object, directly or
                     indirectly
@@ -12670,7 +14024,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.UsedBy, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.UsedBy, self).__init__()
 
                         self.yang_name = "used-by"
                         self.yang_parent_name = "route-policy"
@@ -12688,7 +14045,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.UsedBy, [], name, value)
 
 
-                    class Reference(Entity):
+                    class Reference(_Entity_):
                         """
                         Information about policies referring to this
                         object
@@ -12722,7 +14079,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.UsedBy.Reference, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.UsedBy.Reference, self).__init__()
 
                             self.yang_name = "reference"
                             self.yang_parent_name = "used-by"
@@ -12744,10 +14104,18 @@ class RoutingPolicyShadow(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.UsedBy.Reference']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.UsedBy']['meta_info']
 
 
-
-                class Attached(Entity):
+                class Attached(_Entity_):
                     """
                     Information about where this policy or set is
                     attached
@@ -12767,7 +14135,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.Attached, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.Attached, self).__init__()
 
                         self.yang_name = "attached"
                         self.yang_parent_name = "route-policy"
@@ -12785,7 +14156,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.Attached, [], name, value)
 
 
-                    class Binding(Entity):
+                    class Binding(_Entity_):
                         """
                         bindings list
                         
@@ -12941,7 +14312,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.Attached.Binding, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.Attached.Binding, self).__init__()
 
                             self.yang_name = "binding"
                             self.yang_parent_name = "attached"
@@ -12997,12 +14371,28 @@ class RoutingPolicyShadow(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.Attached.Binding']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy.Attached']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Policies.RoutePolicies.RoutePolicy']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Policies.RoutePolicies']['meta_info']
 
 
-
-
-
-        class Unused(Entity):
+        class Unused(_Entity_):
             """
             All objects of a given type that are not
             referenced at all
@@ -13022,7 +14412,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Policies.Unused, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Policies.Unused, self).__init__()
 
                 self.yang_name = "unused"
                 self.yang_parent_name = "policies"
@@ -13041,9 +14434,13 @@ class RoutingPolicyShadow(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicyShadow.Policies.Unused, ['object'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Policies.Unused']['meta_info']
 
 
-        class Inactive(Entity):
+        class Inactive(_Entity_):
             """
             All objects of a given type that are not
             attached to a protocol
@@ -13063,7 +14460,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Policies.Inactive, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Policies.Inactive, self).__init__()
 
                 self.yang_name = "inactive"
                 self.yang_parent_name = "policies"
@@ -13082,9 +14482,13 @@ class RoutingPolicyShadow(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicyShadow.Policies.Inactive, ['object'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Policies.Inactive']['meta_info']
 
 
-        class Active(Entity):
+        class Active(_Entity_):
             """
             All objects of a given type that are attached to
             a protocol
@@ -13104,7 +14508,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Policies.Active, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Policies.Active, self).__init__()
 
                 self.yang_name = "active"
                 self.yang_parent_name = "policies"
@@ -13123,10 +14530,18 @@ class RoutingPolicyShadow(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicyShadow.Policies.Active, ['object'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Policies.Active']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+            return meta._meta_table['RoutingPolicyShadow.Policies']['meta_info']
 
 
-
-    class Sets(Entity):
+    class Sets(_Entity_):
         """
         Information about configured sets
         
@@ -13250,7 +14665,10 @@ class RoutingPolicyShadow(Entity):
         _revision = '2017-09-22'
 
         def __init__(self):
-            super(RoutingPolicyShadow.Sets, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RoutingPolicyShadow.Sets, self).__init__()
 
             self.yang_name = "sets"
             self.yang_parent_name = "routing-policy-shadow"
@@ -13331,7 +14749,7 @@ class RoutingPolicyShadow(Entity):
             self._perform_setattr(RoutingPolicyShadow.Sets, [], name, value)
 
 
-        class Etag(Entity):
+        class Etag(_Entity_):
             """
             Information about Etag sets
             
@@ -13371,7 +14789,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Sets.Etag, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Sets.Etag, self).__init__()
 
                 self.yang_name = "etag"
                 self.yang_parent_name = "sets"
@@ -13404,7 +14825,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Sets.Etag, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -13423,7 +14844,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Etag.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Etag.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "etag"
@@ -13442,7 +14866,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -13477,7 +14901,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Sets.Etag.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Sets.Etag.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -13505,7 +14932,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -13525,7 +14952,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.Etag.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.Etag.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -13543,7 +14973,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -13577,7 +15007,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.Etag.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.Etag.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -13599,10 +15032,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.Etag.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.Etag.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -13622,7 +15063,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.Etag.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.Etag.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -13640,7 +15084,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -13796,7 +15240,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.Etag.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.Etag.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -13852,12 +15299,28 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.Etag.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.Etag.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Sets.Etag.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Etag.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -13877,7 +15340,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Etag.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Etag.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "etag"
@@ -13896,9 +15362,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Etag.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -13918,7 +15388,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Etag.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Etag.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "etag"
@@ -13937,9 +15410,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Etag.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -13959,7 +15436,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Etag.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Etag.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "etag"
@@ -13978,10 +15458,18 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Etag.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Etag.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Sets.Etag']['meta_info']
 
 
-
-        class OspfArea(Entity):
+        class OspfArea(_Entity_):
             """
             Information about OSPF Area sets
             
@@ -14021,7 +15509,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Sets.OspfArea, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Sets.OspfArea, self).__init__()
 
                 self.yang_name = "ospf-area"
                 self.yang_parent_name = "sets"
@@ -14054,7 +15545,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -14073,7 +15564,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.OspfArea.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.OspfArea.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "ospf-area"
@@ -14092,7 +15586,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -14127,7 +15621,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -14155,7 +15652,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -14175,7 +15672,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -14193,7 +15693,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -14227,7 +15727,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -14249,10 +15752,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -14272,7 +15783,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -14290,7 +15804,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -14446,7 +15960,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -14502,12 +16019,28 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.OspfArea.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Sets.OspfArea.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.OspfArea.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -14527,7 +16060,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.OspfArea.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.OspfArea.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "ospf-area"
@@ -14546,9 +16082,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.OspfArea.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -14568,7 +16108,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.OspfArea.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.OspfArea.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "ospf-area"
@@ -14587,9 +16130,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.OspfArea.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -14609,7 +16156,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.OspfArea.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.OspfArea.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "ospf-area"
@@ -14628,10 +16178,18 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.OspfArea.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.OspfArea.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Sets.OspfArea']['meta_info']
 
 
-
-        class ExtendedCommunityOpaque(Entity):
+        class ExtendedCommunityOpaque(_Entity_):
             """
             Information about Extended Community Opaque
             sets
@@ -14672,7 +16230,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque, self).__init__()
 
                 self.yang_name = "extended-community-opaque"
                 self.yang_parent_name = "sets"
@@ -14705,7 +16266,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -14724,7 +16285,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-opaque"
@@ -14743,7 +16307,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -14778,7 +16342,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -14806,7 +16373,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -14826,7 +16393,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -14844,7 +16414,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -14878,7 +16448,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -14900,10 +16473,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -14923,7 +16504,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -14941,7 +16525,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -15097,7 +16681,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -15153,12 +16740,28 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -15178,7 +16781,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "extended-community-opaque"
@@ -15197,9 +16803,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -15219,7 +16829,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "extended-community-opaque"
@@ -15238,9 +16851,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -15260,7 +16877,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "extended-community-opaque"
@@ -15279,10 +16899,18 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityOpaque.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityOpaque']['meta_info']
 
 
-
-        class ExtendedCommunitySegNh(Entity):
+        class ExtendedCommunitySegNh(_Entity_):
             """
             Information about Extended Community SegNH sets
             
@@ -15322,7 +16950,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh, self).__init__()
 
                 self.yang_name = "extended-community-seg-nh"
                 self.yang_parent_name = "sets"
@@ -15355,7 +16986,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -15374,7 +17005,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-seg-nh"
@@ -15393,7 +17027,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -15428,7 +17062,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -15456,7 +17093,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -15476,7 +17113,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -15494,7 +17134,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -15528,7 +17168,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -15550,10 +17193,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -15573,7 +17224,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -15591,7 +17245,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -15747,7 +17401,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -15803,12 +17460,28 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -15828,7 +17501,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "extended-community-seg-nh"
@@ -15847,9 +17523,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -15869,7 +17549,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "extended-community-seg-nh"
@@ -15888,9 +17571,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -15910,7 +17597,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "extended-community-seg-nh"
@@ -15929,10 +17619,18 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySegNh.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySegNh']['meta_info']
 
 
-
-        class ExtendedCommunitySoo(Entity):
+        class ExtendedCommunitySoo(_Entity_):
             """
             Information about Extended Community SOO sets
             
@@ -15972,7 +17670,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo, self).__init__()
 
                 self.yang_name = "extended-community-soo"
                 self.yang_parent_name = "sets"
@@ -16005,7 +17706,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -16024,7 +17725,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-soo"
@@ -16043,7 +17747,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -16078,7 +17782,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -16106,7 +17813,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -16126,7 +17833,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -16144,7 +17854,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -16178,7 +17888,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -16200,10 +17913,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -16223,7 +17944,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -16241,7 +17965,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -16397,7 +18121,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -16453,12 +18180,28 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -16478,7 +18221,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "extended-community-soo"
@@ -16497,9 +18243,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -16519,7 +18269,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "extended-community-soo"
@@ -16538,9 +18291,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -16560,7 +18317,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "extended-community-soo"
@@ -16579,10 +18339,18 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySoo.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunitySoo']['meta_info']
 
 
-
-        class Tag(Entity):
+        class Tag(_Entity_):
             """
             Information about Tag sets
             
@@ -16622,7 +18390,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Sets.Tag, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Sets.Tag, self).__init__()
 
                 self.yang_name = "tag"
                 self.yang_parent_name = "sets"
@@ -16655,7 +18426,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Sets.Tag, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -16674,7 +18445,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Tag.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Tag.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "tag"
@@ -16693,7 +18467,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -16728,7 +18502,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Sets.Tag.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Sets.Tag.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -16756,7 +18533,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -16776,7 +18553,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.Tag.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.Tag.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -16794,7 +18574,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -16828,7 +18608,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.Tag.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.Tag.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -16850,10 +18633,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.Tag.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.Tag.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -16873,7 +18664,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.Tag.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.Tag.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -16891,7 +18685,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -17047,7 +18841,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.Tag.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.Tag.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -17103,12 +18900,28 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.Tag.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.Tag.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Sets.Tag.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Tag.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -17128,7 +18941,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Tag.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Tag.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "tag"
@@ -17147,9 +18963,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Tag.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -17169,7 +18989,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Tag.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Tag.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "tag"
@@ -17188,9 +19011,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Tag.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -17210,7 +19037,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Tag.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Tag.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "tag"
@@ -17229,10 +19059,18 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Tag.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Tag.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Sets.Tag']['meta_info']
 
 
-
-        class Prefix(Entity):
+        class Prefix(_Entity_):
             """
             Information about AS Path sets
             
@@ -17272,7 +19110,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Sets.Prefix, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Sets.Prefix, self).__init__()
 
                 self.yang_name = "prefix"
                 self.yang_parent_name = "sets"
@@ -17305,7 +19146,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Sets.Prefix, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -17324,7 +19165,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Prefix.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Prefix.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "prefix"
@@ -17343,7 +19187,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -17378,7 +19222,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Sets.Prefix.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Sets.Prefix.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -17406,7 +19253,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -17426,7 +19273,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.Prefix.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.Prefix.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -17444,7 +19294,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -17478,7 +19328,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.Prefix.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.Prefix.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -17500,10 +19353,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.Prefix.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.Prefix.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -17523,7 +19384,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.Prefix.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.Prefix.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -17541,7 +19405,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -17697,7 +19561,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.Prefix.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.Prefix.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -17753,12 +19620,28 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.Prefix.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.Prefix.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Sets.Prefix.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Prefix.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -17778,7 +19661,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Prefix.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Prefix.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "prefix"
@@ -17797,9 +19683,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Prefix.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -17819,7 +19709,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Prefix.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Prefix.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "prefix"
@@ -17838,9 +19731,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Prefix.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -17860,7 +19757,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Prefix.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Prefix.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "prefix"
@@ -17879,10 +19779,18 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Prefix.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Prefix.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Sets.Prefix']['meta_info']
 
 
-
-        class Community(Entity):
+        class Community(_Entity_):
             """
             Information about Community sets
             
@@ -17922,7 +19830,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Sets.Community, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Sets.Community, self).__init__()
 
                 self.yang_name = "community"
                 self.yang_parent_name = "sets"
@@ -17955,7 +19866,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Sets.Community, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -17974,7 +19885,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Community.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Community.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "community"
@@ -17993,7 +19907,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Community.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -18028,7 +19942,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Sets.Community.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Sets.Community.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -18056,7 +19973,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Sets.Community.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -18076,7 +19993,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.Community.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.Community.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -18094,7 +20014,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.Community.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -18128,7 +20048,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.Community.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.Community.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -18150,10 +20073,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.Community.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.Community.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.Community.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -18173,7 +20104,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.Community.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.Community.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -18191,7 +20125,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.Community.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -18347,7 +20281,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.Community.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.Community.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -18403,12 +20340,28 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.Community.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.Community.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.Community.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Sets.Community.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Community.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -18428,7 +20381,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Community.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Community.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "community"
@@ -18447,9 +20403,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Community.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Community.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -18469,7 +20429,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Community.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Community.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "community"
@@ -18488,9 +20451,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Community.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Community.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -18510,7 +20477,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Community.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Community.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "community"
@@ -18529,10 +20499,18 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Community.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Community.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Sets.Community']['meta_info']
 
 
-
-        class AsPath(Entity):
+        class AsPath(_Entity_):
             """
             Information about AS Path sets
             
@@ -18572,7 +20550,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Sets.AsPath, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Sets.AsPath, self).__init__()
 
                 self.yang_name = "as-path"
                 self.yang_parent_name = "sets"
@@ -18605,7 +20586,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Sets.AsPath, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -18624,7 +20605,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.AsPath.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.AsPath.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "as-path"
@@ -18643,7 +20627,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -18678,7 +20662,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Sets.AsPath.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Sets.AsPath.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -18706,7 +20693,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -18726,7 +20713,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.AsPath.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.AsPath.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -18744,7 +20734,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -18778,7 +20768,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.AsPath.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.AsPath.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -18800,10 +20793,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.AsPath.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.AsPath.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -18823,7 +20824,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.AsPath.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.AsPath.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -18841,7 +20845,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -18997,7 +21001,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.AsPath.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.AsPath.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -19053,12 +21060,28 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.AsPath.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.AsPath.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Sets.AsPath.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.AsPath.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -19078,7 +21101,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.AsPath.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.AsPath.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "as-path"
@@ -19097,9 +21123,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.AsPath.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -19119,7 +21149,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.AsPath.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.AsPath.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "as-path"
@@ -19138,9 +21171,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.AsPath.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -19160,7 +21197,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.AsPath.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.AsPath.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "as-path"
@@ -19179,10 +21219,18 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.AsPath.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.AsPath.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Sets.AsPath']['meta_info']
 
 
-
-        class LargeCommunity(Entity):
+        class LargeCommunity(_Entity_):
             """
             Information about Large Community sets
             
@@ -19222,7 +21270,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Sets.LargeCommunity, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Sets.LargeCommunity, self).__init__()
 
                 self.yang_name = "large-community"
                 self.yang_parent_name = "sets"
@@ -19255,7 +21306,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -19274,7 +21325,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.LargeCommunity.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.LargeCommunity.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "large-community"
@@ -19293,7 +21347,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -19328,7 +21382,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -19356,7 +21413,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -19376,7 +21433,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -19394,7 +21454,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -19428,7 +21488,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -19450,10 +21513,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -19473,7 +21544,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -19491,7 +21565,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -19647,7 +21721,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -19703,12 +21780,28 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Sets.LargeCommunity.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.LargeCommunity.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -19728,7 +21821,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.LargeCommunity.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.LargeCommunity.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "large-community"
@@ -19747,9 +21843,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.LargeCommunity.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -19769,7 +21869,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.LargeCommunity.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.LargeCommunity.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "large-community"
@@ -19788,9 +21891,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.LargeCommunity.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -19810,7 +21917,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.LargeCommunity.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.LargeCommunity.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "large-community"
@@ -19829,10 +21939,18 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.LargeCommunity.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.LargeCommunity.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Sets.LargeCommunity']['meta_info']
 
 
-
-        class Esi(Entity):
+        class Esi(_Entity_):
             """
             Information about Esi sets
             
@@ -19872,7 +21990,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Sets.Esi, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Sets.Esi, self).__init__()
 
                 self.yang_name = "esi"
                 self.yang_parent_name = "sets"
@@ -19905,7 +22026,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Sets.Esi, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -19924,7 +22045,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Esi.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Esi.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "esi"
@@ -19943,7 +22067,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -19978,7 +22102,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Sets.Esi.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Sets.Esi.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -20006,7 +22133,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -20026,7 +22153,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.Esi.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.Esi.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -20044,7 +22174,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -20078,7 +22208,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.Esi.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.Esi.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -20100,10 +22233,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.Esi.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.Esi.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -20123,7 +22264,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.Esi.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.Esi.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -20141,7 +22285,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -20297,7 +22441,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.Esi.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.Esi.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -20353,12 +22500,28 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.Esi.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.Esi.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Sets.Esi.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Esi.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -20378,7 +22541,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Esi.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Esi.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "esi"
@@ -20397,9 +22563,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Esi.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -20419,7 +22589,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Esi.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Esi.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "esi"
@@ -20438,9 +22611,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Esi.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -20460,7 +22637,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Esi.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Esi.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "esi"
@@ -20479,10 +22659,18 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Esi.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Esi.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Sets.Esi']['meta_info']
 
 
-
-        class ExtendedCommunityBandwidth(Entity):
+        class ExtendedCommunityBandwidth(_Entity_):
             """
             Information about Extended Community Bandwidth
             sets
@@ -20516,7 +22704,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth, self).__init__()
 
                 self.yang_name = "extended-community-bandwidth"
                 self.yang_parent_name = "sets"
@@ -20545,7 +22736,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -20564,7 +22755,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-bandwidth"
@@ -20583,7 +22777,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -20618,7 +22812,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -20646,7 +22843,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -20666,7 +22863,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -20684,7 +22884,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -20718,7 +22918,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -20740,10 +22943,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -20763,7 +22974,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -20781,7 +22995,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -20937,7 +23151,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -20993,12 +23210,28 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -21018,7 +23251,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "extended-community-bandwidth"
@@ -21037,9 +23273,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -21059,7 +23299,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "extended-community-bandwidth"
@@ -21078,10 +23321,18 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth.Inactive']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityBandwidth']['meta_info']
 
 
-
-        class ExtendedCommunityRt(Entity):
+        class ExtendedCommunityRt(_Entity_):
             """
             Information about Extended Community RT sets
             
@@ -21121,7 +23372,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Sets.ExtendedCommunityRt, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Sets.ExtendedCommunityRt, self).__init__()
 
                 self.yang_name = "extended-community-rt"
                 self.yang_parent_name = "sets"
@@ -21154,7 +23408,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -21173,7 +23427,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-rt"
@@ -21192,7 +23449,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -21227,7 +23484,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -21255,7 +23515,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -21275,7 +23535,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -21293,7 +23556,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -21327,7 +23590,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -21349,10 +23615,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -21372,7 +23646,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -21390,7 +23667,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -21546,7 +23823,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -21602,12 +23882,28 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityRt.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -21627,7 +23923,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "extended-community-rt"
@@ -21646,9 +23945,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityRt.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -21668,7 +23971,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "extended-community-rt"
@@ -21687,9 +23993,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityRt.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -21709,7 +24019,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "extended-community-rt"
@@ -21728,10 +24041,18 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityRt.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityRt.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityRt']['meta_info']
 
 
-
-        class Rd(Entity):
+        class Rd(_Entity_):
             """
             Information about RD sets
             
@@ -21771,7 +24092,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Sets.Rd, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Sets.Rd, self).__init__()
 
                 self.yang_name = "rd"
                 self.yang_parent_name = "sets"
@@ -21804,7 +24128,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Sets.Rd, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -21823,7 +24147,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Rd.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Rd.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "rd"
@@ -21842,7 +24169,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -21877,7 +24204,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Sets.Rd.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Sets.Rd.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -21905,7 +24235,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -21925,7 +24255,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.Rd.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.Rd.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -21943,7 +24276,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -21977,7 +24310,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.Rd.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.Rd.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -21999,10 +24335,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.Rd.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.Rd.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -22022,7 +24366,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.Rd.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.Rd.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -22040,7 +24387,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -22196,7 +24543,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.Rd.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.Rd.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -22252,12 +24602,28 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.Rd.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.Rd.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Sets.Rd.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Rd.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -22277,7 +24643,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Rd.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Rd.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "rd"
@@ -22296,9 +24665,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Rd.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -22318,7 +24691,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Rd.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Rd.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "rd"
@@ -22337,9 +24713,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Rd.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -22359,7 +24739,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Rd.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Rd.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "rd"
@@ -22378,10 +24761,18 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Rd.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Rd.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Sets.Rd']['meta_info']
 
 
-
-        class Mac(Entity):
+        class Mac(_Entity_):
             """
             Information about Mac sets
             
@@ -22421,7 +24812,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Sets.Mac, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Sets.Mac, self).__init__()
 
                 self.yang_name = "mac"
                 self.yang_parent_name = "sets"
@@ -22454,7 +24848,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Sets.Mac, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -22473,7 +24867,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Mac.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Mac.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "mac"
@@ -22492,7 +24889,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -22527,7 +24924,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Sets.Mac.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Sets.Mac.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -22555,7 +24955,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -22575,7 +24975,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.Mac.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.Mac.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -22593,7 +24996,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -22627,7 +25030,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.Mac.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.Mac.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -22649,10 +25055,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.Mac.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.Mac.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -22672,7 +25086,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.Mac.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.Mac.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -22690,7 +25107,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -22846,7 +25263,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.Mac.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.Mac.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -22902,12 +25322,28 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.Mac.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.Mac.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Sets.Mac.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Mac.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -22927,7 +25363,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Mac.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Mac.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "mac"
@@ -22946,9 +25385,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Mac.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -22968,7 +25411,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Mac.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Mac.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "mac"
@@ -22987,9 +25433,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Mac.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -23009,7 +25459,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.Mac.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.Mac.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "mac"
@@ -23028,10 +25481,18 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.Mac.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.Mac.Active']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Sets.Mac']['meta_info']
 
 
-
-        class ExtendedCommunityCost(Entity):
+        class ExtendedCommunityCost(_Entity_):
             """
             Information about Extended Community Cost sets
             
@@ -23071,7 +25532,10 @@ class RoutingPolicyShadow(Entity):
             _revision = '2017-09-22'
 
             def __init__(self):
-                super(RoutingPolicyShadow.Sets.ExtendedCommunityCost, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicyShadow.Sets.ExtendedCommunityCost, self).__init__()
 
                 self.yang_name = "extended-community-cost"
                 self.yang_parent_name = "sets"
@@ -23104,7 +25568,7 @@ class RoutingPolicyShadow(Entity):
                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost, [], name, value)
 
 
-            class Sets_(Entity):
+            class Sets_(_Entity_):
                 """
                 Information about individual sets
                 
@@ -23123,7 +25587,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_, self).__init__()
 
                     self.yang_name = "sets"
                     self.yang_parent_name = "extended-community-cost"
@@ -23142,7 +25609,7 @@ class RoutingPolicyShadow(Entity):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_, [], name, value)
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Information about an individual set
                     
@@ -23177,7 +25644,10 @@ class RoutingPolicyShadow(Entity):
                     _revision = '2017-09-22'
 
                     def __init__(self):
-                        super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "sets"
@@ -23205,7 +25675,7 @@ class RoutingPolicyShadow(Entity):
                         self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set, ['set_name'], name, value)
 
 
-                    class UsedBy(Entity):
+                    class UsedBy(_Entity_):
                         """
                         Policies that use this object, directly or
                         indirectly
@@ -23225,7 +25695,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy, self).__init__()
 
                             self.yang_name = "used-by"
                             self.yang_parent_name = "set"
@@ -23243,7 +25716,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy, [], name, value)
 
 
-                        class Reference(Entity):
+                        class Reference(_Entity_):
                             """
                             Information about policies referring to this
                             object
@@ -23277,7 +25750,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference, self).__init__()
 
                                 self.yang_name = "reference"
                                 self.yang_parent_name = "used-by"
@@ -23299,10 +25775,18 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference, ['route_policy_name', 'used_directly', 'status'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy']['meta_info']
 
 
-
-                    class Attached(Entity):
+                    class Attached(_Entity_):
                         """
                         Information about where this policy or set is
                         attached
@@ -23322,7 +25806,10 @@ class RoutingPolicyShadow(Entity):
                         _revision = '2017-09-22'
 
                         def __init__(self):
-                            super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.Attached, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.Attached, self).__init__()
 
                             self.yang_name = "attached"
                             self.yang_parent_name = "set"
@@ -23340,7 +25827,7 @@ class RoutingPolicyShadow(Entity):
                             self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.Attached, [], name, value)
 
 
-                        class Binding(Entity):
+                        class Binding(_Entity_):
                             """
                             bindings list
                             
@@ -23496,7 +25983,10 @@ class RoutingPolicyShadow(Entity):
                             _revision = '2017-09-22'
 
                             def __init__(self):
-                                super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding, self).__init__()
 
                                 self.yang_name = "binding"
                                 self.yang_parent_name = "attached"
@@ -23552,12 +26042,28 @@ class RoutingPolicyShadow(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding, ['protocol', 'vrf_name', 'proto_instance', 'af_name', 'saf_name', 'neighbor_address', 'neighbor_af_name', 'group_name', 'direction', 'group', 'source_protocol', 'aggregate_network_address', 'interface_name', 'instance', 'area_id', 'propogate_from', 'propogate_to', 'route_policy_name', 'attached_policy', 'attach_point'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                            return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set.Attached']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                        return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_.Set']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityCost.Sets_']['meta_info']
 
 
-
-
-
-            class Unused(Entity):
+            class Unused(_Entity_):
                 """
                 All objects of a given type that are not
                 referenced at all
@@ -23577,7 +26083,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Unused, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Unused, self).__init__()
 
                     self.yang_name = "unused"
                     self.yang_parent_name = "extended-community-cost"
@@ -23596,9 +26105,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Unused, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityCost.Unused']['meta_info']
 
 
-            class Inactive(Entity):
+            class Inactive(_Entity_):
                 """
                 All objects of a given type that are not
                 attached to a protocol
@@ -23618,7 +26131,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Inactive, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Inactive, self).__init__()
 
                     self.yang_name = "inactive"
                     self.yang_parent_name = "extended-community-cost"
@@ -23637,9 +26153,13 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Inactive, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityCost.Inactive']['meta_info']
 
 
-            class Active(Entity):
+            class Active(_Entity_):
                 """
                 All objects of a given type that are attached to
                 a protocol
@@ -23659,7 +26179,10 @@ class RoutingPolicyShadow(Entity):
                 _revision = '2017-09-22'
 
                 def __init__(self):
-                    super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Active, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Active, self).__init__()
 
                     self.yang_name = "active"
                     self.yang_parent_name = "extended-community-cost"
@@ -23678,12 +26201,28 @@ class RoutingPolicyShadow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicyShadow.Sets.ExtendedCommunityCost.Active, ['object'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                    return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityCost.Active']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+                return meta._meta_table['RoutingPolicyShadow.Sets.ExtendedCommunityCost']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+            return meta._meta_table['RoutingPolicyShadow.Sets']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = RoutingPolicyShadow()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
+        return meta._meta_table['RoutingPolicyShadow']['meta_info']
 
 

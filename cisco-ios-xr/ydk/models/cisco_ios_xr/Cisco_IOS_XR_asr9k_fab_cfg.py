@@ -11,8 +11,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -26,17 +29,29 @@ class Asr9kFabMode(Enum):
 
     Asr9k fab mode
 
+    .. data:: highbandwidth = 1
+
+    	High bandwidth mode
+
     .. data:: a99_highbandwidth = 2
 
     	A99 High bandwidth mode
 
     """
 
+    highbandwidth = Enum.YLeaf(1, "highbandwidth")
+
     a99_highbandwidth = Enum.YLeaf(2, "a99-highbandwidth")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_fab_cfg as meta
+        return meta._meta_table['Asr9kFabMode']
 
-class FabVqiConfig(Entity):
+
+
+class FabVqiConfig(_Entity_):
     """
     Configure Fabric Operation Mode
     
@@ -53,7 +68,10 @@ class FabVqiConfig(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(FabVqiConfig, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(FabVqiConfig, self).__init__()
         self._top_entity = None
 
         self.yang_name = "fab-vqi-config"
@@ -74,7 +92,7 @@ class FabVqiConfig(Entity):
         self._perform_setattr(FabVqiConfig, [], name, value)
 
 
-    class Mode(Entity):
+    class Mode(_Entity_):
         """
         Mode Type
         
@@ -96,7 +114,10 @@ class FabVqiConfig(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(FabVqiConfig.Mode, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(FabVqiConfig.Mode, self).__init__()
 
             self.yang_name = "mode"
             self.yang_parent_name = "fab-vqi-config"
@@ -117,10 +138,18 @@ class FabVqiConfig(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(FabVqiConfig.Mode, ['fab_mode_type_xr', 'fab_mode_type'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_fab_cfg as meta
+            return meta._meta_table['FabVqiConfig.Mode']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = FabVqiConfig()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_fab_cfg as meta
+        return meta._meta_table['FabVqiConfig']['meta_info']
 
 

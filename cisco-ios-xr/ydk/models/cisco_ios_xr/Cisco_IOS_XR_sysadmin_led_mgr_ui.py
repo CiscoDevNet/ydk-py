@@ -9,8 +9,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -19,7 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Led(Entity):
+class Led(_Entity_):
     """
     Calvados Led Manager Status, Attn, Alarm inventory
     
@@ -45,7 +48,10 @@ class Led(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(Led, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Led, self).__init__()
         self._top_entity = None
 
         self.yang_name = "led"
@@ -65,7 +71,7 @@ class Led(Entity):
         self._perform_setattr(Led, [], name, value)
 
 
-    class Location(Entity):
+    class Location(_Entity_):
         """
         
         
@@ -91,7 +97,10 @@ class Led(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Led.Location, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Led.Location, self).__init__()
 
             self.yang_name = "location"
             self.yang_parent_name = "led"
@@ -113,7 +122,7 @@ class Led(Entity):
             self._perform_setattr(Led.Location, ['location'], name, value)
 
 
-        class LedAttributes(Entity):
+        class LedAttributes(_Entity_):
             """
             
             
@@ -171,7 +180,10 @@ class Led(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Led.Location.LedAttributes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Led.Location.LedAttributes, self).__init__()
 
                 self.yang_name = "led_attributes"
                 self.yang_parent_name = "location"
@@ -199,10 +211,18 @@ class Led(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Led.Location.LedAttributes, ['led_name', 'location', 'print_header', 'loc_header', 'led_mode', 'led_color'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_led_mgr_ui as meta
+                return meta._meta_table['Led.Location.LedAttributes']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_led_mgr_ui as meta
+            return meta._meta_table['Led.Location']['meta_info']
 
 
-
-    class Trace(Entity):
+    class Trace(_Entity_):
         """
         show traceable processes
         
@@ -228,7 +248,10 @@ class Led(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(Led.Trace, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Led.Trace, self).__init__()
 
             self.yang_name = "trace"
             self.yang_parent_name = "led"
@@ -250,7 +273,7 @@ class Led(Entity):
             self._perform_setattr(Led.Trace, ['buffer'], name, value)
 
 
-        class Location(Entity):
+        class Location(_Entity_):
             """
             
             
@@ -276,7 +299,10 @@ class Led(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Led.Trace.Location, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Led.Trace.Location, self).__init__()
 
                 self.yang_name = "location"
                 self.yang_parent_name = "trace"
@@ -297,7 +323,7 @@ class Led(Entity):
                 self._perform_setattr(Led.Trace.Location, ['location_name'], name, value)
 
 
-            class AllOptions(Entity):
+            class AllOptions(_Entity_):
                 """
                 
                 
@@ -323,7 +349,10 @@ class Led(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Led.Trace.Location.AllOptions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Led.Trace.Location.AllOptions, self).__init__()
 
                     self.yang_name = "all-options"
                     self.yang_parent_name = "location"
@@ -344,7 +373,7 @@ class Led(Entity):
                     self._perform_setattr(Led.Trace.Location.AllOptions, ['option'], name, value)
 
 
-                class TraceBlocks(Entity):
+                class TraceBlocks(_Entity_):
                     """
                     
                     
@@ -363,7 +392,10 @@ class Led(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Led.Trace.Location.AllOptions.TraceBlocks, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Led.Trace.Location.AllOptions.TraceBlocks, self).__init__()
 
                         self.yang_name = "trace-blocks"
                         self.yang_parent_name = "all-options"
@@ -381,13 +413,33 @@ class Led(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Led.Trace.Location.AllOptions.TraceBlocks, ['data'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_led_mgr_ui as meta
+                        return meta._meta_table['Led.Trace.Location.AllOptions.TraceBlocks']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_led_mgr_ui as meta
+                    return meta._meta_table['Led.Trace.Location.AllOptions']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_led_mgr_ui as meta
+                return meta._meta_table['Led.Trace.Location']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_led_mgr_ui as meta
+            return meta._meta_table['Led.Trace']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Led()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_led_mgr_ui as meta
+        return meta._meta_table['Led']['meta_info']
 
 

@@ -2,13 +2,16 @@
 
 This module contains a collection of YANG definitions
 for Cisco IOS\-XR ASR9k policy manager configuration.
- 
+
 Copyright (c) 2013, 2015\-2019 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -67,6 +70,12 @@ class AuthorizeIdentifier(Enum):
     username = Enum.YLeaf(6, "username")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+        return meta._meta_table['AuthorizeIdentifier']
+
+
 class ClassMapType(Enum):
     """
     ClassMapType (Enum Class)
@@ -92,6 +101,12 @@ class ClassMapType(Enum):
     traffic = Enum.YLeaf(3, "traffic")
 
     control = Enum.YLeaf(4, "control")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+        return meta._meta_table['ClassMapType']
 
 
 class EventType(Enum):
@@ -199,6 +214,12 @@ class EventType(Enum):
     timer_expiry = Enum.YLeaf(15, "timer-expiry")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+        return meta._meta_table['EventType']
+
+
 class ExecutionStrategy(Enum):
     """
     ExecutionStrategy (Enum Class)
@@ -226,6 +247,12 @@ class ExecutionStrategy(Enum):
     do_until_success = Enum.YLeaf(2, "do-until-success")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+        return meta._meta_table['ExecutionStrategy']
+
+
 class PmapClassMapType(Enum):
     """
     PmapClassMapType (Enum Class)
@@ -251,6 +278,12 @@ class PmapClassMapType(Enum):
     traffic = Enum.YLeaf(2, "traffic")
 
     subscriber_control = Enum.YLeaf(3, "subscriber-control")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+        return meta._meta_table['PmapClassMapType']
 
 
 class PolicyMapType(Enum):
@@ -304,8 +337,14 @@ class PolicyMapType(Enum):
     flow_monitor = Enum.YLeaf(7, "flow-monitor")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+        return meta._meta_table['PolicyMapType']
 
-class PolicyManager(Entity):
+
+
+class PolicyManager(_Entity_):
     """
     Global Policy Manager configuration.
     
@@ -324,10 +363,13 @@ class PolicyManager(Entity):
     """
 
     _prefix = 'infra-policymgr-cfg'
-    _revision = '2018-11-22'
+    _revision = '2019-10-02'
 
     def __init__(self):
-        super(PolicyManager, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(PolicyManager, self).__init__()
         self._top_entity = None
 
         self.yang_name = "policy-manager"
@@ -352,7 +394,7 @@ class PolicyManager(Entity):
         self._perform_setattr(PolicyManager, [], name, value)
 
 
-    class ClassMaps(Entity):
+    class ClassMaps(_Entity_):
         """
         Class\-maps configuration.
         
@@ -366,10 +408,13 @@ class PolicyManager(Entity):
         """
 
         _prefix = 'infra-policymgr-cfg'
-        _revision = '2018-11-22'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(PolicyManager.ClassMaps, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PolicyManager.ClassMaps, self).__init__()
 
             self.yang_name = "class-maps"
             self.yang_parent_name = "policy-manager"
@@ -388,7 +433,7 @@ class PolicyManager(Entity):
             self._perform_setattr(PolicyManager.ClassMaps, [], name, value)
 
 
-        class ClassMap(Entity):
+        class ClassMap(_Entity_):
             """
             Class\-map configuration.
             
@@ -434,10 +479,13 @@ class PolicyManager(Entity):
             """
 
             _prefix = 'infra-policymgr-cfg'
-            _revision = '2018-11-22'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(PolicyManager.ClassMaps.ClassMap, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PolicyManager.ClassMaps.ClassMap, self).__init__()
 
                 self.yang_name = "class-map"
                 self.yang_parent_name = "class-maps"
@@ -473,7 +521,7 @@ class PolicyManager(Entity):
                 self._perform_setattr(PolicyManager.ClassMaps.ClassMap, ['type', 'name', 'class_map_mode_match_any', 'class_map_mode_match_all', 'description'], name, value)
 
 
-            class Match(Entity):
+            class Match(_Entity_):
                 """
                 Match rules.
                 
@@ -637,14 +685,14 @@ class PolicyManager(Entity):
                 
                 .. attribute:: ipv6_packet_length
                 
-                	Match IPv6 packet length.  Should be value 0..65535 or range
+                	Match IPv6 packet length. Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: packet_length
                 
-                	Match packet length.  Should be value 0..65535 or range
+                	Match packet length. Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -710,7 +758,7 @@ class PolicyManager(Entity):
                 
                 .. attribute:: destination_port
                 
-                	Match destination port.  Should be value 0..65535 or range
+                	Match destination port. Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -724,7 +772,7 @@ class PolicyManager(Entity):
                 
                 .. attribute:: frame_relay_dlci
                 
-                	Match frame\-relay DLCI value.  Should be value 16..1007 or range
+                	Match frame\-relay DLCI value. Should be value 16..1007 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -738,28 +786,28 @@ class PolicyManager(Entity):
                 
                 .. attribute:: icmpv4_code
                 
-                	Match IPv4 ICMP code.  Should be value 0..255 or range
+                	Match IPv4 ICMP code. Should be value 0..255 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv4_type
                 
-                	Match IPv4 ICMP type.  Should be value 0..255 or range
+                	Match IPv4 ICMP type. Should be value 0..255 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv6_code
                 
-                	Match IPv6 ICMP code.  Should be value 0..255 or range
+                	Match IPv6 ICMP code. Should be value 0..255 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv6_type
                 
-                	Match IPv6 ICMP type.  Should be value 0..255 or range
+                	Match IPv6 ICMP type. Should be value 0..255 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -776,7 +824,7 @@ class PolicyManager(Entity):
                 
                 .. attribute:: source_port
                 
-                	Match source port.  Should be value 0..65535 or range
+                	Match source port. Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -952,10 +1000,13 @@ class PolicyManager(Entity):
                 """
 
                 _prefix = 'infra-policymgr-cfg'
-                _revision = '2018-11-22'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PolicyManager.ClassMaps.ClassMap.Match, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PolicyManager.ClassMaps.ClassMap.Match, self).__init__()
 
                     self.yang_name = "match"
                     self.yang_parent_name = "class-map"
@@ -1107,7 +1158,7 @@ class PolicyManager(Entity):
                     self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match, ['ipv4_dscp', 'ipv6_dscp', 'dscp', 'ipv4_precedence', 'ipv6_precedence', 'precedence', 'qos_group', 'traffic_class', 'cos', 'inner_cos', 'dei', 'dei_inner', 'protocol', 'ipv4_acl', 'ipv6_acl', 'ethernet_services_acl', 'mpls_experimental_topmost', 'mpls_experimental_imposition', 'discard_class', 'ipv4_packet_length', 'ipv6_packet_length', 'packet_length', 'mpls_disposition_ipv4_access_list', 'mpls_disposition_ipv6_access_list', 'mpls_disp_class_map', 'vlan', 'inner_vlan', 'flow_tag', 'ethertype', 'destination_port', 'fragment_type', 'frame_relay_dlci', 'fr_de', 'icmpv4_code', 'icmpv4_type', 'icmpv6_code', 'icmpv6_type', 'source_port', 'tcp_flag', 'authen_status', 'circuit_id', 'circuit_id_regex', 'remote_id', 'remote_id_regex', 'service_name', 'service_name_regex', 'timer', 'timer_regex', 'user_name', 'user_name_regex', 'source_mac', 'destination_mac', 'vpls_control', 'vpls_broadcast', 'vpls_multicast', 'vpls_known', 'vpls_unknown', 'atm_clp', 'atm_oam', 'cac_admit', 'cac_unadmit'], name, value)
 
 
-                class DestinationAddressIpv4(Entity):
+                class DestinationAddressIpv4(_Entity_):
                     """
                     Match destination IPv4 address.
                     
@@ -1130,10 +1181,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4, self).__init__()
 
                         self.yang_name = "destination-address-ipv4"
                         self.yang_parent_name = "match"
@@ -1153,9 +1207,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4, ['address', 'netmask'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4']['meta_info']
 
 
-                class DestinationAddressIpv6(Entity):
+                class DestinationAddressIpv6(_Entity_):
                     """
                     Match destination IPv6 address.
                     
@@ -1178,10 +1236,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv6, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv6, self).__init__()
 
                         self.yang_name = "destination-address-ipv6"
                         self.yang_parent_name = "match"
@@ -1201,9 +1262,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv6, ['address', 'prefix_length'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv6']['meta_info']
 
 
-                class SourceAddressIpv4(Entity):
+                class SourceAddressIpv4(_Entity_):
                     """
                     Match source IPv4 address.
                     
@@ -1226,10 +1291,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4, self).__init__()
 
                         self.yang_name = "source-address-ipv4"
                         self.yang_parent_name = "match"
@@ -1249,9 +1317,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4, ['address', 'netmask'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4']['meta_info']
 
 
-                class SourceAddressIpv6(Entity):
+                class SourceAddressIpv6(_Entity_):
                     """
                     Match source IPv6 address.
                     
@@ -1274,10 +1346,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6, self).__init__()
 
                         self.yang_name = "source-address-ipv6"
                         self.yang_parent_name = "match"
@@ -1297,9 +1372,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6, ['address', 'prefix_length'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6']['meta_info']
 
 
-                class DhcpClientId(Entity):
+                class DhcpClientId(_Entity_):
                     """
                     Match dhcp client ID.
                     
@@ -1322,10 +1401,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.Match.DhcpClientId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.Match.DhcpClientId, self).__init__()
 
                         self.yang_name = "dhcp-client-id"
                         self.yang_parent_name = "match"
@@ -1345,9 +1427,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DhcpClientId, ['value', 'flag'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.Match.DhcpClientId']['meta_info']
 
 
-                class DhcpClientIdRegex(Entity):
+                class DhcpClientIdRegex(_Entity_):
                     """
                     Match dhcp client id regex.
                     
@@ -1370,10 +1456,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.Match.DhcpClientIdRegex, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.Match.DhcpClientIdRegex, self).__init__()
 
                         self.yang_name = "dhcp-client-id-regex"
                         self.yang_parent_name = "match"
@@ -1393,9 +1482,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DhcpClientIdRegex, ['value', 'flag'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.Match.DhcpClientIdRegex']['meta_info']
 
 
-                class DomainName(Entity):
+                class DomainName(_Entity_):
                     """
                     Match domain name.
                     
@@ -1418,10 +1511,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.Match.DomainName, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.Match.DomainName, self).__init__()
 
                         self.yang_name = "domain-name"
                         self.yang_parent_name = "match"
@@ -1441,9 +1537,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DomainName, ['name', 'format'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.Match.DomainName']['meta_info']
 
 
-                class DomainNameRegex(Entity):
+                class DomainNameRegex(_Entity_):
                     """
                     Match domain name.
                     
@@ -1466,10 +1566,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.Match.DomainNameRegex, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.Match.DomainNameRegex, self).__init__()
 
                         self.yang_name = "domain-name-regex"
                         self.yang_parent_name = "match"
@@ -1489,9 +1592,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DomainNameRegex, ['regex', 'format'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.Match.DomainNameRegex']['meta_info']
 
 
-                class Flow(Entity):
+                class Flow(_Entity_):
                     """
                     Match flow.
                     
@@ -1512,10 +1619,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.Match.Flow, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.Match.Flow, self).__init__()
 
                         self.yang_name = "flow"
                         self.yang_parent_name = "match"
@@ -1538,7 +1648,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.Flow, ['flow_key'], name, value)
 
 
-                    class FlowCache(Entity):
+                    class FlowCache(_Entity_):
                         """
                         Configure the flow\-cache parameters
                         
@@ -1560,10 +1670,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache, self).__init__()
 
                             self.yang_name = "flow-cache"
                             self.yang_parent_name = "flow"
@@ -1581,11 +1694,23 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache, ['idle_timeout'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.Match.Flow']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                    return meta._meta_table['PolicyManager.ClassMaps.ClassMap.Match']['meta_info']
 
 
-
-
-            class MatchNot(Entity):
+            class MatchNot(_Entity_):
                 """
                 Match not rules.
                 
@@ -1749,14 +1874,14 @@ class PolicyManager(Entity):
                 
                 .. attribute:: ipv6_packet_length
                 
-                	Match IPv6 packet length.  Should be value 0..65535 or range
+                	Match IPv6 packet length. Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: packet_length
                 
-                	Match packet length.  Should be value 0..65535 or range
+                	Match packet length. Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -1822,7 +1947,7 @@ class PolicyManager(Entity):
                 
                 .. attribute:: destination_port
                 
-                	Match destination port.  Should be value 0..65535 or range
+                	Match destination port. Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -1836,7 +1961,7 @@ class PolicyManager(Entity):
                 
                 .. attribute:: frame_relay_dlci
                 
-                	Match frame\-relay DLCI value.  Should be value 16..1007 or range
+                	Match frame\-relay DLCI value. Should be value 16..1007 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -1850,28 +1975,28 @@ class PolicyManager(Entity):
                 
                 .. attribute:: icmpv4_code
                 
-                	Match IPv4 ICMP code.  Should be value 0..255 or range
+                	Match IPv4 ICMP code. Should be value 0..255 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv4_type
                 
-                	Match IPv4 ICMP type.  Should be value 0..255 or range
+                	Match IPv4 ICMP type. Should be value 0..255 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv6_code
                 
-                	Match IPv6 ICMP code.  Should be value 0..255 or range
+                	Match IPv6 ICMP code. Should be value 0..255 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: icmpv6_type
                 
-                	Match IPv6 ICMP type.  Should be value 0..255 or range
+                	Match IPv6 ICMP type. Should be value 0..255 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -1888,7 +2013,7 @@ class PolicyManager(Entity):
                 
                 .. attribute:: source_port
                 
-                	Match source port.  Should be value 0..65535 or range
+                	Match source port. Should be value 0..65535 or range
                 	**type**\: list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -2042,10 +2167,13 @@ class PolicyManager(Entity):
                 """
 
                 _prefix = 'infra-policymgr-cfg'
-                _revision = '2018-11-22'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PolicyManager.ClassMaps.ClassMap.MatchNot, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PolicyManager.ClassMaps.ClassMap.MatchNot, self).__init__()
 
                     self.yang_name = "match-not"
                     self.yang_parent_name = "class-map"
@@ -2189,7 +2317,7 @@ class PolicyManager(Entity):
                     self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot, ['ipv4_dscp', 'ipv6_dscp', 'dscp', 'ipv4_precedence', 'ipv6_precedence', 'precedence', 'qos_group', 'traffic_class', 'cos', 'inner_cos', 'dei', 'dei_inner', 'protocol', 'ipv4_acl', 'ipv6_acl', 'ethernet_services_acl', 'mpls_experimental_topmost', 'mpls_experimental_imposition', 'discard_class', 'ipv4_packet_length', 'ipv6_packet_length', 'packet_length', 'mpls_disposition_ipv4_access_list', 'mpls_disposition_ipv6_access_list', 'mpls_disp_class_map', 'vlan', 'inner_vlan', 'flow_tag', 'ethertype', 'destination_port', 'fragment_type', 'frame_relay_dlci', 'fr_de', 'icmpv4_code', 'icmpv4_type', 'icmpv6_code', 'icmpv6_type', 'source_port', 'tcp_flag', 'authen_status', 'circuit_id', 'circuit_id_regex', 'remote_id', 'remote_id_regex', 'service_name', 'service_name_regex', 'timer', 'timer_regex', 'user_name', 'user_name_regex', 'source_mac', 'destination_mac', 'vpls_control', 'vpls_broadcast', 'vpls_multicast', 'vpls_known', 'vpls_unknown'], name, value)
 
 
-                class DestinationAddressIpv4(Entity):
+                class DestinationAddressIpv4(_Entity_):
                     """
                     Match destination IPv4 address.
                     
@@ -2212,10 +2340,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv4, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv4, self).__init__()
 
                         self.yang_name = "destination-address-ipv4"
                         self.yang_parent_name = "match-not"
@@ -2235,9 +2366,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv4, ['address', 'netmask'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv4']['meta_info']
 
 
-                class DestinationAddressIpv6(Entity):
+                class DestinationAddressIpv6(_Entity_):
                     """
                     Match destination IPv6 address.
                     
@@ -2260,10 +2395,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv6, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv6, self).__init__()
 
                         self.yang_name = "destination-address-ipv6"
                         self.yang_parent_name = "match-not"
@@ -2283,9 +2421,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv6, ['address', 'prefix_length'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv6']['meta_info']
 
 
-                class SourceAddressIpv4(Entity):
+                class SourceAddressIpv4(_Entity_):
                     """
                     Match source IPv4 address.
                     
@@ -2308,10 +2450,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv4, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv4, self).__init__()
 
                         self.yang_name = "source-address-ipv4"
                         self.yang_parent_name = "match-not"
@@ -2331,9 +2476,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv4, ['address', 'netmask'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv4']['meta_info']
 
 
-                class SourceAddressIpv6(Entity):
+                class SourceAddressIpv6(_Entity_):
                     """
                     Match source IPv6 address.
                     
@@ -2356,10 +2505,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv6, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv6, self).__init__()
 
                         self.yang_name = "source-address-ipv6"
                         self.yang_parent_name = "match-not"
@@ -2379,9 +2531,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv6, ['address', 'prefix_length'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv6']['meta_info']
 
 
-                class DhcpClientId(Entity):
+                class DhcpClientId(_Entity_):
                     """
                     Match dhcp client ID.
                     
@@ -2404,10 +2560,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientId, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientId, self).__init__()
 
                         self.yang_name = "dhcp-client-id"
                         self.yang_parent_name = "match-not"
@@ -2427,9 +2586,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientId, ['value', 'flag'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientId']['meta_info']
 
 
-                class DhcpClientIdRegex(Entity):
+                class DhcpClientIdRegex(_Entity_):
                     """
                     Match dhcp client id regex.
                     
@@ -2452,10 +2615,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientIdRegex, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientIdRegex, self).__init__()
 
                         self.yang_name = "dhcp-client-id-regex"
                         self.yang_parent_name = "match-not"
@@ -2475,9 +2641,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientIdRegex, ['value', 'flag'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientIdRegex']['meta_info']
 
 
-                class DomainName(Entity):
+                class DomainName(_Entity_):
                     """
                     Match domain name.
                     
@@ -2500,10 +2670,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName, self).__init__()
 
                         self.yang_name = "domain-name"
                         self.yang_parent_name = "match-not"
@@ -2523,9 +2696,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName, ['name', 'format'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName']['meta_info']
 
 
-                class DomainNameRegex(Entity):
+                class DomainNameRegex(_Entity_):
                     """
                     Match domain name.
                     
@@ -2548,10 +2725,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.MatchNot.DomainNameRegex, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.MatchNot.DomainNameRegex, self).__init__()
 
                         self.yang_name = "domain-name-regex"
                         self.yang_parent_name = "match-not"
@@ -2571,9 +2751,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DomainNameRegex, ['regex', 'format'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.MatchNot.DomainNameRegex']['meta_info']
 
 
-                class Flow(Entity):
+                class Flow(_Entity_):
                     """
                     Match flow.
                     
@@ -2589,10 +2773,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.ClassMaps.ClassMap.MatchNot.Flow, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.ClassMaps.ClassMap.MatchNot.Flow, self).__init__()
 
                         self.yang_name = "flow"
                         self.yang_parent_name = "match-not"
@@ -2610,12 +2797,28 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.Flow, ['flow_tag'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.ClassMaps.ClassMap.MatchNot.Flow']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                    return meta._meta_table['PolicyManager.ClassMaps.ClassMap.MatchNot']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                return meta._meta_table['PolicyManager.ClassMaps.ClassMap']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+            return meta._meta_table['PolicyManager.ClassMaps']['meta_info']
 
 
-
-
-
-    class PolicyMaps(Entity):
+    class PolicyMaps(_Entity_):
         """
         Policy\-maps configuration.
         
@@ -2629,10 +2832,13 @@ class PolicyManager(Entity):
         """
 
         _prefix = 'infra-policymgr-cfg'
-        _revision = '2018-11-22'
+        _revision = '2019-10-02'
 
         def __init__(self):
-            super(PolicyManager.PolicyMaps, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(PolicyManager.PolicyMaps, self).__init__()
 
             self.yang_name = "policy-maps"
             self.yang_parent_name = "policy-manager"
@@ -2651,7 +2857,7 @@ class PolicyManager(Entity):
             self._perform_setattr(PolicyManager.PolicyMaps, [], name, value)
 
 
-        class PolicyMap(Entity):
+        class PolicyMap(_Entity_):
             """
             Policy\-map configuration.
             
@@ -2687,10 +2893,13 @@ class PolicyManager(Entity):
             """
 
             _prefix = 'infra-policymgr-cfg'
-            _revision = '2018-11-22'
+            _revision = '2019-10-02'
 
             def __init__(self):
-                super(PolicyManager.PolicyMaps.PolicyMap, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(PolicyManager.PolicyMaps.PolicyMap, self).__init__()
 
                 self.yang_name = "policy-map"
                 self.yang_parent_name = "policy-maps"
@@ -2717,7 +2926,7 @@ class PolicyManager(Entity):
                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap, ['type', 'name', 'description'], name, value)
 
 
-            class Event(Entity):
+            class Event(_Entity_):
                 """
                 Policy event.
                 
@@ -2746,10 +2955,13 @@ class PolicyManager(Entity):
                 """
 
                 _prefix = 'infra-policymgr-cfg'
-                _revision = '2018-11-22'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PolicyManager.PolicyMaps.PolicyMap.Event, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PolicyManager.PolicyMaps.PolicyMap.Event, self).__init__()
 
                     self.yang_name = "event"
                     self.yang_parent_name = "policy-map"
@@ -2774,7 +2986,7 @@ class PolicyManager(Entity):
                     self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event, ['event_type', 'event_mode_match_all', 'event_mode_match_first'], name, value)
 
 
-                class Class(Entity):
+                class Class(_Entity_):
                     """
                     Class\-map rule.
                     
@@ -2805,10 +3017,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.Event.Class, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.Event.Class, self).__init__()
 
                         self.yang_name = "class"
                         self.yang_parent_name = "event"
@@ -2833,7 +3048,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class, ['class_name', 'class_type', 'class_execution_strategy'], name, value)
 
 
-                    class ActionRule(Entity):
+                    class ActionRule(_Entity_):
                         """
                         Action rule.
                         
@@ -2882,7 +3097,7 @@ class PolicyManager(Entity):
                         
                         .. attribute:: set_timer
                         
-                        	Set a timer to execute a rule on its  expiry
+                        	Set a timer to execute a rule on its expiry
                         	**type**\:  :py:class:`SetTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer>`
                         
                         	**presence node**\: True
@@ -2897,10 +3112,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule, self).__init__()
 
                             self.yang_name = "action-rule"
                             self.yang_parent_name = "class"
@@ -2943,7 +3161,7 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule, ['action_sequence_number', 'disconnect', 'monitor'], name, value)
 
 
-                        class ActivateDynamicTemplate(Entity):
+                        class ActivateDynamicTemplate(_Entity_):
                             """
                             Activate dynamic templates.
                             
@@ -2966,10 +3184,13 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-11-22'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate, self).__init__()
 
                                 self.yang_name = "activate-dynamic-template"
                                 self.yang_parent_name = "action-rule"
@@ -2990,9 +3211,13 @@ class PolicyManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate, ['name', 'aaa_list'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate']['meta_info']
 
 
-                        class Authenticate(Entity):
+                        class Authenticate(_Entity_):
                             """
                             Authentication related configuration.
                             
@@ -3006,10 +3231,13 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-11-22'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate, self).__init__()
 
                                 self.yang_name = "authenticate"
                                 self.yang_parent_name = "action-rule"
@@ -3027,9 +3255,13 @@ class PolicyManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate, ['aaa_list'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate']['meta_info']
 
 
-                        class Authorize(Entity):
+                        class Authorize(_Entity_):
                             """
                             Authorize.
                             
@@ -3064,10 +3296,13 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-11-22'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authorize, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authorize, self).__init__()
 
                                 self.yang_name = "authorize"
                                 self.yang_parent_name = "action-rule"
@@ -3092,9 +3327,13 @@ class PolicyManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authorize, ['aaa_list', 'format', 'identifier', 'password'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authorize']['meta_info']
 
 
-                        class DeactivateDynamicTemplate(Entity):
+                        class DeactivateDynamicTemplate(_Entity_):
                             """
                             Deactivate dynamic templates.
                             
@@ -3117,10 +3356,13 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-11-22'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate, self).__init__()
 
                                 self.yang_name = "deactivate-dynamic-template"
                                 self.yang_parent_name = "action-rule"
@@ -3141,11 +3383,15 @@ class PolicyManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate, ['name', 'aaa_list'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate']['meta_info']
 
 
-                        class SetTimer(Entity):
+                        class SetTimer(_Entity_):
                             """
-                            Set a timer to execute a rule on its 
+                            Set a timer to execute a rule on its
                             expiry
                             
                             .. attribute:: timer_name
@@ -3173,10 +3419,13 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-11-22'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer, self).__init__()
 
                                 self.yang_name = "set-timer"
                                 self.yang_parent_name = "action-rule"
@@ -3197,9 +3446,13 @@ class PolicyManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer, ['timer_name', 'timer_value'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer']['meta_info']
 
 
-                        class StopTimer(Entity):
+                        class StopTimer(_Entity_):
                             """
                             Disable timer before it expires.
                             
@@ -3213,10 +3466,13 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-11-22'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer, self).__init__()
 
                                 self.yang_name = "stop-timer"
                                 self.yang_parent_name = "action-rule"
@@ -3234,12 +3490,28 @@ class PolicyManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer, ['timer_name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                    return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event']['meta_info']
 
 
-
-
-
-            class PolicyMapRule(Entity):
+            class PolicyMapRule(_Entity_):
                 """
                 Class\-map rule.
                 
@@ -3347,9 +3619,9 @@ class PolicyManager(Entity):
                 	Policy action PBR transmit
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
-                .. attribute:: pbr_drop
+                .. attribute:: drop
                 
-                	Policy action PBR drop
+                	Policy action drop
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: decap_gre
@@ -3369,7 +3641,7 @@ class PolicyManager(Entity):
                 
                 .. attribute:: service_fragment
                 
-                	Policy action service fragment.  Service fragment name
+                	Policy action service fragment. Service fragment name
                 	**type**\: str
                 
                 .. attribute:: fragment
@@ -3394,10 +3666,13 @@ class PolicyManager(Entity):
                 """
 
                 _prefix = 'infra-policymgr-cfg'
-                _revision = '2018-11-22'
+                _revision = '2019-10-02'
 
                 def __init__(self):
-                    super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule, self).__init__()
 
                     self.yang_name = "policy-map-rule"
                     self.yang_parent_name = "policy-map"
@@ -3413,7 +3688,7 @@ class PolicyManager(Entity):
                         ('ecn_red', (YLeaf(YType.empty, 'ecn-red'), ['Empty'])),
                         ('http_redirect', (YLeaf(YType.str, 'http-redirect'), ['str'])),
                         ('pbr_transmit', (YLeaf(YType.empty, 'pbr-transmit'), ['Empty'])),
-                        ('pbr_drop', (YLeaf(YType.empty, 'pbr-drop'), ['Empty'])),
+                        ('drop', (YLeaf(YType.empty, 'drop'), ['Empty'])),
                         ('decap_gre', (YLeaf(YType.empty, 'decap-gre'), ['Empty'])),
                         ('service_fragment', (YLeaf(YType.str, 'service-fragment'), ['str'])),
                         ('fragment', (YLeaf(YType.str, 'fragment'), ['str'])),
@@ -3425,7 +3700,7 @@ class PolicyManager(Entity):
                     self.ecn_red = None
                     self.http_redirect = None
                     self.pbr_transmit = None
-                    self.pbr_drop = None
+                    self.drop = None
                     self.decap_gre = None
                     self.service_fragment = None
                     self.fragment = None
@@ -3498,10 +3773,10 @@ class PolicyManager(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule, ['class_name', 'class_type', 'priority_level', 'default_red', 'ecn_red', 'http_redirect', 'pbr_transmit', 'pbr_drop', 'decap_gre', 'service_fragment', 'fragment'], name, value)
+                    self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule, ['class_name', 'class_type', 'priority_level', 'default_red', 'ecn_red', 'http_redirect', 'pbr_transmit', 'drop', 'decap_gre', 'service_fragment', 'fragment'], name, value)
 
 
-                class Shape(Entity):
+                class Shape(_Entity_):
                     """
                     Policy action shape.
                     
@@ -3520,10 +3795,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape, self).__init__()
 
                         self.yang_name = "shape"
                         self.yang_parent_name = "policy-map-rule"
@@ -3547,16 +3825,22 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape, [], name, value)
 
 
-                    class Rate(Entity):
+                    class Rate(_Entity_):
                         """
                         Rate configuration.
                         
                         .. attribute:: value
                         
                         	Shape bandwidth value
-                        	**type**\: int
+                        	**type**\: union of the below types:
                         
-                        	**range:** 0..4294967295
+                        		**type**\: str
+                        
+                        			**pattern:** [$][a\-zA\-Z0\-9][a\-zA\-Z0\-9\\.\_@%+\:\\\-]{0,32}[=]\\d{1,10}
+                        
+                        		**type**\: int
+                        
+                        			**range:** 1..4294967295
                         
                         .. attribute:: unit
                         
@@ -3570,10 +3854,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate, self).__init__()
 
                             self.yang_name = "rate"
                             self.yang_parent_name = "shape"
@@ -3582,7 +3869,7 @@ class PolicyManager(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('value', (YLeaf(YType.str, 'value'), ['str','int'])),
                                 ('unit', (YLeaf(YType.str, 'unit'), ['str'])),
                             ])
                             self.value = None
@@ -3593,9 +3880,13 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate, ['value', 'unit'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate']['meta_info']
 
 
-                    class Burst(Entity):
+                    class Burst(_Entity_):
                         """
                         Burst size configuration.
                         
@@ -3618,10 +3909,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst, self).__init__()
 
                             self.yang_name = "burst"
                             self.yang_parent_name = "shape"
@@ -3641,10 +3935,18 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst, ['value', 'units'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape']['meta_info']
 
 
-
-                class MinBandwidth(Entity):
+                class MinBandwidth(_Entity_):
                     """
                     Policy action minimum bandwidth queue.
                     
@@ -3667,10 +3969,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth, self).__init__()
 
                         self.yang_name = "min-bandwidth"
                         self.yang_parent_name = "policy-map-rule"
@@ -3690,9 +3995,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth, ['value', 'unit'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth']['meta_info']
 
 
-                class BandwidthRemaining(Entity):
+                class BandwidthRemaining(_Entity_):
                     """
                     Policy action bandwidth remaining queue.
                     
@@ -3715,10 +4024,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining, self).__init__()
 
                         self.yang_name = "bandwidth-remaining"
                         self.yang_parent_name = "policy-map-rule"
@@ -3738,9 +4050,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining, ['value', 'unit'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining']['meta_info']
 
 
-                class QueueLimit(Entity):
+                class QueueLimit(_Entity_):
                     """
                     Policy action queue limit.
                     
@@ -3763,10 +4079,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit, self).__init__()
 
                         self.yang_name = "queue-limit"
                         self.yang_parent_name = "policy-map-rule"
@@ -3786,9 +4105,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit, ['value', 'unit'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit']['meta_info']
 
 
-                class Pfc(Entity):
+                class Pfc(_Entity_):
                     """
                     Policy action pfc.
                     
@@ -3817,10 +4140,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc, self).__init__()
 
                         self.yang_name = "pfc"
                         self.yang_parent_name = "policy-map-rule"
@@ -3851,7 +4177,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc, ['pfc_pause_set'], name, value)
 
 
-                    class PfcBufferSize(Entity):
+                    class PfcBufferSize(_Entity_):
                         """
                         
                         
@@ -3874,10 +4200,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcBufferSize, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcBufferSize, self).__init__()
 
                             self.yang_name = "pfc-buffer-size"
                             self.yang_parent_name = "pfc"
@@ -3897,9 +4226,13 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcBufferSize, ['value', 'unit'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcBufferSize']['meta_info']
 
 
-                    class PfcPauseThreshold(Entity):
+                    class PfcPauseThreshold(_Entity_):
                         """
                         
                         
@@ -3922,10 +4255,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcPauseThreshold, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcPauseThreshold, self).__init__()
 
                             self.yang_name = "pfc-pause-threshold"
                             self.yang_parent_name = "pfc"
@@ -3945,9 +4281,13 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcPauseThreshold, ['value', 'unit'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcPauseThreshold']['meta_info']
 
 
-                    class PfcResumeThreshold(Entity):
+                    class PfcResumeThreshold(_Entity_):
                         """
                         
                         
@@ -3970,10 +4310,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcResumeThreshold, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcResumeThreshold, self).__init__()
 
                             self.yang_name = "pfc-resume-threshold"
                             self.yang_parent_name = "pfc"
@@ -3993,10 +4336,18 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcResumeThreshold, ['value', 'unit'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcResumeThreshold']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc']['meta_info']
 
 
-
-                class RandomDetect(Entity):
+                class RandomDetect(_Entity_):
                     """
                     Random early detection.
                     All RED profiles in a class must be based
@@ -4088,10 +4439,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect, self).__init__()
 
                         self.yang_name = "random-detect"
                         self.yang_parent_name = "policy-map-rule"
@@ -4129,9 +4483,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect, ['threshold_min_value', 'threshold_min_units', 'threshold_max_value', 'threshold_max_units', 'cos', 'discard_class', 'dscp', 'mpls_exp', 'precedence', 'dei', 'ecn'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect']['meta_info']
 
 
-                class Set(Entity):
+                class Set(_Entity_):
                     """
                     Policy action packet marking.
                     
@@ -4158,7 +4516,7 @@ class PolicyManager(Entity):
                     
                     .. attribute:: discard_class
                     
-                    	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
+                    	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies that are attached in the ingress policy
                     	**type**\: int
                     
                     	**range:** 0..7
@@ -4179,7 +4537,7 @@ class PolicyManager(Entity):
                     
                     .. attribute:: cos
                     
-                    	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
+                    	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch. Switches can leverage Layer 2 header information, including a CoS value marking. Packets entering an interface cannot be set with a CoS value
                     	**type**\: int
                     
                     	**range:** 0..7
@@ -4226,14 +4584,14 @@ class PolicyManager(Entity):
                     
                     .. attribute:: mpls_experimental_imposition
                     
-                    	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
+                    	Sets the experimental value of the MPLS packet imposition labels. Imposition can be used only in service policies that are attached in the ingress policy
                     	**type**\: int
                     
                     	**range:** 0..7
                     
                     .. attribute:: srp_priority
                     
-                    	Sets the spatial reuse protocol priority value of an  outgoing packet
+                    	Sets the spatial reuse protocol priority value of an outgoing packet
                     	**type**\: int
                     
                     	**range:** 0..7
@@ -4290,10 +4648,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set, self).__init__()
 
                         self.yang_name = "set"
                         self.yang_parent_name = "policy-map-rule"
@@ -4349,9 +4710,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set, ['dscp', 'qos_group', 'traffic_class', 'discard_class', 'forward_class', 'df', 'cos', 'inner_cos', 'precedence', 'precedence_tunnel', 'mpls_experimental_top_most', 'mpls_experimental_imposition', 'srp_priority', 'fr_de', 'dei', 'dei_imposition', 'source_address', 'destination_address', 'atm_clp', 'dscp_tunnel'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set']['meta_info']
 
 
-                class Police(Entity):
+                class Police(_Entity_):
                     """
                     Configures traffic policing action.
                     
@@ -4377,12 +4742,12 @@ class PolicyManager(Entity):
                     
                     .. attribute:: conform_action
                     
-                    	Configures the action to take on packets that conform  to the rate limit
+                    	Configures the action to take on packets that conform to the rate limit
                     	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction>`
                     
                     .. attribute:: exceed_action
                     
-                    	Configures the action to take on packets that exceed  the rate limit
+                    	Configures the action to take on packets that exceed the rate limit
                     	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction>`
                     
                     .. attribute:: violate_action
@@ -4395,10 +4760,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police, self).__init__()
 
                         self.yang_name = "police"
                         self.yang_parent_name = "policy-map-rule"
@@ -4442,7 +4810,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police, [], name, value)
 
 
-                    class Rate(Entity):
+                    class Rate(_Entity_):
                         """
                         Rate configuration.
                         
@@ -4458,17 +4826,20 @@ class PolicyManager(Entity):
                         	Rate units
                         	**type**\: str
                         
-                        	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(pps)\|(percent)\|(cellsps)
+                        	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(pps)\|(percent)\|(cellsps)\|(per\-thousand)\|(per\-million)
                         
                         
 
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate, self).__init__()
 
                             self.yang_name = "rate"
                             self.yang_parent_name = "police"
@@ -4488,9 +4859,13 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate, ['value', 'units'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate']['meta_info']
 
 
-                    class PeakRate(Entity):
+                    class PeakRate(_Entity_):
                         """
                         Peak rate configuration.
                         
@@ -4513,10 +4888,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate, self).__init__()
 
                             self.yang_name = "peak-rate"
                             self.yang_parent_name = "police"
@@ -4536,9 +4914,13 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate, ['value', 'units'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate']['meta_info']
 
 
-                    class Burst(Entity):
+                    class Burst(_Entity_):
                         """
                         Burst configuration.
                         
@@ -4561,10 +4943,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst, self).__init__()
 
                             self.yang_name = "burst"
                             self.yang_parent_name = "police"
@@ -4584,9 +4969,13 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst, ['value', 'units'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst']['meta_info']
 
 
-                    class PeakBurst(Entity):
+                    class PeakBurst(_Entity_):
                         """
                         Peak burst configuration.
                         
@@ -4609,10 +4998,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst, self).__init__()
 
                             self.yang_name = "peak-burst"
                             self.yang_parent_name = "police"
@@ -4632,11 +5024,15 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst, ['value', 'units'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst']['meta_info']
 
 
-                    class ConformAction(Entity):
+                    class ConformAction(_Entity_):
                         """
-                        Configures the action to take on packets that conform 
+                        Configures the action to take on packets that conform
                         to the rate limit.
                         
                         .. attribute:: transmit
@@ -4659,10 +5055,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction, self).__init__()
 
                             self.yang_name = "conform-action"
                             self.yang_parent_name = "police"
@@ -4687,7 +5086,7 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction, ['transmit', 'drop'], name, value)
 
 
-                        class Set(Entity):
+                        class Set(_Entity_):
                             """
                             Police action packet marking.
                             
@@ -4714,7 +5113,7 @@ class PolicyManager(Entity):
                             
                             .. attribute:: discard_class
                             
-                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
+                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies that are attached in the ingress policy
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -4735,7 +5134,7 @@ class PolicyManager(Entity):
                             
                             .. attribute:: cos
                             
-                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
+                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch. Switches can leverage Layer 2 header information, including a CoS value marking. Packets entering an interface cannot be set with a CoS value
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -4782,14 +5181,14 @@ class PolicyManager(Entity):
                             
                             .. attribute:: mpls_experimental_imposition
                             
-                            	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
+                            	Sets the experimental value of the MPLS packet imposition labels. Imposition can be used only in service policies that are attached in the ingress policy
                             	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: srp_priority
                             
-                            	Sets the spatial reuse protocol priority value of an  outgoing packet
+                            	Sets the spatial reuse protocol priority value of an outgoing packet
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -4846,10 +5245,13 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-11-22'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set, self).__init__()
 
                                 self.yang_name = "set"
                                 self.yang_parent_name = "conform-action"
@@ -4905,12 +5307,20 @@ class PolicyManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set, ['dscp', 'qos_group', 'traffic_class', 'discard_class', 'forward_class', 'df', 'cos', 'inner_cos', 'precedence', 'precedence_tunnel', 'mpls_experimental_top_most', 'mpls_experimental_imposition', 'srp_priority', 'fr_de', 'dei', 'dei_imposition', 'source_address', 'destination_address', 'atm_clp', 'dscp_tunnel'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction']['meta_info']
 
 
-
-                    class ExceedAction(Entity):
+                    class ExceedAction(_Entity_):
                         """
-                        Configures the action to take on packets that exceed 
+                        Configures the action to take on packets that exceed
                         the rate limit.
                         
                         .. attribute:: transmit
@@ -4933,10 +5343,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction, self).__init__()
 
                             self.yang_name = "exceed-action"
                             self.yang_parent_name = "police"
@@ -4961,7 +5374,7 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction, ['transmit', 'drop'], name, value)
 
 
-                        class Set(Entity):
+                        class Set(_Entity_):
                             """
                             Police action packet marking.
                             
@@ -4988,7 +5401,7 @@ class PolicyManager(Entity):
                             
                             .. attribute:: discard_class
                             
-                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
+                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies that are attached in the ingress policy
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -5009,7 +5422,7 @@ class PolicyManager(Entity):
                             
                             .. attribute:: cos
                             
-                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
+                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch. Switches can leverage Layer 2 header information, including a CoS value marking. Packets entering an interface cannot be set with a CoS value
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -5056,14 +5469,14 @@ class PolicyManager(Entity):
                             
                             .. attribute:: mpls_experimental_imposition
                             
-                            	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
+                            	Sets the experimental value of the MPLS packet imposition labels. Imposition can be used only in service policies that are attached in the ingress policy
                             	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: srp_priority
                             
-                            	Sets the spatial reuse protocol priority value of an  outgoing packet
+                            	Sets the spatial reuse protocol priority value of an outgoing packet
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -5120,10 +5533,13 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-11-22'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set, self).__init__()
 
                                 self.yang_name = "set"
                                 self.yang_parent_name = "exceed-action"
@@ -5179,10 +5595,18 @@ class PolicyManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set, ['dscp', 'qos_group', 'traffic_class', 'discard_class', 'forward_class', 'df', 'cos', 'inner_cos', 'precedence', 'precedence_tunnel', 'mpls_experimental_top_most', 'mpls_experimental_imposition', 'srp_priority', 'fr_de', 'dei', 'dei_imposition', 'source_address', 'destination_address', 'atm_clp', 'dscp_tunnel'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction']['meta_info']
 
 
-
-                    class ViolateAction(Entity):
+                    class ViolateAction(_Entity_):
                         """
                         Configures the action to take on packets that violate
                         the rate limit.
@@ -5207,10 +5631,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction, self).__init__()
 
                             self.yang_name = "violate-action"
                             self.yang_parent_name = "police"
@@ -5235,7 +5662,7 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction, ['transmit', 'drop'], name, value)
 
 
-                        class Set(Entity):
+                        class Set(_Entity_):
                             """
                             Police action packet marking.
                             
@@ -5262,7 +5689,7 @@ class PolicyManager(Entity):
                             
                             .. attribute:: discard_class
                             
-                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies  that are attached in the ingress policy
+                            	Sets the discard class on IPv4 or MPLS packets. The discard\-class can be used only in service policies that are attached in the ingress policy
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -5283,7 +5710,7 @@ class PolicyManager(Entity):
                             
                             .. attribute:: cos
                             
-                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch.  Switches can leverage Layer 2 header information,  including a CoS value marking. Packets entering an  interface cannot be set with a CoS value
+                            	Sets the specific IEEE 802.1Q Layer 2 CoS value of an outgoing packet. This command should be used by a router if a user wants to mark a packet that is being sent to a switch. Switches can leverage Layer 2 header information, including a CoS value marking. Packets entering an interface cannot be set with a CoS value
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -5330,14 +5757,14 @@ class PolicyManager(Entity):
                             
                             .. attribute:: mpls_experimental_imposition
                             
-                            	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
+                            	Sets the experimental value of the MPLS packet imposition labels. Imposition can be used only in service policies that are attached in the ingress policy
                             	**type**\: int
                             
                             	**range:** 0..7
                             
                             .. attribute:: srp_priority
                             
-                            	Sets the spatial reuse protocol priority value of an  outgoing packet
+                            	Sets the spatial reuse protocol priority value of an outgoing packet
                             	**type**\: int
                             
                             	**range:** 0..7
@@ -5394,10 +5821,13 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-11-22'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set, self).__init__()
 
                                 self.yang_name = "set"
                                 self.yang_parent_name = "violate-action"
@@ -5453,11 +5883,23 @@ class PolicyManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set, ['dscp', 'qos_group', 'traffic_class', 'discard_class', 'forward_class', 'df', 'cos', 'inner_cos', 'precedence', 'precedence_tunnel', 'mpls_experimental_top_most', 'mpls_experimental_imposition', 'srp_priority', 'fr_de', 'dei', 'dei_imposition', 'source_address', 'destination_address', 'atm_clp', 'dscp_tunnel'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police']['meta_info']
 
 
-
-
-                class ServicePolicy(Entity):
+                class ServicePolicy(_Entity_):
                     """
                     Configure a child service policy.
                     
@@ -5480,10 +5922,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy, self).__init__()
 
                         self.yang_name = "service-policy"
                         self.yang_parent_name = "policy-map-rule"
@@ -5503,9 +5948,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy, ['policy_name', 'type'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy']['meta_info']
 
 
-                class CacLocal(Entity):
+                class CacLocal(_Entity_):
                     """
                     Policy action CAC.
                     
@@ -5521,7 +5970,7 @@ class PolicyManager(Entity):
                     
                     .. attribute:: flow_idle_timeout
                     
-                    	The interval after which a flow is removed,  if there is no activity. If timeout is 0 this flow does not expire
+                    	The interval after which a flow is removed, if there is no activity. If timeout is 0 this flow does not expire
                     	**type**\: union of the below types:
                     
                     		**type**\: int
@@ -5537,10 +5986,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal, self).__init__()
 
                         self.yang_name = "cac-local"
                         self.yang_parent_name = "policy-map-rule"
@@ -5567,7 +6019,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal, ['flow_idle_timeout'], name, value)
 
 
-                    class Rate(Entity):
+                    class Rate(_Entity_):
                         """
                         The rate allocated for all flows.
                         
@@ -5590,10 +6042,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate, self).__init__()
 
                             self.yang_name = "rate"
                             self.yang_parent_name = "cac-local"
@@ -5613,9 +6068,13 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate, ['value', 'units'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate']['meta_info']
 
 
-                    class FlowRate(Entity):
+                    class FlowRate(_Entity_):
                         """
                         The rate allocated per flow.
                         
@@ -5638,10 +6097,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate, self).__init__()
 
                             self.yang_name = "flow-rate"
                             self.yang_parent_name = "cac-local"
@@ -5661,10 +6123,18 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate, ['value', 'units'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal']['meta_info']
 
 
-
-                class FlowParams(Entity):
+                class FlowParams(_Entity_):
                     """
                     Policy flow monitoring action.
                     
@@ -5705,10 +6175,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams, self).__init__()
 
                         self.yang_name = "flow-params"
                         self.yang_parent_name = "policy-map-rule"
@@ -5732,9 +6205,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams, ['max_flow', 'interval_duration', 'history', 'timeout'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams']['meta_info']
 
 
-                class MetricsIpcbr(Entity):
+                class MetricsIpcbr(_Entity_):
                     """
                     Policy IP\-CBR metric action.
                     
@@ -5753,10 +6230,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr, self).__init__()
 
                         self.yang_name = "metrics-ipcbr"
                         self.yang_parent_name = "policy-map-rule"
@@ -5780,7 +6260,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr, [], name, value)
 
 
-                    class Rate(Entity):
+                    class Rate(_Entity_):
                         """
                         Nominal per\-flow data rate.
                         
@@ -5816,10 +6296,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate, self).__init__()
 
                             self.yang_name = "rate"
                             self.yang_parent_name = "metrics-ipcbr"
@@ -5841,9 +6324,13 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate, ['layer3', 'packet', 'media'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate']['meta_info']
 
 
-                    class MediaPacket(Entity):
+                    class MediaPacket(_Entity_):
                         """
                         Media\-packet structure.
                         
@@ -5870,10 +6357,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket, self).__init__()
 
                             self.yang_name = "media-packet"
                             self.yang_parent_name = "metrics-ipcbr"
@@ -5893,10 +6383,18 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket, ['size', 'count_in_layer3'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr']['meta_info']
 
 
-
-                class React(Entity):
+                class React(_Entity_):
                     """
                     Policy action react.
                     
@@ -5950,10 +6448,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React, self).__init__()
 
                         self.yang_name = "react"
                         self.yang_parent_name = "policy-map-rule"
@@ -5994,7 +6495,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React, ['descrition', 'criterion_delay_factor', 'criterion_media_stop', 'criterion_mrv', 'criterion_flow_count', 'criterion_packet_rate'], name, value)
 
 
-                    class Action(Entity):
+                    class Action(_Entity_):
                         """
                         Action on alert.
                         
@@ -6013,10 +6514,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action, self).__init__()
 
                             self.yang_name = "action"
                             self.yang_parent_name = "react"
@@ -6036,9 +6540,13 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action, ['syslog', 'snmp'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action']['meta_info']
 
 
-                    class Alarm(Entity):
+                    class Alarm(_Entity_):
                         """
                         Alaram settings.
                         
@@ -6059,10 +6567,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm, self).__init__()
 
                             self.yang_name = "alarm"
                             self.yang_parent_name = "react"
@@ -6085,7 +6596,7 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm, ['severity'], name, value)
 
 
-                        class Type(Entity):
+                        class Type(_Entity_):
                             """
                             Alarm type.
                             
@@ -6096,7 +6607,7 @@ class PolicyManager(Entity):
                             
                             .. attribute:: group_count
                             
-                            	Number of flows to reach before  triggering alarm
+                            	Number of flows to reach before triggering alarm
                             	**type**\: int
                             
                             	**range:** 0..65535
@@ -6117,10 +6628,13 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-11-22'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type, self).__init__()
 
                                 self.yang_name = "type"
                                 self.yang_parent_name = "alarm"
@@ -6142,10 +6656,18 @@ class PolicyManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type, ['discrete', 'group_count', 'group_percent'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm']['meta_info']
 
 
-
-                    class Threshold(Entity):
+                    class Threshold(_Entity_):
                         """
                         Alarm threshold settings.
                         
@@ -6164,10 +6686,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold, self).__init__()
 
                             self.yang_name = "threshold"
                             self.yang_parent_name = "react"
@@ -6191,7 +6716,7 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold, [], name, value)
 
 
-                        class TriggerValue(Entity):
+                        class TriggerValue(_Entity_):
                             """
                             Alarm trigger value settings.
                             
@@ -6225,10 +6750,13 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-11-22'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerValue, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerValue, self).__init__()
 
                                 self.yang_name = "trigger-value"
                                 self.yang_parent_name = "threshold"
@@ -6254,9 +6782,13 @@ class PolicyManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerValue, ['greater_than', 'greater_than_equal', 'less_than', 'less_than_equal', 'range'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerValue']['meta_info']
 
 
-                        class TriggerType(Entity):
+                        class TriggerType(_Entity_):
                             """
                             Alarm trigger type settings.
                             
@@ -6277,10 +6809,13 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-11-22'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerType, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerType, self).__init__()
 
                                 self.yang_name = "trigger-type"
                                 self.yang_parent_name = "threshold"
@@ -6300,11 +6835,23 @@ class PolicyManager(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerType, ['immediate', 'average'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerType']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React']['meta_info']
 
 
-
-
-                class PbrRedirect(Entity):
+                class PbrRedirect(_Entity_):
                     """
                     Policy action redirect
                     
@@ -6328,10 +6875,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect, self).__init__()
 
                         self.yang_name = "pbr-redirect"
                         self.yang_parent_name = "policy-map-rule"
@@ -6359,7 +6909,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect, [], name, value)
 
 
-                    class Ipv4(Entity):
+                    class Ipv4(_Entity_):
                         """
                         Policy action redirect IPv4
                         
@@ -6380,10 +6930,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv4, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv4, self).__init__()
 
                             self.yang_name = "ipv4"
                             self.yang_parent_name = "pbr-redirect"
@@ -6403,9 +6956,13 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv4, ['ipv4_next_hop', 'vrf'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv4']['meta_info']
 
 
-                    class Ipv6(Entity):
+                    class Ipv6(_Entity_):
                         """
                         Policy action redirect IPv6
                         
@@ -6426,10 +6983,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv6, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv6, self).__init__()
 
                             self.yang_name = "ipv6"
                             self.yang_parent_name = "pbr-redirect"
@@ -6449,9 +7009,13 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv6, ['ipv6_next_hop', 'vrf'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv6']['meta_info']
 
 
-                    class NextHop(Entity):
+                    class NextHop(_Entity_):
                         """
                         Next hop address.
                         
@@ -6465,10 +7029,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop, self).__init__()
 
                             self.yang_name = "next-hop"
                             self.yang_parent_name = "pbr-redirect"
@@ -6488,7 +7055,7 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop, [], name, value)
 
 
-                        class RouteTarget(Entity):
+                        class RouteTarget(_Entity_):
                             """
                             Route Target
                             
@@ -6516,10 +7083,13 @@ class PolicyManager(Entity):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2018-11-22'
+                            _revision = '2019-10-02'
 
                             def __init__(self):
-                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget, self).__init__()
 
                                 self.yang_name = "route-target"
                                 self.yang_parent_name = "next-hop"
@@ -6544,7 +7114,7 @@ class PolicyManager(Entity):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget, ['as_number', 'index'], name, value)
 
 
-                            class Ipv4Address(Entity):
+                            class Ipv4Address(_Entity_):
                                 """
                                 IPv4 address.
                                 
@@ -6565,10 +7135,13 @@ class PolicyManager(Entity):
                                 """
 
                                 _prefix = 'infra-policymgr-cfg'
-                                _revision = '2018-11-22'
+                                _revision = '2019-10-02'
 
                                 def __init__(self):
-                                    super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget.Ipv4Address, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget.Ipv4Address, self).__init__()
 
                                     self.yang_name = "ipv4-address"
                                     self.yang_parent_name = "route-target"
@@ -6588,12 +7161,28 @@ class PolicyManager(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget.Ipv4Address, ['address', 'netmask'], name, value)
 
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                                    return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget.Ipv4Address']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect']['meta_info']
 
 
-
-
-
-                class PbrForward(Entity):
+                class PbrForward(_Entity_):
                     """
                     Policy action PBR forward.
                     
@@ -6604,7 +7193,7 @@ class PolicyManager(Entity):
                     
                     .. attribute:: next_hop
                     
-                    	Use specific next\-hop. Here we present 5 different combination  for the pbf next\-hop.  1. vrf with v6 address  2. vrf with v4 address  3. vrf   4. v4 address  5. v6 address
+                    	Use specific next\-hop. Here we present 5 different combination for the pbf next\-hop.  1. vrf with v6 address  2. vrf with v4 address  3. vrf  4. v4 address  5. v6 address
                     	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward.NextHop>`
                     
                     
@@ -6612,10 +7201,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward, self).__init__()
 
                         self.yang_name = "pbr-forward"
                         self.yang_parent_name = "policy-map-rule"
@@ -6638,14 +7230,14 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward, ['default'], name, value)
 
 
-                    class NextHop(Entity):
+                    class NextHop(_Entity_):
                         """
                         Use specific next\-hop.
-                        Here we present 5 different combination 
+                        Here we present 5 different combination
                         for the pbf next\-hop.
                          1. vrf with v6 address
                          2. vrf with v4 address
-                         3. vrf 
+                         3. vrf
                          4. v4 address
                          5. v6 address
                         
@@ -6673,10 +7265,13 @@ class PolicyManager(Entity):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2018-11-22'
+                        _revision = '2019-10-02'
 
                         def __init__(self):
-                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward.NextHop, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward.NextHop, self).__init__()
 
                             self.yang_name = "next-hop"
                             self.yang_parent_name = "pbr-forward"
@@ -6698,10 +7293,18 @@ class PolicyManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward.NextHop, ['vrf', 'ipv4_address', 'ipv6_address'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward.NextHop']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward']['meta_info']
 
 
-
-                class ServiceFunctionPath(Entity):
+                class ServiceFunctionPath(_Entity_):
                     """
                     Policy action service function path.
                     
@@ -6735,10 +7338,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServiceFunctionPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServiceFunctionPath, self).__init__()
 
                         self.yang_name = "service-function-path"
                         self.yang_parent_name = "policy-map-rule"
@@ -6761,9 +7367,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServiceFunctionPath, ['path_id', 'index', 'metadata'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServiceFunctionPath']['meta_info']
 
 
-                class HttpEnrichment(Entity):
+                class HttpEnrichment(_Entity_):
                     """
                     HTTP Enrichment action
                     
@@ -6792,10 +7402,13 @@ class PolicyManager(Entity):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2018-11-22'
+                    _revision = '2019-10-02'
 
                     def __init__(self):
-                        super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.HttpEnrichment, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.HttpEnrichment, self).__init__()
 
                         self.yang_name = "http-enrichment"
                         self.yang_parent_name = "policy-map-rule"
@@ -6819,13 +7432,33 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.HttpEnrichment, ['subscribermac', 'subscriberip', 'hostname', 'bngidentifierinterface'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.HttpEnrichment']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                    return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+            return meta._meta_table['PolicyManager.PolicyMaps']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = PolicyManager()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
+        return meta._meta_table['PolicyManager']['meta_info']
 
 

@@ -15,8 +15,11 @@ Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -25,7 +28,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Diag(Entity):
+class Diag(_Entity_):
     """
     diag data
     
@@ -86,7 +89,10 @@ class Diag(Entity):
     _revision = '2017-04-12'
 
     def __init__(self):
-        super(Diag, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Diag, self).__init__()
         self._top_entity = None
 
         self.yang_name = "diag"
@@ -131,7 +137,7 @@ class Diag(Entity):
         self._perform_setattr(Diag, [], name, value)
 
 
-    class Default(Entity):
+    class Default(_Entity_):
         """
         
         
@@ -150,7 +156,10 @@ class Diag(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(Diag.Default, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Diag.Default, self).__init__()
 
             self.yang_name = "default"
             self.yang_parent_name = "diag"
@@ -169,7 +178,7 @@ class Diag(Entity):
             self._perform_setattr(Diag.Default, [], name, value)
 
 
-        class DefaultList(Entity):
+        class DefaultList(_Entity_):
             """
             
             
@@ -195,7 +204,10 @@ class Diag(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(Diag.Default.DefaultList, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Diag.Default.DefaultList, self).__init__()
 
                 self.yang_name = "default_list"
                 self.yang_parent_name = "default"
@@ -219,7 +231,7 @@ class Diag(Entity):
                 self._perform_setattr(Diag.Default.DefaultList, ['location'], name, value)
 
 
-            class DefaultData(Entity):
+            class DefaultData(_Entity_):
                 """
                 
                 
@@ -238,7 +250,10 @@ class Diag(Entity):
                 _revision = '2017-04-12'
 
                 def __init__(self):
-                    super(Diag.Default.DefaultList.DefaultData, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.Default.DefaultList.DefaultData, self).__init__()
 
                     self.yang_name = "default-data"
                     self.yang_parent_name = "default_list"
@@ -256,11 +271,23 @@ class Diag(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Diag.Default.DefaultList.DefaultData, ['default_out_list'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                    return meta._meta_table['Diag.Default.DefaultList.DefaultData']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                return meta._meta_table['Diag.Default.DefaultList']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+            return meta._meta_table['Diag.Default']['meta_info']
 
 
-
-
-    class Fans(Entity):
+    class Fans(_Entity_):
         """
         
         
@@ -279,7 +306,10 @@ class Diag(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(Diag.Fans, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Diag.Fans, self).__init__()
 
             self.yang_name = "fans"
             self.yang_parent_name = "diag"
@@ -298,7 +328,7 @@ class Diag(Entity):
             self._perform_setattr(Diag.Fans, [], name, value)
 
 
-        class FansList(Entity):
+        class FansList(_Entity_):
             """
             
             
@@ -324,7 +354,10 @@ class Diag(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(Diag.Fans.FansList, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Diag.Fans.FansList, self).__init__()
 
                 self.yang_name = "fans_list"
                 self.yang_parent_name = "fans"
@@ -348,7 +381,7 @@ class Diag(Entity):
                 self._perform_setattr(Diag.Fans.FansList, ['location'], name, value)
 
 
-            class DefaultData(Entity):
+            class DefaultData(_Entity_):
                 """
                 
                 
@@ -367,7 +400,10 @@ class Diag(Entity):
                 _revision = '2017-04-12'
 
                 def __init__(self):
-                    super(Diag.Fans.FansList.DefaultData, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.Fans.FansList.DefaultData, self).__init__()
 
                     self.yang_name = "default-data"
                     self.yang_parent_name = "fans_list"
@@ -385,11 +421,23 @@ class Diag(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Diag.Fans.FansList.DefaultData, ['default_out_list'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                    return meta._meta_table['Diag.Fans.FansList.DefaultData']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                return meta._meta_table['Diag.Fans.FansList']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+            return meta._meta_table['Diag.Fans']['meta_info']
 
 
-
-
-    class PowerSupply(Entity):
+    class PowerSupply(_Entity_):
         """
         
         
@@ -408,7 +456,10 @@ class Diag(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(Diag.PowerSupply, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Diag.PowerSupply, self).__init__()
 
             self.yang_name = "power-supply"
             self.yang_parent_name = "diag"
@@ -427,7 +478,7 @@ class Diag(Entity):
             self._perform_setattr(Diag.PowerSupply, [], name, value)
 
 
-        class PwrList(Entity):
+        class PwrList(_Entity_):
             """
             
             
@@ -453,7 +504,10 @@ class Diag(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(Diag.PowerSupply.PwrList, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Diag.PowerSupply.PwrList, self).__init__()
 
                 self.yang_name = "pwr_list"
                 self.yang_parent_name = "power-supply"
@@ -477,7 +531,7 @@ class Diag(Entity):
                 self._perform_setattr(Diag.PowerSupply.PwrList, ['location'], name, value)
 
 
-            class DefaultData(Entity):
+            class DefaultData(_Entity_):
                 """
                 
                 
@@ -496,7 +550,10 @@ class Diag(Entity):
                 _revision = '2017-04-12'
 
                 def __init__(self):
-                    super(Diag.PowerSupply.PwrList.DefaultData, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.PowerSupply.PwrList.DefaultData, self).__init__()
 
                     self.yang_name = "default-data"
                     self.yang_parent_name = "pwr_list"
@@ -514,11 +571,23 @@ class Diag(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Diag.PowerSupply.PwrList.DefaultData, ['default_out_list'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                    return meta._meta_table['Diag.PowerSupply.PwrList.DefaultData']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                return meta._meta_table['Diag.PowerSupply.PwrList']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+            return meta._meta_table['Diag.PowerSupply']['meta_info']
 
 
-
-
-    class Chassis(Entity):
+    class Chassis(_Entity_):
         """
         
         
@@ -544,7 +613,10 @@ class Diag(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(Diag.Chassis, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Diag.Chassis, self).__init__()
 
             self.yang_name = "chassis"
             self.yang_parent_name = "diag"
@@ -569,7 +641,7 @@ class Diag(Entity):
             self._perform_setattr(Diag.Chassis, [], name, value)
 
 
-        class ChassisCnt(Entity):
+        class ChassisCnt(_Entity_):
             """
             
             
@@ -588,7 +660,10 @@ class Diag(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(Diag.Chassis.ChassisCnt, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Diag.Chassis.ChassisCnt, self).__init__()
 
                 self.yang_name = "chassis_cnt"
                 self.yang_parent_name = "chassis"
@@ -607,7 +682,7 @@ class Diag(Entity):
                 self._perform_setattr(Diag.Chassis.ChassisCnt, [], name, value)
 
 
-            class ChassisList(Entity):
+            class ChassisList(_Entity_):
                 """
                 
                 
@@ -633,7 +708,10 @@ class Diag(Entity):
                 _revision = '2017-04-12'
 
                 def __init__(self):
-                    super(Diag.Chassis.ChassisCnt.ChassisList, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.Chassis.ChassisCnt.ChassisList, self).__init__()
 
                     self.yang_name = "chassis_list"
                     self.yang_parent_name = "chassis_cnt"
@@ -657,7 +735,7 @@ class Diag(Entity):
                     self._perform_setattr(Diag.Chassis.ChassisCnt.ChassisList, ['location'], name, value)
 
 
-                class DefaultData(Entity):
+                class DefaultData(_Entity_):
                     """
                     
                     
@@ -676,7 +754,10 @@ class Diag(Entity):
                     _revision = '2017-04-12'
 
                     def __init__(self):
-                        super(Diag.Chassis.ChassisCnt.ChassisList.DefaultData, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Diag.Chassis.ChassisCnt.ChassisList.DefaultData, self).__init__()
 
                         self.yang_name = "default-data"
                         self.yang_parent_name = "chassis_list"
@@ -694,11 +775,23 @@ class Diag(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Diag.Chassis.ChassisCnt.ChassisList.DefaultData, ['default_out_list'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                        return meta._meta_table['Diag.Chassis.ChassisCnt.ChassisList.DefaultData']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                    return meta._meta_table['Diag.Chassis.ChassisCnt.ChassisList']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                return meta._meta_table['Diag.Chassis.ChassisCnt']['meta_info']
 
 
-
-
-        class ChassisEepromCnt(Entity):
+        class ChassisEepromCnt(_Entity_):
             """
             
             
@@ -717,7 +810,10 @@ class Diag(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(Diag.Chassis.ChassisEepromCnt, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Diag.Chassis.ChassisEepromCnt, self).__init__()
 
                 self.yang_name = "chassis_eeprom_cnt"
                 self.yang_parent_name = "chassis"
@@ -736,7 +832,7 @@ class Diag(Entity):
                 self._perform_setattr(Diag.Chassis.ChassisEepromCnt, [], name, value)
 
 
-            class ChassisEepromList(Entity):
+            class ChassisEepromList(_Entity_):
                 """
                 
                 
@@ -762,7 +858,10 @@ class Diag(Entity):
                 _revision = '2017-04-12'
 
                 def __init__(self):
-                    super(Diag.Chassis.ChassisEepromCnt.ChassisEepromList, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.Chassis.ChassisEepromCnt.ChassisEepromList, self).__init__()
 
                     self.yang_name = "chassis_eeprom_list"
                     self.yang_parent_name = "chassis_eeprom_cnt"
@@ -786,7 +885,7 @@ class Diag(Entity):
                     self._perform_setattr(Diag.Chassis.ChassisEepromCnt.ChassisEepromList, ['location'], name, value)
 
 
-                class EepromData(Entity):
+                class EepromData(_Entity_):
                     """
                     
                     
@@ -805,7 +904,10 @@ class Diag(Entity):
                     _revision = '2017-04-12'
 
                     def __init__(self):
-                        super(Diag.Chassis.ChassisEepromCnt.ChassisEepromList.EepromData, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Diag.Chassis.ChassisEepromCnt.ChassisEepromList.EepromData, self).__init__()
 
                         self.yang_name = "eeprom-data"
                         self.yang_parent_name = "chassis_eeprom_list"
@@ -823,12 +925,28 @@ class Diag(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Diag.Chassis.ChassisEepromCnt.ChassisEepromList.EepromData, ['raw_list'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                        return meta._meta_table['Diag.Chassis.ChassisEepromCnt.ChassisEepromList.EepromData']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                    return meta._meta_table['Diag.Chassis.ChassisEepromCnt.ChassisEepromList']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                return meta._meta_table['Diag.Chassis.ChassisEepromCnt']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+            return meta._meta_table['Diag.Chassis']['meta_info']
 
 
-
-
-
-    class Summary(Entity):
+    class Summary(_Entity_):
         """
         
         
@@ -847,7 +965,10 @@ class Diag(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(Diag.Summary, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Diag.Summary, self).__init__()
 
             self.yang_name = "summary"
             self.yang_parent_name = "diag"
@@ -866,7 +987,7 @@ class Diag(Entity):
             self._perform_setattr(Diag.Summary, [], name, value)
 
 
-        class SummaryList(Entity):
+        class SummaryList(_Entity_):
             """
             
             
@@ -892,7 +1013,10 @@ class Diag(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(Diag.Summary.SummaryList, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Diag.Summary.SummaryList, self).__init__()
 
                 self.yang_name = "summary_list"
                 self.yang_parent_name = "summary"
@@ -916,7 +1040,7 @@ class Diag(Entity):
                 self._perform_setattr(Diag.Summary.SummaryList, ['location'], name, value)
 
 
-            class SummaryData(Entity):
+            class SummaryData(_Entity_):
                 """
                 
                 
@@ -935,7 +1059,10 @@ class Diag(Entity):
                 _revision = '2017-04-12'
 
                 def __init__(self):
-                    super(Diag.Summary.SummaryList.SummaryData, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.Summary.SummaryList.SummaryData, self).__init__()
 
                     self.yang_name = "summary-data"
                     self.yang_parent_name = "summary_list"
@@ -953,11 +1080,23 @@ class Diag(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Diag.Summary.SummaryList.SummaryData, ['summary_out_list'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                    return meta._meta_table['Diag.Summary.SummaryList.SummaryData']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                return meta._meta_table['Diag.Summary.SummaryList']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+            return meta._meta_table['Diag.Summary']['meta_info']
 
 
-
-
-    class Eeprom(Entity):
+    class Eeprom(_Entity_):
         """
         
         
@@ -976,7 +1115,10 @@ class Diag(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(Diag.Eeprom, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Diag.Eeprom, self).__init__()
 
             self.yang_name = "eeprom"
             self.yang_parent_name = "diag"
@@ -995,7 +1137,7 @@ class Diag(Entity):
             self._perform_setattr(Diag.Eeprom, [], name, value)
 
 
-        class EepromList(Entity):
+        class EepromList(_Entity_):
             """
             
             
@@ -1021,7 +1163,10 @@ class Diag(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(Diag.Eeprom.EepromList, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Diag.Eeprom.EepromList, self).__init__()
 
                 self.yang_name = "eeprom_list"
                 self.yang_parent_name = "eeprom"
@@ -1045,7 +1190,7 @@ class Diag(Entity):
                 self._perform_setattr(Diag.Eeprom.EepromList, ['location'], name, value)
 
 
-            class EepromData(Entity):
+            class EepromData(_Entity_):
                 """
                 
                 
@@ -1064,7 +1209,10 @@ class Diag(Entity):
                 _revision = '2017-04-12'
 
                 def __init__(self):
-                    super(Diag.Eeprom.EepromList.EepromData, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.Eeprom.EepromList.EepromData, self).__init__()
 
                     self.yang_name = "eeprom-data"
                     self.yang_parent_name = "eeprom_list"
@@ -1082,11 +1230,23 @@ class Diag(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Diag.Eeprom.EepromList.EepromData, ['raw_list'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                    return meta._meta_table['Diag.Eeprom.EepromList.EepromData']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                return meta._meta_table['Diag.Eeprom.EepromList']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+            return meta._meta_table['Diag.Eeprom']['meta_info']
 
 
-
-
-    class Detail(Entity):
+    class Detail(_Entity_):
         """
         
         
@@ -1105,7 +1265,10 @@ class Diag(Entity):
         _revision = '2017-04-12'
 
         def __init__(self):
-            super(Diag.Detail, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Diag.Detail, self).__init__()
 
             self.yang_name = "detail"
             self.yang_parent_name = "diag"
@@ -1124,7 +1287,7 @@ class Diag(Entity):
             self._perform_setattr(Diag.Detail, [], name, value)
 
 
-        class DetailList(Entity):
+        class DetailList(_Entity_):
             """
             
             
@@ -1150,7 +1313,10 @@ class Diag(Entity):
             _revision = '2017-04-12'
 
             def __init__(self):
-                super(Diag.Detail.DetailList, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Diag.Detail.DetailList, self).__init__()
 
                 self.yang_name = "detail_list"
                 self.yang_parent_name = "detail"
@@ -1174,7 +1340,7 @@ class Diag(Entity):
                 self._perform_setattr(Diag.Detail.DetailList, ['location'], name, value)
 
 
-            class DetailData(Entity):
+            class DetailData(_Entity_):
                 """
                 
                 
@@ -1193,7 +1359,10 @@ class Diag(Entity):
                 _revision = '2017-04-12'
 
                 def __init__(self):
-                    super(Diag.Detail.DetailList.DetailData, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Diag.Detail.DetailList.DetailData, self).__init__()
 
                     self.yang_name = "detail-data"
                     self.yang_parent_name = "detail_list"
@@ -1211,12 +1380,28 @@ class Diag(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Diag.Detail.DetailList.DetailData, ['detail_out_list'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                    return meta._meta_table['Diag.Detail.DetailList.DetailData']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+                return meta._meta_table['Diag.Detail.DetailList']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+            return meta._meta_table['Diag.Detail']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Diag()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_sysadmin_show_diag as meta
+        return meta._meta_table['Diag']['meta_info']
 
 

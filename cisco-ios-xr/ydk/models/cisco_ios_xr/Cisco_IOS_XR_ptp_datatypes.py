@@ -7,8 +7,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -35,6 +38,12 @@ class PtpClockAdvertisementMode(Enum):
     Y_1588v2 = Enum.YLeaf(0, "1588v2")
 
     telecom_profile = Enum.YLeaf(1, "telecom-profile")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_datatypes as meta
+        return meta._meta_table['PtpClockAdvertisementMode']
 
 
 class PtpClockId(Enum):
@@ -64,6 +73,12 @@ class PtpClockId(Enum):
     eui = Enum.YLeaf(2, "eui")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_datatypes as meta
+        return meta._meta_table['PtpClockId']
+
+
 class PtpClockOperation(Enum):
     """
     PtpClockOperation (Enum Class)
@@ -83,6 +98,12 @@ class PtpClockOperation(Enum):
     two_step = Enum.YLeaf(0, "two-step")
 
     one_step = Enum.YLeaf(1, "one-step")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_datatypes as meta
+        return meta._meta_table['PtpClockOperation']
 
 
 class PtpClockProfile(Enum):
@@ -118,6 +139,12 @@ class PtpClockProfile(Enum):
     g82752 = Enum.YLeaf(3, "g82752")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_datatypes as meta
+        return meta._meta_table['PtpClockProfile']
+
+
 class PtpClockSelectionMode(Enum):
     """
     PtpClockSelectionMode (Enum Class)
@@ -137,6 +164,12 @@ class PtpClockSelectionMode(Enum):
     Y_1588v2 = Enum.YLeaf(0, "1588v2")
 
     telecom_profile = Enum.YLeaf(1, "telecom-profile")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_datatypes as meta
+        return meta._meta_table['PtpClockSelectionMode']
 
 
 class PtpDelayAsymmetryUnits(Enum):
@@ -166,6 +199,12 @@ class PtpDelayAsymmetryUnits(Enum):
     milliseconds = Enum.YLeaf(2, "milliseconds")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_datatypes as meta
+        return meta._meta_table['PtpDelayAsymmetryUnits']
+
+
 class PtpEncap(Enum):
     """
     PtpEncap (Enum Class)
@@ -193,6 +232,12 @@ class PtpEncap(Enum):
     ipv6 = Enum.YLeaf(3, "ipv6")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_datatypes as meta
+        return meta._meta_table['PtpEncap']
+
+
 class PtpInvalidUnicastGrantRequestResponse(Enum):
     """
     PtpInvalidUnicastGrantRequestResponse (Enum Class)
@@ -212,6 +257,12 @@ class PtpInvalidUnicastGrantRequestResponse(Enum):
     reduce = Enum.YLeaf(0, "reduce")
 
     deny = Enum.YLeaf(1, "deny")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_datatypes as meta
+        return meta._meta_table['PtpInvalidUnicastGrantRequestResponse']
 
 
 class PtpPortState(Enum):
@@ -241,6 +292,12 @@ class PtpPortState(Enum):
     master_only = Enum.YLeaf(2, "master-only")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_datatypes as meta
+        return meta._meta_table['PtpPortState']
+
+
 class PtpTelecomClock(Enum):
     """
     PtpTelecomClock (Enum Class)
@@ -268,6 +325,12 @@ class PtpTelecomClock(Enum):
     telecom_slave = Enum.YLeaf(2, "telecom-slave")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_datatypes as meta
+        return meta._meta_table['PtpTelecomClock']
+
+
 class PtpTime(Enum):
     """
     PtpTime (Enum Class)
@@ -287,6 +350,12 @@ class PtpTime(Enum):
     interval = Enum.YLeaf(0, "interval")
 
     frequency = Enum.YLeaf(1, "frequency")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_datatypes as meta
+        return meta._meta_table['PtpTime']
 
 
 class PtpTimePeriod(Enum):
@@ -344,6 +413,12 @@ class PtpTimePeriod(Enum):
     Y_64 = Enum.YLeaf(6, "64")
 
     Y_128 = Enum.YLeaf(7, "128")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_datatypes as meta
+        return meta._meta_table['PtpTimePeriod']
 
 
 class PtpTimeSource(Enum):
@@ -409,6 +484,12 @@ class PtpTimeSource(Enum):
     internal_oscillator = Enum.YLeaf(160, "internal-oscillator")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_datatypes as meta
+        return meta._meta_table['PtpTimeSource']
+
+
 class PtpTimescale(Enum):
     """
     PtpTimescale (Enum Class)
@@ -428,6 +509,12 @@ class PtpTimescale(Enum):
     ptp = Enum.YLeaf(0, "ptp")
 
     arb = Enum.YLeaf(1, "arb")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_datatypes as meta
+        return meta._meta_table['PtpTimescale']
 
 
 class PtpTransport(Enum):
@@ -455,6 +542,12 @@ class PtpTransport(Enum):
     mixed_mode = Enum.YLeaf(1, "mixed-mode")
 
     multicast = Enum.YLeaf(2, "multicast")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_datatypes as meta
+        return meta._meta_table['PtpTransport']
 
 
 

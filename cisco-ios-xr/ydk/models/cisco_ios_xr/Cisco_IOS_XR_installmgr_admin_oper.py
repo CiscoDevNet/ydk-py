@@ -13,8 +13,11 @@ Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -61,6 +64,12 @@ class InstallmgrIsmNodeConforming(Enum):
     spa_upgrade_fail = Enum.YLeaf(4, "spa-upgrade-fail")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstallmgrIsmNodeConforming']
+
+
 class InstmgrBagAbortState(Enum):
     """
     InstmgrBagAbortState (Enum Class)
@@ -94,6 +103,12 @@ class InstmgrBagAbortState(Enum):
     already_aborted = Enum.YLeaf(4, "already-aborted")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrBagAbortState']
+
+
 class InstmgrBagIiDirection(Enum):
     """
     InstmgrBagIiDirection (Enum Class)
@@ -119,6 +134,12 @@ class InstmgrBagIiDirection(Enum):
     installing = Enum.YLeaf(1, "installing")
 
     unwinding = Enum.YLeaf(2, "unwinding")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrBagIiDirection']
 
 
 class InstmgrBagIiState(Enum):
@@ -158,6 +179,12 @@ class InstmgrBagIiState(Enum):
     aborted = Enum.YLeaf(4, "aborted")
 
     rebooted = Enum.YLeaf(5, "rebooted")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrBagIiState']
 
 
 class InstmgrBagLogEntryUserMsgCategory(Enum):
@@ -217,6 +244,12 @@ class InstmgrBagLogEntryUserMsgCategory(Enum):
     user_response = Enum.YLeaf(8, "user-response")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrBagLogEntryUserMsgCategory']
+
+
 class InstmgrBagRequestTrigger(Enum):
     """
     InstmgrBagRequestTrigger (Enum Class)
@@ -236,6 +269,12 @@ class InstmgrBagRequestTrigger(Enum):
     cli = Enum.YLeaf(1, "cli")
 
     xr_xml = Enum.YLeaf(2, "xr-xml")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrBagRequestTrigger']
 
 
 class InstmgrBagUserMsgCategory(Enum):
@@ -293,6 +332,12 @@ class InstmgrBagUserMsgCategory(Enum):
     system_error = Enum.YLeaf(7, "system-error")
 
     user_response = Enum.YLeaf(8, "user-response")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrBagUserMsgCategory']
 
 
 class InstmgrCardState(Enum):
@@ -532,6 +577,12 @@ class InstmgrCardState(Enum):
     instmgr_card_num_states = Enum.YLeaf(38, "instmgr-card-num-states")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrCardState']
+
+
 class InstmgrGroup(Enum):
     """
     InstmgrGroup (Enum Class)
@@ -557,6 +608,12 @@ class InstmgrGroup(Enum):
     inst_pkg_group_grouped = Enum.YLeaf(1, "inst-pkg-group-grouped")
 
     inst_pkg_group_individual = Enum.YLeaf(2, "inst-pkg-group-individual")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrGroup']
 
 
 class InstmgrInstallPhase(Enum):
@@ -590,6 +647,12 @@ class InstmgrInstallPhase(Enum):
     inst_phase_sw_change = Enum.YLeaf(50, "inst-phase-sw-change")
 
     inst_phase_cleaning_up = Enum.YLeaf(1000, "inst-phase-cleaning-up")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrInstallPhase']
 
 
 class InstmgrIsmFsmState(Enum):
@@ -793,6 +856,12 @@ class InstmgrIsmFsmState(Enum):
     state_max = Enum.YLeaf(31, "state-max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrIsmFsmState']
+
+
 class InstmgrIsmNodeState(Enum):
     """
     InstmgrIsmNodeState (Enum Class)
@@ -994,6 +1063,12 @@ class InstmgrIsmNodeState(Enum):
     max = Enum.YLeaf(32, "max")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrIsmNodeState']
+
+
 class InstmgrIssuAbortImpact(Enum):
     """
     InstmgrIssuAbortImpact (Enum Class)
@@ -1025,6 +1100,12 @@ class InstmgrIssuAbortImpact(Enum):
     traffic_outage = Enum.YLeaf(2, "traffic-outage")
 
     not_applicable = Enum.YLeaf(3, "not-applicable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrIssuAbortImpact']
 
 
 class InstmgrIssuAbortMethod(Enum):
@@ -1078,6 +1159,12 @@ class InstmgrIssuAbortMethod(Enum):
     method_admin_only = Enum.YLeaf(6, "method-admin-only")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrIssuAbortMethod']
+
+
 class InstmgrNodeRole(Enum):
     """
     InstmgrNodeRole (Enum Class)
@@ -1109,6 +1196,12 @@ class InstmgrNodeRole(Enum):
     redundency_standby = Enum.YLeaf(2, "redundency-standby")
 
     redundency_unusable = Enum.YLeaf(3, "redundency-unusable")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrNodeRole']
 
 
 class InstmgrPiCard(Enum):
@@ -1156,6 +1249,12 @@ class InstmgrPiCard(Enum):
     type_other = Enum.YLeaf(5, "type-other")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrPiCard']
+
+
 class InstmgrPkg(Enum):
     """
     InstmgrPkg (Enum Class)
@@ -1187,6 +1286,12 @@ class InstmgrPkg(Enum):
     inst_pkg_type_standard = Enum.YLeaf(2, "inst-pkg-type-standard")
 
     inst_pkg_type_internal = Enum.YLeaf(3, "inst-pkg-type-internal")
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrPkg']
 
 
 class InstmgrRequest(Enum):
@@ -1294,6 +1399,12 @@ class InstmgrRequest(Enum):
     extend = Enum.YLeaf(16, "extend")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['InstmgrRequest']
+
+
 class IsmCardTypeFamily(Enum):
     """
     IsmCardTypeFamily (Enum Class)
@@ -1387,8 +1498,14 @@ class IsmCardTypeFamily(Enum):
     spa = Enum.YLeaf(14, "spa")
 
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['IsmCardTypeFamily']
 
-class Install(Entity):
+
+
+class Install(_Entity_):
     """
     Information of software packages and install
     operations
@@ -1466,7 +1583,10 @@ class Install(Entity):
     _revision = '2015-11-09'
 
     def __init__(self):
-        super(Install, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Install, self).__init__()
         self._top_entity = None
 
         self.yang_name = "install"
@@ -1518,7 +1638,7 @@ class Install(Entity):
         self._perform_setattr(Install, ['log_size'], name, value)
 
 
-    class ConfigurationRegisters(Entity):
+    class ConfigurationRegisters(_Entity_):
         """
         Configuration register (confreg) information
         
@@ -1537,7 +1657,10 @@ class Install(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Install.ConfigurationRegisters, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Install.ConfigurationRegisters, self).__init__()
 
             self.yang_name = "configuration-registers"
             self.yang_parent_name = "install"
@@ -1556,7 +1679,7 @@ class Install(Entity):
             self._perform_setattr(Install.ConfigurationRegisters, [], name, value)
 
 
-        class ConfigurationRegister(Entity):
+        class ConfigurationRegister(_Entity_):
             """
             Configuration register for specific node
             
@@ -1588,7 +1711,10 @@ class Install(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Install.ConfigurationRegisters.ConfigurationRegister, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Install.ConfigurationRegisters.ConfigurationRegister, self).__init__()
 
                 self.yang_name = "configuration-register"
                 self.yang_parent_name = "configuration-registers"
@@ -1609,10 +1735,18 @@ class Install(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Install.ConfigurationRegisters.ConfigurationRegister, ['node_name', 'config_register'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                return meta._meta_table['Install.ConfigurationRegisters.ConfigurationRegister']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+            return meta._meta_table['Install.ConfigurationRegisters']['meta_info']
 
 
-
-    class RequestStatuses(Entity):
+    class RequestStatuses(_Entity_):
         """
         Install operation request status
         
@@ -1631,7 +1765,10 @@ class Install(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Install.RequestStatuses, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Install.RequestStatuses, self).__init__()
 
             self.yang_name = "request-statuses"
             self.yang_parent_name = "install"
@@ -1650,7 +1787,7 @@ class Install(Entity):
             self._perform_setattr(Install.RequestStatuses, [], name, value)
 
 
-        class RequestStatus(Entity):
+        class RequestStatus(_Entity_):
             """
             Request status Information
             
@@ -1749,7 +1886,10 @@ class Install(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Install.RequestStatuses.RequestStatus, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Install.RequestStatuses.RequestStatus, self).__init__()
 
                 self.yang_name = "request-status"
                 self.yang_parent_name = "request-statuses"
@@ -1794,7 +1934,7 @@ class Install(Entity):
                 self._perform_setattr(Install.RequestStatuses.RequestStatus, ['request_id', 'percentage', 'abort_state', 'downloaded_bytes', 'unanswered_query', 'operation_phase'], name, value)
 
 
-            class RequestInformation(Entity):
+            class RequestInformation(_Entity_):
                 """
                 Requested install operation
                 
@@ -1852,7 +1992,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.RequestStatuses.RequestStatus.RequestInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.RequestStatuses.RequestStatus.RequestInformation, self).__init__()
 
                     self.yang_name = "request-information"
                     self.yang_parent_name = "request-status"
@@ -1880,9 +2023,13 @@ class Install(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Install.RequestStatuses.RequestStatus.RequestInformation, ['request_id', 'user_id', 'trigger_type', 'request_option', 'operation_type', 'operation_detail'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.RequestStatuses.RequestStatus.RequestInformation']['meta_info']
 
 
-            class AbortStatus(Entity):
+            class AbortStatus(_Entity_):
                 """
                 How the abort will occur
                 
@@ -1908,7 +2055,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.RequestStatuses.RequestStatus.AbortStatus, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.RequestStatuses.RequestStatus.AbortStatus, self).__init__()
 
                     self.yang_name = "abort-status"
                     self.yang_parent_name = "request-status"
@@ -1928,9 +2078,13 @@ class Install(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Install.RequestStatuses.RequestStatus.AbortStatus, ['abort_method', 'abort_impact'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.RequestStatuses.RequestStatus.AbortStatus']['meta_info']
 
 
-            class IncrementalInstallInformation(Entity):
+            class IncrementalInstallInformation(_Entity_):
                 """
                 Incremental Install information
                 
@@ -1963,7 +2117,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.RequestStatuses.RequestStatus.IncrementalInstallInformation, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.RequestStatuses.RequestStatus.IncrementalInstallInformation, self).__init__()
 
                     self.yang_name = "incremental-install-information"
                     self.yang_parent_name = "request-status"
@@ -1986,7 +2143,7 @@ class Install(Entity):
                     self._perform_setattr(Install.RequestStatuses.RequestStatus.IncrementalInstallInformation, ['direction', 'ii_error'], name, value)
 
 
-                class Nodes(Entity):
+                class Nodes(_Entity_):
                     """
                     Participating nodes
                     
@@ -2014,7 +2171,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.RequestStatuses.RequestStatus.IncrementalInstallInformation.Nodes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.RequestStatuses.RequestStatus.IncrementalInstallInformation.Nodes, self).__init__()
 
                         self.yang_name = "nodes"
                         self.yang_parent_name = "incremental-install-information"
@@ -2034,10 +2194,18 @@ class Install(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Install.RequestStatuses.RequestStatus.IncrementalInstallInformation.Nodes, ['node_name', 'state'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.RequestStatuses.RequestStatus.IncrementalInstallInformation.Nodes']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.RequestStatuses.RequestStatus.IncrementalInstallInformation']['meta_info']
 
 
-
-            class IssuMessage(Entity):
+            class IssuMessage(_Entity_):
                 """
                 Messages related to ISSU operations
                 
@@ -2070,7 +2238,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.RequestStatuses.RequestStatus.IssuMessage, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.RequestStatuses.RequestStatus.IssuMessage, self).__init__()
 
                     self.yang_name = "issu-message"
                     self.yang_parent_name = "request-status"
@@ -2095,7 +2266,7 @@ class Install(Entity):
                     self._perform_setattr(Install.RequestStatuses.RequestStatus.IssuMessage, ['category', 'message'], name, value)
 
 
-                class Scope(Entity):
+                class Scope(_Entity_):
                     """
                     Scope of the message
                     
@@ -2123,7 +2294,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.RequestStatuses.RequestStatus.IssuMessage.Scope, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.RequestStatuses.RequestStatus.IssuMessage.Scope, self).__init__()
 
                         self.yang_name = "scope"
                         self.yang_parent_name = "issu-message"
@@ -2143,10 +2317,18 @@ class Install(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Install.RequestStatuses.RequestStatus.IssuMessage.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.RequestStatuses.RequestStatus.IssuMessage.Scope']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.RequestStatuses.RequestStatus.IssuMessage']['meta_info']
 
 
-
-            class Message(Entity):
+            class Message(_Entity_):
                 """
                 Messages output to the user
                 
@@ -2179,7 +2361,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.RequestStatuses.RequestStatus.Message, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.RequestStatuses.RequestStatus.Message, self).__init__()
 
                     self.yang_name = "message"
                     self.yang_parent_name = "request-status"
@@ -2204,7 +2389,7 @@ class Install(Entity):
                     self._perform_setattr(Install.RequestStatuses.RequestStatus.Message, ['category', 'message'], name, value)
 
 
-                class Scope(Entity):
+                class Scope(_Entity_):
                     """
                     Scope of the message
                     
@@ -2232,7 +2417,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.RequestStatuses.RequestStatus.Message.Scope, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.RequestStatuses.RequestStatus.Message.Scope, self).__init__()
 
                         self.yang_name = "scope"
                         self.yang_parent_name = "message"
@@ -2252,12 +2440,28 @@ class Install(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Install.RequestStatuses.RequestStatus.Message.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.RequestStatuses.RequestStatus.Message.Scope']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.RequestStatuses.RequestStatus.Message']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                return meta._meta_table['Install.RequestStatuses.RequestStatus']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+            return meta._meta_table['Install.RequestStatuses']['meta_info']
 
 
-
-
-
-    class BootVariables(Entity):
+    class BootVariables(_Entity_):
         """
         Boot variable information
         
@@ -2276,7 +2480,10 @@ class Install(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Install.BootVariables, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Install.BootVariables, self).__init__()
 
             self.yang_name = "boot-variables"
             self.yang_parent_name = "install"
@@ -2295,7 +2502,7 @@ class Install(Entity):
             self._perform_setattr(Install.BootVariables, [], name, value)
 
 
-        class BootVariable(Entity):
+        class BootVariable(_Entity_):
             """
             Boot variable for specific node
             
@@ -2325,7 +2532,10 @@ class Install(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Install.BootVariables.BootVariable, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Install.BootVariables.BootVariable, self).__init__()
 
                 self.yang_name = "boot-variable"
                 self.yang_parent_name = "boot-variables"
@@ -2346,10 +2556,18 @@ class Install(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Install.BootVariables.BootVariable, ['node_name', 'boot_variable'], name, value)
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                return meta._meta_table['Install.BootVariables.BootVariable']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+            return meta._meta_table['Install.BootVariables']['meta_info']
 
 
-
-    class Software(Entity):
+    class Software(_Entity_):
         """
         Software package,component and alias information
         
@@ -2382,7 +2600,10 @@ class Install(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Install.Software, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Install.Software, self).__init__()
 
             self.yang_name = "software"
             self.yang_parent_name = "install"
@@ -2411,7 +2632,7 @@ class Install(Entity):
             self._perform_setattr(Install.Software, [], name, value)
 
 
-        class AliasDevices(Entity):
+        class AliasDevices(_Entity_):
             """
             Package alias information
             
@@ -2430,7 +2651,10 @@ class Install(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Install.Software.AliasDevices, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Install.Software.AliasDevices, self).__init__()
 
                 self.yang_name = "alias-devices"
                 self.yang_parent_name = "software"
@@ -2449,7 +2673,7 @@ class Install(Entity):
                 self._perform_setattr(Install.Software.AliasDevices, [], name, value)
 
 
-            class AliasDevice(Entity):
+            class AliasDevice(_Entity_):
                 """
                 Package alias information for specific device
                 
@@ -2477,7 +2701,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.Software.AliasDevices.AliasDevice, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.Software.AliasDevices.AliasDevice, self).__init__()
 
                     self.yang_name = "alias-device"
                     self.yang_parent_name = "alias-devices"
@@ -2501,7 +2728,7 @@ class Install(Entity):
                     self._perform_setattr(Install.Software.AliasDevices.AliasDevice, ['device_name'], name, value)
 
 
-                class Aliases(Entity):
+                class Aliases(_Entity_):
                     """
                     alias information
                     
@@ -2520,7 +2747,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.Software.AliasDevices.AliasDevice.Aliases, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.Software.AliasDevices.AliasDevice.Aliases, self).__init__()
 
                         self.yang_name = "aliases"
                         self.yang_parent_name = "alias-device"
@@ -2538,7 +2768,7 @@ class Install(Entity):
                         self._perform_setattr(Install.Software.AliasDevices.AliasDevice.Aliases, [], name, value)
 
 
-                    class Alias(Entity):
+                    class Alias(_Entity_):
                         """
                         Aliases for specific package
                         
@@ -2566,7 +2796,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.Software.AliasDevices.AliasDevice.Aliases.Alias, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.Software.AliasDevices.AliasDevice.Aliases.Alias, self).__init__()
 
                             self.yang_name = "alias"
                             self.yang_parent_name = "aliases"
@@ -2586,12 +2819,28 @@ class Install(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Install.Software.AliasDevices.AliasDevice.Aliases.Alias, ['package_name', 'alias_names'], name, value)
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.Software.AliasDevices.AliasDevice.Aliases.Alias']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.Software.AliasDevices.AliasDevice.Aliases']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.Software.AliasDevices.AliasDevice']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                return meta._meta_table['Install.Software.AliasDevices']['meta_info']
 
 
-
-
-
-        class PackageDevices(Entity):
+        class PackageDevices(_Entity_):
             """
             Package information
             
@@ -2610,7 +2859,10 @@ class Install(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Install.Software.PackageDevices, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Install.Software.PackageDevices, self).__init__()
 
                 self.yang_name = "package-devices"
                 self.yang_parent_name = "software"
@@ -2629,7 +2881,7 @@ class Install(Entity):
                 self._perform_setattr(Install.Software.PackageDevices, [], name, value)
 
 
-            class PackageDevice(Entity):
+            class PackageDevice(_Entity_):
                 """
                 Package information for specific device
                 
@@ -2657,7 +2909,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.Software.PackageDevices.PackageDevice, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.Software.PackageDevices.PackageDevice, self).__init__()
 
                     self.yang_name = "package-device"
                     self.yang_parent_name = "package-devices"
@@ -2681,7 +2936,7 @@ class Install(Entity):
                     self._perform_setattr(Install.Software.PackageDevices.PackageDevice, ['device_name'], name, value)
 
 
-                class Packages(Entity):
+                class Packages(_Entity_):
                     """
                     Package information for specific package
                     
@@ -2700,7 +2955,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.Software.PackageDevices.PackageDevice.Packages, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.Software.PackageDevices.PackageDevice.Packages, self).__init__()
 
                         self.yang_name = "packages"
                         self.yang_parent_name = "package-device"
@@ -2718,7 +2976,7 @@ class Install(Entity):
                         self._perform_setattr(Install.Software.PackageDevices.PackageDevice.Packages, [], name, value)
 
 
-                    class Package(Entity):
+                    class Package(_Entity_):
                         """
                         Package information
                         
@@ -2869,7 +3127,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.Software.PackageDevices.PackageDevice.Packages.Package, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.Software.PackageDevices.PackageDevice.Packages.Package, self).__init__()
 
                             self.yang_name = "package"
                             self.yang_parent_name = "packages"
@@ -2924,7 +3185,7 @@ class Install(Entity):
                             self._perform_setattr(Install.Software.PackageDevices.PackageDevice.Packages.Package, ['package_name', 'name', 'version', 'description', 'release', 'vendor', 'date', 'source', 'base', 'bootable', 'composite', 'restart_info', 'package_type', 'group_type', 'depth', 'uncompressed_size', 'compressed_size', 'cards'], name, value)
 
 
-                        class SubPkg(Entity):
+                        class SubPkg(_Entity_):
                             """
                             Sub\-package info of the package
                             
@@ -2952,7 +3213,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg, self).__init__()
 
                                 self.yang_name = "sub-pkg"
                                 self.yang_parent_name = "package"
@@ -2972,13 +3236,33 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg, ['name', 'node_types'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.Software.PackageDevices.PackageDevice.Packages.Package']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.Software.PackageDevices.PackageDevice.Packages']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.Software.PackageDevices.PackageDevice']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                return meta._meta_table['Install.Software.PackageDevices']['meta_info']
 
 
-
-
-
-
-        class ComponentDevices(Entity):
+        class ComponentDevices(_Entity_):
             """
             Software component information
             
@@ -2997,7 +3281,10 @@ class Install(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Install.Software.ComponentDevices, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Install.Software.ComponentDevices, self).__init__()
 
                 self.yang_name = "component-devices"
                 self.yang_parent_name = "software"
@@ -3016,7 +3303,7 @@ class Install(Entity):
                 self._perform_setattr(Install.Software.ComponentDevices, [], name, value)
 
 
-            class ComponentDevice(Entity):
+            class ComponentDevice(_Entity_):
                 """
                 Component information for specific device
                 
@@ -3044,7 +3331,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.Software.ComponentDevices.ComponentDevice, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.Software.ComponentDevices.ComponentDevice, self).__init__()
 
                     self.yang_name = "component-device"
                     self.yang_parent_name = "component-devices"
@@ -3068,7 +3358,7 @@ class Install(Entity):
                     self._perform_setattr(Install.Software.ComponentDevices.ComponentDevice, ['device_name'], name, value)
 
 
-                class ComponentPackages(Entity):
+                class ComponentPackages(_Entity_):
                     """
                     Software package information
                     
@@ -3087,7 +3377,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.Software.ComponentDevices.ComponentDevice.ComponentPackages, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.Software.ComponentDevices.ComponentDevice.ComponentPackages, self).__init__()
 
                         self.yang_name = "component-packages"
                         self.yang_parent_name = "component-device"
@@ -3105,7 +3398,7 @@ class Install(Entity):
                         self._perform_setattr(Install.Software.ComponentDevices.ComponentDevice.ComponentPackages, [], name, value)
 
 
-                    class ComponentPackage(Entity):
+                    class ComponentPackage(_Entity_):
                         """
                         Component information for specific package
                         
@@ -3131,7 +3424,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage, self).__init__()
 
                             self.yang_name = "component-package"
                             self.yang_parent_name = "component-packages"
@@ -3152,7 +3448,7 @@ class Install(Entity):
                             self._perform_setattr(Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage, ['package_name'], name, value)
 
 
-                        class Component(Entity):
+                        class Component(_Entity_):
                             """
                             Component information
                             
@@ -3206,7 +3502,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage.Component, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage.Component, self).__init__()
 
                                 self.yang_name = "component"
                                 self.yang_parent_name = "component-package"
@@ -3234,14 +3533,38 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage.Component, ['component_name', 'name', 'version', 'release', 'description', 'files'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage.Component']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.Software.ComponentDevices.ComponentDevice.ComponentPackages']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.Software.ComponentDevices.ComponentDevice']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                return meta._meta_table['Install.Software.ComponentDevices']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+            return meta._meta_table['Install.Software']['meta_info']
 
 
-
-
-
-
-
-    class SoftwareInventory(Entity):
+    class SoftwareInventory(_Entity_):
         """
         Information of install operations
         
@@ -3281,7 +3604,10 @@ class Install(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Install.SoftwareInventory, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Install.SoftwareInventory, self).__init__()
 
             self.yang_name = "software-inventory"
             self.yang_parent_name = "install"
@@ -3314,7 +3640,7 @@ class Install(Entity):
             self._perform_setattr(Install.SoftwareInventory, [], name, value)
 
 
-        class Committed(Entity):
+        class Committed(_Entity_):
             """
             Committed inventory information
             
@@ -3340,7 +3666,10 @@ class Install(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Install.SoftwareInventory.Committed, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Install.SoftwareInventory.Committed, self).__init__()
 
                 self.yang_name = "committed"
                 self.yang_parent_name = "software-inventory"
@@ -3365,7 +3694,7 @@ class Install(Entity):
                 self._perform_setattr(Install.SoftwareInventory.Committed, [], name, value)
 
 
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 Summarized inventory information
                 
@@ -3405,7 +3734,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.SoftwareInventory.Committed.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.SoftwareInventory.Committed.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "committed"
@@ -3433,7 +3765,7 @@ class Install(Entity):
                     self._perform_setattr(Install.SoftwareInventory.Committed.Summary, [], name, value)
 
 
-                class DefaultLoadPath(Entity):
+                class DefaultLoadPath(_Entity_):
                     """
                     Default load path
                     
@@ -3482,7 +3814,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath, self).__init__()
 
                         self.yang_name = "default-load-path"
                         self.yang_parent_name = "summary"
@@ -3509,7 +3844,7 @@ class Install(Entity):
                         self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath, ['request_id', 'admin_match', 'secure_domain_router_name'], name, value)
 
 
-                    class LoadPath(Entity):
+                    class LoadPath(_Entity_):
                         """
                         Default load path
                         
@@ -3542,7 +3877,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
                             self.yang_parent_name = "default-load-path"
@@ -3568,7 +3906,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -3594,7 +3932,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -3615,10 +3956,18 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath']['meta_info']
 
 
-
-                    class StandbyLoadPath(Entity):
+                    class StandbyLoadPath(_Entity_):
                         """
                         Load paths for standby nodes
                         
@@ -3651,7 +4000,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath, self).__init__()
 
                             self.yang_name = "standby-load-path"
                             self.yang_parent_name = "default-load-path"
@@ -3677,7 +4029,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -3703,7 +4055,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "standby-load-path"
@@ -3724,11 +4079,23 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.SoftwareInventory.Committed.Summary.DefaultLoadPath']['meta_info']
 
 
-
-
-                class AdminLoadPath(Entity):
+                class AdminLoadPath(_Entity_):
                     """
                     Admin Resources load path
                     
@@ -3763,7 +4130,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath, self).__init__()
 
                         self.yang_name = "admin-load-path"
                         self.yang_parent_name = "summary"
@@ -3786,7 +4156,7 @@ class Install(Entity):
                         self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath, ['request_id'], name, value)
 
 
-                    class LoadPath(Entity):
+                    class LoadPath(_Entity_):
                         """
                         Admin Resources load path
                         
@@ -3819,7 +4189,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
                             self.yang_parent_name = "admin-load-path"
@@ -3845,7 +4218,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -3871,7 +4244,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -3892,10 +4268,18 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath']['meta_info']
 
 
-
-                    class StandbyLoadPath(Entity):
+                    class StandbyLoadPath(_Entity_):
                         """
                         Load paths for standby nodes
                         
@@ -3928,7 +4312,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath, self).__init__()
 
                             self.yang_name = "standby-load-path"
                             self.yang_parent_name = "admin-load-path"
@@ -3954,7 +4341,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -3980,7 +4367,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "standby-load-path"
@@ -4001,11 +4391,23 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.SoftwareInventory.Committed.Summary.AdminLoadPath']['meta_info']
 
 
-
-
-                class SdrLoadPath(Entity):
+                class SdrLoadPath(_Entity_):
                     """
                     SDR load paths
                     
@@ -4047,7 +4449,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Committed.Summary.SdrLoadPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.SoftwareInventory.Committed.Summary.SdrLoadPath, self).__init__()
 
                         self.yang_name = "sdr-load-path"
                         self.yang_parent_name = "summary"
@@ -4072,7 +4477,7 @@ class Install(Entity):
                         self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath, ['request_id', 'secure_domain_router_name'], name, value)
 
 
-                    class LoadPath(Entity):
+                    class LoadPath(_Entity_):
                         """
                         Load path
                         
@@ -4105,7 +4510,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
                             self.yang_parent_name = "sdr-load-path"
@@ -4131,7 +4539,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -4157,7 +4565,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -4178,10 +4589,18 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath']['meta_info']
 
 
-
-                    class StandbyLoadPath(Entity):
+                    class StandbyLoadPath(_Entity_):
                         """
                         Load paths for standby nodes
                         
@@ -4214,7 +4633,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath, self).__init__()
 
                             self.yang_name = "standby-load-path"
                             self.yang_parent_name = "sdr-load-path"
@@ -4240,7 +4662,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -4266,7 +4688,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "standby-load-path"
@@ -4287,11 +4712,23 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.SoftwareInventory.Committed.Summary.SdrLoadPath']['meta_info']
 
 
-
-
-                class LocationLoadPath(Entity):
+                class LocationLoadPath(_Entity_):
                     """
                     Location load paths
                     
@@ -4342,7 +4779,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath, self).__init__()
 
                         self.yang_name = "location-load-path"
                         self.yang_parent_name = "summary"
@@ -4369,7 +4809,7 @@ class Install(Entity):
                         self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath, ['request_id', 'secure_domain_router_name', 'node_name'], name, value)
 
 
-                    class LoadPath(Entity):
+                    class LoadPath(_Entity_):
                         """
                         Load path
                         
@@ -4402,7 +4842,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
                             self.yang_parent_name = "location-load-path"
@@ -4428,7 +4871,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -4454,7 +4897,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -4475,10 +4921,18 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath']['meta_info']
 
 
-
-                    class StandbyLoadPath(Entity):
+                    class StandbyLoadPath(_Entity_):
                         """
                         Load paths for standby nodes
                         
@@ -4511,7 +4965,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath, self).__init__()
 
                             self.yang_name = "standby-load-path"
                             self.yang_parent_name = "location-load-path"
@@ -4537,7 +4994,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -4563,7 +5020,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "standby-load-path"
@@ -4584,12 +5044,28 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.SoftwareInventory.Committed.Summary.LocationLoadPath']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.SoftwareInventory.Committed.Summary']['meta_info']
 
 
-
-
-
-            class Inventories(Entity):
+            class Inventories(_Entity_):
                 """
                 Software inventory
                 
@@ -4608,7 +5084,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.SoftwareInventory.Committed.Inventories, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.SoftwareInventory.Committed.Inventories, self).__init__()
 
                     self.yang_name = "inventories"
                     self.yang_parent_name = "committed"
@@ -4627,7 +5106,7 @@ class Install(Entity):
                     self._perform_setattr(Install.SoftwareInventory.Committed.Inventories, [], name, value)
 
 
-                class Inventory(Entity):
+                class Inventory(_Entity_):
                     """
                     Inventory information for specific node
                     
@@ -4696,7 +5175,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Committed.Inventories.Inventory, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.SoftwareInventory.Committed.Inventories.Inventory, self).__init__()
 
                         self.yang_name = "inventory"
                         self.yang_parent_name = "inventories"
@@ -4728,7 +5210,7 @@ class Install(Entity):
                         self._perform_setattr(Install.SoftwareInventory.Committed.Inventories.Inventory, ['node_name', 'major', 'minor', 'boot_image_name', 'node_type', 'secure_domain_router_name'], name, value)
 
 
-                    class LoadPath(Entity):
+                    class LoadPath(_Entity_):
                         """
                         Load path
                         
@@ -4761,7 +5243,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
                             self.yang_parent_name = "inventory"
@@ -4786,7 +5271,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -4812,7 +5297,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -4832,13 +5320,33 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.SoftwareInventory.Committed.Inventories.Inventory']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.SoftwareInventory.Committed.Inventories']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                return meta._meta_table['Install.SoftwareInventory.Committed']['meta_info']
 
 
-
-
-
-
-        class Inactive(Entity):
+        class Inactive(_Entity_):
             """
             Inactive inventory information
             
@@ -4864,7 +5372,10 @@ class Install(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Install.SoftwareInventory.Inactive, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Install.SoftwareInventory.Inactive, self).__init__()
 
                 self.yang_name = "inactive"
                 self.yang_parent_name = "software-inventory"
@@ -4889,7 +5400,7 @@ class Install(Entity):
                 self._perform_setattr(Install.SoftwareInventory.Inactive, [], name, value)
 
 
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 Summarized inventory information
                 
@@ -4929,7 +5440,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.SoftwareInventory.Inactive.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.SoftwareInventory.Inactive.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "inactive"
@@ -4957,7 +5471,7 @@ class Install(Entity):
                     self._perform_setattr(Install.SoftwareInventory.Inactive.Summary, [], name, value)
 
 
-                class DefaultLoadPath(Entity):
+                class DefaultLoadPath(_Entity_):
                     """
                     Default load path
                     
@@ -5006,7 +5520,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath, self).__init__()
 
                         self.yang_name = "default-load-path"
                         self.yang_parent_name = "summary"
@@ -5033,7 +5550,7 @@ class Install(Entity):
                         self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath, ['request_id', 'admin_match', 'secure_domain_router_name'], name, value)
 
 
-                    class LoadPath(Entity):
+                    class LoadPath(_Entity_):
                         """
                         Default load path
                         
@@ -5066,7 +5583,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
                             self.yang_parent_name = "default-load-path"
@@ -5092,7 +5612,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -5118,7 +5638,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -5139,10 +5662,18 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath']['meta_info']
 
 
-
-                    class StandbyLoadPath(Entity):
+                    class StandbyLoadPath(_Entity_):
                         """
                         Load paths for standby nodes
                         
@@ -5175,7 +5706,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath, self).__init__()
 
                             self.yang_name = "standby-load-path"
                             self.yang_parent_name = "default-load-path"
@@ -5201,7 +5735,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -5227,7 +5761,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "standby-load-path"
@@ -5248,11 +5785,23 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath']['meta_info']
 
 
-
-
-                class AdminLoadPath(Entity):
+                class AdminLoadPath(_Entity_):
                     """
                     Admin Resources load path
                     
@@ -5287,7 +5836,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath, self).__init__()
 
                         self.yang_name = "admin-load-path"
                         self.yang_parent_name = "summary"
@@ -5310,7 +5862,7 @@ class Install(Entity):
                         self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath, ['request_id'], name, value)
 
 
-                    class LoadPath(Entity):
+                    class LoadPath(_Entity_):
                         """
                         Admin Resources load path
                         
@@ -5343,7 +5895,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
                             self.yang_parent_name = "admin-load-path"
@@ -5369,7 +5924,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -5395,7 +5950,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -5416,10 +5974,18 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath']['meta_info']
 
 
-
-                    class StandbyLoadPath(Entity):
+                    class StandbyLoadPath(_Entity_):
                         """
                         Load paths for standby nodes
                         
@@ -5452,7 +6018,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath, self).__init__()
 
                             self.yang_name = "standby-load-path"
                             self.yang_parent_name = "admin-load-path"
@@ -5478,7 +6047,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -5504,7 +6073,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "standby-load-path"
@@ -5525,11 +6097,23 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.AdminLoadPath']['meta_info']
 
 
-
-
-                class SdrLoadPath(Entity):
+                class SdrLoadPath(_Entity_):
                     """
                     SDR load paths
                     
@@ -5571,7 +6155,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath, self).__init__()
 
                         self.yang_name = "sdr-load-path"
                         self.yang_parent_name = "summary"
@@ -5596,7 +6183,7 @@ class Install(Entity):
                         self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath, ['request_id', 'secure_domain_router_name'], name, value)
 
 
-                    class LoadPath(Entity):
+                    class LoadPath(_Entity_):
                         """
                         Load path
                         
@@ -5629,7 +6216,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
                             self.yang_parent_name = "sdr-load-path"
@@ -5655,7 +6245,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -5681,7 +6271,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -5702,10 +6295,18 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath']['meta_info']
 
 
-
-                    class StandbyLoadPath(Entity):
+                    class StandbyLoadPath(_Entity_):
                         """
                         Load paths for standby nodes
                         
@@ -5738,7 +6339,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath, self).__init__()
 
                             self.yang_name = "standby-load-path"
                             self.yang_parent_name = "sdr-load-path"
@@ -5764,7 +6368,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -5790,7 +6394,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "standby-load-path"
@@ -5811,11 +6418,23 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.SdrLoadPath']['meta_info']
 
 
-
-
-                class LocationLoadPath(Entity):
+                class LocationLoadPath(_Entity_):
                     """
                     Location load paths
                     
@@ -5866,7 +6485,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath, self).__init__()
 
                         self.yang_name = "location-load-path"
                         self.yang_parent_name = "summary"
@@ -5893,7 +6515,7 @@ class Install(Entity):
                         self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath, ['request_id', 'secure_domain_router_name', 'node_name'], name, value)
 
 
-                    class LoadPath(Entity):
+                    class LoadPath(_Entity_):
                         """
                         Load path
                         
@@ -5926,7 +6548,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
                             self.yang_parent_name = "location-load-path"
@@ -5952,7 +6577,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -5978,7 +6603,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -5999,10 +6627,18 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath']['meta_info']
 
 
-
-                    class StandbyLoadPath(Entity):
+                    class StandbyLoadPath(_Entity_):
                         """
                         Load paths for standby nodes
                         
@@ -6035,7 +6671,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath, self).__init__()
 
                             self.yang_name = "standby-load-path"
                             self.yang_parent_name = "location-load-path"
@@ -6061,7 +6700,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -6087,7 +6726,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "standby-load-path"
@@ -6108,12 +6750,28 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.SoftwareInventory.Inactive.Summary.LocationLoadPath']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.SoftwareInventory.Inactive.Summary']['meta_info']
 
 
-
-
-
-            class Inventories(Entity):
+            class Inventories(_Entity_):
                 """
                 Software inventory
                 
@@ -6132,7 +6790,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.SoftwareInventory.Inactive.Inventories, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.SoftwareInventory.Inactive.Inventories, self).__init__()
 
                     self.yang_name = "inventories"
                     self.yang_parent_name = "inactive"
@@ -6151,7 +6812,7 @@ class Install(Entity):
                     self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories, [], name, value)
 
 
-                class Inventory(Entity):
+                class Inventory(_Entity_):
                     """
                     Inventory information for specific node
                     
@@ -6220,7 +6881,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Inactive.Inventories.Inventory, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.SoftwareInventory.Inactive.Inventories.Inventory, self).__init__()
 
                         self.yang_name = "inventory"
                         self.yang_parent_name = "inventories"
@@ -6252,7 +6916,7 @@ class Install(Entity):
                         self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories.Inventory, ['node_name', 'major', 'minor', 'boot_image_name', 'node_type', 'secure_domain_router_name'], name, value)
 
 
-                    class LoadPath(Entity):
+                    class LoadPath(_Entity_):
                         """
                         Load path
                         
@@ -6285,7 +6949,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
                             self.yang_parent_name = "inventory"
@@ -6310,7 +6977,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -6336,7 +7003,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -6356,13 +7026,33 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.SoftwareInventory.Inactive.Inventories.Inventory']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.SoftwareInventory.Inactive.Inventories']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                return meta._meta_table['Install.SoftwareInventory.Inactive']['meta_info']
 
 
-
-
-
-
-        class Requests(Entity):
+        class Requests(_Entity_):
             """
             Install operation requests
             
@@ -6381,7 +7071,10 @@ class Install(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Install.SoftwareInventory.Requests, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Install.SoftwareInventory.Requests, self).__init__()
 
                 self.yang_name = "requests"
                 self.yang_parent_name = "software-inventory"
@@ -6402,7 +7095,7 @@ class Install(Entity):
                 self._perform_setattr(Install.SoftwareInventory.Requests, [], name, value)
 
 
-            class Requests_(Entity):
+            class Requests_(_Entity_):
                 """
                 Install operation request history
                 
@@ -6421,7 +7114,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.SoftwareInventory.Requests.Requests_, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.SoftwareInventory.Requests.Requests_, self).__init__()
 
                     self.yang_name = "requests"
                     self.yang_parent_name = "requests"
@@ -6440,7 +7136,7 @@ class Install(Entity):
                     self._perform_setattr(Install.SoftwareInventory.Requests.Requests_, [], name, value)
 
 
-                class Request(Entity):
+                class Request(_Entity_):
                     """
                     Install operation request information
                     
@@ -6468,7 +7164,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Requests.Requests_.Request, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.SoftwareInventory.Requests.Requests_.Request, self).__init__()
 
                         self.yang_name = "request"
                         self.yang_parent_name = "requests"
@@ -6492,7 +7191,7 @@ class Install(Entity):
                         self._perform_setattr(Install.SoftwareInventory.Requests.Requests_.Request, ['request_id'], name, value)
 
 
-                    class Inventories(Entity):
+                    class Inventories(_Entity_):
                         """
                         Inventory information of install operation
                         request
@@ -6512,7 +7211,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Requests.Requests_.Request.Inventories, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Requests.Requests_.Request.Inventories, self).__init__()
 
                             self.yang_name = "inventories"
                             self.yang_parent_name = "request"
@@ -6530,7 +7232,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Requests.Requests_.Request.Inventories, [], name, value)
 
 
-                        class Inventory(Entity):
+                        class Inventory(_Entity_):
                             """
                             Inventory information
                             
@@ -6599,7 +7301,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory, self).__init__()
 
                                 self.yang_name = "inventory"
                                 self.yang_parent_name = "inventories"
@@ -6630,7 +7335,7 @@ class Install(Entity):
                                 self._perform_setattr(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory, ['node_name', 'major', 'minor', 'boot_image_name', 'node_type', 'secure_domain_router_name'], name, value)
 
 
-                            class LoadPath(Entity):
+                            class LoadPath(_Entity_):
                                 """
                                 Load path
                                 
@@ -6663,7 +7368,10 @@ class Install(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath, self).__init__()
 
                                     self.yang_name = "load-path"
                                     self.yang_parent_name = "inventory"
@@ -6688,7 +7396,7 @@ class Install(Entity):
                                     self._perform_setattr(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath, ['version', 'build_information'], name, value)
 
 
-                                class Package(Entity):
+                                class Package(_Entity_):
                                     """
                                     Package
                                     
@@ -6714,7 +7422,10 @@ class Install(Entity):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        super(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath.Package, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath.Package, self).__init__()
 
                                         self.yang_name = "package"
                                         self.yang_parent_name = "load-path"
@@ -6734,15 +7445,43 @@ class Install(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
 
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                        return meta._meta_table['Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath.Package']['meta_info']
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                    return meta._meta_table['Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory.LoadPath']['meta_info']
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Requests.Requests_.Request.Inventories.Inventory']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Requests.Requests_.Request.Inventories']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.SoftwareInventory.Requests.Requests_.Request']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.SoftwareInventory.Requests.Requests_']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                return meta._meta_table['Install.SoftwareInventory.Requests']['meta_info']
 
 
-
-
-
-
-
-
-        class Active(Entity):
+        class Active(_Entity_):
             """
             Active inventory information
             
@@ -6768,7 +7507,10 @@ class Install(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Install.SoftwareInventory.Active, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Install.SoftwareInventory.Active, self).__init__()
 
                 self.yang_name = "active"
                 self.yang_parent_name = "software-inventory"
@@ -6793,7 +7535,7 @@ class Install(Entity):
                 self._perform_setattr(Install.SoftwareInventory.Active, [], name, value)
 
 
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 Summarized inventory information
                 
@@ -6833,7 +7575,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.SoftwareInventory.Active.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.SoftwareInventory.Active.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "active"
@@ -6861,7 +7606,7 @@ class Install(Entity):
                     self._perform_setattr(Install.SoftwareInventory.Active.Summary, [], name, value)
 
 
-                class DefaultLoadPath(Entity):
+                class DefaultLoadPath(_Entity_):
                     """
                     Default load path
                     
@@ -6910,7 +7655,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath, self).__init__()
 
                         self.yang_name = "default-load-path"
                         self.yang_parent_name = "summary"
@@ -6937,7 +7685,7 @@ class Install(Entity):
                         self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath, ['request_id', 'admin_match', 'secure_domain_router_name'], name, value)
 
 
-                    class LoadPath(Entity):
+                    class LoadPath(_Entity_):
                         """
                         Default load path
                         
@@ -6970,7 +7718,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
                             self.yang_parent_name = "default-load-path"
@@ -6996,7 +7747,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -7022,7 +7773,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -7043,10 +7797,18 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath']['meta_info']
 
 
-
-                    class StandbyLoadPath(Entity):
+                    class StandbyLoadPath(_Entity_):
                         """
                         Load paths for standby nodes
                         
@@ -7079,7 +7841,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath, self).__init__()
 
                             self.yang_name = "standby-load-path"
                             self.yang_parent_name = "default-load-path"
@@ -7105,7 +7870,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -7131,7 +7896,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "standby-load-path"
@@ -7152,11 +7920,23 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.SoftwareInventory.Active.Summary.DefaultLoadPath']['meta_info']
 
 
-
-
-                class AdminLoadPath(Entity):
+                class AdminLoadPath(_Entity_):
                     """
                     Admin Resources load path
                     
@@ -7191,7 +7971,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Active.Summary.AdminLoadPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.SoftwareInventory.Active.Summary.AdminLoadPath, self).__init__()
 
                         self.yang_name = "admin-load-path"
                         self.yang_parent_name = "summary"
@@ -7214,7 +7997,7 @@ class Install(Entity):
                         self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath, ['request_id'], name, value)
 
 
-                    class LoadPath(Entity):
+                    class LoadPath(_Entity_):
                         """
                         Admin Resources load path
                         
@@ -7247,7 +8030,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
                             self.yang_parent_name = "admin-load-path"
@@ -7273,7 +8059,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -7299,7 +8085,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -7320,10 +8109,18 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath']['meta_info']
 
 
-
-                    class StandbyLoadPath(Entity):
+                    class StandbyLoadPath(_Entity_):
                         """
                         Load paths for standby nodes
                         
@@ -7356,7 +8153,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath, self).__init__()
 
                             self.yang_name = "standby-load-path"
                             self.yang_parent_name = "admin-load-path"
@@ -7382,7 +8182,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -7408,7 +8208,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "standby-load-path"
@@ -7429,11 +8232,23 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.SoftwareInventory.Active.Summary.AdminLoadPath']['meta_info']
 
 
-
-
-                class SdrLoadPath(Entity):
+                class SdrLoadPath(_Entity_):
                     """
                     SDR load paths
                     
@@ -7475,7 +8290,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Active.Summary.SdrLoadPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.SoftwareInventory.Active.Summary.SdrLoadPath, self).__init__()
 
                         self.yang_name = "sdr-load-path"
                         self.yang_parent_name = "summary"
@@ -7500,7 +8318,7 @@ class Install(Entity):
                         self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath, ['request_id', 'secure_domain_router_name'], name, value)
 
 
-                    class LoadPath(Entity):
+                    class LoadPath(_Entity_):
                         """
                         Load path
                         
@@ -7533,7 +8351,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
                             self.yang_parent_name = "sdr-load-path"
@@ -7559,7 +8380,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -7585,7 +8406,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -7606,10 +8430,18 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath']['meta_info']
 
 
-
-                    class StandbyLoadPath(Entity):
+                    class StandbyLoadPath(_Entity_):
                         """
                         Load paths for standby nodes
                         
@@ -7642,7 +8474,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath, self).__init__()
 
                             self.yang_name = "standby-load-path"
                             self.yang_parent_name = "sdr-load-path"
@@ -7668,7 +8503,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -7694,7 +8529,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "standby-load-path"
@@ -7715,11 +8553,23 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.SoftwareInventory.Active.Summary.SdrLoadPath']['meta_info']
 
 
-
-
-                class LocationLoadPath(Entity):
+                class LocationLoadPath(_Entity_):
                     """
                     Location load paths
                     
@@ -7770,7 +8620,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Active.Summary.LocationLoadPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.SoftwareInventory.Active.Summary.LocationLoadPath, self).__init__()
 
                         self.yang_name = "location-load-path"
                         self.yang_parent_name = "summary"
@@ -7797,7 +8650,7 @@ class Install(Entity):
                         self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath, ['request_id', 'secure_domain_router_name', 'node_name'], name, value)
 
 
-                    class LoadPath(Entity):
+                    class LoadPath(_Entity_):
                         """
                         Load path
                         
@@ -7830,7 +8683,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
                             self.yang_parent_name = "location-load-path"
@@ -7856,7 +8712,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -7882,7 +8738,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -7903,10 +8762,18 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath']['meta_info']
 
 
-
-                    class StandbyLoadPath(Entity):
+                    class StandbyLoadPath(_Entity_):
                         """
                         Load paths for standby nodes
                         
@@ -7939,7 +8806,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath, self).__init__()
 
                             self.yang_name = "standby-load-path"
                             self.yang_parent_name = "location-load-path"
@@ -7965,7 +8835,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -7991,7 +8861,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "standby-load-path"
@@ -8012,12 +8885,28 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.SoftwareInventory.Active.Summary.LocationLoadPath']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.SoftwareInventory.Active.Summary']['meta_info']
 
 
-
-
-
-            class Inventories(Entity):
+            class Inventories(_Entity_):
                 """
                 Software inventory
                 
@@ -8036,7 +8925,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.SoftwareInventory.Active.Inventories, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.SoftwareInventory.Active.Inventories, self).__init__()
 
                     self.yang_name = "inventories"
                     self.yang_parent_name = "active"
@@ -8055,7 +8947,7 @@ class Install(Entity):
                     self._perform_setattr(Install.SoftwareInventory.Active.Inventories, [], name, value)
 
 
-                class Inventory(Entity):
+                class Inventory(_Entity_):
                     """
                     Inventory information for specific node
                     
@@ -8124,7 +9016,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Active.Inventories.Inventory, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.SoftwareInventory.Active.Inventories.Inventory, self).__init__()
 
                         self.yang_name = "inventory"
                         self.yang_parent_name = "inventories"
@@ -8156,7 +9051,7 @@ class Install(Entity):
                         self._perform_setattr(Install.SoftwareInventory.Active.Inventories.Inventory, ['node_name', 'major', 'minor', 'boot_image_name', 'node_type', 'secure_domain_router_name'], name, value)
 
 
-                    class LoadPath(Entity):
+                    class LoadPath(_Entity_):
                         """
                         Load path
                         
@@ -8189,7 +9084,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
                             self.yang_parent_name = "inventory"
@@ -8214,7 +9112,7 @@ class Install(Entity):
                             self._perform_setattr(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath, ['version', 'build_information'], name, value)
 
 
-                        class Package(Entity):
+                        class Package(_Entity_):
                             """
                             Package
                             
@@ -8240,7 +9138,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -8260,14 +9161,38 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.SoftwareInventory.Active.Inventories.Inventory']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.SoftwareInventory.Active.Inventories']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                return meta._meta_table['Install.SoftwareInventory.Active']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+            return meta._meta_table['Install.SoftwareInventory']['meta_info']
 
 
-
-
-
-
-
-    class Issu(Entity):
+    class Issu(_Entity_):
         """
         Information of install ISSU operations
         
@@ -8293,7 +9218,10 @@ class Install(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Install.Issu, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Install.Issu, self).__init__()
 
             self.yang_name = "issu"
             self.yang_parent_name = "install"
@@ -8318,7 +9246,7 @@ class Install(Entity):
             self._perform_setattr(Install.Issu, [], name, value)
 
 
-        class CardInventories(Entity):
+        class CardInventories(_Entity_):
             """
             ISSU manager card inventory table
             
@@ -8337,7 +9265,10 @@ class Install(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Install.Issu.CardInventories, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Install.Issu.CardInventories, self).__init__()
 
                 self.yang_name = "card-inventories"
                 self.yang_parent_name = "issu"
@@ -8356,7 +9287,7 @@ class Install(Entity):
                 self._perform_setattr(Install.Issu.CardInventories, [], name, value)
 
 
-            class CardInventory(Entity):
+            class CardInventory(_Entity_):
                 """
                 ISSU manager inventory summary of the same
                 card type
@@ -8383,7 +9314,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.Issu.CardInventories.CardInventory, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.Issu.CardInventories.CardInventory, self).__init__()
 
                     self.yang_name = "card-inventory"
                     self.yang_parent_name = "card-inventories"
@@ -8405,7 +9339,7 @@ class Install(Entity):
                     self._perform_setattr(Install.Issu.CardInventories.CardInventory, ['card_type_id'], name, value)
 
 
-                class Summary(Entity):
+                class Summary(_Entity_):
                     """
                     node state for all nodes
                     
@@ -8507,7 +9441,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.Issu.CardInventories.CardInventory.Summary, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.Issu.CardInventories.CardInventory.Summary, self).__init__()
 
                         self.yang_name = "summary"
                         self.yang_parent_name = "card-inventory"
@@ -8547,11 +9484,23 @@ class Install(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Install.Issu.CardInventories.CardInventory.Summary, ['node_name', 'partner_node_name', 'node_state', 'node_role', 'node_type_pi', 'node_type_issu', 'node_current_state', 'node_expected_state', 'node_failure_reason', 'is_conforming_node', 'attempts', 'is_node_upgraded'], name, value)
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.Issu.CardInventories.CardInventory.Summary']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.Issu.CardInventories.CardInventory']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                return meta._meta_table['Install.Issu.CardInventories']['meta_info']
 
 
-
-
-        class Stage(Entity):
+        class Stage(_Entity_):
             """
             Summarized ISSU stage information
             
@@ -8684,7 +9633,10 @@ class Install(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Install.Issu.Stage, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Install.Issu.Stage, self).__init__()
 
                 self.yang_name = "stage"
                 self.yang_parent_name = "issu"
@@ -8740,7 +9692,7 @@ class Install(Entity):
                 self._perform_setattr(Install.Issu.Stage, ['issu_state', 'issu_op_id', 'percentage', 'is_issu_aborted', 'is_issu_aborted_by_ism', 'issu_manager_fsm_state', 'participating_node_all', 'num_nodes_in_progress', 'num_of_nodes_in_load', 'num_of_nodes_in_run', 'numof_nc_nodes'], name, value)
 
 
-            class NodeInProgress(Entity):
+            class NodeInProgress(_Entity_):
                 """
                 Nodes in progress
                 
@@ -8761,7 +9713,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.Issu.Stage.NodeInProgress, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.Issu.Stage.NodeInProgress, self).__init__()
 
                     self.yang_name = "node-in-progress"
                     self.yang_parent_name = "stage"
@@ -8780,9 +9735,13 @@ class Install(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Install.Issu.Stage.NodeInProgress, ['node'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.Issu.Stage.NodeInProgress']['meta_info']
 
 
-            class NodesInLoad(Entity):
+            class NodesInLoad(_Entity_):
                 """
                 Node in LOAD phase
                 
@@ -8803,7 +9762,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.Issu.Stage.NodesInLoad, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.Issu.Stage.NodesInLoad, self).__init__()
 
                     self.yang_name = "nodes-in-load"
                     self.yang_parent_name = "stage"
@@ -8822,9 +9784,13 @@ class Install(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Install.Issu.Stage.NodesInLoad, ['node'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.Issu.Stage.NodesInLoad']['meta_info']
 
 
-            class NodesInRun(Entity):
+            class NodesInRun(_Entity_):
                 """
                 Node in RUN phase
                 
@@ -8845,7 +9811,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.Issu.Stage.NodesInRun, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.Issu.Stage.NodesInRun, self).__init__()
 
                     self.yang_name = "nodes-in-run"
                     self.yang_parent_name = "stage"
@@ -8864,9 +9833,13 @@ class Install(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Install.Issu.Stage.NodesInRun, ['node'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.Issu.Stage.NodesInRun']['meta_info']
 
 
-            class NcNodes(Entity):
+            class NcNodes(_Entity_):
                 """
                 None\-conforming nodes
                 
@@ -8887,7 +9860,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.Issu.Stage.NcNodes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.Issu.Stage.NcNodes, self).__init__()
 
                     self.yang_name = "nc-nodes"
                     self.yang_parent_name = "stage"
@@ -8906,11 +9882,23 @@ class Install(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Install.Issu.Stage.NcNodes, ['node'], name, value)
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.Issu.Stage.NcNodes']['meta_info']
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                return meta._meta_table['Install.Issu.Stage']['meta_info']
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+            return meta._meta_table['Install.Issu']['meta_info']
 
 
-
-
-    class BootImage(Entity):
+    class BootImage(_Entity_):
         """
         System Boot Image
         
@@ -8929,7 +9917,10 @@ class Install(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Install.BootImage, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Install.BootImage, self).__init__()
 
             self.yang_name = "boot-image"
             self.yang_parent_name = "install"
@@ -8948,9 +9939,13 @@ class Install(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Install.BootImage, ['system_image_file'], name, value)
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+            return meta._meta_table['Install.BootImage']['meta_info']
 
 
-    class Logs(Entity):
+    class Logs(_Entity_):
         """
         Install operation log
         
@@ -8969,7 +9964,10 @@ class Install(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Install.Logs, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Install.Logs, self).__init__()
 
             self.yang_name = "logs"
             self.yang_parent_name = "install"
@@ -8988,7 +9986,7 @@ class Install(Entity):
             self._perform_setattr(Install.Logs, [], name, value)
 
 
-        class Log(Entity):
+        class Log(_Entity_):
             """
             Log information
             
@@ -9051,7 +10049,10 @@ class Install(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Install.Logs.Log, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Install.Logs.Log, self).__init__()
 
                 self.yang_name = "log"
                 self.yang_parent_name = "logs"
@@ -9078,7 +10079,7 @@ class Install(Entity):
                 self._perform_setattr(Install.Logs.Log, ['request_id'], name, value)
 
 
-            class Header(Entity):
+            class Header(_Entity_):
                 """
                 Header information
                 
@@ -9097,7 +10098,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.Logs.Log.Header, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.Logs.Log.Header, self).__init__()
 
                     self.yang_name = "header"
                     self.yang_parent_name = "log"
@@ -9117,7 +10121,7 @@ class Install(Entity):
                     self._perform_setattr(Install.Logs.Log.Header, [], name, value)
 
 
-                class LogContents(Entity):
+                class LogContents(_Entity_):
                     """
                     Log contents
                     
@@ -9145,7 +10149,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.Logs.Log.Header.LogContents, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.Logs.Log.Header.LogContents, self).__init__()
 
                         self.yang_name = "log-contents"
                         self.yang_parent_name = "header"
@@ -9168,7 +10175,7 @@ class Install(Entity):
                         self._perform_setattr(Install.Logs.Log.Header.LogContents, ['version'], name, value)
 
 
-                    class V3(Entity):
+                    class V3(_Entity_):
                         """
                         v3
                         
@@ -9201,7 +10208,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.Logs.Log.Header.LogContents.V3, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.Logs.Log.Header.LogContents.V3, self).__init__()
 
                             self.yang_name = "v3"
                             self.yang_parent_name = "log-contents"
@@ -9226,7 +10236,7 @@ class Install(Entity):
                             self._perform_setattr(Install.Logs.Log.Header.LogContents.V3, ['category', 'message'], name, value)
 
 
-                        class Scope(Entity):
+                        class Scope(_Entity_):
                             """
                             Scope of the message
                             
@@ -9254,7 +10264,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.Logs.Log.Header.LogContents.V3.Scope, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.Logs.Log.Header.LogContents.V3.Scope, self).__init__()
 
                                 self.yang_name = "scope"
                                 self.yang_parent_name = "v3"
@@ -9274,12 +10287,28 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.Logs.Log.Header.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.Logs.Log.Header.LogContents.V3.Scope']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.Logs.Log.Header.LogContents.V3']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.Logs.Log.Header.LogContents']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.Logs.Log.Header']['meta_info']
 
 
-
-
-
-            class Summary(Entity):
+            class Summary(_Entity_):
                 """
                 Summary information
                 
@@ -9298,7 +10327,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.Logs.Log.Summary, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.Logs.Log.Summary, self).__init__()
 
                     self.yang_name = "summary"
                     self.yang_parent_name = "log"
@@ -9318,7 +10350,7 @@ class Install(Entity):
                     self._perform_setattr(Install.Logs.Log.Summary, [], name, value)
 
 
-                class LogContents(Entity):
+                class LogContents(_Entity_):
                     """
                     Log contents
                     
@@ -9346,7 +10378,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.Logs.Log.Summary.LogContents, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.Logs.Log.Summary.LogContents, self).__init__()
 
                         self.yang_name = "log-contents"
                         self.yang_parent_name = "summary"
@@ -9369,7 +10404,7 @@ class Install(Entity):
                         self._perform_setattr(Install.Logs.Log.Summary.LogContents, ['version'], name, value)
 
 
-                    class V3(Entity):
+                    class V3(_Entity_):
                         """
                         v3
                         
@@ -9402,7 +10437,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.Logs.Log.Summary.LogContents.V3, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.Logs.Log.Summary.LogContents.V3, self).__init__()
 
                             self.yang_name = "v3"
                             self.yang_parent_name = "log-contents"
@@ -9427,7 +10465,7 @@ class Install(Entity):
                             self._perform_setattr(Install.Logs.Log.Summary.LogContents.V3, ['category', 'message'], name, value)
 
 
-                        class Scope(Entity):
+                        class Scope(_Entity_):
                             """
                             Scope of the message
                             
@@ -9455,7 +10493,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.Logs.Log.Summary.LogContents.V3.Scope, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.Logs.Log.Summary.LogContents.V3.Scope, self).__init__()
 
                                 self.yang_name = "scope"
                                 self.yang_parent_name = "v3"
@@ -9475,12 +10516,28 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.Logs.Log.Summary.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.Logs.Log.Summary.LogContents.V3.Scope']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.Logs.Log.Summary.LogContents.V3']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.Logs.Log.Summary.LogContents']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.Logs.Log.Summary']['meta_info']
 
 
-
-
-
-            class Message(Entity):
+            class Message(_Entity_):
                 """
                 Status Information Logs
                 
@@ -9499,7 +10556,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.Logs.Log.Message, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.Logs.Log.Message, self).__init__()
 
                     self.yang_name = "message"
                     self.yang_parent_name = "log"
@@ -9519,7 +10579,7 @@ class Install(Entity):
                     self._perform_setattr(Install.Logs.Log.Message, [], name, value)
 
 
-                class LogContents(Entity):
+                class LogContents(_Entity_):
                     """
                     Log contents
                     
@@ -9547,7 +10607,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.Logs.Log.Message.LogContents, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.Logs.Log.Message.LogContents, self).__init__()
 
                         self.yang_name = "log-contents"
                         self.yang_parent_name = "message"
@@ -9570,7 +10633,7 @@ class Install(Entity):
                         self._perform_setattr(Install.Logs.Log.Message.LogContents, ['version'], name, value)
 
 
-                    class V3(Entity):
+                    class V3(_Entity_):
                         """
                         v3
                         
@@ -9603,7 +10666,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.Logs.Log.Message.LogContents.V3, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.Logs.Log.Message.LogContents.V3, self).__init__()
 
                             self.yang_name = "v3"
                             self.yang_parent_name = "log-contents"
@@ -9628,7 +10694,7 @@ class Install(Entity):
                             self._perform_setattr(Install.Logs.Log.Message.LogContents.V3, ['category', 'message'], name, value)
 
 
-                        class Scope(Entity):
+                        class Scope(_Entity_):
                             """
                             Scope of the message
                             
@@ -9656,7 +10722,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.Logs.Log.Message.LogContents.V3.Scope, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.Logs.Log.Message.LogContents.V3.Scope, self).__init__()
 
                                 self.yang_name = "scope"
                                 self.yang_parent_name = "v3"
@@ -9676,12 +10745,28 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.Logs.Log.Message.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.Logs.Log.Message.LogContents.V3.Scope']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.Logs.Log.Message.LogContents.V3']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.Logs.Log.Message.LogContents']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.Logs.Log.Message']['meta_info']
 
 
-
-
-
-            class Change(Entity):
+            class Change(_Entity_):
                 """
                 Install changes
                 
@@ -9700,7 +10785,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.Logs.Log.Change, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.Logs.Log.Change, self).__init__()
 
                     self.yang_name = "change"
                     self.yang_parent_name = "log"
@@ -9720,7 +10808,7 @@ class Install(Entity):
                     self._perform_setattr(Install.Logs.Log.Change, [], name, value)
 
 
-                class LogContents(Entity):
+                class LogContents(_Entity_):
                     """
                     Log contents
                     
@@ -9748,7 +10836,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.Logs.Log.Change.LogContents, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.Logs.Log.Change.LogContents, self).__init__()
 
                         self.yang_name = "log-contents"
                         self.yang_parent_name = "change"
@@ -9771,7 +10862,7 @@ class Install(Entity):
                         self._perform_setattr(Install.Logs.Log.Change.LogContents, ['version'], name, value)
 
 
-                    class V3(Entity):
+                    class V3(_Entity_):
                         """
                         v3
                         
@@ -9804,7 +10895,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.Logs.Log.Change.LogContents.V3, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.Logs.Log.Change.LogContents.V3, self).__init__()
 
                             self.yang_name = "v3"
                             self.yang_parent_name = "log-contents"
@@ -9829,7 +10923,7 @@ class Install(Entity):
                             self._perform_setattr(Install.Logs.Log.Change.LogContents.V3, ['category', 'message'], name, value)
 
 
-                        class Scope(Entity):
+                        class Scope(_Entity_):
                             """
                             Scope of the message
                             
@@ -9857,7 +10951,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.Logs.Log.Change.LogContents.V3.Scope, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.Logs.Log.Change.LogContents.V3.Scope, self).__init__()
 
                                 self.yang_name = "scope"
                                 self.yang_parent_name = "v3"
@@ -9877,12 +10974,28 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.Logs.Log.Change.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.Logs.Log.Change.LogContents.V3.Scope']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.Logs.Log.Change.LogContents.V3']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.Logs.Log.Change.LogContents']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.Logs.Log.Change']['meta_info']
 
 
-
-
-
-            class Detail(Entity):
+            class Detail(_Entity_):
                 """
                 Install details
                 
@@ -9901,7 +11014,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.Logs.Log.Detail, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.Logs.Log.Detail, self).__init__()
 
                     self.yang_name = "detail"
                     self.yang_parent_name = "log"
@@ -9921,7 +11037,7 @@ class Install(Entity):
                     self._perform_setattr(Install.Logs.Log.Detail, [], name, value)
 
 
-                class LogContents(Entity):
+                class LogContents(_Entity_):
                     """
                     Log contents
                     
@@ -9949,7 +11065,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.Logs.Log.Detail.LogContents, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.Logs.Log.Detail.LogContents, self).__init__()
 
                         self.yang_name = "log-contents"
                         self.yang_parent_name = "detail"
@@ -9972,7 +11091,7 @@ class Install(Entity):
                         self._perform_setattr(Install.Logs.Log.Detail.LogContents, ['version'], name, value)
 
 
-                    class V3(Entity):
+                    class V3(_Entity_):
                         """
                         v3
                         
@@ -10005,7 +11124,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.Logs.Log.Detail.LogContents.V3, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.Logs.Log.Detail.LogContents.V3, self).__init__()
 
                             self.yang_name = "v3"
                             self.yang_parent_name = "log-contents"
@@ -10030,7 +11152,7 @@ class Install(Entity):
                             self._perform_setattr(Install.Logs.Log.Detail.LogContents.V3, ['category', 'message'], name, value)
 
 
-                        class Scope(Entity):
+                        class Scope(_Entity_):
                             """
                             Scope of the message
                             
@@ -10058,7 +11180,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.Logs.Log.Detail.LogContents.V3.Scope, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.Logs.Log.Detail.LogContents.V3.Scope, self).__init__()
 
                                 self.yang_name = "scope"
                                 self.yang_parent_name = "v3"
@@ -10078,12 +11203,28 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.Logs.Log.Detail.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.Logs.Log.Detail.LogContents.V3.Scope']['meta_info']
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.Logs.Log.Detail.LogContents.V3']['meta_info']
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.Logs.Log.Detail.LogContents']['meta_info']
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.Logs.Log.Detail']['meta_info']
 
 
-
-
-
-            class Communication(Entity):
+            class Communication(_Entity_):
                 """
                 Install communications
                 
@@ -10102,7 +11243,10 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.Logs.Log.Communication, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Install.Logs.Log.Communication, self).__init__()
 
                     self.yang_name = "communication"
                     self.yang_parent_name = "log"
@@ -10122,7 +11266,7 @@ class Install(Entity):
                     self._perform_setattr(Install.Logs.Log.Communication, [], name, value)
 
 
-                class LogContents(Entity):
+                class LogContents(_Entity_):
                     """
                     Log contents
                     
@@ -10150,7 +11294,10 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.Logs.Log.Communication.LogContents, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Install.Logs.Log.Communication.LogContents, self).__init__()
 
                         self.yang_name = "log-contents"
                         self.yang_parent_name = "communication"
@@ -10173,7 +11320,7 @@ class Install(Entity):
                         self._perform_setattr(Install.Logs.Log.Communication.LogContents, ['version'], name, value)
 
 
-                    class V3(Entity):
+                    class V3(_Entity_):
                         """
                         v3
                         
@@ -10206,7 +11353,10 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.Logs.Log.Communication.LogContents.V3, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Install.Logs.Log.Communication.LogContents.V3, self).__init__()
 
                             self.yang_name = "v3"
                             self.yang_parent_name = "log-contents"
@@ -10231,7 +11381,7 @@ class Install(Entity):
                             self._perform_setattr(Install.Logs.Log.Communication.LogContents.V3, ['category', 'message'], name, value)
 
 
-                        class Scope(Entity):
+                        class Scope(_Entity_):
                             """
                             Scope of the message
                             
@@ -10259,7 +11409,10 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.Logs.Log.Communication.LogContents.V3.Scope, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Install.Logs.Log.Communication.LogContents.V3.Scope, self).__init__()
 
                                 self.yang_name = "scope"
                                 self.yang_parent_name = "v3"
@@ -10279,15 +11432,43 @@ class Install(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.Logs.Log.Communication.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                                return meta._meta_table['Install.Logs.Log.Communication.LogContents.V3.Scope']['meta_info']
 
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                            return meta._meta_table['Install.Logs.Log.Communication.LogContents.V3']['meta_info']
 
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                        return meta._meta_table['Install.Logs.Log.Communication.LogContents']['meta_info']
 
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                    return meta._meta_table['Install.Logs.Log.Communication']['meta_info']
 
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+                return meta._meta_table['Install.Logs.Log']['meta_info']
 
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+            return meta._meta_table['Install.Logs']['meta_info']
 
     def clone_ptr(self):
         self._top_entity = Install()
         return self._top_entity
 
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_installmgr_admin_oper as meta
+        return meta._meta_table['Install']['meta_info']
 
 
