@@ -1,0 +1,248 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SessionState &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>SessionState</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sessionstate">
+<h1>SessionState<a class="headerlink" href="#sessionstate" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.State.SessionState">
+<em class="property">class </em><code class="descclassname">NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.State.</code><code class="descname">SessionState</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.State.SessionState" title="Permalink to this definition">¶</a></dt>
+<dd><p>SessionState (Enum Class)</p>
+<p>Operational state of the BGP peer</p>
+<dl class="data">
+<dt>
+<code class="descname">IDLE = 0</code></dt>
+<dd><p>neighbor is down, and in the Idle state of the</p>
+<p>FSM</p>
+</dd></dl>
+
+<dl class="data">
+<dt>
+<code class="descname">CONNECT = 1</code></dt>
+<dd><p>neighbor is down, and the session is waiting for</p>
+<p>the underlying transport session to be established</p>
+</dd></dl>
+
+<dl class="data">
+<dt>
+<code class="descname">ACTIVE = 2</code></dt>
+<dd><p>neighbor is down, and the local system is awaiting</p>
+<p>a conncetion from the remote peer</p>
+</dd></dl>
+
+<dl class="data">
+<dt>
+<code class="descname">OPENSENT = 3</code></dt>
+<dd><p>neighbor is in the process of being established.</p>
+<p>The local system has sent an OPEN message</p>
+</dd></dl>
+
+<dl class="data">
+<dt>
+<code class="descname">OPENCONFIRM = 4</code></dt>
+<dd><p>neighbor is in the process of being established.</p>
+<p>The local system is awaiting a NOTIFICATION or</p>
+<p>KEEPALIVE message</p>
+</dd></dl>
+
+<dl class="data">
+<dt>
+<code class="descname">ESTABLISHED = 5</code></dt>
+<dd><p>neighbor is up - the BGP session with the peer is</p>
+<p>established</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

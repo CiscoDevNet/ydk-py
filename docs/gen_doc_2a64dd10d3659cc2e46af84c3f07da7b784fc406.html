@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>EgressAclSet &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>EgressAclSet</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="egressaclset">
+<h1>EgressAclSet<a class="headerlink" href="#egressaclset" title="Permalink to this headline">¶</a></h1>
+<p><strong>Keys</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.set_name" title="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.set_name"><code class="xref py py-attr docutils literal"><span class="pre">set_name</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.type" title="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.type"><code class="xref py py-attr docutils literal"><span class="pre">type</span></code></a></li>
+</ul>
+<p><strong>Children</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.acl_entries" title="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.acl_entries"><code class="xref py py-attr docutils literal"><span class="pre">acl_entries</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.config" title="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.config"><code class="xref py py-attr docutils literal"><span class="pre">config</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.state" title="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.state"><code class="xref py py-attr docutils literal"><span class="pre">state</span></code></a></li>
+</ul>
+<dl class="class">
+<dt id="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet">
+<em class="property">class </em><code class="descclassname">Acl.Interfaces.Interface.EgressAclSets.</code><code class="descname">EgressAclSet</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="api/types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a></p>
+<p>Class Hierarchy : <a class="reference internal" href="gen_doc_10a159ce7078923b3fe61c3b35c5b0e89de22bad.html#ydk.models.openconfig.openconfig_acl.Acl" title="ydk.models.openconfig.openconfig_acl.Acl"><code class="xref py py-class docutils literal"><span class="pre">Acl</span></code></a> <a class="reference internal" href="gen_doc_380674fad6693129d0e29df7a5df7e60daaf0477.html#ydk.models.openconfig.openconfig_acl.Acl.Interfaces" title="ydk.models.openconfig.openconfig_acl.Acl.Interfaces"><code class="xref py py-class docutils literal"><span class="pre">Interfaces</span></code></a> <a class="reference internal" href="gen_doc_96760fa6dbe222540931bb1f7d011b9784160e1d.html#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface" title="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface"><code class="xref py py-class docutils literal"><span class="pre">Interface</span></code></a> <a class="reference internal" href="gen_doc_6c537a35c490df26ab93fe1680cff1073c010d68.html#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets" title="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets"><code class="xref py py-class docutils literal"><span class="pre">EgressAclSets</span></code></a> <a class="reference internal" href="#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet" title="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet"><code class="xref py py-class docutils literal"><span class="pre">EgressAclSet</span></code></a></p>
+<p>This class represents configuration data.</p>
+<p>List of egress ACLs on the interface</p>
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference to set name list key</p>
+<p><strong>type</strong>: str</p>
+<p><strong>refers to</strong>:  <a class="reference internal" href="gen_doc_a27a6999816f6d9b95b5785aef72d28eef93305a.html#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.Config" title="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.Config"><code class="xref py py-class docutils literal"><span class="pre">set_name</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.type">
+<code class="descname">type</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference to type list key</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_286c0d1ce6dd6098414acdc2ada132756923b420.html#ydk.models.openconfig.openconfig_acl.ACLIPV4" title="ydk.models.openconfig.openconfig_acl.ACLIPV4"><code class="xref py py-class docutils literal"><span class="pre">ACLIPV4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_2fda1f74886c76c2f5aae1e7a14899ad3b37cb6d.html#ydk.models.openconfig.openconfig_acl.ACLIPV6" title="ydk.models.openconfig.openconfig_acl.ACLIPV6"><code class="xref py py-class docutils literal"><span class="pre">ACLIPV6</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_85844b7941355e0f77ba55a5923758f3c227b9f8.html#ydk.models.openconfig.openconfig_acl.ACLL2" title="ydk.models.openconfig.openconfig_acl.ACLL2"><code class="xref py py-class docutils literal"><span class="pre">ACLL2</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_d1a06c66e38e23625afdd9935f40e0641aab8569.html#ydk.models.openconfig.openconfig_acl.ACLMIXED" title="ydk.models.openconfig.openconfig_acl.ACLMIXED"><code class="xref py py-class docutils literal"><span class="pre">ACLMIXED</span></code></a></p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.config">
+<code class="descname">config</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration data</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_a27a6999816f6d9b95b5785aef72d28eef93305a.html#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.Config" title="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.Config"><code class="xref py py-class docutils literal"><span class="pre">Config</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.state">
+<code class="descname">state</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operational state data for interface egress ACLs</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_ff0a0dccf9894fda070e2c220c5dd2c05d5cf4f9.html#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.State" title="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.State"><code class="xref py py-class docutils literal"><span class="pre">State</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.acl_entries">
+<code class="descname">acl_entries</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.acl_entries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enclosing container for list of references to ACLs</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_678c73a985c3b04c17fdfd12e0d303b3afa6b016.html#ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries" title="ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries"><code class="xref py py-class docutils literal"><span class="pre">AclEntries</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

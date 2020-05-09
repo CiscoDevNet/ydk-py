@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Neighbor &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Neighbor</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="neighbor">
+<h1>Neighbor<a class="headerlink" href="#neighbor" title="Permalink to this headline">¶</a></h1>
+<p><strong>Keys</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.neighbor_address" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.neighbor_address"><code class="xref py py-attr docutils literal"><span class="pre">neighbor_address</span></code></a></li>
+</ul>
+<p><strong>Children</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.add_paths" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.add_paths"><code class="xref py py-attr docutils literal"><span class="pre">add_paths</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.afi_safis" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.afi_safis"><code class="xref py py-attr docutils literal"><span class="pre">afi_safis</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.apply_policy" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.apply_policy"><code class="xref py py-attr docutils literal"><span class="pre">apply_policy</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.as_path_options" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.as_path_options"><code class="xref py py-attr docutils literal"><span class="pre">as_path_options</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.config" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.config"><code class="xref py py-attr docutils literal"><span class="pre">config</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.ebgp_multihop" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.ebgp_multihop"><code class="xref py py-attr docutils literal"><span class="pre">ebgp_multihop</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.enable_bfd" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.enable_bfd"><code class="xref py py-attr docutils literal"><span class="pre">enable_bfd</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.error_handling" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.error_handling"><code class="xref py py-attr docutils literal"><span class="pre">error_handling</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.graceful_restart" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.graceful_restart"><code class="xref py py-attr docutils literal"><span class="pre">graceful_restart</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.logging_options" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.logging_options"><code class="xref py py-attr docutils literal"><span class="pre">logging_options</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.route_reflector" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.route_reflector"><code class="xref py py-attr docutils literal"><span class="pre">route_reflector</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.state" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.state"><code class="xref py py-attr docutils literal"><span class="pre">state</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.timers" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.timers"><code class="xref py py-attr docutils literal"><span class="pre">timers</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.transport" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.transport"><code class="xref py py-attr docutils literal"><span class="pre">transport</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.use_multiple_paths" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.use_multiple_paths"><code class="xref py py-attr docutils literal"><span class="pre">use_multiple_paths</span></code></a></li>
+</ul>
+<dl class="class">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor">
+<em class="property">class </em><code class="descclassname">NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.</code><code class="descname">Neighbor</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="api/types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a></p>
+<p>Class Hierarchy : <a class="reference internal" href="gen_doc_2f2cd2802fb0ef124aedad67d65bf9814f7e951b.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances"><code class="xref py py-class docutils literal"><span class="pre">NetworkInstances</span></code></a> <a class="reference internal" href="gen_doc_9dd078d8add970b42e627902e7ba33970c4ab577.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance"><code class="xref py py-class docutils literal"><span class="pre">NetworkInstance</span></code></a> <a class="reference internal" href="gen_doc_0ca96187debb8cdd82b840181b8d6f54fe1e73e4.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols"><code class="xref py py-class docutils literal"><span class="pre">Protocols</span></code></a> <a class="reference internal" href="gen_doc_bc4d4e96a4d500bdd27883019db3db5f8ec42684.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol"><code class="xref py py-class docutils literal"><span class="pre">Protocol</span></code></a> <a class="reference internal" href="gen_doc_4153cc3b34e7d375fd3add3c707bb727efdf3408.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp"><code class="xref py py-class docutils literal"><span class="pre">Bgp</span></code></a> <a class="reference internal" href="gen_doc_67ba8c3aff01997b1dab69214f1861f3b9546357.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors"><code class="xref py py-class docutils literal"><span class="pre">Neighbors</span></code></a> <a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor"><code class="xref py py-class docutils literal"><span class="pre">Neighbor</span></code></a></p>
+<p>This class represents configuration data.</p>
+<p>List of BGP neighbors configured on the local system,</p>
+<p>uniquely identified by peer IPv[46] address</p>
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.neighbor_address">
+<code class="descname">neighbor_address</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.neighbor_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference to the address of the BGP neighbor used as a key in the neighbor list</p>
+<p><strong>type</strong>: union of the below types:</p>
+<blockquote>
+<div><p><strong>type</strong>: str</p>
+<blockquote>
+<div><strong>pattern:</strong> ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$</div></blockquote>
+<p><strong>type</strong>: str</p>
+<blockquote>
+<div><strong>pattern:</strong> ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$</div></blockquote>
+</div></blockquote>
+<p><strong>refers to</strong>:  <a class="reference internal" href="gen_doc_c6b6398d5ebc32372efd452fa424e042ecb806a4.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.Config" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.Config"><code class="xref py py-class docutils literal"><span class="pre">neighbor_address</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.config">
+<code class="descname">config</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration parameters relating to the BGP neighbor or group</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_c6b6398d5ebc32372efd452fa424e042ecb806a4.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.Config" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.Config"><code class="xref py py-class docutils literal"><span class="pre">Config</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.state">
+<code class="descname">state</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>State information relating to the BGP neighbor</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_8a0806c3b1c2bebceef3a83618b0285b7984dd4f.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.State" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.State"><code class="xref py py-class docutils literal"><span class="pre">State</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.timers">
+<code class="descname">timers</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.timers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timers related to a BGP neighbor</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_daa38559e8b8abf594529f664bef01cbabfa0f32.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.Timers" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.Timers"><code class="xref py py-class docutils literal"><span class="pre">Timers</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.transport">
+<code class="descname">transport</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.transport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transport session parameters for the BGP neighbor</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_cd6f8ccd80f035ad31f57ae88d9b985e51272227.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.Transport" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.Transport"><code class="xref py py-class docutils literal"><span class="pre">Transport</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.error_handling">
+<code class="descname">error_handling</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.error_handling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error handling parameters used for the BGP neighbor or group</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_159283ec17691da118dc0ba5c92b416e28ff3290.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.ErrorHandling" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.ErrorHandling"><code class="xref py py-class docutils literal"><span class="pre">ErrorHandling</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.graceful_restart">
+<code class="descname">graceful_restart</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.graceful_restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parameters relating the graceful restart mechanism for BGP</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_1aee98db4519f90c9e207168264f3cf347b19c1f.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.GracefulRestart" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.GracefulRestart"><code class="xref py py-class docutils literal"><span class="pre">GracefulRestart</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.logging_options">
+<code class="descname">logging_options</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.logging_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logging options for events related to the BGP neighbor or group</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_f31b26a56593f00340e3e97e82a46ec1938632bb.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.LoggingOptions" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.LoggingOptions"><code class="xref py py-class docutils literal"><span class="pre">LoggingOptions</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.ebgp_multihop">
+<code class="descname">ebgp_multihop</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.ebgp_multihop" title="Permalink to this definition">¶</a></dt>
+<dd><p>eBGP multi-hop parameters for the BGPgroup</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_999e85a9391ebff5fcc1539a94e266991091b0b9.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.EbgpMultihop" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.EbgpMultihop"><code class="xref py py-class docutils literal"><span class="pre">EbgpMultihop</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.route_reflector">
+<code class="descname">route_reflector</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.route_reflector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Route reflector parameters for the BGPgroup</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_c823c7e7d1d83685db392ab50fef08cac2c54497.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.RouteReflector" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.RouteReflector"><code class="xref py py-class docutils literal"><span class="pre">RouteReflector</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.as_path_options">
+<code class="descname">as_path_options</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.as_path_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>AS_PATH manipulation parameters for the BGP neighbor or group</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_7633f995a039c744ae75d27cd88822e822bd6655.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.AsPathOptions" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.AsPathOptions"><code class="xref py py-class docutils literal"><span class="pre">AsPathOptions</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.add_paths">
+<code class="descname">add_paths</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.add_paths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parameters relating to the advertisement and receipt of multiple paths for a single NLRI (add-paths)</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_09cdf40e6e6404304a7a2629cce10e5de4885f57.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.AddPaths" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.AddPaths"><code class="xref py py-class docutils literal"><span class="pre">AddPaths</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.use_multiple_paths">
+<code class="descname">use_multiple_paths</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.use_multiple_paths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parameters related to the use of multiple-paths for the same NLRI when they are received only from this neighbor</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_49086b86555f82a0d0129ee4e1dcf1d50a642bec.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.UseMultiplePaths" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.UseMultiplePaths"><code class="xref py py-class docutils literal"><span class="pre">UseMultiplePaths</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.apply_policy">
+<code class="descname">apply_policy</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.apply_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_772f886ed900eaef45b0336150898f472f190bfa.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.ApplyPolicy" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.ApplyPolicy"><code class="xref py py-class docutils literal"><span class="pre">ApplyPolicy</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.afi_safis">
+<code class="descname">afi_safis</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.afi_safis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Per-address-family configuration parameters associated with the neighbor</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_883df3fb673b658ec1ed683325827980d6e7c6f3.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.AfiSafis" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.AfiSafis"><code class="xref py py-class docutils literal"><span class="pre">AfiSafis</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.enable_bfd">
+<code class="descname">enable_bfd</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.enable_bfd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable BFD for liveliness detection to the next-hop or neighbour</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_528d1c87673ecf89ac14efaf888dc60330dde35e.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.EnableBfd" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp.Neighbors.Neighbor.EnableBfd"><code class="xref py py-class docutils literal"><span class="pre">EnableBfd</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

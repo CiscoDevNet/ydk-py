@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Codec Services &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="../../index.html"/>
+        <link rel="up" title="Services" href="services.html"/>
+        <link rel="next" title="CRUD Service" href="crud_service.html"/>
+        <link rel="prev" title="Services" href="services.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_guide.html">API Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../class_hierarchy.html">YDK API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="services.html">Services</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="">Codec Services</a></li>
+<li class="toctree-l4"><a class="reference internal" href="crud_service.html">CRUD Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="executor_service.html">Executor Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netconf_service.html">NETCONF Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gnmi_service.html">gNMI Service API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gnmi_service.html#gnmi-service-examples">gNMI Service Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../providers/providers.html">Service Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../types.html">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../path/path.html">YDK Path API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../api_guide.html">API Guide</a> &raquo;</li>
+      
+          <li><a href="../class_hierarchy.html">YDK API</a> &raquo;</li>
+      
+          <li><a href="services.html">Services</a> &raquo;</li>
+      
+    <li>Codec Services</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="codec-services">
+<h1>Codec Services<a class="headerlink" href="#codec-services" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="codec-service">
+<h2>Codec Service<a class="headerlink" href="#codec-service" title="Permalink to this headline">¶</a></h2>
+<p>YDK CodecService class provides API for encoding and decoding of payload strings in XML or JSON format to/from instances of <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a>,
+which represent containers in the device supported YANG models.</p>
+<dl class="class">
+<dt id="ydk.services.CodecService">
+<em class="property">class </em><code class="descclassname">ydk.services.</code><code class="descname">CodecService</code><a class="headerlink" href="#ydk.services.CodecService" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="ydk.services.CodecService.encode">
+<code class="descname">encode</code><span class="sig-paren">(</span><em>provider</em>, <em>entity</em>, <em>pretty=True</em>, <em>subtree=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.services.CodecService.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encodes <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a> into payload string in XML or JSON format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; <a class="reference internal" href="../providers/codec_provider.html#ydk.providers.CodecServiceProvider" title="ydk.providers.CodecServiceProvider"><code class="xref py py-class docutils literal"><span class="pre">CodecServiceProvider</span></code></a> - Codec Provider instance.</li>
+<li><strong>entity</strong> &#8211; <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a> instance or collection of <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a> instances of type <code class="docutils literal"><span class="pre">list</span></code> or <code class="docutils literal"><span class="pre">dict</span></code>
+or <a class="reference internal" href="../types.html#ydk.types.EntityCollection" title="ydk.types.EntityCollection"><code class="xref py py-class docutils literal"><span class="pre">EntityCollection</span></code></a>.</li>
+<li><strong>pretty</strong> &#8211; <code class="docutils literal"><span class="pre">bool</span></code> flag, which specifies if resulting string must be in human readable way with indentation.</li>
+<li><strong>subtree</strong> &#8211; <code class="docutils literal"><span class="pre">bool</span></code> flag, which directs to encode entity to XML subtree.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Type of returned object corresponds to the type of <strong>entity</strong>: single payload <code class="docutils literal"><span class="pre">str</span></code>, or <code class="docutils literal"><span class="pre">list</span></code> of <code class="docutils literal"><span class="pre">str</span></code>, or a <code class="docutils literal"><span class="pre">dictionary</span></code> of <code class="docutils literal"><span class="pre">str</span></code>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YServiceError" title="ydk.errors.YServiceError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceError</span></code></a>, if error has occurred.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.services.CodecService.decode">
+<code class="descname">decode</code><span class="sig-paren">(</span><em>provider</em>, <em>payload</em>, <em>subtree=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.services.CodecService.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes <strong>payload</strong> string in XML or JSON format to instances of <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a> class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; <a class="reference internal" href="../providers/codec_provider.html#ydk.providers.CodecServiceProvider" title="ydk.providers.CodecServiceProvider"><code class="xref py py-class docutils literal"><span class="pre">CodecServiceProvider</span></code></a> - Codec Provider instance.</li>
+<li><strong>payload</strong> &#8211; <code class="docutils literal"><span class="pre">str</span></code> or collection of <code class="docutils literal"><span class="pre">str</span></code> Either a single encoded payload or a collection of payloads encapsulated to <code class="docutils literal"><span class="pre">list</span></code> or <code class="docutils literal"><span class="pre">dict</span></code>.</li>
+<li><strong>subtree</strong> &#8211; <code class="docutils literal"><span class="pre">bool</span></code> flag, which directs to encode entity to XML subtree.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Type of returned object corresponds to the type of <strong>payload</strong>. It is either an instance of <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a>,
+or a collection of <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a> instances of type <code class="docutils literal"><span class="pre">list</span></code> or <code class="docutils literal"><span class="pre">dict</span></code>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YServiceError" title="ydk.errors.YServiceError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceError</span></code></a>, if error has occurred.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="xmlsubtreecodec">
+<h2>XmlSubtreeCodec<a class="headerlink" href="#xmlsubtreecodec" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ydk.entity_utils.XmlSubtreeCodec">
+<em class="property">class </em><code class="descclassname">ydk.entity_utils.</code><code class="descname">XmlSubtreeCodec</code><a class="headerlink" href="#ydk.entity_utils.XmlSubtreeCodec" title="Permalink to this definition">¶</a></dt>
+<dd><p>XmlSubtreeCodec class designed to provide encoding and decoding Python model API objects of type <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a> to/from XML encoded string.
+Compared to <a class="reference internal" href="#ydk.services.CodecService" title="ydk.services.CodecService"><code class="xref py py-class docutils literal"><span class="pre">CodecService</span></code></a> the class does not validate encoded data for their types and values.</p>
+<dl class="method">
+<dt id="ydk.entity_utils.XmlSubtreeCodec.XmlSubtreeCodec">
+<code class="descname">XmlSubtreeCodec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ydk.entity_utils.XmlSubtreeCodec.XmlSubtreeCodec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an instance of <cite>XmlSubtreeCodec</cite> class.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.entity_utils.XmlSubtreeCodec.encode">
+<code class="descname">encode</code><span class="sig-paren">(</span><em>entity</em>, <em>root_schema</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.entity_utils.XmlSubtreeCodec.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs encoding of Python model API objects of type <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a> to well formatted XML encoded string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a> class defined under a bundle.</li>
+<li><strong>root_schema</strong> &#8211; An instance of <a class="reference internal" href="../path/root_schema_node.html#ydk.path.RootSchemaNode" title="ydk.path.RootSchemaNode"><code class="xref py py-class docutils literal"><span class="pre">RootSchemaNode</span></code></a>, which includes the model bundle.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">str</span></code>, encoded well formatted multi-line XML payload string.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YServiceError" title="ydk.errors.YServiceError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceError</span></code></a>, if an error has occurred; usually appears when model is not present in the bundle.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.entity_utils.XmlSubtreeCodec.decode">
+<code class="descname">decode</code><span class="sig-paren">(</span><em>payload</em>, <em>entity</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.entity_utils.XmlSubtreeCodec.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes the XML encoded string to produce corresponding instance of <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>payload</strong> &#8211; <code class="docutils literal"><span class="pre">str</span></code>, XML encoded string to be decoded.</li>
+<li><strong>entity</strong> &#8211; <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a>, instance of shared pointer to expected top level <cite>Entity</cite> class.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a>, shared pointer to the decoded <cite>Entity</cite>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YInvalidArgumentError" title="ydk.errors.YInvalidArgumentError"><code class="xref py py-exc docutils literal"><span class="pre">YInvalidArgumentError</span></code></a>, if an error has occurred; usually appears when payload does not correspond to <cite>Entity</cite> model.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="jsonsubtreecodec">
+<h2>JsonSubtreeCodec<a class="headerlink" href="#jsonsubtreecodec" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ydk.entity_utils.JsonSubtreeCodec">
+<em class="property">class </em><code class="descclassname">ydk.entity_utils.</code><code class="descname">JsonSubtreeCodec</code><a class="headerlink" href="#ydk.entity_utils.JsonSubtreeCodec" title="Permalink to this definition">¶</a></dt>
+<dd><p>JsonSubtreeCodec class designed to provide encoding and decoding Python model API objects of type <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a> to/from JSON encoded string.
+Compared to <a class="reference internal" href="#ydk.services.CodecService" title="ydk.services.CodecService"><code class="xref py py-class docutils literal"><span class="pre">CodecService</span></code></a> the class does not validate encoded data for their types and values.</p>
+<dl class="method">
+<dt id="ydk.entity_utils.JsonSubtreeCodec.JsonSubtreeCodec">
+<code class="descname">JsonSubtreeCodec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ydk.entity_utils.JsonSubtreeCodec.JsonSubtreeCodec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an instance of <cite>JsonSubtreeCodec</cite> class.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.entity_utils.JsonSubtreeCodec.encode">
+<code class="descname">encode</code><span class="sig-paren">(</span><em>entity</em>, <em>root_schema</em>, <em>pretty</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.entity_utils.JsonSubtreeCodec.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs encoding of Python model API objects of type <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a> to JSON encoded string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a> class defined under a bundle.</li>
+<li><strong>root_schema</strong> &#8211; An instance of <code class="xref py py-class docutils literal"><span class="pre">RootSchemaNode</span></code>, which includes the model bundle.</li>
+<li><strong>pretty</strong> &#8211; <code class="docutils literal"><span class="pre">bool</span></code>. If set to <cite>True</cite>, the function produces well formatted multi-line JSON string. If set to <cite>False</cite> - one line string.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">str</span></code>, encoded JSON payload string.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YServiceError" title="ydk.errors.YServiceError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceError</span></code></a>, if an error has occurred; usually appears when model is not present in the bundle.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.entity_utils.JsonSubtreeCodec.decode">
+<code class="descname">decode</code><span class="sig-paren">(</span><em>payload</em>, <em>entity</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.entity_utils.JsonSubtreeCodec.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes the JSON encoded string to produce corresponding instance of <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>payload</strong> &#8211; <code class="docutils literal"><span class="pre">str</span></code>, JSON encoded string to be decoded.</li>
+<li><strong>entity</strong> &#8211; <a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a>, instance of shared pointer to expected top level <cite>Entity</cite> class.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="../types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a>, shared pointer to the decoded <cite>Entity</cite>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YInvalidArgumentError" title="ydk.errors.YInvalidArgumentError"><code class="xref py py-exc docutils literal"><span class="pre">YInvalidArgumentError</span></code></a>, if an error has occurred; usually appears when payload does not correspond to <cite>Entity</cite> model.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="example-of-jsonsubtreecodec-usage">
+<h3>Example of JsonSubtreeCodec usage<a class="headerlink" href="#example-of-jsonsubtreecodec-usage" title="Permalink to this headline">¶</a></h3>
+<p>In this example we use <a class="reference internal" href="../providers/gnmi_provider.html#ydk.gnmi.providers.gNMIServiceProvider" title="ydk.gnmi.providers.gNMIServiceProvider"><code class="xref py py-class docutils literal"><span class="pre">gNMIServiceProvider</span></code></a> and
+<a class="reference internal" href="crud_service.html#ydk.services.CRUDService" title="ydk.services.CRUDService"><code class="xref py py-class docutils literal"><span class="pre">CRUDService</span></code></a> to get interface configuration from IOS XR device and
+then print it using <a class="reference internal" href="#ydk.entity_utils.JsonSubtreeCodec" title="ydk.entity_utils.JsonSubtreeCodec"><code class="xref py py-class docutils literal"><span class="pre">JsonSubtreeCodec</span></code></a>:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ydk.services</span> <span class="k">import</span> <span class="n">CRUDService</span>
+<span class="kn">from</span> <span class="nn">ydk.path</span> <span class="k">import</span> <span class="n">Repository</span>
+<span class="kn">from</span> <span class="nn">ydk.gnmi.providers</span> <span class="k">import</span> <span class="n">gNMIServiceProvider</span>
+
+<span class="kn">from</span> <span class="nn">ydk.models.cisco_ios_xr</span> <span class="k">import</span> <span class="n">Cisco_IOS_XR_ifmgr_cfg</span> <span class="k">as</span> <span class="n">ifmgr</span>
+
+<span class="c1"># Create gNMI service provider</span>
+<span class="n">repo</span> <span class="o">=</span> <span class="n">Repository</span><span class="p">(</span><span class="s2">&quot;/home/yan/ydk-gen/scripts/repository/10.30.110.84&quot;</span><span class="p">)</span>
+<span class="n">provider</span> <span class="o">=</span> <span class="n">gNMIServiceProvider</span><span class="p">(</span><span class="n">repo</span><span class="o">=</span><span class="n">repo</span><span class="p">,</span>
+                           <span class="n">address</span><span class="o">=</span><span class="mf">10.20</span><span class="o">.</span><span class="mf">30.40</span><span class="p">,</span>
+                           <span class="n">port</span><span class="o">=</span><span class="mi">57400</span><span class="p">,</span>
+                           <span class="n">username</span><span class="o">=</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span>
+                           <span class="n">password</span><span class="o">=</span><span class="s1">&#39;admin&#39;</span><span class="p">)</span>
+<span class="c1"># Create CRUD service</span>
+<span class="n">crud</span> <span class="o">=</span> <span class="n">CRUDService</span><span class="p">()</span>
+
+<span class="c1"># Build filter for interface configuration</span>
+<span class="n">ifc_filter</span> <span class="o">=</span> <span class="n">ifmgr</span><span class="o">.</span><span class="n">InterfaceConfigurations</span><span class="p">()</span>
+<span class="n">ifc</span> <span class="o">=</span> <span class="n">ifmgr</span><span class="o">.</span><span class="n">InterfaceConfigurations</span><span class="o">.</span><span class="n">InterfaceConfiguration</span><span class="p">()</span>
+<span class="n">ifc</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="s1">&#39;&quot;act&quot;&#39;</span>
+<span class="n">ifc</span><span class="o">.</span><span class="n">interface_name</span> <span class="o">=</span> <span class="s1">&#39;&quot;Loopback0&quot;&#39;</span>
+<span class="n">ifc_filter</span><span class="o">.</span><span class="n">interface_configuration</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ifc</span><span class="p">)</span>
+
+<span class="c1"># Read interface configuration</span>
+<span class="n">ifc_read</span> <span class="o">=</span> <span class="n">crud</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">provider</span><span class="p">,</span> <span class="n">ifc_filter</span><span class="p">)</span>
+
+<span class="c1"># Print interface configuration</span>
+<span class="k">if</span> <span class="n">ifc_read</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">ydk.entity_utils</span> <span class="k">import</span> <span class="n">JsonSubtreeCodec</span>
+    <span class="n">jcodec</span> <span class="o">=</span> <span class="n">JsonSubtreeCodec</span><span class="p">()</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="n">jcodec</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">ifc_read</span><span class="p">,</span> <span class="n">provider</span><span class="o">.</span><span class="n">get_session</span><span class="p">()</span><span class="o">.</span><span class="n">get_root_schema</span><span class="p">(),</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;CREATED INTERFACE CONFIGURATION:&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="crud_service.html" class="btn btn-neutral float-right" title="CRUD Service" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="services.html" class="btn btn-neutral" title="Services" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

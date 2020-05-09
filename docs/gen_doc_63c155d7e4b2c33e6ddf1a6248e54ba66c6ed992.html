@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>State &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>State</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="state">
+<h1>State<a class="headerlink" href="#state" title="Permalink to this headline">¶</a></h1>
+<p><strong>Leafs</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.adjacency_state" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.adjacency_state"><code class="xref py py-attr docutils literal"><span class="pre">adjacency_state</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.adjacency_type" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.adjacency_type"><code class="xref py py-attr docutils literal"><span class="pre">adjacency_type</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.area_address" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.area_address"><code class="xref py py-attr docutils literal"><span class="pre">area_address</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.dis_system_id" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.dis_system_id"><code class="xref py py-attr docutils literal"><span class="pre">dis_system_id</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.local_extended_circuit_id" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.local_extended_circuit_id"><code class="xref py py-attr docutils literal"><span class="pre">local_extended_circuit_id</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.multi_topology" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.multi_topology"><code class="xref py py-attr docutils literal"><span class="pre">multi_topology</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_circuit_type" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_circuit_type"><code class="xref py py-attr docutils literal"><span class="pre">neighbor_circuit_type</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_extended_circuit_id" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_extended_circuit_id"><code class="xref py py-attr docutils literal"><span class="pre">neighbor_extended_circuit_id</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_ipv4_address" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_ipv4_address"><code class="xref py py-attr docutils literal"><span class="pre">neighbor_ipv4_address</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_ipv6_address" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_ipv6_address"><code class="xref py py-attr docutils literal"><span class="pre">neighbor_ipv6_address</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_snpa" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_snpa"><code class="xref py py-attr docutils literal"><span class="pre">neighbor_snpa</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.nlpid" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.nlpid"><code class="xref py py-attr docutils literal"><span class="pre">nlpid</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.priority" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.priority"><code class="xref py py-attr docutils literal"><span class="pre">priority</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.remaining_hold_time" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.remaining_hold_time"><code class="xref py py-attr docutils literal"><span class="pre">remaining_hold_time</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.restart_status" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.restart_status"><code class="xref py py-attr docutils literal"><span class="pre">restart_status</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.restart_support" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.restart_support"><code class="xref py py-attr docutils literal"><span class="pre">restart_support</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.restart_suppress" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.restart_suppress"><code class="xref py py-attr docutils literal"><span class="pre">restart_suppress</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.system_id" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.system_id"><code class="xref py py-attr docutils literal"><span class="pre">system_id</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.topology" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.topology"><code class="xref py py-attr docutils literal"><span class="pre">topology</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.up_time" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.up_time"><code class="xref py py-attr docutils literal"><span class="pre">up_time</span></code></a></li>
+</ul>
+<p><strong>Enum Classes</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gen_doc_ce162f3ad7860b7729fec43364aecb44622ef12b.html">Nlpid</a></li>
+</ul>
+</div>
+<dl class="class">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State">
+<em class="property">class </em><code class="descclassname">NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.</code><code class="descname">State</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="api/types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a></p>
+<p>Class Hierarchy : <a class="reference internal" href="gen_doc_2f2cd2802fb0ef124aedad67d65bf9814f7e951b.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances"><code class="xref py py-class docutils literal"><span class="pre">NetworkInstances</span></code></a> <a class="reference internal" href="gen_doc_9dd078d8add970b42e627902e7ba33970c4ab577.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance"><code class="xref py py-class docutils literal"><span class="pre">NetworkInstance</span></code></a> <a class="reference internal" href="gen_doc_0ca96187debb8cdd82b840181b8d6f54fe1e73e4.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols"><code class="xref py py-class docutils literal"><span class="pre">Protocols</span></code></a> <a class="reference internal" href="gen_doc_bc4d4e96a4d500bdd27883019db3db5f8ec42684.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol"><code class="xref py py-class docutils literal"><span class="pre">Protocol</span></code></a> <a class="reference internal" href="gen_doc_79ea12d2b848c0c3e4d8515ee7c6070cc9a6fd70.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis"><code class="xref py py-class docutils literal"><span class="pre">Isis</span></code></a> <a class="reference internal" href="gen_doc_be24bb882c02737c9ce8ca246f12e480196b3e1e.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces"><code class="xref py py-class docutils literal"><span class="pre">Interfaces</span></code></a> <a class="reference internal" href="gen_doc_eb282cd0d467a4adf9cea1d4b08983ef9ce4d1fd.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface"><code class="xref py py-class docutils literal"><span class="pre">Interface</span></code></a> <a class="reference internal" href="gen_doc_b9d7ae7f8eddf15bb9b9e7e66e239bff884715d1.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels"><code class="xref py py-class docutils literal"><span class="pre">Levels</span></code></a> <a class="reference internal" href="gen_doc_288357c5a5fe62bf9ae0926822c64c128c9fb92d.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level"><code class="xref py py-class docutils literal"><span class="pre">Level</span></code></a> <a class="reference internal" href="gen_doc_f03ef73c91e4ad457efc778388e1ea3f6fc0bebe.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies"><code class="xref py py-class docutils literal"><span class="pre">Adjacencies</span></code></a> <a class="reference internal" href="gen_doc_a75c4975e0960021ba04644de342ddee416cbf77.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency"><code class="xref py py-class docutils literal"><span class="pre">Adjacency</span></code></a> <a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State"><code class="xref py py-class docutils literal"><span class="pre">State</span></code></a></p>
+<p>This class represents state data.</p>
+<p>Operational state relating to the IS-IS adjacency with the</p>
+<p>remote system</p>
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.system_id">
+<code class="descname">system_id</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.system_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ISIS neighbor system-id</p>
+<p><strong>type</strong>: str</p>
+<p><strong>pattern:</strong> ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_ipv4_address">
+<code class="descname">neighbor_ipv4_address</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_ipv4_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>ISIS Neighbor IPv4 address</p>
+<p><strong>type</strong>: str</p>
+<p><strong>pattern:</strong> (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_ipv6_address">
+<code class="descname">neighbor_ipv6_address</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_ipv6_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>ISIS Neighbor IPv6 address</p>
+<p><strong>type</strong>: str</p>
+<p><strong>pattern:</strong> ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_snpa">
+<code class="descname">neighbor_snpa</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_snpa" title="Permalink to this definition">¶</a></dt>
+<dd><p>ISIS neighbor SNPA</p>
+<p><strong>type</strong>: str</p>
+<p><strong>length:</strong> 0..20</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.local_extended_circuit_id">
+<code class="descname">local_extended_circuit_id</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.local_extended_circuit_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Local extended circuit ID</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..4294967295</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_extended_circuit_id">
+<code class="descname">neighbor_extended_circuit_id</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_extended_circuit_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ISIS neighbor extended circuit ID</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..4294967295</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.priority">
+<code class="descname">priority</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.priority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Priority of the neighboring IS(LAN Hello only)</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..127</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.dis_system_id">
+<code class="descname">dis_system_id</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.dis_system_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>DIS System ID(LAN hello only)</p>
+<p><strong>type</strong>: str</p>
+<p><strong>pattern:</strong> ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_circuit_type">
+<code class="descname">neighbor_circuit_type</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.neighbor_circuit_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Received ISIS circuit type (level-1, level-2, level-1-2)</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_ca4888cdccab7cc34de5bd34c2dc1b4793edd618.html#ydk.models.openconfig.openconfig_isis_types.LevelType" title="ydk.models.openconfig.openconfig_isis_types.LevelType"><code class="xref py py-class docutils literal"><span class="pre">LevelType</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.adjacency_type">
+<code class="descname">adjacency_type</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.adjacency_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Formed ISIS adjacency type(level-1, level-2, level-1-2)</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_ca4888cdccab7cc34de5bd34c2dc1b4793edd618.html#ydk.models.openconfig.openconfig_isis_types.LevelType" title="ydk.models.openconfig.openconfig_isis_types.LevelType"><code class="xref py py-class docutils literal"><span class="pre">LevelType</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.adjacency_state">
+<code class="descname">adjacency_state</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.adjacency_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>P2P 3-way ISIS adjacency state(up, down, init, failed)</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_dae232415d99ed5efb781926c6f64ff013a10796.html#ydk.models.openconfig.openconfig_isis_types.IsisInterfaceAdjState" title="ydk.models.openconfig.openconfig_isis_types.IsisInterfaceAdjState"><code class="xref py py-class docutils literal"><span class="pre">IsisInterfaceAdjState</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.remaining_hold_time">
+<code class="descname">remaining_hold_time</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.remaining_hold_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holding time in seconds for adjacency. This value is based on received hello PDUs and the elapsed time since receipt</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..65535</p>
+<p><strong>config</strong>: False</p>
+<p><strong>units</strong>: seconds</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.up_time">
+<code class="descname">up_time</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.up_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjacency up time</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..4294967295</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.multi_topology">
+<code class="descname">multi_topology</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.multi_topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>When set to true, ISIS multi-topology is supported</p>
+<p><strong>type</strong>: bool</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.topology">
+<code class="descname">topology</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>ISIS topology type support(ipv4-unicast, ipv6-unicast, ipv4-multicast, ipv6-multicast)</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p>list of</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_e7dc8b3f9cf58efbd393554c2bda7d0de40ed38e.html#ydk.models.openconfig.openconfig_isis_types.IPV4UNICAST" title="ydk.models.openconfig.openconfig_isis_types.IPV4UNICAST"><code class="xref py py-class docutils literal"><span class="pre">IPV4UNICAST</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_033624e482bf2dd3b195b8a9384abe3e68a69339.html#ydk.models.openconfig.openconfig_isis_types.IPV6MULTICAST" title="ydk.models.openconfig.openconfig_isis_types.IPV6MULTICAST"><code class="xref py py-class docutils literal"><span class="pre">IPV6MULTICAST</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_3b6395c29dbbd9da8893eb55571368953a457315.html#ydk.models.openconfig.openconfig_isis_types.IPV4MULTICAST" title="ydk.models.openconfig.openconfig_isis_types.IPV4MULTICAST"><code class="xref py py-class docutils literal"><span class="pre">IPV4MULTICAST</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_1a8a09415c4c0ee801ca101a6eff10dce6677424.html#ydk.models.openconfig.openconfig_isis_types.IPV6UNICAST" title="ydk.models.openconfig.openconfig_isis_types.IPV6UNICAST"><code class="xref py py-class docutils literal"><span class="pre">IPV6UNICAST</span></code></a></p>
+</div></blockquote>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.restart_support">
+<code class="descname">restart_support</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.restart_support" title="Permalink to this definition">¶</a></dt>
+<dd><p>When set to true, Graceful-restart signaling is supported</p>
+<p><strong>type</strong>: bool</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.restart_suppress">
+<code class="descname">restart_suppress</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.restart_suppress" title="Permalink to this definition">¶</a></dt>
+<dd><p>When set to true, adjacency is not advertised. The SA bit is used by a starting router to  request that its neighbor suppress advertisement of the adjacency  to the starting router in the neighbor&#8217;s LSPs</p>
+<p><strong>type</strong>: bool</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.restart_status">
+<code class="descname">restart_status</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.restart_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>When set to true, neighbor is being helped. The RR bit is used by a (re)starting router to signal to its neighbors that a (re)start is in progress</p>
+<p><strong>type</strong>: bool</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.area_address">
+<code class="descname">area_address</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.area_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of ISIS area-address(es)</p>
+<p><strong>type</strong>: list of str</p>
+<p><strong>pattern:</strong> ^[0-9A-Fa-f]{2}\.([0-9A-Fa-f]{4}\.){0,3}$</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.nlpid">
+<code class="descname">nlpid</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.nlpid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Supported Protocol. IPv4 is defined as (0xcc) and IPv6 - (0x8e). ISIS reference is TLV 129</p>
+<p><strong>type</strong>: list of   <a class="reference internal" href="gen_doc_ce162f3ad7860b7729fec43364aecb44622ef12b.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.Nlpid" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.Adjacencies.Adjacency.State.Nlpid"><code class="xref py py-class docutils literal"><span class="pre">Nlpid</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

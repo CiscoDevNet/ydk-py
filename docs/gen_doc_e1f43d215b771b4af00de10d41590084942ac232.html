@@ -1,0 +1,503 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tlv &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Tlv</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tlv">
+<h1>Tlv<a class="headerlink" href="#tlv" title="Permalink to this headline">¶</a></h1>
+<p><strong>Keys</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.type" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.type"><code class="xref py py-attr docutils literal"><span class="pre">type</span></code></a></li>
+</ul>
+<p><strong>Children</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.area_address" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.area_address"><code class="xref py py-attr docutils literal"><span class="pre">area_address</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.authentication" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.authentication"><code class="xref py py-attr docutils literal"><span class="pre">authentication</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.extended_ipv4_reachability" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.extended_ipv4_reachability"><code class="xref py py-attr docutils literal"><span class="pre">extended_ipv4_reachability</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.extended_is_reachability" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.extended_is_reachability"><code class="xref py py-attr docutils literal"><span class="pre">extended_is_reachability</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.hostname" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.hostname"><code class="xref py py-attr docutils literal"><span class="pre">hostname</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.instance_ids" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.instance_ids"><code class="xref py py-attr docutils literal"><span class="pre">instance_ids</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_external_reachability" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_external_reachability"><code class="xref py py-attr docutils literal"><span class="pre">ipv4_external_reachability</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_interface_addresses" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_interface_addresses"><code class="xref py py-attr docutils literal"><span class="pre">ipv4_interface_addresses</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_internal_reachability" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_internal_reachability"><code class="xref py py-attr docutils literal"><span class="pre">ipv4_internal_reachability</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_srlgs" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_srlgs"><code class="xref py py-attr docutils literal"><span class="pre">ipv4_srlgs</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_te_router_id" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_te_router_id"><code class="xref py py-attr docutils literal"><span class="pre">ipv4_te_router_id</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv6_interface_addresses" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv6_interface_addresses"><code class="xref py py-attr docutils literal"><span class="pre">ipv6_interface_addresses</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv6_reachability" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv6_reachability"><code class="xref py py-attr docutils literal"><span class="pre">ipv6_reachability</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv6_srlgs" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv6_srlgs"><code class="xref py py-attr docutils literal"><span class="pre">ipv6_srlgs</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv6_te_router_id" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv6_te_router_id"><code class="xref py py-attr docutils literal"><span class="pre">ipv6_te_router_id</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.is_alias_id" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.is_alias_id"><code class="xref py py-attr docutils literal"><span class="pre">is_alias_id</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.is_reachability" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.is_reachability"><code class="xref py py-attr docutils literal"><span class="pre">is_reachability</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.isis_neighbor_attribute" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.isis_neighbor_attribute"><code class="xref py py-attr docutils literal"><span class="pre">isis_neighbor_attribute</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.lsp_buffer_size" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.lsp_buffer_size"><code class="xref py py-attr docutils literal"><span class="pre">lsp_buffer_size</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.mt_ipv4_reachability" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.mt_ipv4_reachability"><code class="xref py py-attr docutils literal"><span class="pre">mt_ipv4_reachability</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.mt_ipv6_reachability" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.mt_ipv6_reachability"><code class="xref py py-attr docutils literal"><span class="pre">mt_ipv6_reachability</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.mt_isis_neighbor_attribute" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.mt_isis_neighbor_attribute"><code class="xref py py-attr docutils literal"><span class="pre">mt_isis_neighbor_attribute</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.mt_isn" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.mt_isn"><code class="xref py py-attr docutils literal"><span class="pre">mt_isn</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.multi_topology" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.multi_topology"><code class="xref py py-attr docutils literal"><span class="pre">multi_topology</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.nlpid" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.nlpid"><code class="xref py py-attr docutils literal"><span class="pre">nlpid</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.purge_oi" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.purge_oi"><code class="xref py py-attr docutils literal"><span class="pre">purge_oi</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.router_capabilities" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.router_capabilities"><code class="xref py py-attr docutils literal"><span class="pre">router_capabilities</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.state" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.state"><code class="xref py py-attr docutils literal"><span class="pre">state</span></code></a></li>
+</ul>
+<dl class="class">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv">
+<em class="property">class </em><code class="descclassname">NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.</code><code class="descname">Tlv</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="api/types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a></p>
+<p>Class Hierarchy : <a class="reference internal" href="gen_doc_2f2cd2802fb0ef124aedad67d65bf9814f7e951b.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances"><code class="xref py py-class docutils literal"><span class="pre">NetworkInstances</span></code></a> <a class="reference internal" href="gen_doc_9dd078d8add970b42e627902e7ba33970c4ab577.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance"><code class="xref py py-class docutils literal"><span class="pre">NetworkInstance</span></code></a> <a class="reference internal" href="gen_doc_0ca96187debb8cdd82b840181b8d6f54fe1e73e4.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols"><code class="xref py py-class docutils literal"><span class="pre">Protocols</span></code></a> <a class="reference internal" href="gen_doc_bc4d4e96a4d500bdd27883019db3db5f8ec42684.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol"><code class="xref py py-class docutils literal"><span class="pre">Protocol</span></code></a> <a class="reference internal" href="gen_doc_79ea12d2b848c0c3e4d8515ee7c6070cc9a6fd70.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis"><code class="xref py py-class docutils literal"><span class="pre">Isis</span></code></a> <a class="reference internal" href="gen_doc_e7931e9fa032602a0d15748bc9b92f17ec7eb8e4.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels"><code class="xref py py-class docutils literal"><span class="pre">Levels</span></code></a> <a class="reference internal" href="gen_doc_6c5939500ac883700a66a2d9269abb9d4a2dbb15.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level"><code class="xref py py-class docutils literal"><span class="pre">Level</span></code></a> <a class="reference internal" href="gen_doc_b9ee39bdf40e616ef3f25fcbff855a8293e34d30.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase"><code class="xref py py-class docutils literal"><span class="pre">LinkStateDatabase</span></code></a> <a class="reference internal" href="gen_doc_c993856fc25ef7b296a09f87e869ea2804c62bfb.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp"><code class="xref py py-class docutils literal"><span class="pre">Lsp</span></code></a> <a class="reference internal" href="gen_doc_09c074e5cbf1e6f6d6613271c9b0c7952da0031e.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs"><code class="xref py py-class docutils literal"><span class="pre">Tlvs</span></code></a> <a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv"><code class="xref py py-class docutils literal"><span class="pre">Tlv</span></code></a></p>
+<p>This class represents state data.</p>
+<p>List of TLV types in the LSDB for the specified LSP.</p>
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.type">
+<code class="descname">type</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference to the TLV&#8217;s type</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_c9cc80b5706489aeae83d08df6ec1c0ac16a75bd.html#ydk.models.openconfig.openconfig_isis_lsdb_types.AREAADDRESSES" title="ydk.models.openconfig.openconfig_isis_lsdb_types.AREAADDRESSES"><code class="xref py py-class docutils literal"><span class="pre">AREAADDRESSES</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_32b00d7870a8102d1dc44393393807a26a3ab697.html#ydk.models.openconfig.openconfig_isis_lsdb_types.IISNEIGHBORS" title="ydk.models.openconfig.openconfig_isis_lsdb_types.IISNEIGHBORS"><code class="xref py py-class docutils literal"><span class="pre">IISNEIGHBORS</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_802864fc2a9f1001a67116b8e1ab538c0b0fe44f.html#ydk.models.openconfig.openconfig_isis_lsdb_types.INSTANCEID" title="ydk.models.openconfig.openconfig_isis_lsdb_types.INSTANCEID"><code class="xref py py-class docutils literal"><span class="pre">INSTANCEID</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_c7c3ff319f521f73ac1466d84a186417ecc4d25b.html#ydk.models.openconfig.openconfig_isis_lsdb_types.AUTHENTICATION" title="ydk.models.openconfig.openconfig_isis_lsdb_types.AUTHENTICATION"><code class="xref py py-class docutils literal"><span class="pre">AUTHENTICATION</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_63ab90d51baad6458367dea1190d7a9a78670c97.html#ydk.models.openconfig.openconfig_isis_lsdb_types.PURGEOI" title="ydk.models.openconfig.openconfig_isis_lsdb_types.PURGEOI"><code class="xref py py-class docutils literal"><span class="pre">PURGEOI</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_94b209512dd90ba1da943b7861d9e40706e45bc6.html#ydk.models.openconfig.openconfig_isis_lsdb_types.LSPBUFFERSIZE" title="ydk.models.openconfig.openconfig_isis_lsdb_types.LSPBUFFERSIZE"><code class="xref py py-class docutils literal"><span class="pre">LSPBUFFERSIZE</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_cd7d8237f3c0fbb9273231d6096cbb5480eaaea8.html#ydk.models.openconfig.openconfig_isis_lsdb_types.EXTENDEDISREACHABILITY" title="ydk.models.openconfig.openconfig_isis_lsdb_types.EXTENDEDISREACHABILITY"><code class="xref py py-class docutils literal"><span class="pre">EXTENDEDISREACHABILITY</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_7e2874f1aae44fbee70952ebb59c57fd820c641e.html#ydk.models.openconfig.openconfig_isis_lsdb_types.ISNEIGHBORATTRIBUTE" title="ydk.models.openconfig.openconfig_isis_lsdb_types.ISNEIGHBORATTRIBUTE"><code class="xref py py-class docutils literal"><span class="pre">ISNEIGHBORATTRIBUTE</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_4166f99b5b92d7119ed91e68bd7d621e185dd203.html#ydk.models.openconfig.openconfig_isis_lsdb_types.ISISALIASID" title="ydk.models.openconfig.openconfig_isis_lsdb_types.ISISALIASID"><code class="xref py py-class docutils literal"><span class="pre">ISISALIASID</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_a55b28762c78d78c91f89d10bc1e08110dbac517.html#ydk.models.openconfig.openconfig_isis_lsdb_types.IPV4INTERNALREACHABILITY" title="ydk.models.openconfig.openconfig_isis_lsdb_types.IPV4INTERNALREACHABILITY"><code class="xref py py-class docutils literal"><span class="pre">IPV4INTERNALREACHABILITY</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_3a89058fddd0a2e379c33c9260d13326a3a0fbba.html#ydk.models.openconfig.openconfig_isis_lsdb_types.NLPID" title="ydk.models.openconfig.openconfig_isis_lsdb_types.NLPID"><code class="xref py py-class docutils literal"><span class="pre">NLPID</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_d256c67a7bb99d286b74dd9503ec633544cb7c89.html#ydk.models.openconfig.openconfig_isis_lsdb_types.IPV4EXTERNALREACHABILITY" title="ydk.models.openconfig.openconfig_isis_lsdb_types.IPV4EXTERNALREACHABILITY"><code class="xref py py-class docutils literal"><span class="pre">IPV4EXTERNALREACHABILITY</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_130f80b9711adbeb7c574f362879d0b71ee3f9fd.html#ydk.models.openconfig.openconfig_isis_lsdb_types.IPV4INTERFACEADDRESSES" title="ydk.models.openconfig.openconfig_isis_lsdb_types.IPV4INTERFACEADDRESSES"><code class="xref py py-class docutils literal"><span class="pre">IPV4INTERFACEADDRESSES</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_c9d7d988393be90c066d92f3ce7ee6167429eb9c.html#ydk.models.openconfig.openconfig_isis_lsdb_types.IPV4TEROUTERID" title="ydk.models.openconfig.openconfig_isis_lsdb_types.IPV4TEROUTERID"><code class="xref py py-class docutils literal"><span class="pre">IPV4TEROUTERID</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_50c67f1adc8365c605710cf619e0ec57ce68215f.html#ydk.models.openconfig.openconfig_isis_lsdb_types.EXTENDEDIPV4REACHABILITY" title="ydk.models.openconfig.openconfig_isis_lsdb_types.EXTENDEDIPV4REACHABILITY"><code class="xref py py-class docutils literal"><span class="pre">EXTENDEDIPV4REACHABILITY</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_a49a729b70f387ea3d1606b0d2c334346b55a10f.html#ydk.models.openconfig.openconfig_isis_lsdb_types.DYNAMICNAME" title="ydk.models.openconfig.openconfig_isis_lsdb_types.DYNAMICNAME"><code class="xref py py-class docutils literal"><span class="pre">DYNAMICNAME</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_12daa3f4c8e7dfb84333878996d3f8137c6bad71.html#ydk.models.openconfig.openconfig_isis_lsdb_types.IPV4SRLG" title="ydk.models.openconfig.openconfig_isis_lsdb_types.IPV4SRLG"><code class="xref py py-class docutils literal"><span class="pre">IPV4SRLG</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_0ce7ac1cff6b95fec74aa5a60567dd3e625d0ed4.html#ydk.models.openconfig.openconfig_isis_lsdb_types.IPV6SRLG" title="ydk.models.openconfig.openconfig_isis_lsdb_types.IPV6SRLG"><code class="xref py py-class docutils literal"><span class="pre">IPV6SRLG</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_b32f8091cfa5bd585f4b7895f0009dfe5044fac6.html#ydk.models.openconfig.openconfig_isis_lsdb_types.IPV6TEROUTERID" title="ydk.models.openconfig.openconfig_isis_lsdb_types.IPV6TEROUTERID"><code class="xref py py-class docutils literal"><span class="pre">IPV6TEROUTERID</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_ca1c0ff0bbecf867b5e9e8cb44dc7762a579406b.html#ydk.models.openconfig.openconfig_isis_lsdb_types.MTISN" title="ydk.models.openconfig.openconfig_isis_lsdb_types.MTISN"><code class="xref py py-class docutils literal"><span class="pre">MTISN</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_f7609ac1ac095f993e551dc8a5b2779c3e12d045.html#ydk.models.openconfig.openconfig_isis_lsdb_types.MTISNEIGHBORATTRIBUTE" title="ydk.models.openconfig.openconfig_isis_lsdb_types.MTISNEIGHBORATTRIBUTE"><code class="xref py py-class docutils literal"><span class="pre">MTISNEIGHBORATTRIBUTE</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_49ed42d24f93f6a557198abc1ce669c4128c5d19.html#ydk.models.openconfig.openconfig_isis_lsdb_types.MULTITOPOLOGY" title="ydk.models.openconfig.openconfig_isis_lsdb_types.MULTITOPOLOGY"><code class="xref py py-class docutils literal"><span class="pre">MULTITOPOLOGY</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_6494449db14a561fdb1129edc0f331c437b63ab5.html#ydk.models.openconfig.openconfig_isis_lsdb_types.IPV6INTERFACEADDRESSES" title="ydk.models.openconfig.openconfig_isis_lsdb_types.IPV6INTERFACEADDRESSES"><code class="xref py py-class docutils literal"><span class="pre">IPV6INTERFACEADDRESSES</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_915870ebb5a583888d893e9db19753c87cba97b2.html#ydk.models.openconfig.openconfig_isis_lsdb_types.MTIPV4REACHABILITY" title="ydk.models.openconfig.openconfig_isis_lsdb_types.MTIPV4REACHABILITY"><code class="xref py py-class docutils literal"><span class="pre">MTIPV4REACHABILITY</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_668809906a02a445873c5abc81dd84a8307431e6.html#ydk.models.openconfig.openconfig_isis_lsdb_types.IPV6REACHABILITY" title="ydk.models.openconfig.openconfig_isis_lsdb_types.IPV6REACHABILITY"><code class="xref py py-class docutils literal"><span class="pre">IPV6REACHABILITY</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_1525c108a52f41fcbd4f765c48ddbe39c4249cd5.html#ydk.models.openconfig.openconfig_isis_lsdb_types.MTIPV6REACHABILITY" title="ydk.models.openconfig.openconfig_isis_lsdb_types.MTIPV6REACHABILITY"><code class="xref py py-class docutils literal"><span class="pre">MTIPV6REACHABILITY</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_3a38a475a2ad521645bc5e3eb1d276eca8862a20.html#ydk.models.openconfig.openconfig_isis_lsdb_types.ROUTERCAPABILITY" title="ydk.models.openconfig.openconfig_isis_lsdb_types.ROUTERCAPABILITY"><code class="xref py py-class docutils literal"><span class="pre">ROUTERCAPABILITY</span></code></a></p>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.state">
+<code class="descname">state</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operational state parameters relating to the specified LSP</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_17a3270313a4e087bac18a84f28c9e3539addede.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.State" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.State"><code class="xref py py-class docutils literal"><span class="pre">State</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.area_address">
+<code class="descname">area_address</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.area_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines TLV 1</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_d15a9473f056e71fdd6aad61e0861666dde27e35.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.AreaAddress" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.AreaAddress"><code class="xref py py-class docutils literal"><span class="pre">AreaAddress</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.lsp_buffer_size">
+<code class="descname">lsp_buffer_size</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.lsp_buffer_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines TLV 14 - the LSP Buffer Size TLV</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_c761e986a192d5c88132c7020e5e6540a8526125.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.LspBufferSize" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.LspBufferSize"><code class="xref py py-class docutils literal"><span class="pre">LspBufferSize</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.nlpid">
+<code class="descname">nlpid</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.nlpid" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines TLV 129</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_341bfa514de13f65700e4cb39620ed33cbacb281.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Nlpid" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Nlpid"><code class="xref py py-class docutils literal"><span class="pre">Nlpid</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.hostname">
+<code class="descname">hostname</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.hostname" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines TLV 137</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_29d5c008cf9775f507537d8ba866aea8313abf83.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Hostname" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Hostname"><code class="xref py py-class docutils literal"><span class="pre">Hostname</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_interface_addresses">
+<code class="descname">ipv4_interface_addresses</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_interface_addresses" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines TLV 132</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_847e1eac3c136ef7d8790d71960645f24d1daba1.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv4InterfaceAddresses" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv4InterfaceAddresses"><code class="xref py py-class docutils literal"><span class="pre">Ipv4InterfaceAddresses</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv6_interface_addresses">
+<code class="descname">ipv6_interface_addresses</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv6_interface_addresses" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines TLV 232</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_04916efa32156ec27cb88ca2bcce8d9cabc58e7e.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv6InterfaceAddresses" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv6InterfaceAddresses"><code class="xref py py-class docutils literal"><span class="pre">Ipv6InterfaceAddresses</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_te_router_id">
+<code class="descname">ipv4_te_router_id</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_te_router_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines TLV 134</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_569aed54d156d17058ce87c4d4d0b6de19d8959f.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv4TeRouterId" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv4TeRouterId"><code class="xref py py-class docutils literal"><span class="pre">Ipv4TeRouterId</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv6_te_router_id">
+<code class="descname">ipv6_te_router_id</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv6_te_router_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines TLV 140</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_63da4df976c926ad84bd622ddf1da34fecb2ab19.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv6TeRouterId" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv6TeRouterId"><code class="xref py py-class docutils literal"><span class="pre">Ipv6TeRouterId</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.instance_ids">
+<code class="descname">instance_ids</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.instance_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines ISIS Instance Identifier TLV</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_f9f6a8b946807d8e1e721e5d0e2211181cdc3e96.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.InstanceIds" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.InstanceIds"><code class="xref py py-class docutils literal"><span class="pre">InstanceIds</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_srlgs">
+<code class="descname">ipv4_srlgs</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_srlgs" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines ISIS SRLG TLV 138</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_cbabf73ede509b42d97fc73fa2de1f14b3e3a3c0.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv4Srlgs" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv4Srlgs"><code class="xref py py-class docutils literal"><span class="pre">Ipv4Srlgs</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv6_srlgs">
+<code class="descname">ipv6_srlgs</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv6_srlgs" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines ISIS SRLG TLV</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_e30af05f4a5dbc0f29fed87f65a1885d2c01cdb3.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv6Srlgs" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv6Srlgs"><code class="xref py py-class docutils literal"><span class="pre">Ipv6Srlgs</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.purge_oi">
+<code class="descname">purge_oi</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.purge_oi" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines ISIS purge TLV</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_b8d60d370c3ad8765cf0c1ed1d324c2515c70c98.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.PurgeOi" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.PurgeOi"><code class="xref py py-class docutils literal"><span class="pre">PurgeOi</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.router_capabilities">
+<code class="descname">router_capabilities</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.router_capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines router capabilities</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_83d9d185eb9a68a4408ef9bebf2cb30b8065f31c.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.RouterCapabilities" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.RouterCapabilities"><code class="xref py py-class docutils literal"><span class="pre">RouterCapabilities</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.is_reachability">
+<code class="descname">is_reachability</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.is_reachability" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container describes list of ISIS neighbors and attributes</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_5299313f2467e5c540993c173186c2b4a9a1b0cc.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.IsReachability" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.IsReachability"><code class="xref py py-class docutils literal"><span class="pre">IsReachability</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_internal_reachability">
+<code class="descname">ipv4_internal_reachability</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_internal_reachability" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines list of IPv4 internal reachability information</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_666b1e6a4940c3a539dface886692c733c09a54b.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv4InternalReachability" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv4InternalReachability"><code class="xref py py-class docutils literal"><span class="pre">Ipv4InternalReachability</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_external_reachability">
+<code class="descname">ipv4_external_reachability</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv4_external_reachability" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines list of IPv4 external reachability information</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_3c4d04e68e4f04c9602b99848727d9b738272dca.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv4ExternalReachability" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv4ExternalReachability"><code class="xref py py-class docutils literal"><span class="pre">Ipv4ExternalReachability</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.authentication">
+<code class="descname">authentication</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.authentication" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines authentication information of the node</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_469c7bf17f6c841b0364e324dbe3910a285fb4c7.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Authentication" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Authentication"><code class="xref py py-class docutils literal"><span class="pre">Authentication</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.extended_is_reachability">
+<code class="descname">extended_is_reachability</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.extended_is_reachability" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines list of ISIS extended reachability neighbors</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_7afa7a98f4e56cd1ce888a01212b9a49122eb83c.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ExtendedIsReachability" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ExtendedIsReachability"><code class="xref py py-class docutils literal"><span class="pre">ExtendedIsReachability</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.extended_ipv4_reachability">
+<code class="descname">extended_ipv4_reachability</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.extended_ipv4_reachability" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines list of IPv4 extended reachability information</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_8516fc748e9a4f2dbc6cd205005e0c5eb45c4ab5.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ExtendedIpv4Reachability" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ExtendedIpv4Reachability"><code class="xref py py-class docutils literal"><span class="pre">ExtendedIpv4Reachability</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv6_reachability">
+<code class="descname">ipv6_reachability</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ipv6_reachability" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines list of IPv6 reachability information</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_f96c39508eedb3c24ac075ee4da2352ebe8e8c16.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv6Reachability" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.Ipv6Reachability"><code class="xref py py-class docutils literal"><span class="pre">Ipv6Reachability</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.multi_topology">
+<code class="descname">multi_topology</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.multi_topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines the topology supported</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_017502cf3d31bb9d40c4507ca97f31fa4e5a6ad4.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.MultiTopology" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.MultiTopology"><code class="xref py py-class docutils literal"><span class="pre">MultiTopology</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.isis_neighbor_attribute">
+<code class="descname">isis_neighbor_attribute</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.isis_neighbor_attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines list of ISIS topology neighbors for extended ISIS LSP (multiple system IDs).</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_00c089a16aba6e7e464193a58f60bcdcf098c3ee.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.IsisNeighborAttribute" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.IsisNeighborAttribute"><code class="xref py py-class docutils literal"><span class="pre">IsisNeighborAttribute</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.is_alias_id">
+<code class="descname">is_alias_id</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.is_alias_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines the IS-Alias TLV which allows extension-capable ISs to recognize the Originating System of an Extended LSP set. It identifies the Normal system- id of the Originating System</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_a8324963502a6d45b6204634706ad8db5d194cf6.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.IsAliasId" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.IsAliasId"><code class="xref py py-class docutils literal"><span class="pre">IsAliasId</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.mt_isn">
+<code class="descname">mt_isn</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.mt_isn" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines list of ISIS multi-topology neighbors</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_9f9ddaca1208341d7e482233ca96cbca173e043a.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.MtIsn" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.MtIsn"><code class="xref py py-class docutils literal"><span class="pre">MtIsn</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.mt_isis_neighbor_attribute">
+<code class="descname">mt_isis_neighbor_attribute</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.mt_isis_neighbor_attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines list of ISIS multi-topology neighbors</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_7c9763fb3726b9fcb1eb1e941e473fc4be2fa4bd.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.MtIsisNeighborAttribute" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.MtIsisNeighborAttribute"><code class="xref py py-class docutils literal"><span class="pre">MtIsisNeighborAttribute</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.mt_ipv4_reachability">
+<code class="descname">mt_ipv4_reachability</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.mt_ipv4_reachability" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines list of IPv4 reachability Information in multi-topology environment</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_3c1c0bf2c2322eca856114d9f2dc1a54093a0389.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.MtIpv4Reachability" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.MtIpv4Reachability"><code class="xref py py-class docutils literal"><span class="pre">MtIpv4Reachability</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.mt_ipv6_reachability">
+<code class="descname">mt_ipv6_reachability</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.mt_ipv6_reachability" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines list of IPv6 reachability information in multi - topology environment</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_80e04b6c682423153f1d445eb16215aafd053f71.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.MtIpv6Reachability" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.MtIpv6Reachability"><code class="xref py py-class docutils literal"><span class="pre">MtIpv6Reachability</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

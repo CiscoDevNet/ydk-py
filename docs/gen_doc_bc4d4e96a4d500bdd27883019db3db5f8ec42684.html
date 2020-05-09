@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Protocol &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Protocol</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="protocol">
+<h1>Protocol<a class="headerlink" href="#protocol" title="Permalink to this headline">¶</a></h1>
+<p><strong>Keys</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.identifier" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.identifier"><code class="xref py py-attr docutils literal"><span class="pre">identifier</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.name" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.name"><code class="xref py py-attr docutils literal"><span class="pre">name</span></code></a></li>
+</ul>
+<p><strong>Children</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.bgp" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.bgp"><code class="xref py py-attr docutils literal"><span class="pre">bgp</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.config" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.config"><code class="xref py py-attr docutils literal"><span class="pre">config</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.isis" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.isis"><code class="xref py py-attr docutils literal"><span class="pre">isis</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.local_aggregates" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.local_aggregates"><code class="xref py py-attr docutils literal"><span class="pre">local_aggregates</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.state" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.state"><code class="xref py py-attr docutils literal"><span class="pre">state</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.static_routes" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.static_routes"><code class="xref py py-attr docutils literal"><span class="pre">static_routes</span></code></a></li>
+</ul>
+<dl class="class">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol">
+<em class="property">class </em><code class="descclassname">NetworkInstances.NetworkInstance.Protocols.</code><code class="descname">Protocol</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="api/types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a></p>
+<p>Class Hierarchy : <a class="reference internal" href="gen_doc_2f2cd2802fb0ef124aedad67d65bf9814f7e951b.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances"><code class="xref py py-class docutils literal"><span class="pre">NetworkInstances</span></code></a> <a class="reference internal" href="gen_doc_9dd078d8add970b42e627902e7ba33970c4ab577.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance"><code class="xref py py-class docutils literal"><span class="pre">NetworkInstance</span></code></a> <a class="reference internal" href="gen_doc_0ca96187debb8cdd82b840181b8d6f54fe1e73e4.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols"><code class="xref py py-class docutils literal"><span class="pre">Protocols</span></code></a> <a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol"><code class="xref py py-class docutils literal"><span class="pre">Protocol</span></code></a></p>
+<p>This class represents configuration data.</p>
+<p>A process (instance) of a routing protocol. Some</p>
+<p>systems may not support more than one instance of</p>
+<p>a particular routing protocol</p>
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.identifier">
+<code class="descname">identifier</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>The protocol name for the routing or forwarding protocol to be instantiated</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_a3a1e60c7373e2724a3b5c91f1cf08ff37441ecb.html#ydk.models.openconfig.openconfig_policy_types.BGP" title="ydk.models.openconfig.openconfig_policy_types.BGP"><code class="xref py py-class docutils literal"><span class="pre">BGP</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_25017a82697c878126aa53568c718de4611bc021.html#ydk.models.openconfig.openconfig_policy_types.ISIS" title="ydk.models.openconfig.openconfig_policy_types.ISIS"><code class="xref py py-class docutils literal"><span class="pre">ISIS</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_959183dc86c7619b366898901087a5fb2d9b1e41.html#ydk.models.openconfig.openconfig_policy_types.OSPF" title="ydk.models.openconfig.openconfig_policy_types.OSPF"><code class="xref py py-class docutils literal"><span class="pre">OSPF</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_030a4d413c8543a222cfeea04fde3d412c2f3295.html#ydk.models.openconfig.openconfig_policy_types.OSPF3" title="ydk.models.openconfig.openconfig_policy_types.OSPF3"><code class="xref py py-class docutils literal"><span class="pre">OSPF3</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_29cf472823acf639dee05e7f51af00862a7ac5e9.html#ydk.models.openconfig.openconfig_policy_types.STATIC" title="ydk.models.openconfig.openconfig_policy_types.STATIC"><code class="xref py py-class docutils literal"><span class="pre">STATIC</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_ede9a5b48856e2b5f32504c53e3f743932fa844d.html#ydk.models.openconfig.openconfig_policy_types.DIRECTLYCONNECTED" title="ydk.models.openconfig.openconfig_policy_types.DIRECTLYCONNECTED"><code class="xref py py-class docutils literal"><span class="pre">DIRECTLYCONNECTED</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_0d9c9e7390bff69e0ccca645164511f18b18c131.html#ydk.models.openconfig.openconfig_policy_types.LOCALAGGREGATE" title="ydk.models.openconfig.openconfig_policy_types.LOCALAGGREGATE"><code class="xref py py-class docutils literal"><span class="pre">LOCALAGGREGATE</span></code></a></p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.name">
+<code class="descname">name</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>An operator-assigned identifier for the routing or forwarding protocol. For some processes this leaf may be system defined</p>
+<p><strong>type</strong>: str</p>
+<p><strong>refers to</strong>:  <a class="reference internal" href="gen_doc_7ea5b22ead513adae950b2d9b4154d3105a967e1.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Config" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Config"><code class="xref py py-class docutils literal"><span class="pre">name</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.config">
+<code class="descname">config</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration parameters relating to the routing protocol instance</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_7ea5b22ead513adae950b2d9b4154d3105a967e1.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Config" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Config"><code class="xref py py-class docutils literal"><span class="pre">Config</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.state">
+<code class="descname">state</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>State parameters relating to the routing protocol instance</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_9ad19bf62c78c69762809e768d3e6e6bd66d335e.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.State" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.State"><code class="xref py py-class docutils literal"><span class="pre">State</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.static_routes">
+<code class="descname">static_routes</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.static_routes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enclosing container for the list of static routes</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_595f05516dcb97d7a44b05b3ace803280c033afa.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes"><code class="xref py py-class docutils literal"><span class="pre">StaticRoutes</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.local_aggregates">
+<code class="descname">local_aggregates</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.local_aggregates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enclosing container for locally-defined aggregate routes</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_6147b78f570f42375555c560289bee17d540f4d0.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.LocalAggregates" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.LocalAggregates"><code class="xref py py-class docutils literal"><span class="pre">LocalAggregates</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.bgp">
+<code class="descname">bgp</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.bgp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Top-level configuration and state for the BGP router</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_4153cc3b34e7d375fd3add3c707bb727efdf3408.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Bgp"><code class="xref py py-class docutils literal"><span class="pre">Bgp</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.isis">
+<code class="descname">isis</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.isis" title="Permalink to this definition">¶</a></dt>
+<dd><p>This container defines top-level ISIS configuration and state information</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_79ea12d2b848c0c3e4d8515ee7c6070cc9a6fd70.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis"><code class="xref py py-class docutils literal"><span class="pre">Isis</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

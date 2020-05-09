@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BGPWELLKNOWNSTDCOMMUNITY &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/>
+        <link rel="up" title="openconfig_bgp_types module" href="gen_doc_f25a88883fc3f44ae06b7eac97d45595fa6f7d71.html"/>
+        <link rel="next" title="GRACEFULRESTART" href="gen_doc_4173d5bfdea384d5c44553475e60e215cbead8c1.html"/>
+        <link rel="prev" title="BGPCAPABILITY" href="gen_doc_abfde00a3f9f1f74677b5e71aca8b72704759019.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Questions and Answers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ydk.models.openconfig.html">openconfig bundle API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_716256b44a8dc3598037eee874e2c670964e65f1.html">openconfig_aaa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_266a3b530ec0f42a34fceb2b2769fc45ce24415c.html">openconfig_aaa_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_d29ca496ffe0e8f6c4588ada3d875d56801e5e44.html">openconfig_acl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_66c3bc203ea8f8a587e3f639c0959b54dd62fe73.html">openconfig_aft_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_61791a6604b8fc7ba9b10fc7701b4586e21f077e.html">openconfig_alarm_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_dbd09a073b7c308e80c79ffe6e88ab23df9add52.html">openconfig_bfd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_ab7a308aaa0f3c83ee97d51af7c340f088f28655.html">openconfig_bgp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_0ee168e2cb69d0c0878e105b1f307c8295139ff9.html">openconfig_bgp_policy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="gen_doc_f25a88883fc3f44ae06b7eac97d45595fa6f7d71.html">openconfig_bgp_types</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_fe472d4072f5876db5aa18ee884effb033a2df50.html">AsPathSegmentType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_d23bbc07ba9a03424c6e7e110ddfaaf9fa72264d.html">BgpOriginAttrType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_8544e8e7d24f033295b4a4a5216e8cb8bf8c7633.html">BgpSessionDirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_d89c5a6f89ce3e6eef3d3a85c65d90bf72c5b8da.html">CommunityType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_7611d396ee0fed2d61d89b0d003a82e7fc7af57d.html">PeerType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_87da37e1dbb0525dd0a84d4284835ed683d915f6.html">ADDPATHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_c64c3bbc651037f62f9a4cfe8a0e6d446fa89a98.html">AFISAFITYPE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_2abf47740af6284cec623fa8d5d394159bbea1d9.html">ASN32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_abfde00a3f9f1f74677b5e71aca8b72704759019.html">BGPCAPABILITY</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">BGPWELLKNOWNSTDCOMMUNITY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_4173d5bfdea384d5c44553475e60e215cbead8c1.html">GRACEFULRESTART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_d2f4ebc02dc5a8bef6d3d21161d295c2a365fd1f.html">IPV4LABELEDUNICAST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_b6aeac92055a0533d6cab29faef30761e8b04af1.html">IPV4UNICAST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_6e911a3c8b1359216bfc0128471c67b472374e48.html">IPV6LABELEDUNICAST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_5d992b4d351001584de8643f4162e9d3f8c07e4e.html">IPV6UNICAST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_9c7ee96eb38e83a70ab08f808ab83af88bcf911c.html">L2VPNEVPN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_f8f8bf35a22bf5f1bedcf3fa2c4bed8b788b7667.html">L2VPNVPLS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_4f211e18a94b2afef10a5230ec9865e0cd9e6bd1.html">L3VPNIPV4MULTICAST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_5e646811c72bcc2f6978431fea504e01bdf776da.html">L3VPNIPV4UNICAST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_2dae92f302779f668d15249a5e7cf130405c4144.html">L3VPNIPV6MULTICAST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_fb0aee4b1774ba8f5d755b822e697cf3a9cb8f64.html">L3VPNIPV6UNICAST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_e08f1e83fbf93f0427dfb21230c9375ebdeaeaa3.html">MPBGP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_8d2b4cbf2dfcded3d2aa5a9029c998cdda454c27.html">NOADVERTISE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_c407c62eb79ded93275d0197290579da0f590b4c.html">NOEXPORT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_3e4b4e6ebffff60e6e1aaec69a47513b588bd27f.html">NOEXPORTSUBCONFED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_8832b5ba319aa67ffedb5989a9b91fa6f585dec7.html">NOPEER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_61d1c7e1fa2be530498a81996f3abddbc80e155c.html">PRIVATEASREMOVEALL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_43660e3d5fff671d5ba34b6b25260d8c86232ea6.html">PRIVATEASREPLACEALL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_67d9d93db5d45a1f3458e10b5486f7f47fc50f41.html">REMOVEPRIVATEASOPTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gen_doc_a0cbbcac064681acdf119d22119386c4b2b3801e.html">ROUTEREFRESH</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_05ce0b31efc3d56078f6fbb192f03aa6e1467b73.html">openconfig_channel_monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_277be644ef9fb16ed77d2a443864c4fdac9c4c0e.html">openconfig_if_aggregate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_65f3240696604075049d80d0feb3120d25ae1d20.html">openconfig_if_ethernet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_70d3cb986dc9f67b2250d42b80930cb787e28fbb.html">openconfig_if_ip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_6f8f98938fe9bc2aa55b0636863b3fafb3fb129e.html">openconfig_if_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_26b6e12b934391ba285e31aec7742f62d07735f5.html">openconfig_inet_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_6f3066c582d55123f22ee60eba614d17401a2611.html">openconfig_interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_adb48cb396cd4e1579d532fec2651b72cb10d086.html">openconfig_isis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_66f9f68779ad24da4f87dafe1dcdd97bd4497a1a.html">openconfig_isis_lsdb_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_e967e770cae8ffa5cc9579ca27d93904128d3d39.html">openconfig_isis_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_4186a33010212d2e6730b94a52cc6515809b2f51.html">openconfig_lacp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_5b4bde3d5cad14197cd95d5b3c7b5abc7f3e839a.html">openconfig_lldp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_d57899736338cc082d79601d6dda910cc07fbd50.html">openconfig_lldp_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_54c0e0ff777cf54c374810a2182b6916dd082c87.html">openconfig_local_routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_6bfe269649d4d6b74652ab90ce1138ea37df9570.html">openconfig_mpls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_603bafc49a034e3ae3a77a24f8bdb63cd072514e.html">openconfig_mpls_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_5c39817c26555293050fb8573f0bc0a5e5e76ee0.html">openconfig_network_instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_3068ccf5b5a06479a9b74aa81175bfb262a71f78.html">openconfig_network_instance_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_3643c0b5a295fc5d4eca338b36dce56a1efdc645.html">openconfig_optical_amplifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_09b55349da2b6e6f7087d9537f91a279883f60e4.html">openconfig_packet_match_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_a0fd122c430df30c57b92f5313baf6a45da3325e.html">openconfig_platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_cd4c76aa12333888390734a78b17e89affb33cb7.html">openconfig_platform_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_aafc13fdd8e620836d181878df6b0b18e73085bd.html">openconfig_policy_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_dd1df50737a51fec11400a866b9f5e178c8e379a.html">openconfig_rib_bgp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_28f694fee8b4c43e8276ebe6657ccddee4ddcb8d.html">openconfig_rib_bgp_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_2621472417f16239745498a6c37faac62ac70305.html">openconfig_routing_policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_1aa85c0524219f4da2697250c5d3d01759093cff.html">openconfig_segment_routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_6ed4fa5886571e71b1af382b0788f392410b50e1.html">openconfig_system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_c57c8d6bf4a2701ac3b9587ea46e94c45e577cc0.html">openconfig_system_logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_15c13572071db8792145be4dbb08859fd3b07a8e.html">openconfig_telemetry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_5f4fe2ea48177f6a0a72fd04661ff8c4565f0840.html">openconfig_terminal_device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_45d8c650bbed0f2e5b93641c52061772a7f27a44.html">openconfig_transport_line_common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_c4f36da1342c4b4e68e3422cd6564c88a2c1838c.html">openconfig_transport_line_protection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_87f9018ea758cc7e338ffdcc08b522d8675e2fc6.html">openconfig_transport_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_ff210a9d41469b916d8c01160edda385e8897427.html">openconfig_types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_0b8bf7fcd5ba0b83fc72c6a08683c81d6276b0fd.html">openconfig_vlan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gen_doc_c57adad0e016ae63424b8ac90565811a45994cc8.html">openconfig_vlan_types</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="ydk.models.openconfig.html">openconfig bundle API</a> &raquo;</li>
+      
+          <li><a href="gen_doc_f25a88883fc3f44ae06b7eac97d45595fa6f7d71.html">openconfig_bgp_types module</a> &raquo;</li>
+      
+    <li>BGPWELLKNOWNSTDCOMMUNITY</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bgpwellknownstdcommunity">
+<h1>BGPWELLKNOWNSTDCOMMUNITY<a class="headerlink" href="#bgpwellknownstdcommunity" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ydk.models.openconfig.openconfig_bgp_types.BGPWELLKNOWNSTDCOMMUNITY">
+<em class="property">class </em><code class="descclassname">ydk.models.openconfig.openconfig_bgp_types.</code><code class="descname">BGPWELLKNOWNSTDCOMMUNITY</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bgp_types.BGPWELLKNOWNSTDCOMMUNITY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="api/types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a>, <a class="reference internal" href="api/types.html#ydk.types.Identity" title="ydk.types.Identity"><code class="xref py py-class docutils literal"><span class="pre">Identity</span></code></a></p>
+<p>This class represents configuration data.</p>
+<p>Reserved communities within the standard community space</p>
+<p>defined by RFC1997. These communities must fall within the</p>
+<p>range 0x00000000 to 0xFFFFFFFF</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gen_doc_4173d5bfdea384d5c44553475e60e215cbead8c1.html" class="btn btn-neutral float-right" title="GRACEFULRESTART" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="gen_doc_abfde00a3f9f1f74677b5e71aca8b72704759019.html" class="btn btn-neutral" title="BGPCAPABILITY" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

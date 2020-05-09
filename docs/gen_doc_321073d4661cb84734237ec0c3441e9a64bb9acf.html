@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Type &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Type</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="type">
+<h1>Type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ExtendedIsReachability.Neighbors.Neighbor.Instances.Instance.Subtlvs.Subtlv.LinkProtectionType.State.Type">
+<em class="property">class </em><code class="descclassname">NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ExtendedIsReachability.Neighbors.Neighbor.Instances.Instance.Subtlvs.Subtlv.LinkProtectionType.State.</code><code class="descname">Type</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Levels.Level.LinkStateDatabase.Lsp.Tlvs.Tlv.ExtendedIsReachability.Neighbors.Neighbor.Instances.Instance.Subtlvs.Subtlv.LinkProtectionType.State.Type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type (Enum Class)</p>
+<p>Link protection capabilities.</p>
+<dl class="data">
+<dt>
+<code class="descname">EXTRA_TRAFFIC = 0</code></dt>
+<dd><p>If set the link has extra traffic protection. If</p>
+<p>the link is of type Extra Traffic, it means that</p>
+<p>the link is protecting another link or links. The</p>
+<p>LSPs on a link of this type will be lost if any of</p>
+<p>the links it is protecting fail.</p>
+</dd></dl>
+
+<dl class="data">
+<dt>
+<code class="descname">UNPROTECTED = 1</code></dt>
+<dd><p>If set, the link is unprotected. If the link is</p>
+<p>of type Unprotected, it means that there is no</p>
+<p>other link protecting this link.  The LSPs on a</p>
+<p>link of this type will be lost if the link</p>
+<p>fails.</p>
+</dd></dl>
+
+<dl class="data">
+<dt>
+<code class="descname">SHARED = 2</code></dt>
+<dd><p>If set, the link has shared protection. If the</p>
+<p>link is of type Shared, it means that there are</p>
+<p>one or more disjoint links of type Extra Traffic</p>
+<p>that are protecting this link.  These Extra</p>
+<p>Traffic links are shared between one or more links</p>
+<p>of type Shared.</p>
+</dd></dl>
+
+<dl class="data">
+<dt>
+<code class="descname">ONE_ONE = 3</code></dt>
+<dd><p>If set, the link has dedicated 1:1 protection. If</p>
+<p>the link is of type Dedicated 1:1, it means that</p>
+<p>there is one dedicated disjoint link of type Extra</p>
+<p>Traffic that is protecting this link.</p>
+</dd></dl>
+
+<dl class="data">
+<dt>
+<code class="descname">PLUS_ONE = 4</code></dt>
+<dd><p>If set, the link has dedicated 1+1 protection. If</p>
+<p>the link is of type Dedicated 1+1, it means that a</p>
+<p>dedicated disjoint link is protecting this link.</p>
+<p>However, the protecting link is not advertised in</p>
+<p>the link state database and is therefore not</p>
+<p>available for the routing of LSPs.</p>
+</dd></dl>
+
+<dl class="data">
+<dt>
+<code class="descname">ENHANCED = 5</code></dt>
+<dd><p>If set the link has enhanced protection.  If the</p>
+<p>link is of type Enhanced, it means that a</p>
+<p>protection scheme that is more reliable than</p>
+<p>Dedicated 1+1, e.g., 4 fiber BLSR/MS-SPRING, is</p>
+<p>being used to protect this link.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

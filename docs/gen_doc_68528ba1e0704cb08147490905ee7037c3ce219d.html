@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>State &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>State</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="state">
+<h1>State<a class="headerlink" href="#state" title="Permalink to this headline">¶</a></h1>
+<p><strong>Leafs</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.address_family" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.address_family"><code class="xref py py-attr docutils literal"><span class="pre">address_family</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.default_import_policy" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.default_import_policy"><code class="xref py py-attr docutils literal"><span class="pre">default_import_policy</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.dst_protocol" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.dst_protocol"><code class="xref py py-attr docutils literal"><span class="pre">dst_protocol</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.import_policy" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.import_policy"><code class="xref py py-attr docutils literal"><span class="pre">import_policy</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.src_protocol" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.src_protocol"><code class="xref py py-attr docutils literal"><span class="pre">src_protocol</span></code></a></li>
+</ul>
+<dl class="class">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State">
+<em class="property">class </em><code class="descclassname">NetworkInstances.NetworkInstance.TableConnections.TableConnection.</code><code class="descname">State</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="api/types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a></p>
+<p>Class Hierarchy : <a class="reference internal" href="gen_doc_2f2cd2802fb0ef124aedad67d65bf9814f7e951b.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances"><code class="xref py py-class docutils literal"><span class="pre">NetworkInstances</span></code></a> <a class="reference internal" href="gen_doc_9dd078d8add970b42e627902e7ba33970c4ab577.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance"><code class="xref py py-class docutils literal"><span class="pre">NetworkInstance</span></code></a> <a class="reference internal" href="gen_doc_dff57f4ab36222f864bca813ac1c2e74c35c9cdb.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections"><code class="xref py py-class docutils literal"><span class="pre">TableConnections</span></code></a> <a class="reference internal" href="gen_doc_c93eb47eb2e6d3766ee749735cfac8f85c68ec2e.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection"><code class="xref py py-class docutils literal"><span class="pre">TableConnection</span></code></a> <a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State"><code class="xref py py-class docutils literal"><span class="pre">State</span></code></a></p>
+<p>This class represents state data.</p>
+<p>State parameters relating to the connection between</p>
+<p>tables</p>
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.src_protocol">
+<code class="descname">src_protocol</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.src_protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>The source protocol for the table connection</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_a3a1e60c7373e2724a3b5c91f1cf08ff37441ecb.html#ydk.models.openconfig.openconfig_policy_types.BGP" title="ydk.models.openconfig.openconfig_policy_types.BGP"><code class="xref py py-class docutils literal"><span class="pre">BGP</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_25017a82697c878126aa53568c718de4611bc021.html#ydk.models.openconfig.openconfig_policy_types.ISIS" title="ydk.models.openconfig.openconfig_policy_types.ISIS"><code class="xref py py-class docutils literal"><span class="pre">ISIS</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_959183dc86c7619b366898901087a5fb2d9b1e41.html#ydk.models.openconfig.openconfig_policy_types.OSPF" title="ydk.models.openconfig.openconfig_policy_types.OSPF"><code class="xref py py-class docutils literal"><span class="pre">OSPF</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_030a4d413c8543a222cfeea04fde3d412c2f3295.html#ydk.models.openconfig.openconfig_policy_types.OSPF3" title="ydk.models.openconfig.openconfig_policy_types.OSPF3"><code class="xref py py-class docutils literal"><span class="pre">OSPF3</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_29cf472823acf639dee05e7f51af00862a7ac5e9.html#ydk.models.openconfig.openconfig_policy_types.STATIC" title="ydk.models.openconfig.openconfig_policy_types.STATIC"><code class="xref py py-class docutils literal"><span class="pre">STATIC</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_ede9a5b48856e2b5f32504c53e3f743932fa844d.html#ydk.models.openconfig.openconfig_policy_types.DIRECTLYCONNECTED" title="ydk.models.openconfig.openconfig_policy_types.DIRECTLYCONNECTED"><code class="xref py py-class docutils literal"><span class="pre">DIRECTLYCONNECTED</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_0d9c9e7390bff69e0ccca645164511f18b18c131.html#ydk.models.openconfig.openconfig_policy_types.LOCALAGGREGATE" title="ydk.models.openconfig.openconfig_policy_types.LOCALAGGREGATE"><code class="xref py py-class docutils literal"><span class="pre">LOCALAGGREGATE</span></code></a></p>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.address_family">
+<code class="descname">address_family</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.address_family" title="Permalink to this definition">¶</a></dt>
+<dd><p>The address family associated with the connection. This must be defined for the source protocol. The target address family is implicitly defined by the address family specified for the source protocol</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_745f393b66ae6a147262faeb70e275d9e5ee8308.html#ydk.models.openconfig.openconfig_types.IPV4" title="ydk.models.openconfig.openconfig_types.IPV4"><code class="xref py py-class docutils literal"><span class="pre">IPV4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_fda27fec0f7ab537c398d43345b79234e938c505.html#ydk.models.openconfig.openconfig_types.IPV6" title="ydk.models.openconfig.openconfig_types.IPV6"><code class="xref py py-class docutils literal"><span class="pre">IPV6</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_a1906d576935e3f80d074d340f966e08e807ad25.html#ydk.models.openconfig.openconfig_types.MPLS" title="ydk.models.openconfig.openconfig_types.MPLS"><code class="xref py py-class docutils literal"><span class="pre">MPLS</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_994ffe06fc17b11702e9dff60ede7efc917d3c07.html#ydk.models.openconfig.openconfig_types.L2ETHERNET" title="ydk.models.openconfig.openconfig_types.L2ETHERNET"><code class="xref py py-class docutils literal"><span class="pre">L2ETHERNET</span></code></a></p>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.dst_protocol">
+<code class="descname">dst_protocol</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.dst_protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>The destination protocol for the table connection</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_a3a1e60c7373e2724a3b5c91f1cf08ff37441ecb.html#ydk.models.openconfig.openconfig_policy_types.BGP" title="ydk.models.openconfig.openconfig_policy_types.BGP"><code class="xref py py-class docutils literal"><span class="pre">BGP</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_25017a82697c878126aa53568c718de4611bc021.html#ydk.models.openconfig.openconfig_policy_types.ISIS" title="ydk.models.openconfig.openconfig_policy_types.ISIS"><code class="xref py py-class docutils literal"><span class="pre">ISIS</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_959183dc86c7619b366898901087a5fb2d9b1e41.html#ydk.models.openconfig.openconfig_policy_types.OSPF" title="ydk.models.openconfig.openconfig_policy_types.OSPF"><code class="xref py py-class docutils literal"><span class="pre">OSPF</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_030a4d413c8543a222cfeea04fde3d412c2f3295.html#ydk.models.openconfig.openconfig_policy_types.OSPF3" title="ydk.models.openconfig.openconfig_policy_types.OSPF3"><code class="xref py py-class docutils literal"><span class="pre">OSPF3</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_29cf472823acf639dee05e7f51af00862a7ac5e9.html#ydk.models.openconfig.openconfig_policy_types.STATIC" title="ydk.models.openconfig.openconfig_policy_types.STATIC"><code class="xref py py-class docutils literal"><span class="pre">STATIC</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_ede9a5b48856e2b5f32504c53e3f743932fa844d.html#ydk.models.openconfig.openconfig_policy_types.DIRECTLYCONNECTED" title="ydk.models.openconfig.openconfig_policy_types.DIRECTLYCONNECTED"><code class="xref py py-class docutils literal"><span class="pre">DIRECTLYCONNECTED</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_0d9c9e7390bff69e0ccca645164511f18b18c131.html#ydk.models.openconfig.openconfig_policy_types.LOCALAGGREGATE" title="ydk.models.openconfig.openconfig_policy_types.LOCALAGGREGATE"><code class="xref py py-class docutils literal"><span class="pre">LOCALAGGREGATE</span></code></a></p>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.import_policy">
+<code class="descname">import_policy</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.import_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc</p>
+<p><strong>type</strong>: list of str</p>
+<p><strong>refers to</strong>:  <a class="reference internal" href="gen_doc_84850708caa8827a2a1d6ee701947c926a931340.html#ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition" title="ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition"><code class="xref py py-class docutils literal"><span class="pre">name</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.default_import_policy">
+<code class="descname">default_import_policy</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections.TableConnection.State.default_import_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>explicitly set a default policy if no policy definition in the import policy chain is satisfied</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_bcd33c940f28c5ae63d6e1dab03a109483f29c49.html#ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyType" title="ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyType"><code class="xref py py-class docutils literal"><span class="pre">DefaultPolicyType</span></code></a></p>
+<p><strong>config</strong>: False</p>
+<p><strong>default value</strong>: REJECT_ROUTE</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

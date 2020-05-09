@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>State &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>State</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="state">
+<h1>State<a class="headerlink" href="#state" title="Permalink to this headline">¶</a></h1>
+<p><strong>Leafs</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.demand_mode_requested" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.demand_mode_requested"><code class="xref py py-attr docutils literal"><span class="pre">demand_mode_requested</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.failure_transitions" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.failure_transitions"><code class="xref py py-attr docutils literal"><span class="pre">failure_transitions</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.last_failure_time" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.last_failure_time"><code class="xref py py-attr docutils literal"><span class="pre">last_failure_time</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.local_address" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.local_address"><code class="xref py py-attr docutils literal"><span class="pre">local_address</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.local_diagnostic_code" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.local_diagnostic_code"><code class="xref py py-attr docutils literal"><span class="pre">local_diagnostic_code</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.local_discriminator" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.local_discriminator"><code class="xref py py-attr docutils literal"><span class="pre">local_discriminator</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_address" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_address"><code class="xref py py-attr docutils literal"><span class="pre">remote_address</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_authentication_enabled" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_authentication_enabled"><code class="xref py py-attr docutils literal"><span class="pre">remote_authentication_enabled</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_control_plane_independent" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_control_plane_independent"><code class="xref py py-attr docutils literal"><span class="pre">remote_control_plane_independent</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_diagnostic_code" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_diagnostic_code"><code class="xref py py-attr docutils literal"><span class="pre">remote_diagnostic_code</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_discriminator" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_discriminator"><code class="xref py py-attr docutils literal"><span class="pre">remote_discriminator</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_minimum_receive_interval" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_minimum_receive_interval"><code class="xref py py-attr docutils literal"><span class="pre">remote_minimum_receive_interval</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_session_state" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_session_state"><code class="xref py py-attr docutils literal"><span class="pre">remote_session_state</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.session_state" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.session_state"><code class="xref py py-attr docutils literal"><span class="pre">session_state</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.subscribed_protocols" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.subscribed_protocols"><code class="xref py py-attr docutils literal"><span class="pre">subscribed_protocols</span></code></a></li>
+</ul>
+<p><strong>Children</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.async_" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.async_"><code class="xref py py-attr docutils literal"><span class="pre">async_</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.echo" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.echo"><code class="xref py py-attr docutils literal"><span class="pre">echo</span></code></a></li>
+</ul>
+<dl class="class">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State">
+<em class="property">class </em><code class="descclassname">Bfd.Interfaces.Interface.Peers.Peer.</code><code class="descname">State</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="api/types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a></p>
+<p>Class Hierarchy : <a class="reference internal" href="gen_doc_5f5919aeeaf8ca6fc4e8146ee4d3cd9a68665d1b.html#ydk.models.openconfig.openconfig_bfd.Bfd" title="ydk.models.openconfig.openconfig_bfd.Bfd"><code class="xref py py-class docutils literal"><span class="pre">Bfd</span></code></a> <a class="reference internal" href="gen_doc_6d2c589b69f71bb070c4c90f0698417b01bafde2.html#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces"><code class="xref py py-class docutils literal"><span class="pre">Interfaces</span></code></a> <a class="reference internal" href="gen_doc_cb45478ba8e2a30ca4599f032096b1a216aea69a.html#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface"><code class="xref py py-class docutils literal"><span class="pre">Interface</span></code></a> <a class="reference internal" href="gen_doc_9f46834f5d4fa5961eb8f902d5d6824016048708.html#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers"><code class="xref py py-class docutils literal"><span class="pre">Peers</span></code></a> <a class="reference internal" href="gen_doc_a75c95abad618a3791fb652a3344f8cf9eb7bcc4.html#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer"><code class="xref py py-class docutils literal"><span class="pre">Peer</span></code></a> <a class="reference internal" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State"><code class="xref py py-class docutils literal"><span class="pre">State</span></code></a></p>
+<p>This class represents state data.</p>
+<p>Operational state parameters for the BFD session.</p>
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.local_address">
+<code class="descname">local_address</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.local_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IP address used by the local system for this BFD session</p>
+<p><strong>type</strong>: union of the below types:</p>
+<blockquote>
+<div><p><strong>type</strong>: str</p>
+<blockquote>
+<div><strong>pattern:</strong> ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$</div></blockquote>
+<p><strong>type</strong>: str</p>
+<blockquote>
+<div><strong>pattern:</strong> ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$</div></blockquote>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_address">
+<code class="descname">remote_address</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IP address used by the remote system for this BFD session</p>
+<p><strong>type</strong>: union of the below types:</p>
+<blockquote>
+<div><p><strong>type</strong>: str</p>
+<blockquote>
+<div><strong>pattern:</strong> ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$</div></blockquote>
+<p><strong>type</strong>: str</p>
+<blockquote>
+<div><strong>pattern:</strong> ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$</div></blockquote>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.subscribed_protocols">
+<code class="descname">subscribed_protocols</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.subscribed_protocols" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the set of protocols that currently use this BFD session for liveliness detection</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p>list of</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_a3a1e60c7373e2724a3b5c91f1cf08ff37441ecb.html#ydk.models.openconfig.openconfig_policy_types.BGP" title="ydk.models.openconfig.openconfig_policy_types.BGP"><code class="xref py py-class docutils literal"><span class="pre">BGP</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_25017a82697c878126aa53568c718de4611bc021.html#ydk.models.openconfig.openconfig_policy_types.ISIS" title="ydk.models.openconfig.openconfig_policy_types.ISIS"><code class="xref py py-class docutils literal"><span class="pre">ISIS</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_959183dc86c7619b366898901087a5fb2d9b1e41.html#ydk.models.openconfig.openconfig_policy_types.OSPF" title="ydk.models.openconfig.openconfig_policy_types.OSPF"><code class="xref py py-class docutils literal"><span class="pre">OSPF</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_030a4d413c8543a222cfeea04fde3d412c2f3295.html#ydk.models.openconfig.openconfig_policy_types.OSPF3" title="ydk.models.openconfig.openconfig_policy_types.OSPF3"><code class="xref py py-class docutils literal"><span class="pre">OSPF3</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_29cf472823acf639dee05e7f51af00862a7ac5e9.html#ydk.models.openconfig.openconfig_policy_types.STATIC" title="ydk.models.openconfig.openconfig_policy_types.STATIC"><code class="xref py py-class docutils literal"><span class="pre">STATIC</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_ede9a5b48856e2b5f32504c53e3f743932fa844d.html#ydk.models.openconfig.openconfig_policy_types.DIRECTLYCONNECTED" title="ydk.models.openconfig.openconfig_policy_types.DIRECTLYCONNECTED"><code class="xref py py-class docutils literal"><span class="pre">DIRECTLYCONNECTED</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_0d9c9e7390bff69e0ccca645164511f18b18c131.html#ydk.models.openconfig.openconfig_policy_types.LOCALAGGREGATE" title="ydk.models.openconfig.openconfig_policy_types.LOCALAGGREGATE"><code class="xref py py-class docutils literal"><span class="pre">LOCALAGGREGATE</span></code></a></p>
+</div></blockquote>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.session_state">
+<code class="descname">session_state</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.session_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>The state of the BFD session perceived by the local system</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_27dc7fd9dc1ad9666377da6f22e30ddd128a2d4d.html#ydk.models.openconfig.openconfig_bfd.BfdSessionState" title="ydk.models.openconfig.openconfig_bfd.BfdSessionState"><code class="xref py py-class docutils literal"><span class="pre">BfdSessionState</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_session_state">
+<code class="descname">remote_session_state</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_session_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>The reported state of the BFD session according to the remote system. This state reflects the last state reported in a BFD control packet</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_27dc7fd9dc1ad9666377da6f22e30ddd128a2d4d.html#ydk.models.openconfig.openconfig_bfd.BfdSessionState" title="ydk.models.openconfig.openconfig_bfd.BfdSessionState"><code class="xref py py-class docutils literal"><span class="pre">BfdSessionState</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.last_failure_time">
+<code class="descname">last_failure_time</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.last_failure_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time of the last transition of the BFD session out of the UP state, expressed as the number of nanoseconds since the Unix epoch</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.failure_transitions">
+<code class="descname">failure_transitions</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.failure_transitions" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of times that the BFD session has transitioned out of the UP state</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.local_discriminator">
+<code class="descname">local_discriminator</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.local_discriminator" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unique identifier used by the local system to identify this BFD session</p>
+<p><strong>type</strong>: str</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_discriminator">
+<code class="descname">remote_discriminator</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_discriminator" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unique identified used by the remote system to identify this BFD session</p>
+<p><strong>type</strong>: str</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.local_diagnostic_code">
+<code class="descname">local_diagnostic_code</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.local_diagnostic_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>The local BFD diagnostic code indicating the most recent reason for failure of this BFD session</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_f02bee4fa9a7be4a57360470aa5171645ee57220.html#ydk.models.openconfig.openconfig_bfd.BfdDiagnosticCode" title="ydk.models.openconfig.openconfig_bfd.BfdDiagnosticCode"><code class="xref py py-class docutils literal"><span class="pre">BfdDiagnosticCode</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_diagnostic_code">
+<code class="descname">remote_diagnostic_code</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_diagnostic_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>The remote BFD diagnostic code indicating the remote system&#8217;s reason for failure of the BFD session</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_f02bee4fa9a7be4a57360470aa5171645ee57220.html#ydk.models.openconfig.openconfig_bfd.BfdDiagnosticCode" title="ydk.models.openconfig.openconfig_bfd.BfdDiagnosticCode"><code class="xref py py-class docutils literal"><span class="pre">BfdDiagnosticCode</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_minimum_receive_interval">
+<code class="descname">remote_minimum_receive_interval</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_minimum_receive_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value of the minimum receive interval that was specified in the most recent BFD control packet received from the peer</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..4294967295</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.demand_mode_requested">
+<code class="descname">demand_mode_requested</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.demand_mode_requested" title="Permalink to this definition">¶</a></dt>
+<dd><p>This leaf is set to true when the remote system has requested demand mode be run for this session</p>
+<p><strong>type</strong>: bool</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_authentication_enabled">
+<code class="descname">remote_authentication_enabled</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_authentication_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>This leaf is set to true when the remote system has specified that authentication is present for the BFD session</p>
+<p><strong>type</strong>: bool</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_control_plane_independent">
+<code class="descname">remote_control_plane_independent</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.remote_control_plane_independent" title="Permalink to this definition">¶</a></dt>
+<dd><p>This leaf is set to true when the remote system has specified that the hardware implementing this BFD session is independent of the control plane&#8217;s liveliness</p>
+<p><strong>type</strong>: bool</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.echo">
+<code class="descname">echo</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.echo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operational state parameters specifically relating to the echo mode of BFD</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_990703b5a0c1093a46df0a489ea7e2bec1b1a4cc.html#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.Echo" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.Echo"><code class="xref py py-class docutils literal"><span class="pre">Echo</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.async_">
+<code class="descname">async_</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.async_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operational state parameters specifically relating to asynchronous mode of BFD</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_a09ae6d0eddc36312b6acbbd9656ffd9dde833cb.html#ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.Async" title="ydk.models.openconfig.openconfig_bfd.Bfd.Interfaces.Interface.Peers.Peer.State.Async"><code class="xref py py-class docutils literal"><span class="pre">Async</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

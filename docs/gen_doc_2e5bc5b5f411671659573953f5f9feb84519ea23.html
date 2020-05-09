@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>State &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>State</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="state">
+<h1>State<a class="headerlink" href="#state" title="Permalink to this headline">¶</a></h1>
+<p><strong>Leafs</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_calculated_sr_utilisation" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_calculated_sr_utilisation"><code class="xref py py-attr docutils literal"><span class="pre">last_calculated_sr_utilisation</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_calculated_time" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_calculated_time"><code class="xref py py-attr docutils literal"><span class="pre">last_calculated_time</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_flooded_time" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_flooded_time"><code class="xref py py-attr docutils literal"><span class="pre">last_flooded_time</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_sample_measured_rsvp_util" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_sample_measured_rsvp_util"><code class="xref py py-attr docutils literal"><span class="pre">last_sample_measured_rsvp_util</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_sample_measured_sr_util" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_sample_measured_sr_util"><code class="xref py py-attr docutils literal"><span class="pre">last_sample_measured_sr_util</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_sample_time" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_sample_time"><code class="xref py py-attr docutils literal"><span class="pre">last_sample_time</span></code></a></li>
+</ul>
+<dl class="class">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State">
+<em class="property">class </em><code class="descclassname">NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.</code><code class="descname">State</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="api/types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a></p>
+<p>Class Hierarchy : <a class="reference internal" href="gen_doc_2f2cd2802fb0ef124aedad67d65bf9814f7e951b.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances"><code class="xref py py-class docutils literal"><span class="pre">NetworkInstances</span></code></a> <a class="reference internal" href="gen_doc_9dd078d8add970b42e627902e7ba33970c4ab577.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance"><code class="xref py py-class docutils literal"><span class="pre">NetworkInstance</span></code></a> <a class="reference internal" href="gen_doc_4a510126b083701e27354dcf0f036017420be44f.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls"><code class="xref py py-class docutils literal"><span class="pre">Mpls</span></code></a> <a class="reference internal" href="gen_doc_1da666c973b5749142235c622438ed69a027e807.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes"><code class="xref py py-class docutils literal"><span class="pre">TeInterfaceAttributes</span></code></a> <a class="reference internal" href="gen_doc_3afdc59cbd47b589174f1be091b07c10346a3f32.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface"><code class="xref py py-class docutils literal"><span class="pre">Interface</span></code></a> <a class="reference internal" href="gen_doc_1cd0112c19d2fc53c1ad8c564f369c945f30af05.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement"><code class="xref py py-class docutils literal"><span class="pre">BandwidthMeasurement</span></code></a> <a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State"><code class="xref py py-class docutils literal"><span class="pre">State</span></code></a></p>
+<p>This class represents state data.</p>
+<p>Operational state parameters relating to the containing</p>
+<p>interface&#8217;s bandwidth measurement.</p>
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_sample_time">
+<code class="descname">last_sample_time</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_sample_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time at which the last sample of bandwidth utilisation for both RSVP-TE and non-RSVP-TE traffic was taken. This value is represented in nanoseconds since the Unix epoch</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_sample_measured_rsvp_util">
+<code class="descname">last_sample_measured_rsvp_util</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_sample_measured_rsvp_util" title="Permalink to this definition">¶</a></dt>
+<dd><p>The measured RSVP-TE bandwidth utilisation at the last sample (whose time is indicated in last-sample-time). This value is expressed as a 64-bit unsigned integer representing the number of kilobits per second that RSVP-TE traffic is consuming on the interface</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+<p><strong>units</strong>: kbps</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_sample_measured_sr_util">
+<code class="descname">last_sample_measured_sr_util</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_sample_measured_sr_util" title="Permalink to this definition">¶</a></dt>
+<dd><p>The measured Segment Routing bandwidth utilisation at the last sample (whose time is indicated in last-sample-time). This value is expressed as a 64-bit unsigned integer representing the number of kilobits per second that Segment Routing traffic is consuming on the interface</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+<p><strong>units</strong>: kbps</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_calculated_time">
+<code class="descname">last_calculated_time</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_calculated_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time at which the last calculated value for bandwidth utilisation was performed</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_calculated_sr_utilisation">
+<code class="descname">last_calculated_sr_utilisation</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_calculated_sr_utilisation" title="Permalink to this definition">¶</a></dt>
+<dd><p>The last calculated value of the Segment Routing  utilisation (taken post any averaging or adjustment that occurs). This value is updated regardless of whether the value was flooded or not</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_flooded_time">
+<code class="descname">last_flooded_time</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.TeInterfaceAttributes.Interface.BandwidthMeasurement.State.last_flooded_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time, expressed in nanoseconds since the epoch, at which the bandwidth utilisation of non-RSVP-TE traffic resulted in the value being flooded in the IGP. If the configuration of the local system specifies a 0% change requires flooding, this leaf will always reflect the value of the last-calculated-time. In systems that have suppression due to a &gt;0% delta being required then it indicates the last time that the percentage threshold was exceeded</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

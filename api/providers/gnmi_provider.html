@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gNMI Service Provider &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="../../index.html"/>
+        <link rel="up" title="Service Providers" href="providers.html"/>
+        <link rel="next" title="Opendaylight Service Provider" href="odl_provider.html"/>
+        <link rel="prev" title="NETCONF Service Provider" href="netconf_provider.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_guide.html">API Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../class_hierarchy.html">YDK API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../services/services.html">Services</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="providers.html">Service Providers</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="service_provider.html">ServiceProvider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="codec_provider.html">Codec Service Provider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netconf_provider.html">NETCONF Service Provider</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="">gNMI Service Provider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="odl_provider.html">Opendaylight Service Provider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="restconf_provider.html">RESTCONF Service Provider</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../types.html">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../path/path.html">YDK Path API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../api_guide.html">API Guide</a> &raquo;</li>
+      
+          <li><a href="../class_hierarchy.html">YDK API</a> &raquo;</li>
+      
+          <li><a href="providers.html">Service Providers</a> &raquo;</li>
+      
+    <li>gNMI Service Provider</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gnmi-service-provider">
+<h1>gNMI Service Provider<a class="headerlink" href="#gnmi-service-provider" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ydk.gnmi.providers.gNMIServiceProvider">
+<em class="property">class </em><code class="descclassname">ydk.gnmi.providers.</code><code class="descname">gNMIServiceProvider</code><span class="sig-paren">(</span><em>repo</em>, <em>address</em>, <em>port=57400</em>, <em>username</em>, <em>password</em>, <em>server_certificate=&quot;&quot;</em>, <em>private_key=&quot;&quot;</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.gnmi.providers.gNMIServiceProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>A service provider, which allows YDK connect to a <a class="reference external" href="https://github.com/openconfig/gnmi">gNMI</a> server. By default, the provider works in non-secure mode (tls is off). In order to enable secure mode connection the user must provide the gNMI server certificate of authorization (public key) and optionally the client (YDK application host) private key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>repo</strong> &#8211; Instance of <a class="reference internal" href="../path/repository.html#ydk.path.Repository" title="ydk.path.Repository"><code class="xref py py-class docutils literal"><span class="pre">Repository</span></code></a> with path to local directory containing the the <a class="reference external" href="https://raw.githubusercontent.com/CiscoDevNet/ydk-gen/1344b3f22d746764f17536ac4e666836de4ba84d/sdk/cpp/core/tests/models/ydk%402016-02-26.yang">ydk yang model</a> along with all the yang models supported on the gNMI server.</li>
+<li><strong>address</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) Host address of the device supporting a gNMI interface</li>
+<li><strong>port</strong> &#8211; (<code class="docutils literal"><span class="pre">int</span></code>)Port on which the gNMI interface can be accessed on the device. If not specified, the default value of <code class="docutils literal"><span class="pre">57400</span></code> is assigned.</li>
+<li><strong>username</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) Username.</li>
+<li><strong>password</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) Password.</li>
+<li><strong>server_certificate</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) Full path to a file, which contains server certificate of authorization (public key). If not specified, it is assumed non-secure connection to gNMI server.</li>
+<li><strong>private_key</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) Full path to a file, which contains private key of the application host. If not specified and <strong>server_certificate</strong> is defined (secure connection), the GRPC internally defined private key is used.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>To enable YDK logging include the following code:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;ydk&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">((</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> - </span><span class="si">%(name)s</span><span class="s2"> - </span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="n">handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>To enable GRPC trace set environment variables as followed:</p>
+<div class="highlight-shell"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GRPC_VERBOSITY</span><span class="o">=</span>debug
+<span class="nb">export</span> <span class="nv">GRPC_TRACE</span><span class="o">=</span>transport_security
+</pre></div>
+</td></tr></table></div>
+<p>To get server certificate, you need to retrive the <strong>ems.pem</strong> file from the IOS XR device (after enabling gRPC/TLS)
+and put it to YDK application host in a folder, which is specific to the device.
+You can find the <strong>ems.pem</strong> file on the router in either <strong>/misc/config/grpc/</strong> or <strong>/var/xr/config/grpc</strong> folder.</p>
+<p>Example of instantiating and using objects of <code class="docutils literal"><span class="pre">gNMIServiceProvider</span></code> is shown below (assuming you have <code class="docutils literal"><span class="pre">openconfig</span></code> bundle installed).</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ydk.models.openconfig</span> <span class="kn">import</span> <span class="n">openconfig_bgp</span>
+<span class="kn">from</span> <span class="nn">ydk.path</span> <span class="kn">import</span> <span class="n">Repository</span>
+<span class="kn">from</span> <span class="nn">ydk.gnmi.providers</span> <span class="kn">import</span> <span class="n">gNMIServiceProvider</span>
+<span class="kn">from</span> <span class="nn">ydk.services</span> <span class="kn">import</span> <span class="n">CRUDService</span>
+
+<span class="c1"># Create repository with location of directory where yang models from the server are downloaded</span>
+<span class="n">repository</span> <span class="o">=</span> <span class="n">Repository</span><span class="p">(</span><span class="s1">&#39;/Users/test/yang_models_location&#39;</span><span class="p">)</span>
+<span class="n">ca_file_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/test/device-ip/ems.pem&#39;</span>
+
+<span class="c1"># Instantiate provider with non-secure connection to gNMI server</span>
+<span class="n">provider</span> <span class="o">=</span> <span class="n">gNMIServiceProvider</span><span class="p">(</span><span class="n">repo</span><span class="o">=</span><span class="n">repository</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s1">&#39;10.0.0.1&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">57400</span><span class="p">,</span>
+                               <span class="n">username</span><span class="o">=</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="n">server_certificate</span><span class="o">=</span><span class="n">ca_file_path</span><span class="p">)</span>
+
+<span class="c1"># Define filter</span>
+<span class="n">bgp</span> <span class="o">=</span> <span class="n">openconfig_bgp</span><span class="o">.</span><span class="n">Bgp</span><span class="p">()</span>
+
+<span class="c1"># Run CRUD read opearaion</span>
+<span class="n">crud</span> <span class="o">=</span> <span class="n">CRUDService</span><span class="p">()</span>
+<span class="n">bgp_read</span> <span class="o">=</span> <span class="n">crud</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">provider</span><span class="p">,</span> <span class="n">bgp</span><span class="p">)</span> <span class="c1"># Perform read operation</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="odl_provider.html" class="btn btn-neutral float-right" title="Opendaylight Service Provider" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="netconf_provider.html" class="btn btn-neutral" title="NETCONF Service Provider" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>What are deviations? &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="../index.html"/>
+        <link rel="up" title="Developer Guide" href="../developer_guide.html"/>
+        <link rel="next" title="How do I use the Path API?" href="path.html"/>
+        <link rel="prev" title="What are presence classes?" href="presence_class.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../developer_guide.html">Developer Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crud_guide.html">How do I create, update, read and delete?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codec_guide.html">How do I work with instances of YANG data?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="executor_guide.html">How do I execute RPCs?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">How to Disable Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="presence_class.html">What are presence classes?</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">What are deviations?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-use-deviation-with-ydk">How to use deviation with YDK</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="path.html">How do I use the Path API?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opendaylight.html">How do I use OpenDaylight with YDK?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backward_compatibility.html">Backward compatibility notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../developer_guide.html">Developer Guide</a> &raquo;</li>
+      
+    <li>What are deviations?</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="what-are-deviations">
+<h1><a class="toc-backref" href="#id1">What are deviations?</a><a class="headerlink" href="#what-are-deviations" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#what-are-deviations" id="id1">What are deviations?</a><ul>
+<li><a class="reference internal" href="#overview" id="id2">Overview</a></li>
+<li><a class="reference internal" href="#how-to-use-deviation-with-ydk" id="id3">How to use deviation with YDK</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="overview">
+<h2><a class="toc-backref" href="#id2">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Not all devices faithfully support features defined in standard yang models. For a particular device, it could support only part of features or the feature it supported varies from the standard module. The YANG language defines the <a class="reference external" href="https://tools.ietf.org/html/rfc6020#section-7.18.3">deviation statement</a> to indicate such a thing.
+For example, using a deviation statement in <a class="reference external" href="https://github.com/YangModels/yang/blob/master/vendor/cisco/xr/631/cisco-xr-openconfig-telemetry-deviations.yang#L73">cisco-xr-openconfig-telemetry-deviations.yang</a>, the netconf server can indicate that the <a class="reference internal" href="../gen_doc_85aed9913322c1cb4917956a0cf6e8e2fcb35142.html#ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription" title="ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription"><code class="xref py py-class docutils literal"><span class="pre">openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription</span></code></a> container of the <code class="docutils literal"><span class="pre">openconfig_telemetry</span></code> model is not supported.</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">deviation</span> <span class="o">/</span><span class="n">oc</span><span class="o">-</span><span class="nl">telemetry</span><span class="p">:</span><span class="n">telemetry</span><span class="o">-</span><span class="n">system</span><span class="o">/</span><span class="n">oc</span><span class="o">-</span><span class="nl">telemetry</span><span class="p">:</span><span class="n">subscriptions</span><span class="o">/</span><span class="n">oc</span><span class="o">-</span><span class="nl">telemetry</span><span class="p">:</span><span class="n">dynamic</span><span class="o">/</span><span class="n">oc</span><span class="o">-</span><span class="nl">telemetry</span><span class="p">:</span><span class="n">subscription</span> <span class="p">{</span>
+  <span class="n">deviate</span> <span class="n">not</span><span class="o">-</span><span class="n">supported</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-to-use-deviation-with-ydk">
+<h2><a class="toc-backref" href="#id3">How to use deviation with YDK</a><a class="headerlink" href="#how-to-use-deviation-with-ydk" title="Permalink to this headline">¶</a></h2>
+<p>When using YDK to program a device which has some unsupported features, YDK will raise error <strong>before</strong> sending payload to device. For instance, if the device advertises via a deviation that it does not support the <code class="docutils literal"><span class="pre">subscription</span></code> node as shown above, an error will be raised.</p>
+<p>We can try to configure a dynamic subscription with the below app.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ydk.models.openconfig.openconfig_telemetry</span> <span class="kn">import</span> <span class="n">TelemetrySystem</span>
+
+<span class="n">telemetry</span> <span class="o">=</span> <span class="n">TelemetrySystem</span><span class="p">()</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">telemetry</span><span class="o">.</span><span class="n">subscriptions</span><span class="o">.</span><span class="n">dynamic</span><span class="o">.</span><span class="n">Subscription</span><span class="p">()</span>
+<span class="n">s</span><span class="o">.</span><span class="n">subscription_id</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="n">s</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">subscription_id</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="n">telemetry</span><span class="o">.</span><span class="n">subscriptions</span><span class="o">.</span><span class="n">dynamic</span><span class="o">.</span><span class="n">subscription</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="c1"># Call the CRUD create on the top-level telemetry object</span>
+<span class="c1"># (assuming you have already instantiated the service and provider)</span>
+<span class="n">crud</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">provider</span><span class="p">,</span> <span class="n">telemetry</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>The above app results in the below errors logged and exception being raised because of the deviation which is active on the <code class="docutils literal"><span class="pre">subscription</span></code> node.</p>
+<div class="highlight-sh"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="m">2017</span>-11-08 <span class="m">21</span>:26:58,543 - ydk - ERROR - Data is invalid according to the yang model. Error details: Schema node not found. Path: <span class="s1">&#39;subscription&#39;</span>
+<span class="m">2017</span>-11-08 <span class="m">21</span>:26:58,543 - ydk - ERROR - Invalid path: subscription<span class="o">[</span>subscription-id<span class="o">=</span><span class="s1">&#39;123&#39;</span><span class="o">]</span>
+
+  File <span class="s2">&quot;/Users/lib/python3.6/site-packages/ydk/errors/error_handler.py&quot;</span>, line <span class="m">112</span>, in helper
+    <span class="k">return</span> func<span class="o">(</span>self, provider, entity, *args, **kwargs<span class="o">)</span>
+  File <span class="s2">&quot;/Users/lib/python3.6/site-packages/ydk/services/crud_service.py&quot;</span>, line <span class="m">30</span>, in create
+    <span class="k">return</span> self._crud.create<span class="o">(</span>provider, entity<span class="o">)</span>
+  File <span class="s2">&quot;/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/contextlib.py&quot;</span>, line <span class="m">99</span>, in __exit__
+    self.gen.throw<span class="o">(</span>type, value, traceback<span class="o">)</span>
+  File <span class="s2">&quot;/Users/lib/python3.6/site-packages/ydk/errors/error_handler.py&quot;</span>, line <span class="m">82</span>, in handle_runtime_error
+    _raise<span class="o">(</span>_exc<span class="o">)</span>
+  File <span class="s2">&quot;/Users/lib/python3.6/site-packages/ydk/errors/error_handler.py&quot;</span>, line <span class="m">54</span>, in _raise
+    exec<span class="o">(</span><span class="s2">&quot;raise exc from None&quot;</span><span class="o">)</span>
+  File <span class="s2">&quot;&lt;string&gt;&quot;</span>, line <span class="m">1</span>, in &lt;module&gt;
+ydk.errors.YModelError:  Invalid path: subscription<span class="o">[</span>subscription-id<span class="o">=</span><span class="s1">&#39;123&#39;</span><span class="o">]</span> : Schema node not found.. Path: subscription
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="path.html" class="btn btn-neutral float-right" title="How do I use the Path API?" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="presence_class.html" class="btn btn-neutral" title="What are presence classes?" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

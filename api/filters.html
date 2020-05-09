@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Filters &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="../index.html"/>
+        <link rel="up" title="YDK API" href="class_hierarchy.html"/>
+        <link rel="next" title="Types" href="types.html"/>
+        <link rel="prev" title="RESTCONF Service Provider" href="providers/restconf_provider.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_guide.html">API Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="class_hierarchy.html">YDK API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="services/services.html">Services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="providers/providers.html">Service Providers</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="path/path.html">YDK Path API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../api_guide.html">API Guide</a> &raquo;</li>
+      
+          <li><a href="class_hierarchy.html">YDK API</a> &raquo;</li>
+      
+    <li>Filters</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="filters">
+<span id="filters-ydk"></span><h1>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ydk.filters.YFilter">
+<em class="property">class </em><code class="descclassname">ydk.filters.</code><code class="descname">YFilter</code><a class="headerlink" href="#ydk.filters.YFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>YFilter can be used to include the various operations supported in the <a class="reference external" href="https://tools.ietf.org/html/rfc6241#section-7.2">Netconf protocol&#8217;s edit-config RPC</a> in your YDK app. YFilter can also be used to mark leafs, lists or containers for reading.</p>
+<dl class="attribute">
+<dt id="ydk.filters.YFilter.create">
+<code class="descname">create</code><a class="headerlink" href="#ydk.filters.YFilter.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>The configuration data identified by the element
+containing this attribute is added to the configuration if
+and only if the configuration data does not already exist in
+the configuration datastore. If the configuration data
+exists, an <a class="reference internal" href="errors.html#ydk.errors.YServiceProviderError" title="ydk.errors.YServiceProviderError"><code class="xref py py-class docutils literal"><span class="pre">ydk.errors.YServiceProviderError</span></code></a> will be thrown
+with XML error message.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.filters.YFilter.delete">
+<code class="descname">delete</code><a class="headerlink" href="#ydk.filters.YFilter.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>The configuration data identified by the element
+containing this attribute is deleted from the configuration
+if and only if the configuration data currently exists in
+the configuration datastore. If the configuration data does
+not exist, an <a class="reference internal" href="errors.html#ydk.errors.YServiceProviderError" title="ydk.errors.YServiceProviderError"><code class="xref py py-class docutils literal"><span class="pre">ydk.errors.YServiceProviderError</span></code></a> will be
+thrown with XML error message.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.filters.YFilter.merge">
+<code class="descname">merge</code><a class="headerlink" href="#ydk.filters.YFilter.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>The configuration data identified by the element
+containing this attribute is merged with the configuration
+at the corresponding level in the configuration datastore
+identified by the target.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.filters.YFilter.not_set">
+<code class="descname">not_set</code><a class="headerlink" href="#ydk.filters.YFilter.not_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the default behavior. No operation tag is attached to the
+payload.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.filters.YFilter.remove">
+<code class="descname">remove</code><a class="headerlink" href="#ydk.filters.YFilter.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>The configuration data identified by the element
+containing this attribute is deleted from the configuration
+if the configuration data currently exists in the
+configuration datastore.  If the configuration data does not
+exist, the <code class="docutils literal"><span class="pre">remove</span></code> operation is silently ignored by the server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.filters.YFilter.replace">
+<code class="descname">replace</code><a class="headerlink" href="#ydk.filters.YFilter.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>The configuration data identified by the element
+containing this attribute replaces any related configuration
+in the configuration datastore identified by the target
+parameter.  If no such configuration data exists in the
+configuration datastore, it is created.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.filters.YFilter.read">
+<code class="descname">read</code><a class="headerlink" href="#ydk.filters.YFilter.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>When reading configuration or operational data from a network
+device and a specific node, like a leaf or a class, is desired to be read, the yfilter attribute can
+be set to <code class="docutils literal"><span class="pre">YFilter.read</span></code> on that node.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.filters.YFilter.update">
+<code class="descname">update</code><a class="headerlink" href="#ydk.filters.YFilter.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>The configuration data identified by the element
+containing this attribute updates any related configuration
+in the configuration datastore identified by the target
+parameter.  If no such configuration data exists in the
+configuration datastore, it is created.</p>
+<p><strong>Note.</strong> The <code class="docutils literal"><span class="pre">YFilter.update</span></code> is aplicable only to <a class="reference internal" href="services/gnmi_service.html#ydk.gnmi.services.gNMIService" title="ydk.gnmi.services.gNMIService"><code class="xref py py-class docutils literal"><span class="pre">gNMIService</span></code></a> <strong>set</strong> operation.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="types.html" class="btn btn-neutral float-right" title="Types" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="providers/restconf_provider.html" class="btn btn-neutral" title="RESTCONF Service Provider" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Component &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Component</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="component">
+<h1>Component<a class="headerlink" href="#component" title="Permalink to this headline">¶</a></h1>
+<p><strong>Keys</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.name" title="ydk.models.openconfig.openconfig_platform.Components.Component.name"><code class="xref py py-attr docutils literal"><span class="pre">name</span></code></a></li>
+</ul>
+<p><strong>Children</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.backplane" title="ydk.models.openconfig.openconfig_platform.Components.Component.backplane"><code class="xref py py-attr docutils literal"><span class="pre">backplane</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.chassis" title="ydk.models.openconfig.openconfig_platform.Components.Component.chassis"><code class="xref py py-attr docutils literal"><span class="pre">chassis</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.config" title="ydk.models.openconfig.openconfig_platform.Components.Component.config"><code class="xref py py-attr docutils literal"><span class="pre">config</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.cpu" title="ydk.models.openconfig.openconfig_platform.Components.Component.cpu"><code class="xref py py-attr docutils literal"><span class="pre">cpu</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.fabric" title="ydk.models.openconfig.openconfig_platform.Components.Component.fabric"><code class="xref py py-attr docutils literal"><span class="pre">fabric</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.fan" title="ydk.models.openconfig.openconfig_platform.Components.Component.fan"><code class="xref py py-attr docutils literal"><span class="pre">fan</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.integrated_circuit" title="ydk.models.openconfig.openconfig_platform.Components.Component.integrated_circuit"><code class="xref py py-attr docutils literal"><span class="pre">integrated_circuit</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.linecard" title="ydk.models.openconfig.openconfig_platform.Components.Component.linecard"><code class="xref py py-attr docutils literal"><span class="pre">linecard</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.optical_channel" title="ydk.models.openconfig.openconfig_platform.Components.Component.optical_channel"><code class="xref py py-attr docutils literal"><span class="pre">optical_channel</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.optical_port" title="ydk.models.openconfig.openconfig_platform.Components.Component.optical_port"><code class="xref py py-attr docutils literal"><span class="pre">optical_port</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.port" title="ydk.models.openconfig.openconfig_platform.Components.Component.port"><code class="xref py py-attr docutils literal"><span class="pre">port</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.power_supply" title="ydk.models.openconfig.openconfig_platform.Components.Component.power_supply"><code class="xref py py-attr docutils literal"><span class="pre">power_supply</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.properties" title="ydk.models.openconfig.openconfig_platform.Components.Component.properties"><code class="xref py py-attr docutils literal"><span class="pre">properties</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.state" title="ydk.models.openconfig.openconfig_platform.Components.Component.state"><code class="xref py py-attr docutils literal"><span class="pre">state</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.storage" title="ydk.models.openconfig.openconfig_platform.Components.Component.storage"><code class="xref py py-attr docutils literal"><span class="pre">storage</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.subcomponents" title="ydk.models.openconfig.openconfig_platform.Components.Component.subcomponents"><code class="xref py py-attr docutils literal"><span class="pre">subcomponents</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.transceiver" title="ydk.models.openconfig.openconfig_platform.Components.Component.transceiver"><code class="xref py py-attr docutils literal"><span class="pre">transceiver</span></code></a></li>
+</ul>
+<dl class="class">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component">
+<em class="property">class </em><code class="descclassname">Components.</code><code class="descname">Component</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="api/types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a></p>
+<p>Class Hierarchy : <a class="reference internal" href="gen_doc_df0f1777aa024c5e6e72d75773fc808d17d25d51.html#ydk.models.openconfig.openconfig_platform.Components" title="ydk.models.openconfig.openconfig_platform.Components"><code class="xref py py-class docutils literal"><span class="pre">Components</span></code></a> <a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component" title="ydk.models.openconfig.openconfig_platform.Components.Component"><code class="xref py py-class docutils literal"><span class="pre">Component</span></code></a></p>
+<p>This class represents configuration data.</p>
+<p>List of components, keyed by component name.</p>
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.name">
+<code class="descname">name</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>References the component name</p>
+<p><strong>type</strong>: str</p>
+<p><strong>refers to</strong>:  <a class="reference internal" href="gen_doc_5463005a9fc9877fb2530beae41cbcbe47114c2f.html#ydk.models.openconfig.openconfig_platform.Components.Component.Config" title="ydk.models.openconfig.openconfig_platform.Components.Component.Config"><code class="xref py py-class docutils literal"><span class="pre">name</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.config">
+<code class="descname">config</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration data for each component</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_5463005a9fc9877fb2530beae41cbcbe47114c2f.html#ydk.models.openconfig.openconfig_platform.Components.Component.Config" title="ydk.models.openconfig.openconfig_platform.Components.Component.Config"><code class="xref py py-class docutils literal"><span class="pre">Config</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.state">
+<code class="descname">state</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operational state data for each component</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_49a69689c0294233f3333fcc5b72d3169a23bad6.html#ydk.models.openconfig.openconfig_platform.Components.Component.State" title="ydk.models.openconfig.openconfig_platform.Components.Component.State"><code class="xref py py-class docutils literal"><span class="pre">State</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.properties">
+<code class="descname">properties</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enclosing container</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_1205f51162c91091920c747953feba1062db39d0.html#ydk.models.openconfig.openconfig_platform.Components.Component.Properties" title="ydk.models.openconfig.openconfig_platform.Components.Component.Properties"><code class="xref py py-class docutils literal"><span class="pre">Properties</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.subcomponents">
+<code class="descname">subcomponents</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.subcomponents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enclosing container for subcomponent references</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_3c876871e302232020f371e6937b507d410ed42f.html#ydk.models.openconfig.openconfig_platform.Components.Component.Subcomponents" title="ydk.models.openconfig.openconfig_platform.Components.Component.Subcomponents"><code class="xref py py-class docutils literal"><span class="pre">Subcomponents</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.chassis">
+<code class="descname">chassis</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.chassis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data for chassis components</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_b0dcf116dddc6c6e00716fd962c346b09b8533ed.html#ydk.models.openconfig.openconfig_platform.Components.Component.Chassis" title="ydk.models.openconfig.openconfig_platform.Components.Component.Chassis"><code class="xref py py-class docutils literal"><span class="pre">Chassis</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.port">
+<code class="descname">port</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data for physical port components</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_8679d0c5d6df3a9cc14e9703caeff60f2f172d86.html#ydk.models.openconfig.openconfig_platform.Components.Component.Port" title="ydk.models.openconfig.openconfig_platform.Components.Component.Port"><code class="xref py py-class docutils literal"><span class="pre">Port</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.power_supply">
+<code class="descname">power_supply</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.power_supply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data for power supply components</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_b9cef0f9d4a2bb201163b22bb4c23a20c0594c6f.html#ydk.models.openconfig.openconfig_platform.Components.Component.PowerSupply" title="ydk.models.openconfig.openconfig_platform.Components.Component.PowerSupply"><code class="xref py py-class docutils literal"><span class="pre">PowerSupply</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.fan">
+<code class="descname">fan</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.fan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data for fan components</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_462626da7510b68375657c2d3987905ba619706f.html#ydk.models.openconfig.openconfig_platform.Components.Component.Fan" title="ydk.models.openconfig.openconfig_platform.Components.Component.Fan"><code class="xref py py-class docutils literal"><span class="pre">Fan</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.fabric">
+<code class="descname">fabric</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.fabric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data for fabric components</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_04f4ce8750873e7e61fb143739f25caab9007ad6.html#ydk.models.openconfig.openconfig_platform.Components.Component.Fabric" title="ydk.models.openconfig.openconfig_platform.Components.Component.Fabric"><code class="xref py py-class docutils literal"><span class="pre">Fabric</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.storage">
+<code class="descname">storage</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.storage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data for storage components</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_dfa02094429553fc8f8984cf08cde767f2381153.html#ydk.models.openconfig.openconfig_platform.Components.Component.Storage" title="ydk.models.openconfig.openconfig_platform.Components.Component.Storage"><code class="xref py py-class docutils literal"><span class="pre">Storage</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.cpu">
+<code class="descname">cpu</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.cpu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data for cpu components</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_a75a1e4b04fc2be9d6bd8f3e141779f157b45c1a.html#ydk.models.openconfig.openconfig_platform.Components.Component.Cpu" title="ydk.models.openconfig.openconfig_platform.Components.Component.Cpu"><code class="xref py py-class docutils literal"><span class="pre">Cpu</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.integrated_circuit">
+<code class="descname">integrated_circuit</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.integrated_circuit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data for chip components, such as ASIC, NPUs, etc</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_374b113b1a8480bbd427e9750cffef0b68f0df44.html#ydk.models.openconfig.openconfig_platform.Components.Component.IntegratedCircuit" title="ydk.models.openconfig.openconfig_platform.Components.Component.IntegratedCircuit"><code class="xref py py-class docutils literal"><span class="pre">IntegratedCircuit</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.backplane">
+<code class="descname">backplane</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.backplane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data for backplane components</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_3f2a39c617c23094fd99243cd1479c822ab601d8.html#ydk.models.openconfig.openconfig_platform.Components.Component.Backplane" title="ydk.models.openconfig.openconfig_platform.Components.Component.Backplane"><code class="xref py py-class docutils literal"><span class="pre">Backplane</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.transceiver">
+<code class="descname">transceiver</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.transceiver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Top-level container for client port transceiver data</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_831a7aa96161b1cec660b5f291e74f874b6c95c7.html#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver"><code class="xref py py-class docutils literal"><span class="pre">Transceiver</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.optical_channel">
+<code class="descname">optical_channel</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.optical_channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enclosing container for the list of optical channels</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_2ab2bab26e594b84ffcaa1f84b940d7eac041082.html#ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel" title="ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel"><code class="xref py py-class docutils literal"><span class="pre">OpticalChannel</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.optical_port">
+<code class="descname">optical_port</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.optical_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Top-level container</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_83fd57f867bc157fbcf36b9d6d3bf675f90d7cb4.html#ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort" title="ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort"><code class="xref py py-class docutils literal"><span class="pre">OpticalPort</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.linecard">
+<code class="descname">linecard</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.linecard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Top-level container for linecard data</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_cb0f17026173a0a8412622293f978416338cce1b.html#ydk.models.openconfig.openconfig_platform.Components.Component.Linecard" title="ydk.models.openconfig.openconfig_platform.Components.Component.Linecard"><code class="xref py py-class docutils literal"><span class="pre">Linecard</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

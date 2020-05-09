@@ -1,0 +1,570 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>State &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>State</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="state">
+<h1>State<a class="headerlink" href="#state" title="Permalink to this headline">¶</a></h1>
+<p><strong>Leafs</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.connector_type" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.connector_type"><code class="xref py py-attr docutils literal"><span class="pre">connector_type</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.date_code" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.date_code"><code class="xref py py-attr docutils literal"><span class="pre">date_code</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.enabled" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.enabled"><code class="xref py py-attr docutils literal"><span class="pre">enabled</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.ethernet_pmd" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.ethernet_pmd"><code class="xref py py-attr docutils literal"><span class="pre">ethernet_pmd</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.ethernet_pmd_preconf" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.ethernet_pmd_preconf"><code class="xref py py-attr docutils literal"><span class="pre">ethernet_pmd_preconf</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fault_condition" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fault_condition"><code class="xref py py-attr docutils literal"><span class="pre">fault_condition</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_corrected_bits" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_corrected_bits"><code class="xref py py-attr docutils literal"><span class="pre">fec_corrected_bits</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_corrected_bytes" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_corrected_bytes"><code class="xref py py-attr docutils literal"><span class="pre">fec_corrected_bytes</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_mode" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_mode"><code class="xref py py-attr docutils literal"><span class="pre">fec_mode</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_status" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_status"><code class="xref py py-attr docutils literal"><span class="pre">fec_status</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_uncorrectable_blocks" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_uncorrectable_blocks"><code class="xref py py-attr docutils literal"><span class="pre">fec_uncorrectable_blocks</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_uncorrectable_words" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_uncorrectable_words"><code class="xref py py-attr docutils literal"><span class="pre">fec_uncorrectable_words</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.form_factor" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.form_factor"><code class="xref py py-attr docutils literal"><span class="pre">form_factor</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.form_factor_preconf" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.form_factor_preconf"><code class="xref py py-attr docutils literal"><span class="pre">form_factor_preconf</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.otn_compliance_code" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.otn_compliance_code"><code class="xref py py-attr docutils literal"><span class="pre">otn_compliance_code</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.present" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.present"><code class="xref py py-attr docutils literal"><span class="pre">present</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.serial_no" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.serial_no"><code class="xref py py-attr docutils literal"><span class="pre">serial_no</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.sonet_sdh_compliance_code" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.sonet_sdh_compliance_code"><code class="xref py py-attr docutils literal"><span class="pre">sonet_sdh_compliance_code</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.vendor" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.vendor"><code class="xref py py-attr docutils literal"><span class="pre">vendor</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.vendor_part" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.vendor_part"><code class="xref py py-attr docutils literal"><span class="pre">vendor_part</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.vendor_rev" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.vendor_rev"><code class="xref py py-attr docutils literal"><span class="pre">vendor_rev</span></code></a></li>
+</ul>
+<p><strong>Children</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.input_power" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.input_power"><code class="xref py py-attr docutils literal"><span class="pre">input_power</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.laser_bias_current" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.laser_bias_current"><code class="xref py py-attr docutils literal"><span class="pre">laser_bias_current</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.output_power" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.output_power"><code class="xref py py-attr docutils literal"><span class="pre">output_power</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.post_fec_ber" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.post_fec_ber"><code class="xref py py-attr docutils literal"><span class="pre">post_fec_ber</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.pre_fec_ber" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.pre_fec_ber"><code class="xref py py-attr docutils literal"><span class="pre">pre_fec_ber</span></code></a></li>
+</ul>
+<p><strong>Enum Classes</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gen_doc_04f53e2152e116e5439078fd8fe3e1042a1746df.html">Present</a></li>
+</ul>
+</div>
+<dl class="class">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State">
+<em class="property">class </em><code class="descclassname">Components.Component.Transceiver.</code><code class="descname">State</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="api/types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a></p>
+<p>Class Hierarchy : <a class="reference internal" href="gen_doc_df0f1777aa024c5e6e72d75773fc808d17d25d51.html#ydk.models.openconfig.openconfig_platform.Components" title="ydk.models.openconfig.openconfig_platform.Components"><code class="xref py py-class docutils literal"><span class="pre">Components</span></code></a> <a class="reference internal" href="gen_doc_a4615429c681a781e8a2f67c9ea421564b9b5391.html#ydk.models.openconfig.openconfig_platform.Components.Component" title="ydk.models.openconfig.openconfig_platform.Components.Component"><code class="xref py py-class docutils literal"><span class="pre">Component</span></code></a> <a class="reference internal" href="gen_doc_831a7aa96161b1cec660b5f291e74f874b6c95c7.html#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver"><code class="xref py py-class docutils literal"><span class="pre">Transceiver</span></code></a> <a class="reference internal" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State"><code class="xref py py-class docutils literal"><span class="pre">State</span></code></a></p>
+<p>This class represents state data.</p>
+<p>Operational state data for client port transceivers</p>
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.enabled">
+<code class="descname">enabled</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turns power on / off to the transceiver &#8211; provides a means to power on/off the transceiver (in the case of SFP, SFP+, QSFP,...) or enable high-power mode (in the case of CFP, CFP2, CFP4) and is optionally supported (device can choose to always enable).  True = power on / high power, False = powered off</p>
+<p><strong>type</strong>: bool</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.form_factor_preconf">
+<code class="descname">form_factor_preconf</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.form_factor_preconf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the type of optical transceiver used on this port.  If the client port is built into the device and not pluggable, then non-pluggable is the corresponding state. If a device port supports multiple form factors (e.g. QSFP28 and QSFP+, then the value of the transceiver installed shall be reported. If no transceiver is present, then the value of the highest rate form factor shall be reported (QSFP28, for example).  The form factor is included in configuration data to allow pre-configuring a device with the expected type of transceiver ahead of deployment.  The corresponding state leaf should reflect the actual transceiver type plugged into the system</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_e3f12ce9e7c5bbf7e4bf2f30e671770d29521894.html#ydk.models.openconfig.openconfig_transport_types.CFP" title="ydk.models.openconfig.openconfig_transport_types.CFP"><code class="xref py py-class docutils literal"><span class="pre">CFP</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_b44b8e720af4ddd3563453491de7d017b1e6074d.html#ydk.models.openconfig.openconfig_transport_types.CFP2" title="ydk.models.openconfig.openconfig_transport_types.CFP2"><code class="xref py py-class docutils literal"><span class="pre">CFP2</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_07c0c79c75a42de02e5c40c315f090bf57315222.html#ydk.models.openconfig.openconfig_transport_types.CFP2ACO" title="ydk.models.openconfig.openconfig_transport_types.CFP2ACO"><code class="xref py py-class docutils literal"><span class="pre">CFP2ACO</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_633b75ca20b95f33f8de90d3977d1ae06eef7e67.html#ydk.models.openconfig.openconfig_transport_types.CFP4" title="ydk.models.openconfig.openconfig_transport_types.CFP4"><code class="xref py py-class docutils literal"><span class="pre">CFP4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_4beea11727973ffa410d72fae2a66a1984dc6b5f.html#ydk.models.openconfig.openconfig_transport_types.QSFP" title="ydk.models.openconfig.openconfig_transport_types.QSFP"><code class="xref py py-class docutils literal"><span class="pre">QSFP</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_026c7f678ad3e1d3254d24690d34e31b552414ae.html#ydk.models.openconfig.openconfig_transport_types.QSFPPLUS" title="ydk.models.openconfig.openconfig_transport_types.QSFPPLUS"><code class="xref py py-class docutils literal"><span class="pre">QSFPPLUS</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_08b0328f079487c450e72e854d342cb489cf8f1c.html#ydk.models.openconfig.openconfig_transport_types.QSFP28" title="ydk.models.openconfig.openconfig_transport_types.QSFP28"><code class="xref py py-class docutils literal"><span class="pre">QSFP28</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_40b7a1d81d4fb176839463d5e655c17699013274.html#ydk.models.openconfig.openconfig_transport_types.CPAK" title="ydk.models.openconfig.openconfig_transport_types.CPAK"><code class="xref py py-class docutils literal"><span class="pre">CPAK</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_e0ee70020a6cccd9dbe12795f8ee54936c05a267.html#ydk.models.openconfig.openconfig_transport_types.SFP" title="ydk.models.openconfig.openconfig_transport_types.SFP"><code class="xref py py-class docutils literal"><span class="pre">SFP</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_d3f1880640fb774283c1f68ebc95e8379357aa26.html#ydk.models.openconfig.openconfig_transport_types.SFPPLUS" title="ydk.models.openconfig.openconfig_transport_types.SFPPLUS"><code class="xref py py-class docutils literal"><span class="pre">SFPPLUS</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_450b27d8cfb60aef8817adcb1604d193ea7c9f6f.html#ydk.models.openconfig.openconfig_transport_types.XFP" title="ydk.models.openconfig.openconfig_transport_types.XFP"><code class="xref py py-class docutils literal"><span class="pre">XFP</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_b0e4fa844a8bc6cc8a69689ec29ee0f2d0ca5afe.html#ydk.models.openconfig.openconfig_transport_types.X2" title="ydk.models.openconfig.openconfig_transport_types.X2"><code class="xref py py-class docutils literal"><span class="pre">X2</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_432569f687572a9311f675b7551d03ba8b8c894c.html#ydk.models.openconfig.openconfig_transport_types.NONPLUGGABLE" title="ydk.models.openconfig.openconfig_transport_types.NONPLUGGABLE"><code class="xref py py-class docutils literal"><span class="pre">NONPLUGGABLE</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_3feb4f5b699cde5e8047ec7015254bd5e46cc995.html#ydk.models.openconfig.openconfig_transport_types.OTHER" title="ydk.models.openconfig.openconfig_transport_types.OTHER"><code class="xref py py-class docutils literal"><span class="pre">OTHER</span></code></a></p>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.ethernet_pmd_preconf">
+<code class="descname">ethernet_pmd_preconf</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.ethernet_pmd_preconf" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Ethernet PMD is a property of the optical transceiver used on the port, indicating the type of physical connection. It is included in configuration data to allow pre-configuring a port/transceiver with the expected PMD.  The actual PMD is indicated by the ethernet-pmd state leaf</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_77117567f8c64fbdd3eed4807b2c25ecf876d323.html#ydk.models.openconfig.openconfig_transport_types.ETH10GBASELRM" title="ydk.models.openconfig.openconfig_transport_types.ETH10GBASELRM"><code class="xref py py-class docutils literal"><span class="pre">ETH10GBASELRM</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_191a715fe6d86625b66932b3d21469548813c88c.html#ydk.models.openconfig.openconfig_transport_types.ETH10GBASELR" title="ydk.models.openconfig.openconfig_transport_types.ETH10GBASELR"><code class="xref py py-class docutils literal"><span class="pre">ETH10GBASELR</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_2643b7aeed39aad539d1b3e1ff583d058aa3f769.html#ydk.models.openconfig.openconfig_transport_types.ETH10GBASEZR" title="ydk.models.openconfig.openconfig_transport_types.ETH10GBASEZR"><code class="xref py py-class docutils literal"><span class="pre">ETH10GBASEZR</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_30c837fc0359f702ba4ddae57d1dc43d81533cbb.html#ydk.models.openconfig.openconfig_transport_types.ETH10GBASEER" title="ydk.models.openconfig.openconfig_transport_types.ETH10GBASEER"><code class="xref py py-class docutils literal"><span class="pre">ETH10GBASEER</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_0bd3577b1f4b12419bb204b038571c00643cf77c.html#ydk.models.openconfig.openconfig_transport_types.ETH10GBASESR" title="ydk.models.openconfig.openconfig_transport_types.ETH10GBASESR"><code class="xref py py-class docutils literal"><span class="pre">ETH10GBASESR</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_874588ae54c606d62d3b46f8d5f76f0400b8d489.html#ydk.models.openconfig.openconfig_transport_types.ETH40GBASECR4" title="ydk.models.openconfig.openconfig_transport_types.ETH40GBASECR4"><code class="xref py py-class docutils literal"><span class="pre">ETH40GBASECR4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_6c62d5363703f1a93a66e3d4317311314be9b531.html#ydk.models.openconfig.openconfig_transport_types.ETH40GBASESR4" title="ydk.models.openconfig.openconfig_transport_types.ETH40GBASESR4"><code class="xref py py-class docutils literal"><span class="pre">ETH40GBASESR4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_c99f775619b9e09fcf09ccdf8685af0770281f8a.html#ydk.models.openconfig.openconfig_transport_types.ETH40GBASELR4" title="ydk.models.openconfig.openconfig_transport_types.ETH40GBASELR4"><code class="xref py py-class docutils literal"><span class="pre">ETH40GBASELR4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_fca39a0719ce7ee3612a016d5f88a801d5fcd2f6.html#ydk.models.openconfig.openconfig_transport_types.ETH40GBASEER4" title="ydk.models.openconfig.openconfig_transport_types.ETH40GBASEER4"><code class="xref py py-class docutils literal"><span class="pre">ETH40GBASEER4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_587bbf95fa187ba071a087ca26b92351a1e63a85.html#ydk.models.openconfig.openconfig_transport_types.ETH40GBASEPSM4" title="ydk.models.openconfig.openconfig_transport_types.ETH40GBASEPSM4"><code class="xref py py-class docutils literal"><span class="pre">ETH40GBASEPSM4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_cca0e21a7b35e7aa4ad5bf470f3f95b7c91d749b.html#ydk.models.openconfig.openconfig_transport_types.ETH4X10GBASELR" title="ydk.models.openconfig.openconfig_transport_types.ETH4X10GBASELR"><code class="xref py py-class docutils literal"><span class="pre">ETH4X10GBASELR</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_6d5b942de72798fb2b0b416e20927227637143c0.html#ydk.models.openconfig.openconfig_transport_types.ETH4X10GBASESR" title="ydk.models.openconfig.openconfig_transport_types.ETH4X10GBASESR"><code class="xref py py-class docutils literal"><span class="pre">ETH4X10GBASESR</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_9f1626718ff1a397aa10d19a91f5376c292ed6d7.html#ydk.models.openconfig.openconfig_transport_types.ETH100GAOC" title="ydk.models.openconfig.openconfig_transport_types.ETH100GAOC"><code class="xref py py-class docutils literal"><span class="pre">ETH100GAOC</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_8a91a77fb199c2e21e04b14d1b895f0d44b967a9.html#ydk.models.openconfig.openconfig_transport_types.ETH100GACC" title="ydk.models.openconfig.openconfig_transport_types.ETH100GACC"><code class="xref py py-class docutils literal"><span class="pre">ETH100GACC</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_046fca67fea88b1eb9a56ce856fc041e0ae9289b.html#ydk.models.openconfig.openconfig_transport_types.ETH100GBASESR10" title="ydk.models.openconfig.openconfig_transport_types.ETH100GBASESR10"><code class="xref py py-class docutils literal"><span class="pre">ETH100GBASESR10</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_406cb3177372a256dedd57e13aa6293bc8bd7fb6.html#ydk.models.openconfig.openconfig_transport_types.ETH100GBASESR4" title="ydk.models.openconfig.openconfig_transport_types.ETH100GBASESR4"><code class="xref py py-class docutils literal"><span class="pre">ETH100GBASESR4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_d2c3a61d0eb1583764f9560f77aa574830276d93.html#ydk.models.openconfig.openconfig_transport_types.ETH100GBASELR4" title="ydk.models.openconfig.openconfig_transport_types.ETH100GBASELR4"><code class="xref py py-class docutils literal"><span class="pre">ETH100GBASELR4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_10076b9ac7d497422b087a4f305e368aa7232cc1.html#ydk.models.openconfig.openconfig_transport_types.ETH100GBASEER4" title="ydk.models.openconfig.openconfig_transport_types.ETH100GBASEER4"><code class="xref py py-class docutils literal"><span class="pre">ETH100GBASEER4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_4463047fb08e569f864367597500c1d0343ed2f0.html#ydk.models.openconfig.openconfig_transport_types.ETH100GBASECWDM4" title="ydk.models.openconfig.openconfig_transport_types.ETH100GBASECWDM4"><code class="xref py py-class docutils literal"><span class="pre">ETH100GBASECWDM4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_f1e99d41e2cb5dd421590822a1bb8112dc200732.html#ydk.models.openconfig.openconfig_transport_types.ETH100GBASECLR4" title="ydk.models.openconfig.openconfig_transport_types.ETH100GBASECLR4"><code class="xref py py-class docutils literal"><span class="pre">ETH100GBASECLR4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_6691ee61d78ea79b429530333f440d01622e4697.html#ydk.models.openconfig.openconfig_transport_types.ETH100GBASEPSM4" title="ydk.models.openconfig.openconfig_transport_types.ETH100GBASEPSM4"><code class="xref py py-class docutils literal"><span class="pre">ETH100GBASEPSM4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_94176adef3420b7f835a1d7a7b9821dd33a56407.html#ydk.models.openconfig.openconfig_transport_types.ETH100GBASECR4" title="ydk.models.openconfig.openconfig_transport_types.ETH100GBASECR4"><code class="xref py py-class docutils literal"><span class="pre">ETH100GBASECR4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_b5e9097d1854f77fd884152abcd585f1dee50075.html#ydk.models.openconfig.openconfig_transport_types.ETHUNDEFINED" title="ydk.models.openconfig.openconfig_transport_types.ETHUNDEFINED"><code class="xref py py-class docutils literal"><span class="pre">ETHUNDEFINED</span></code></a></p>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_mode">
+<code class="descname">fec_mode</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>The FEC mode indicates the mode of operation for the transceiver&#8217;s FEC. This defines typical operational modes and does not aim to specify more granular FEC capabilities</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_fe7a126a84de5b48b475a11d5b3bac9127bba08f.html#ydk.models.openconfig.openconfig_platform_types.FECENABLED" title="ydk.models.openconfig.openconfig_platform_types.FECENABLED"><code class="xref py py-class docutils literal"><span class="pre">FECENABLED</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_4d539586adef4353f168818e006b1d1739b3ef73.html#ydk.models.openconfig.openconfig_platform_types.FECDISABLED" title="ydk.models.openconfig.openconfig_platform_types.FECDISABLED"><code class="xref py py-class docutils literal"><span class="pre">FECDISABLED</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_1b672b42154e576315098c887fa2a4aa18d0addd.html#ydk.models.openconfig.openconfig_platform_types.FECAUTO" title="ydk.models.openconfig.openconfig_platform_types.FECAUTO"><code class="xref py py-class docutils literal"><span class="pre">FECAUTO</span></code></a></p>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.present">
+<code class="descname">present</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.present" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates whether a transceiver is present in the specified client port</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_04f53e2152e116e5439078fd8fe3e1042a1746df.html#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.Present" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.Present"><code class="xref py py-class docutils literal"><span class="pre">Present</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.form_factor">
+<code class="descname">form_factor</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.form_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the type of optical transceiver used on this port.  If the client port is built into the device and not pluggable, then non-pluggable is the corresponding state. If a device port supports multiple form factors (e.g. QSFP28 and QSFP+, then the value of the transceiver installed shall be reported. If no transceiver is present, then the value of the highest rate form factor shall be reported (QSFP28, for example)</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_e3f12ce9e7c5bbf7e4bf2f30e671770d29521894.html#ydk.models.openconfig.openconfig_transport_types.CFP" title="ydk.models.openconfig.openconfig_transport_types.CFP"><code class="xref py py-class docutils literal"><span class="pre">CFP</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_b44b8e720af4ddd3563453491de7d017b1e6074d.html#ydk.models.openconfig.openconfig_transport_types.CFP2" title="ydk.models.openconfig.openconfig_transport_types.CFP2"><code class="xref py py-class docutils literal"><span class="pre">CFP2</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_07c0c79c75a42de02e5c40c315f090bf57315222.html#ydk.models.openconfig.openconfig_transport_types.CFP2ACO" title="ydk.models.openconfig.openconfig_transport_types.CFP2ACO"><code class="xref py py-class docutils literal"><span class="pre">CFP2ACO</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_633b75ca20b95f33f8de90d3977d1ae06eef7e67.html#ydk.models.openconfig.openconfig_transport_types.CFP4" title="ydk.models.openconfig.openconfig_transport_types.CFP4"><code class="xref py py-class docutils literal"><span class="pre">CFP4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_4beea11727973ffa410d72fae2a66a1984dc6b5f.html#ydk.models.openconfig.openconfig_transport_types.QSFP" title="ydk.models.openconfig.openconfig_transport_types.QSFP"><code class="xref py py-class docutils literal"><span class="pre">QSFP</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_026c7f678ad3e1d3254d24690d34e31b552414ae.html#ydk.models.openconfig.openconfig_transport_types.QSFPPLUS" title="ydk.models.openconfig.openconfig_transport_types.QSFPPLUS"><code class="xref py py-class docutils literal"><span class="pre">QSFPPLUS</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_08b0328f079487c450e72e854d342cb489cf8f1c.html#ydk.models.openconfig.openconfig_transport_types.QSFP28" title="ydk.models.openconfig.openconfig_transport_types.QSFP28"><code class="xref py py-class docutils literal"><span class="pre">QSFP28</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_40b7a1d81d4fb176839463d5e655c17699013274.html#ydk.models.openconfig.openconfig_transport_types.CPAK" title="ydk.models.openconfig.openconfig_transport_types.CPAK"><code class="xref py py-class docutils literal"><span class="pre">CPAK</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_e0ee70020a6cccd9dbe12795f8ee54936c05a267.html#ydk.models.openconfig.openconfig_transport_types.SFP" title="ydk.models.openconfig.openconfig_transport_types.SFP"><code class="xref py py-class docutils literal"><span class="pre">SFP</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_d3f1880640fb774283c1f68ebc95e8379357aa26.html#ydk.models.openconfig.openconfig_transport_types.SFPPLUS" title="ydk.models.openconfig.openconfig_transport_types.SFPPLUS"><code class="xref py py-class docutils literal"><span class="pre">SFPPLUS</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_450b27d8cfb60aef8817adcb1604d193ea7c9f6f.html#ydk.models.openconfig.openconfig_transport_types.XFP" title="ydk.models.openconfig.openconfig_transport_types.XFP"><code class="xref py py-class docutils literal"><span class="pre">XFP</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_b0e4fa844a8bc6cc8a69689ec29ee0f2d0ca5afe.html#ydk.models.openconfig.openconfig_transport_types.X2" title="ydk.models.openconfig.openconfig_transport_types.X2"><code class="xref py py-class docutils literal"><span class="pre">X2</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_432569f687572a9311f675b7551d03ba8b8c894c.html#ydk.models.openconfig.openconfig_transport_types.NONPLUGGABLE" title="ydk.models.openconfig.openconfig_transport_types.NONPLUGGABLE"><code class="xref py py-class docutils literal"><span class="pre">NONPLUGGABLE</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_3feb4f5b699cde5e8047ec7015254bd5e46cc995.html#ydk.models.openconfig.openconfig_transport_types.OTHER" title="ydk.models.openconfig.openconfig_transport_types.OTHER"><code class="xref py py-class docutils literal"><span class="pre">OTHER</span></code></a></p>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.connector_type">
+<code class="descname">connector_type</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.connector_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connector type used on this port</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_93ce93ce6312d1648e00477d4cc638ee3273d18e.html#ydk.models.openconfig.openconfig_transport_types.SCCONNECTOR" title="ydk.models.openconfig.openconfig_transport_types.SCCONNECTOR"><code class="xref py py-class docutils literal"><span class="pre">SCCONNECTOR</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_5151325a2662b4af007c7b44630b1c24ee97d592.html#ydk.models.openconfig.openconfig_transport_types.LCCONNECTOR" title="ydk.models.openconfig.openconfig_transport_types.LCCONNECTOR"><code class="xref py py-class docutils literal"><span class="pre">LCCONNECTOR</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_b653dcbdb0b06d393d0e818ec93cb278d7c80a05.html#ydk.models.openconfig.openconfig_transport_types.MPOCONNECTOR" title="ydk.models.openconfig.openconfig_transport_types.MPOCONNECTOR"><code class="xref py py-class docutils literal"><span class="pre">MPOCONNECTOR</span></code></a></p>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.vendor">
+<code class="descname">vendor</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.vendor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Full name of transceiver vendor. 16-octet field that contains ASCII characters, left-aligned and padded on the right with ASCII spaces (20h)</p>
+<p><strong>type</strong>: str</p>
+<p><strong>length:</strong> 1..16</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.vendor_part">
+<code class="descname">vendor_part</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.vendor_part" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transceiver vendor&#8217;s part number. 16-octet field that contains ASCII characters, left-aligned and padded on the right with ASCII spaces (20h). If part number is undefined, all 16 octets = 0h</p>
+<p><strong>type</strong>: str</p>
+<p><strong>length:</strong> 1..16</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.vendor_rev">
+<code class="descname">vendor_rev</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.vendor_rev" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transceiver vendor&#8217;s revision number. 2-octet field that contains ASCII characters, left-aligned and padded on the right with ASCII spaces (20h)</p>
+<p><strong>type</strong>: str</p>
+<p><strong>length:</strong> 1..2</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.ethernet_pmd">
+<code class="descname">ethernet_pmd</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.ethernet_pmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ethernet PMD (physical medium dependent sublayer) that the transceiver supports. The SFF/QSFP MSAs have registers for this and CFP MSA has similar</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_77117567f8c64fbdd3eed4807b2c25ecf876d323.html#ydk.models.openconfig.openconfig_transport_types.ETH10GBASELRM" title="ydk.models.openconfig.openconfig_transport_types.ETH10GBASELRM"><code class="xref py py-class docutils literal"><span class="pre">ETH10GBASELRM</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_191a715fe6d86625b66932b3d21469548813c88c.html#ydk.models.openconfig.openconfig_transport_types.ETH10GBASELR" title="ydk.models.openconfig.openconfig_transport_types.ETH10GBASELR"><code class="xref py py-class docutils literal"><span class="pre">ETH10GBASELR</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_2643b7aeed39aad539d1b3e1ff583d058aa3f769.html#ydk.models.openconfig.openconfig_transport_types.ETH10GBASEZR" title="ydk.models.openconfig.openconfig_transport_types.ETH10GBASEZR"><code class="xref py py-class docutils literal"><span class="pre">ETH10GBASEZR</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_30c837fc0359f702ba4ddae57d1dc43d81533cbb.html#ydk.models.openconfig.openconfig_transport_types.ETH10GBASEER" title="ydk.models.openconfig.openconfig_transport_types.ETH10GBASEER"><code class="xref py py-class docutils literal"><span class="pre">ETH10GBASEER</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_0bd3577b1f4b12419bb204b038571c00643cf77c.html#ydk.models.openconfig.openconfig_transport_types.ETH10GBASESR" title="ydk.models.openconfig.openconfig_transport_types.ETH10GBASESR"><code class="xref py py-class docutils literal"><span class="pre">ETH10GBASESR</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_874588ae54c606d62d3b46f8d5f76f0400b8d489.html#ydk.models.openconfig.openconfig_transport_types.ETH40GBASECR4" title="ydk.models.openconfig.openconfig_transport_types.ETH40GBASECR4"><code class="xref py py-class docutils literal"><span class="pre">ETH40GBASECR4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_6c62d5363703f1a93a66e3d4317311314be9b531.html#ydk.models.openconfig.openconfig_transport_types.ETH40GBASESR4" title="ydk.models.openconfig.openconfig_transport_types.ETH40GBASESR4"><code class="xref py py-class docutils literal"><span class="pre">ETH40GBASESR4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_c99f775619b9e09fcf09ccdf8685af0770281f8a.html#ydk.models.openconfig.openconfig_transport_types.ETH40GBASELR4" title="ydk.models.openconfig.openconfig_transport_types.ETH40GBASELR4"><code class="xref py py-class docutils literal"><span class="pre">ETH40GBASELR4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_fca39a0719ce7ee3612a016d5f88a801d5fcd2f6.html#ydk.models.openconfig.openconfig_transport_types.ETH40GBASEER4" title="ydk.models.openconfig.openconfig_transport_types.ETH40GBASEER4"><code class="xref py py-class docutils literal"><span class="pre">ETH40GBASEER4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_587bbf95fa187ba071a087ca26b92351a1e63a85.html#ydk.models.openconfig.openconfig_transport_types.ETH40GBASEPSM4" title="ydk.models.openconfig.openconfig_transport_types.ETH40GBASEPSM4"><code class="xref py py-class docutils literal"><span class="pre">ETH40GBASEPSM4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_cca0e21a7b35e7aa4ad5bf470f3f95b7c91d749b.html#ydk.models.openconfig.openconfig_transport_types.ETH4X10GBASELR" title="ydk.models.openconfig.openconfig_transport_types.ETH4X10GBASELR"><code class="xref py py-class docutils literal"><span class="pre">ETH4X10GBASELR</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_6d5b942de72798fb2b0b416e20927227637143c0.html#ydk.models.openconfig.openconfig_transport_types.ETH4X10GBASESR" title="ydk.models.openconfig.openconfig_transport_types.ETH4X10GBASESR"><code class="xref py py-class docutils literal"><span class="pre">ETH4X10GBASESR</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_9f1626718ff1a397aa10d19a91f5376c292ed6d7.html#ydk.models.openconfig.openconfig_transport_types.ETH100GAOC" title="ydk.models.openconfig.openconfig_transport_types.ETH100GAOC"><code class="xref py py-class docutils literal"><span class="pre">ETH100GAOC</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_8a91a77fb199c2e21e04b14d1b895f0d44b967a9.html#ydk.models.openconfig.openconfig_transport_types.ETH100GACC" title="ydk.models.openconfig.openconfig_transport_types.ETH100GACC"><code class="xref py py-class docutils literal"><span class="pre">ETH100GACC</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_046fca67fea88b1eb9a56ce856fc041e0ae9289b.html#ydk.models.openconfig.openconfig_transport_types.ETH100GBASESR10" title="ydk.models.openconfig.openconfig_transport_types.ETH100GBASESR10"><code class="xref py py-class docutils literal"><span class="pre">ETH100GBASESR10</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_406cb3177372a256dedd57e13aa6293bc8bd7fb6.html#ydk.models.openconfig.openconfig_transport_types.ETH100GBASESR4" title="ydk.models.openconfig.openconfig_transport_types.ETH100GBASESR4"><code class="xref py py-class docutils literal"><span class="pre">ETH100GBASESR4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_d2c3a61d0eb1583764f9560f77aa574830276d93.html#ydk.models.openconfig.openconfig_transport_types.ETH100GBASELR4" title="ydk.models.openconfig.openconfig_transport_types.ETH100GBASELR4"><code class="xref py py-class docutils literal"><span class="pre">ETH100GBASELR4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_10076b9ac7d497422b087a4f305e368aa7232cc1.html#ydk.models.openconfig.openconfig_transport_types.ETH100GBASEER4" title="ydk.models.openconfig.openconfig_transport_types.ETH100GBASEER4"><code class="xref py py-class docutils literal"><span class="pre">ETH100GBASEER4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_4463047fb08e569f864367597500c1d0343ed2f0.html#ydk.models.openconfig.openconfig_transport_types.ETH100GBASECWDM4" title="ydk.models.openconfig.openconfig_transport_types.ETH100GBASECWDM4"><code class="xref py py-class docutils literal"><span class="pre">ETH100GBASECWDM4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_f1e99d41e2cb5dd421590822a1bb8112dc200732.html#ydk.models.openconfig.openconfig_transport_types.ETH100GBASECLR4" title="ydk.models.openconfig.openconfig_transport_types.ETH100GBASECLR4"><code class="xref py py-class docutils literal"><span class="pre">ETH100GBASECLR4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_6691ee61d78ea79b429530333f440d01622e4697.html#ydk.models.openconfig.openconfig_transport_types.ETH100GBASEPSM4" title="ydk.models.openconfig.openconfig_transport_types.ETH100GBASEPSM4"><code class="xref py py-class docutils literal"><span class="pre">ETH100GBASEPSM4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_94176adef3420b7f835a1d7a7b9821dd33a56407.html#ydk.models.openconfig.openconfig_transport_types.ETH100GBASECR4" title="ydk.models.openconfig.openconfig_transport_types.ETH100GBASECR4"><code class="xref py py-class docutils literal"><span class="pre">ETH100GBASECR4</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_b5e9097d1854f77fd884152abcd585f1dee50075.html#ydk.models.openconfig.openconfig_transport_types.ETHUNDEFINED" title="ydk.models.openconfig.openconfig_transport_types.ETHUNDEFINED"><code class="xref py py-class docutils literal"><span class="pre">ETHUNDEFINED</span></code></a></p>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.sonet_sdh_compliance_code">
+<code class="descname">sonet_sdh_compliance_code</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.sonet_sdh_compliance_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>SONET/SDH application code supported by the port</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_14e36c4191b39bb283f41db50a50c408a5759a92.html#ydk.models.openconfig.openconfig_transport_types.VSR20003R2" title="ydk.models.openconfig.openconfig_transport_types.VSR20003R2"><code class="xref py py-class docutils literal"><span class="pre">VSR20003R2</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_259fb746adf04fbadb4ff6b894b2151d4162f564.html#ydk.models.openconfig.openconfig_transport_types.VSR20003R3" title="ydk.models.openconfig.openconfig_transport_types.VSR20003R3"><code class="xref py py-class docutils literal"><span class="pre">VSR20003R3</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_0072f8181b0127f7f9b297c3aff31e119cf59966.html#ydk.models.openconfig.openconfig_transport_types.VSR20003R5" title="ydk.models.openconfig.openconfig_transport_types.VSR20003R5"><code class="xref py py-class docutils literal"><span class="pre">VSR20003R5</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_51c97c33b3aa464d3d8cd0f449381a40bbf7b8c1.html#ydk.models.openconfig.openconfig_transport_types.SONETUNDEFINED" title="ydk.models.openconfig.openconfig_transport_types.SONETUNDEFINED"><code class="xref py py-class docutils literal"><span class="pre">SONETUNDEFINED</span></code></a></p>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.otn_compliance_code">
+<code class="descname">otn_compliance_code</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.otn_compliance_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>OTN application code supported by the port</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_2206728efe35afd7d6a103eb36a303b3c9a88918.html#ydk.models.openconfig.openconfig_transport_types.P1L12D1" title="ydk.models.openconfig.openconfig_transport_types.P1L12D1"><code class="xref py py-class docutils literal"><span class="pre">P1L12D1</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_aee829bc04f8e6179c950d0f9467a372b03ae4d9.html#ydk.models.openconfig.openconfig_transport_types.P1S12D2" title="ydk.models.openconfig.openconfig_transport_types.P1S12D2"><code class="xref py py-class docutils literal"><span class="pre">P1S12D2</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_3836a99cddf4301daff40942270e3fe8f52890c2.html#ydk.models.openconfig.openconfig_transport_types.P1L12D2" title="ydk.models.openconfig.openconfig_transport_types.P1L12D2"><code class="xref py py-class docutils literal"><span class="pre">P1L12D2</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_1387217e9da2e8cbdcd4bce8f8d100ac0f9d809c.html#ydk.models.openconfig.openconfig_transport_types.OTNUNDEFINED" title="ydk.models.openconfig.openconfig_transport_types.OTNUNDEFINED"><code class="xref py py-class docutils literal"><span class="pre">OTNUNDEFINED</span></code></a></p>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.serial_no">
+<code class="descname">serial_no</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.serial_no" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transceiver serial number. 16-octet field that contains ASCII characters, left-aligned and padded on the right with ASCII spaces (20h). If part serial number is undefined, all 16 octets = 0h</p>
+<p><strong>type</strong>: str</p>
+<p><strong>length:</strong> 1..16</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.date_code">
+<code class="descname">date_code</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.date_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Representation of the transceiver date code, typically stored as YYMMDD.  The time portion of the value is undefined and not intended to be read</p>
+<p><strong>type</strong>: str</p>
+<p><strong>pattern:</strong> ^[0-9]{4}\-[0-9]{2}\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\.[0-9]+)?Z[+-][0-9]{2}:[0-9]{2}$</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fault_condition">
+<code class="descname">fault_condition</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fault_condition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates if a fault condition exists in the transceiver</p>
+<p><strong>type</strong>: bool</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_status">
+<code class="descname">fec_status</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operational status of FEC</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_e76b2c5c2de4f8260037560b1ccb562476c83510.html#ydk.models.openconfig.openconfig_platform_types.FECSTATUSLOCKED" title="ydk.models.openconfig.openconfig_platform_types.FECSTATUSLOCKED"><code class="xref py py-class docutils literal"><span class="pre">FECSTATUSLOCKED</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_912c9a4fc6e7e54b3b2ee920cc6a2a43742ba40b.html#ydk.models.openconfig.openconfig_platform_types.FECSTATUSUNLOCKED" title="ydk.models.openconfig.openconfig_platform_types.FECSTATUSUNLOCKED"><code class="xref py py-class docutils literal"><span class="pre">FECSTATUSUNLOCKED</span></code></a></p>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_uncorrectable_blocks">
+<code class="descname">fec_uncorrectable_blocks</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_uncorrectable_blocks" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of blocks that were uncorrectable by the FEC</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_uncorrectable_words">
+<code class="descname">fec_uncorrectable_words</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_uncorrectable_words" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of words that were uncorrectable by the FEC</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_corrected_bytes">
+<code class="descname">fec_corrected_bytes</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_corrected_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of bytes that were corrected by the FEC</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_corrected_bits">
+<code class="descname">fec_corrected_bits</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.fec_corrected_bits" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of bits that were corrected by the FEC</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.pre_fec_ber">
+<code class="descname">pre_fec_ber</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.pre_fec_ber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bit error rate before forward error correction &#8211; computed value with 18 decimal precision. Note that decimal64 supports values as small as i x 10^-18 where i is an integer. Values smaller than this should be reported as 0 to inidicate error free or near error free performance. Values include the instantaneous, average, minimum, and maximum statistics. If avg/min/max statistics are not supported, the target is expected to just supply the instant value</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_77561c4e1ab99ecf109fe72f4d652226b6341231.html#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.PreFecBer" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.PreFecBer"><code class="xref py py-class docutils literal"><span class="pre">PreFecBer</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.post_fec_ber">
+<code class="descname">post_fec_ber</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.post_fec_ber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bit error rate after forward error correction &#8211; computed value with 18 decimal precision. Note that decimal64 supports values as small as i x 10^-18 where i is an integer. Values smaller than this should be reported as 0 to inidicate error free or near error free performance. Values include the instantaneous, average, minimum, and maximum statistics. If avg/min/max statistics are not supported, the target is expected to just supply the instant value</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_0f0c26f150367fdfca669e4841ee5fb939ebad9e.html#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.PostFecBer" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.PostFecBer"><code class="xref py py-class docutils literal"><span class="pre">PostFecBer</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.output_power">
+<code class="descname">output_power</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.output_power" title="Permalink to this definition">¶</a></dt>
+<dd><p>The output optical power of a physical channel in units of 0.01dBm, which may be associated with individual physical channels, or an aggregate of multiple physical channels (i.e., for the overall transceiver). For an aggregate, this may be a measurement from a photodetector or a a calculation performed on the device by summing up all of the related individual physical channels. Values include the instantaneous, average, minimum, and maximum statistics. If avg/min/max statistics are not supported, the target is expected to just supply the instant value</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_57f5c9ea6b66b6951e7b52446fc10b5e32e4f48e.html#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.OutputPower" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.OutputPower"><code class="xref py py-class docutils literal"><span class="pre">OutputPower</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.input_power">
+<code class="descname">input_power</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.input_power" title="Permalink to this definition">¶</a></dt>
+<dd><p>The input optical power of a physical channel in units of 0.01dBm, which may be associated with individual physical channels, or an aggregate of multiple physical channels (i.e., for the overall transceiver). For an aggregate, this may be a measurement from a photodetector or a a calculation performed on the device by summing up all of the related individual physical channels. Values include the instantaneous, average, minimum, and maximum statistics. If avg/min/max statistics are not supported, the target is expected to just supply the instant value</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_89340e680c2b75cd114660dea023cb7b38545010.html#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.InputPower" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.InputPower"><code class="xref py py-class docutils literal"><span class="pre">InputPower</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.laser_bias_current">
+<code class="descname">laser_bias_current</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.laser_bias_current" title="Permalink to this definition">¶</a></dt>
+<dd><p>The current applied by the system to the transmit laser to achieve the output power. The current is expressed in mA with up to two decimal precision. Values include the instantaneous, average, minimum, and maximum statistics. If avg/min/max statistics are not supported, the target is expected to just supply the instant value</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_0582521bdd8232007e6b88c214ed3ad34a82ec0d.html#ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.LaserBiasCurrent" title="ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.State.LaserBiasCurrent"><code class="xref py py-class docutils literal"><span class="pre">LaserBiasCurrent</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

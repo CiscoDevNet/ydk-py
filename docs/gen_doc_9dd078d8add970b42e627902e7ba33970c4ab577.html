@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>NetworkInstance &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>NetworkInstance</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="networkinstance">
+<h1>NetworkInstance<a class="headerlink" href="#networkinstance" title="Permalink to this headline">¶</a></h1>
+<p><strong>Keys</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.name" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.name"><code class="xref py py-attr docutils literal"><span class="pre">name</span></code></a></li>
+</ul>
+<p><strong>Children</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.afts" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.afts"><code class="xref py py-attr docutils literal"><span class="pre">afts</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.config" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.config"><code class="xref py py-attr docutils literal"><span class="pre">config</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.connection_points" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.connection_points"><code class="xref py py-attr docutils literal"><span class="pre">connection_points</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.encapsulation" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.encapsulation"><code class="xref py py-attr docutils literal"><span class="pre">encapsulation</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.fdb" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.fdb"><code class="xref py py-attr docutils literal"><span class="pre">fdb</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.inter_instance_policies" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.inter_instance_policies"><code class="xref py py-attr docutils literal"><span class="pre">inter_instance_policies</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.interfaces" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.interfaces"><code class="xref py py-attr docutils literal"><span class="pre">interfaces</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.mpls" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.mpls"><code class="xref py py-attr docutils literal"><span class="pre">mpls</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.protocols" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.protocols"><code class="xref py py-attr docutils literal"><span class="pre">protocols</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.segment_routing" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.segment_routing"><code class="xref py py-attr docutils literal"><span class="pre">segment_routing</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.state" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.state"><code class="xref py py-attr docutils literal"><span class="pre">state</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.table_connections" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.table_connections"><code class="xref py py-attr docutils literal"><span class="pre">table_connections</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.tables" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.tables"><code class="xref py py-attr docutils literal"><span class="pre">tables</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.vlans" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.vlans"><code class="xref py py-attr docutils literal"><span class="pre">vlans</span></code></a></li>
+</ul>
+<dl class="class">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance">
+<em class="property">class </em><code class="descclassname">NetworkInstances.</code><code class="descname">NetworkInstance</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="api/types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a></p>
+<p>Class Hierarchy : <a class="reference internal" href="gen_doc_2f2cd2802fb0ef124aedad67d65bf9814f7e951b.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances"><code class="xref py py-class docutils literal"><span class="pre">NetworkInstances</span></code></a> <a class="reference internal" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance"><code class="xref py py-class docutils literal"><span class="pre">NetworkInstance</span></code></a></p>
+<p>This class represents configuration data.</p>
+<p>Network instances configured on the local system</p>
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.name">
+<code class="descname">name</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unique name identifying the network instance</p>
+<p><strong>type</strong>: str</p>
+<p><strong>refers to</strong>:  <a class="reference internal" href="gen_doc_e79ea14810ec580a137f6f8b66e743bb2efc0191.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Config" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Config"><code class="xref py py-class docutils literal"><span class="pre">name</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.fdb">
+<code class="descname">fdb</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.fdb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operational state and configuration parameters relating to the forwarding database of the network instance</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_d9d5e2dc760592d4bca1086960569fd6ec491f8b.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Fdb" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Fdb"><code class="xref py py-class docutils literal"><span class="pre">Fdb</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.config">
+<code class="descname">config</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration parameters relating to a network instance</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_e79ea14810ec580a137f6f8b66e743bb2efc0191.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Config" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Config"><code class="xref py py-class docutils literal"><span class="pre">Config</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.state">
+<code class="descname">state</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operational state parameters relating to a network instance</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_a29020cedf0c2dec42c5c2406c0eaff0ffbaca5b.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.State" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.State"><code class="xref py py-class docutils literal"><span class="pre">State</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.encapsulation">
+<code class="descname">encapsulation</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.encapsulation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration parameters relating to the encapsulation used for the network instance</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_a3fe4c3cf947fec9439796b1f454705e3c85f84c.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Encapsulation" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Encapsulation"><code class="xref py py-class docutils literal"><span class="pre">Encapsulation</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.inter_instance_policies">
+<code class="descname">inter_instance_policies</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.inter_instance_policies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Policies dictating how RIB or FIB entries are imported to and exported from this instance</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_77c32b390f7f3607e579e69cca5ba46504886cee.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.InterInstancePolicies" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.InterInstancePolicies"><code class="xref py py-class docutils literal"><span class="pre">InterInstancePolicies</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.table_connections">
+<code class="descname">table_connections</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.table_connections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Policies dictating how RIB or FIB entries are propagated between tables</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_dff57f4ab36222f864bca813ac1c2e74c35c9cdb.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.TableConnections"><code class="xref py py-class docutils literal"><span class="pre">TableConnections</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.interfaces">
+<code class="descname">interfaces</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.interfaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>The interfaces that are associated with this network instance</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_1773758d9102895e4214fa2ffab7b79ef4a37e09.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Interfaces" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Interfaces"><code class="xref py py-class docutils literal"><span class="pre">Interfaces</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.tables">
+<code class="descname">tables</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.tables" title="Permalink to this definition">¶</a></dt>
+<dd><p>The routing tables that are managed by this network instance</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_dbfbb83464bc42e9a66cfa7a6b3487b374a62ff8.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Tables" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Tables"><code class="xref py py-class docutils literal"><span class="pre">Tables</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.connection_points">
+<code class="descname">connection_points</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.connection_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>The set of connection points within a forwarding instance</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_859f72c7de820767db0d3c39f910e35026bf7906.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.ConnectionPoints" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.ConnectionPoints"><code class="xref py py-class docutils literal"><span class="pre">ConnectionPoints</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.mpls">
+<code class="descname">mpls</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.mpls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Anchor point for mpls configuration and operational data</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_4a510126b083701e27354dcf0f036017420be44f.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls"><code class="xref py py-class docutils literal"><span class="pre">Mpls</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.segment_routing">
+<code class="descname">segment_routing</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.segment_routing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration and operational state parameters relating to segment routing</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_8692c874f97d50843f0b404f41bb18052cd6d5c0.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.SegmentRouting" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.SegmentRouting"><code class="xref py py-class docutils literal"><span class="pre">SegmentRouting</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.vlans">
+<code class="descname">vlans</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.vlans" title="Permalink to this definition">¶</a></dt>
+<dd><p>Container for VLAN configuration and state variables</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_62fcbcf80549466148b4a5f1b65ea974255b9b74.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Vlans" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Vlans"><code class="xref py py-class docutils literal"><span class="pre">Vlans</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.afts">
+<code class="descname">afts</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.afts" title="Permalink to this definition">¶</a></dt>
+<dd><p>The abstract forwarding tables (AFTs) that are associated with the network instance. An AFT is instantiated per-protocol running within the network-instance - such that one exists for IPv4 Unicast, IPv6 Unicast, MPLS, L2 forwarding entries, etc. A forwarding entry within the FIB has a set of next-hops, which may be a reference to an entry within another table - e.g., where a Layer 3 next-hop has an associated Layer 2 forwarding entry</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_697e3917b90ef7fef205e0b1368826abc4d648d2.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Afts" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Afts"><code class="xref py py-class docutils literal"><span class="pre">Afts</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.protocols">
+<code class="descname">protocols</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.protocols" title="Permalink to this definition">¶</a></dt>
+<dd><p>The routing protocols that are enabled for this network-instance</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_0ca96187debb8cdd82b840181b8d6f54fe1e73e4.html#ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols" title="ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Protocols"><code class="xref py py-class docutils literal"><span class="pre">Protocols</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

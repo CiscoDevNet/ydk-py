@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>State &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ydk.models.openconfig.html">openconfig bundle API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>State</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="state">
+<h1>State<a class="headerlink" href="#state" title="Permalink to this headline">¶</a></h1>
+<p><strong>Leafs</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.background_block_errors" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.background_block_errors"><code class="xref py py-attr docutils literal"><span class="pre">background_block_errors</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.code_violations" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.code_violations"><code class="xref py py-attr docutils literal"><span class="pre">code_violations</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.errored_blocks" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.errored_blocks"><code class="xref py py-attr docutils literal"><span class="pre">errored_blocks</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.errored_seconds" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.errored_seconds"><code class="xref py py-attr docutils literal"><span class="pre">errored_seconds</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.fec_corrected_bits" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.fec_corrected_bits"><code class="xref py py-attr docutils literal"><span class="pre">fec_corrected_bits</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.fec_corrected_bytes" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.fec_corrected_bytes"><code class="xref py py-attr docutils literal"><span class="pre">fec_corrected_bytes</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.fec_uncorrectable_blocks" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.fec_uncorrectable_blocks"><code class="xref py py-attr docutils literal"><span class="pre">fec_uncorrectable_blocks</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.fec_uncorrectable_words" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.fec_uncorrectable_words"><code class="xref py py-attr docutils literal"><span class="pre">fec_uncorrectable_words</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.rdi_msg" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.rdi_msg"><code class="xref py py-attr docutils literal"><span class="pre">rdi_msg</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.severely_errored_seconds" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.severely_errored_seconds"><code class="xref py py-attr docutils literal"><span class="pre">severely_errored_seconds</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tributary_slot_granularity" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tributary_slot_granularity"><code class="xref py py-attr docutils literal"><span class="pre">tributary_slot_granularity</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tti_msg_auto" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tti_msg_auto"><code class="xref py py-attr docutils literal"><span class="pre">tti_msg_auto</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tti_msg_expected" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tti_msg_expected"><code class="xref py py-attr docutils literal"><span class="pre">tti_msg_expected</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tti_msg_recv" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tti_msg_recv"><code class="xref py py-attr docutils literal"><span class="pre">tti_msg_recv</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tti_msg_transmit" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tti_msg_transmit"><code class="xref py py-attr docutils literal"><span class="pre">tti_msg_transmit</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.unavailable_seconds" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.unavailable_seconds"><code class="xref py py-attr docutils literal"><span class="pre">unavailable_seconds</span></code></a></li>
+</ul>
+<p><strong>Children</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.esnr" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.esnr"><code class="xref py py-attr docutils literal"><span class="pre">esnr</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.post_fec_ber" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.post_fec_ber"><code class="xref py py-attr docutils literal"><span class="pre">post_fec_ber</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.pre_fec_ber" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.pre_fec_ber"><code class="xref py py-attr docutils literal"><span class="pre">pre_fec_ber</span></code></a></li>
+<li><a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.q_value" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.q_value"><code class="xref py py-attr docutils literal"><span class="pre">q_value</span></code></a></li>
+</ul>
+<dl class="class">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State">
+<em class="property">class </em><code class="descclassname">TerminalDevice.LogicalChannels.Channel.Otn.</code><code class="descname">State</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="api/types.html#ydk.types.Entity" title="ydk.types.Entity"><code class="xref py py-class docutils literal"><span class="pre">Entity</span></code></a></p>
+<p>Class Hierarchy : <a class="reference internal" href="gen_doc_6925dac4785d469f172fb9a2438e65ecfb792977.html#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice"><code class="xref py py-class docutils literal"><span class="pre">TerminalDevice</span></code></a> <a class="reference internal" href="gen_doc_fb658addf3f8d7a345bfe6308a3304932496fad2.html#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels"><code class="xref py py-class docutils literal"><span class="pre">LogicalChannels</span></code></a> <a class="reference internal" href="gen_doc_c4760a3cb89ab3e7f29fd0fdf94fee6faa9dd88e.html#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel"><code class="xref py py-class docutils literal"><span class="pre">Channel</span></code></a> <a class="reference internal" href="gen_doc_ac6dfffd884cae756aa34261a7cd7ac94a059d90.html#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn"><code class="xref py py-class docutils literal"><span class="pre">Otn</span></code></a> <a class="reference internal" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State"><code class="xref py py-class docutils literal"><span class="pre">State</span></code></a></p>
+<p>This class represents state data.</p>
+<p>Operational state data for OTN protocol PMs, statistics,</p>
+<p>etc.</p>
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tti_msg_transmit">
+<code class="descname">tti_msg_transmit</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tti_msg_transmit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trail trace identifier (TTI) message transmitted</p>
+<p><strong>type</strong>: str</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tti_msg_expected">
+<code class="descname">tti_msg_expected</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tti_msg_expected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trail trace identifier (TTI) message expected</p>
+<p><strong>type</strong>: str</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tti_msg_auto">
+<code class="descname">tti_msg_auto</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tti_msg_auto" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trail trace identifier (TTI) transmit message automatically created.  If true, then setting a custom transmit message would be invalid</p>
+<p><strong>type</strong>: bool</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tributary_slot_granularity">
+<code class="descname">tributary_slot_granularity</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tributary_slot_granularity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Granularity value of OPUk or OPUCn tributary slots for OTN signal allocation. The currently defined values follow the existing ITU-T G.709 standard, which can be extended as needed in future</p>
+<p><strong>type</strong>: one of the below values:</p>
+<blockquote>
+<div><p><a class="reference internal" href="gen_doc_7f379f172f1ad25b9ebe2009ed11f1eb5d1d50e0.html#ydk.models.openconfig.openconfig_transport_types.TRIBSLOT1DOT25G" title="ydk.models.openconfig.openconfig_transport_types.TRIBSLOT1DOT25G"><code class="xref py py-class docutils literal"><span class="pre">TRIBSLOT1DOT25G</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_a93bbb96d444713654ca75a2e397054a3c680e59.html#ydk.models.openconfig.openconfig_transport_types.TRIBSLOT2DOT5G" title="ydk.models.openconfig.openconfig_transport_types.TRIBSLOT2DOT5G"><code class="xref py py-class docutils literal"><span class="pre">TRIBSLOT2DOT5G</span></code></a></p>
+<p><a class="reference internal" href="gen_doc_c05b87fd1723eac955a1b0b0084029bcb7c7f486.html#ydk.models.openconfig.openconfig_transport_types.TRIBSLOT5G" title="ydk.models.openconfig.openconfig_transport_types.TRIBSLOT5G"><code class="xref py py-class docutils literal"><span class="pre">TRIBSLOT5G</span></code></a></p>
+</div></blockquote>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tti_msg_recv">
+<code class="descname">tti_msg_recv</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.tti_msg_recv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trail trace identifier (TTI) message received</p>
+<p><strong>type</strong>: str</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.rdi_msg">
+<code class="descname">rdi_msg</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.rdi_msg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remote defect indication (RDI) message received</p>
+<p><strong>type</strong>: str</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.errored_seconds">
+<code class="descname">errored_seconds</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.errored_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of seconds that at least one errored blocks occurs, at least one code violation occurs, loss of sync is detected or loss of signal is detected</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.severely_errored_seconds">
+<code class="descname">severely_errored_seconds</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.severely_errored_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of seconds that loss of frame is detected OR the number of errored blocks, code violations, loss of sync or loss of signal is detected exceeds a predefined threshold</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.unavailable_seconds">
+<code class="descname">unavailable_seconds</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.unavailable_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of seconds during which the link is unavailable</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.code_violations">
+<code class="descname">code_violations</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.code_violations" title="Permalink to this definition">¶</a></dt>
+<dd><p>For ethernet or fiberchannel links, the number of 8b/10b coding violations. For SONET/SDH, the number of BIP (bit interleaved parity) errors</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.errored_blocks">
+<code class="descname">errored_blocks</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.errored_blocks" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of errored blocks. Error detection codes are capable to detect whether one or more errors have occurred possible to determine the exact number of errored bits within the block</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.fec_uncorrectable_blocks">
+<code class="descname">fec_uncorrectable_blocks</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.fec_uncorrectable_blocks" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of blocks that were uncorrectable by the FEC</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.fec_uncorrectable_words">
+<code class="descname">fec_uncorrectable_words</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.fec_uncorrectable_words" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of words that were uncorrectable by the FEC</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.fec_corrected_bytes">
+<code class="descname">fec_corrected_bytes</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.fec_corrected_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of bytes that were corrected by the FEC</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.fec_corrected_bits">
+<code class="descname">fec_corrected_bits</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.fec_corrected_bits" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of bits that were corrected by the FEC</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.background_block_errors">
+<code class="descname">background_block_errors</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.background_block_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of background block errors</p>
+<p><strong>type</strong>: int</p>
+<p><strong>range:</strong> 0..18446744073709551615</p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.pre_fec_ber">
+<code class="descname">pre_fec_ber</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.pre_fec_ber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bit error rate before forward error correction &#8211; computed value with 18 decimal precision. Note that decimal64 supports values as small as i x 10^-18 where i is an integer. Values smaller than this should be reported as 0 to inidicate error free or near error free performance. Values include the instantaneous, average, minimum, and maximum statistics. If avg/min/max statistics are not supported, the target is expected to just supply the instant value</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_24fd29cf24dc528db4e7063412f4775a1ce38cd0.html#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer"><code class="xref py py-class docutils literal"><span class="pre">PreFecBer</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.post_fec_ber">
+<code class="descname">post_fec_ber</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.post_fec_ber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bit error rate after forward error correction &#8211; computed value with 18 decimal precision. Note that decimal64 supports values as small as i x 10^-18 where i is an integer. Values smaller than this should be reported as 0 to inidicate error free or near error free performance. Values include the instantaneous, average, minimum, and maximum statistics. If avg/min/max statistics are not supported, the target is expected to just supply the instant value</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_57a242cfe211a6e44ae9f1c56bb364f99d79f322.html#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer"><code class="xref py py-class docutils literal"><span class="pre">PostFecBer</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.q_value">
+<code class="descname">q_value</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.q_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quality value (factor) in dB of a channel with two decimal precision. Values include the instantaneous, average, minimum, and maximum statistics. If avg/min/max statistics are not supported, the target is expected to just supply the instant value</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_132b4e7550add0c9989f669e2f336ba6153a75aa.html#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.QValue" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.QValue"><code class="xref py py-class docutils literal"><span class="pre">QValue</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.esnr">
+<code class="descname">esnr</code><a class="headerlink" href="#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.esnr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Electrical signal to noise ratio. Baud rate normalized signal to noise ratio based on error vector magnitude in dB with two decimal precision. Values include the instantaneous, average, minimum, and maximum statistics. If avg/min/max statistics are not supported, the target is expected to just supply the instant value</p>
+<p><strong>type</strong>:  <a class="reference internal" href="gen_doc_e596c2f2a1c1b54b846e4e81d355bcdc8853acc6.html#ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr" title="ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr"><code class="xref py py-class docutils literal"><span class="pre">Esnr</span></code></a></p>
+<p><strong>config</strong>: False</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
