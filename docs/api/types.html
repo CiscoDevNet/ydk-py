@@ -111,6 +111,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ydk.models.openconfig.html">openconfig bundle API</a></li>
 </ul>
 
             
@@ -371,6 +372,12 @@ The usage is the same as a Python enum:</p>
 <dt id="ydk.types.Entity.ylist_key">
 <code class="descname">ylist_key</code><a class="headerlink" href="#ydk.types.Entity.ylist_key" title="Permalink to this definition">¶</a></dt>
 <dd><p>If this entity is member of a <cite>YList</cite>, the <cite>ylist_key</cite> is set to composite key of this entity</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ydk.types.Entity.clone">
+<code class="descname">clone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ydk.types.Entity.clone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns complete copy of this entity</p>
 </dd></dl>
 
 <dl class="method">
@@ -1030,7 +1037,7 @@ container absolute path and value of type <cite>tuple</cite> represents differen
 <div class="section" id="validation">
 <h2><a class="toc-backref" href="#id11">Validation</a><a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h2>
 <p>YDK performs local validation of leafs based on the model type definition. A few examples of validation are given below (assuming you have <code class="docutils literal"><span class="pre">openconfig</span></code> bundle installed, see <a class="reference internal" href="../getting_started.html#howto-install"><span class="std std-ref">Quick install</span></a>).  Assigning an invalid type results in a local validation error.</p>
-<p>The <code class="xref py py-class docutils literal"><span class="pre">openconfig</span> <span class="pre">BGP</span></code> model defines the field <cite>as_</cite> as a <cite>int</cite> (specifically, unsigned 32 bit integer).</p>
+<p>The <a class="reference internal" href="../gen_doc_21a8719a0c77f96ec344aedfea8727b7f9bbe87a.html#ydk.models.openconfig.openconfig_bgp.Bgp.Global.Config" title="ydk.models.openconfig.openconfig_bgp.Bgp.Global.Config"><code class="xref py py-class docutils literal"><span class="pre">openconfig</span> <span class="pre">BGP</span></code></a> model defines the field <cite>as_</cite> as a <cite>int</cite> (specifically, unsigned 32 bit integer).</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Instantiate a bgp object representing the bgp container from the openconfig-bgp YANG model</span>
@@ -1042,7 +1049,7 @@ container absolute path and value of type <cite>tuple</cite> represents differen
 <div class="highlight-bash"><div class="highlight"><pre><span></span>YModelError: Invalid value Hello <span class="k">for</span> <span class="s1">&#39;as_&#39;</span>. Got type: <span class="s1">&#39;str&#39;</span>. Expected types: <span class="s1">&#39;int&#39;</span>
 </pre></div>
 </div>
-<p>The <code class="xref py py-class docutils literal"><span class="pre">openconfig</span> <span class="pre">BGP</span></code> model defines the field <cite>router_id</cite> as a <cite>str</cite> (specifically, with IP address pattern).</p>
+<p>The <a class="reference internal" href="../gen_doc_21a8719a0c77f96ec344aedfea8727b7f9bbe87a.html#ydk.models.openconfig.openconfig_bgp.Bgp.Global.Config" title="ydk.models.openconfig.openconfig_bgp.Bgp.Global.Config"><code class="xref py py-class docutils literal"><span class="pre">openconfig</span> <span class="pre">BGP</span></code></a> model defines the field <cite>router_id</cite> as a <cite>str</cite> (specifically, with IP address pattern).</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Instantiate a bgp object representing the bgp container from the openconfig-bgp YANG model</span>

@@ -94,9 +94,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../api_guide.html">API Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../class_hierarchy.html">YDK API</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="services.html">Services</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="codec_service.html">Codec Service</a></li>
-<li class="toctree-l4"><a class="reference internal" href="codec_service.html#xmlsubtreecodec">XmlSubtreeCodec</a></li>
-<li class="toctree-l4"><a class="reference internal" href="codec_service.html#jsonsubtreecodec">JsonSubtreeCodec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="codec_service.html">Codec Services</a></li>
 <li class="toctree-l4"><a class="reference internal" href="crud_service.html">CRUD Service</a></li>
 <li class="toctree-l4"><a class="reference internal" href="executor_service.html">Executor Service</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="">NETCONF Service</a></li>
@@ -114,6 +112,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ydk.models.openconfig.html">openconfig bundle API</a></li>
 </ul>
 
             
@@ -217,7 +216,7 @@
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">True</span></code> if the operation succeeds, <code class="docutils literal"><span class="pre">False</span></code> - otherwise.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">YError</span></code></a>, if error has occurred.</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YServiceProviderError" title="ydk.errors.YServiceProviderError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceProviderError</span></code></a>, if error has occurred.</p>
 </td>
 </tr>
 </tbody>
@@ -236,7 +235,7 @@
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">True</span></code> if the operation succeeds, <code class="docutils literal"><span class="pre">False</span></code> - otherwise.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="../errors.html#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">YError</span></code></a>, if error has occurred.</td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="../errors.html#ydk.errors.YServiceProviderError" title="ydk.errors.YServiceProviderError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceProviderError</span></code></a>, if error has occurred.</td>
 </tr>
 </tbody>
 </table>
@@ -262,7 +261,7 @@
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">True</span></code> if the operation succeeds, <code class="docutils literal"><span class="pre">False</span></code> - otherwise.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">YError</span></code></a>, if error has occurred.</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YServiceProviderError" title="ydk.errors.YServiceProviderError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceProviderError</span></code></a>, if error has occurred.</p>
 </td>
 </tr>
 </tbody>
@@ -291,7 +290,7 @@
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">True</span></code> if the operation succeeds, <code class="docutils literal"><span class="pre">False</span></code> - otherwise.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">YError</span></code></a>, if error has occurred.</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YServiceProviderError" title="ydk.errors.YServiceProviderError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceProviderError</span></code></a>, if error has occurred.</p>
 </td>
 </tr>
 </tbody>
@@ -316,7 +315,7 @@
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">True</span></code> if the operation succeeds, <code class="docutils literal"><span class="pre">False</span></code> - otherwise.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">YError</span></code></a>, if error has occurred.</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YServiceProviderError" title="ydk.errors.YServiceProviderError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceProviderError</span></code></a>, if error has occurred.</p>
 </td>
 </tr>
 </tbody>
@@ -335,7 +334,7 @@
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">True</span></code> if the operation succeeds, <code class="docutils literal"><span class="pre">False</span></code> - otherwise.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="../errors.html#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">YError</span></code></a>, if error has occurred.</td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="../errors.html#ydk.errors.YServiceProviderError" title="ydk.errors.YServiceProviderError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceProviderError</span></code></a>, if error has occurred.</td>
 </tr>
 </tbody>
 </table>
@@ -364,7 +363,7 @@
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">True</span></code> if the operation succeeds, <code class="docutils literal"><span class="pre">False</span></code> - otherwise.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">YError</span></code></a>, if error has occurred.</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YServiceProviderError" title="ydk.errors.YServiceProviderError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceProviderError</span></code></a>, if error has occurred.</p>
 </td>
 </tr>
 </tbody>
@@ -393,7 +392,7 @@
 </p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">YError</span></code></a>, if error has occurred.</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YServiceProviderError" title="ydk.errors.YServiceProviderError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceProviderError</span></code></a>, if error has occurred.</p>
 </td>
 </tr>
 </tbody>
@@ -421,7 +420,7 @@
 </p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">YError</span></code></a>, if error has occurred.</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YServiceProviderError" title="ydk.errors.YServiceProviderError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceProviderError</span></code></a>, if error has occurred.</p>
 </td>
 </tr>
 </tbody>
@@ -445,7 +444,7 @@
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">True</span></code> if the operation succeeds, <code class="docutils literal"><span class="pre">False</span></code> - otherwise.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">YError</span></code></a>, if error has occurred.</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YServiceProviderError" title="ydk.errors.YServiceProviderError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceProviderError</span></code></a>, if error has occurred.</p>
 </td>
 </tr>
 </tbody>
@@ -469,7 +468,7 @@
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">True</span></code> if the operation succeeds, <code class="docutils literal"><span class="pre">False</span></code> - otherwise.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">YError</span></code></a>, if error has occurred.</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YServiceProviderError" title="ydk.errors.YServiceProviderError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceProviderError</span></code></a>, if error has occurred.</p>
 </td>
 </tr>
 </tbody>
@@ -493,7 +492,7 @@
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">True</span></code> if the operation succeeds, <code class="docutils literal"><span class="pre">False</span></code> - otherwise.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">YError</span></code></a>, if error has occurred.</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YServiceProviderError" title="ydk.errors.YServiceProviderError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceProviderError</span></code></a>, if error has occurred.</p>
 </td>
 </tr>
 </tbody>
@@ -519,7 +518,7 @@
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">True</span></code> if the operation succeeds, <code class="docutils literal"><span class="pre">False</span></code> - otherwise.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YError" title="ydk.errors.YError"><code class="xref py py-exc docutils literal"><span class="pre">YError</span></code></a>, if error has occurred.</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../errors.html#ydk.errors.YServiceProviderError" title="ydk.errors.YServiceProviderError"><code class="xref py py-exc docutils literal"><span class="pre">YServiceProviderError</span></code></a>, if error has occurred.</p>
 </td>
 </tr>
 </tbody>

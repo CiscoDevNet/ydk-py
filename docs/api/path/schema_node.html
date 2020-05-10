@@ -111,6 +111,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ydk.models.openconfig.html">openconfig bundle API</a></li>
 </ul>
 
             
@@ -182,20 +183,15 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>path</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) The path expression.</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) The path expression.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of schema node satisfies the criterion.</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of schema node satisfies the criterion.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list of <a class="reference internal" href="#ydk.path.SchemaNode" title="ydk.path.SchemaNode"><code class="xref py py-class docutils literal"><span class="pre">SchemaNode</span></code></a></p>
-</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of <a class="reference internal" href="#ydk.path.SchemaNode" title="ydk.path.SchemaNode"><code class="xref py py-class docutils literal"><span class="pre">SchemaNode</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><strong>RuntimeError</strong> &#8211; With <code class="docutils literal"><span class="pre">YPathError</span></code> prefix if the path expression in invalid, see error code for details.</li>
-<li><strong>RuntimeError</strong> &#8211; With <code class="docutils literal"><span class="pre">YInvalidArgumentError</span></code> if the argument is invalid.</li>
-</ul>
-</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">YPathError, if the path expression in invalid, see error code for details.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">YInvalidArgumentError, if the argument is invalid.</td>
 </tr>
 </tbody>
 </table>

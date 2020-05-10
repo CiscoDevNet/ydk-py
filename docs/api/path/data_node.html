@@ -111,6 +111,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../faq.html">Questions and Answers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ydk.models.openconfig.html">openconfig bundle API</a></li>
 </ul>
 
             
@@ -183,7 +184,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>annotation</strong> &#8211; (<a class="reference internal" href="annotation.html#ydk.path.Annotation" title="ydk.path.Annotation"><code class="xref py py-class docutils literal"><span class="pre">Annotation</span></code></a>) Annotation to be added.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>RuntimeError</strong> &#8211; With <code class="docutils literal"><span class="pre">YInvalidArgumentError</span></code> prefix in case the argument is invalid.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">YInvalidArgumentError in case the argument is invalid.</td>
 </tr>
 </tbody>
 </table>
@@ -235,10 +236,8 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><strong>RuntimeError</strong> &#8211; With <code class="docutils literal"><span class="pre">YPathError</span></code> prefix in case the path is invalid.</li>
-<li><strong>RuntimeError</strong> &#8211; With <code class="docutils literal"><span class="pre">YInvalidArgumentError</span></code> prefix in case the argument is invalid.</li>
-</ul>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">YPathError in case the path is invalid;
+YInvalidArgumentError in case the argument is invalid.</p>
 </td>
 </tr>
 </tbody>
@@ -253,14 +252,11 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>path</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) The XPath expression identifying the node.</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) The XPath expression identifying the node.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><strong>RuntimeError</strong> &#8211; With <code class="docutils literal"><span class="pre">YPathError</span></code> prefix in case the path is invalid.</li>
-<li><strong>RuntimeError</strong> &#8211; With <code class="docutils literal"><span class="pre">YInvalidArgumentError</span></code> prefix in case the argument is invalid.</li>
-</ul>
-</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">YPathError in case the path is invalid.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">YInvalidArgumentError in case the argument is invalid.</td>
 </tr>
 </tbody>
 </table>
@@ -280,7 +276,7 @@
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None or <a class="reference internal" href="#ydk.path.DataNode" title="ydk.path.DataNode"><code class="xref py py-class docutils literal"><span class="pre">DataNode</span></code></a></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>RuntimeError</strong> &#8211; With <code class="docutils literal"><span class="pre">YError</span></code> prefix in case the path is invalid or DataNode contains no action nodes.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">YError in case the path is invalid or DataNode contains no action nodes.</td>
 </tr>
 </tbody>
 </table>
@@ -392,7 +388,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> &#8211; (<code class="docutils literal"><span class="pre">str</span></code>) The value to set. This should be the string representation of the YANG type.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>RuntimeError</strong> &#8211; With <code class="docutils literal"><span class="pre">YInvalidArgumentError</span></code> prefix if the its value cannot be set (for example it represents a container).</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">YInvalidArgumentError if the its value cannot be set (for example it represents a container).</td>
 </tr>
 </tbody>
 </table>
