@@ -16,8 +16,11 @@ interfaces described by RFC 7223 with an alternate structure
 additional configuration items.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -26,7 +29,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Interfaces(Entity):
+class Interfaces(_Entity_):
     """
     Top level container for interfaces, including configuration
     and state data.
@@ -44,7 +47,10 @@ class Interfaces(Entity):
     _revision = '2016-05-26'
 
     def __init__(self):
-        super(Interfaces, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Interfaces, self).__init__()
         self._top_entity = None
 
         self.yang_name = "interfaces"
@@ -63,7 +69,7 @@ class Interfaces(Entity):
         self._perform_setattr(Interfaces, [], name, value)
 
 
-    class Interface(Entity):
+    class Interface(_Entity_):
         """
         The list of named interfaces on the device.
         
@@ -124,7 +130,10 @@ class Interfaces(Entity):
         _revision = '2016-05-26'
 
         def __init__(self):
-            super(Interfaces.Interface, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Interfaces.Interface, self).__init__()
 
             self.yang_name = "interface"
             self.yang_parent_name = "interfaces"
@@ -176,7 +185,7 @@ class Interfaces(Entity):
             self._perform_setattr(Interfaces.Interface, ['name'], name, value)
 
 
-        class Config(Entity):
+        class Config(_Entity_):
             """
             Configurable items at the global, physical interface
             level
@@ -220,7 +229,10 @@ class Interfaces(Entity):
             _revision = '2016-05-26'
 
             def __init__(self):
-                super(Interfaces.Interface.Config, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Interfaces.Interface.Config, self).__init__()
 
                 self.yang_name = "config"
                 self.yang_parent_name = "interface"
@@ -248,7 +260,7 @@ class Interfaces(Entity):
 
 
 
-        class State(Entity):
+        class State(_Entity_):
             """
             Operational state data at the global interface level
             
@@ -338,10 +350,30 @@ class Interfaces(Entity):
             
             .. attribute:: hardware_port
             
-            	References the hardware port in the device inventory
+            	For non\-channelized interfaces, references the hardware port corresponding to the base interface
             	**type**\: str
             
             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
+            
+            	**config**\: False
+            
+            .. attribute:: transceiver
+            
+            	Provides a reference to the transceiver subcomponent that corresponds to the physical port component for this interface. The device must only populate this leaf with a reference to a component of type TRANSCEIVER
+            	**type**\: str
+            
+            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component.Subcomponents.Subcomponent>`
+            
+            	**config**\: False
+            
+            .. attribute:: physical_channel
+            
+            	For a channelized interface, list of references to the physical channels (lanes) corresponding to the interface. The physical channels are elements of a transceiver component in the platform model
+            	**type**\: list of int
+            
+            	**range:** 0..65535
+            
+            	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel>`
             
             	**config**\: False
             
@@ -353,7 +385,10 @@ class Interfaces(Entity):
             _revision = '2016-05-26'
 
             def __init__(self):
-                super(Interfaces.Interface.State, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Interfaces.Interface.State, self).__init__()
 
                 self.yang_name = "state"
                 self.yang_parent_name = "interface"
@@ -371,7 +406,9 @@ class Interfaces(Entity):
                     ('admin_status', (YLeaf(YType.enumeration, 'admin-status'), [('ydk.models.openconfig.openconfig_interfaces', 'Interfaces', 'Interface.State.AdminStatus')])),
                     ('oper_status', (YLeaf(YType.enumeration, 'oper-status'), [('ydk.models.openconfig.openconfig_interfaces', 'Interfaces', 'Interface.State.OperStatus')])),
                     ('last_change', (YLeaf(YType.uint32, 'last-change'), ['int'])),
-                    ('hardware_port', (YLeaf(YType.str, 'openconfig-platform:hardware-port'), ['str'])),
+                    ('hardware_port', (YLeaf(YType.str, 'openconfig-platform-port:hardware-port'), ['str'])),
+                    ('transceiver', (YLeaf(YType.str, 'openconfig-platform-transceiver:transceiver'), ['str'])),
+                    ('physical_channel', (YLeafList(YType.str, 'openconfig-platform-transceiver:physical-channel'), ['int'])),
                 ])
                 self.type = None
                 self.mtu = None
@@ -383,6 +420,8 @@ class Interfaces(Entity):
                 self.oper_status = None
                 self.last_change = None
                 self.hardware_port = None
+                self.transceiver = None
+                self.physical_channel = []
 
                 self.counters = Interfaces.Interface.State.Counters()
                 self.counters.parent = self
@@ -391,7 +430,7 @@ class Interfaces(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.Interface.State, ['type', 'mtu', 'name', 'description', 'enabled', 'ifindex', 'admin_status', 'oper_status', 'last_change', 'hardware_port'], name, value)
+                self._perform_setattr(Interfaces.Interface.State, ['type', 'mtu', 'name', 'description', 'enabled', 'ifindex', 'admin_status', 'oper_status', 'last_change', 'hardware_port', 'transceiver', 'physical_channel'], name, value)
 
             class AdminStatus(Enum):
                 """
@@ -486,7 +525,7 @@ class Interfaces(Entity):
 
 
 
-            class Counters(Entity):
+            class Counters(_Entity_):
                 """
                 A collection of interface\-related statistics objects.
                 
@@ -624,7 +663,10 @@ class Interfaces(Entity):
                 _revision = '2016-05-26'
 
                 def __init__(self):
-                    super(Interfaces.Interface.State.Counters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.Interface.State.Counters, self).__init__()
 
                     self.yang_name = "counters"
                     self.yang_parent_name = "state"
@@ -671,7 +713,7 @@ class Interfaces(Entity):
 
 
 
-        class HoldTime(Entity):
+        class HoldTime(_Entity_):
             """
             Top\-level container for hold\-time settings to enable
             dampening advertisements of interface transitions.
@@ -696,7 +738,10 @@ class Interfaces(Entity):
             _revision = '2016-05-26'
 
             def __init__(self):
-                super(Interfaces.Interface.HoldTime, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Interfaces.Interface.HoldTime, self).__init__()
 
                 self.yang_name = "hold-time"
                 self.yang_parent_name = "interface"
@@ -720,7 +765,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.Interface.HoldTime, [], name, value)
 
 
-            class Config(Entity):
+            class Config(_Entity_):
                 """
                 Configuration data for interface hold\-time settings.
                 
@@ -754,7 +799,10 @@ class Interfaces(Entity):
                 _revision = '2016-05-26'
 
                 def __init__(self):
-                    super(Interfaces.Interface.HoldTime.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.Interface.HoldTime.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "hold-time"
@@ -776,7 +824,7 @@ class Interfaces(Entity):
 
 
 
-            class State(Entity):
+            class State(_Entity_):
                 """
                 Operational state data for interface hold\-time.
                 
@@ -814,7 +862,10 @@ class Interfaces(Entity):
                 _revision = '2016-05-26'
 
                 def __init__(self):
-                    super(Interfaces.Interface.HoldTime.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.Interface.HoldTime.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "hold-time"
@@ -837,7 +888,7 @@ class Interfaces(Entity):
 
 
 
-        class Subinterfaces(Entity):
+        class Subinterfaces(_Entity_):
             """
             Enclosing container for the list of subinterfaces associated
             with a physical interface
@@ -855,7 +906,10 @@ class Interfaces(Entity):
             _revision = '2016-05-26'
 
             def __init__(self):
-                super(Interfaces.Interface.Subinterfaces, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Interfaces.Interface.Subinterfaces, self).__init__()
 
                 self.yang_name = "subinterfaces"
                 self.yang_parent_name = "interface"
@@ -873,7 +927,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.Interface.Subinterfaces, [], name, value)
 
 
-            class Subinterface(Entity):
+            class Subinterface(_Entity_):
                 """
                 The list of subinterfaces (logical interfaces) associated
                 with a physical interface
@@ -922,7 +976,10 @@ class Interfaces(Entity):
                 _revision = '2016-05-26'
 
                 def __init__(self):
-                    super(Interfaces.Interface.Subinterfaces.Subinterface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.Interface.Subinterfaces.Subinterface, self).__init__()
 
                     self.yang_name = "subinterface"
                     self.yang_parent_name = "subinterfaces"
@@ -961,7 +1018,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface, ['index'], name, value)
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Configurable items at the subinterface level
                     
@@ -999,7 +1056,10 @@ class Interfaces(Entity):
                     _revision = '2016-05-26'
 
                     def __init__(self):
-                        super(Interfaces.Interface.Subinterfaces.Subinterface.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.Subinterfaces.Subinterface.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "subinterface"
@@ -1025,7 +1085,7 @@ class Interfaces(Entity):
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     Operational state data for logical interfaces
                     
@@ -1114,7 +1174,10 @@ class Interfaces(Entity):
                     _revision = '2016-05-26'
 
                     def __init__(self):
-                        super(Interfaces.Interface.Subinterfaces.Subinterface.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.Subinterfaces.Subinterface.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "subinterface"
@@ -1243,7 +1306,7 @@ class Interfaces(Entity):
 
 
 
-                    class Counters(Entity):
+                    class Counters(_Entity_):
                         """
                         A collection of interface\-related statistics objects.
                         
@@ -1381,7 +1444,10 @@ class Interfaces(Entity):
                         _revision = '2016-05-26'
 
                         def __init__(self):
-                            super(Interfaces.Interface.Subinterfaces.Subinterface.State.Counters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.Subinterfaces.Subinterface.State.Counters, self).__init__()
 
                             self.yang_name = "counters"
                             self.yang_parent_name = "state"
@@ -1428,7 +1494,7 @@ class Interfaces(Entity):
 
 
 
-                class Vlan(Entity):
+                class Vlan(_Entity_):
                     """
                     Enclosing container for VLAN interface\-specific
                     data on subinterfaces
@@ -1453,7 +1519,10 @@ class Interfaces(Entity):
                     _revision = '2016-05-26'
 
                     def __init__(self):
-                        super(Interfaces.Interface.Subinterfaces.Subinterface.Vlan, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.Subinterfaces.Subinterface.Vlan, self).__init__()
 
                         self.yang_name = "vlan"
                         self.yang_parent_name = "subinterface"
@@ -1477,7 +1546,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Vlan, [], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration parameters for VLANs
                         
@@ -1502,7 +1571,10 @@ class Interfaces(Entity):
                         _revision = '2016-05-26'
 
                         def __init__(self):
-                            super(Interfaces.Interface.Subinterfaces.Subinterface.Vlan.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.Subinterfaces.Subinterface.Vlan.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "vlan"
@@ -1522,7 +1594,7 @@ class Interfaces(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         State variables for VLANs
                         
@@ -1549,7 +1621,10 @@ class Interfaces(Entity):
                         _revision = '2016-05-26'
 
                         def __init__(self):
-                            super(Interfaces.Interface.Subinterfaces.Subinterface.Vlan.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.Subinterfaces.Subinterface.Vlan.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "vlan"
@@ -1570,7 +1645,7 @@ class Interfaces(Entity):
 
 
 
-                class Ipv4(Entity):
+                class Ipv4(_Entity_):
                     """
                     Parameters for the IPv4 address family.
                     
@@ -1578,6 +1653,11 @@ class Interfaces(Entity):
                     
                     	Enclosing container for address list
                     	**type**\:  :py:class:`Addresses <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses>`
+                    
+                    .. attribute:: proxy_arp
+                    
+                    	Configuration and operational state parameters relating to proxy ARP. This functionality allows a system to respond to ARP requests that are not explicitly destined to the local system
+                    	**type**\:  :py:class:`ProxyArp <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp>`
                     
                     .. attribute:: neighbors
                     
@@ -1606,22 +1686,29 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'oc-ip'
-                    _revision = '2016-05-26'
+                    _revision = '2019-01-08'
 
                     def __init__(self):
-                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4, self).__init__()
 
                         self.yang_name = "ipv4"
                         self.yang_parent_name = "subinterface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("addresses", ("addresses", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses)), ("neighbors", ("neighbors", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors)), ("unnumbered", ("unnumbered", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered)), ("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State))])
+                        self._child_classes = OrderedDict([("addresses", ("addresses", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses)), ("proxy-arp", ("proxy_arp", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp)), ("neighbors", ("neighbors", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors)), ("unnumbered", ("unnumbered", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered)), ("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State))])
                         self._leafs = OrderedDict()
 
                         self.addresses = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses()
                         self.addresses.parent = self
                         self._children_name_map["addresses"] = "addresses"
+
+                        self.proxy_arp = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp()
+                        self.proxy_arp.parent = self
+                        self._children_name_map["proxy_arp"] = "proxy-arp"
 
                         self.neighbors = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors()
                         self.neighbors.parent = self
@@ -1645,7 +1732,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4, [], name, value)
 
 
-                    class Addresses(Entity):
+                    class Addresses(_Entity_):
                         """
                         Enclosing container for address list
                         
@@ -1659,10 +1746,13 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses, self).__init__()
 
                             self.yang_name = "addresses"
                             self.yang_parent_name = "ipv4"
@@ -1680,7 +1770,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses, [], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             The list of configured IPv4 addresses on the interface.
                             
@@ -1689,7 +1779,7 @@ class Interfaces(Entity):
                             	References the configured IP address
                             	**type**\: str
                             
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                             
                             	**refers to**\:  :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Config>`
                             
@@ -1715,10 +1805,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "addresses"
@@ -1749,21 +1842,21 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address, ['ip'], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configuration data for each configured IPv4
                                 address on the interface
                                 
                                 .. attribute:: ip
                                 
-                                	[adapted from IETF IP model RFC 7277]  The IPv4 address on the interface
+                                	The IPv4 address on the interface
                                 	**type**\: str
                                 
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                	**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                                 
                                 .. attribute:: prefix_length
                                 
-                                	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
+                                	The length of the subnet prefix
                                 	**type**\: int
                                 
                                 	**range:** 0..32
@@ -1773,10 +1866,13 @@ class Interfaces(Entity):
                                 """
 
                                 _prefix = 'oc-ip'
-                                _revision = '2016-05-26'
+                                _revision = '2019-01-08'
 
                                 def __init__(self):
-                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "address"
@@ -1798,23 +1894,23 @@ class Interfaces(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Operational state data for each IPv4 address
                                 configured on the interface
                                 
                                 .. attribute:: ip
                                 
-                                	[adapted from IETF IP model RFC 7277]  The IPv4 address on the interface
+                                	The IPv4 address on the interface
                                 	**type**\: str
                                 
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                	**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                                 
                                 	**config**\: False
                                 
                                 .. attribute:: prefix_length
                                 
-                                	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
+                                	The length of the subnet prefix
                                 	**type**\: int
                                 
                                 	**range:** 0..32
@@ -1833,10 +1929,13 @@ class Interfaces(Entity):
                                 """
 
                                 _prefix = 'oc-ip'
-                                _revision = '2016-05-26'
+                                _revision = '2019-01-08'
 
                                 def __init__(self):
-                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "address"
@@ -1860,7 +1959,7 @@ class Interfaces(Entity):
 
 
 
-                            class Vrrp(Entity):
+                            class Vrrp(_Entity_):
                                 """
                                 Enclosing container for VRRP groups handled by this
                                 IP interface
@@ -1875,10 +1974,13 @@ class Interfaces(Entity):
                                 """
 
                                 _prefix = 'oc-ip'
-                                _revision = '2016-05-26'
+                                _revision = '2019-01-08'
 
                                 def __init__(self):
-                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp, self).__init__()
 
                                     self.yang_name = "vrrp"
                                     self.yang_parent_name = "address"
@@ -1896,7 +1998,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp, [], name, value)
 
 
-                                class VrrpGroup(Entity):
+                                class VrrpGroup(_Entity_):
                                     """
                                     List of VRRP groups, keyed by virtual router id
                                     
@@ -1931,10 +2033,13 @@ class Interfaces(Entity):
                                     """
 
                                     _prefix = 'oc-ip'
-                                    _revision = '2016-05-26'
+                                    _revision = '2019-01-08'
 
                                     def __init__(self):
-                                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup, self).__init__()
 
                                         self.yang_name = "vrrp-group"
                                         self.yang_parent_name = "vrrp"
@@ -1965,7 +2070,7 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup, ['virtual_router_id'], name, value)
 
 
-                                    class Config(Entity):
+                                    class Config(_Entity_):
                                         """
                                         Configuration data for the VRRP group
                                         
@@ -1983,11 +2088,11 @@ class Interfaces(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                         
                                         .. attribute:: priority
                                         
@@ -2037,10 +2142,13 @@ class Interfaces(Entity):
                                         """
 
                                         _prefix = 'oc-ip'
-                                        _revision = '2016-05-26'
+                                        _revision = '2019-01-08'
 
                                         def __init__(self):
-                                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.Config, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.Config, self).__init__()
 
                                             self.yang_name = "config"
                                             self.yang_parent_name = "vrrp-group"
@@ -2072,7 +2180,7 @@ class Interfaces(Entity):
 
 
 
-                                    class State(Entity):
+                                    class State(_Entity_):
                                         """
                                         Operational state data for the VRRP group
                                         
@@ -2092,11 +2200,11 @@ class Interfaces(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                         
                                         	**config**\: False
                                         
@@ -2167,10 +2275,13 @@ class Interfaces(Entity):
                                         """
 
                                         _prefix = 'oc-ip'
-                                        _revision = '2016-05-26'
+                                        _revision = '2019-01-08'
 
                                         def __init__(self):
-                                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.State, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.State, self).__init__()
 
                                             self.yang_name = "state"
                                             self.yang_parent_name = "vrrp-group"
@@ -2204,7 +2315,7 @@ class Interfaces(Entity):
 
 
 
-                                    class InterfaceTracking(Entity):
+                                    class InterfaceTracking(_Entity_):
                                         """
                                         Top\-level container for VRRP interface tracking
                                         
@@ -2225,10 +2336,13 @@ class Interfaces(Entity):
                                         """
 
                                         _prefix = 'oc-ip'
-                                        _revision = '2016-05-26'
+                                        _revision = '2019-01-08'
 
                                         def __init__(self):
-                                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking, self).__init__()
 
                                             self.yang_name = "interface-tracking"
                                             self.yang_parent_name = "vrrp-group"
@@ -2252,14 +2366,14 @@ class Interfaces(Entity):
                                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking, [], name, value)
 
 
-                                        class Config(Entity):
+                                        class Config(_Entity_):
                                             """
                                             Configuration data for VRRP interface tracking
                                             
                                             .. attribute:: track_interface
                                             
-                                            	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
-                                            	**type**\: str
+                                            	Sets a list of one or more interfaces that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently.  Any of the tracked interfaces going down will cause the priority to be lowered. Some implementations may only support a single tracked interface
+                                            	**type**\: list of str
                                             
                                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                             
@@ -2277,10 +2391,13 @@ class Interfaces(Entity):
                                             """
 
                                             _prefix = 'oc-ip'
-                                            _revision = '2016-05-26'
+                                            _revision = '2019-01-08'
 
                                             def __init__(self):
-                                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config, self).__init__()
 
                                                 self.yang_name = "config"
                                                 self.yang_parent_name = "interface-tracking"
@@ -2289,10 +2406,10 @@ class Interfaces(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('track_interface', (YLeaf(YType.str, 'track-interface'), ['str'])),
+                                                    ('track_interface', (YLeafList(YType.str, 'track-interface'), ['str'])),
                                                     ('priority_decrement', (YLeaf(YType.uint8, 'priority-decrement'), ['int'])),
                                                 ])
-                                                self.track_interface = None
+                                                self.track_interface = []
                                                 self.priority_decrement = None
                                                 self._segment_path = lambda: "config"
                                                 self._is_frozen = True
@@ -2302,14 +2419,14 @@ class Interfaces(Entity):
 
 
 
-                                        class State(Entity):
+                                        class State(_Entity_):
                                             """
                                             Operational state data for VRRP interface tracking
                                             
                                             .. attribute:: track_interface
                                             
-                                            	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
-                                            	**type**\: str
+                                            	Sets a list of one or more interfaces that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently.  Any of the tracked interfaces going down will cause the priority to be lowered. Some implementations may only support a single tracked interface
+                                            	**type**\: list of str
                                             
                                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                             
@@ -2331,10 +2448,13 @@ class Interfaces(Entity):
                                             """
 
                                             _prefix = 'oc-ip'
-                                            _revision = '2016-05-26'
+                                            _revision = '2019-01-08'
 
                                             def __init__(self):
-                                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State, self).__init__()
 
                                                 self.yang_name = "state"
                                                 self.yang_parent_name = "interface-tracking"
@@ -2343,10 +2463,10 @@ class Interfaces(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('track_interface', (YLeaf(YType.str, 'track-interface'), ['str'])),
+                                                    ('track_interface', (YLeafList(YType.str, 'track-interface'), ['str'])),
                                                     ('priority_decrement', (YLeaf(YType.uint8, 'priority-decrement'), ['int'])),
                                                 ])
-                                                self.track_interface = None
+                                                self.track_interface = []
                                                 self.priority_decrement = None
                                                 self._segment_path = lambda: "state"
                                                 self._is_frozen = True
@@ -2361,7 +2481,254 @@ class Interfaces(Entity):
 
 
 
-                    class Neighbors(Entity):
+                    class ProxyArp(_Entity_):
+                        """
+                        Configuration and operational state parameters
+                        relating to proxy ARP. This functionality allows a
+                        system to respond to ARP requests that are not
+                        explicitly destined to the local system.
+                        
+                        .. attribute:: config
+                        
+                        	Configuration parameters for proxy ARP
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp.Config>`
+                        
+                        .. attribute:: state
+                        
+                        	Operational state parameters for proxy ARP
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp.State>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-ip'
+                        _revision = '2019-01-08'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp, self).__init__()
+
+                            self.yang_name = "proxy-arp"
+                            self.yang_parent_name = "ipv4"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp.State))])
+                            self._leafs = OrderedDict()
+
+                            self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp.Config()
+                            self.config.parent = self
+                            self._children_name_map["config"] = "config"
+
+                            self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp.State()
+                            self.state.parent = self
+                            self._children_name_map["state"] = "state"
+                            self._segment_path = lambda: "proxy-arp"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp, [], name, value)
+
+
+                        class Config(_Entity_):
+                            """
+                            Configuration parameters for proxy ARP
+                            
+                            .. attribute:: mode
+                            
+                            	When set to a value other than DISABLE, the local system should respond to ARP requests that are for target addresses other than those that are configured on the local subinterface using its own MAC address as the target hardware address. If the REMOTE\_ONLY value is specified, replies are only sent when the target address falls outside the locally configured subnets on the interface, whereas with the ALL value, all requests, regardless of their target address are replied to
+                            	**type**\:  :py:class:`Mode <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp.Config.Mode>`
+                            
+                            	**default value**\: DISABLE
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-ip'
+                            _revision = '2019-01-08'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp.Config, self).__init__()
+
+                                self.yang_name = "config"
+                                self.yang_parent_name = "proxy-arp"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.openconfig.openconfig_interfaces', 'Interfaces', 'Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp.Config.Mode')])),
+                                ])
+                                self.mode = None
+                                self._segment_path = lambda: "config"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp.Config, ['mode'], name, value)
+
+                            class Mode(Enum):
+                                """
+                                Mode (Enum Class)
+
+                                When set to a value other than DISABLE, the local system should
+
+                                respond to ARP requests that are for target addresses other than
+
+                                those that are configured on the local subinterface using its own
+
+                                MAC address as the target hardware address. If the REMOTE\_ONLY
+
+                                value is specified, replies are only sent when the target address
+
+                                falls outside the locally configured subnets on the interface,
+
+                                whereas with the ALL value, all requests, regardless of their
+
+                                target address are replied to.
+
+                                .. data:: DISABLE = 0
+
+                                	The system should not respond to ARP requests that
+
+                                	do not specify an IP address configured on the local
+
+                                	subinterface as the target address.
+
+                                .. data:: REMOTE_ONLY = 1
+
+                                	The system responds to ARP requests only when the
+
+                                	sender and target IP addresses are in different
+
+                                	subnets.
+
+                                .. data:: ALL = 2
+
+                                	The system responds to ARP requests where the sender
+
+                                	and target IP addresses are in different subnets, as well
+
+                                	as those where they are in the same subnet.
+
+                                """
+
+                                DISABLE = Enum.YLeaf(0, "DISABLE")
+
+                                REMOTE_ONLY = Enum.YLeaf(1, "REMOTE_ONLY")
+
+                                ALL = Enum.YLeaf(2, "ALL")
+
+
+
+
+                        class State(_Entity_):
+                            """
+                            Operational state parameters for proxy ARP
+                            
+                            .. attribute:: mode
+                            
+                            	When set to a value other than DISABLE, the local system should respond to ARP requests that are for target addresses other than those that are configured on the local subinterface using its own MAC address as the target hardware address. If the REMOTE\_ONLY value is specified, replies are only sent when the target address falls outside the locally configured subnets on the interface, whereas with the ALL value, all requests, regardless of their target address are replied to
+                            	**type**\:  :py:class:`Mode <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp.State.Mode>`
+                            
+                            	**config**\: False
+                            
+                            	**default value**\: DISABLE
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-ip'
+                            _revision = '2019-01-08'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp.State, self).__init__()
+
+                                self.yang_name = "state"
+                                self.yang_parent_name = "proxy-arp"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.openconfig.openconfig_interfaces', 'Interfaces', 'Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp.State.Mode')])),
+                                ])
+                                self.mode = None
+                                self._segment_path = lambda: "state"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.ProxyArp.State, ['mode'], name, value)
+
+                            class Mode(Enum):
+                                """
+                                Mode (Enum Class)
+
+                                When set to a value other than DISABLE, the local system should
+
+                                respond to ARP requests that are for target addresses other than
+
+                                those that are configured on the local subinterface using its own
+
+                                MAC address as the target hardware address. If the REMOTE\_ONLY
+
+                                value is specified, replies are only sent when the target address
+
+                                falls outside the locally configured subnets on the interface,
+
+                                whereas with the ALL value, all requests, regardless of their
+
+                                target address are replied to.
+
+                                .. data:: DISABLE = 0
+
+                                	The system should not respond to ARP requests that
+
+                                	do not specify an IP address configured on the local
+
+                                	subinterface as the target address.
+
+                                .. data:: REMOTE_ONLY = 1
+
+                                	The system responds to ARP requests only when the
+
+                                	sender and target IP addresses are in different
+
+                                	subnets.
+
+                                .. data:: ALL = 2
+
+                                	The system responds to ARP requests where the sender
+
+                                	and target IP addresses are in different subnets, as well
+
+                                	as those where they are in the same subnet.
+
+                                """
+
+                                DISABLE = Enum.YLeaf(0, "DISABLE")
+
+                                REMOTE_ONLY = Enum.YLeaf(1, "REMOTE_ONLY")
+
+                                ALL = Enum.YLeaf(2, "ALL")
+
+
+
+
+
+                    class Neighbors(_Entity_):
                         """
                         Enclosing container for neighbor list
                         
@@ -2375,10 +2742,13 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors, self).__init__()
 
                             self.yang_name = "neighbors"
                             self.yang_parent_name = "ipv4"
@@ -2396,7 +2766,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors, [], name, value)
 
 
-                        class Neighbor(Entity):
+                        class Neighbor(_Entity_):
                             """
                             A list of mappings from IPv4 addresses to
                             link\-layer addresses.
@@ -2409,7 +2779,7 @@ class Interfaces(Entity):
                             	References the configured IP address
                             	**type**\: str
                             
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                             
                             	**refers to**\:  :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor.Config>`
                             
@@ -2430,10 +2800,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor, self).__init__()
 
                                 self.yang_name = "neighbor"
                                 self.yang_parent_name = "neighbors"
@@ -2460,7 +2833,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor, ['ip'], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configuration data for each configured IPv4
                                 address on the interface
@@ -2470,14 +2843,14 @@ class Interfaces(Entity):
                                 	The IPv4 address of the neighbor node
                                 	**type**\: str
                                 
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                	**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                                 
                                 .. attribute:: link_layer_address
                                 
                                 	The link\-layer address of the neighbor node
                                 	**type**\: str
                                 
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                	**pattern:** ^([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?$
                                 
                                 	**mandatory**\: True
                                 
@@ -2486,10 +2859,13 @@ class Interfaces(Entity):
                                 """
 
                                 _prefix = 'oc-ip'
-                                _revision = '2016-05-26'
+                                _revision = '2019-01-08'
 
                                 def __init__(self):
-                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "neighbor"
@@ -2511,7 +2887,7 @@ class Interfaces(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Operational state data for each IPv4 address
                                 configured on the interface
@@ -2521,7 +2897,7 @@ class Interfaces(Entity):
                                 	The IPv4 address of the neighbor node
                                 	**type**\: str
                                 
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                	**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                                 
                                 	**config**\: False
                                 
@@ -2530,7 +2906,7 @@ class Interfaces(Entity):
                                 	The link\-layer address of the neighbor node
                                 	**type**\: str
                                 
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                	**pattern:** ^([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?$
                                 
                                 	**mandatory**\: True
                                 
@@ -2548,10 +2924,13 @@ class Interfaces(Entity):
                                 """
 
                                 _prefix = 'oc-ip'
-                                _revision = '2016-05-26'
+                                _revision = '2019-01-08'
 
                                 def __init__(self):
-                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "neighbor"
@@ -2577,7 +2956,7 @@ class Interfaces(Entity):
 
 
 
-                    class Unnumbered(Entity):
+                    class Unnumbered(_Entity_):
                         """
                         Top\-level container for setting unnumbered interfaces.
                         Includes reference the interface that provides the
@@ -2605,10 +2984,13 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered, self).__init__()
 
                             self.yang_name = "unnumbered"
                             self.yang_parent_name = "ipv4"
@@ -2636,7 +3018,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration data for unnumbered interface
                             
@@ -2652,10 +3034,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "unnumbered"
@@ -2675,7 +3060,7 @@ class Interfaces(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             Operational state data for unnumbered interfaces
                             
@@ -2693,10 +3078,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "unnumbered"
@@ -2716,7 +3104,7 @@ class Interfaces(Entity):
 
 
 
-                        class InterfaceRef(Entity):
+                        class InterfaceRef(_Entity_):
                             """
                             Reference to an interface or subinterface
                             
@@ -2737,10 +3125,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef, self).__init__()
 
                                 self.yang_name = "interface-ref"
                                 self.yang_parent_name = "unnumbered"
@@ -2764,7 +3155,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef, [], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configured reference to interface / subinterface
                                 
@@ -2789,10 +3180,13 @@ class Interfaces(Entity):
                                 """
 
                                 _prefix = 'oc-ip'
-                                _revision = '2016-05-26'
+                                _revision = '2019-01-08'
 
                                 def __init__(self):
-                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "interface-ref"
@@ -2814,7 +3208,7 @@ class Interfaces(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Operational state for interface\-ref
                                 
@@ -2843,10 +3237,13 @@ class Interfaces(Entity):
                                 """
 
                                 _prefix = 'oc-ip'
-                                _revision = '2016-05-26'
+                                _revision = '2019-01-08'
 
                                 def __init__(self):
-                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "interface-ref"
@@ -2870,7 +3267,7 @@ class Interfaces(Entity):
 
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Top\-level IPv4 configuration data for the interface
                         
@@ -2890,15 +3287,25 @@ class Interfaces(Entity):
                         
                         	**units**\: octets
                         
+                        .. attribute:: dhcp_client
+                        
+                        	Enables a DHCP client on the interface in order to request an address
+                        	**type**\: bool
+                        
+                        	**default value**\: false
+                        
                         
 
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "ipv4"
@@ -2909,18 +3316,20 @@ class Interfaces(Entity):
                             self._leafs = OrderedDict([
                                 ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                                 ('mtu', (YLeaf(YType.uint16, 'mtu'), ['int'])),
+                                ('dhcp_client', (YLeaf(YType.boolean, 'dhcp-client'), ['bool'])),
                             ])
                             self.enabled = None
                             self.mtu = None
+                            self.dhcp_client = None
                             self._segment_path = lambda: "config"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config, ['enabled', 'mtu'], name, value)
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config, ['enabled', 'mtu', 'dhcp_client'], name, value)
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Top level IPv4 operational state data
                         
@@ -2944,38 +3353,229 @@ class Interfaces(Entity):
                         
                         	**units**\: octets
                         
+                        .. attribute:: dhcp_client
+                        
+                        	Enables a DHCP client on the interface in order to request an address
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        	**default value**\: false
+                        
+                        .. attribute:: counters
+                        
+                        	Packet and byte counters for IP transmission and reception for the address family
+                        	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State.Counters>`
+                        
+                        	**config**\: False
+                        
                         
 
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "ipv4"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("counters", ("counters", Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State.Counters))])
                             self._leafs = OrderedDict([
                                 ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                                 ('mtu', (YLeaf(YType.uint16, 'mtu'), ['int'])),
+                                ('dhcp_client', (YLeaf(YType.boolean, 'dhcp-client'), ['bool'])),
                             ])
                             self.enabled = None
                             self.mtu = None
+                            self.dhcp_client = None
+
+                            self.counters = Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State.Counters()
+                            self.counters.parent = self
+                            self._children_name_map["counters"] = "counters"
                             self._segment_path = lambda: "state"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State, ['enabled', 'mtu'], name, value)
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State, ['enabled', 'mtu', 'dhcp_client'], name, value)
+
+
+                        class Counters(_Entity_):
+                            """
+                            Packet and byte counters for IP transmission and
+                            reception for the address family.
+                            
+                            .. attribute:: in_pkts
+                            
+                            	The total number of IP packets received for the specified address family, including those received in error
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: in_octets
+                            
+                            	The total number of octets received in input IP packets for the specified address family, including those received in error
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: in_error_pkts
+                            
+                            	Number of IP packets discarded due to errors for the specified address family, including errors in the IP header, no route found to the IP destination, invalid address, unknown protocol, etc
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: in_forwarded_pkts
+                            
+                            	The number of input packets for which the device was not their final IP destination and for which the device attempted to find a route to forward them to that final destination
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: in_forwarded_octets
+                            
+                            	The number of octets received in input IP packets for the specified address family for which the device was not their final IP destination and for which the device attempted to find a route to forward them to that final destination
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: in_discarded_pkts
+                            
+                            	The number of input IP packets for the specified address family, for which no problems were encountered to prevent their continued processing, but were discarded (e.g., for lack of buffer space)
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: out_pkts
+                            
+                            	The total number of IP packets for the specified address family that the device supplied to the lower layers for transmission.  This includes packets generated locally and those forwarded by the device
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: out_octets
+                            
+                            	The total number of octets in IP packets for the specified address family that the device supplied to the lower layers for transmission.  This includes packets generated locally and those forwarded by the device
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: out_error_pkts
+                            
+                            	Number of IP packets for the specified address family locally generated and discarded due to errors, including no route found to the IP destination
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: out_forwarded_pkts
+                            
+                            	The number of packets for which this entity was not their final IP destination and for which it was successful in finding a path to their final destination
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: out_forwarded_octets
+                            
+                            	The number of octets in packets for which this entity was not their final IP destination and for which it was successful in finding a path to their final destination
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: out_discarded_pkts
+                            
+                            	The number of output IP packets for the specified address family for which no problem was encountered to prevent their transmission to their destination, but were discarded (e.g., for lack of buffer space)
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-ip'
+                            _revision = '2019-01-08'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State.Counters, self).__init__()
+
+                                self.yang_name = "counters"
+                                self.yang_parent_name = "state"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('in_pkts', (YLeaf(YType.uint64, 'in-pkts'), ['int'])),
+                                    ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
+                                    ('in_error_pkts', (YLeaf(YType.uint64, 'in-error-pkts'), ['int'])),
+                                    ('in_forwarded_pkts', (YLeaf(YType.uint64, 'in-forwarded-pkts'), ['int'])),
+                                    ('in_forwarded_octets', (YLeaf(YType.uint64, 'in-forwarded-octets'), ['int'])),
+                                    ('in_discarded_pkts', (YLeaf(YType.uint64, 'in-discarded-pkts'), ['int'])),
+                                    ('out_pkts', (YLeaf(YType.uint64, 'out-pkts'), ['int'])),
+                                    ('out_octets', (YLeaf(YType.uint64, 'out-octets'), ['int'])),
+                                    ('out_error_pkts', (YLeaf(YType.uint64, 'out-error-pkts'), ['int'])),
+                                    ('out_forwarded_pkts', (YLeaf(YType.uint64, 'out-forwarded-pkts'), ['int'])),
+                                    ('out_forwarded_octets', (YLeaf(YType.uint64, 'out-forwarded-octets'), ['int'])),
+                                    ('out_discarded_pkts', (YLeaf(YType.uint64, 'out-discarded-pkts'), ['int'])),
+                                ])
+                                self.in_pkts = None
+                                self.in_octets = None
+                                self.in_error_pkts = None
+                                self.in_forwarded_pkts = None
+                                self.in_forwarded_octets = None
+                                self.in_discarded_pkts = None
+                                self.out_pkts = None
+                                self.out_octets = None
+                                self.out_error_pkts = None
+                                self.out_forwarded_pkts = None
+                                self.out_forwarded_octets = None
+                                self.out_discarded_pkts = None
+                                self._segment_path = lambda: "counters"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State.Counters, ['in_pkts', 'in_octets', 'in_error_pkts', 'in_forwarded_pkts', 'in_forwarded_octets', 'in_discarded_pkts', 'out_pkts', 'out_octets', 'out_error_pkts', 'out_forwarded_pkts', 'out_forwarded_octets', 'out_discarded_pkts'], name, value)
 
 
 
 
-                class Ipv6(Entity):
+
+                class Ipv6(_Entity_):
                     """
                     Parameters for the IPv6 address family.
                     
@@ -2983,6 +3583,11 @@ class Interfaces(Entity):
                     
                     	Enclosing container for address list
                     	**type**\:  :py:class:`Addresses <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses>`
+                    
+                    .. attribute:: router_advertisement
+                    
+                    	Configuration and operational state parameters relating to router advertisements
+                    	**type**\:  :py:class:`RouterAdvertisement <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.RouterAdvertisement>`
                     
                     .. attribute:: neighbors
                     
@@ -3006,27 +3611,39 @@ class Interfaces(Entity):
                     
                     	**config**\: False
                     
+                    .. attribute:: autoconf
+                    
+                    	Top\-level container for IPv6 autoconf
+                    	**type**\:  :py:class:`Autoconf <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf>`
+                    
                     
 
                     """
 
                     _prefix = 'oc-ip'
-                    _revision = '2016-05-26'
+                    _revision = '2019-01-08'
 
                     def __init__(self):
-                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6, self).__init__()
 
                         self.yang_name = "ipv6"
                         self.yang_parent_name = "subinterface"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("addresses", ("addresses", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses)), ("neighbors", ("neighbors", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors)), ("unnumbered", ("unnumbered", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered)), ("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State))])
+                        self._child_classes = OrderedDict([("addresses", ("addresses", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses)), ("router-advertisement", ("router_advertisement", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.RouterAdvertisement)), ("neighbors", ("neighbors", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors)), ("unnumbered", ("unnumbered", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered)), ("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State)), ("openconfig-if-ip-ext:autoconf", ("autoconf", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf))])
                         self._leafs = OrderedDict()
 
                         self.addresses = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses()
                         self.addresses.parent = self
                         self._children_name_map["addresses"] = "addresses"
+
+                        self.router_advertisement = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.RouterAdvertisement()
+                        self.router_advertisement.parent = self
+                        self._children_name_map["router_advertisement"] = "router-advertisement"
 
                         self.neighbors = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors()
                         self.neighbors.parent = self
@@ -3043,6 +3660,10 @@ class Interfaces(Entity):
                         self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State()
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
+
+                        self.autoconf = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf()
+                        self.autoconf.parent = self
+                        self._children_name_map["autoconf"] = "openconfig-if-ip-ext:autoconf"
                         self._segment_path = lambda: "openconfig-if-ip:ipv6"
                         self._is_frozen = True
 
@@ -3050,7 +3671,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6, [], name, value)
 
 
-                    class Addresses(Entity):
+                    class Addresses(_Entity_):
                         """
                         Enclosing container for address list
                         
@@ -3064,10 +3685,13 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses, self).__init__()
 
                             self.yang_name = "addresses"
                             self.yang_parent_name = "ipv6"
@@ -3085,7 +3709,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses, [], name, value)
 
 
-                        class Address(Entity):
+                        class Address(_Entity_):
                             """
                             The list of configured IPv6 addresses on the interface.
                             
@@ -3094,7 +3718,7 @@ class Interfaces(Entity):
                             	References the configured IP address
                             	**type**\: str
                             
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             	**refers to**\:  :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Config>`
                             
@@ -3120,10 +3744,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "addresses"
@@ -3154,21 +3781,21 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address, ['ip'], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configuration data for each IPv6 address on
                                 the interface
                                 
                                 .. attribute:: ip
                                 
-                                	[adapted from IETF IP model RFC 7277]  The IPv6 address on the interface
+                                	The IPv6 address on the interface
                                 	**type**\: str
                                 
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                	**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                 
                                 .. attribute:: prefix_length
                                 
-                                	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
+                                	The length of the subnet prefix
                                 	**type**\: int
                                 
                                 	**range:** 0..128
@@ -3180,10 +3807,13 @@ class Interfaces(Entity):
                                 """
 
                                 _prefix = 'oc-ip'
-                                _revision = '2016-05-26'
+                                _revision = '2019-01-08'
 
                                 def __init__(self):
-                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "address"
@@ -3205,23 +3835,23 @@ class Interfaces(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 State data for each IPv6 address on the
                                 interface
                                 
                                 .. attribute:: ip
                                 
-                                	[adapted from IETF IP model RFC 7277]  The IPv6 address on the interface
+                                	The IPv6 address on the interface
                                 	**type**\: str
                                 
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                	**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                 
                                 	**config**\: False
                                 
                                 .. attribute:: prefix_length
                                 
-                                	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
+                                	The length of the subnet prefix
                                 	**type**\: int
                                 
                                 	**range:** 0..128
@@ -3232,14 +3862,14 @@ class Interfaces(Entity):
                                 
                                 .. attribute:: origin
                                 
-                                	[adapted from IETF IP model RFC 7277]  The origin of this address, e.g., static, dhcp, etc
+                                	The origin of this address, e.g., static, dhcp, etc
                                 	**type**\:  :py:class:`IpAddressOrigin <ydk.models.openconfig.openconfig_if_ip.IpAddressOrigin>`
                                 
                                 	**config**\: False
                                 
                                 .. attribute:: status
                                 
-                                	[adapted from IETF IP model RFC 7277]  The status of an address.  Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol
+                                	The status of an address.  Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol
                                 	**type**\:  :py:class:`Status <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.State.Status>`
                                 
                                 	**config**\: False
@@ -3249,10 +3879,13 @@ class Interfaces(Entity):
                                 """
 
                                 _prefix = 'oc-ip'
-                                _revision = '2016-05-26'
+                                _revision = '2019-01-08'
 
                                 def __init__(self):
-                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "address"
@@ -3279,8 +3912,6 @@ class Interfaces(Entity):
                                 class Status(Enum):
                                     """
                                     Status (Enum Class)
-
-                                    [adapted from IETF IP model RFC 7277]
 
                                     The status of an address.  Most of the states correspond
 
@@ -3367,7 +3998,7 @@ class Interfaces(Entity):
 
 
 
-                            class Vrrp(Entity):
+                            class Vrrp(_Entity_):
                                 """
                                 Enclosing container for VRRP groups handled by this
                                 IP interface
@@ -3382,10 +4013,13 @@ class Interfaces(Entity):
                                 """
 
                                 _prefix = 'oc-ip'
-                                _revision = '2016-05-26'
+                                _revision = '2019-01-08'
 
                                 def __init__(self):
-                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp, self).__init__()
 
                                     self.yang_name = "vrrp"
                                     self.yang_parent_name = "address"
@@ -3403,7 +4037,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp, [], name, value)
 
 
-                                class VrrpGroup(Entity):
+                                class VrrpGroup(_Entity_):
                                     """
                                     List of VRRP groups, keyed by virtual router id
                                     
@@ -3438,10 +4072,13 @@ class Interfaces(Entity):
                                     """
 
                                     _prefix = 'oc-ip'
-                                    _revision = '2016-05-26'
+                                    _revision = '2019-01-08'
 
                                     def __init__(self):
-                                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup, self).__init__()
 
                                         self.yang_name = "vrrp-group"
                                         self.yang_parent_name = "vrrp"
@@ -3472,7 +4109,7 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup, ['virtual_router_id'], name, value)
 
 
-                                    class Config(Entity):
+                                    class Config(_Entity_):
                                         """
                                         Configuration data for the VRRP group
                                         
@@ -3490,11 +4127,11 @@ class Interfaces(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                         
                                         .. attribute:: priority
                                         
@@ -3546,21 +4183,24 @@ class Interfaces(Entity):
                                         
                                         		**type**\: str
                                         
-                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                                         
                                         		**type**\: str
                                         
-                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                         
                                         
 
                                         """
 
                                         _prefix = 'oc-ip'
-                                        _revision = '2016-05-26'
+                                        _revision = '2019-01-08'
 
                                         def __init__(self):
-                                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.Config, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.Config, self).__init__()
 
                                             self.yang_name = "config"
                                             self.yang_parent_name = "vrrp-group"
@@ -3594,7 +4234,7 @@ class Interfaces(Entity):
 
 
 
-                                    class State(Entity):
+                                    class State(_Entity_):
                                         """
                                         Operational state data for the VRRP group
                                         
@@ -3614,11 +4254,11 @@ class Interfaces(Entity):
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                                         
                                         		**type**\: list of str
                                         
-                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                         
                                         	**config**\: False
                                         
@@ -3691,11 +4331,11 @@ class Interfaces(Entity):
                                         
                                         		**type**\: str
                                         
-                                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                                         
                                         		**type**\: str
                                         
-                                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                         
                                         	**config**\: False
                                         
@@ -3704,10 +4344,13 @@ class Interfaces(Entity):
                                         """
 
                                         _prefix = 'oc-ip'
-                                        _revision = '2016-05-26'
+                                        _revision = '2019-01-08'
 
                                         def __init__(self):
-                                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.State, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.State, self).__init__()
 
                                             self.yang_name = "state"
                                             self.yang_parent_name = "vrrp-group"
@@ -3743,7 +4386,7 @@ class Interfaces(Entity):
 
 
 
-                                    class InterfaceTracking(Entity):
+                                    class InterfaceTracking(_Entity_):
                                         """
                                         Top\-level container for VRRP interface tracking
                                         
@@ -3764,10 +4407,13 @@ class Interfaces(Entity):
                                         """
 
                                         _prefix = 'oc-ip'
-                                        _revision = '2016-05-26'
+                                        _revision = '2019-01-08'
 
                                         def __init__(self):
-                                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking, self).__init__()
 
                                             self.yang_name = "interface-tracking"
                                             self.yang_parent_name = "vrrp-group"
@@ -3791,14 +4437,14 @@ class Interfaces(Entity):
                                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking, [], name, value)
 
 
-                                        class Config(Entity):
+                                        class Config(_Entity_):
                                             """
                                             Configuration data for VRRP interface tracking
                                             
                                             .. attribute:: track_interface
                                             
-                                            	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
-                                            	**type**\: str
+                                            	Sets a list of one or more interfaces that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently.  Any of the tracked interfaces going down will cause the priority to be lowered. Some implementations may only support a single tracked interface
+                                            	**type**\: list of str
                                             
                                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                             
@@ -3816,10 +4462,13 @@ class Interfaces(Entity):
                                             """
 
                                             _prefix = 'oc-ip'
-                                            _revision = '2016-05-26'
+                                            _revision = '2019-01-08'
 
                                             def __init__(self):
-                                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config, self).__init__()
 
                                                 self.yang_name = "config"
                                                 self.yang_parent_name = "interface-tracking"
@@ -3828,10 +4477,10 @@ class Interfaces(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('track_interface', (YLeaf(YType.str, 'track-interface'), ['str'])),
+                                                    ('track_interface', (YLeafList(YType.str, 'track-interface'), ['str'])),
                                                     ('priority_decrement', (YLeaf(YType.uint8, 'priority-decrement'), ['int'])),
                                                 ])
-                                                self.track_interface = None
+                                                self.track_interface = []
                                                 self.priority_decrement = None
                                                 self._segment_path = lambda: "config"
                                                 self._is_frozen = True
@@ -3841,14 +4490,14 @@ class Interfaces(Entity):
 
 
 
-                                        class State(Entity):
+                                        class State(_Entity_):
                                             """
                                             Operational state data for VRRP interface tracking
                                             
                                             .. attribute:: track_interface
                                             
-                                            	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
-                                            	**type**\: str
+                                            	Sets a list of one or more interfaces that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently.  Any of the tracked interfaces going down will cause the priority to be lowered. Some implementations may only support a single tracked interface
+                                            	**type**\: list of str
                                             
                                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                             
@@ -3870,10 +4519,13 @@ class Interfaces(Entity):
                                             """
 
                                             _prefix = 'oc-ip'
-                                            _revision = '2016-05-26'
+                                            _revision = '2019-01-08'
 
                                             def __init__(self):
-                                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State, self).__init__()
 
                                                 self.yang_name = "state"
                                                 self.yang_parent_name = "interface-tracking"
@@ -3882,10 +4534,10 @@ class Interfaces(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('track_interface', (YLeaf(YType.str, 'track-interface'), ['str'])),
+                                                    ('track_interface', (YLeafList(YType.str, 'track-interface'), ['str'])),
                                                     ('priority_decrement', (YLeaf(YType.uint8, 'priority-decrement'), ['int'])),
                                                 ])
-                                                self.track_interface = None
+                                                self.track_interface = []
                                                 self.priority_decrement = None
                                                 self._segment_path = lambda: "state"
                                                 self._is_frozen = True
@@ -3900,7 +4552,196 @@ class Interfaces(Entity):
 
 
 
-                    class Neighbors(Entity):
+                    class RouterAdvertisement(_Entity_):
+                        """
+                        Configuration and operational state parameters relating to
+                        router advertisements.
+                        
+                        .. attribute:: config
+                        
+                        	Configuration parameters relating to router advertisements for IPv6
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.RouterAdvertisement.Config>`
+                        
+                        .. attribute:: state
+                        
+                        	Operational state parameters relating to router advertisements for IPv6
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.RouterAdvertisement.State>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-ip'
+                        _revision = '2019-01-08'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.RouterAdvertisement, self).__init__()
+
+                            self.yang_name = "router-advertisement"
+                            self.yang_parent_name = "ipv6"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.RouterAdvertisement.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.RouterAdvertisement.State))])
+                            self._leafs = OrderedDict()
+
+                            self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.RouterAdvertisement.Config()
+                            self.config.parent = self
+                            self._children_name_map["config"] = "config"
+
+                            self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.RouterAdvertisement.State()
+                            self.state.parent = self
+                            self._children_name_map["state"] = "state"
+                            self._segment_path = lambda: "router-advertisement"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.RouterAdvertisement, [], name, value)
+
+
+                        class Config(_Entity_):
+                            """
+                            Configuration parameters relating to router advertisements
+                            for IPv6.
+                            
+                            .. attribute:: interval
+                            
+                            	The interval between periodic router advertisement neighbor discovery messages sent on this interface expressed in seconds
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: seconds
+                            
+                            .. attribute:: lifetime
+                            
+                            	The lifetime advertised in the router advertisement neighbor discovery message on this interface
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: seconds
+                            
+                            .. attribute:: suppress
+                            
+                            	When set to true, router advertisement neighbor discovery messages are not transmitted on this interface
+                            	**type**\: bool
+                            
+                            	**default value**\: false
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-ip'
+                            _revision = '2019-01-08'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.RouterAdvertisement.Config, self).__init__()
+
+                                self.yang_name = "config"
+                                self.yang_parent_name = "router-advertisement"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                                    ('lifetime', (YLeaf(YType.uint32, 'lifetime'), ['int'])),
+                                    ('suppress', (YLeaf(YType.boolean, 'suppress'), ['bool'])),
+                                ])
+                                self.interval = None
+                                self.lifetime = None
+                                self.suppress = None
+                                self._segment_path = lambda: "config"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.RouterAdvertisement.Config, ['interval', 'lifetime', 'suppress'], name, value)
+
+
+
+                        class State(_Entity_):
+                            """
+                            Operational state parameters relating to router
+                            advertisements for IPv6.
+                            
+                            .. attribute:: interval
+                            
+                            	The interval between periodic router advertisement neighbor discovery messages sent on this interface expressed in seconds
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            	**units**\: seconds
+                            
+                            .. attribute:: lifetime
+                            
+                            	The lifetime advertised in the router advertisement neighbor discovery message on this interface
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            	**units**\: seconds
+                            
+                            .. attribute:: suppress
+                            
+                            	When set to true, router advertisement neighbor discovery messages are not transmitted on this interface
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            	**default value**\: false
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-ip'
+                            _revision = '2019-01-08'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.RouterAdvertisement.State, self).__init__()
+
+                                self.yang_name = "state"
+                                self.yang_parent_name = "router-advertisement"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                                    ('lifetime', (YLeaf(YType.uint32, 'lifetime'), ['int'])),
+                                    ('suppress', (YLeaf(YType.boolean, 'suppress'), ['bool'])),
+                                ])
+                                self.interval = None
+                                self.lifetime = None
+                                self.suppress = None
+                                self._segment_path = lambda: "state"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.RouterAdvertisement.State, ['interval', 'lifetime', 'suppress'], name, value)
+
+
+
+
+                    class Neighbors(_Entity_):
                         """
                         Enclosing container for list of IPv6 neighbors
                         
@@ -3914,10 +4755,13 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors, self).__init__()
 
                             self.yang_name = "neighbors"
                             self.yang_parent_name = "ipv6"
@@ -3935,7 +4779,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors, [], name, value)
 
 
-                        class Neighbor(Entity):
+                        class Neighbor(_Entity_):
                             """
                             List of IPv6 neighbors
                             
@@ -3944,7 +4788,7 @@ class Interfaces(Entity):
                             	References the configured IP neighbor address
                             	**type**\: str
                             
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             	**refers to**\:  :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor.Config>`
                             
@@ -3965,10 +4809,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor, self).__init__()
 
                                 self.yang_name = "neighbor"
                                 self.yang_parent_name = "neighbors"
@@ -3995,24 +4842,24 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor, ['ip'], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configuration data for each IPv6 address on
                                 the interface
                                 
                                 .. attribute:: ip
                                 
-                                	[adapted from IETF IP model RFC 7277]  The IPv6 address of the neighbor node
+                                	The IPv6 address of the neighbor node
                                 	**type**\: str
                                 
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                	**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                 
                                 .. attribute:: link_layer_address
                                 
-                                	[adapted from IETF IP model RFC 7277]  The link\-layer address of the neighbor node
+                                	The link\-layer address of the neighbor node
                                 	**type**\: str
                                 
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                	**pattern:** ^([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?$
                                 
                                 	**mandatory**\: True
                                 
@@ -4021,10 +4868,13 @@ class Interfaces(Entity):
                                 """
 
                                 _prefix = 'oc-ip'
-                                _revision = '2016-05-26'
+                                _revision = '2019-01-08'
 
                                 def __init__(self):
-                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "neighbor"
@@ -4046,26 +4896,26 @@ class Interfaces(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 State data for each IPv6 address on the
                                 interface
                                 
                                 .. attribute:: ip
                                 
-                                	[adapted from IETF IP model RFC 7277]  The IPv6 address of the neighbor node
+                                	The IPv6 address of the neighbor node
                                 	**type**\: str
                                 
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                	**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                 
                                 	**config**\: False
                                 
                                 .. attribute:: link_layer_address
                                 
-                                	[adapted from IETF IP model RFC 7277]  The link\-layer address of the neighbor node
+                                	The link\-layer address of the neighbor node
                                 	**type**\: str
                                 
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                	**pattern:** ^([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?$
                                 
                                 	**mandatory**\: True
                                 
@@ -4073,21 +4923,21 @@ class Interfaces(Entity):
                                 
                                 .. attribute:: origin
                                 
-                                	[adapted from IETF IP model RFC 7277]  The origin of this neighbor entry
+                                	The origin of this neighbor entry
                                 	**type**\:  :py:class:`NeighborOrigin <ydk.models.openconfig.openconfig_if_ip.NeighborOrigin>`
                                 
                                 	**config**\: False
                                 
                                 .. attribute:: is_router
                                 
-                                	[adapted from IETF IP model RFC 7277]  Indicates that the neighbor node acts as a router
-                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                	Indicates that the neighbor node acts as a router
+                                	**type**\: bool
                                 
                                 	**config**\: False
                                 
                                 .. attribute:: neighbor_state
                                 
-                                	[adapted from IETF IP model RFC 7277]  The Neighbor Unreachability Detection state of this entry
+                                	The Neighbor Unreachability Detection state of this entry
                                 	**type**\:  :py:class:`NeighborState <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor.State.NeighborState>`
                                 
                                 	**config**\: False
@@ -4097,10 +4947,13 @@ class Interfaces(Entity):
                                 """
 
                                 _prefix = 'oc-ip'
-                                _revision = '2016-05-26'
+                                _revision = '2019-01-08'
 
                                 def __init__(self):
-                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "neighbor"
@@ -4112,7 +4965,7 @@ class Interfaces(Entity):
                                         ('ip', (YLeaf(YType.str, 'ip'), ['str'])),
                                         ('link_layer_address', (YLeaf(YType.str, 'link-layer-address'), ['str'])),
                                         ('origin', (YLeaf(YType.enumeration, 'origin'), [('ydk.models.openconfig.openconfig_if_ip', 'NeighborOrigin', '')])),
-                                        ('is_router', (YLeaf(YType.empty, 'is-router'), ['Empty'])),
+                                        ('is_router', (YLeaf(YType.boolean, 'is-router'), ['bool'])),
                                         ('neighbor_state', (YLeaf(YType.enumeration, 'neighbor-state'), [('ydk.models.openconfig.openconfig_interfaces', 'Interfaces', 'Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor.State.NeighborState')])),
                                     ])
                                     self.ip = None
@@ -4129,8 +4982,6 @@ class Interfaces(Entity):
                                 class NeighborState(Enum):
                                     """
                                     NeighborState (Enum Class)
-
-                                    [adapted from IETF IP model RFC 7277]
 
                                     The Neighbor Unreachability Detection state of this
 
@@ -4197,7 +5048,7 @@ class Interfaces(Entity):
 
 
 
-                    class Unnumbered(Entity):
+                    class Unnumbered(_Entity_):
                         """
                         Top\-level container for setting unnumbered interfaces.
                         Includes reference the interface that provides the
@@ -4225,10 +5076,13 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered, self).__init__()
 
                             self.yang_name = "unnumbered"
                             self.yang_parent_name = "ipv6"
@@ -4256,7 +5110,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration data for unnumbered interface
                             
@@ -4272,10 +5126,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "unnumbered"
@@ -4295,7 +5152,7 @@ class Interfaces(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             Operational state data for unnumbered interfaces
                             
@@ -4313,10 +5170,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "unnumbered"
@@ -4336,7 +5196,7 @@ class Interfaces(Entity):
 
 
 
-                        class InterfaceRef(Entity):
+                        class InterfaceRef(_Entity_):
                             """
                             Reference to an interface or subinterface
                             
@@ -4357,10 +5217,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef, self).__init__()
 
                                 self.yang_name = "interface-ref"
                                 self.yang_parent_name = "unnumbered"
@@ -4384,7 +5247,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef, [], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configured reference to interface / subinterface
                                 
@@ -4409,10 +5272,13 @@ class Interfaces(Entity):
                                 """
 
                                 _prefix = 'oc-ip'
-                                _revision = '2016-05-26'
+                                _revision = '2019-01-08'
 
                                 def __init__(self):
-                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "interface-ref"
@@ -4434,7 +5300,7 @@ class Interfaces(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Operational state for interface\-ref
                                 
@@ -4463,10 +5329,13 @@ class Interfaces(Entity):
                                 """
 
                                 _prefix = 'oc-ip'
-                                _revision = '2016-05-26'
+                                _revision = '2019-01-08'
 
                                 def __init__(self):
-                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "interface-ref"
@@ -4490,20 +5359,20 @@ class Interfaces(Entity):
 
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Top\-level config data for the IPv6 interface
                         
                         .. attribute:: enabled
                         
-                        	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
+                        	Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
                         	**type**\: bool
                         
                         	**default value**\: true
                         
                         .. attribute:: mtu
                         
-                        	[adapted from IETF IP model RFC 7277]  The size, in octets, of the largest IPv6 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
+                        	The size, in octets, of the largest IPv6 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
                         	**type**\: int
                         
                         	**range:** 1280..4294967295
@@ -4512,22 +5381,32 @@ class Interfaces(Entity):
                         
                         .. attribute:: dup_addr_detect_transmits
                         
-                        	[adapted from IETF IP model RFC 7277]  The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
+                        	The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         	**default value**\: 1
                         
+                        .. attribute:: dhcp_client
+                        
+                        	Enables a DHCP client on the interface in order to request an address
+                        	**type**\: bool
+                        
+                        	**default value**\: false
+                        
                         
 
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "ipv6"
@@ -4539,25 +5418,27 @@ class Interfaces(Entity):
                                 ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                                 ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
                                 ('dup_addr_detect_transmits', (YLeaf(YType.uint32, 'dup-addr-detect-transmits'), ['int'])),
+                                ('dhcp_client', (YLeaf(YType.boolean, 'dhcp-client'), ['bool'])),
                             ])
                             self.enabled = None
                             self.mtu = None
                             self.dup_addr_detect_transmits = None
+                            self.dhcp_client = None
                             self._segment_path = lambda: "config"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config, ['enabled', 'mtu', 'dup_addr_detect_transmits'], name, value)
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config, ['enabled', 'mtu', 'dup_addr_detect_transmits', 'dhcp_client'], name, value)
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Top\-level operational state data for the IPv6 interface
                         
                         .. attribute:: enabled
                         
-                        	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
+                        	Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
                         	**type**\: bool
                         
                         	**config**\: False
@@ -4566,7 +5447,7 @@ class Interfaces(Entity):
                         
                         .. attribute:: mtu
                         
-                        	[adapted from IETF IP model RFC 7277]  The size, in octets, of the largest IPv6 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
+                        	The size, in octets, of the largest IPv6 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
                         	**type**\: int
                         
                         	**range:** 1280..4294967295
@@ -4577,7 +5458,7 @@ class Interfaces(Entity):
                         
                         .. attribute:: dup_addr_detect_transmits
                         
-                        	[adapted from IETF IP model RFC 7277]  The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
+                        	The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -4586,42 +5467,450 @@ class Interfaces(Entity):
                         
                         	**default value**\: 1
                         
+                        .. attribute:: dhcp_client
+                        
+                        	Enables a DHCP client on the interface in order to request an address
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        	**default value**\: false
+                        
+                        .. attribute:: counters
+                        
+                        	Packet and byte counters for IP transmission and reception for the address family
+                        	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State.Counters>`
+                        
+                        	**config**\: False
+                        
                         
 
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "ipv6"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("counters", ("counters", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State.Counters))])
                             self._leafs = OrderedDict([
                                 ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                                 ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
                                 ('dup_addr_detect_transmits', (YLeaf(YType.uint32, 'dup-addr-detect-transmits'), ['int'])),
+                                ('dhcp_client', (YLeaf(YType.boolean, 'dhcp-client'), ['bool'])),
                             ])
                             self.enabled = None
                             self.mtu = None
                             self.dup_addr_detect_transmits = None
+                            self.dhcp_client = None
+
+                            self.counters = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State.Counters()
+                            self.counters.parent = self
+                            self._children_name_map["counters"] = "counters"
                             self._segment_path = lambda: "state"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State, ['enabled', 'mtu', 'dup_addr_detect_transmits'], name, value)
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State, ['enabled', 'mtu', 'dup_addr_detect_transmits', 'dhcp_client'], name, value)
+
+
+                        class Counters(_Entity_):
+                            """
+                            Packet and byte counters for IP transmission and
+                            reception for the address family.
+                            
+                            .. attribute:: in_pkts
+                            
+                            	The total number of IP packets received for the specified address family, including those received in error
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: in_octets
+                            
+                            	The total number of octets received in input IP packets for the specified address family, including those received in error
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: in_error_pkts
+                            
+                            	Number of IP packets discarded due to errors for the specified address family, including errors in the IP header, no route found to the IP destination, invalid address, unknown protocol, etc
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: in_forwarded_pkts
+                            
+                            	The number of input packets for which the device was not their final IP destination and for which the device attempted to find a route to forward them to that final destination
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: in_forwarded_octets
+                            
+                            	The number of octets received in input IP packets for the specified address family for which the device was not their final IP destination and for which the device attempted to find a route to forward them to that final destination
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: in_discarded_pkts
+                            
+                            	The number of input IP packets for the specified address family, for which no problems were encountered to prevent their continued processing, but were discarded (e.g., for lack of buffer space)
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: out_pkts
+                            
+                            	The total number of IP packets for the specified address family that the device supplied to the lower layers for transmission.  This includes packets generated locally and those forwarded by the device
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: out_octets
+                            
+                            	The total number of octets in IP packets for the specified address family that the device supplied to the lower layers for transmission.  This includes packets generated locally and those forwarded by the device
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: out_error_pkts
+                            
+                            	Number of IP packets for the specified address family locally generated and discarded due to errors, including no route found to the IP destination
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: out_forwarded_pkts
+                            
+                            	The number of packets for which this entity was not their final IP destination and for which it was successful in finding a path to their final destination
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: out_forwarded_octets
+                            
+                            	The number of octets in packets for which this entity was not their final IP destination and for which it was successful in finding a path to their final destination
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: out_discarded_pkts
+                            
+                            	The number of output IP packets for the specified address family for which no problem was encountered to prevent their transmission to their destination, but were discarded (e.g., for lack of buffer space)
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-ip'
+                            _revision = '2019-01-08'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State.Counters, self).__init__()
+
+                                self.yang_name = "counters"
+                                self.yang_parent_name = "state"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('in_pkts', (YLeaf(YType.uint64, 'in-pkts'), ['int'])),
+                                    ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
+                                    ('in_error_pkts', (YLeaf(YType.uint64, 'in-error-pkts'), ['int'])),
+                                    ('in_forwarded_pkts', (YLeaf(YType.uint64, 'in-forwarded-pkts'), ['int'])),
+                                    ('in_forwarded_octets', (YLeaf(YType.uint64, 'in-forwarded-octets'), ['int'])),
+                                    ('in_discarded_pkts', (YLeaf(YType.uint64, 'in-discarded-pkts'), ['int'])),
+                                    ('out_pkts', (YLeaf(YType.uint64, 'out-pkts'), ['int'])),
+                                    ('out_octets', (YLeaf(YType.uint64, 'out-octets'), ['int'])),
+                                    ('out_error_pkts', (YLeaf(YType.uint64, 'out-error-pkts'), ['int'])),
+                                    ('out_forwarded_pkts', (YLeaf(YType.uint64, 'out-forwarded-pkts'), ['int'])),
+                                    ('out_forwarded_octets', (YLeaf(YType.uint64, 'out-forwarded-octets'), ['int'])),
+                                    ('out_discarded_pkts', (YLeaf(YType.uint64, 'out-discarded-pkts'), ['int'])),
+                                ])
+                                self.in_pkts = None
+                                self.in_octets = None
+                                self.in_error_pkts = None
+                                self.in_forwarded_pkts = None
+                                self.in_forwarded_octets = None
+                                self.in_discarded_pkts = None
+                                self.out_pkts = None
+                                self.out_octets = None
+                                self.out_error_pkts = None
+                                self.out_forwarded_pkts = None
+                                self.out_forwarded_octets = None
+                                self.out_discarded_pkts = None
+                                self._segment_path = lambda: "counters"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State.Counters, ['in_pkts', 'in_octets', 'in_error_pkts', 'in_forwarded_pkts', 'in_forwarded_octets', 'in_discarded_pkts', 'out_pkts', 'out_octets', 'out_error_pkts', 'out_forwarded_pkts', 'out_forwarded_octets', 'out_discarded_pkts'], name, value)
+
+
+
+
+                    class Autoconf(_Entity_):
+                        """
+                        Top\-level container for IPv6 autoconf
+                        
+                        .. attribute:: config
+                        
+                        	[adapted from IETF IP model RFC 7277]  Parameters to control the autoconfiguration of IPv6 addresses, as described in RFC 4862
+                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.Config>`
+                        
+                        .. attribute:: state
+                        
+                        	Operational state data 
+                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.State>`
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-ip-ext'
+                        _revision = '2018-11-21'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf, self).__init__()
+
+                            self.yang_name = "autoconf"
+                            self.yang_parent_name = "ipv6"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.Config)), ("state", ("state", Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.State))])
+                            self._leafs = OrderedDict()
+
+                            self.config = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.Config()
+                            self.config.parent = self
+                            self._children_name_map["config"] = "config"
+
+                            self.state = Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.State()
+                            self.state.parent = self
+                            self._children_name_map["state"] = "state"
+                            self._segment_path = lambda: "openconfig-if-ip-ext:autoconf"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf, [], name, value)
+
+
+                        class Config(_Entity_):
+                            """
+                            [adapted from IETF IP model RFC 7277]
+                            
+                            Parameters to control the autoconfiguration of IPv6
+                            addresses, as described in RFC 4862.
+                            
+                            .. attribute:: create_global_addresses
+                            
+                            	[adapted from IETF IP model RFC 7277]  If enabled, the host creates global addresses as described in RFC 4862
+                            	**type**\: bool
+                            
+                            	**default value**\: true
+                            
+                            .. attribute:: create_temporary_addresses
+                            
+                            	[adapted from IETF IP model RFC 7277]  If enabled, the host creates temporary addresses as described in RFC 4941
+                            	**type**\: bool
+                            
+                            	**default value**\: false
+                            
+                            .. attribute:: temporary_valid_lifetime
+                            
+                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: seconds
+                            
+                            	**default value**\: 604800
+                            
+                            .. attribute:: temporary_preferred_lifetime
+                            
+                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is preferred
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: seconds
+                            
+                            	**default value**\: 86400
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-ip-ext'
+                            _revision = '2018-11-21'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.Config, self).__init__()
+
+                                self.yang_name = "config"
+                                self.yang_parent_name = "autoconf"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('create_global_addresses', (YLeaf(YType.boolean, 'create-global-addresses'), ['bool'])),
+                                    ('create_temporary_addresses', (YLeaf(YType.boolean, 'create-temporary-addresses'), ['bool'])),
+                                    ('temporary_valid_lifetime', (YLeaf(YType.uint32, 'temporary-valid-lifetime'), ['int'])),
+                                    ('temporary_preferred_lifetime', (YLeaf(YType.uint32, 'temporary-preferred-lifetime'), ['int'])),
+                                ])
+                                self.create_global_addresses = None
+                                self.create_temporary_addresses = None
+                                self.temporary_valid_lifetime = None
+                                self.temporary_preferred_lifetime = None
+                                self._segment_path = lambda: "config"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.Config, ['create_global_addresses', 'create_temporary_addresses', 'temporary_valid_lifetime', 'temporary_preferred_lifetime'], name, value)
+
+
+
+                        class State(_Entity_):
+                            """
+                            Operational state data 
+                            
+                            .. attribute:: create_global_addresses
+                            
+                            	[adapted from IETF IP model RFC 7277]  If enabled, the host creates global addresses as described in RFC 4862
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            	**default value**\: true
+                            
+                            .. attribute:: create_temporary_addresses
+                            
+                            	[adapted from IETF IP model RFC 7277]  If enabled, the host creates temporary addresses as described in RFC 4941
+                            	**type**\: bool
+                            
+                            	**config**\: False
+                            
+                            	**default value**\: false
+                            
+                            .. attribute:: temporary_valid_lifetime
+                            
+                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            	**units**\: seconds
+                            
+                            	**default value**\: 604800
+                            
+                            .. attribute:: temporary_preferred_lifetime
+                            
+                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is preferred
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**config**\: False
+                            
+                            	**units**\: seconds
+                            
+                            	**default value**\: 86400
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-ip-ext'
+                            _revision = '2018-11-21'
+
+                            def __init__(self):
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.State, self).__init__()
+
+                                self.yang_name = "state"
+                                self.yang_parent_name = "autoconf"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('create_global_addresses', (YLeaf(YType.boolean, 'create-global-addresses'), ['bool'])),
+                                    ('create_temporary_addresses', (YLeaf(YType.boolean, 'create-temporary-addresses'), ['bool'])),
+                                    ('temporary_valid_lifetime', (YLeaf(YType.uint32, 'temporary-valid-lifetime'), ['int'])),
+                                    ('temporary_preferred_lifetime', (YLeaf(YType.uint32, 'temporary-preferred-lifetime'), ['int'])),
+                                ])
+                                self.create_global_addresses = None
+                                self.create_temporary_addresses = None
+                                self.temporary_valid_lifetime = None
+                                self.temporary_preferred_lifetime = None
+                                self._segment_path = lambda: "state"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.State, ['create_global_addresses', 'create_temporary_addresses', 'temporary_valid_lifetime', 'temporary_preferred_lifetime'], name, value)
 
 
 
 
 
 
-        class Ethernet(Entity):
+
+        class Ethernet(_Entity_):
             """
             Top\-level container for ethernet configuration
             and state
@@ -4651,7 +5940,10 @@ class Interfaces(Entity):
             _revision = '2016-05-26'
 
             def __init__(self):
-                super(Interfaces.Interface.Ethernet, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Interfaces.Interface.Ethernet, self).__init__()
 
                 self.yang_name = "ethernet"
                 self.yang_parent_name = "interface"
@@ -4679,7 +5971,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.Interface.Ethernet, [], name, value)
 
 
-            class Config(Entity):
+            class Config(_Entity_):
                 """
                 Configuration data for ethernet interfaces
                 
@@ -4721,6 +6013,31 @@ class Interfaces(Entity):
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
+                .. attribute:: client_fec
+                
+                	Configure whether FEC will be manually or automatically enabled or disabled on the client port
+                	**type**\:  :py:class:`ClientFec <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.Config.ClientFec>`
+                
+                	**default value**\: AUTO
+                
+                .. attribute:: client_als
+                
+                	Sets the client port behavior that defines if the actions of automatic laser shutdown (als), ethernet fault propagation, or nothing will be done upon the detection of a failure on the line port or the upstream remote client port
+                	**type**\:  :py:class:`ClientAls <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.Config.ClientAls>`
+                
+                	**default value**\: ETHERNET
+                
+                .. attribute:: als_delay
+                
+                	The timer to delay the client\-als actions on the client port when a local or remote fault is detected on the line port. The delay will only be valid when the client\-als is set to LASER\_SHUTDOWN
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: milliseconds
+                
+                	**default value**\: 0
+                
                 
 
                 """
@@ -4729,7 +6046,10 @@ class Interfaces(Entity):
                 _revision = '2016-05-26'
 
                 def __init__(self):
-                    super(Interfaces.Interface.Ethernet.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.Interface.Ethernet.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "ethernet"
@@ -4744,6 +6064,9 @@ class Interfaces(Entity):
                         ('port_speed', (YLeaf(YType.identityref, 'port-speed'), [('ydk.models.openconfig.openconfig_if_ethernet', 'ETHERNETSPEED')])),
                         ('enable_flow_control', (YLeaf(YType.boolean, 'enable-flow-control'), ['bool'])),
                         ('aggregate_id', (YLeaf(YType.str, 'openconfig-if-aggregate:aggregate-id'), ['str'])),
+                        ('client_fec', (YLeaf(YType.enumeration, 'openconfig-terminal-device:client-fec'), [('ydk.models.openconfig.openconfig_interfaces', 'Interfaces', 'Interface.Ethernet.Config.ClientFec')])),
+                        ('client_als', (YLeaf(YType.enumeration, 'openconfig-terminal-device:client-als'), [('ydk.models.openconfig.openconfig_interfaces', 'Interfaces', 'Interface.Ethernet.Config.ClientAls')])),
+                        ('als_delay', (YLeaf(YType.uint32, 'openconfig-terminal-device:als-delay'), ['int'])),
                     ])
                     self.mac_address = None
                     self.auto_negotiate = None
@@ -4751,11 +6074,90 @@ class Interfaces(Entity):
                     self.port_speed = None
                     self.enable_flow_control = None
                     self.aggregate_id = None
+                    self.client_fec = None
+                    self.client_als = None
+                    self.als_delay = None
                     self._segment_path = lambda: "config"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ethernet.Config, ['mac_address', 'auto_negotiate', 'duplex_mode', 'port_speed', 'enable_flow_control', 'aggregate_id'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ethernet.Config, ['mac_address', 'auto_negotiate', 'duplex_mode', 'port_speed', 'enable_flow_control', 'aggregate_id', 'client_fec', 'client_als', 'als_delay'], name, value)
+
+                class ClientAls(Enum):
+                    """
+                    ClientAls (Enum Class)
+
+                    Sets the client port behavior that defines if the actions
+
+                    of automatic laser shutdown (als), ethernet fault
+
+                    propagation, or nothing will be done upon the detection
+
+                    of a failure on the line port or the upstream remote
+
+                    client port.
+
+                    .. data:: NONE = 0
+
+                    	The client port will do nothing when a failure is
+
+                    	detected on the line port or the remote client port
+
+                    .. data:: LASER_SHUTDOWN = 1
+
+                    	The client port will shut down the laser to notify the
+
+                    	subtending Ethernet equipment of the failure detected on
+
+                    	the line port or the remote client port.
+
+                    .. data:: ETHERNET = 2
+
+                    	The client port will propagate the local fault or remote
+
+                    	fault signal to the subtending Ethernet equipment.
+
+                    """
+
+                    NONE = Enum.YLeaf(0, "NONE")
+
+                    LASER_SHUTDOWN = Enum.YLeaf(1, "LASER_SHUTDOWN")
+
+                    ETHERNET = Enum.YLeaf(2, "ETHERNET")
+
+
+                class ClientFec(Enum):
+                    """
+                    ClientFec (Enum Class)
+
+                    Configure whether FEC will be manually or automatically
+
+                    enabled or disabled on the client port
+
+                    .. data:: ENABLED = 0
+
+                    	FEC is enabled
+
+                    .. data:: DISABLED = 1
+
+                    	FEC is disabled
+
+                    .. data:: AUTO = 2
+
+                    	System will automatically enable or disable FEC
+
+                    	according to the Ethernet compliance codes (PMD)
+
+                    	supported by transceivers
+
+                    """
+
+                    ENABLED = Enum.YLeaf(0, "ENABLED")
+
+                    DISABLED = Enum.YLeaf(1, "DISABLED")
+
+                    AUTO = Enum.YLeaf(2, "AUTO")
+
 
                 class DuplexMode(Enum):
                     """
@@ -4788,7 +6190,7 @@ class Interfaces(Entity):
 
 
 
-            class State(Entity):
+            class State(_Entity_):
                 """
                 State variables for Ethernet interfaces
                 
@@ -4877,7 +6279,10 @@ class Interfaces(Entity):
                 _revision = '2016-05-26'
 
                 def __init__(self):
-                    super(Interfaces.Interface.Ethernet.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.Interface.Ethernet.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "ethernet"
@@ -4943,7 +6348,7 @@ class Interfaces(Entity):
 
 
 
-                class Counters(Entity):
+                class Counters(_Entity_):
                     """
                     Ethernet interface counters
                     
@@ -5045,7 +6450,10 @@ class Interfaces(Entity):
                     _revision = '2016-05-26'
 
                     def __init__(self):
-                        super(Interfaces.Interface.Ethernet.State.Counters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.Ethernet.State.Counters, self).__init__()
 
                         self.yang_name = "counters"
                         self.yang_parent_name = "state"
@@ -5084,7 +6492,7 @@ class Interfaces(Entity):
 
 
 
-            class SwitchedVlan(Entity):
+            class SwitchedVlan(_Entity_):
                 """
                 Enclosing container for VLAN interface\-specific
                 data on Ethernet interfaces.  These are for standard
@@ -5110,7 +6518,10 @@ class Interfaces(Entity):
                 _revision = '2016-05-26'
 
                 def __init__(self):
-                    super(Interfaces.Interface.Ethernet.SwitchedVlan, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.Interface.Ethernet.SwitchedVlan, self).__init__()
 
                     self.yang_name = "switched-vlan"
                     self.yang_parent_name = "ethernet"
@@ -5134,7 +6545,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.Interface.Ethernet.SwitchedVlan, [], name, value)
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Configuration parameters for VLANs
                     
@@ -5202,7 +6613,10 @@ class Interfaces(Entity):
                     _revision = '2016-05-26'
 
                     def __init__(self):
-                        super(Interfaces.Interface.Ethernet.SwitchedVlan.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.Ethernet.SwitchedVlan.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "switched-vlan"
@@ -5228,7 +6642,7 @@ class Interfaces(Entity):
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     State variables for VLANs
                     
@@ -5304,7 +6718,10 @@ class Interfaces(Entity):
                     _revision = '2016-05-26'
 
                     def __init__(self):
-                        super(Interfaces.Interface.Ethernet.SwitchedVlan.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.Ethernet.SwitchedVlan.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "switched-vlan"
@@ -5332,7 +6749,7 @@ class Interfaces(Entity):
 
 
 
-        class Aggregation(Entity):
+        class Aggregation(_Entity_):
             """
             Options for logical interfaces representing
             aggregates
@@ -5362,7 +6779,10 @@ class Interfaces(Entity):
             _revision = '2016-05-26'
 
             def __init__(self):
-                super(Interfaces.Interface.Aggregation, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Interfaces.Interface.Aggregation, self).__init__()
 
                 self.yang_name = "aggregation"
                 self.yang_parent_name = "interface"
@@ -5390,7 +6810,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.Interface.Aggregation, [], name, value)
 
 
-            class Config(Entity):
+            class Config(_Entity_):
                 """
                 Configuration variables for logical aggregate /
                 LAG interfaces
@@ -5415,7 +6835,10 @@ class Interfaces(Entity):
                 _revision = '2016-05-26'
 
                 def __init__(self):
-                    super(Interfaces.Interface.Aggregation.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.Interface.Aggregation.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "aggregation"
@@ -5437,7 +6860,7 @@ class Interfaces(Entity):
 
 
 
-            class State(Entity):
+            class State(_Entity_):
                 """
                 Operational state variables for logical
                 aggregate / LAG interfaces
@@ -5486,7 +6909,10 @@ class Interfaces(Entity):
                 _revision = '2016-05-26'
 
                 def __init__(self):
-                    super(Interfaces.Interface.Aggregation.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.Interface.Aggregation.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "aggregation"
@@ -5512,7 +6938,7 @@ class Interfaces(Entity):
 
 
 
-            class SwitchedVlan(Entity):
+            class SwitchedVlan(_Entity_):
                 """
                 Enclosing container for VLAN interface\-specific
                 data on Ethernet interfaces.  These are for standard
@@ -5538,7 +6964,10 @@ class Interfaces(Entity):
                 _revision = '2016-05-26'
 
                 def __init__(self):
-                    super(Interfaces.Interface.Aggregation.SwitchedVlan, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.Interface.Aggregation.SwitchedVlan, self).__init__()
 
                     self.yang_name = "switched-vlan"
                     self.yang_parent_name = "aggregation"
@@ -5562,7 +6991,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.Interface.Aggregation.SwitchedVlan, [], name, value)
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Configuration parameters for VLANs
                     
@@ -5630,7 +7059,10 @@ class Interfaces(Entity):
                     _revision = '2016-05-26'
 
                     def __init__(self):
-                        super(Interfaces.Interface.Aggregation.SwitchedVlan.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.Aggregation.SwitchedVlan.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "switched-vlan"
@@ -5656,7 +7088,7 @@ class Interfaces(Entity):
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     State variables for VLANs
                     
@@ -5732,7 +7164,10 @@ class Interfaces(Entity):
                     _revision = '2016-05-26'
 
                     def __init__(self):
-                        super(Interfaces.Interface.Aggregation.SwitchedVlan.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.Aggregation.SwitchedVlan.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "switched-vlan"
@@ -5760,7 +7195,7 @@ class Interfaces(Entity):
 
 
 
-        class RoutedVlan(Entity):
+        class RoutedVlan(_Entity_):
             """
             Top\-level container for routed vlan interfaces.  These
             logical interfaces are also known as SVI (switched virtual
@@ -5797,7 +7232,10 @@ class Interfaces(Entity):
             _revision = '2016-05-26'
 
             def __init__(self):
-                super(Interfaces.Interface.RoutedVlan, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Interfaces.Interface.RoutedVlan, self).__init__()
 
                 self.yang_name = "routed-vlan"
                 self.yang_parent_name = "interface"
@@ -5829,7 +7267,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.Interface.RoutedVlan, [], name, value)
 
 
-            class Config(Entity):
+            class Config(_Entity_):
                 """
                 Configuration data for routed vlan interfaces
                 
@@ -5852,7 +7290,10 @@ class Interfaces(Entity):
                 _revision = '2016-05-26'
 
                 def __init__(self):
-                    super(Interfaces.Interface.RoutedVlan.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.Interface.RoutedVlan.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "routed-vlan"
@@ -5872,7 +7313,7 @@ class Interfaces(Entity):
 
 
 
-            class State(Entity):
+            class State(_Entity_):
                 """
                 Operational state data 
                 
@@ -5897,7 +7338,10 @@ class Interfaces(Entity):
                 _revision = '2016-05-26'
 
                 def __init__(self):
-                    super(Interfaces.Interface.RoutedVlan.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.Interface.RoutedVlan.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "routed-vlan"
@@ -5917,7 +7361,7 @@ class Interfaces(Entity):
 
 
 
-            class Ipv4(Entity):
+            class Ipv4(_Entity_):
                 """
                 Parameters for the IPv4 address family.
                 
@@ -5925,6 +7369,11 @@ class Interfaces(Entity):
                 
                 	Enclosing container for address list
                 	**type**\:  :py:class:`Addresses <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Addresses>`
+                
+                .. attribute:: proxy_arp
+                
+                	Configuration and operational state parameters relating to proxy ARP. This functionality allows a system to respond to ARP requests that are not explicitly destined to the local system
+                	**type**\:  :py:class:`ProxyArp <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp>`
                 
                 .. attribute:: neighbors
                 
@@ -5953,22 +7402,29 @@ class Interfaces(Entity):
                 """
 
                 _prefix = 'oc-ip'
-                _revision = '2016-05-26'
+                _revision = '2019-01-08'
 
                 def __init__(self):
-                    super(Interfaces.Interface.RoutedVlan.Ipv4, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.Interface.RoutedVlan.Ipv4, self).__init__()
 
                     self.yang_name = "ipv4"
                     self.yang_parent_name = "routed-vlan"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("addresses", ("addresses", Interfaces.Interface.RoutedVlan.Ipv4.Addresses)), ("neighbors", ("neighbors", Interfaces.Interface.RoutedVlan.Ipv4.Neighbors)), ("unnumbered", ("unnumbered", Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered)), ("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.State))])
+                    self._child_classes = OrderedDict([("addresses", ("addresses", Interfaces.Interface.RoutedVlan.Ipv4.Addresses)), ("proxy-arp", ("proxy_arp", Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp)), ("neighbors", ("neighbors", Interfaces.Interface.RoutedVlan.Ipv4.Neighbors)), ("unnumbered", ("unnumbered", Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered)), ("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.State))])
                     self._leafs = OrderedDict()
 
                     self.addresses = Interfaces.Interface.RoutedVlan.Ipv4.Addresses()
                     self.addresses.parent = self
                     self._children_name_map["addresses"] = "addresses"
+
+                    self.proxy_arp = Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp()
+                    self.proxy_arp.parent = self
+                    self._children_name_map["proxy_arp"] = "proxy-arp"
 
                     self.neighbors = Interfaces.Interface.RoutedVlan.Ipv4.Neighbors()
                     self.neighbors.parent = self
@@ -5992,7 +7448,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4, [], name, value)
 
 
-                class Addresses(Entity):
+                class Addresses(_Entity_):
                     """
                     Enclosing container for address list
                     
@@ -6006,10 +7462,13 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'oc-ip'
-                    _revision = '2016-05-26'
+                    _revision = '2019-01-08'
 
                     def __init__(self):
-                        super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses, self).__init__()
 
                         self.yang_name = "addresses"
                         self.yang_parent_name = "ipv4"
@@ -6027,7 +7486,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Addresses, [], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         The list of configured IPv4 addresses on the interface.
                         
@@ -6036,7 +7495,7 @@ class Interfaces(Entity):
                         	References the configured IP address
                         	**type**\: str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        	**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                         
                         	**refers to**\:  :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Config>`
                         
@@ -6062,10 +7521,13 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "addresses"
@@ -6096,21 +7558,21 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address, ['ip'], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration data for each configured IPv4
                             address on the interface
                             
                             .. attribute:: ip
                             
-                            	[adapted from IETF IP model RFC 7277]  The IPv4 address on the interface
+                            	The IPv4 address on the interface
                             	**type**\: str
                             
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                             
                             .. attribute:: prefix_length
                             
-                            	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
+                            	The length of the subnet prefix
                             	**type**\: int
                             
                             	**range:** 0..32
@@ -6120,10 +7582,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "address"
@@ -6145,23 +7610,23 @@ class Interfaces(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             Operational state data for each IPv4 address
                             configured on the interface
                             
                             .. attribute:: ip
                             
-                            	[adapted from IETF IP model RFC 7277]  The IPv4 address on the interface
+                            	The IPv4 address on the interface
                             	**type**\: str
                             
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                             
                             	**config**\: False
                             
                             .. attribute:: prefix_length
                             
-                            	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
+                            	The length of the subnet prefix
                             	**type**\: int
                             
                             	**range:** 0..32
@@ -6180,10 +7645,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "address"
@@ -6207,7 +7675,7 @@ class Interfaces(Entity):
 
 
 
-                        class Vrrp(Entity):
+                        class Vrrp(_Entity_):
                             """
                             Enclosing container for VRRP groups handled by this
                             IP interface
@@ -6222,10 +7690,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp, self).__init__()
 
                                 self.yang_name = "vrrp"
                                 self.yang_parent_name = "address"
@@ -6243,7 +7714,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp, [], name, value)
 
 
-                            class VrrpGroup(Entity):
+                            class VrrpGroup(_Entity_):
                                 """
                                 List of VRRP groups, keyed by virtual router id
                                 
@@ -6278,10 +7749,13 @@ class Interfaces(Entity):
                                 """
 
                                 _prefix = 'oc-ip'
-                                _revision = '2016-05-26'
+                                _revision = '2019-01-08'
 
                                 def __init__(self):
-                                    super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup, self).__init__()
 
                                     self.yang_name = "vrrp-group"
                                     self.yang_parent_name = "vrrp"
@@ -6312,7 +7786,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup, ['virtual_router_id'], name, value)
 
 
-                                class Config(Entity):
+                                class Config(_Entity_):
                                     """
                                     Configuration data for the VRRP group
                                     
@@ -6330,11 +7804,11 @@ class Interfaces(Entity):
                                     
                                     		**type**\: list of str
                                     
-                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                                     
                                     		**type**\: list of str
                                     
-                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                     
                                     .. attribute:: priority
                                     
@@ -6384,10 +7858,13 @@ class Interfaces(Entity):
                                     """
 
                                     _prefix = 'oc-ip'
-                                    _revision = '2016-05-26'
+                                    _revision = '2019-01-08'
 
                                     def __init__(self):
-                                        super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "vrrp-group"
@@ -6419,7 +7896,7 @@ class Interfaces(Entity):
 
 
 
-                                class State(Entity):
+                                class State(_Entity_):
                                     """
                                     Operational state data for the VRRP group
                                     
@@ -6439,11 +7916,11 @@ class Interfaces(Entity):
                                     
                                     		**type**\: list of str
                                     
-                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                                     
                                     		**type**\: list of str
                                     
-                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                     
                                     	**config**\: False
                                     
@@ -6514,10 +7991,13 @@ class Interfaces(Entity):
                                     """
 
                                     _prefix = 'oc-ip'
-                                    _revision = '2016-05-26'
+                                    _revision = '2019-01-08'
 
                                     def __init__(self):
-                                        super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "vrrp-group"
@@ -6551,7 +8031,7 @@ class Interfaces(Entity):
 
 
 
-                                class InterfaceTracking(Entity):
+                                class InterfaceTracking(_Entity_):
                                     """
                                     Top\-level container for VRRP interface tracking
                                     
@@ -6572,10 +8052,13 @@ class Interfaces(Entity):
                                     """
 
                                     _prefix = 'oc-ip'
-                                    _revision = '2016-05-26'
+                                    _revision = '2019-01-08'
 
                                     def __init__(self):
-                                        super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking, self).__init__()
 
                                         self.yang_name = "interface-tracking"
                                         self.yang_parent_name = "vrrp-group"
@@ -6599,14 +8082,14 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking, [], name, value)
 
 
-                                    class Config(Entity):
+                                    class Config(_Entity_):
                                         """
                                         Configuration data for VRRP interface tracking
                                         
                                         .. attribute:: track_interface
                                         
-                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
-                                        	**type**\: str
+                                        	Sets a list of one or more interfaces that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently.  Any of the tracked interfaces going down will cause the priority to be lowered. Some implementations may only support a single tracked interface
+                                        	**type**\: list of str
                                         
                                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                         
@@ -6624,10 +8107,13 @@ class Interfaces(Entity):
                                         """
 
                                         _prefix = 'oc-ip'
-                                        _revision = '2016-05-26'
+                                        _revision = '2019-01-08'
 
                                         def __init__(self):
-                                            super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config, self).__init__()
 
                                             self.yang_name = "config"
                                             self.yang_parent_name = "interface-tracking"
@@ -6636,10 +8122,10 @@ class Interfaces(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('track_interface', (YLeaf(YType.str, 'track-interface'), ['str'])),
+                                                ('track_interface', (YLeafList(YType.str, 'track-interface'), ['str'])),
                                                 ('priority_decrement', (YLeaf(YType.uint8, 'priority-decrement'), ['int'])),
                                             ])
-                                            self.track_interface = None
+                                            self.track_interface = []
                                             self.priority_decrement = None
                                             self._segment_path = lambda: "config"
                                             self._is_frozen = True
@@ -6649,14 +8135,14 @@ class Interfaces(Entity):
 
 
 
-                                    class State(Entity):
+                                    class State(_Entity_):
                                         """
                                         Operational state data for VRRP interface tracking
                                         
                                         .. attribute:: track_interface
                                         
-                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
-                                        	**type**\: str
+                                        	Sets a list of one or more interfaces that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently.  Any of the tracked interfaces going down will cause the priority to be lowered. Some implementations may only support a single tracked interface
+                                        	**type**\: list of str
                                         
                                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                         
@@ -6678,10 +8164,13 @@ class Interfaces(Entity):
                                         """
 
                                         _prefix = 'oc-ip'
-                                        _revision = '2016-05-26'
+                                        _revision = '2019-01-08'
 
                                         def __init__(self):
-                                            super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State, self).__init__()
 
                                             self.yang_name = "state"
                                             self.yang_parent_name = "interface-tracking"
@@ -6690,10 +8179,10 @@ class Interfaces(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('track_interface', (YLeaf(YType.str, 'track-interface'), ['str'])),
+                                                ('track_interface', (YLeafList(YType.str, 'track-interface'), ['str'])),
                                                 ('priority_decrement', (YLeaf(YType.uint8, 'priority-decrement'), ['int'])),
                                             ])
-                                            self.track_interface = None
+                                            self.track_interface = []
                                             self.priority_decrement = None
                                             self._segment_path = lambda: "state"
                                             self._is_frozen = True
@@ -6708,7 +8197,254 @@ class Interfaces(Entity):
 
 
 
-                class Neighbors(Entity):
+                class ProxyArp(_Entity_):
+                    """
+                    Configuration and operational state parameters
+                    relating to proxy ARP. This functionality allows a
+                    system to respond to ARP requests that are not
+                    explicitly destined to the local system.
+                    
+                    .. attribute:: config
+                    
+                    	Configuration parameters for proxy ARP
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp.Config>`
+                    
+                    .. attribute:: state
+                    
+                    	Operational state parameters for proxy ARP
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp.State>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-ip'
+                    _revision = '2019-01-08'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp, self).__init__()
+
+                        self.yang_name = "proxy-arp"
+                        self.yang_parent_name = "ipv4"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp.State))])
+                        self._leafs = OrderedDict()
+
+                        self.config = Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp.Config()
+                        self.config.parent = self
+                        self._children_name_map["config"] = "config"
+
+                        self.state = Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
+                        self._segment_path = lambda: "proxy-arp"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp, [], name, value)
+
+
+                    class Config(_Entity_):
+                        """
+                        Configuration parameters for proxy ARP
+                        
+                        .. attribute:: mode
+                        
+                        	When set to a value other than DISABLE, the local system should respond to ARP requests that are for target addresses other than those that are configured on the local subinterface using its own MAC address as the target hardware address. If the REMOTE\_ONLY value is specified, replies are only sent when the target address falls outside the locally configured subnets on the interface, whereas with the ALL value, all requests, regardless of their target address are replied to
+                        	**type**\:  :py:class:`Mode <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp.Config.Mode>`
+                        
+                        	**default value**\: DISABLE
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-ip'
+                        _revision = '2019-01-08'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp.Config, self).__init__()
+
+                            self.yang_name = "config"
+                            self.yang_parent_name = "proxy-arp"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.openconfig.openconfig_interfaces', 'Interfaces', 'Interface.RoutedVlan.Ipv4.ProxyArp.Config.Mode')])),
+                            ])
+                            self.mode = None
+                            self._segment_path = lambda: "config"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp.Config, ['mode'], name, value)
+
+                        class Mode(Enum):
+                            """
+                            Mode (Enum Class)
+
+                            When set to a value other than DISABLE, the local system should
+
+                            respond to ARP requests that are for target addresses other than
+
+                            those that are configured on the local subinterface using its own
+
+                            MAC address as the target hardware address. If the REMOTE\_ONLY
+
+                            value is specified, replies are only sent when the target address
+
+                            falls outside the locally configured subnets on the interface,
+
+                            whereas with the ALL value, all requests, regardless of their
+
+                            target address are replied to.
+
+                            .. data:: DISABLE = 0
+
+                            	The system should not respond to ARP requests that
+
+                            	do not specify an IP address configured on the local
+
+                            	subinterface as the target address.
+
+                            .. data:: REMOTE_ONLY = 1
+
+                            	The system responds to ARP requests only when the
+
+                            	sender and target IP addresses are in different
+
+                            	subnets.
+
+                            .. data:: ALL = 2
+
+                            	The system responds to ARP requests where the sender
+
+                            	and target IP addresses are in different subnets, as well
+
+                            	as those where they are in the same subnet.
+
+                            """
+
+                            DISABLE = Enum.YLeaf(0, "DISABLE")
+
+                            REMOTE_ONLY = Enum.YLeaf(1, "REMOTE_ONLY")
+
+                            ALL = Enum.YLeaf(2, "ALL")
+
+
+
+
+                    class State(_Entity_):
+                        """
+                        Operational state parameters for proxy ARP
+                        
+                        .. attribute:: mode
+                        
+                        	When set to a value other than DISABLE, the local system should respond to ARP requests that are for target addresses other than those that are configured on the local subinterface using its own MAC address as the target hardware address. If the REMOTE\_ONLY value is specified, replies are only sent when the target address falls outside the locally configured subnets on the interface, whereas with the ALL value, all requests, regardless of their target address are replied to
+                        	**type**\:  :py:class:`Mode <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp.State.Mode>`
+                        
+                        	**config**\: False
+                        
+                        	**default value**\: DISABLE
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-ip'
+                        _revision = '2019-01-08'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp.State, self).__init__()
+
+                            self.yang_name = "state"
+                            self.yang_parent_name = "proxy-arp"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.openconfig.openconfig_interfaces', 'Interfaces', 'Interface.RoutedVlan.Ipv4.ProxyArp.State.Mode')])),
+                            ])
+                            self.mode = None
+                            self._segment_path = lambda: "state"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.ProxyArp.State, ['mode'], name, value)
+
+                        class Mode(Enum):
+                            """
+                            Mode (Enum Class)
+
+                            When set to a value other than DISABLE, the local system should
+
+                            respond to ARP requests that are for target addresses other than
+
+                            those that are configured on the local subinterface using its own
+
+                            MAC address as the target hardware address. If the REMOTE\_ONLY
+
+                            value is specified, replies are only sent when the target address
+
+                            falls outside the locally configured subnets on the interface,
+
+                            whereas with the ALL value, all requests, regardless of their
+
+                            target address are replied to.
+
+                            .. data:: DISABLE = 0
+
+                            	The system should not respond to ARP requests that
+
+                            	do not specify an IP address configured on the local
+
+                            	subinterface as the target address.
+
+                            .. data:: REMOTE_ONLY = 1
+
+                            	The system responds to ARP requests only when the
+
+                            	sender and target IP addresses are in different
+
+                            	subnets.
+
+                            .. data:: ALL = 2
+
+                            	The system responds to ARP requests where the sender
+
+                            	and target IP addresses are in different subnets, as well
+
+                            	as those where they are in the same subnet.
+
+                            """
+
+                            DISABLE = Enum.YLeaf(0, "DISABLE")
+
+                            REMOTE_ONLY = Enum.YLeaf(1, "REMOTE_ONLY")
+
+                            ALL = Enum.YLeaf(2, "ALL")
+
+
+
+
+
+                class Neighbors(_Entity_):
                     """
                     Enclosing container for neighbor list
                     
@@ -6722,10 +8458,13 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'oc-ip'
-                    _revision = '2016-05-26'
+                    _revision = '2019-01-08'
 
                     def __init__(self):
-                        super(Interfaces.Interface.RoutedVlan.Ipv4.Neighbors, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.RoutedVlan.Ipv4.Neighbors, self).__init__()
 
                         self.yang_name = "neighbors"
                         self.yang_parent_name = "ipv4"
@@ -6743,7 +8482,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Neighbors, [], name, value)
 
 
-                    class Neighbor(Entity):
+                    class Neighbor(_Entity_):
                         """
                         A list of mappings from IPv4 addresses to
                         link\-layer addresses.
@@ -6756,7 +8495,7 @@ class Interfaces(Entity):
                         	References the configured IP address
                         	**type**\: str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        	**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                         
                         	**refers to**\:  :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor.Config>`
                         
@@ -6777,10 +8516,13 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor, self).__init__()
 
                             self.yang_name = "neighbor"
                             self.yang_parent_name = "neighbors"
@@ -6807,7 +8549,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor, ['ip'], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration data for each configured IPv4
                             address on the interface
@@ -6817,14 +8559,14 @@ class Interfaces(Entity):
                             	The IPv4 address of the neighbor node
                             	**type**\: str
                             
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                             
                             .. attribute:: link_layer_address
                             
                             	The link\-layer address of the neighbor node
                             	**type**\: str
                             
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            	**pattern:** ^([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?$
                             
                             	**mandatory**\: True
                             
@@ -6833,10 +8575,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "neighbor"
@@ -6858,7 +8603,7 @@ class Interfaces(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             Operational state data for each IPv4 address
                             configured on the interface
@@ -6868,7 +8613,7 @@ class Interfaces(Entity):
                             	The IPv4 address of the neighbor node
                             	**type**\: str
                             
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                             
                             	**config**\: False
                             
@@ -6877,7 +8622,7 @@ class Interfaces(Entity):
                             	The link\-layer address of the neighbor node
                             	**type**\: str
                             
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            	**pattern:** ^([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?$
                             
                             	**mandatory**\: True
                             
@@ -6895,10 +8640,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "neighbor"
@@ -6924,7 +8672,7 @@ class Interfaces(Entity):
 
 
 
-                class Unnumbered(Entity):
+                class Unnumbered(_Entity_):
                     """
                     Top\-level container for setting unnumbered interfaces.
                     Includes reference the interface that provides the
@@ -6952,10 +8700,13 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'oc-ip'
-                    _revision = '2016-05-26'
+                    _revision = '2019-01-08'
 
                     def __init__(self):
-                        super(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered, self).__init__()
 
                         self.yang_name = "unnumbered"
                         self.yang_parent_name = "ipv4"
@@ -6983,7 +8734,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered, [], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data for unnumbered interface
                         
@@ -6999,10 +8750,13 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "unnumbered"
@@ -7022,7 +8776,7 @@ class Interfaces(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state data for unnumbered interfaces
                         
@@ -7040,10 +8794,13 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "unnumbered"
@@ -7063,7 +8820,7 @@ class Interfaces(Entity):
 
 
 
-                    class InterfaceRef(Entity):
+                    class InterfaceRef(_Entity_):
                         """
                         Reference to an interface or subinterface
                         
@@ -7084,10 +8841,13 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef, self).__init__()
 
                             self.yang_name = "interface-ref"
                             self.yang_parent_name = "unnumbered"
@@ -7111,7 +8871,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configured reference to interface / subinterface
                             
@@ -7136,10 +8896,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "interface-ref"
@@ -7161,7 +8924,7 @@ class Interfaces(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             Operational state for interface\-ref
                             
@@ -7190,10 +8953,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "interface-ref"
@@ -7217,7 +8983,7 @@ class Interfaces(Entity):
 
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Top\-level IPv4 configuration data for the interface
                     
@@ -7237,15 +9003,25 @@ class Interfaces(Entity):
                     
                     	**units**\: octets
                     
+                    .. attribute:: dhcp_client
+                    
+                    	Enables a DHCP client on the interface in order to request an address
+                    	**type**\: bool
+                    
+                    	**default value**\: false
+                    
                     
 
                     """
 
                     _prefix = 'oc-ip'
-                    _revision = '2016-05-26'
+                    _revision = '2019-01-08'
 
                     def __init__(self):
-                        super(Interfaces.Interface.RoutedVlan.Ipv4.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.RoutedVlan.Ipv4.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "ipv4"
@@ -7256,18 +9032,20 @@ class Interfaces(Entity):
                         self._leafs = OrderedDict([
                             ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                             ('mtu', (YLeaf(YType.uint16, 'mtu'), ['int'])),
+                            ('dhcp_client', (YLeaf(YType.boolean, 'dhcp-client'), ['bool'])),
                         ])
                         self.enabled = None
                         self.mtu = None
+                        self.dhcp_client = None
                         self._segment_path = lambda: "config"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Config, ['enabled', 'mtu'], name, value)
+                        self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Config, ['enabled', 'mtu', 'dhcp_client'], name, value)
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     Top level IPv4 operational state data
                     
@@ -7291,38 +9069,229 @@ class Interfaces(Entity):
                     
                     	**units**\: octets
                     
+                    .. attribute:: dhcp_client
+                    
+                    	Enables a DHCP client on the interface in order to request an address
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    	**default value**\: false
+                    
+                    .. attribute:: counters
+                    
+                    	Packet and byte counters for IP transmission and reception for the address family
+                    	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.State.Counters>`
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'oc-ip'
-                    _revision = '2016-05-26'
+                    _revision = '2019-01-08'
 
                     def __init__(self):
-                        super(Interfaces.Interface.RoutedVlan.Ipv4.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.RoutedVlan.Ipv4.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "ipv4"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("counters", ("counters", Interfaces.Interface.RoutedVlan.Ipv4.State.Counters))])
                         self._leafs = OrderedDict([
                             ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                             ('mtu', (YLeaf(YType.uint16, 'mtu'), ['int'])),
+                            ('dhcp_client', (YLeaf(YType.boolean, 'dhcp-client'), ['bool'])),
                         ])
                         self.enabled = None
                         self.mtu = None
+                        self.dhcp_client = None
+
+                        self.counters = Interfaces.Interface.RoutedVlan.Ipv4.State.Counters()
+                        self.counters.parent = self
+                        self._children_name_map["counters"] = "counters"
                         self._segment_path = lambda: "state"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.State, ['enabled', 'mtu'], name, value)
+                        self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.State, ['enabled', 'mtu', 'dhcp_client'], name, value)
+
+
+                    class Counters(_Entity_):
+                        """
+                        Packet and byte counters for IP transmission and
+                        reception for the address family.
+                        
+                        .. attribute:: in_pkts
+                        
+                        	The total number of IP packets received for the specified address family, including those received in error
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: in_octets
+                        
+                        	The total number of octets received in input IP packets for the specified address family, including those received in error
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: in_error_pkts
+                        
+                        	Number of IP packets discarded due to errors for the specified address family, including errors in the IP header, no route found to the IP destination, invalid address, unknown protocol, etc
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: in_forwarded_pkts
+                        
+                        	The number of input packets for which the device was not their final IP destination and for which the device attempted to find a route to forward them to that final destination
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: in_forwarded_octets
+                        
+                        	The number of octets received in input IP packets for the specified address family for which the device was not their final IP destination and for which the device attempted to find a route to forward them to that final destination
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: in_discarded_pkts
+                        
+                        	The number of input IP packets for the specified address family, for which no problems were encountered to prevent their continued processing, but were discarded (e.g., for lack of buffer space)
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: out_pkts
+                        
+                        	The total number of IP packets for the specified address family that the device supplied to the lower layers for transmission.  This includes packets generated locally and those forwarded by the device
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: out_octets
+                        
+                        	The total number of octets in IP packets for the specified address family that the device supplied to the lower layers for transmission.  This includes packets generated locally and those forwarded by the device
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: out_error_pkts
+                        
+                        	Number of IP packets for the specified address family locally generated and discarded due to errors, including no route found to the IP destination
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: out_forwarded_pkts
+                        
+                        	The number of packets for which this entity was not their final IP destination and for which it was successful in finding a path to their final destination
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: out_forwarded_octets
+                        
+                        	The number of octets in packets for which this entity was not their final IP destination and for which it was successful in finding a path to their final destination
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: out_discarded_pkts
+                        
+                        	The number of output IP packets for the specified address family for which no problem was encountered to prevent their transmission to their destination, but were discarded (e.g., for lack of buffer space)
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-ip'
+                        _revision = '2019-01-08'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.RoutedVlan.Ipv4.State.Counters, self).__init__()
+
+                            self.yang_name = "counters"
+                            self.yang_parent_name = "state"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('in_pkts', (YLeaf(YType.uint64, 'in-pkts'), ['int'])),
+                                ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
+                                ('in_error_pkts', (YLeaf(YType.uint64, 'in-error-pkts'), ['int'])),
+                                ('in_forwarded_pkts', (YLeaf(YType.uint64, 'in-forwarded-pkts'), ['int'])),
+                                ('in_forwarded_octets', (YLeaf(YType.uint64, 'in-forwarded-octets'), ['int'])),
+                                ('in_discarded_pkts', (YLeaf(YType.uint64, 'in-discarded-pkts'), ['int'])),
+                                ('out_pkts', (YLeaf(YType.uint64, 'out-pkts'), ['int'])),
+                                ('out_octets', (YLeaf(YType.uint64, 'out-octets'), ['int'])),
+                                ('out_error_pkts', (YLeaf(YType.uint64, 'out-error-pkts'), ['int'])),
+                                ('out_forwarded_pkts', (YLeaf(YType.uint64, 'out-forwarded-pkts'), ['int'])),
+                                ('out_forwarded_octets', (YLeaf(YType.uint64, 'out-forwarded-octets'), ['int'])),
+                                ('out_discarded_pkts', (YLeaf(YType.uint64, 'out-discarded-pkts'), ['int'])),
+                            ])
+                            self.in_pkts = None
+                            self.in_octets = None
+                            self.in_error_pkts = None
+                            self.in_forwarded_pkts = None
+                            self.in_forwarded_octets = None
+                            self.in_discarded_pkts = None
+                            self.out_pkts = None
+                            self.out_octets = None
+                            self.out_error_pkts = None
+                            self.out_forwarded_pkts = None
+                            self.out_forwarded_octets = None
+                            self.out_discarded_pkts = None
+                            self._segment_path = lambda: "counters"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.State.Counters, ['in_pkts', 'in_octets', 'in_error_pkts', 'in_forwarded_pkts', 'in_forwarded_octets', 'in_discarded_pkts', 'out_pkts', 'out_octets', 'out_error_pkts', 'out_forwarded_pkts', 'out_forwarded_octets', 'out_discarded_pkts'], name, value)
 
 
 
 
-            class Ipv6(Entity):
+
+            class Ipv6(_Entity_):
                 """
                 Parameters for the IPv6 address family.
                 
@@ -7330,6 +9299,11 @@ class Interfaces(Entity):
                 
                 	Enclosing container for address list
                 	**type**\:  :py:class:`Addresses <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Addresses>`
+                
+                .. attribute:: router_advertisement
+                
+                	Configuration and operational state parameters relating to router advertisements
+                	**type**\:  :py:class:`RouterAdvertisement <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.RouterAdvertisement>`
                 
                 .. attribute:: neighbors
                 
@@ -7358,22 +9332,29 @@ class Interfaces(Entity):
                 """
 
                 _prefix = 'oc-ip'
-                _revision = '2016-05-26'
+                _revision = '2019-01-08'
 
                 def __init__(self):
-                    super(Interfaces.Interface.RoutedVlan.Ipv6, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Interfaces.Interface.RoutedVlan.Ipv6, self).__init__()
 
                     self.yang_name = "ipv6"
                     self.yang_parent_name = "routed-vlan"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("addresses", ("addresses", Interfaces.Interface.RoutedVlan.Ipv6.Addresses)), ("neighbors", ("neighbors", Interfaces.Interface.RoutedVlan.Ipv6.Neighbors)), ("unnumbered", ("unnumbered", Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered)), ("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.State))])
+                    self._child_classes = OrderedDict([("addresses", ("addresses", Interfaces.Interface.RoutedVlan.Ipv6.Addresses)), ("router-advertisement", ("router_advertisement", Interfaces.Interface.RoutedVlan.Ipv6.RouterAdvertisement)), ("neighbors", ("neighbors", Interfaces.Interface.RoutedVlan.Ipv6.Neighbors)), ("unnumbered", ("unnumbered", Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered)), ("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.State))])
                     self._leafs = OrderedDict()
 
                     self.addresses = Interfaces.Interface.RoutedVlan.Ipv6.Addresses()
                     self.addresses.parent = self
                     self._children_name_map["addresses"] = "addresses"
+
+                    self.router_advertisement = Interfaces.Interface.RoutedVlan.Ipv6.RouterAdvertisement()
+                    self.router_advertisement.parent = self
+                    self._children_name_map["router_advertisement"] = "router-advertisement"
 
                     self.neighbors = Interfaces.Interface.RoutedVlan.Ipv6.Neighbors()
                     self.neighbors.parent = self
@@ -7397,7 +9378,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6, [], name, value)
 
 
-                class Addresses(Entity):
+                class Addresses(_Entity_):
                     """
                     Enclosing container for address list
                     
@@ -7411,10 +9392,13 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'oc-ip'
-                    _revision = '2016-05-26'
+                    _revision = '2019-01-08'
 
                     def __init__(self):
-                        super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses, self).__init__()
 
                         self.yang_name = "addresses"
                         self.yang_parent_name = "ipv6"
@@ -7432,7 +9416,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Addresses, [], name, value)
 
 
-                    class Address(Entity):
+                    class Address(_Entity_):
                         """
                         The list of configured IPv6 addresses on the interface.
                         
@@ -7441,7 +9425,7 @@ class Interfaces(Entity):
                         	References the configured IP address
                         	**type**\: str
                         
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        	**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
                         	**refers to**\:  :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Config>`
                         
@@ -7467,10 +9451,13 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address, self).__init__()
 
                             self.yang_name = "address"
                             self.yang_parent_name = "addresses"
@@ -7501,21 +9488,21 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address, ['ip'], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration data for each IPv6 address on
                             the interface
                             
                             .. attribute:: ip
                             
-                            	[adapted from IETF IP model RFC 7277]  The IPv6 address on the interface
+                            	The IPv6 address on the interface
                             	**type**\: str
                             
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             .. attribute:: prefix_length
                             
-                            	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
+                            	The length of the subnet prefix
                             	**type**\: int
                             
                             	**range:** 0..128
@@ -7527,10 +9514,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "address"
@@ -7552,23 +9542,23 @@ class Interfaces(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State data for each IPv6 address on the
                             interface
                             
                             .. attribute:: ip
                             
-                            	[adapted from IETF IP model RFC 7277]  The IPv6 address on the interface
+                            	The IPv6 address on the interface
                             	**type**\: str
                             
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             	**config**\: False
                             
                             .. attribute:: prefix_length
                             
-                            	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
+                            	The length of the subnet prefix
                             	**type**\: int
                             
                             	**range:** 0..128
@@ -7579,14 +9569,14 @@ class Interfaces(Entity):
                             
                             .. attribute:: origin
                             
-                            	[adapted from IETF IP model RFC 7277]  The origin of this address, e.g., static, dhcp, etc
+                            	The origin of this address, e.g., static, dhcp, etc
                             	**type**\:  :py:class:`IpAddressOrigin <ydk.models.openconfig.openconfig_if_ip.IpAddressOrigin>`
                             
                             	**config**\: False
                             
                             .. attribute:: status
                             
-                            	[adapted from IETF IP model RFC 7277]  The status of an address.  Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol
+                            	The status of an address.  Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol
                             	**type**\:  :py:class:`Status <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.State.Status>`
                             
                             	**config**\: False
@@ -7596,10 +9586,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "address"
@@ -7626,8 +9619,6 @@ class Interfaces(Entity):
                             class Status(Enum):
                                 """
                                 Status (Enum Class)
-
-                                [adapted from IETF IP model RFC 7277]
 
                                 The status of an address.  Most of the states correspond
 
@@ -7714,7 +9705,7 @@ class Interfaces(Entity):
 
 
 
-                        class Vrrp(Entity):
+                        class Vrrp(_Entity_):
                             """
                             Enclosing container for VRRP groups handled by this
                             IP interface
@@ -7729,10 +9720,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp, self).__init__()
 
                                 self.yang_name = "vrrp"
                                 self.yang_parent_name = "address"
@@ -7750,7 +9744,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp, [], name, value)
 
 
-                            class VrrpGroup(Entity):
+                            class VrrpGroup(_Entity_):
                                 """
                                 List of VRRP groups, keyed by virtual router id
                                 
@@ -7785,10 +9779,13 @@ class Interfaces(Entity):
                                 """
 
                                 _prefix = 'oc-ip'
-                                _revision = '2016-05-26'
+                                _revision = '2019-01-08'
 
                                 def __init__(self):
-                                    super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup, self).__init__()
 
                                     self.yang_name = "vrrp-group"
                                     self.yang_parent_name = "vrrp"
@@ -7819,7 +9816,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup, ['virtual_router_id'], name, value)
 
 
-                                class Config(Entity):
+                                class Config(_Entity_):
                                     """
                                     Configuration data for the VRRP group
                                     
@@ -7837,11 +9834,11 @@ class Interfaces(Entity):
                                     
                                     		**type**\: list of str
                                     
-                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                                     
                                     		**type**\: list of str
                                     
-                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                     
                                     .. attribute:: priority
                                     
@@ -7893,21 +9890,24 @@ class Interfaces(Entity):
                                     
                                     		**type**\: str
                                     
-                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                                     
                                     		**type**\: str
                                     
-                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                     
                                     
 
                                     """
 
                                     _prefix = 'oc-ip'
-                                    _revision = '2016-05-26'
+                                    _revision = '2019-01-08'
 
                                     def __init__(self):
-                                        super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "vrrp-group"
@@ -7941,7 +9941,7 @@ class Interfaces(Entity):
 
 
 
-                                class State(Entity):
+                                class State(_Entity_):
                                     """
                                     Operational state data for the VRRP group
                                     
@@ -7961,11 +9961,11 @@ class Interfaces(Entity):
                                     
                                     		**type**\: list of str
                                     
-                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                                     
                                     		**type**\: list of str
                                     
-                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                     
                                     	**config**\: False
                                     
@@ -8038,11 +10038,11 @@ class Interfaces(Entity):
                                     
                                     		**type**\: str
                                     
-                                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                                     
                                     		**type**\: str
                                     
-                                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                     
                                     	**config**\: False
                                     
@@ -8051,10 +10051,13 @@ class Interfaces(Entity):
                                     """
 
                                     _prefix = 'oc-ip'
-                                    _revision = '2016-05-26'
+                                    _revision = '2019-01-08'
 
                                     def __init__(self):
-                                        super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "vrrp-group"
@@ -8090,7 +10093,7 @@ class Interfaces(Entity):
 
 
 
-                                class InterfaceTracking(Entity):
+                                class InterfaceTracking(_Entity_):
                                     """
                                     Top\-level container for VRRP interface tracking
                                     
@@ -8111,10 +10114,13 @@ class Interfaces(Entity):
                                     """
 
                                     _prefix = 'oc-ip'
-                                    _revision = '2016-05-26'
+                                    _revision = '2019-01-08'
 
                                     def __init__(self):
-                                        super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking, self).__init__()
 
                                         self.yang_name = "interface-tracking"
                                         self.yang_parent_name = "vrrp-group"
@@ -8138,14 +10144,14 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking, [], name, value)
 
 
-                                    class Config(Entity):
+                                    class Config(_Entity_):
                                         """
                                         Configuration data for VRRP interface tracking
                                         
                                         .. attribute:: track_interface
                                         
-                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
-                                        	**type**\: str
+                                        	Sets a list of one or more interfaces that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently.  Any of the tracked interfaces going down will cause the priority to be lowered. Some implementations may only support a single tracked interface
+                                        	**type**\: list of str
                                         
                                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                         
@@ -8163,10 +10169,13 @@ class Interfaces(Entity):
                                         """
 
                                         _prefix = 'oc-ip'
-                                        _revision = '2016-05-26'
+                                        _revision = '2019-01-08'
 
                                         def __init__(self):
-                                            super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config, self).__init__()
 
                                             self.yang_name = "config"
                                             self.yang_parent_name = "interface-tracking"
@@ -8175,10 +10184,10 @@ class Interfaces(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('track_interface', (YLeaf(YType.str, 'track-interface'), ['str'])),
+                                                ('track_interface', (YLeafList(YType.str, 'track-interface'), ['str'])),
                                                 ('priority_decrement', (YLeaf(YType.uint8, 'priority-decrement'), ['int'])),
                                             ])
-                                            self.track_interface = None
+                                            self.track_interface = []
                                             self.priority_decrement = None
                                             self._segment_path = lambda: "config"
                                             self._is_frozen = True
@@ -8188,14 +10197,14 @@ class Interfaces(Entity):
 
 
 
-                                    class State(Entity):
+                                    class State(_Entity_):
                                         """
                                         Operational state data for VRRP interface tracking
                                         
                                         .. attribute:: track_interface
                                         
-                                        	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
-                                        	**type**\: str
+                                        	Sets a list of one or more interfaces that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently.  Any of the tracked interfaces going down will cause the priority to be lowered. Some implementations may only support a single tracked interface
+                                        	**type**\: list of str
                                         
                                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                         
@@ -8217,10 +10226,13 @@ class Interfaces(Entity):
                                         """
 
                                         _prefix = 'oc-ip'
-                                        _revision = '2016-05-26'
+                                        _revision = '2019-01-08'
 
                                         def __init__(self):
-                                            super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State, self).__init__()
 
                                             self.yang_name = "state"
                                             self.yang_parent_name = "interface-tracking"
@@ -8229,10 +10241,10 @@ class Interfaces(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('track_interface', (YLeaf(YType.str, 'track-interface'), ['str'])),
+                                                ('track_interface', (YLeafList(YType.str, 'track-interface'), ['str'])),
                                                 ('priority_decrement', (YLeaf(YType.uint8, 'priority-decrement'), ['int'])),
                                             ])
-                                            self.track_interface = None
+                                            self.track_interface = []
                                             self.priority_decrement = None
                                             self._segment_path = lambda: "state"
                                             self._is_frozen = True
@@ -8247,7 +10259,196 @@ class Interfaces(Entity):
 
 
 
-                class Neighbors(Entity):
+                class RouterAdvertisement(_Entity_):
+                    """
+                    Configuration and operational state parameters relating to
+                    router advertisements.
+                    
+                    .. attribute:: config
+                    
+                    	Configuration parameters relating to router advertisements for IPv6
+                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.RouterAdvertisement.Config>`
+                    
+                    .. attribute:: state
+                    
+                    	Operational state parameters relating to router advertisements for IPv6
+                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.RouterAdvertisement.State>`
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-ip'
+                    _revision = '2019-01-08'
+
+                    def __init__(self):
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.RoutedVlan.Ipv6.RouterAdvertisement, self).__init__()
+
+                        self.yang_name = "router-advertisement"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("config", ("config", Interfaces.Interface.RoutedVlan.Ipv6.RouterAdvertisement.Config)), ("state", ("state", Interfaces.Interface.RoutedVlan.Ipv6.RouterAdvertisement.State))])
+                        self._leafs = OrderedDict()
+
+                        self.config = Interfaces.Interface.RoutedVlan.Ipv6.RouterAdvertisement.Config()
+                        self.config.parent = self
+                        self._children_name_map["config"] = "config"
+
+                        self.state = Interfaces.Interface.RoutedVlan.Ipv6.RouterAdvertisement.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
+                        self._segment_path = lambda: "router-advertisement"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.RouterAdvertisement, [], name, value)
+
+
+                    class Config(_Entity_):
+                        """
+                        Configuration parameters relating to router advertisements
+                        for IPv6.
+                        
+                        .. attribute:: interval
+                        
+                        	The interval between periodic router advertisement neighbor discovery messages sent on this interface expressed in seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: seconds
+                        
+                        .. attribute:: lifetime
+                        
+                        	The lifetime advertised in the router advertisement neighbor discovery message on this interface
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: seconds
+                        
+                        .. attribute:: suppress
+                        
+                        	When set to true, router advertisement neighbor discovery messages are not transmitted on this interface
+                        	**type**\: bool
+                        
+                        	**default value**\: false
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-ip'
+                        _revision = '2019-01-08'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.RoutedVlan.Ipv6.RouterAdvertisement.Config, self).__init__()
+
+                            self.yang_name = "config"
+                            self.yang_parent_name = "router-advertisement"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                                ('lifetime', (YLeaf(YType.uint32, 'lifetime'), ['int'])),
+                                ('suppress', (YLeaf(YType.boolean, 'suppress'), ['bool'])),
+                            ])
+                            self.interval = None
+                            self.lifetime = None
+                            self.suppress = None
+                            self._segment_path = lambda: "config"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.RouterAdvertisement.Config, ['interval', 'lifetime', 'suppress'], name, value)
+
+
+
+                    class State(_Entity_):
+                        """
+                        Operational state parameters relating to router
+                        advertisements for IPv6.
+                        
+                        .. attribute:: interval
+                        
+                        	The interval between periodic router advertisement neighbor discovery messages sent on this interface expressed in seconds
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        	**units**\: seconds
+                        
+                        .. attribute:: lifetime
+                        
+                        	The lifetime advertised in the router advertisement neighbor discovery message on this interface
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**config**\: False
+                        
+                        	**units**\: seconds
+                        
+                        .. attribute:: suppress
+                        
+                        	When set to true, router advertisement neighbor discovery messages are not transmitted on this interface
+                        	**type**\: bool
+                        
+                        	**config**\: False
+                        
+                        	**default value**\: false
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-ip'
+                        _revision = '2019-01-08'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.RoutedVlan.Ipv6.RouterAdvertisement.State, self).__init__()
+
+                            self.yang_name = "state"
+                            self.yang_parent_name = "router-advertisement"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                                ('lifetime', (YLeaf(YType.uint32, 'lifetime'), ['int'])),
+                                ('suppress', (YLeaf(YType.boolean, 'suppress'), ['bool'])),
+                            ])
+                            self.interval = None
+                            self.lifetime = None
+                            self.suppress = None
+                            self._segment_path = lambda: "state"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.RouterAdvertisement.State, ['interval', 'lifetime', 'suppress'], name, value)
+
+
+
+
+                class Neighbors(_Entity_):
                     """
                     Enclosing container for list of IPv6 neighbors
                     
@@ -8261,10 +10462,13 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'oc-ip'
-                    _revision = '2016-05-26'
+                    _revision = '2019-01-08'
 
                     def __init__(self):
-                        super(Interfaces.Interface.RoutedVlan.Ipv6.Neighbors, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.RoutedVlan.Ipv6.Neighbors, self).__init__()
 
                         self.yang_name = "neighbors"
                         self.yang_parent_name = "ipv6"
@@ -8282,7 +10486,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Neighbors, [], name, value)
 
 
-                    class Neighbor(Entity):
+                    class Neighbor(_Entity_):
                         """
                         List of IPv6 neighbors
                         
@@ -8291,7 +10495,7 @@ class Interfaces(Entity):
                         	References the configured IP neighbor address
                         	**type**\: str
                         
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        	**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
                         	**refers to**\:  :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor.Config>`
                         
@@ -8312,10 +10516,13 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor, self).__init__()
 
                             self.yang_name = "neighbor"
                             self.yang_parent_name = "neighbors"
@@ -8342,24 +10549,24 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor, ['ip'], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration data for each IPv6 address on
                             the interface
                             
                             .. attribute:: ip
                             
-                            	[adapted from IETF IP model RFC 7277]  The IPv6 address of the neighbor node
+                            	The IPv6 address of the neighbor node
                             	**type**\: str
                             
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             .. attribute:: link_layer_address
                             
-                            	[adapted from IETF IP model RFC 7277]  The link\-layer address of the neighbor node
+                            	The link\-layer address of the neighbor node
                             	**type**\: str
                             
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            	**pattern:** ^([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?$
                             
                             	**mandatory**\: True
                             
@@ -8368,10 +10575,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "neighbor"
@@ -8393,26 +10603,26 @@ class Interfaces(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State data for each IPv6 address on the
                             interface
                             
                             .. attribute:: ip
                             
-                            	[adapted from IETF IP model RFC 7277]  The IPv6 address of the neighbor node
+                            	The IPv6 address of the neighbor node
                             	**type**\: str
                             
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             	**config**\: False
                             
                             .. attribute:: link_layer_address
                             
-                            	[adapted from IETF IP model RFC 7277]  The link\-layer address of the neighbor node
+                            	The link\-layer address of the neighbor node
                             	**type**\: str
                             
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            	**pattern:** ^([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?$
                             
                             	**mandatory**\: True
                             
@@ -8420,21 +10630,21 @@ class Interfaces(Entity):
                             
                             .. attribute:: origin
                             
-                            	[adapted from IETF IP model RFC 7277]  The origin of this neighbor entry
+                            	The origin of this neighbor entry
                             	**type**\:  :py:class:`NeighborOrigin <ydk.models.openconfig.openconfig_if_ip.NeighborOrigin>`
                             
                             	**config**\: False
                             
                             .. attribute:: is_router
                             
-                            	[adapted from IETF IP model RFC 7277]  Indicates that the neighbor node acts as a router
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            	Indicates that the neighbor node acts as a router
+                            	**type**\: bool
                             
                             	**config**\: False
                             
                             .. attribute:: neighbor_state
                             
-                            	[adapted from IETF IP model RFC 7277]  The Neighbor Unreachability Detection state of this entry
+                            	The Neighbor Unreachability Detection state of this entry
                             	**type**\:  :py:class:`NeighborState <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor.State.NeighborState>`
                             
                             	**config**\: False
@@ -8444,10 +10654,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "neighbor"
@@ -8459,7 +10672,7 @@ class Interfaces(Entity):
                                     ('ip', (YLeaf(YType.str, 'ip'), ['str'])),
                                     ('link_layer_address', (YLeaf(YType.str, 'link-layer-address'), ['str'])),
                                     ('origin', (YLeaf(YType.enumeration, 'origin'), [('ydk.models.openconfig.openconfig_if_ip', 'NeighborOrigin', '')])),
-                                    ('is_router', (YLeaf(YType.empty, 'is-router'), ['Empty'])),
+                                    ('is_router', (YLeaf(YType.boolean, 'is-router'), ['bool'])),
                                     ('neighbor_state', (YLeaf(YType.enumeration, 'neighbor-state'), [('ydk.models.openconfig.openconfig_interfaces', 'Interfaces', 'Interface.RoutedVlan.Ipv6.Neighbors.Neighbor.State.NeighborState')])),
                                 ])
                                 self.ip = None
@@ -8476,8 +10689,6 @@ class Interfaces(Entity):
                             class NeighborState(Enum):
                                 """
                                 NeighborState (Enum Class)
-
-                                [adapted from IETF IP model RFC 7277]
 
                                 The Neighbor Unreachability Detection state of this
 
@@ -8544,7 +10755,7 @@ class Interfaces(Entity):
 
 
 
-                class Unnumbered(Entity):
+                class Unnumbered(_Entity_):
                     """
                     Top\-level container for setting unnumbered interfaces.
                     Includes reference the interface that provides the
@@ -8572,10 +10783,13 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'oc-ip'
-                    _revision = '2016-05-26'
+                    _revision = '2019-01-08'
 
                     def __init__(self):
-                        super(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered, self).__init__()
 
                         self.yang_name = "unnumbered"
                         self.yang_parent_name = "ipv6"
@@ -8603,7 +10817,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered, [], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data for unnumbered interface
                         
@@ -8619,10 +10833,13 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "unnumbered"
@@ -8642,7 +10859,7 @@ class Interfaces(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state data for unnumbered interfaces
                         
@@ -8660,10 +10877,13 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "unnumbered"
@@ -8683,7 +10903,7 @@ class Interfaces(Entity):
 
 
 
-                    class InterfaceRef(Entity):
+                    class InterfaceRef(_Entity_):
                         """
                         Reference to an interface or subinterface
                         
@@ -8704,10 +10924,13 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'oc-ip'
-                        _revision = '2016-05-26'
+                        _revision = '2019-01-08'
 
                         def __init__(self):
-                            super(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef, self).__init__()
 
                             self.yang_name = "interface-ref"
                             self.yang_parent_name = "unnumbered"
@@ -8731,7 +10954,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configured reference to interface / subinterface
                             
@@ -8756,10 +10979,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "interface-ref"
@@ -8781,7 +11007,7 @@ class Interfaces(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             Operational state for interface\-ref
                             
@@ -8810,10 +11036,13 @@ class Interfaces(Entity):
                             """
 
                             _prefix = 'oc-ip'
-                            _revision = '2016-05-26'
+                            _revision = '2019-01-08'
 
                             def __init__(self):
-                                super(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "interface-ref"
@@ -8837,20 +11066,20 @@ class Interfaces(Entity):
 
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Top\-level config data for the IPv6 interface
                     
                     .. attribute:: enabled
                     
-                    	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
+                    	Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
                     	**type**\: bool
                     
                     	**default value**\: true
                     
                     .. attribute:: mtu
                     
-                    	[adapted from IETF IP model RFC 7277]  The size, in octets, of the largest IPv6 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
+                    	The size, in octets, of the largest IPv6 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
                     	**type**\: int
                     
                     	**range:** 1280..4294967295
@@ -8859,22 +11088,32 @@ class Interfaces(Entity):
                     
                     .. attribute:: dup_addr_detect_transmits
                     
-                    	[adapted from IETF IP model RFC 7277]  The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
+                    	The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     	**default value**\: 1
                     
+                    .. attribute:: dhcp_client
+                    
+                    	Enables a DHCP client on the interface in order to request an address
+                    	**type**\: bool
+                    
+                    	**default value**\: false
+                    
                     
 
                     """
 
                     _prefix = 'oc-ip'
-                    _revision = '2016-05-26'
+                    _revision = '2019-01-08'
 
                     def __init__(self):
-                        super(Interfaces.Interface.RoutedVlan.Ipv6.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.RoutedVlan.Ipv6.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "ipv6"
@@ -8886,25 +11125,27 @@ class Interfaces(Entity):
                             ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                             ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
                             ('dup_addr_detect_transmits', (YLeaf(YType.uint32, 'dup-addr-detect-transmits'), ['int'])),
+                            ('dhcp_client', (YLeaf(YType.boolean, 'dhcp-client'), ['bool'])),
                         ])
                         self.enabled = None
                         self.mtu = None
                         self.dup_addr_detect_transmits = None
+                        self.dhcp_client = None
                         self._segment_path = lambda: "config"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Config, ['enabled', 'mtu', 'dup_addr_detect_transmits'], name, value)
+                        self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Config, ['enabled', 'mtu', 'dup_addr_detect_transmits', 'dhcp_client'], name, value)
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     Top\-level operational state data for the IPv6 interface
                     
                     .. attribute:: enabled
                     
-                    	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
+                    	Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
                     	**type**\: bool
                     
                     	**config**\: False
@@ -8913,7 +11154,7 @@ class Interfaces(Entity):
                     
                     .. attribute:: mtu
                     
-                    	[adapted from IETF IP model RFC 7277]  The size, in octets, of the largest IPv6 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
+                    	The size, in octets, of the largest IPv6 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
                     	**type**\: int
                     
                     	**range:** 1280..4294967295
@@ -8924,7 +11165,7 @@ class Interfaces(Entity):
                     
                     .. attribute:: dup_addr_detect_transmits
                     
-                    	[adapted from IETF IP model RFC 7277]  The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
+                    	The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -8933,41 +11174,232 @@ class Interfaces(Entity):
                     
                     	**default value**\: 1
                     
+                    .. attribute:: dhcp_client
+                    
+                    	Enables a DHCP client on the interface in order to request an address
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    	**default value**\: false
+                    
+                    .. attribute:: counters
+                    
+                    	Packet and byte counters for IP transmission and reception for the address family
+                    	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.State.Counters>`
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'oc-ip'
-                    _revision = '2016-05-26'
+                    _revision = '2019-01-08'
 
                     def __init__(self):
-                        super(Interfaces.Interface.RoutedVlan.Ipv6.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Interfaces.Interface.RoutedVlan.Ipv6.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "ipv6"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
+                        self._child_classes = OrderedDict([("counters", ("counters", Interfaces.Interface.RoutedVlan.Ipv6.State.Counters))])
                         self._leafs = OrderedDict([
                             ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                             ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
                             ('dup_addr_detect_transmits', (YLeaf(YType.uint32, 'dup-addr-detect-transmits'), ['int'])),
+                            ('dhcp_client', (YLeaf(YType.boolean, 'dhcp-client'), ['bool'])),
                         ])
                         self.enabled = None
                         self.mtu = None
                         self.dup_addr_detect_transmits = None
+                        self.dhcp_client = None
+
+                        self.counters = Interfaces.Interface.RoutedVlan.Ipv6.State.Counters()
+                        self.counters.parent = self
+                        self._children_name_map["counters"] = "counters"
                         self._segment_path = lambda: "state"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.State, ['enabled', 'mtu', 'dup_addr_detect_transmits'], name, value)
+                        self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.State, ['enabled', 'mtu', 'dup_addr_detect_transmits', 'dhcp_client'], name, value)
+
+
+                    class Counters(_Entity_):
+                        """
+                        Packet and byte counters for IP transmission and
+                        reception for the address family.
+                        
+                        .. attribute:: in_pkts
+                        
+                        	The total number of IP packets received for the specified address family, including those received in error
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: in_octets
+                        
+                        	The total number of octets received in input IP packets for the specified address family, including those received in error
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: in_error_pkts
+                        
+                        	Number of IP packets discarded due to errors for the specified address family, including errors in the IP header, no route found to the IP destination, invalid address, unknown protocol, etc
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: in_forwarded_pkts
+                        
+                        	The number of input packets for which the device was not their final IP destination and for which the device attempted to find a route to forward them to that final destination
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: in_forwarded_octets
+                        
+                        	The number of octets received in input IP packets for the specified address family for which the device was not their final IP destination and for which the device attempted to find a route to forward them to that final destination
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: in_discarded_pkts
+                        
+                        	The number of input IP packets for the specified address family, for which no problems were encountered to prevent their continued processing, but were discarded (e.g., for lack of buffer space)
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: out_pkts
+                        
+                        	The total number of IP packets for the specified address family that the device supplied to the lower layers for transmission.  This includes packets generated locally and those forwarded by the device
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: out_octets
+                        
+                        	The total number of octets in IP packets for the specified address family that the device supplied to the lower layers for transmission.  This includes packets generated locally and those forwarded by the device
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: out_error_pkts
+                        
+                        	Number of IP packets for the specified address family locally generated and discarded due to errors, including no route found to the IP destination
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: out_forwarded_pkts
+                        
+                        	The number of packets for which this entity was not their final IP destination and for which it was successful in finding a path to their final destination
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: out_forwarded_octets
+                        
+                        	The number of octets in packets for which this entity was not their final IP destination and for which it was successful in finding a path to their final destination
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: out_discarded_pkts
+                        
+                        	The number of output IP packets for the specified address family for which no problem was encountered to prevent their transmission to their destination, but were discarded (e.g., for lack of buffer space)
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-ip'
+                        _revision = '2019-01-08'
+
+                        def __init__(self):
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Interfaces.Interface.RoutedVlan.Ipv6.State.Counters, self).__init__()
+
+                            self.yang_name = "counters"
+                            self.yang_parent_name = "state"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('in_pkts', (YLeaf(YType.uint64, 'in-pkts'), ['int'])),
+                                ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
+                                ('in_error_pkts', (YLeaf(YType.uint64, 'in-error-pkts'), ['int'])),
+                                ('in_forwarded_pkts', (YLeaf(YType.uint64, 'in-forwarded-pkts'), ['int'])),
+                                ('in_forwarded_octets', (YLeaf(YType.uint64, 'in-forwarded-octets'), ['int'])),
+                                ('in_discarded_pkts', (YLeaf(YType.uint64, 'in-discarded-pkts'), ['int'])),
+                                ('out_pkts', (YLeaf(YType.uint64, 'out-pkts'), ['int'])),
+                                ('out_octets', (YLeaf(YType.uint64, 'out-octets'), ['int'])),
+                                ('out_error_pkts', (YLeaf(YType.uint64, 'out-error-pkts'), ['int'])),
+                                ('out_forwarded_pkts', (YLeaf(YType.uint64, 'out-forwarded-pkts'), ['int'])),
+                                ('out_forwarded_octets', (YLeaf(YType.uint64, 'out-forwarded-octets'), ['int'])),
+                                ('out_discarded_pkts', (YLeaf(YType.uint64, 'out-discarded-pkts'), ['int'])),
+                            ])
+                            self.in_pkts = None
+                            self.in_octets = None
+                            self.in_error_pkts = None
+                            self.in_forwarded_pkts = None
+                            self.in_forwarded_octets = None
+                            self.in_discarded_pkts = None
+                            self.out_pkts = None
+                            self.out_octets = None
+                            self.out_error_pkts = None
+                            self.out_forwarded_pkts = None
+                            self.out_forwarded_octets = None
+                            self.out_discarded_pkts = None
+                            self._segment_path = lambda: "counters"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.State.Counters, ['in_pkts', 'in_octets', 'in_error_pkts', 'in_forwarded_pkts', 'in_forwarded_octets', 'in_discarded_pkts', 'out_pkts', 'out_octets', 'out_error_pkts', 'out_forwarded_pkts', 'out_forwarded_octets', 'out_discarded_pkts'], name, value)
 
 
 
 
 
-        class Sonet(Entity):
+
+        class Sonet(_Entity_):
             """
             Data related to SONET/SDH interfaces
             
@@ -8976,10 +11408,13 @@ class Interfaces(Entity):
             """
 
             _prefix = 'oc-line-com'
-            _revision = '2017-07-08'
+            _revision = '2018-07-17'
 
             def __init__(self):
-                super(Interfaces.Interface.Sonet, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Interfaces.Interface.Sonet, self).__init__()
 
                 self.yang_name = "sonet"
                 self.yang_parent_name = "interface"

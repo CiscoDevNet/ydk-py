@@ -41,8 +41,11 @@ protocols used in operational practice.
 
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -174,7 +177,7 @@ class TeMetricType(Enum):
 
 
 
-class Mpls(Entity):
+class Mpls(_Entity_):
     """
     Anchor point for mpls configuration and operational
     data
@@ -212,7 +215,10 @@ class Mpls(Entity):
     _revision = '2017-03-22'
 
     def __init__(self):
-        super(Mpls, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Mpls, self).__init__()
         self._top_entity = None
 
         self.yang_name = "mpls"
@@ -249,7 +255,7 @@ class Mpls(Entity):
         self._perform_setattr(Mpls, [], name, value)
 
 
-    class Global(Entity):
+    class Global(_Entity_):
         """
         general mpls configuration applicable to any
         type of LSP and signaling protocol \- label ranges,
@@ -285,7 +291,10 @@ class Mpls(Entity):
         _revision = '2017-03-22'
 
         def __init__(self):
-            super(Mpls.Global, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mpls.Global, self).__init__()
 
             self.yang_name = "global"
             self.yang_parent_name = "mpls"
@@ -318,7 +327,7 @@ class Mpls(Entity):
             self._perform_setattr(Mpls.Global, [], name, value)
 
 
-        class Config(Entity):
+        class Config(_Entity_):
             """
             Top level global MPLS configuration
             
@@ -337,7 +346,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.Global.Config, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.Global.Config, self).__init__()
 
                 self.yang_name = "config"
                 self.yang_parent_name = "global"
@@ -358,7 +370,7 @@ class Mpls(Entity):
 
 
 
-        class State(Entity):
+        class State(_Entity_):
             """
             Top level global MPLS state
             
@@ -379,7 +391,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.Global.State, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.Global.State, self).__init__()
 
                 self.yang_name = "state"
                 self.yang_parent_name = "global"
@@ -400,7 +415,7 @@ class Mpls(Entity):
 
 
 
-        class InterfaceAttributes(Entity):
+        class InterfaceAttributes(_Entity_):
             """
             Parameters related to MPLS interfaces
             
@@ -417,7 +432,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.Global.InterfaceAttributes, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.Global.InterfaceAttributes, self).__init__()
 
                 self.yang_name = "interface-attributes"
                 self.yang_parent_name = "global"
@@ -436,7 +454,7 @@ class Mpls(Entity):
                 self._perform_setattr(Mpls.Global.InterfaceAttributes, [], name, value)
 
 
-            class Interface(Entity):
+            class Interface(_Entity_):
                 """
                 List of TE interfaces
                 
@@ -472,7 +490,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.Global.InterfaceAttributes.Interface, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.Global.InterfaceAttributes.Interface, self).__init__()
 
                     self.yang_name = "interface"
                     self.yang_parent_name = "interface-attributes"
@@ -504,7 +525,7 @@ class Mpls(Entity):
                     self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface, ['interface_id'], name, value)
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Configuration parameters related to MPLS interfaces\:
                     
@@ -528,7 +549,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Global.InterfaceAttributes.Interface.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Global.InterfaceAttributes.Interface.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "interface"
@@ -550,7 +574,7 @@ class Mpls(Entity):
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     State parameters related to TE interfaces
                     
@@ -578,7 +602,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Global.InterfaceAttributes.Interface.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Global.InterfaceAttributes.Interface.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "interface"
@@ -600,7 +627,7 @@ class Mpls(Entity):
 
 
 
-                class InterfaceRef(Entity):
+                class InterfaceRef(_Entity_):
                     """
                     Reference to an interface or subinterface
                     
@@ -624,7 +651,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef, self).__init__()
 
                         self.yang_name = "interface-ref"
                         self.yang_parent_name = "interface"
@@ -648,7 +678,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef, [], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configured reference to interface / subinterface
                         
@@ -676,7 +706,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "interface-ref"
@@ -698,7 +731,7 @@ class Mpls(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state for interface\-ref
                         
@@ -730,7 +763,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Global.InterfaceAttributes.Interface.InterfaceRef.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "interface-ref"
@@ -755,7 +791,7 @@ class Mpls(Entity):
 
 
 
-        class ReservedLabelBlocks(Entity):
+        class ReservedLabelBlocks(_Entity_):
             """
             A range of labels starting with the start\-label and up\-to and including
             the end label that should be allocated as reserved. These labels should
@@ -776,7 +812,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.Global.ReservedLabelBlocks, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.Global.ReservedLabelBlocks, self).__init__()
 
                 self.yang_name = "reserved-label-blocks"
                 self.yang_parent_name = "global"
@@ -795,7 +834,7 @@ class Mpls(Entity):
                 self._perform_setattr(Mpls.Global.ReservedLabelBlocks, [], name, value)
 
 
-            class ReservedLabelBlock(Entity):
+            class ReservedLabelBlock(_Entity_):
                 """
                 A range of labels starting with the start\-label up to and including
                 the end label that should be allocated for use by a specific protocol.
@@ -827,7 +866,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock, self).__init__()
 
                     self.yang_name = "reserved-label-block"
                     self.yang_parent_name = "reserved-label-blocks"
@@ -855,7 +897,7 @@ class Mpls(Entity):
                     self._perform_setattr(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock, ['local_id'], name, value)
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Configuration parameters relating to the label block.
                     
@@ -894,7 +936,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "reserved-label-block"
@@ -918,7 +963,7 @@ class Mpls(Entity):
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     State parameters relating to the label block.
                     
@@ -963,7 +1008,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Global.ReservedLabelBlocks.ReservedLabelBlock.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "reserved-label-block"
@@ -990,7 +1038,7 @@ class Mpls(Entity):
 
 
 
-    class TeGlobalAttributes(Entity):
+    class TeGlobalAttributes(_Entity_):
         """
         traffic\-engineering global attributes
         
@@ -1017,7 +1065,10 @@ class Mpls(Entity):
         _revision = '2017-03-22'
 
         def __init__(self):
-            super(Mpls.TeGlobalAttributes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mpls.TeGlobalAttributes, self).__init__()
 
             self.yang_name = "te-global-attributes"
             self.yang_parent_name = "mpls"
@@ -1046,7 +1097,7 @@ class Mpls(Entity):
             self._perform_setattr(Mpls.TeGlobalAttributes, [], name, value)
 
 
-        class Srlgs(Entity):
+        class Srlgs(_Entity_):
             """
             Shared risk link groups attributes
             
@@ -1063,7 +1114,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.TeGlobalAttributes.Srlgs, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.TeGlobalAttributes.Srlgs, self).__init__()
 
                 self.yang_name = "srlgs"
                 self.yang_parent_name = "te-global-attributes"
@@ -1082,7 +1136,7 @@ class Mpls(Entity):
                 self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs, [], name, value)
 
 
-            class Srlg(Entity):
+            class Srlg(_Entity_):
                 """
                 List of shared risk link groups
                 
@@ -1118,7 +1172,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeGlobalAttributes.Srlgs.Srlg, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.TeGlobalAttributes.Srlgs.Srlg, self).__init__()
 
                     self.yang_name = "srlg"
                     self.yang_parent_name = "srlgs"
@@ -1150,7 +1207,7 @@ class Mpls(Entity):
                     self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg, ['name'], name, value)
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Configuration parameters related to the SRLG
                     
@@ -1188,7 +1245,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeGlobalAttributes.Srlgs.Srlg.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeGlobalAttributes.Srlgs.Srlg.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "srlg"
@@ -1214,7 +1274,7 @@ class Mpls(Entity):
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     State parameters related to the SRLG
                     
@@ -1260,7 +1320,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeGlobalAttributes.Srlgs.Srlg.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeGlobalAttributes.Srlgs.Srlg.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "srlg"
@@ -1286,7 +1349,7 @@ class Mpls(Entity):
 
 
 
-                class StaticSrlgMembers(Entity):
+                class StaticSrlgMembers(_Entity_):
                     """
                     SRLG members for static (not flooded) SRLGs 
                     
@@ -1303,7 +1366,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers, self).__init__()
 
                         self.yang_name = "static-srlg-members"
                         self.yang_parent_name = "srlg"
@@ -1321,7 +1387,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers, [], name, value)
 
 
-                    class MembersList(Entity):
+                    class MembersList(_Entity_):
                         """
                         List of SRLG members, which are expressed
                         as IP address endpoints of links contained in the
@@ -1338,7 +1404,7 @@ class Mpls(Entity):
                         
                         		**type**\: str
                         
-                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
                         	**refers to**\:  :py:class:`from_address <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.Config>`
                         
@@ -1362,7 +1428,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList, self).__init__()
 
                             self.yang_name = "members-list"
                             self.yang_parent_name = "static-srlg-members"
@@ -1389,7 +1458,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList, ['from_address'], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration parameters relating to the
                             SRLG members
@@ -1405,7 +1474,7 @@ class Mpls(Entity):
                             
                             		**type**\: str
                             
-                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             .. attribute:: to_address
                             
@@ -1418,7 +1487,7 @@ class Mpls(Entity):
                             
                             		**type**\: str
                             
-                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             
 
@@ -1428,7 +1497,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "members-list"
@@ -1450,7 +1522,7 @@ class Mpls(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State parameters relating to the SRLG
                             members
@@ -1466,7 +1538,7 @@ class Mpls(Entity):
                             
                             		**type**\: str
                             
-                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             	**config**\: False
                             
@@ -1481,7 +1553,7 @@ class Mpls(Entity):
                             
                             		**type**\: str
                             
-                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             	**config**\: False
                             
@@ -1493,7 +1565,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.TeGlobalAttributes.Srlgs.Srlg.StaticSrlgMembers.MembersList.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "members-list"
@@ -1519,7 +1594,7 @@ class Mpls(Entity):
 
 
 
-        class MplsAdminGroups(Entity):
+        class MplsAdminGroups(_Entity_):
             """
             Top\-level container for admin\-groups configuration
             and state
@@ -1537,7 +1612,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.TeGlobalAttributes.MplsAdminGroups, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.TeGlobalAttributes.MplsAdminGroups, self).__init__()
 
                 self.yang_name = "mpls-admin-groups"
                 self.yang_parent_name = "te-global-attributes"
@@ -1556,7 +1634,7 @@ class Mpls(Entity):
                 self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups, [], name, value)
 
 
-            class AdminGroup(Entity):
+            class AdminGroup(_Entity_):
                 """
                 configuration of value to name mapping
                 for mpls affinities/admin\-groups
@@ -1588,7 +1666,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup, self).__init__()
 
                     self.yang_name = "admin-group"
                     self.yang_parent_name = "mpls-admin-groups"
@@ -1616,7 +1697,7 @@ class Mpls(Entity):
                     self._perform_setattr(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup, ['admin_group_name'], name, value)
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Configurable items for admin\-groups
                     
@@ -1640,7 +1721,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "admin-group"
@@ -1662,7 +1746,7 @@ class Mpls(Entity):
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     Operational state for admin\-groups
                     
@@ -1690,7 +1774,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "admin-group"
@@ -1714,7 +1801,7 @@ class Mpls(Entity):
 
 
 
-        class TeLspTimers(Entity):
+        class TeLspTimers(_Entity_):
             """
             Definition for delays associated with setup
             and cleanup of TE LSPs
@@ -1739,7 +1826,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.TeGlobalAttributes.TeLspTimers, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.TeGlobalAttributes.TeLspTimers, self).__init__()
 
                 self.yang_name = "te-lsp-timers"
                 self.yang_parent_name = "te-global-attributes"
@@ -1764,7 +1854,7 @@ class Mpls(Entity):
                 self._perform_setattr(Mpls.TeGlobalAttributes.TeLspTimers, [], name, value)
 
 
-            class Config(Entity):
+            class Config(_Entity_):
                 """
                 Configuration parameters related
                 to timers for TE LSPs
@@ -1804,7 +1894,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeGlobalAttributes.TeLspTimers.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.TeGlobalAttributes.TeLspTimers.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "te-lsp-timers"
@@ -1829,7 +1922,7 @@ class Mpls(Entity):
 
 
 
-            class State(Entity):
+            class State(_Entity_):
                 """
                 State related to timers for TE LSPs
                 
@@ -1874,7 +1967,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeGlobalAttributes.TeLspTimers.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.TeGlobalAttributes.TeLspTimers.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "te-lsp-timers"
@@ -1901,7 +1997,7 @@ class Mpls(Entity):
 
 
 
-    class TeInterfaceAttributes(Entity):
+    class TeInterfaceAttributes(_Entity_):
         """
         traffic engineering attributes specific
         for interfaces
@@ -1919,7 +2015,10 @@ class Mpls(Entity):
         _revision = '2017-03-22'
 
         def __init__(self):
-            super(Mpls.TeInterfaceAttributes, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mpls.TeInterfaceAttributes, self).__init__()
 
             self.yang_name = "te-interface-attributes"
             self.yang_parent_name = "mpls"
@@ -1938,7 +2037,7 @@ class Mpls(Entity):
             self._perform_setattr(Mpls.TeInterfaceAttributes, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             List of TE interfaces
             
@@ -1979,7 +2078,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.TeInterfaceAttributes.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.TeInterfaceAttributes.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "te-interface-attributes"
@@ -2015,7 +2117,7 @@ class Mpls(Entity):
                 self._perform_setattr(Mpls.TeInterfaceAttributes.Interface, ['interface_id'], name, value)
 
 
-            class Config(Entity):
+            class Config(_Entity_):
                 """
                 Configuration parameters related to TE interfaces\:
                 
@@ -2051,7 +2153,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeInterfaceAttributes.Interface.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.TeInterfaceAttributes.Interface.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "interface"
@@ -2077,7 +2182,7 @@ class Mpls(Entity):
 
 
 
-            class State(Entity):
+            class State(_Entity_):
                 """
                 State parameters related to TE interfaces
                 
@@ -2121,7 +2226,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeInterfaceAttributes.Interface.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.TeInterfaceAttributes.Interface.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "interface"
@@ -2147,7 +2255,7 @@ class Mpls(Entity):
 
 
 
-            class InterfaceRef(Entity):
+            class InterfaceRef(_Entity_):
                 """
                 Reference to an interface or subinterface
                 
@@ -2171,7 +2279,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeInterfaceAttributes.Interface.InterfaceRef, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.TeInterfaceAttributes.Interface.InterfaceRef, self).__init__()
 
                     self.yang_name = "interface-ref"
                     self.yang_parent_name = "interface"
@@ -2195,7 +2306,7 @@ class Mpls(Entity):
                     self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.InterfaceRef, [], name, value)
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Configured reference to interface / subinterface
                     
@@ -2223,7 +2334,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "interface-ref"
@@ -2245,7 +2359,7 @@ class Mpls(Entity):
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     Operational state for interface\-ref
                     
@@ -2277,7 +2391,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeInterfaceAttributes.Interface.InterfaceRef.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "interface-ref"
@@ -2300,7 +2417,7 @@ class Mpls(Entity):
 
 
 
-            class IgpFloodingBandwidth(Entity):
+            class IgpFloodingBandwidth(_Entity_):
                 """
                 Interface bandwidth change percentages
                 that trigger update events into the IGP traffic
@@ -2326,7 +2443,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth, self).__init__()
 
                     self.yang_name = "igp-flooding-bandwidth"
                     self.yang_parent_name = "interface"
@@ -2350,7 +2470,7 @@ class Mpls(Entity):
                     self._perform_setattr(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth, [], name, value)
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Configuration parameters for TED
                     update threshold 
@@ -2401,7 +2521,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "igp-flooding-bandwidth"
@@ -2533,7 +2656,7 @@ class Mpls(Entity):
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     State parameters for TED update threshold 
                     
@@ -2595,7 +2718,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "igp-flooding-bandwidth"
@@ -2730,7 +2856,7 @@ class Mpls(Entity):
 
 
 
-    class SignalingProtocols(Entity):
+    class SignalingProtocols(_Entity_):
         """
         top\-level signaling protocol configuration
         
@@ -2757,7 +2883,10 @@ class Mpls(Entity):
         _revision = '2017-03-22'
 
         def __init__(self):
-            super(Mpls.SignalingProtocols, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mpls.SignalingProtocols, self).__init__()
 
             self.yang_name = "signaling-protocols"
             self.yang_parent_name = "mpls"
@@ -2786,7 +2915,7 @@ class Mpls(Entity):
             self._perform_setattr(Mpls.SignalingProtocols, [], name, value)
 
 
-        class RsvpTe(Entity):
+        class RsvpTe(_Entity_):
             """
             RSVP\-TE global signaling protocol configuration
             
@@ -2818,7 +2947,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.SignalingProtocols.RsvpTe, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.SignalingProtocols.RsvpTe, self).__init__()
 
                 self.yang_name = "rsvp-te"
                 self.yang_parent_name = "signaling-protocols"
@@ -2851,7 +2983,7 @@ class Mpls(Entity):
                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe, [], name, value)
 
 
-            class Sessions(Entity):
+            class Sessions(_Entity_):
                 """
                 Enclosing container for sessions
                 
@@ -2870,7 +3002,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.SignalingProtocols.RsvpTe.Sessions, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.SignalingProtocols.RsvpTe.Sessions, self).__init__()
 
                     self.yang_name = "sessions"
                     self.yang_parent_name = "rsvp-te"
@@ -2889,7 +3024,7 @@ class Mpls(Entity):
                     self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions, [], name, value)
 
 
-                class Session(Entity):
+                class Session(_Entity_):
                     """
                     List of RSVP sessions
                     
@@ -2926,7 +3061,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session, self).__init__()
 
                         self.yang_name = "session"
                         self.yang_parent_name = "sessions"
@@ -2954,7 +3092,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session, ['local_index'], name, value)
 
 
-                    class RecordRouteObjects(Entity):
+                    class RecordRouteObjects(_Entity_):
                         """
                         Enclosing container for MPLS RRO objects associated with the
                         traffic engineered tunnel.
@@ -2974,7 +3112,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects, self).__init__()
 
                             self.yang_name = "record-route-objects"
                             self.yang_parent_name = "session"
@@ -2992,7 +3133,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects, [], name, value)
 
 
-                        class RecordRouteObject(Entity):
+                        class RecordRouteObject(_Entity_):
                             """
                             Read\-only list of record route objects associated with the
                             traffic engineered tunnel. Each entry in the list
@@ -3025,7 +3166,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject, self).__init__()
 
                                 self.yang_name = "record-route-object"
                                 self.yang_parent_name = "record-route-objects"
@@ -3048,7 +3192,7 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject, ['index'], name, value)
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Information related to RRO objects. The hop, label, and
                                 optional flags are present for each entry in the list.
@@ -3073,7 +3217,7 @@ class Mpls(Entity):
                                 
                                 		**type**\: str
                                 
-                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                 
                                 	**config**\: False
                                 
@@ -3107,7 +3251,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.RecordRouteObjects.RecordRouteObject.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "record-route-object"
@@ -3135,7 +3282,7 @@ class Mpls(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state parameters relating to the
                         RSVP session
@@ -3160,7 +3307,7 @@ class Mpls(Entity):
                         
                         		**type**\: str
                         
-                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
                         	**config**\: False
                         
@@ -3175,7 +3322,7 @@ class Mpls(Entity):
                         
                         		**type**\: str
                         
-                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
                         	**config**\: False
                         
@@ -3266,7 +3413,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "session"
@@ -3330,7 +3480,7 @@ class Mpls(Entity):
 
 
 
-                        class SenderTspec(Entity):
+                        class SenderTspec(_Entity_):
                             """
                             Operational state statistics relating to the SENDER\_TSPEC
                             received for the RSVP session
@@ -3340,7 +3490,7 @@ class Mpls(Entity):
                             	The rate at which the head\-end device generates traffic, expressed in bytes per second
                             	**type**\: str
                             
-                            	**length:** 32..32
+                            	**length:** 4..4
                             
                             	**config**\: False
                             
@@ -3351,7 +3501,7 @@ class Mpls(Entity):
                             	The size of the token bucket that is used to determine the rate at which the head\-end device generates traffic, expressed in bytes per second
                             	**type**\: str
                             
-                            	**length:** 32..32
+                            	**length:** 4..4
                             
                             	**config**\: False
                             
@@ -3364,9 +3514,9 @@ class Mpls(Entity):
                             
                             		**type**\: str
                             
-                            			**length:** 32..32
+                            			**length:** 4..4
                             
-                            		**type**\:  :py:class:`PeakDataRate <ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate>`
+                            		**type**\:  :py:class:`PeakDataRate <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate>`
                             
                             	**config**\: False
                             
@@ -3380,7 +3530,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec, self).__init__()
 
                                 self.yang_name = "sender-tspec"
                                 self.yang_parent_name = "state"
@@ -3391,7 +3544,7 @@ class Mpls(Entity):
                                 self._leafs = OrderedDict([
                                     ('rate', (YLeaf(YType.str, 'rate'), ['str'])),
                                     ('size', (YLeaf(YType.str, 'size'), ['str'])),
-                                    ('peak_data_rate', (YLeaf(YType.str, 'peak-data-rate'), ['str',('ydk.models.openconfig.openconfig_network_instance', 'NetworkInstances', 'NetworkInstance.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate')])),
+                                    ('peak_data_rate', (YLeaf(YType.str, 'peak-data-rate'), ['str',('ydk.models.openconfig.openconfig_mpls', 'Mpls', 'SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate')])),
                                 ])
                                 self.rate = None
                                 self.size = None
@@ -3424,7 +3577,7 @@ class Mpls(Entity):
 
 
 
-            class Neighbors(Entity):
+            class Neighbors(_Entity_):
                 """
                 Configuration and state for RSVP neighbors connecting
                 to the device
@@ -3444,7 +3597,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.SignalingProtocols.RsvpTe.Neighbors, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.SignalingProtocols.RsvpTe.Neighbors, self).__init__()
 
                     self.yang_name = "neighbors"
                     self.yang_parent_name = "rsvp-te"
@@ -3463,7 +3619,7 @@ class Mpls(Entity):
                     self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Neighbors, [], name, value)
 
 
-                class Neighbor(Entity):
+                class Neighbor(_Entity_):
                     """
                     List of RSVP neighbors of the local system
                     
@@ -3478,7 +3634,7 @@ class Mpls(Entity):
                     
                     		**type**\: str
                     
-                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                     
                     	**refers to**\:  :py:class:`address <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State>`
                     
@@ -3499,7 +3655,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor, self).__init__()
 
                         self.yang_name = "neighbor"
                         self.yang_parent_name = "neighbors"
@@ -3523,7 +3682,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor, ['address'], name, value)
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state parameters relating to the
                         RSVP neighbor
@@ -3539,7 +3698,7 @@ class Mpls(Entity):
                         
                         		**type**\: str
                         
-                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
                         	**config**\: False
                         
@@ -3572,7 +3731,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Neighbors.Neighbor.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "neighbor"
@@ -3625,7 +3787,7 @@ class Mpls(Entity):
 
 
 
-            class Global(Entity):
+            class Global(_Entity_):
                 """
                 Platform wide RSVP configuration and state
                 
@@ -3659,7 +3821,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.SignalingProtocols.RsvpTe.Global, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.SignalingProtocols.RsvpTe.Global, self).__init__()
 
                     self.yang_name = "global"
                     self.yang_parent_name = "rsvp-te"
@@ -3692,7 +3857,7 @@ class Mpls(Entity):
                     self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global, [], name, value)
 
 
-                class GracefulRestart(Entity):
+                class GracefulRestart(_Entity_):
                     """
                     Operational state and configuration parameters relating to
                     graceful\-restart for RSVP
@@ -3717,7 +3882,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart, self).__init__()
 
                         self.yang_name = "graceful-restart"
                         self.yang_parent_name = "global"
@@ -3742,7 +3910,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart, [], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration parameters relating to
                         graceful\-restart
@@ -3776,7 +3944,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "graceful-restart"
@@ -3801,7 +3972,7 @@ class Mpls(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         State information associated with
                         RSVP graceful\-restart
@@ -3841,7 +4012,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "graceful-restart"
@@ -3867,7 +4041,7 @@ class Mpls(Entity):
 
 
 
-                class SoftPreemption(Entity):
+                class SoftPreemption(_Entity_):
                     """
                     Protocol options relating to RSVP
                     soft preemption
@@ -3892,7 +4066,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption, self).__init__()
 
                         self.yang_name = "soft-preemption"
                         self.yang_parent_name = "global"
@@ -3917,7 +4094,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption, [], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration parameters relating to RSVP
                         soft preemption support
@@ -3946,7 +4123,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "soft-preemption"
@@ -3969,7 +4149,7 @@ class Mpls(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         State parameters relating to RSVP
                         soft preemption support
@@ -4002,7 +4182,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "soft-preemption"
@@ -4026,7 +4209,7 @@ class Mpls(Entity):
 
 
 
-                class Hellos(Entity):
+                class Hellos(_Entity_):
                     """
                     Top level container for RSVP hello parameters
                     
@@ -4050,7 +4233,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos, self).__init__()
 
                         self.yang_name = "hellos"
                         self.yang_parent_name = "global"
@@ -4075,7 +4261,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.Hellos, [], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration parameters relating to RSVP
                         hellos
@@ -4106,7 +4292,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "hellos"
@@ -4129,7 +4318,7 @@ class Mpls(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         State information associated with RSVP hellos
                         
@@ -4163,7 +4352,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "hellos"
@@ -4187,7 +4379,7 @@ class Mpls(Entity):
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     Platform wide RSVP state, including counters
                     
@@ -4206,7 +4398,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.Global.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.RsvpTe.Global.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "global"
@@ -4227,7 +4422,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.Global.State, [], name, value)
 
 
-                    class Counters(Entity):
+                    class Counters(_Entity_):
                         """
                         Platform wide RSVP statistics and counters
                         
@@ -4428,7 +4623,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.Global.State.Counters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.Global.State.Counters, self).__init__()
 
                             self.yang_name = "counters"
                             self.yang_parent_name = "state"
@@ -4491,7 +4689,7 @@ class Mpls(Entity):
 
 
 
-            class InterfaceAttributes(Entity):
+            class InterfaceAttributes(_Entity_):
                 """
                 Attributes relating to RSVP\-TE enabled interfaces
                 
@@ -4508,7 +4706,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes, self).__init__()
 
                     self.yang_name = "interface-attributes"
                     self.yang_parent_name = "rsvp-te"
@@ -4527,7 +4728,7 @@ class Mpls(Entity):
                     self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     list of per\-interface RSVP configurations
                     
@@ -4588,7 +4789,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interface-attributes"
@@ -4640,7 +4844,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface, ['interface_id'], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration of per\-interface RSVP parameters
                         
@@ -4657,7 +4861,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "interface"
@@ -4677,7 +4884,7 @@ class Mpls(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Per\-interface RSVP protocol and state information
                         
@@ -4703,7 +4910,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "interface"
@@ -4726,7 +4936,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State, ['interface_id'], name, value)
 
 
-                        class Counters(Entity):
+                        class Counters(_Entity_):
                             """
                             Interface specific RSVP statistics and counters
                             
@@ -4900,7 +5110,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters, self).__init__()
 
                                 self.yang_name = "counters"
                                 self.yang_parent_name = "state"
@@ -4955,7 +5168,7 @@ class Mpls(Entity):
 
 
 
-                    class InterfaceRef(Entity):
+                    class InterfaceRef(_Entity_):
                         """
                         Reference to an interface or subinterface
                         
@@ -4979,7 +5192,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef, self).__init__()
 
                             self.yang_name = "interface-ref"
                             self.yang_parent_name = "interface"
@@ -5003,7 +5219,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configured reference to interface / subinterface
                             
@@ -5031,7 +5247,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "interface-ref"
@@ -5053,7 +5272,7 @@ class Mpls(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             Operational state for interface\-ref
                             
@@ -5085,7 +5304,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.InterfaceRef.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "interface-ref"
@@ -5108,7 +5330,7 @@ class Mpls(Entity):
 
 
 
-                    class BandwidthReservations(Entity):
+                    class BandwidthReservations(_Entity_):
                         """
                         Enclosing container for bandwidth reservation
                         
@@ -5127,7 +5349,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations, self).__init__()
 
                             self.yang_name = "bandwidth-reservations"
                             self.yang_parent_name = "interface"
@@ -5145,7 +5370,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations, [], name, value)
 
 
-                        class BandwidthReservation(Entity):
+                        class BandwidthReservation(_Entity_):
                             """
                             Available and reserved bandwidth by priority on
                             the interface.
@@ -5159,7 +5384,7 @@ class Mpls(Entity):
                             
                             			**range:** 0..7
                             
-                            		**type**\:  :py:class:`Priority <ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority>`
+                            		**type**\:  :py:class:`Priority <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority>`
                             
                             	**refers to**\:  :py:class:`priority <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State>`
                             
@@ -5180,7 +5405,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation, self).__init__()
 
                                 self.yang_name = "bandwidth-reservation"
                                 self.yang_parent_name = "bandwidth-reservations"
@@ -5203,7 +5431,7 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation, ['priority'], name, value)
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Operational state parameters relating to a
                                 bandwidth reservation at a certain priority
@@ -5217,7 +5445,7 @@ class Mpls(Entity):
                                 
                                 			**range:** 0..7
                                 
-                                		**type**\:  :py:class:`Priority <ydk.models.openconfig.openconfig_network_instance.NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority>`
+                                		**type**\:  :py:class:`Priority <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority>`
                                 
                                 	**config**\: False
                                 
@@ -5265,7 +5493,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "bandwidth-reservation"
@@ -5274,7 +5505,7 @@ class Mpls(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('priority', (YLeaf(YType.str, 'priority'), ['int',('ydk.models.openconfig.openconfig_network_instance', 'NetworkInstances', 'NetworkInstance.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority')])),
+                                        ('priority', (YLeaf(YType.str, 'priority'), ['int',('ydk.models.openconfig.openconfig_mpls', 'Mpls', 'SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority')])),
                                         ('available_bandwidth', (YLeaf(YType.uint64, 'available-bandwidth'), ['int'])),
                                         ('reserved_bandwidth', (YLeaf(YType.uint64, 'reserved-bandwidth'), ['int'])),
                                         ('active_reservations_count', (YLeaf(YType.uint64, 'active-reservations-count'), ['int'])),
@@ -5314,7 +5545,7 @@ class Mpls(Entity):
 
 
 
-                    class Hellos(Entity):
+                    class Hellos(_Entity_):
                         """
                         Top level container for RSVP hello parameters
                         
@@ -5338,7 +5569,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos, self).__init__()
 
                             self.yang_name = "hellos"
                             self.yang_parent_name = "interface"
@@ -5362,7 +5596,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration parameters relating to RSVP
                             hellos
@@ -5393,7 +5627,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "hellos"
@@ -5415,7 +5652,7 @@ class Mpls(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State information associated with RSVP hellos
                             
@@ -5449,7 +5686,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "hellos"
@@ -5472,7 +5712,7 @@ class Mpls(Entity):
 
 
 
-                    class Authentication(Entity):
+                    class Authentication(_Entity_):
                         """
                         Configuration and state parameters relating to RSVP
                         authentication as per RFC2747
@@ -5497,7 +5737,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication, self).__init__()
 
                             self.yang_name = "authentication"
                             self.yang_parent_name = "interface"
@@ -5521,7 +5764,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration parameters relating
                             to authentication
@@ -5548,7 +5791,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "authentication"
@@ -5570,7 +5816,7 @@ class Mpls(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State information associated
                             with authentication
@@ -5601,7 +5847,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "authentication"
@@ -5624,7 +5873,7 @@ class Mpls(Entity):
 
 
 
-                    class Subscription(Entity):
+                    class Subscription(_Entity_):
                         """
                         Bandwidth percentage reservable by RSVP
                         on an interface
@@ -5649,7 +5898,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription, self).__init__()
 
                             self.yang_name = "subscription"
                             self.yang_parent_name = "interface"
@@ -5673,7 +5925,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration parameters relating to RSVP
                             subscription options
@@ -5693,7 +5945,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "subscription"
@@ -5713,7 +5968,7 @@ class Mpls(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State parameters relating to RSVP
                             subscription options
@@ -5746,7 +6001,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "subscription"
@@ -5769,7 +6027,7 @@ class Mpls(Entity):
 
 
 
-                    class Protection(Entity):
+                    class Protection(_Entity_):
                         """
                         link\-protection (NHOP) related configuration
                         
@@ -5793,7 +6051,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection, self).__init__()
 
                             self.yang_name = "protection"
                             self.yang_parent_name = "interface"
@@ -5817,7 +6078,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration for link\-protection
                             
@@ -5845,7 +6106,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "protection"
@@ -5867,7 +6131,7 @@ class Mpls(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State for link\-protection
                             
@@ -5899,7 +6163,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "protection"
@@ -5925,7 +6192,7 @@ class Mpls(Entity):
 
 
 
-        class Ldp(Entity):
+        class Ldp(_Entity_):
             """
             LDP global signaling configuration
             
@@ -5937,7 +6204,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.SignalingProtocols.Ldp, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.SignalingProtocols.Ldp, self).__init__()
 
                 self.yang_name = "ldp"
                 self.yang_parent_name = "signaling-protocols"
@@ -5952,7 +6222,7 @@ class Mpls(Entity):
 
 
 
-        class SegmentRouting(Entity):
+        class SegmentRouting(_Entity_):
             """
             MPLS\-specific Segment Routing configuration and operational state
             parameters
@@ -5975,7 +6245,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.SignalingProtocols.SegmentRouting, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.SignalingProtocols.SegmentRouting, self).__init__()
 
                 self.yang_name = "segment-routing"
                 self.yang_parent_name = "signaling-protocols"
@@ -6000,7 +6273,7 @@ class Mpls(Entity):
                 self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting, [], name, value)
 
 
-            class AggregateSidCounters(Entity):
+            class AggregateSidCounters(_Entity_):
                 """
                 Per\-SID counters aggregated across all interfaces on the local system
                 
@@ -6019,7 +6292,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters, self).__init__()
 
                     self.yang_name = "aggregate-sid-counters"
                     self.yang_parent_name = "segment-routing"
@@ -6038,7 +6314,7 @@ class Mpls(Entity):
                     self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters, [], name, value)
 
 
-                class AggregateSidCounter(Entity):
+                class AggregateSidCounter(_Entity_):
                     """
                     Counters aggregated across all of the interfaces of the local
                     system corresponding to traffic received or forwarded with a
@@ -6074,7 +6350,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter, self).__init__()
 
                         self.yang_name = "aggregate-sid-counter"
                         self.yang_parent_name = "aggregate-sid-counters"
@@ -6098,7 +6377,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter, ['mpls_label'], name, value)
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         State parameters for per\-SID statistics
                         
@@ -6159,7 +6438,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.SegmentRouting.AggregateSidCounters.AggregateSidCounter.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "aggregate-sid-counter"
@@ -6189,7 +6471,7 @@ class Mpls(Entity):
 
 
 
-            class Interfaces(Entity):
+            class Interfaces(_Entity_):
                 """
                 Interface related Segment Routing parameters.
                 
@@ -6206,7 +6488,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.SignalingProtocols.SegmentRouting.Interfaces, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.SignalingProtocols.SegmentRouting.Interfaces, self).__init__()
 
                     self.yang_name = "interfaces"
                     self.yang_parent_name = "segment-routing"
@@ -6225,7 +6510,7 @@ class Mpls(Entity):
                     self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces, [], name, value)
 
 
-                class Interface(Entity):
+                class Interface(_Entity_):
                     """
                     Parameters and MPLS\-specific configuration relating to Segment
                     Routing on an interface.
@@ -6267,7 +6552,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface, self).__init__()
 
                         self.yang_name = "interface"
                         self.yang_parent_name = "interfaces"
@@ -6303,7 +6591,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface, ['interface_id'], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         MPLS\-specific Segment Routing configuration parameters
                         related to an interface.
@@ -6321,7 +6609,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "interface"
@@ -6341,7 +6632,7 @@ class Mpls(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         MPLS\-specific Segment Routing operational state parameters
                         related to an interface.
@@ -6397,7 +6688,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "interface"
@@ -6425,7 +6719,7 @@ class Mpls(Entity):
 
 
 
-                    class SidCounters(Entity):
+                    class SidCounters(_Entity_):
                         """
                         Per\-SID statistics for MPLS
                         
@@ -6444,7 +6738,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters, self).__init__()
 
                             self.yang_name = "sid-counters"
                             self.yang_parent_name = "interface"
@@ -6462,7 +6759,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters, [], name, value)
 
 
-                        class SidCounter(Entity):
+                        class SidCounter(_Entity_):
                             """
                             Per segment identifier counters for the MPLS dataplane.
                             
@@ -6503,7 +6800,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter, self).__init__()
 
                                 self.yang_name = "sid-counter"
                                 self.yang_parent_name = "sid-counters"
@@ -6530,7 +6830,7 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter, ['mpls_label'], name, value)
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 State parameters for per\-SID statistics
                                 
@@ -6591,7 +6891,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "sid-counter"
@@ -6619,7 +6922,7 @@ class Mpls(Entity):
 
 
 
-                            class ForwardingClasses(Entity):
+                            class ForwardingClasses(_Entity_):
                                 """
                                 Per\-SID per\-forwarding class counters for Segment Routing.
                                 
@@ -6638,7 +6941,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses, self).__init__()
 
                                     self.yang_name = "forwarding-classes"
                                     self.yang_parent_name = "sid-counter"
@@ -6656,7 +6962,7 @@ class Mpls(Entity):
                                     self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses, [], name, value)
 
 
-                                class ForwardingClass(Entity):
+                                class ForwardingClass(_Entity_):
                                     """
                                     SID entries for the forwarding class associated with the
                                     referenced MPLS EXP.
@@ -6687,7 +6993,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass, self).__init__()
 
                                         self.yang_name = "forwarding-class"
                                         self.yang_parent_name = "forwarding-classes"
@@ -6710,7 +7019,7 @@ class Mpls(Entity):
                                         self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass, ['exp'], name, value)
 
 
-                                    class State(Entity):
+                                    class State(_Entity_):
                                         """
                                         Per\-SID, per forwarding class counters for Segment Routing
                                         with the MPLS dataplane
@@ -6768,7 +7077,10 @@ class Mpls(Entity):
                                         _revision = '2017-03-22'
 
                                         def __init__(self):
-                                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass.State, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.SidCounters.SidCounter.ForwardingClasses.ForwardingClass.State, self).__init__()
 
                                             self.yang_name = "state"
                                             self.yang_parent_name = "forwarding-class"
@@ -6800,7 +7112,7 @@ class Mpls(Entity):
 
 
 
-                    class InterfaceRef(Entity):
+                    class InterfaceRef(_Entity_):
                         """
                         Reference to an interface or subinterface
                         
@@ -6824,7 +7136,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef, self).__init__()
 
                             self.yang_name = "interface-ref"
                             self.yang_parent_name = "interface"
@@ -6848,7 +7163,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configured reference to interface / subinterface
                             
@@ -6876,7 +7191,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "interface-ref"
@@ -6898,7 +7216,7 @@ class Mpls(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             Operational state for interface\-ref
                             
@@ -6930,7 +7248,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.SignalingProtocols.SegmentRouting.Interfaces.Interface.InterfaceRef.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "interface-ref"
@@ -6957,7 +7278,7 @@ class Mpls(Entity):
 
 
 
-    class Lsps(Entity):
+    class Lsps(_Entity_):
         """
         LSP definitions and configuration
         
@@ -6984,7 +7305,10 @@ class Mpls(Entity):
         _revision = '2017-03-22'
 
         def __init__(self):
-            super(Mpls.Lsps, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Mpls.Lsps, self).__init__()
 
             self.yang_name = "lsps"
             self.yang_parent_name = "mpls"
@@ -7013,7 +7337,7 @@ class Mpls(Entity):
             self._perform_setattr(Mpls.Lsps, [], name, value)
 
 
-        class ConstrainedPath(Entity):
+        class ConstrainedPath(_Entity_):
             """
             traffic\-engineered LSPs supporting different
             path computation and signaling methods
@@ -7036,7 +7360,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.Lsps.ConstrainedPath, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.Lsps.ConstrainedPath, self).__init__()
 
                 self.yang_name = "constrained-path"
                 self.yang_parent_name = "lsps"
@@ -7061,7 +7388,7 @@ class Mpls(Entity):
                 self._perform_setattr(Mpls.Lsps.ConstrainedPath, [], name, value)
 
 
-            class NamedExplicitPaths(Entity):
+            class NamedExplicitPaths(_Entity_):
                 """
                 Enclosing container for the named explicit paths
                 
@@ -7078,7 +7405,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths, self).__init__()
 
                     self.yang_name = "named-explicit-paths"
                     self.yang_parent_name = "constrained-path"
@@ -7097,7 +7427,7 @@ class Mpls(Entity):
                     self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths, [], name, value)
 
 
-                class NamedExplicitPath(Entity):
+                class NamedExplicitPath(_Entity_):
                     """
                     A list of explicit paths
                     
@@ -7133,7 +7463,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath, self).__init__()
 
                         self.yang_name = "named-explicit-path"
                         self.yang_parent_name = "named-explicit-paths"
@@ -7165,7 +7498,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath, ['name'], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration parameters relating to named explicit
                         paths
@@ -7197,7 +7530,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "named-explicit-path"
@@ -7252,7 +7588,7 @@ class Mpls(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state parameters relating to the named
                         explicit paths
@@ -7290,7 +7626,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "named-explicit-path"
@@ -7345,7 +7684,7 @@ class Mpls(Entity):
 
 
 
-                    class ExplicitRouteObjects(Entity):
+                    class ExplicitRouteObjects(_Entity_):
                         """
                         Enclosing container for EROs
                         
@@ -7362,7 +7701,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects, self).__init__()
 
                             self.yang_name = "explicit-route-objects"
                             self.yang_parent_name = "named-explicit-path"
@@ -7380,7 +7722,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects, [], name, value)
 
 
-                        class ExplicitRouteObject(Entity):
+                        class ExplicitRouteObject(_Entity_):
                             """
                             List of explicit route objects
                             
@@ -7413,7 +7755,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject, self).__init__()
 
                                 self.yang_name = "explicit-route-object"
                                 self.yang_parent_name = "explicit-route-objects"
@@ -7440,7 +7785,7 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject, ['index'], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configuration parameters relating to an explicit
                                 route
@@ -7456,7 +7801,7 @@ class Mpls(Entity):
                                 
                                 		**type**\: str
                                 
-                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                 
                                 .. attribute:: hop_type
                                 
@@ -7478,7 +7823,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "explicit-route-object"
@@ -7502,7 +7850,7 @@ class Mpls(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 State parameters relating to an explicit route
                                 
@@ -7517,7 +7865,7 @@ class Mpls(Entity):
                                 
                                 		**type**\: str
                                 
-                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                 
                                 	**config**\: False
                                 
@@ -7545,7 +7893,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.NamedExplicitPath.ExplicitRouteObjects.ExplicitRouteObject.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "explicit-route-object"
@@ -7573,7 +7924,7 @@ class Mpls(Entity):
 
 
 
-            class Tunnels(Entity):
+            class Tunnels(_Entity_):
                 """
                 Enclosing container for tunnels
                 
@@ -7590,7 +7941,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.Lsps.ConstrainedPath.Tunnels, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.Lsps.ConstrainedPath.Tunnels, self).__init__()
 
                     self.yang_name = "tunnels"
                     self.yang_parent_name = "constrained-path"
@@ -7609,7 +7963,7 @@ class Mpls(Entity):
                     self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels, [], name, value)
 
 
-                class Tunnel(Entity):
+                class Tunnel(_Entity_):
                     """
                     List of TE tunnels. This list contains only the LSPs that the
                     current device originates (i.e., for which it is the head\-end).
@@ -7654,7 +8008,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel, self).__init__()
 
                         self.yang_name = "tunnel"
                         self.yang_parent_name = "tunnels"
@@ -7690,7 +8047,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel, ['name'], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration parameters related to TE tunnels\:
                         
@@ -7776,7 +8133,7 @@ class Mpls(Entity):
                         
                         		**type**\: str
                         
-                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
                         .. attribute:: soft_preemption
                         
@@ -7811,7 +8168,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "tunnel"
@@ -7859,7 +8219,7 @@ class Mpls(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         State parameters related to TE tunnels
                         
@@ -7967,7 +8327,7 @@ class Mpls(Entity):
                         
                         		**type**\: str
                         
-                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
                         	**config**\: False
                         
@@ -8031,7 +8391,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "tunnel"
@@ -8086,7 +8449,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State, ['name', 'type', 'signaling_protocol', 'description', 'admin_status', 'preference', 'metric_type', 'metric', 'shortcut_eligible', 'protection_style_requested', 'reoptimize_timer', 'source', 'soft_preemption', 'setup_priority', 'hold_priority', 'oper_status', 'role'], name, value)
 
 
-                        class Counters(Entity):
+                        class Counters(_Entity_):
                             """
                             State data for MPLS label switched paths. This state
                             data is specific to a single label switched path.
@@ -8162,7 +8525,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State.Counters, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.State.Counters, self).__init__()
 
                                 self.yang_name = "counters"
                                 self.yang_parent_name = "state"
@@ -8195,7 +8561,7 @@ class Mpls(Entity):
 
 
 
-                    class Bandwidth(Entity):
+                    class Bandwidth(_Entity_):
                         """
                         Bandwidth configuration for TE LSPs
                         
@@ -8224,7 +8590,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth, self).__init__()
 
                             self.yang_name = "bandwidth"
                             self.yang_parent_name = "tunnel"
@@ -8252,7 +8621,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration parameters related to bandwidth on TE
                             tunnels\:
@@ -8279,7 +8648,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "bandwidth"
@@ -8301,7 +8673,7 @@ class Mpls(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State parameters related to bandwidth
                             configuration of TE tunnels
@@ -8341,7 +8713,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "bandwidth"
@@ -8365,7 +8740,7 @@ class Mpls(Entity):
 
 
 
-                        class AutoBandwidth(Entity):
+                        class AutoBandwidth(_Entity_):
                             """
                             Parameters related to auto\-bandwidth
                             
@@ -8399,7 +8774,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth, self).__init__()
 
                                 self.yang_name = "auto-bandwidth"
                                 self.yang_parent_name = "bandwidth"
@@ -8431,7 +8809,7 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth, [], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configuration parameters relating to MPLS
                                 auto\-bandwidth on the tunnel.
@@ -8479,7 +8857,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "auto-bandwidth"
@@ -8507,7 +8888,7 @@ class Mpls(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 State parameters relating to MPLS
                                 auto\-bandwidth on the tunnel.
@@ -8565,7 +8946,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "auto-bandwidth"
@@ -8593,7 +8977,7 @@ class Mpls(Entity):
 
 
 
-                            class Overflow(Entity):
+                            class Overflow(_Entity_):
                                 """
                                 configuration of MPLS overflow bandwidth
                                 adjustement for the LSP
@@ -8618,7 +9002,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow, self).__init__()
 
                                     self.yang_name = "overflow"
                                     self.yang_parent_name = "auto-bandwidth"
@@ -8642,7 +9029,7 @@ class Mpls(Entity):
                                     self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow, [], name, value)
 
 
-                                class Config(Entity):
+                                class Config(_Entity_):
                                     """
                                     Config information for MPLS overflow bandwidth
                                     adjustment
@@ -8676,7 +9063,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "overflow"
@@ -8700,7 +9090,7 @@ class Mpls(Entity):
 
 
 
-                                class State(Entity):
+                                class State(_Entity_):
                                     """
                                     Config information for MPLS overflow bandwidth
                                     adjustment
@@ -8740,7 +9130,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Overflow.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "overflow"
@@ -8765,7 +9158,7 @@ class Mpls(Entity):
 
 
 
-                            class Underflow(Entity):
+                            class Underflow(_Entity_):
                                 """
                                 configuration of MPLS underflow bandwidth
                                 adjustement for the LSP
@@ -8790,7 +9183,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow, self).__init__()
 
                                     self.yang_name = "underflow"
                                     self.yang_parent_name = "auto-bandwidth"
@@ -8814,7 +9210,7 @@ class Mpls(Entity):
                                     self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow, [], name, value)
 
 
-                                class Config(Entity):
+                                class Config(_Entity_):
                                     """
                                     Config information for MPLS underflow bandwidth
                                     adjustment
@@ -8848,7 +9244,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "underflow"
@@ -8872,7 +9271,7 @@ class Mpls(Entity):
 
 
 
-                                class State(Entity):
+                                class State(_Entity_):
                                     """
                                     State information for MPLS underflow bandwidth
                                     adjustment
@@ -8912,7 +9311,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.Bandwidth.AutoBandwidth.Underflow.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "underflow"
@@ -8939,7 +9341,7 @@ class Mpls(Entity):
 
 
 
-                    class P2pTunnelAttributes(Entity):
+                    class P2pTunnelAttributes(_Entity_):
                         """
                         Parameters related to LSPs of type P2P
                         
@@ -8973,7 +9375,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes, self).__init__()
 
                             self.yang_name = "p2p-tunnel-attributes"
                             self.yang_parent_name = "tunnel"
@@ -9005,7 +9410,7 @@ class Mpls(Entity):
                             self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration parameters for P2P LSPs
                             
@@ -9020,7 +9425,7 @@ class Mpls(Entity):
                             
                             		**type**\: str
                             
-                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             
 
@@ -9030,7 +9435,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "p2p-tunnel-attributes"
@@ -9050,7 +9458,7 @@ class Mpls(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State parameters for P2P LSPs
                             
@@ -9065,7 +9473,7 @@ class Mpls(Entity):
                             
                             		**type**\: str
                             
-                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                             
                             	**config**\: False
                             
@@ -9077,7 +9485,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "p2p-tunnel-attributes"
@@ -9097,7 +9508,7 @@ class Mpls(Entity):
 
 
 
-                        class P2pPrimaryPath(Entity):
+                        class P2pPrimaryPath(_Entity_):
                             """
                             Primary paths associated with the LSP
                             
@@ -9114,7 +9525,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath, self).__init__()
 
                                 self.yang_name = "p2p-primary-path"
                                 self.yang_parent_name = "p2p-tunnel-attributes"
@@ -9132,7 +9546,7 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath, [], name, value)
 
 
-                            class P2pPrimaryPath_(Entity):
+                            class P2pPrimaryPath_(_Entity_):
                                 """
                                 List of p2p primary paths for a tunnel
                                 
@@ -9173,7 +9587,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_, self).__init__()
 
                                     self.yang_name = "p2p-primary-path"
                                     self.yang_parent_name = "p2p-primary-path"
@@ -9208,7 +9625,7 @@ class Mpls(Entity):
                                     self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_, ['name'], name, value)
 
 
-                                class Config(Entity):
+                                class Config(_Entity_):
                                     """
                                     Configuration parameters related to paths
                                     
@@ -9245,7 +9662,7 @@ class Mpls(Entity):
                                     
                                     		**type**\: str
                                     
-                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                     
                                     .. attribute:: explicit_path_name
                                     
@@ -9296,7 +9713,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "p2p-primary-path"
@@ -9334,7 +9754,7 @@ class Mpls(Entity):
 
 
 
-                                class State(Entity):
+                                class State(_Entity_):
                                     """
                                     State parameters related to paths
                                     
@@ -9379,7 +9799,7 @@ class Mpls(Entity):
                                     
                                     		**type**\: str
                                     
-                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                     
                                     	**config**\: False
                                     
@@ -9453,7 +9873,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "p2p-primary-path"
@@ -9493,7 +9916,7 @@ class Mpls(Entity):
 
 
 
-                                class CandidateSecondaryPaths(Entity):
+                                class CandidateSecondaryPaths(_Entity_):
                                     """
                                     The set of candidate secondary paths which may be used
                                     for this primary path. When secondary paths are specified
@@ -9519,7 +9942,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths, self).__init__()
 
                                         self.yang_name = "candidate-secondary-paths"
                                         self.yang_parent_name = "p2p-primary-path"
@@ -9537,7 +9963,7 @@ class Mpls(Entity):
                                         self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths, [], name, value)
 
 
-                                    class CandidateSecondaryPath(Entity):
+                                    class CandidateSecondaryPath(_Entity_):
                                         """
                                         List of secondary paths which may be utilised when the
                                         current primary path is in use
@@ -9569,7 +9995,10 @@ class Mpls(Entity):
                                         _revision = '2017-03-22'
 
                                         def __init__(self):
-                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath, self).__init__()
 
                                             self.yang_name = "candidate-secondary-path"
                                             self.yang_parent_name = "candidate-secondary-paths"
@@ -9596,7 +10025,7 @@ class Mpls(Entity):
                                             self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath, ['secondary_path'], name, value)
 
 
-                                        class Config(Entity):
+                                        class Config(_Entity_):
                                             """
                                             Configuration parameters relating to the candidate
                                             secondary path
@@ -9623,7 +10052,10 @@ class Mpls(Entity):
                                             _revision = '2017-03-22'
 
                                             def __init__(self):
-                                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.Config, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.Config, self).__init__()
 
                                                 self.yang_name = "config"
                                                 self.yang_parent_name = "candidate-secondary-path"
@@ -9645,7 +10077,7 @@ class Mpls(Entity):
 
 
 
-                                        class State(Entity):
+                                        class State(_Entity_):
                                             """
                                             Operational state parameters relating to the candidate
                                             secondary path
@@ -9683,7 +10115,10 @@ class Mpls(Entity):
                                             _revision = '2017-03-22'
 
                                             def __init__(self):
-                                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.State, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.CandidateSecondaryPaths.CandidateSecondaryPath.State, self).__init__()
 
                                                 self.yang_name = "state"
                                                 self.yang_parent_name = "candidate-secondary-path"
@@ -9709,7 +10144,7 @@ class Mpls(Entity):
 
 
 
-                                class AdminGroups(Entity):
+                                class AdminGroups(_Entity_):
                                     """
                                     Top\-level container for include/exclude constraints for
                                     link affinities
@@ -9734,7 +10169,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups, self).__init__()
 
                                         self.yang_name = "admin-groups"
                                         self.yang_parent_name = "p2p-primary-path"
@@ -9758,7 +10196,7 @@ class Mpls(Entity):
                                         self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups, [], name, value)
 
 
-                                    class Config(Entity):
+                                    class Config(_Entity_):
                                         """
                                         Configuration data 
                                         
@@ -9791,7 +10229,10 @@ class Mpls(Entity):
                                         _revision = '2017-03-22'
 
                                         def __init__(self):
-                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.Config, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.Config, self).__init__()
 
                                             self.yang_name = "config"
                                             self.yang_parent_name = "admin-groups"
@@ -9815,7 +10256,7 @@ class Mpls(Entity):
 
 
 
-                                    class State(Entity):
+                                    class State(_Entity_):
                                         """
                                         Operational state data 
                                         
@@ -9854,7 +10295,10 @@ class Mpls(Entity):
                                         _revision = '2017-03-22'
 
                                         def __init__(self):
-                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.State, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pPrimaryPath.P2pPrimaryPath_.AdminGroups.State, self).__init__()
 
                                             self.yang_name = "state"
                                             self.yang_parent_name = "admin-groups"
@@ -9881,7 +10325,7 @@ class Mpls(Entity):
 
 
 
-                        class P2pSecondaryPaths(Entity):
+                        class P2pSecondaryPaths(_Entity_):
                             """
                             Secondary paths for the LSP
                             
@@ -9898,7 +10342,10 @@ class Mpls(Entity):
                             _revision = '2017-03-22'
 
                             def __init__(self):
-                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths, self).__init__()
 
                                 self.yang_name = "p2p-secondary-paths"
                                 self.yang_parent_name = "p2p-tunnel-attributes"
@@ -9916,7 +10363,7 @@ class Mpls(Entity):
                                 self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths, [], name, value)
 
 
-                            class P2pSecondaryPath(Entity):
+                            class P2pSecondaryPath(_Entity_):
                                 """
                                 List of p2p primary paths for a tunnel
                                 
@@ -9952,7 +10399,10 @@ class Mpls(Entity):
                                 _revision = '2017-03-22'
 
                                 def __init__(self):
-                                    super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath, self).__init__()
 
                                     self.yang_name = "p2p-secondary-path"
                                     self.yang_parent_name = "p2p-secondary-paths"
@@ -9983,7 +10433,7 @@ class Mpls(Entity):
                                     self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath, ['name'], name, value)
 
 
-                                class Config(Entity):
+                                class Config(_Entity_):
                                     """
                                     Configuration parameters related to paths
                                     
@@ -10020,7 +10470,7 @@ class Mpls(Entity):
                                     
                                     		**type**\: str
                                     
-                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                     
                                     .. attribute:: explicit_path_name
                                     
@@ -10071,7 +10521,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "p2p-secondary-path"
@@ -10109,7 +10562,7 @@ class Mpls(Entity):
 
 
 
-                                class State(Entity):
+                                class State(_Entity_):
                                     """
                                     State parameters related to paths
                                     
@@ -10154,7 +10607,7 @@ class Mpls(Entity):
                                     
                                     		**type**\: str
                                     
-                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                     
                                     	**config**\: False
                                     
@@ -10228,7 +10681,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "p2p-secondary-path"
@@ -10268,7 +10724,7 @@ class Mpls(Entity):
 
 
 
-                                class AdminGroups(Entity):
+                                class AdminGroups(_Entity_):
                                     """
                                     Top\-level container for include/exclude constraints for
                                     link affinities
@@ -10293,7 +10749,10 @@ class Mpls(Entity):
                                     _revision = '2017-03-22'
 
                                     def __init__(self):
-                                        super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups, self).__init__()
 
                                         self.yang_name = "admin-groups"
                                         self.yang_parent_name = "p2p-secondary-path"
@@ -10317,7 +10776,7 @@ class Mpls(Entity):
                                         self._perform_setattr(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups, [], name, value)
 
 
-                                    class Config(Entity):
+                                    class Config(_Entity_):
                                         """
                                         Configuration data 
                                         
@@ -10350,7 +10809,10 @@ class Mpls(Entity):
                                         _revision = '2017-03-22'
 
                                         def __init__(self):
-                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.Config, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.Config, self).__init__()
 
                                             self.yang_name = "config"
                                             self.yang_parent_name = "admin-groups"
@@ -10374,7 +10836,7 @@ class Mpls(Entity):
 
 
 
-                                    class State(Entity):
+                                    class State(_Entity_):
                                         """
                                         Operational state data 
                                         
@@ -10413,7 +10875,10 @@ class Mpls(Entity):
                                         _revision = '2017-03-22'
 
                                         def __init__(self):
-                                            super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.State, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(Mpls.Lsps.ConstrainedPath.Tunnels.Tunnel.P2pTunnelAttributes.P2pSecondaryPaths.P2pSecondaryPath.AdminGroups.State, self).__init__()
 
                                             self.yang_name = "state"
                                             self.yang_parent_name = "admin-groups"
@@ -10444,7 +10909,7 @@ class Mpls(Entity):
 
 
 
-        class UnconstrainedPath(Entity):
+        class UnconstrainedPath(_Entity_):
             """
             LSPs that use the IGP\-determined path, i.e., non
             traffic\-engineered, or non constrained\-path
@@ -10462,7 +10927,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.Lsps.UnconstrainedPath, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.Lsps.UnconstrainedPath, self).__init__()
 
                 self.yang_name = "unconstrained-path"
                 self.yang_parent_name = "lsps"
@@ -10483,7 +10951,7 @@ class Mpls(Entity):
                 self._perform_setattr(Mpls.Lsps.UnconstrainedPath, [], name, value)
 
 
-            class PathSetupProtocol(Entity):
+            class PathSetupProtocol(_Entity_):
                 """
                 select and configure the signaling method for
                  the LSP
@@ -10501,7 +10969,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol, self).__init__()
 
                     self.yang_name = "path-setup-protocol"
                     self.yang_parent_name = "unconstrained-path"
@@ -10522,7 +10993,7 @@ class Mpls(Entity):
                     self._perform_setattr(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol, [], name, value)
 
 
-                class Ldp(Entity):
+                class Ldp(_Entity_):
                     """
                     LDP signaling setup for IGP\-congruent LSPs
                     
@@ -10534,7 +11005,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp, self).__init__()
 
                         self.yang_name = "ldp"
                         self.yang_parent_name = "path-setup-protocol"
@@ -10551,7 +11025,7 @@ class Mpls(Entity):
 
 
 
-        class StaticLsps(Entity):
+        class StaticLsps(_Entity_):
             """
             statically configured LSPs, without dynamic
             signaling
@@ -10569,7 +11043,10 @@ class Mpls(Entity):
             _revision = '2017-03-22'
 
             def __init__(self):
-                super(Mpls.Lsps.StaticLsps, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Mpls.Lsps.StaticLsps, self).__init__()
 
                 self.yang_name = "static-lsps"
                 self.yang_parent_name = "lsps"
@@ -10588,7 +11065,7 @@ class Mpls(Entity):
                 self._perform_setattr(Mpls.Lsps.StaticLsps, [], name, value)
 
 
-            class StaticLsp(Entity):
+            class StaticLsp(_Entity_):
                 """
                 list of defined static LSPs
                 
@@ -10634,7 +11111,10 @@ class Mpls(Entity):
                 _revision = '2017-03-22'
 
                 def __init__(self):
-                    super(Mpls.Lsps.StaticLsps.StaticLsp, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Mpls.Lsps.StaticLsps.StaticLsp, self).__init__()
 
                     self.yang_name = "static-lsp"
                     self.yang_parent_name = "static-lsps"
@@ -10674,7 +11154,7 @@ class Mpls(Entity):
                     self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp, ['name'], name, value)
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Configuration data for the static lsp
                     
@@ -10691,7 +11171,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.StaticLsps.StaticLsp.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Lsps.StaticLsps.StaticLsp.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "static-lsp"
@@ -10711,7 +11194,7 @@ class Mpls(Entity):
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     Operational state data for the static lsp
                     
@@ -10730,7 +11213,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.StaticLsps.StaticLsp.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Lsps.StaticLsps.StaticLsp.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "static-lsp"
@@ -10750,7 +11236,7 @@ class Mpls(Entity):
 
 
 
-                class Ingress(Entity):
+                class Ingress(_Entity_):
                     """
                     Static LSPs for which the router is an
                      ingress node
@@ -10775,7 +11261,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.StaticLsps.StaticLsp.Ingress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Lsps.StaticLsps.StaticLsp.Ingress, self).__init__()
 
                         self.yang_name = "ingress"
                         self.yang_parent_name = "static-lsp"
@@ -10799,7 +11288,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Ingress, [], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data for ingress LSPs
                         
@@ -10814,7 +11303,7 @@ class Mpls(Entity):
                         
                         		**type**\: str
                         
-                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
                         .. attribute:: incoming_label
                         
@@ -10846,7 +11335,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "ingress"
@@ -10870,7 +11362,7 @@ class Mpls(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state data for ingress LSPs
                         
@@ -10885,7 +11377,7 @@ class Mpls(Entity):
                         
                         		**type**\: str
                         
-                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
                         	**config**\: False
                         
@@ -10923,7 +11415,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.StaticLsps.StaticLsp.Ingress.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "ingress"
@@ -10948,7 +11443,7 @@ class Mpls(Entity):
 
 
 
-                class Transit(Entity):
+                class Transit(_Entity_):
                     """
                     Static LSPs for which the router is an
                      transit node
@@ -10973,7 +11468,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.StaticLsps.StaticLsp.Transit, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Lsps.StaticLsps.StaticLsp.Transit, self).__init__()
 
                         self.yang_name = "transit"
                         self.yang_parent_name = "static-lsp"
@@ -10997,7 +11495,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Transit, [], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data for transit LSPs
                         
@@ -11012,7 +11510,7 @@ class Mpls(Entity):
                         
                         		**type**\: str
                         
-                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
                         .. attribute:: incoming_label
                         
@@ -11044,7 +11542,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.StaticLsps.StaticLsp.Transit.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.StaticLsps.StaticLsp.Transit.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "transit"
@@ -11068,7 +11569,7 @@ class Mpls(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state data for transit LSPs
                         
@@ -11083,7 +11584,7 @@ class Mpls(Entity):
                         
                         		**type**\: str
                         
-                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
                         	**config**\: False
                         
@@ -11121,7 +11622,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.StaticLsps.StaticLsp.Transit.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.StaticLsps.StaticLsp.Transit.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "transit"
@@ -11146,7 +11650,7 @@ class Mpls(Entity):
 
 
 
-                class Egress(Entity):
+                class Egress(_Entity_):
                     """
                     Static LSPs for which the router is an
                      egress node
@@ -11171,7 +11675,10 @@ class Mpls(Entity):
                     _revision = '2017-03-22'
 
                     def __init__(self):
-                        super(Mpls.Lsps.StaticLsps.StaticLsp.Egress, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Mpls.Lsps.StaticLsps.StaticLsp.Egress, self).__init__()
 
                         self.yang_name = "egress"
                         self.yang_parent_name = "static-lsp"
@@ -11195,7 +11702,7 @@ class Mpls(Entity):
                         self._perform_setattr(Mpls.Lsps.StaticLsps.StaticLsp.Egress, [], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data for egress LSPs
                         
@@ -11210,7 +11717,7 @@ class Mpls(Entity):
                         
                         		**type**\: str
                         
-                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
                         .. attribute:: incoming_label
                         
@@ -11242,7 +11749,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.StaticLsps.StaticLsp.Egress.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.StaticLsps.StaticLsp.Egress.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "egress"
@@ -11266,7 +11776,7 @@ class Mpls(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state data for egress LSPs
                         
@@ -11281,7 +11791,7 @@ class Mpls(Entity):
                         
                         		**type**\: str
                         
-                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                         
                         	**config**\: False
                         
@@ -11319,7 +11829,10 @@ class Mpls(Entity):
                         _revision = '2017-03-22'
 
                         def __init__(self):
-                            super(Mpls.Lsps.StaticLsps.StaticLsp.Egress.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Mpls.Lsps.StaticLsps.StaticLsp.Egress.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "egress"

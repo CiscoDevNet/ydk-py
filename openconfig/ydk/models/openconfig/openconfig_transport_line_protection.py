@@ -8,11 +8,17 @@ and wave\-router, however an APS can also be a standalone
 device. In both scenarios, it serves the same purpose of
 providing protection using two dark fiber pairs to ensure the
 amplifiers can still receive a signal if one of the two fiber
-pairs is broken.
+pairs is broken. The APS port details and directionality are
+shown below. The three major attributes, together with their
+modifiers, define the behavior of the APS and can be prioritized
+in the descending order as shown in the following table
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -31,14 +37,17 @@ class APSPATHS(Identity):
     """
 
     _prefix = 'oc-line-protect'
-    _revision = '2017-03-28'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-transport-line-protection", pref="openconfig-transport-line-protection", tag="openconfig-transport-line-protection:APS_PATHS"):
-        super(APSPATHS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(APSPATHS, self).__init__(ns, pref, tag)
 
 
 
-class Aps(Entity):
+class Aps(_Entity_):
     """
     Top level grouping for automatic protection switch data
     
@@ -52,10 +61,13 @@ class Aps(Entity):
     """
 
     _prefix = 'oc-line-protect'
-    _revision = '2017-03-28'
+    _revision = '2018-11-21'
 
     def __init__(self):
-        super(Aps, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Aps, self).__init__()
         self._top_entity = None
 
         self.yang_name = "aps"
@@ -76,7 +88,7 @@ class Aps(Entity):
         self._perform_setattr(Aps, [], name, value)
 
 
-    class ApsModules(Entity):
+    class ApsModules(_Entity_):
         """
         Enclosing container for list of automatic protection
         switch modules
@@ -91,10 +103,13 @@ class Aps(Entity):
         """
 
         _prefix = 'oc-line-protect'
-        _revision = '2017-03-28'
+        _revision = '2018-11-21'
 
         def __init__(self):
-            super(Aps.ApsModules, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Aps.ApsModules, self).__init__()
 
             self.yang_name = "aps-modules"
             self.yang_parent_name = "aps"
@@ -113,7 +128,7 @@ class Aps(Entity):
             self._perform_setattr(Aps.ApsModules, [], name, value)
 
 
-        class ApsModule(Entity):
+        class ApsModule(_Entity_):
             """
             List of automatic protection switch modules present
             in the device
@@ -147,10 +162,13 @@ class Aps(Entity):
             """
 
             _prefix = 'oc-line-protect'
-            _revision = '2017-03-28'
+            _revision = '2018-11-21'
 
             def __init__(self):
-                super(Aps.ApsModules.ApsModule, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Aps.ApsModules.ApsModule, self).__init__()
 
                 self.yang_name = "aps-module"
                 self.yang_parent_name = "aps-modules"
@@ -182,7 +200,7 @@ class Aps(Entity):
                 self._perform_setattr(Aps.ApsModules.ApsModule, ['name'], name, value)
 
 
-            class Config(Entity):
+            class Config(_Entity_):
                 """
                 Configuration data for an automatic protection
                 switch module
@@ -196,12 +214,30 @@ class Aps(Entity):
                 
                 .. attribute:: revertive
                 
-                	Revertive behavior of the module. If True, then automatically revert after protection switch once the fault is restored
+                	Revertive behavior of the module. If True, then automatically revert after protection switch once the fault is restored. This leaf is not valid when the relative\-switch\-threshold is in effect
                 	**type**\: bool
+                
+                .. attribute:: wait_to_restore_time
+                
+                	The time that must elapse before an APS path that has recovered from an signal failure (SF) or signal degradation (SD) condition can be used again to transport the normal traffic signal. During this time period, an SF or SD condition shall override the wait\-to\-restore time period. This leaf can only take effect when the revertive leaf equals true
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: milliseconds
+                
+                .. attribute:: hold_off_time
+                
+                	The time delay between the declaration of an SF or SD condition and the initiation of the protection switching algorithm
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: milliseconds
                 
                 .. attribute:: primary_switch_threshold
                 
-                	The threshold at which the primary line port will switch to the opposite line port in increments of 0.01 dBm. If the hardware supports only one switch threshold for primary and and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit
+                	The threshold at which the primary line port will switch to the opposite line port in increments of 0.01 dBm. If the hardware supports only one switch threshold for primary and and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit. When the relative switch threshold is enabled, i.e. set to a non\-zero value, the primary switch threshold will be overridden
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
@@ -210,40 +246,65 @@ class Aps(Entity):
                 
                 .. attribute:: primary_switch_hysteresis
                 
-                	The delta in 0.01 dB between the primary\-switch\-threshold and the signal received before initiating a reversion in order to prevent toggling between ports when an input signal is very close to threshold. If the hardware supports only one switch hysteresis for primary and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit
+                	The delta in dB between the primary\-switch\-threshold and the signal received on the primary APS\_PATH before initiating a switch from the secondary APS\_PATH to the primary APS\_PATH, in order to prevent toggling between ports when an input signal is very close to the threshold. A zero value means the switch hysteresis is disabled
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
                 	**units**\: dB
                 
+                	**default value**\: 0
+                
                 .. attribute:: secondary_switch_threshold
                 
-                	The threshold at which the secondary line port will switch to the opposite line port in increments of 0.01 dBm. If the hardware supports only one switch threshold for primary and and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit
+                	The threshold at which the secondary line port will switch to the opposite line port in increments of 0.01 dBm. If the hardware supports only one switch threshold for primary and and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit. When the relative switch threshold is enabled, i.e. set to a non\-zero value, the secondary switch threshold will be overridden
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
                 	**units**\: dBm
                 
-                .. attribute:: secondary_switch_hysteresis
+                .. attribute:: relative_switch_threshold
                 
-                	The delta in 0.01 dB between the secondary\-switch\-threshold and the signal received before initiating a reversion in order to prevent toggling between ports when an input signal is very close to threshold. If the hardware supports only one switch hysteresis for primary and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit
+                	The delta threshold in dB at which the current line port will switch to the opposite line port. It can be set to the value of 0dB. When set to 0dB, the threshold is ignored and the system automatically applies the primary and secondary switch thresholds. When set to a non\-zero value, it overrides the primary and secondary switch thresholds
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
                 	**units**\: dB
                 
+                	**default value**\: 0
+                
+                .. attribute:: relative_switch_threshold_offset
+                
+                	The offset of the relative switch threshold that compensates the normal difference of receiving power between the primary and secondary line ports. A negative offset corresponds to the situation where the secondary line port receives a higher power than the primary line port in normal condition, and a positive offset means the opposite. The offset will only work when the relative switch threshold is set to a non\-zero value
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                
+                	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**units**\: dB
+                
+                	**default value**\: 0
+                
+                .. attribute:: force_to_port
+                
+                	Explicitly set the switch to stay on a port regardless of its operational condition
+                	**type**\:  :py:class:`ForceToPort <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.Config.ForceToPort>`
+                
+                	**default value**\: NONE
+                
                 
 
                 """
 
                 _prefix = 'oc-line-protect'
-                _revision = '2017-03-28'
+                _revision = '2018-11-21'
 
                 def __init__(self):
-                    super(Aps.ApsModules.ApsModule.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aps.ApsModules.ApsModule.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "aps-module"
@@ -254,26 +315,63 @@ class Aps(Entity):
                     self._leafs = OrderedDict([
                         ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ('revertive', (YLeaf(YType.boolean, 'revertive'), ['bool'])),
+                        ('wait_to_restore_time', (YLeaf(YType.uint32, 'wait-to-restore-time'), ['int'])),
+                        ('hold_off_time', (YLeaf(YType.uint32, 'hold-off-time'), ['int'])),
                         ('primary_switch_threshold', (YLeaf(YType.str, 'primary-switch-threshold'), ['Decimal64'])),
                         ('primary_switch_hysteresis', (YLeaf(YType.str, 'primary-switch-hysteresis'), ['Decimal64'])),
                         ('secondary_switch_threshold', (YLeaf(YType.str, 'secondary-switch-threshold'), ['Decimal64'])),
-                        ('secondary_switch_hysteresis', (YLeaf(YType.str, 'secondary-switch-hysteresis'), ['Decimal64'])),
+                        ('relative_switch_threshold', (YLeaf(YType.str, 'relative-switch-threshold'), ['Decimal64'])),
+                        ('relative_switch_threshold_offset', (YLeaf(YType.str, 'relative-switch-threshold-offset'), ['Decimal64'])),
+                        ('force_to_port', (YLeaf(YType.enumeration, 'force-to-port'), [('ydk.models.openconfig.openconfig_transport_line_protection', 'Aps', 'ApsModules.ApsModule.Config.ForceToPort')])),
                     ])
                     self.name = None
                     self.revertive = None
+                    self.wait_to_restore_time = None
+                    self.hold_off_time = None
                     self.primary_switch_threshold = None
                     self.primary_switch_hysteresis = None
                     self.secondary_switch_threshold = None
-                    self.secondary_switch_hysteresis = None
+                    self.relative_switch_threshold = None
+                    self.relative_switch_threshold_offset = None
+                    self.force_to_port = None
                     self._segment_path = lambda: "config"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aps.ApsModules.ApsModule.Config, ['name', 'revertive', 'primary_switch_threshold', 'primary_switch_hysteresis', 'secondary_switch_threshold', 'secondary_switch_hysteresis'], name, value)
+                    self._perform_setattr(Aps.ApsModules.ApsModule.Config, ['name', 'revertive', 'wait_to_restore_time', 'hold_off_time', 'primary_switch_threshold', 'primary_switch_hysteresis', 'secondary_switch_threshold', 'relative_switch_threshold', 'relative_switch_threshold_offset', 'force_to_port'], name, value)
+
+                class ForceToPort(Enum):
+                    """
+                    ForceToPort (Enum Class)
+
+                    Explicitly set the switch to stay on a port regardless of
+
+                    its operational condition
+
+                    .. data:: NONE = 0
+
+                    	Do not force the switch to stay on any line port
+
+                    .. data:: PRIMARY = 1
+
+                    	Force the switch to stay on the primary line port
+
+                    .. data:: SECONDARY = 2
+
+                    	Force the switch to stay on the secondary line port
+
+                    """
+
+                    NONE = Enum.YLeaf(0, "NONE")
+
+                    PRIMARY = Enum.YLeaf(1, "PRIMARY")
+
+                    SECONDARY = Enum.YLeaf(2, "SECONDARY")
 
 
 
-            class State(Entity):
+
+            class State(_Entity_):
                 """
                 Operational state data for an automatic protection
                 switch module
@@ -289,14 +387,36 @@ class Aps(Entity):
                 
                 .. attribute:: revertive
                 
-                	Revertive behavior of the module. If True, then automatically revert after protection switch once the fault is restored
+                	Revertive behavior of the module. If True, then automatically revert after protection switch once the fault is restored. This leaf is not valid when the relative\-switch\-threshold is in effect
                 	**type**\: bool
                 
                 	**config**\: False
                 
+                .. attribute:: wait_to_restore_time
+                
+                	The time that must elapse before an APS path that has recovered from an signal failure (SF) or signal degradation (SD) condition can be used again to transport the normal traffic signal. During this time period, an SF or SD condition shall override the wait\-to\-restore time period. This leaf can only take effect when the revertive leaf equals true
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                	**units**\: milliseconds
+                
+                .. attribute:: hold_off_time
+                
+                	The time delay between the declaration of an SF or SD condition and the initiation of the protection switching algorithm
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                	**units**\: milliseconds
+                
                 .. attribute:: primary_switch_threshold
                 
-                	The threshold at which the primary line port will switch to the opposite line port in increments of 0.01 dBm. If the hardware supports only one switch threshold for primary and and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit
+                	The threshold at which the primary line port will switch to the opposite line port in increments of 0.01 dBm. If the hardware supports only one switch threshold for primary and and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit. When the relative switch threshold is enabled, i.e. set to a non\-zero value, the primary switch threshold will be overridden
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
@@ -307,7 +427,7 @@ class Aps(Entity):
                 
                 .. attribute:: primary_switch_hysteresis
                 
-                	The delta in 0.01 dB between the primary\-switch\-threshold and the signal received before initiating a reversion in order to prevent toggling between ports when an input signal is very close to threshold. If the hardware supports only one switch hysteresis for primary and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit
+                	The delta in dB between the primary\-switch\-threshold and the signal received on the primary APS\_PATH before initiating a switch from the secondary APS\_PATH to the primary APS\_PATH, in order to prevent toggling between ports when an input signal is very close to the threshold. A zero value means the switch hysteresis is disabled
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
@@ -316,9 +436,11 @@ class Aps(Entity):
                 
                 	**units**\: dB
                 
+                	**default value**\: 0
+                
                 .. attribute:: secondary_switch_threshold
                 
-                	The threshold at which the secondary line port will switch to the opposite line port in increments of 0.01 dBm. If the hardware supports only one switch threshold for primary and and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit
+                	The threshold at which the secondary line port will switch to the opposite line port in increments of 0.01 dBm. If the hardware supports only one switch threshold for primary and and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit. When the relative switch threshold is enabled, i.e. set to a non\-zero value, the secondary switch threshold will be overridden
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
@@ -327,9 +449,9 @@ class Aps(Entity):
                 
                 	**units**\: dBm
                 
-                .. attribute:: secondary_switch_hysteresis
+                .. attribute:: relative_switch_threshold
                 
-                	The delta in 0.01 dB between the secondary\-switch\-threshold and the signal received before initiating a reversion in order to prevent toggling between ports when an input signal is very close to threshold. If the hardware supports only one switch hysteresis for primary and secondary ports then it is recommended to set both primary\-switch\-threshold and secondary\-switch\-threshold to the same value to be explicit
+                	The delta threshold in dB at which the current line port will switch to the opposite line port. It can be set to the value of 0dB. When set to 0dB, the threshold is ignored and the system automatically applies the primary and secondary switch thresholds. When set to a non\-zero value, it overrides the primary and secondary switch thresholds
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
@@ -338,9 +460,33 @@ class Aps(Entity):
                 
                 	**units**\: dB
                 
+                	**default value**\: 0
+                
+                .. attribute:: relative_switch_threshold_offset
+                
+                	The offset of the relative switch threshold that compensates the normal difference of receiving power between the primary and secondary line ports. A negative offset corresponds to the situation where the secondary line port receives a higher power than the primary line port in normal condition, and a positive offset means the opposite. The offset will only work when the relative switch threshold is set to a non\-zero value
+                	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                
+                	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**config**\: False
+                
+                	**units**\: dB
+                
+                	**default value**\: 0
+                
+                .. attribute:: force_to_port
+                
+                	Explicitly set the switch to stay on a port regardless of its operational condition
+                	**type**\:  :py:class:`ForceToPort <ydk.models.openconfig.openconfig_transport_line_protection.Aps.ApsModules.ApsModule.State.ForceToPort>`
+                
+                	**config**\: False
+                
+                	**default value**\: NONE
+                
                 .. attribute:: active_path
                 
-                	Indicates which line path on the automatic protection switch is currently the active path connected to the common port
+                	Indicates which line path on the protection switch is currently the active path connected to the common port
                 	**type**\:  :py:class:`APSPATHS <ydk.models.openconfig.openconfig_transport_line_protection.APSPATHS>`
                 
                 	**config**\: False
@@ -350,10 +496,13 @@ class Aps(Entity):
                 """
 
                 _prefix = 'oc-line-protect'
-                _revision = '2017-03-28'
+                _revision = '2018-11-21'
 
                 def __init__(self):
-                    super(Aps.ApsModules.ApsModule.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aps.ApsModules.ApsModule.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "aps-module"
@@ -364,28 +513,65 @@ class Aps(Entity):
                     self._leafs = OrderedDict([
                         ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ('revertive', (YLeaf(YType.boolean, 'revertive'), ['bool'])),
+                        ('wait_to_restore_time', (YLeaf(YType.uint32, 'wait-to-restore-time'), ['int'])),
+                        ('hold_off_time', (YLeaf(YType.uint32, 'hold-off-time'), ['int'])),
                         ('primary_switch_threshold', (YLeaf(YType.str, 'primary-switch-threshold'), ['Decimal64'])),
                         ('primary_switch_hysteresis', (YLeaf(YType.str, 'primary-switch-hysteresis'), ['Decimal64'])),
                         ('secondary_switch_threshold', (YLeaf(YType.str, 'secondary-switch-threshold'), ['Decimal64'])),
-                        ('secondary_switch_hysteresis', (YLeaf(YType.str, 'secondary-switch-hysteresis'), ['Decimal64'])),
+                        ('relative_switch_threshold', (YLeaf(YType.str, 'relative-switch-threshold'), ['Decimal64'])),
+                        ('relative_switch_threshold_offset', (YLeaf(YType.str, 'relative-switch-threshold-offset'), ['Decimal64'])),
+                        ('force_to_port', (YLeaf(YType.enumeration, 'force-to-port'), [('ydk.models.openconfig.openconfig_transport_line_protection', 'Aps', 'ApsModules.ApsModule.State.ForceToPort')])),
                         ('active_path', (YLeaf(YType.identityref, 'active-path'), [('ydk.models.openconfig.openconfig_transport_line_protection', 'APSPATHS')])),
                     ])
                     self.name = None
                     self.revertive = None
+                    self.wait_to_restore_time = None
+                    self.hold_off_time = None
                     self.primary_switch_threshold = None
                     self.primary_switch_hysteresis = None
                     self.secondary_switch_threshold = None
-                    self.secondary_switch_hysteresis = None
+                    self.relative_switch_threshold = None
+                    self.relative_switch_threshold_offset = None
+                    self.force_to_port = None
                     self.active_path = None
                     self._segment_path = lambda: "state"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Aps.ApsModules.ApsModule.State, ['name', 'revertive', 'primary_switch_threshold', 'primary_switch_hysteresis', 'secondary_switch_threshold', 'secondary_switch_hysteresis', 'active_path'], name, value)
+                    self._perform_setattr(Aps.ApsModules.ApsModule.State, ['name', 'revertive', 'wait_to_restore_time', 'hold_off_time', 'primary_switch_threshold', 'primary_switch_hysteresis', 'secondary_switch_threshold', 'relative_switch_threshold', 'relative_switch_threshold_offset', 'force_to_port', 'active_path'], name, value)
+
+                class ForceToPort(Enum):
+                    """
+                    ForceToPort (Enum Class)
+
+                    Explicitly set the switch to stay on a port regardless of
+
+                    its operational condition
+
+                    .. data:: NONE = 0
+
+                    	Do not force the switch to stay on any line port
+
+                    .. data:: PRIMARY = 1
+
+                    	Force the switch to stay on the primary line port
+
+                    .. data:: SECONDARY = 2
+
+                    	Force the switch to stay on the secondary line port
+
+                    """
+
+                    NONE = Enum.YLeaf(0, "NONE")
+
+                    PRIMARY = Enum.YLeaf(1, "PRIMARY")
+
+                    SECONDARY = Enum.YLeaf(2, "SECONDARY")
 
 
 
-            class Ports(Entity):
+
+            class Ports(_Entity_):
                 """
                 Top level grouping for automatic protection switch ports
                 
@@ -424,10 +610,13 @@ class Aps(Entity):
                 """
 
                 _prefix = 'oc-line-protect'
-                _revision = '2017-03-28'
+                _revision = '2018-11-21'
 
                 def __init__(self):
-                    super(Aps.ApsModules.ApsModule.Ports, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Aps.ApsModules.ApsModule.Ports, self).__init__()
 
                     self.yang_name = "ports"
                     self.yang_parent_name = "aps-module"
@@ -467,7 +656,7 @@ class Aps(Entity):
                     self._perform_setattr(Aps.ApsModules.ApsModule.Ports, [], name, value)
 
 
-                class LinePrimaryIn(Entity):
+                class LinePrimaryIn(_Entity_):
                     """
                     Container for information related to the line primary
                     input port
@@ -489,10 +678,13 @@ class Aps(Entity):
                     """
 
                     _prefix = 'oc-line-protect'
-                    _revision = '2017-03-28'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn, self).__init__()
 
                         self.yang_name = "line-primary-in"
                         self.yang_parent_name = "ports"
@@ -516,7 +708,7 @@ class Aps(Entity):
                         self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn, [], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data for the line primary input port
                         
@@ -541,10 +733,13 @@ class Aps(Entity):
                         """
 
                         _prefix = 'oc-line-protect'
-                        _revision = '2017-03-28'
+                        _revision = '2018-11-21'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "line-primary-in"
@@ -566,7 +761,7 @@ class Aps(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         State data for the line primary input port
                         
@@ -613,10 +808,13 @@ class Aps(Entity):
                         """
 
                         _prefix = 'oc-line-protect'
-                        _revision = '2017-03-28'
+                        _revision = '2018-11-21'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "line-primary-in"
@@ -643,7 +841,7 @@ class Aps(Entity):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State, ['enabled', 'target_attenuation', 'attenuation'], name, value)
 
 
-                        class OpticalPower(Entity):
+                        class OpticalPower(_Entity_):
                             """
                             The optical input power of this port in units of
                             0.01dBm. Optical input power represents the signal
@@ -665,7 +863,7 @@ class Aps(Entity):
                             
                             .. attribute:: avg
                             
-                            	The arithmetic mean value of the statistic over the sampling period
+                            	The arithmetic mean value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -676,7 +874,7 @@ class Aps(Entity):
                             
                             .. attribute:: min
                             
-                            	The minimum value of the statistic over the sampling period
+                            	The minimum value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -687,7 +885,7 @@ class Aps(Entity):
                             
                             .. attribute:: max
                             
-                            	The maximum value of the statistic over the sampling period
+                            	The maximum value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -696,15 +894,45 @@ class Aps(Entity):
                             
                             	**units**\: dBm
                             
+                            .. attribute:: interval
+                            
+                            	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: min_time
+                            
+                            	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: max_time
+                            
+                            	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
                             
 
                             """
 
                             _prefix = 'oc-line-protect'
-                            _revision = '2017-03-28'
+                            _revision = '2018-11-21'
 
                             def __init__(self):
-                                super(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower, self).__init__()
 
                                 self.yang_name = "optical-power"
                                 self.yang_parent_name = "state"
@@ -717,22 +945,28 @@ class Aps(Entity):
                                     ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                                     ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                                     ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                                    ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                                    ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                                    ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                                 ])
                                 self.instant = None
                                 self.avg = None
                                 self.min = None
                                 self.max = None
+                                self.interval = None
+                                self.min_time = None
+                                self.max_time = None
                                 self._segment_path = lambda: "optical-power"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
 
 
-                class LinePrimaryOut(Entity):
+                class LinePrimaryOut(_Entity_):
                     """
                     Container for information related to the line primary
                     output port
@@ -754,10 +988,13 @@ class Aps(Entity):
                     """
 
                     _prefix = 'oc-line-protect'
-                    _revision = '2017-03-28'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut, self).__init__()
 
                         self.yang_name = "line-primary-out"
                         self.yang_parent_name = "ports"
@@ -781,7 +1018,7 @@ class Aps(Entity):
                         self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut, [], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data for the line primary output port
                         
@@ -799,10 +1036,13 @@ class Aps(Entity):
                         """
 
                         _prefix = 'oc-line-protect'
-                        _revision = '2017-03-28'
+                        _revision = '2018-11-21'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "line-primary-out"
@@ -822,7 +1062,7 @@ class Aps(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         State data for the line primary output port
                         
@@ -860,10 +1100,13 @@ class Aps(Entity):
                         """
 
                         _prefix = 'oc-line-protect'
-                        _revision = '2017-03-28'
+                        _revision = '2018-11-21'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "line-primary-out"
@@ -888,7 +1131,7 @@ class Aps(Entity):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State, ['target_attenuation', 'attenuation'], name, value)
 
 
-                        class OpticalPower(Entity):
+                        class OpticalPower(_Entity_):
                             """
                             The optical output power of this port in units of
                             0.01dBm. Optical output power represents the signal
@@ -910,7 +1153,7 @@ class Aps(Entity):
                             
                             .. attribute:: avg
                             
-                            	The arithmetic mean value of the statistic over the sampling period
+                            	The arithmetic mean value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -921,7 +1164,7 @@ class Aps(Entity):
                             
                             .. attribute:: min
                             
-                            	The minimum value of the statistic over the sampling period
+                            	The minimum value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -932,7 +1175,7 @@ class Aps(Entity):
                             
                             .. attribute:: max
                             
-                            	The maximum value of the statistic over the sampling period
+                            	The maximum value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -941,15 +1184,45 @@ class Aps(Entity):
                             
                             	**units**\: dBm
                             
+                            .. attribute:: interval
+                            
+                            	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: min_time
+                            
+                            	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: max_time
+                            
+                            	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
                             
 
                             """
 
                             _prefix = 'oc-line-protect'
-                            _revision = '2017-03-28'
+                            _revision = '2018-11-21'
 
                             def __init__(self):
-                                super(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower, self).__init__()
 
                                 self.yang_name = "optical-power"
                                 self.yang_parent_name = "state"
@@ -962,22 +1235,28 @@ class Aps(Entity):
                                     ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                                     ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                                     ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                                    ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                                    ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                                    ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                                 ])
                                 self.instant = None
                                 self.avg = None
                                 self.min = None
                                 self.max = None
+                                self.interval = None
+                                self.min_time = None
+                                self.max_time = None
                                 self._segment_path = lambda: "optical-power"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
 
 
-                class LineSecondaryIn(Entity):
+                class LineSecondaryIn(_Entity_):
                     """
                     Container for information related to the line secondary
                     input port
@@ -999,10 +1278,13 @@ class Aps(Entity):
                     """
 
                     _prefix = 'oc-line-protect'
-                    _revision = '2017-03-28'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn, self).__init__()
 
                         self.yang_name = "line-secondary-in"
                         self.yang_parent_name = "ports"
@@ -1026,7 +1308,7 @@ class Aps(Entity):
                         self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn, [], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data for the line secondary input port
                         
@@ -1051,10 +1333,13 @@ class Aps(Entity):
                         """
 
                         _prefix = 'oc-line-protect'
-                        _revision = '2017-03-28'
+                        _revision = '2018-11-21'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "line-secondary-in"
@@ -1076,7 +1361,7 @@ class Aps(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         State data for the line secondary input port
                         
@@ -1123,10 +1408,13 @@ class Aps(Entity):
                         """
 
                         _prefix = 'oc-line-protect'
-                        _revision = '2017-03-28'
+                        _revision = '2018-11-21'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "line-secondary-in"
@@ -1153,7 +1441,7 @@ class Aps(Entity):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State, ['enabled', 'target_attenuation', 'attenuation'], name, value)
 
 
-                        class OpticalPower(Entity):
+                        class OpticalPower(_Entity_):
                             """
                             The optical input power of this port in units of
                             0.01dBm. Optical input power represents the signal
@@ -1175,7 +1463,7 @@ class Aps(Entity):
                             
                             .. attribute:: avg
                             
-                            	The arithmetic mean value of the statistic over the sampling period
+                            	The arithmetic mean value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1186,7 +1474,7 @@ class Aps(Entity):
                             
                             .. attribute:: min
                             
-                            	The minimum value of the statistic over the sampling period
+                            	The minimum value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1197,7 +1485,7 @@ class Aps(Entity):
                             
                             .. attribute:: max
                             
-                            	The maximum value of the statistic over the sampling period
+                            	The maximum value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1206,15 +1494,45 @@ class Aps(Entity):
                             
                             	**units**\: dBm
                             
+                            .. attribute:: interval
+                            
+                            	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: min_time
+                            
+                            	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: max_time
+                            
+                            	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
                             
 
                             """
 
                             _prefix = 'oc-line-protect'
-                            _revision = '2017-03-28'
+                            _revision = '2018-11-21'
 
                             def __init__(self):
-                                super(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower, self).__init__()
 
                                 self.yang_name = "optical-power"
                                 self.yang_parent_name = "state"
@@ -1227,22 +1545,28 @@ class Aps(Entity):
                                     ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                                     ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                                     ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                                    ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                                    ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                                    ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                                 ])
                                 self.instant = None
                                 self.avg = None
                                 self.min = None
                                 self.max = None
+                                self.interval = None
+                                self.min_time = None
+                                self.max_time = None
                                 self._segment_path = lambda: "optical-power"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
 
 
-                class LineSecondaryOut(Entity):
+                class LineSecondaryOut(_Entity_):
                     """
                     Container for information related to the line secondary
                     output port
@@ -1264,10 +1588,13 @@ class Aps(Entity):
                     """
 
                     _prefix = 'oc-line-protect'
-                    _revision = '2017-03-28'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut, self).__init__()
 
                         self.yang_name = "line-secondary-out"
                         self.yang_parent_name = "ports"
@@ -1291,7 +1618,7 @@ class Aps(Entity):
                         self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut, [], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data for the line secondary output port
                         
@@ -1309,10 +1636,13 @@ class Aps(Entity):
                         """
 
                         _prefix = 'oc-line-protect'
-                        _revision = '2017-03-28'
+                        _revision = '2018-11-21'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "line-secondary-out"
@@ -1332,7 +1662,7 @@ class Aps(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         State data for the line secondary output port
                         
@@ -1370,10 +1700,13 @@ class Aps(Entity):
                         """
 
                         _prefix = 'oc-line-protect'
-                        _revision = '2017-03-28'
+                        _revision = '2018-11-21'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "line-secondary-out"
@@ -1398,7 +1731,7 @@ class Aps(Entity):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State, ['target_attenuation', 'attenuation'], name, value)
 
 
-                        class OpticalPower(Entity):
+                        class OpticalPower(_Entity_):
                             """
                             The optical output power of this port in units of
                             0.01dBm. Optical output power represents the signal
@@ -1420,7 +1753,7 @@ class Aps(Entity):
                             
                             .. attribute:: avg
                             
-                            	The arithmetic mean value of the statistic over the sampling period
+                            	The arithmetic mean value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1431,7 +1764,7 @@ class Aps(Entity):
                             
                             .. attribute:: min
                             
-                            	The minimum value of the statistic over the sampling period
+                            	The minimum value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1442,7 +1775,7 @@ class Aps(Entity):
                             
                             .. attribute:: max
                             
-                            	The maximum value of the statistic over the sampling period
+                            	The maximum value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1451,15 +1784,45 @@ class Aps(Entity):
                             
                             	**units**\: dBm
                             
+                            .. attribute:: interval
+                            
+                            	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: min_time
+                            
+                            	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: max_time
+                            
+                            	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
                             
 
                             """
 
                             _prefix = 'oc-line-protect'
-                            _revision = '2017-03-28'
+                            _revision = '2018-11-21'
 
                             def __init__(self):
-                                super(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower, self).__init__()
 
                                 self.yang_name = "optical-power"
                                 self.yang_parent_name = "state"
@@ -1472,22 +1835,28 @@ class Aps(Entity):
                                     ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                                     ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                                     ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                                    ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                                    ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                                    ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                                 ])
                                 self.instant = None
                                 self.avg = None
                                 self.min = None
                                 self.max = None
+                                self.interval = None
+                                self.min_time = None
+                                self.max_time = None
                                 self._segment_path = lambda: "optical-power"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
 
 
-                class CommonIn(Entity):
+                class CommonIn(_Entity_):
                     """
                     Container for information related to the line common
                     input port
@@ -1509,10 +1878,13 @@ class Aps(Entity):
                     """
 
                     _prefix = 'oc-line-protect'
-                    _revision = '2017-03-28'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(Aps.ApsModules.ApsModule.Ports.CommonIn, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aps.ApsModules.ApsModule.Ports.CommonIn, self).__init__()
 
                         self.yang_name = "common-in"
                         self.yang_parent_name = "ports"
@@ -1536,7 +1908,7 @@ class Aps(Entity):
                         self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonIn, [], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data for the line common input port
                         
@@ -1561,10 +1933,13 @@ class Aps(Entity):
                         """
 
                         _prefix = 'oc-line-protect'
-                        _revision = '2017-03-28'
+                        _revision = '2018-11-21'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.CommonIn.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.CommonIn.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "common-in"
@@ -1586,7 +1961,7 @@ class Aps(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         State data for the line common input port
                         
@@ -1633,10 +2008,13 @@ class Aps(Entity):
                         """
 
                         _prefix = 'oc-line-protect'
-                        _revision = '2017-03-28'
+                        _revision = '2018-11-21'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.CommonIn.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.CommonIn.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "common-in"
@@ -1663,7 +2041,7 @@ class Aps(Entity):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonIn.State, ['enabled', 'target_attenuation', 'attenuation'], name, value)
 
 
-                        class OpticalPower(Entity):
+                        class OpticalPower(_Entity_):
                             """
                             The optical input power of this port in units of
                             0.01dBm. Optical input power represents the signal
@@ -1685,7 +2063,7 @@ class Aps(Entity):
                             
                             .. attribute:: avg
                             
-                            	The arithmetic mean value of the statistic over the sampling period
+                            	The arithmetic mean value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1696,7 +2074,7 @@ class Aps(Entity):
                             
                             .. attribute:: min
                             
-                            	The minimum value of the statistic over the sampling period
+                            	The minimum value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1707,7 +2085,7 @@ class Aps(Entity):
                             
                             .. attribute:: max
                             
-                            	The maximum value of the statistic over the sampling period
+                            	The maximum value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1716,15 +2094,45 @@ class Aps(Entity):
                             
                             	**units**\: dBm
                             
+                            .. attribute:: interval
+                            
+                            	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: min_time
+                            
+                            	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: max_time
+                            
+                            	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
                             
 
                             """
 
                             _prefix = 'oc-line-protect'
-                            _revision = '2017-03-28'
+                            _revision = '2018-11-21'
 
                             def __init__(self):
-                                super(Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower, self).__init__()
 
                                 self.yang_name = "optical-power"
                                 self.yang_parent_name = "state"
@@ -1737,22 +2145,28 @@ class Aps(Entity):
                                     ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                                     ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                                     ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                                    ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                                    ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                                    ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                                 ])
                                 self.instant = None
                                 self.avg = None
                                 self.min = None
                                 self.max = None
+                                self.interval = None
+                                self.min_time = None
+                                self.max_time = None
                                 self._segment_path = lambda: "optical-power"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
 
 
-                class CommonOutput(Entity):
+                class CommonOutput(_Entity_):
                     """
                     Container for information related to the line common
                     output port
@@ -1774,10 +2188,13 @@ class Aps(Entity):
                     """
 
                     _prefix = 'oc-line-protect'
-                    _revision = '2017-03-28'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(Aps.ApsModules.ApsModule.Ports.CommonOutput, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Aps.ApsModules.ApsModule.Ports.CommonOutput, self).__init__()
 
                         self.yang_name = "common-output"
                         self.yang_parent_name = "ports"
@@ -1801,7 +2218,7 @@ class Aps(Entity):
                         self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonOutput, [], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data for the line common output port
                         
@@ -1819,10 +2236,13 @@ class Aps(Entity):
                         """
 
                         _prefix = 'oc-line-protect'
-                        _revision = '2017-03-28'
+                        _revision = '2018-11-21'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.CommonOutput.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.CommonOutput.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "common-output"
@@ -1842,7 +2262,7 @@ class Aps(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         State data for the line common output port
                         
@@ -1880,10 +2300,13 @@ class Aps(Entity):
                         """
 
                         _prefix = 'oc-line-protect'
-                        _revision = '2017-03-28'
+                        _revision = '2018-11-21'
 
                         def __init__(self):
-                            super(Aps.ApsModules.ApsModule.Ports.CommonOutput.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Aps.ApsModules.ApsModule.Ports.CommonOutput.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "common-output"
@@ -1908,7 +2331,7 @@ class Aps(Entity):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonOutput.State, ['target_attenuation', 'attenuation'], name, value)
 
 
-                        class OpticalPower(Entity):
+                        class OpticalPower(_Entity_):
                             """
                             The optical output power of this port in units of
                             0.01dBm. Optical output power represents the signal
@@ -1930,7 +2353,7 @@ class Aps(Entity):
                             
                             .. attribute:: avg
                             
-                            	The arithmetic mean value of the statistic over the sampling period
+                            	The arithmetic mean value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1941,7 +2364,7 @@ class Aps(Entity):
                             
                             .. attribute:: min
                             
-                            	The minimum value of the statistic over the sampling period
+                            	The minimum value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1952,7 +2375,7 @@ class Aps(Entity):
                             
                             .. attribute:: max
                             
-                            	The maximum value of the statistic over the sampling period
+                            	The maximum value of the statistic over the time interval
                             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1961,15 +2384,45 @@ class Aps(Entity):
                             
                             	**units**\: dBm
                             
+                            .. attribute:: interval
+                            
+                            	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: min_time
+                            
+                            	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
+                            .. attribute:: max_time
+                            
+                            	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                            	**type**\: int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
+                            
                             
 
                             """
 
                             _prefix = 'oc-line-protect'
-                            _revision = '2017-03-28'
+                            _revision = '2018-11-21'
 
                             def __init__(self):
-                                super(Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower, self).__init__()
 
                                 self.yang_name = "optical-power"
                                 self.yang_parent_name = "state"
@@ -1982,16 +2435,22 @@ class Aps(Entity):
                                     ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                                     ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                                     ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                                    ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                                    ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                                    ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                                 ])
                                 self.instant = None
                                 self.avg = None
                                 self.min = None
                                 self.max = None
+                                self.interval = None
+                                self.min_time = None
+                                self.max_time = None
                                 self._segment_path = lambda: "optical-power"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
@@ -2015,10 +2474,13 @@ class PRIMARY(APSPATHS):
     """
 
     _prefix = 'oc-line-protect'
-    _revision = '2017-03-28'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-transport-line-protection", pref="openconfig-transport-line-protection", tag="openconfig-transport-line-protection:PRIMARY"):
-        super(PRIMARY, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PRIMARY, self).__init__(ns, pref, tag)
 
 
 
@@ -2032,10 +2494,13 @@ class SECONDARY(APSPATHS):
     """
 
     _prefix = 'oc-line-protect'
-    _revision = '2017-03-28'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-transport-line-protection", pref="openconfig-transport-line-protection", tag="openconfig-transport-line-protection:SECONDARY"):
-        super(SECONDARY, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SECONDARY, self).__init__(ns, pref, tag)
 
 
 

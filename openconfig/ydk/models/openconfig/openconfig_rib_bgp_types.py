@@ -4,8 +4,11 @@ Defines identity and type defintions associated with
 the OpenConfig BGP RIB modules
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -27,7 +30,10 @@ class INVALIDROUTEREASON(Identity):
     _revision = '2016-04-11'
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:INVALID_ROUTE_REASON"):
-        super(INVALIDROUTEREASON, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(INVALIDROUTEREASON, self).__init__(ns, pref, tag)
 
 
 
@@ -44,7 +50,10 @@ class BGPNOTSELECTEDBESTPATH(Identity):
     _revision = '2016-04-11'
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:BGP_NOT_SELECTED_BESTPATH"):
-        super(BGPNOTSELECTEDBESTPATH, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(BGPNOTSELECTEDBESTPATH, self).__init__(ns, pref, tag)
 
 
 
@@ -61,7 +70,10 @@ class BGPNOTSELECTEDPOLICY(Identity):
     _revision = '2016-04-11'
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:BGP_NOT_SELECTED_POLICY"):
-        super(BGPNOTSELECTEDPOLICY, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(BGPNOTSELECTEDPOLICY, self).__init__(ns, pref, tag)
 
 
 
@@ -77,7 +89,10 @@ class INVALIDCLUSTERLOOP(INVALIDROUTEREASON):
     _revision = '2016-04-11'
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:INVALID_CLUSTER_LOOP"):
-        super(INVALIDCLUSTERLOOP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(INVALIDCLUSTERLOOP, self).__init__(ns, pref, tag)
 
 
 
@@ -93,7 +108,10 @@ class INVALIDASLOOP(INVALIDROUTEREASON):
     _revision = '2016-04-11'
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:INVALID_AS_LOOP"):
-        super(INVALIDASLOOP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(INVALIDASLOOP, self).__init__(ns, pref, tag)
 
 
 
@@ -110,7 +128,10 @@ class INVALIDORIGINATOR(INVALIDROUTEREASON):
     _revision = '2016-04-11'
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:INVALID_ORIGINATOR"):
-        super(INVALIDORIGINATOR, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(INVALIDORIGINATOR, self).__init__(ns, pref, tag)
 
 
 
@@ -127,7 +148,10 @@ class INVALIDCONFED(INVALIDROUTEREASON):
     _revision = '2016-04-11'
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:INVALID_CONFED"):
-        super(INVALIDCONFED, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(INVALIDCONFED, self).__init__(ns, pref, tag)
 
 
 
@@ -143,7 +167,10 @@ class LOCALPREFLOWER(BGPNOTSELECTEDBESTPATH):
     _revision = '2016-04-11'
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:LOCAL_PREF_LOWER"):
-        super(LOCALPREFLOWER, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LOCALPREFLOWER, self).__init__(ns, pref, tag)
 
 
 
@@ -159,7 +186,10 @@ class ASPATHLONGER(BGPNOTSELECTEDBESTPATH):
     _revision = '2016-04-11'
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:AS_PATH_LONGER"):
-        super(ASPATHLONGER, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ASPATHLONGER, self).__init__(ns, pref, tag)
 
 
 
@@ -176,7 +206,10 @@ class ORIGINTYPEHIGHER(BGPNOTSELECTEDBESTPATH):
     _revision = '2016-04-11'
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:ORIGIN_TYPE_HIGHER"):
-        super(ORIGINTYPEHIGHER, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ORIGINTYPEHIGHER, self).__init__(ns, pref, tag)
 
 
 
@@ -193,7 +226,10 @@ class MEDHIGHER(BGPNOTSELECTEDBESTPATH):
     _revision = '2016-04-11'
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:MED_HIGHER"):
-        super(MEDHIGHER, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MEDHIGHER, self).__init__(ns, pref, tag)
 
 
 
@@ -209,7 +245,10 @@ class PREFEREXTERNAL(BGPNOTSELECTEDBESTPATH):
     _revision = '2016-04-11'
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:PREFER_EXTERNAL"):
-        super(PREFEREXTERNAL, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PREFEREXTERNAL, self).__init__(ns, pref, tag)
 
 
 
@@ -225,7 +264,10 @@ class NEXTHOPCOSTHIGHER(BGPNOTSELECTEDBESTPATH):
     _revision = '2016-04-11'
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:NEXTHOP_COST_HIGHER"):
-        super(NEXTHOPCOSTHIGHER, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(NEXTHOPCOSTHIGHER, self).__init__(ns, pref, tag)
 
 
 
@@ -242,7 +284,10 @@ class HIGHERROUTERID(BGPNOTSELECTEDBESTPATH):
     _revision = '2016-04-11'
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:HIGHER_ROUTER_ID"):
-        super(HIGHERROUTERID, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(HIGHERROUTERID, self).__init__(ns, pref, tag)
 
 
 
@@ -258,7 +303,10 @@ class HIGHERPEERADDRESS(BGPNOTSELECTEDBESTPATH):
     _revision = '2016-04-11'
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:HIGHER_PEER_ADDRESS"):
-        super(HIGHERPEERADDRESS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(HIGHERPEERADDRESS, self).__init__(ns, pref, tag)
 
 
 
@@ -274,7 +322,10 @@ class REJECTEDIMPORTPOLICY(BGPNOTSELECTEDPOLICY):
     _revision = '2016-04-11'
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:REJECTED_IMPORT_POLICY"):
-        super(REJECTEDIMPORTPOLICY, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(REJECTEDIMPORTPOLICY, self).__init__(ns, pref, tag)
 
 
 

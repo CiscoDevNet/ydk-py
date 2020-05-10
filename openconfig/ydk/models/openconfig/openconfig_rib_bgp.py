@@ -28,8 +28,11 @@ eligible for sending (advertising) to the neighbor after output
 policy rules have been applied.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -38,7 +41,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class BgpRib(Entity):
+class BgpRib(_Entity_):
     """
     Top level container for BGP RIBs
     
@@ -57,7 +60,10 @@ class BgpRib(Entity):
     _revision = '2016-04-11'
 
     def __init__(self):
-        super(BgpRib, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(BgpRib, self).__init__()
         self._top_entity = None
 
         self.yang_name = "bgp-rib"
@@ -78,7 +84,7 @@ class BgpRib(Entity):
         self._perform_setattr(BgpRib, [], name, value)
 
 
-    class AfiSafis(Entity):
+    class AfiSafis(_Entity_):
         """
         Enclosing container for address family list
         
@@ -97,7 +103,10 @@ class BgpRib(Entity):
         _revision = '2016-04-11'
 
         def __init__(self):
-            super(BgpRib.AfiSafis, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(BgpRib.AfiSafis, self).__init__()
 
             self.yang_name = "afi-safis"
             self.yang_parent_name = "bgp-rib"
@@ -116,7 +125,7 @@ class BgpRib(Entity):
             self._perform_setattr(BgpRib.AfiSafis, [], name, value)
 
 
-        class AfiSafi(Entity):
+        class AfiSafi(_Entity_):
             """
             list of afi\-safi types
             
@@ -149,7 +158,10 @@ class BgpRib(Entity):
             _revision = '2016-04-11'
 
             def __init__(self):
-                super(BgpRib.AfiSafis.AfiSafi, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(BgpRib.AfiSafis.AfiSafi, self).__init__()
 
                 self.yang_name = "afi-safi"
                 self.yang_parent_name = "afi-safis"
@@ -177,7 +189,7 @@ class BgpRib(Entity):
                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi, ['afi_safi_name'], name, value)
 
 
-            class Ipv4Unicast(Entity):
+            class Ipv4Unicast(_Entity_):
                 """
                 Routing tables for IPv4 unicast \-\- active when the
                 afi\-safi name is ipv4\-unicast
@@ -204,7 +216,10 @@ class BgpRib(Entity):
                 _revision = '2016-04-11'
 
                 def __init__(self):
-                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast, self).__init__()
 
                     self.yang_name = "ipv4-unicast"
                     self.yang_parent_name = "afi-safi"
@@ -228,7 +243,7 @@ class BgpRib(Entity):
                     self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast, [], name, value)
 
 
-                class LocRib(Entity):
+                class LocRib(_Entity_):
                     """
                     Main routing table on the router, containing best\-path
                     selections for each prefix.  The loc\-rib may contain
@@ -265,7 +280,10 @@ class BgpRib(Entity):
                     _revision = '2016-04-11'
 
                     def __init__(self):
-                        super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib, self).__init__()
 
                         self.yang_name = "loc-rib"
                         self.yang_parent_name = "ipv4-unicast"
@@ -288,7 +306,7 @@ class BgpRib(Entity):
                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib, ['num_routes'], name, value)
 
 
-                    class Routes(Entity):
+                    class Routes(_Entity_):
                         """
                         Enclosing container for list of routes in the routing
                         table.
@@ -308,7 +326,10 @@ class BgpRib(Entity):
                         _revision = '2016-04-11'
 
                         def __init__(self):
-                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes, self).__init__()
 
                             self.yang_name = "routes"
                             self.yang_parent_name = "loc-rib"
@@ -326,7 +347,7 @@ class BgpRib(Entity):
                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes, [], name, value)
 
 
-                        class Route(Entity):
+                        class Route(_Entity_):
                             """
                             List of routes in the table
                             
@@ -400,7 +421,10 @@ class BgpRib(Entity):
                             _revision = '2016-04-11'
 
                             def __init__(self):
-                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route, self).__init__()
 
                                 self.yang_name = "route"
                                 self.yang_parent_name = "routes"
@@ -437,7 +461,7 @@ class BgpRib(Entity):
                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route, ['prefix', 'last_modified_date', 'last_update_received', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                            class Attributes(Entity):
+                            class Attributes(_Entity_):
                                 """
                                 Base BGP route attributes associated with this route
                                 
@@ -532,7 +556,10 @@ class BgpRib(Entity):
                                 _revision = '2016-04-11'
 
                                 def __init__(self):
-                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes, self).__init__()
 
                                     self.yang_name = "attributes"
                                     self.yang_parent_name = "route"
@@ -569,7 +596,7 @@ class BgpRib(Entity):
                                     self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes, ['origin', 'as_path', 'as4_path', 'next_hop', 'med', 'local_pref', 'atomic_aggr', 'community'], name, value)
 
 
-                                class Aggregator(Entity):
+                                class Aggregator(_Entity_):
                                     """
                                     BGP attribute indicating the prefix has been aggregated by
                                     the specified AS and router.
@@ -609,7 +636,10 @@ class BgpRib(Entity):
                                     _revision = '2016-04-11'
 
                                     def __init__(self):
-                                        super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes.Aggregator, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes.Aggregator, self).__init__()
 
                                         self.yang_name = "aggregator"
                                         self.yang_parent_name = "attributes"
@@ -634,7 +664,7 @@ class BgpRib(Entity):
 
 
 
-                            class ExtAttributes(Entity):
+                            class ExtAttributes(_Entity_):
                                 """
                                 Extended BGP route attributes associated with this
                                 route
@@ -733,7 +763,10 @@ class BgpRib(Entity):
                                 _revision = '2016-04-11'
 
                                 def __init__(self):
-                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes, self).__init__()
 
                                     self.yang_name = "ext-attributes"
                                     self.yang_parent_name = "route"
@@ -762,7 +795,7 @@ class BgpRib(Entity):
                                     self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes, ['originator_id', 'cluster_list', 'ext_community', 'aigp', 'path_id'], name, value)
 
 
-                                class UnknownAttribute(Entity):
+                                class UnknownAttribute(_Entity_):
                                     """
                                     This list contains received attributes that are unrecognized
                                     or unsupported by the local router.  The list may be empty.
@@ -802,7 +835,10 @@ class BgpRib(Entity):
                                     _revision = '2016-04-11'
 
                                     def __init__(self):
-                                        super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
 
                                         self.yang_name = "unknown-attribute"
                                         self.yang_parent_name = "ext-attributes"
@@ -830,7 +866,7 @@ class BgpRib(Entity):
 
 
 
-                class Neighbors(Entity):
+                class Neighbors(_Entity_):
                     """
                     Enclosing container for neighbor list
                     
@@ -849,7 +885,10 @@ class BgpRib(Entity):
                     _revision = '2016-04-11'
 
                     def __init__(self):
-                        super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors, self).__init__()
 
                         self.yang_name = "neighbors"
                         self.yang_parent_name = "ipv4-unicast"
@@ -867,7 +906,7 @@ class BgpRib(Entity):
                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors, [], name, value)
 
 
-                    class Neighbor(Entity):
+                    class Neighbor(_Entity_):
                         """
                         List of neighbors (peers) of the local BGP speaker
                         
@@ -922,7 +961,10 @@ class BgpRib(Entity):
                         _revision = '2016-04-11'
 
                         def __init__(self):
-                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor, self).__init__()
 
                             self.yang_name = "neighbor"
                             self.yang_parent_name = "neighbors"
@@ -957,7 +999,7 @@ class BgpRib(Entity):
                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor, ['neighbor_address'], name, value)
 
 
-                        class AdjRibInPre(Entity):
+                        class AdjRibInPre(_Entity_):
                             """
                             Per\-neighbor table containing the NLRI updates
                             received from the neighbor before any local input
@@ -988,7 +1030,10 @@ class BgpRib(Entity):
                             _revision = '2016-04-11'
 
                             def __init__(self):
-                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre, self).__init__()
 
                                 self.yang_name = "adj-rib-in-pre"
                                 self.yang_parent_name = "neighbor"
@@ -1011,7 +1056,7 @@ class BgpRib(Entity):
                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre, ['num_routes'], name, value)
 
 
-                            class Routes(Entity):
+                            class Routes(_Entity_):
                                 """
                                 Enclosing container for list of routes in the routing
                                 table.
@@ -1031,7 +1076,10 @@ class BgpRib(Entity):
                                 _revision = '2016-04-11'
 
                                 def __init__(self):
-                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes, self).__init__()
 
                                     self.yang_name = "routes"
                                     self.yang_parent_name = "adj-rib-in-pre"
@@ -1049,7 +1097,7 @@ class BgpRib(Entity):
                                     self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes, [], name, value)
 
 
-                                class Route(Entity):
+                                class Route(_Entity_):
                                     """
                                     List of routes in the table
                                     
@@ -1123,7 +1171,10 @@ class BgpRib(Entity):
                                     _revision = '2016-04-11'
 
                                     def __init__(self):
-                                        super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route, self).__init__()
 
                                         self.yang_name = "route"
                                         self.yang_parent_name = "routes"
@@ -1160,7 +1211,7 @@ class BgpRib(Entity):
                                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route, ['prefix', 'last_modified_date', 'last_update_received', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                                    class Attributes(Entity):
+                                    class Attributes(_Entity_):
                                         """
                                         Base BGP route attributes associated with this route
                                         
@@ -1255,7 +1306,10 @@ class BgpRib(Entity):
                                         _revision = '2016-04-11'
 
                                         def __init__(self):
-                                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes, self).__init__()
 
                                             self.yang_name = "attributes"
                                             self.yang_parent_name = "route"
@@ -1292,7 +1346,7 @@ class BgpRib(Entity):
                                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes, ['origin', 'as_path', 'as4_path', 'next_hop', 'med', 'local_pref', 'atomic_aggr', 'community'], name, value)
 
 
-                                        class Aggregator(Entity):
+                                        class Aggregator(_Entity_):
                                             """
                                             BGP attribute indicating the prefix has been aggregated by
                                             the specified AS and router.
@@ -1332,7 +1386,10 @@ class BgpRib(Entity):
                                             _revision = '2016-04-11'
 
                                             def __init__(self):
-                                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator, self).__init__()
 
                                                 self.yang_name = "aggregator"
                                                 self.yang_parent_name = "attributes"
@@ -1357,7 +1414,7 @@ class BgpRib(Entity):
 
 
 
-                                    class ExtAttributes(Entity):
+                                    class ExtAttributes(_Entity_):
                                         """
                                         Extended BGP route attributes associated with this
                                         route
@@ -1456,7 +1513,10 @@ class BgpRib(Entity):
                                         _revision = '2016-04-11'
 
                                         def __init__(self):
-                                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes, self).__init__()
 
                                             self.yang_name = "ext-attributes"
                                             self.yang_parent_name = "route"
@@ -1485,7 +1545,7 @@ class BgpRib(Entity):
                                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes, ['originator_id', 'cluster_list', 'ext_community', 'aigp', 'path_id'], name, value)
 
 
-                                        class UnknownAttribute(Entity):
+                                        class UnknownAttribute(_Entity_):
                                             """
                                             This list contains received attributes that are unrecognized
                                             or unsupported by the local router.  The list may be empty.
@@ -1525,7 +1585,10 @@ class BgpRib(Entity):
                                             _revision = '2016-04-11'
 
                                             def __init__(self):
-                                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
 
                                                 self.yang_name = "unknown-attribute"
                                                 self.yang_parent_name = "ext-attributes"
@@ -1553,7 +1616,7 @@ class BgpRib(Entity):
 
 
 
-                        class AdjRibInPost(Entity):
+                        class AdjRibInPost(_Entity_):
                             """
                             Per\-neighbor table containing the paths received from
                             the neighbor that are eligible for best\-path selection
@@ -1583,7 +1646,10 @@ class BgpRib(Entity):
                             _revision = '2016-04-11'
 
                             def __init__(self):
-                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost, self).__init__()
 
                                 self.yang_name = "adj-rib-in-post"
                                 self.yang_parent_name = "neighbor"
@@ -1606,7 +1672,7 @@ class BgpRib(Entity):
                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost, ['num_routes'], name, value)
 
 
-                            class Routes(Entity):
+                            class Routes(_Entity_):
                                 """
                                 Enclosing container for list of routes in the routing
                                 table.
@@ -1626,7 +1692,10 @@ class BgpRib(Entity):
                                 _revision = '2016-04-11'
 
                                 def __init__(self):
-                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes, self).__init__()
 
                                     self.yang_name = "routes"
                                     self.yang_parent_name = "adj-rib-in-post"
@@ -1644,7 +1713,7 @@ class BgpRib(Entity):
                                     self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes, [], name, value)
 
 
-                                class Route(Entity):
+                                class Route(_Entity_):
                                     """
                                     List of routes in the table
                                     
@@ -1718,7 +1787,10 @@ class BgpRib(Entity):
                                     _revision = '2016-04-11'
 
                                     def __init__(self):
-                                        super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route, self).__init__()
 
                                         self.yang_name = "route"
                                         self.yang_parent_name = "routes"
@@ -1755,7 +1827,7 @@ class BgpRib(Entity):
                                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route, ['prefix', 'last_modified_date', 'last_update_received', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                                    class Attributes(Entity):
+                                    class Attributes(_Entity_):
                                         """
                                         Base BGP route attributes associated with this route
                                         
@@ -1850,7 +1922,10 @@ class BgpRib(Entity):
                                         _revision = '2016-04-11'
 
                                         def __init__(self):
-                                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes, self).__init__()
 
                                             self.yang_name = "attributes"
                                             self.yang_parent_name = "route"
@@ -1887,7 +1962,7 @@ class BgpRib(Entity):
                                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes, ['origin', 'as_path', 'as4_path', 'next_hop', 'med', 'local_pref', 'atomic_aggr', 'community'], name, value)
 
 
-                                        class Aggregator(Entity):
+                                        class Aggregator(_Entity_):
                                             """
                                             BGP attribute indicating the prefix has been aggregated by
                                             the specified AS and router.
@@ -1927,7 +2002,10 @@ class BgpRib(Entity):
                                             _revision = '2016-04-11'
 
                                             def __init__(self):
-                                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator, self).__init__()
 
                                                 self.yang_name = "aggregator"
                                                 self.yang_parent_name = "attributes"
@@ -1952,7 +2030,7 @@ class BgpRib(Entity):
 
 
 
-                                    class ExtAttributes(Entity):
+                                    class ExtAttributes(_Entity_):
                                         """
                                         Extended BGP route attributes associated with this
                                         route
@@ -2051,7 +2129,10 @@ class BgpRib(Entity):
                                         _revision = '2016-04-11'
 
                                         def __init__(self):
-                                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes, self).__init__()
 
                                             self.yang_name = "ext-attributes"
                                             self.yang_parent_name = "route"
@@ -2080,7 +2161,7 @@ class BgpRib(Entity):
                                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes, ['originator_id', 'cluster_list', 'ext_community', 'aigp', 'path_id'], name, value)
 
 
-                                        class UnknownAttribute(Entity):
+                                        class UnknownAttribute(_Entity_):
                                             """
                                             This list contains received attributes that are unrecognized
                                             or unsupported by the local router.  The list may be empty.
@@ -2120,7 +2201,10 @@ class BgpRib(Entity):
                                             _revision = '2016-04-11'
 
                                             def __init__(self):
-                                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
 
                                                 self.yang_name = "unknown-attribute"
                                                 self.yang_parent_name = "ext-attributes"
@@ -2148,7 +2232,7 @@ class BgpRib(Entity):
 
 
 
-                        class AdjRibOutPre(Entity):
+                        class AdjRibOutPre(_Entity_):
                             """
                             Per\-neighbor table containing paths eligble for
                             sending (advertising) to the neighbor before output
@@ -2178,7 +2262,10 @@ class BgpRib(Entity):
                             _revision = '2016-04-11'
 
                             def __init__(self):
-                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre, self).__init__()
 
                                 self.yang_name = "adj-rib-out-pre"
                                 self.yang_parent_name = "neighbor"
@@ -2201,7 +2288,7 @@ class BgpRib(Entity):
                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre, ['num_routes'], name, value)
 
 
-                            class Routes(Entity):
+                            class Routes(_Entity_):
                                 """
                                 Enclosing container for list of routes in the routing
                                 table.
@@ -2221,7 +2308,10 @@ class BgpRib(Entity):
                                 _revision = '2016-04-11'
 
                                 def __init__(self):
-                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes, self).__init__()
 
                                     self.yang_name = "routes"
                                     self.yang_parent_name = "adj-rib-out-pre"
@@ -2239,7 +2329,7 @@ class BgpRib(Entity):
                                     self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes, [], name, value)
 
 
-                                class Route(Entity):
+                                class Route(_Entity_):
                                     """
                                     List of routes in the table
                                     
@@ -2313,7 +2403,10 @@ class BgpRib(Entity):
                                     _revision = '2016-04-11'
 
                                     def __init__(self):
-                                        super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route, self).__init__()
 
                                         self.yang_name = "route"
                                         self.yang_parent_name = "routes"
@@ -2350,7 +2443,7 @@ class BgpRib(Entity):
                                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route, ['prefix', 'last_modified_date', 'last_update_received', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                                    class Attributes(Entity):
+                                    class Attributes(_Entity_):
                                         """
                                         Base BGP route attributes associated with this route
                                         
@@ -2445,7 +2538,10 @@ class BgpRib(Entity):
                                         _revision = '2016-04-11'
 
                                         def __init__(self):
-                                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes, self).__init__()
 
                                             self.yang_name = "attributes"
                                             self.yang_parent_name = "route"
@@ -2482,7 +2578,7 @@ class BgpRib(Entity):
                                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes, ['origin', 'as_path', 'as4_path', 'next_hop', 'med', 'local_pref', 'atomic_aggr', 'community'], name, value)
 
 
-                                        class Aggregator(Entity):
+                                        class Aggregator(_Entity_):
                                             """
                                             BGP attribute indicating the prefix has been aggregated by
                                             the specified AS and router.
@@ -2522,7 +2618,10 @@ class BgpRib(Entity):
                                             _revision = '2016-04-11'
 
                                             def __init__(self):
-                                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator, self).__init__()
 
                                                 self.yang_name = "aggregator"
                                                 self.yang_parent_name = "attributes"
@@ -2547,7 +2646,7 @@ class BgpRib(Entity):
 
 
 
-                                    class ExtAttributes(Entity):
+                                    class ExtAttributes(_Entity_):
                                         """
                                         Extended BGP route attributes associated with this
                                         route
@@ -2646,7 +2745,10 @@ class BgpRib(Entity):
                                         _revision = '2016-04-11'
 
                                         def __init__(self):
-                                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes, self).__init__()
 
                                             self.yang_name = "ext-attributes"
                                             self.yang_parent_name = "route"
@@ -2675,7 +2777,7 @@ class BgpRib(Entity):
                                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes, ['originator_id', 'cluster_list', 'ext_community', 'aigp', 'path_id'], name, value)
 
 
-                                        class UnknownAttribute(Entity):
+                                        class UnknownAttribute(_Entity_):
                                             """
                                             This list contains received attributes that are unrecognized
                                             or unsupported by the local router.  The list may be empty.
@@ -2715,7 +2817,10 @@ class BgpRib(Entity):
                                             _revision = '2016-04-11'
 
                                             def __init__(self):
-                                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
 
                                                 self.yang_name = "unknown-attribute"
                                                 self.yang_parent_name = "ext-attributes"
@@ -2743,7 +2848,7 @@ class BgpRib(Entity):
 
 
 
-                        class AdjRibOutPost(Entity):
+                        class AdjRibOutPost(_Entity_):
                             """
                             Per\-neighbor table containing paths eligble for
                             sending (advertising) to the neighbor after output
@@ -2773,7 +2878,10 @@ class BgpRib(Entity):
                             _revision = '2016-04-11'
 
                             def __init__(self):
-                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost, self).__init__()
 
                                 self.yang_name = "adj-rib-out-post"
                                 self.yang_parent_name = "neighbor"
@@ -2796,7 +2904,7 @@ class BgpRib(Entity):
                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost, ['num_routes'], name, value)
 
 
-                            class Routes(Entity):
+                            class Routes(_Entity_):
                                 """
                                 Enclosing container for list of routes in the routing
                                 table.
@@ -2816,7 +2924,10 @@ class BgpRib(Entity):
                                 _revision = '2016-04-11'
 
                                 def __init__(self):
-                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes, self).__init__()
 
                                     self.yang_name = "routes"
                                     self.yang_parent_name = "adj-rib-out-post"
@@ -2834,7 +2945,7 @@ class BgpRib(Entity):
                                     self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes, [], name, value)
 
 
-                                class Route(Entity):
+                                class Route(_Entity_):
                                     """
                                     List of routes in the table
                                     
@@ -2908,7 +3019,10 @@ class BgpRib(Entity):
                                     _revision = '2016-04-11'
 
                                     def __init__(self):
-                                        super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route, self).__init__()
 
                                         self.yang_name = "route"
                                         self.yang_parent_name = "routes"
@@ -2945,7 +3059,7 @@ class BgpRib(Entity):
                                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route, ['prefix', 'last_modified_date', 'last_update_received', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                                    class Attributes(Entity):
+                                    class Attributes(_Entity_):
                                         """
                                         Base BGP route attributes associated with this route
                                         
@@ -3040,7 +3154,10 @@ class BgpRib(Entity):
                                         _revision = '2016-04-11'
 
                                         def __init__(self):
-                                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes, self).__init__()
 
                                             self.yang_name = "attributes"
                                             self.yang_parent_name = "route"
@@ -3077,7 +3194,7 @@ class BgpRib(Entity):
                                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes, ['origin', 'as_path', 'as4_path', 'next_hop', 'med', 'local_pref', 'atomic_aggr', 'community'], name, value)
 
 
-                                        class Aggregator(Entity):
+                                        class Aggregator(_Entity_):
                                             """
                                             BGP attribute indicating the prefix has been aggregated by
                                             the specified AS and router.
@@ -3117,7 +3234,10 @@ class BgpRib(Entity):
                                             _revision = '2016-04-11'
 
                                             def __init__(self):
-                                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator, self).__init__()
 
                                                 self.yang_name = "aggregator"
                                                 self.yang_parent_name = "attributes"
@@ -3142,7 +3262,7 @@ class BgpRib(Entity):
 
 
 
-                                    class ExtAttributes(Entity):
+                                    class ExtAttributes(_Entity_):
                                         """
                                         Extended BGP route attributes associated with this
                                         route
@@ -3241,7 +3361,10 @@ class BgpRib(Entity):
                                         _revision = '2016-04-11'
 
                                         def __init__(self):
-                                            super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes, self).__init__()
 
                                             self.yang_name = "ext-attributes"
                                             self.yang_parent_name = "route"
@@ -3270,7 +3393,7 @@ class BgpRib(Entity):
                                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes, ['originator_id', 'cluster_list', 'ext_community', 'aigp', 'path_id'], name, value)
 
 
-                                        class UnknownAttribute(Entity):
+                                        class UnknownAttribute(_Entity_):
                                             """
                                             This list contains received attributes that are unrecognized
                                             or unsupported by the local router.  The list may be empty.
@@ -3310,7 +3433,10 @@ class BgpRib(Entity):
                                             _revision = '2016-04-11'
 
                                             def __init__(self):
-                                                super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
 
                                                 self.yang_name = "unknown-attribute"
                                                 self.yang_parent_name = "ext-attributes"
@@ -3341,7 +3467,7 @@ class BgpRib(Entity):
 
 
 
-            class Ipv6Unicast(Entity):
+            class Ipv6Unicast(_Entity_):
                 """
                 Routing tables for IPv6 unicast \-\- active when the
                 afi\-safi name is ipv6\-unicast
@@ -3368,7 +3494,10 @@ class BgpRib(Entity):
                 _revision = '2016-04-11'
 
                 def __init__(self):
-                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast, self).__init__()
 
                     self.yang_name = "ipv6-unicast"
                     self.yang_parent_name = "afi-safi"
@@ -3392,7 +3521,7 @@ class BgpRib(Entity):
                     self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast, [], name, value)
 
 
-                class LocRib(Entity):
+                class LocRib(_Entity_):
                     """
                     Main routing table on the router, containing best\-path
                     selections for each prefix.  The loc\-rib may contain
@@ -3429,7 +3558,10 @@ class BgpRib(Entity):
                     _revision = '2016-04-11'
 
                     def __init__(self):
-                        super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib, self).__init__()
 
                         self.yang_name = "loc-rib"
                         self.yang_parent_name = "ipv6-unicast"
@@ -3452,7 +3584,7 @@ class BgpRib(Entity):
                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib, ['num_routes'], name, value)
 
 
-                    class Routes(Entity):
+                    class Routes(_Entity_):
                         """
                         Enclosing container for list of routes in the routing
                         table.
@@ -3472,7 +3604,10 @@ class BgpRib(Entity):
                         _revision = '2016-04-11'
 
                         def __init__(self):
-                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes, self).__init__()
 
                             self.yang_name = "routes"
                             self.yang_parent_name = "loc-rib"
@@ -3490,7 +3625,7 @@ class BgpRib(Entity):
                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes, [], name, value)
 
 
-                        class Route(Entity):
+                        class Route(_Entity_):
                             """
                             List of routes in the table
                             
@@ -3564,7 +3699,10 @@ class BgpRib(Entity):
                             _revision = '2016-04-11'
 
                             def __init__(self):
-                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route, self).__init__()
 
                                 self.yang_name = "route"
                                 self.yang_parent_name = "routes"
@@ -3601,7 +3739,7 @@ class BgpRib(Entity):
                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route, ['prefix', 'last_modified_date', 'last_update_received', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                            class Attributes(Entity):
+                            class Attributes(_Entity_):
                                 """
                                 Base BGP route attributes associated with this route
                                 
@@ -3696,7 +3834,10 @@ class BgpRib(Entity):
                                 _revision = '2016-04-11'
 
                                 def __init__(self):
-                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes, self).__init__()
 
                                     self.yang_name = "attributes"
                                     self.yang_parent_name = "route"
@@ -3733,7 +3874,7 @@ class BgpRib(Entity):
                                     self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes, ['origin', 'as_path', 'as4_path', 'next_hop', 'med', 'local_pref', 'atomic_aggr', 'community'], name, value)
 
 
-                                class Aggregator(Entity):
+                                class Aggregator(_Entity_):
                                     """
                                     BGP attribute indicating the prefix has been aggregated by
                                     the specified AS and router.
@@ -3773,7 +3914,10 @@ class BgpRib(Entity):
                                     _revision = '2016-04-11'
 
                                     def __init__(self):
-                                        super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes.Aggregator, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes.Aggregator, self).__init__()
 
                                         self.yang_name = "aggregator"
                                         self.yang_parent_name = "attributes"
@@ -3798,7 +3942,7 @@ class BgpRib(Entity):
 
 
 
-                            class ExtAttributes(Entity):
+                            class ExtAttributes(_Entity_):
                                 """
                                 Extended BGP route attributes associated with this
                                 route
@@ -3897,7 +4041,10 @@ class BgpRib(Entity):
                                 _revision = '2016-04-11'
 
                                 def __init__(self):
-                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes, self).__init__()
 
                                     self.yang_name = "ext-attributes"
                                     self.yang_parent_name = "route"
@@ -3926,7 +4073,7 @@ class BgpRib(Entity):
                                     self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes, ['originator_id', 'cluster_list', 'ext_community', 'aigp', 'path_id'], name, value)
 
 
-                                class UnknownAttribute(Entity):
+                                class UnknownAttribute(_Entity_):
                                     """
                                     This list contains received attributes that are unrecognized
                                     or unsupported by the local router.  The list may be empty.
@@ -3966,7 +4113,10 @@ class BgpRib(Entity):
                                     _revision = '2016-04-11'
 
                                     def __init__(self):
-                                        super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
 
                                         self.yang_name = "unknown-attribute"
                                         self.yang_parent_name = "ext-attributes"
@@ -3994,7 +4144,7 @@ class BgpRib(Entity):
 
 
 
-                class Neighbors(Entity):
+                class Neighbors(_Entity_):
                     """
                     Enclosing container for neighbor list
                     
@@ -4013,7 +4163,10 @@ class BgpRib(Entity):
                     _revision = '2016-04-11'
 
                     def __init__(self):
-                        super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors, self).__init__()
 
                         self.yang_name = "neighbors"
                         self.yang_parent_name = "ipv6-unicast"
@@ -4031,7 +4184,7 @@ class BgpRib(Entity):
                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors, [], name, value)
 
 
-                    class Neighbor(Entity):
+                    class Neighbor(_Entity_):
                         """
                         List of neighbors (peers) of the local BGP speaker
                         
@@ -4086,7 +4239,10 @@ class BgpRib(Entity):
                         _revision = '2016-04-11'
 
                         def __init__(self):
-                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor, self).__init__()
 
                             self.yang_name = "neighbor"
                             self.yang_parent_name = "neighbors"
@@ -4121,7 +4277,7 @@ class BgpRib(Entity):
                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor, ['neighbor_address'], name, value)
 
 
-                        class AdjRibInPre(Entity):
+                        class AdjRibInPre(_Entity_):
                             """
                             Per\-neighbor table containing the NLRI updates
                             received from the neighbor before any local input
@@ -4152,7 +4308,10 @@ class BgpRib(Entity):
                             _revision = '2016-04-11'
 
                             def __init__(self):
-                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre, self).__init__()
 
                                 self.yang_name = "adj-rib-in-pre"
                                 self.yang_parent_name = "neighbor"
@@ -4175,7 +4334,7 @@ class BgpRib(Entity):
                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre, ['num_routes'], name, value)
 
 
-                            class Routes(Entity):
+                            class Routes(_Entity_):
                                 """
                                 Enclosing container for list of routes in the routing
                                 table.
@@ -4195,7 +4354,10 @@ class BgpRib(Entity):
                                 _revision = '2016-04-11'
 
                                 def __init__(self):
-                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes, self).__init__()
 
                                     self.yang_name = "routes"
                                     self.yang_parent_name = "adj-rib-in-pre"
@@ -4213,7 +4375,7 @@ class BgpRib(Entity):
                                     self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes, [], name, value)
 
 
-                                class Route(Entity):
+                                class Route(_Entity_):
                                     """
                                     List of routes in the table
                                     
@@ -4287,7 +4449,10 @@ class BgpRib(Entity):
                                     _revision = '2016-04-11'
 
                                     def __init__(self):
-                                        super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route, self).__init__()
 
                                         self.yang_name = "route"
                                         self.yang_parent_name = "routes"
@@ -4324,7 +4489,7 @@ class BgpRib(Entity):
                                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route, ['prefix', 'last_modified_date', 'last_update_received', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                                    class Attributes(Entity):
+                                    class Attributes(_Entity_):
                                         """
                                         Base BGP route attributes associated with this route
                                         
@@ -4419,7 +4584,10 @@ class BgpRib(Entity):
                                         _revision = '2016-04-11'
 
                                         def __init__(self):
-                                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes, self).__init__()
 
                                             self.yang_name = "attributes"
                                             self.yang_parent_name = "route"
@@ -4456,7 +4624,7 @@ class BgpRib(Entity):
                                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes, ['origin', 'as_path', 'as4_path', 'next_hop', 'med', 'local_pref', 'atomic_aggr', 'community'], name, value)
 
 
-                                        class Aggregator(Entity):
+                                        class Aggregator(_Entity_):
                                             """
                                             BGP attribute indicating the prefix has been aggregated by
                                             the specified AS and router.
@@ -4496,7 +4664,10 @@ class BgpRib(Entity):
                                             _revision = '2016-04-11'
 
                                             def __init__(self):
-                                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator, self).__init__()
 
                                                 self.yang_name = "aggregator"
                                                 self.yang_parent_name = "attributes"
@@ -4521,7 +4692,7 @@ class BgpRib(Entity):
 
 
 
-                                    class ExtAttributes(Entity):
+                                    class ExtAttributes(_Entity_):
                                         """
                                         Extended BGP route attributes associated with this
                                         route
@@ -4620,7 +4791,10 @@ class BgpRib(Entity):
                                         _revision = '2016-04-11'
 
                                         def __init__(self):
-                                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes, self).__init__()
 
                                             self.yang_name = "ext-attributes"
                                             self.yang_parent_name = "route"
@@ -4649,7 +4823,7 @@ class BgpRib(Entity):
                                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes, ['originator_id', 'cluster_list', 'ext_community', 'aigp', 'path_id'], name, value)
 
 
-                                        class UnknownAttribute(Entity):
+                                        class UnknownAttribute(_Entity_):
                                             """
                                             This list contains received attributes that are unrecognized
                                             or unsupported by the local router.  The list may be empty.
@@ -4689,7 +4863,10 @@ class BgpRib(Entity):
                                             _revision = '2016-04-11'
 
                                             def __init__(self):
-                                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
 
                                                 self.yang_name = "unknown-attribute"
                                                 self.yang_parent_name = "ext-attributes"
@@ -4717,7 +4894,7 @@ class BgpRib(Entity):
 
 
 
-                        class AdjRibInPost(Entity):
+                        class AdjRibInPost(_Entity_):
                             """
                             Per\-neighbor table containing the paths received from
                             the neighbor that are eligible for best\-path selection
@@ -4747,7 +4924,10 @@ class BgpRib(Entity):
                             _revision = '2016-04-11'
 
                             def __init__(self):
-                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost, self).__init__()
 
                                 self.yang_name = "adj-rib-in-post"
                                 self.yang_parent_name = "neighbor"
@@ -4770,7 +4950,7 @@ class BgpRib(Entity):
                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost, ['num_routes'], name, value)
 
 
-                            class Routes(Entity):
+                            class Routes(_Entity_):
                                 """
                                 Enclosing container for list of routes in the routing
                                 table.
@@ -4790,7 +4970,10 @@ class BgpRib(Entity):
                                 _revision = '2016-04-11'
 
                                 def __init__(self):
-                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes, self).__init__()
 
                                     self.yang_name = "routes"
                                     self.yang_parent_name = "adj-rib-in-post"
@@ -4808,7 +4991,7 @@ class BgpRib(Entity):
                                     self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes, [], name, value)
 
 
-                                class Route(Entity):
+                                class Route(_Entity_):
                                     """
                                     List of routes in the table
                                     
@@ -4882,7 +5065,10 @@ class BgpRib(Entity):
                                     _revision = '2016-04-11'
 
                                     def __init__(self):
-                                        super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route, self).__init__()
 
                                         self.yang_name = "route"
                                         self.yang_parent_name = "routes"
@@ -4919,7 +5105,7 @@ class BgpRib(Entity):
                                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route, ['prefix', 'last_modified_date', 'last_update_received', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                                    class Attributes(Entity):
+                                    class Attributes(_Entity_):
                                         """
                                         Base BGP route attributes associated with this route
                                         
@@ -5014,7 +5200,10 @@ class BgpRib(Entity):
                                         _revision = '2016-04-11'
 
                                         def __init__(self):
-                                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes, self).__init__()
 
                                             self.yang_name = "attributes"
                                             self.yang_parent_name = "route"
@@ -5051,7 +5240,7 @@ class BgpRib(Entity):
                                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes, ['origin', 'as_path', 'as4_path', 'next_hop', 'med', 'local_pref', 'atomic_aggr', 'community'], name, value)
 
 
-                                        class Aggregator(Entity):
+                                        class Aggregator(_Entity_):
                                             """
                                             BGP attribute indicating the prefix has been aggregated by
                                             the specified AS and router.
@@ -5091,7 +5280,10 @@ class BgpRib(Entity):
                                             _revision = '2016-04-11'
 
                                             def __init__(self):
-                                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator, self).__init__()
 
                                                 self.yang_name = "aggregator"
                                                 self.yang_parent_name = "attributes"
@@ -5116,7 +5308,7 @@ class BgpRib(Entity):
 
 
 
-                                    class ExtAttributes(Entity):
+                                    class ExtAttributes(_Entity_):
                                         """
                                         Extended BGP route attributes associated with this
                                         route
@@ -5215,7 +5407,10 @@ class BgpRib(Entity):
                                         _revision = '2016-04-11'
 
                                         def __init__(self):
-                                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes, self).__init__()
 
                                             self.yang_name = "ext-attributes"
                                             self.yang_parent_name = "route"
@@ -5244,7 +5439,7 @@ class BgpRib(Entity):
                                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes, ['originator_id', 'cluster_list', 'ext_community', 'aigp', 'path_id'], name, value)
 
 
-                                        class UnknownAttribute(Entity):
+                                        class UnknownAttribute(_Entity_):
                                             """
                                             This list contains received attributes that are unrecognized
                                             or unsupported by the local router.  The list may be empty.
@@ -5284,7 +5479,10 @@ class BgpRib(Entity):
                                             _revision = '2016-04-11'
 
                                             def __init__(self):
-                                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
 
                                                 self.yang_name = "unknown-attribute"
                                                 self.yang_parent_name = "ext-attributes"
@@ -5312,7 +5510,7 @@ class BgpRib(Entity):
 
 
 
-                        class AdjRibOutPre(Entity):
+                        class AdjRibOutPre(_Entity_):
                             """
                             Per\-neighbor table containing paths eligble for
                             sending (advertising) to the neighbor before output
@@ -5342,7 +5540,10 @@ class BgpRib(Entity):
                             _revision = '2016-04-11'
 
                             def __init__(self):
-                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre, self).__init__()
 
                                 self.yang_name = "adj-rib-out-pre"
                                 self.yang_parent_name = "neighbor"
@@ -5365,7 +5566,7 @@ class BgpRib(Entity):
                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre, ['num_routes'], name, value)
 
 
-                            class Routes(Entity):
+                            class Routes(_Entity_):
                                 """
                                 Enclosing container for list of routes in the routing
                                 table.
@@ -5385,7 +5586,10 @@ class BgpRib(Entity):
                                 _revision = '2016-04-11'
 
                                 def __init__(self):
-                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes, self).__init__()
 
                                     self.yang_name = "routes"
                                     self.yang_parent_name = "adj-rib-out-pre"
@@ -5403,7 +5607,7 @@ class BgpRib(Entity):
                                     self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes, [], name, value)
 
 
-                                class Route(Entity):
+                                class Route(_Entity_):
                                     """
                                     List of routes in the table
                                     
@@ -5477,7 +5681,10 @@ class BgpRib(Entity):
                                     _revision = '2016-04-11'
 
                                     def __init__(self):
-                                        super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route, self).__init__()
 
                                         self.yang_name = "route"
                                         self.yang_parent_name = "routes"
@@ -5514,7 +5721,7 @@ class BgpRib(Entity):
                                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route, ['prefix', 'last_modified_date', 'last_update_received', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                                    class Attributes(Entity):
+                                    class Attributes(_Entity_):
                                         """
                                         Base BGP route attributes associated with this route
                                         
@@ -5609,7 +5816,10 @@ class BgpRib(Entity):
                                         _revision = '2016-04-11'
 
                                         def __init__(self):
-                                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes, self).__init__()
 
                                             self.yang_name = "attributes"
                                             self.yang_parent_name = "route"
@@ -5646,7 +5856,7 @@ class BgpRib(Entity):
                                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes, ['origin', 'as_path', 'as4_path', 'next_hop', 'med', 'local_pref', 'atomic_aggr', 'community'], name, value)
 
 
-                                        class Aggregator(Entity):
+                                        class Aggregator(_Entity_):
                                             """
                                             BGP attribute indicating the prefix has been aggregated by
                                             the specified AS and router.
@@ -5686,7 +5896,10 @@ class BgpRib(Entity):
                                             _revision = '2016-04-11'
 
                                             def __init__(self):
-                                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator, self).__init__()
 
                                                 self.yang_name = "aggregator"
                                                 self.yang_parent_name = "attributes"
@@ -5711,7 +5924,7 @@ class BgpRib(Entity):
 
 
 
-                                    class ExtAttributes(Entity):
+                                    class ExtAttributes(_Entity_):
                                         """
                                         Extended BGP route attributes associated with this
                                         route
@@ -5810,7 +6023,10 @@ class BgpRib(Entity):
                                         _revision = '2016-04-11'
 
                                         def __init__(self):
-                                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes, self).__init__()
 
                                             self.yang_name = "ext-attributes"
                                             self.yang_parent_name = "route"
@@ -5839,7 +6055,7 @@ class BgpRib(Entity):
                                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes, ['originator_id', 'cluster_list', 'ext_community', 'aigp', 'path_id'], name, value)
 
 
-                                        class UnknownAttribute(Entity):
+                                        class UnknownAttribute(_Entity_):
                                             """
                                             This list contains received attributes that are unrecognized
                                             or unsupported by the local router.  The list may be empty.
@@ -5879,7 +6095,10 @@ class BgpRib(Entity):
                                             _revision = '2016-04-11'
 
                                             def __init__(self):
-                                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
 
                                                 self.yang_name = "unknown-attribute"
                                                 self.yang_parent_name = "ext-attributes"
@@ -5907,7 +6126,7 @@ class BgpRib(Entity):
 
 
 
-                        class AdjRibOutPost(Entity):
+                        class AdjRibOutPost(_Entity_):
                             """
                             Per\-neighbor table containing paths eligble for
                             sending (advertising) to the neighbor after output
@@ -5937,7 +6156,10 @@ class BgpRib(Entity):
                             _revision = '2016-04-11'
 
                             def __init__(self):
-                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost, self).__init__()
 
                                 self.yang_name = "adj-rib-out-post"
                                 self.yang_parent_name = "neighbor"
@@ -5960,7 +6182,7 @@ class BgpRib(Entity):
                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost, ['num_routes'], name, value)
 
 
-                            class Routes(Entity):
+                            class Routes(_Entity_):
                                 """
                                 Enclosing container for list of routes in the routing
                                 table.
@@ -5980,7 +6202,10 @@ class BgpRib(Entity):
                                 _revision = '2016-04-11'
 
                                 def __init__(self):
-                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes, self).__init__()
 
                                     self.yang_name = "routes"
                                     self.yang_parent_name = "adj-rib-out-post"
@@ -5998,7 +6223,7 @@ class BgpRib(Entity):
                                     self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes, [], name, value)
 
 
-                                class Route(Entity):
+                                class Route(_Entity_):
                                     """
                                     List of routes in the table
                                     
@@ -6072,7 +6297,10 @@ class BgpRib(Entity):
                                     _revision = '2016-04-11'
 
                                     def __init__(self):
-                                        super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route, self).__init__()
 
                                         self.yang_name = "route"
                                         self.yang_parent_name = "routes"
@@ -6109,7 +6337,7 @@ class BgpRib(Entity):
                                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route, ['prefix', 'last_modified_date', 'last_update_received', 'valid_route', 'invalid_reason', 'best_path'], name, value)
 
 
-                                    class Attributes(Entity):
+                                    class Attributes(_Entity_):
                                         """
                                         Base BGP route attributes associated with this route
                                         
@@ -6204,7 +6432,10 @@ class BgpRib(Entity):
                                         _revision = '2016-04-11'
 
                                         def __init__(self):
-                                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes, self).__init__()
 
                                             self.yang_name = "attributes"
                                             self.yang_parent_name = "route"
@@ -6241,7 +6472,7 @@ class BgpRib(Entity):
                                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes, ['origin', 'as_path', 'as4_path', 'next_hop', 'med', 'local_pref', 'atomic_aggr', 'community'], name, value)
 
 
-                                        class Aggregator(Entity):
+                                        class Aggregator(_Entity_):
                                             """
                                             BGP attribute indicating the prefix has been aggregated by
                                             the specified AS and router.
@@ -6281,7 +6512,10 @@ class BgpRib(Entity):
                                             _revision = '2016-04-11'
 
                                             def __init__(self):
-                                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator, self).__init__()
 
                                                 self.yang_name = "aggregator"
                                                 self.yang_parent_name = "attributes"
@@ -6306,7 +6540,7 @@ class BgpRib(Entity):
 
 
 
-                                    class ExtAttributes(Entity):
+                                    class ExtAttributes(_Entity_):
                                         """
                                         Extended BGP route attributes associated with this
                                         route
@@ -6405,7 +6639,10 @@ class BgpRib(Entity):
                                         _revision = '2016-04-11'
 
                                         def __init__(self):
-                                            super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes, self).__init__()
 
                                             self.yang_name = "ext-attributes"
                                             self.yang_parent_name = "route"
@@ -6434,7 +6671,7 @@ class BgpRib(Entity):
                                             self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes, ['originator_id', 'cluster_list', 'ext_community', 'aigp', 'path_id'], name, value)
 
 
-                                        class UnknownAttribute(Entity):
+                                        class UnknownAttribute(_Entity_):
                                             """
                                             This list contains received attributes that are unrecognized
                                             or unsupported by the local router.  The list may be empty.
@@ -6474,7 +6711,10 @@ class BgpRib(Entity):
                                             _revision = '2016-04-11'
 
                                             def __init__(self):
-                                                super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
+                                                if sys.version_info > (3,):
+                                                    super().__init__()
+                                                else:
+                                                    super(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute, self).__init__()
 
                                                 self.yang_name = "unknown-attribute"
                                                 self.yang_parent_name = "ext-attributes"

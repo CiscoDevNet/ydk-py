@@ -1,42 +1,84 @@
 module openconfig-isis-types {
-  yang-version 1;
+
+  yang-version "1";
+
+  // namespace
   namespace "http://openconfig.net/yang/isis-types";
-  prefix oc-isis-types;
 
-  import openconfig-extensions {
-    prefix oc-ext;
-  }
+  prefix "oc-isis-types";
 
-  organization
-    "OpenConfig working group";
+  import openconfig-extensions { prefix oc-ext; }
+
+  // meta
+  organization "OpenConfig working group";
+
   contact
     "OpenConfig working group
-     www.openconfig.net";
+    www.openconfig.net";
+
   description
     "This module contains general data definitions for use in ISIS YANG
-     model.";
+    model.";
 
-  revision 2017-05-15 {
+  oc-ext:openconfig-version "0.4.2";
+
+  revision "2018-11-21" {
+    description
+      "Add OpenConfig module metadata extensions.";
+    reference "0.4.2";
+  }
+
+  revision "2018-11-21" {
+    description
+      "Add OpenConfig module metadata extensions.";
+    reference "0.4.1";
+  }
+
+  revision "2018-05-14" {
+    description
+      "Update LSDB model to correct Extended IS reach TLV
+      bug. This change is backwards incompatible due to
+      adding an additional level of hierarchy to support
+      multiple instances of the TLV.";
+    reference "0.4.0";
+  }
+
+  revision "2017-07-26" {
+    description
+      "Update LSDB and fix bugs.";
+    reference "0.3.2";
+  }
+
+  revision "2017-05-15" {
     description
       "Refactor LSDB.";
     reference "0.3.0";
   }
-  revision 2017-01-13 {
+
+  revision "2017-01-13" {
     description
       "Remove top-level /isis container";
     reference "0.2.1";
   }
-  revision 2016-12-15 {
+
+  revision "2016-12-15" {
     description
       "Add segment routing to IS-IS module";
     reference "0.2.0";
   }
-  revision 2016-10-18 {
+
+  revision "2016-10-18" {
     description
       "Initial revision of IS-IS models.";
     reference "0.1.0";
   }
 
+  // OpenConfig specific extensions for module metadata.
+  oc-ext:regexp-posix;
+  oc-ext:catalog-organization "openconfig";
+  oc-ext:origin "openconfig";
+
+  // identity statements
   identity OVERLOAD_RESET_TRIGGER_TYPE {
     description
       "Base identify type for triggers that reset Overload Bit";
@@ -52,7 +94,7 @@ module openconfig-isis-types {
     base OVERLOAD_RESET_TRIGGER_TYPE;
     description
       "Base identity type for resetting Overload Bit when system resources have
-       been restored. ";
+      been restored. ";
   }
 
   identity MT_TYPE {
@@ -123,23 +165,21 @@ module openconfig-isis-types {
       "Base identify type for IPv6 address family";
   }
 
+  // typedef statements
   typedef level-type {
     type enumeration {
-      enum "LEVEL_1" {
-        description
-          "This enum describes ISIS level 1";
+      enum LEVEL_1 {
+        description "This enum describes ISIS level 1";
       }
-      enum "LEVEL_2" {
-        description
-          "This enum describes ISIS level 2";
+      enum LEVEL_2 {
+        description "This enum describes ISIS level 2";
       }
-      enum "LEVEL_1_2" {
-        description
-          "This enum describes ISIS level 1-2";
+      enum LEVEL_1_2 {
+        description "This enum describes ISIS level 1-2";
       }
     }
     description
-      "This type defines ISIS level types";
+        "This type defines ISIS level types";
   }
 
   typedef level-number {
@@ -147,71 +187,61 @@ module openconfig-isis-types {
       range "1..2";
     }
     description
-      "This type defines ISIS level.";
+        "This type defines ISIS level.";
   }
 
   typedef adaptive-timer-type {
     type enumeration {
-      enum "LINEAR" {
-        description
-          "This enum describes linear algorithm timer";
+      enum LINEAR {
+        description "This enum describes linear algorithm timer";
       }
-      enum "EXPONENTIAL" {
-        description
-          "This enum describes exponential algorithm timer";
+      enum EXPONENTIAL {
+        description "This enum describes exponential algorithm timer";
       }
     }
     description
-      "This type defines ISIS adaptive timer types";
+        "This type defines ISIS adaptive timer types";
   }
 
   typedef hello-padding-type {
     type enumeration {
-      enum "STRICT" {
-        description
-          "This enum describes strict padding";
+      enum STRICT {
+        description "This enum describes strict padding";
       }
-      enum "LOOSE" {
-        description
-          "This enum describes loose padding";
+      enum LOOSE {
+        description "This enum describes loose padding";
       }
-      enum "ADAPTIVE" {
-        description
-          "This enum describes adaptive padding";
+      enum ADAPTIVE {
+        description "This enum describes adaptive padding";
       }
-      enum "DISABLE" {
-        description
-          "This enum disables padding";
+      enum DISABLE {
+        description "This enum disables padding";
       }
     }
     description
-      "This type defines ISIS hello padding type";
+        "This type defines ISIS hello padding type";
   }
 
   typedef circuit-type {
     type enumeration {
-      enum "POINT_TO_POINT" {
-        description
-          "This enum describes a point-to-point interface";
+      enum POINT_TO_POINT {
+        description "This enum describes a point-to-point interface";
       }
-      enum "BROADCAST" {
-        description
-          "This enum describes a broadcast interface";
+      enum BROADCAST {
+        description "This enum describes a broadcast interface";
       }
     }
     description
-      "This type defines ISIS interface types ";
+        "This type defines ISIS interface types ";
   }
 
   typedef metric-type {
     type enumeration {
-      enum "INTERNAL" {
-        description
-          "This enum describes internal route type";
+      enum INTERNAL {
+        description "This enum describes internal route type";
       }
-      enum "EXTERNAL" {
-        description
-          "This enum describes external route type";
+      enum EXTERNAL {
+        description "This enum describes external route type";
       }
     }
     description
@@ -223,7 +253,7 @@ module openconfig-isis-types {
       range "1..16777215";
     }
     description
-      "This type defines ISIS wide metric.";
+        "This type defines ISIS wide metric.";
   }
 
   typedef narrow-metric {
@@ -231,41 +261,41 @@ module openconfig-isis-types {
       range "1..63";
     }
     description
-      "This type defines ISIS narrow metric.";
+        "This type defines ISIS narrow metric.";
   }
 
   typedef metric-style {
     type enumeration {
-      enum "NARROW_METRIC" {
+      enum NARROW_METRIC {
         description
-          "This enum describes narrow metric style";
+                "This enum describes narrow metric style";
         reference "RFC1195";
       }
-      enum "WIDE_METRIC" {
+      enum WIDE_METRIC {
         description
-          "This enum describes wide metric style";
+                "This enum describes wide metric style";
         reference "RFC5305";
       }
     }
     description
-      "This type defines ISIS metric styles";
+        "This type defines ISIS metric styles";
   }
 
   typedef isis-interface-adj-state {
     type enumeration {
-      enum "UP" {
+      enum UP {
         description
           "This state describes that adjacency is established.";
       }
-      enum "DOWN" {
+      enum DOWN {
         description
           "This state describes that adjacency is NOT established.";
       }
-      enum "INIT" {
+      enum INIT {
         description
           "This state describes that adjacency is establishing.";
       }
-      enum "FAILED" {
+      enum FAILED {
         description
           "This state describes that adjacency is failed.";
       }
@@ -276,24 +306,24 @@ module openconfig-isis-types {
 
   typedef net {
     type string {
-      pattern "^[a-fA-F0-9]{2}(\\.[a-fA-F0-9]{4}){3,9}\\.[a-fA-F0-9]{2}$";
+      pattern '^[a-fA-F0-9]{2}(\.[a-fA-F0-9]{4}){3,9}\.[a-fA-F0-9]{2}$';
     }
     description
       "This type defines OSI NET address. A NET should should be in
-       the form xx.yyyy.yyyy.yyyy.00 with up to 9 sets of yyyy.";
+      the form xx.yyyy.yyyy.yyyy.00 with up to 9 sets of yyyy.";
   }
 
   typedef area-address {
     type string {
-      pattern "^[0-9A-Fa-f]{2}\\.([0-9A-Fa-f]{4}\\.){0,3}$";
+      pattern '^[0-9A-Fa-f]{2}\.([0-9A-Fa-f]{4}\.){0,3}$';
     }
     description
-      "This type defines the ISIS area address.";
+        "This type defines the ISIS area address.";
   }
 
   typedef system-id {
     type string {
-      pattern "^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$";
+      pattern '^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$';
     }
     description
       "This type defines ISIS system id using pattern, system id looks
@@ -308,13 +338,14 @@ module openconfig-isis-types {
 
   typedef lsp-id {
     type string {
-      pattern "^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9][0-9]-[0-9][0-9]$";
+      pattern
+            '^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]'
+      +      '{4}\.[0-9][0-9]-[0-9][0-9]$';
     }
     description
       "This type defines ISIS LSP ID. ISIS LSP ID type should be in
-       the form of xxxx.xxxx.xxxx.xx-xx";
+      the form of xxxx.xxxx.xxxx.xx-xx";
   }
-
   typedef snpa {
     type string {
       length "0 .. 20";
@@ -322,5 +353,4 @@ module openconfig-isis-types {
     description
       "This type defines Subnetwork Point of Attachment format.";
   }
-  oc-ext:openconfig-version "0.3.0";
 }

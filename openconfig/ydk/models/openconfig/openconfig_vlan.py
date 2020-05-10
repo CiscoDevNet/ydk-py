@@ -4,8 +4,11 @@ This module defines configuration and state variables for VLANs,
 in addition to VLAN parameters associated with interfaces
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -14,7 +17,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Vlans(Entity):
+class Vlans(_Entity_):
     """
     Container for VLAN configuration and state
     variables
@@ -32,7 +35,10 @@ class Vlans(Entity):
     _revision = '2016-05-26'
 
     def __init__(self):
-        super(Vlans, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Vlans, self).__init__()
         self._top_entity = None
 
         self.yang_name = "vlans"
@@ -51,7 +57,7 @@ class Vlans(Entity):
         self._perform_setattr(Vlans, [], name, value)
 
 
-    class Vlan(Entity):
+    class Vlan(_Entity_):
         """
         Configured VLANs keyed by id
         
@@ -89,7 +95,10 @@ class Vlans(Entity):
         _revision = '2016-05-26'
 
         def __init__(self):
-            super(Vlans.Vlan, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Vlans.Vlan, self).__init__()
 
             self.yang_name = "vlan"
             self.yang_parent_name = "vlans"
@@ -121,7 +130,7 @@ class Vlans(Entity):
             self._perform_setattr(Vlans.Vlan, ['vlan_id'], name, value)
 
 
-        class Config(Entity):
+        class Config(_Entity_):
             """
             Configuration parameters for VLANs
             
@@ -159,7 +168,10 @@ class Vlans(Entity):
             _revision = '2016-05-26'
 
             def __init__(self):
-                super(Vlans.Vlan.Config, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vlans.Vlan.Config, self).__init__()
 
                 self.yang_name = "config"
                 self.yang_parent_name = "vlan"
@@ -206,7 +218,7 @@ class Vlans(Entity):
 
 
 
-        class State(Entity):
+        class State(_Entity_):
             """
             State variables for VLANs
             
@@ -252,7 +264,10 @@ class Vlans(Entity):
             _revision = '2016-05-26'
 
             def __init__(self):
-                super(Vlans.Vlan.State, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vlans.Vlan.State, self).__init__()
 
                 self.yang_name = "state"
                 self.yang_parent_name = "vlan"
@@ -299,7 +314,7 @@ class Vlans(Entity):
 
 
 
-        class Members(Entity):
+        class Members(_Entity_):
             """
             Enclosing container for list of member interfaces
             
@@ -318,7 +333,10 @@ class Vlans(Entity):
             _revision = '2016-05-26'
 
             def __init__(self):
-                super(Vlans.Vlan.Members, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Vlans.Vlan.Members, self).__init__()
 
                 self.yang_name = "members"
                 self.yang_parent_name = "vlan"
@@ -336,7 +354,7 @@ class Vlans(Entity):
                 self._perform_setattr(Vlans.Vlan.Members, [], name, value)
 
 
-            class Member(Entity):
+            class Member(_Entity_):
                 """
                 List of references to interfaces / subinterfaces
                 associated with the VLAN.
@@ -356,7 +374,10 @@ class Vlans(Entity):
                 _revision = '2016-05-26'
 
                 def __init__(self):
-                    super(Vlans.Vlan.Members.Member, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Vlans.Vlan.Members.Member, self).__init__()
 
                     self.yang_name = "member"
                     self.yang_parent_name = "members"
@@ -376,7 +397,7 @@ class Vlans(Entity):
                     self._perform_setattr(Vlans.Vlan.Members.Member, [], name, value)
 
 
-                class InterfaceRef(Entity):
+                class InterfaceRef(_Entity_):
                     """
                     Reference to an interface or subinterface
                     
@@ -395,7 +416,10 @@ class Vlans(Entity):
                     _revision = '2016-05-26'
 
                     def __init__(self):
-                        super(Vlans.Vlan.Members.Member.InterfaceRef, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Vlans.Vlan.Members.Member.InterfaceRef, self).__init__()
 
                         self.yang_name = "interface-ref"
                         self.yang_parent_name = "member"
@@ -415,7 +439,7 @@ class Vlans(Entity):
                         self._perform_setattr(Vlans.Vlan.Members.Member.InterfaceRef, [], name, value)
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state for interface\-ref
                         
@@ -447,7 +471,10 @@ class Vlans(Entity):
                         _revision = '2016-05-26'
 
                         def __init__(self):
-                            super(Vlans.Vlan.Members.Member.InterfaceRef.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Vlans.Vlan.Members.Member.InterfaceRef.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "interface-ref"

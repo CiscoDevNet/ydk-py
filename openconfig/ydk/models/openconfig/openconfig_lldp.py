@@ -4,8 +4,11 @@ This module defines configuration and operational state data
 for the LLDP protocol.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -14,7 +17,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Lldp(Entity):
+class Lldp(_Entity_):
     """
     Top\-level container for LLDP configuration and state data
     
@@ -43,7 +46,10 @@ class Lldp(Entity):
     _revision = '2016-05-16'
 
     def __init__(self):
-        super(Lldp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Lldp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "lldp"
@@ -72,7 +78,7 @@ class Lldp(Entity):
         self._perform_setattr(Lldp, [], name, value)
 
 
-    class Config(Entity):
+    class Config(_Entity_):
         """
         Configuration data 
         
@@ -129,7 +135,10 @@ class Lldp(Entity):
         _revision = '2016-05-16'
 
         def __init__(self):
-            super(Lldp.Config, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Lldp.Config, self).__init__()
 
             self.yang_name = "config"
             self.yang_parent_name = "lldp"
@@ -162,7 +171,7 @@ class Lldp(Entity):
 
 
 
-    class State(Entity):
+    class State(_Entity_):
         """
         Operational state data 
         
@@ -240,7 +249,10 @@ class Lldp(Entity):
         _revision = '2016-05-16'
 
         def __init__(self):
-            super(Lldp.State, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Lldp.State, self).__init__()
 
             self.yang_name = "state"
             self.yang_parent_name = "lldp"
@@ -276,7 +288,7 @@ class Lldp(Entity):
             self._perform_setattr(Lldp.State, ['enabled', 'hello_timer', 'suppress_tlv_advertisement', 'system_name', 'system_description', 'chassis_id', 'chassis_id_type'], name, value)
 
 
-        class Counters(Entity):
+        class Counters(_Entity_):
             """
             Global LLDP counters
             
@@ -369,7 +381,10 @@ class Lldp(Entity):
             _revision = '2016-05-16'
 
             def __init__(self):
-                super(Lldp.State.Counters, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lldp.State.Counters, self).__init__()
 
                 self.yang_name = "counters"
                 self.yang_parent_name = "state"
@@ -407,7 +422,7 @@ class Lldp(Entity):
 
 
 
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         Enclosing container 
         
@@ -424,7 +439,10 @@ class Lldp(Entity):
         _revision = '2016-05-16'
 
         def __init__(self):
-            super(Lldp.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Lldp.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "lldp"
@@ -443,7 +461,7 @@ class Lldp(Entity):
             self._perform_setattr(Lldp.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             List of interfaces on which LLDP is enabled / available
             
@@ -481,7 +499,10 @@ class Lldp(Entity):
             _revision = '2016-05-16'
 
             def __init__(self):
-                super(Lldp.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lldp.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -513,7 +534,7 @@ class Lldp(Entity):
                 self._perform_setattr(Lldp.Interfaces.Interface, ['name'], name, value)
 
 
-            class Config(Entity):
+            class Config(_Entity_):
                 """
                 Configuration data for LLDP on each interface
                 
@@ -531,6 +552,13 @@ class Lldp(Entity):
                 
                 	**default value**\: true
                 
+                .. attribute:: snooping
+                
+                	If true, LLDP PDUs are only received and processed on the interface, but are not originated by the local agent. The PDUs are not dropped by the interface after processing, but relayed to the downstream link layer neighbors. If false, LLDP PDUs are both received and originated on the interface. The snooping mode is valid only when LLDP is enabled on the interface. The snooping mode is useful when an interface does not want its link layer neighbors to discover itself since, for example, it is a lower\-layer interface
+                	**type**\: bool
+                
+                	**default value**\: false
+                
                 
 
                 """
@@ -539,7 +567,10 @@ class Lldp(Entity):
                 _revision = '2016-05-16'
 
                 def __init__(self):
-                    super(Lldp.Interfaces.Interface.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Lldp.Interfaces.Interface.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "interface"
@@ -550,18 +581,20 @@ class Lldp(Entity):
                     self._leafs = OrderedDict([
                         ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                        ('snooping', (YLeaf(YType.boolean, 'openconfig-terminal-device:snooping'), ['bool'])),
                     ])
                     self.name = None
                     self.enabled = None
+                    self.snooping = None
                     self._segment_path = lambda: "config"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lldp.Interfaces.Interface.Config, ['name', 'enabled'], name, value)
+                    self._perform_setattr(Lldp.Interfaces.Interface.Config, ['name', 'enabled', 'snooping'], name, value)
 
 
 
-            class State(Entity):
+            class State(_Entity_):
                 """
                 Operational state data 
                 
@@ -598,7 +631,10 @@ class Lldp(Entity):
                 _revision = '2016-05-16'
 
                 def __init__(self):
-                    super(Lldp.Interfaces.Interface.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Lldp.Interfaces.Interface.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "interface"
@@ -623,7 +659,7 @@ class Lldp(Entity):
                     self._perform_setattr(Lldp.Interfaces.Interface.State, ['name', 'enabled'], name, value)
 
 
-                class Counters(Entity):
+                class Counters(_Entity_):
                     """
                     LLDP counters on each interface
                     
@@ -707,7 +743,10 @@ class Lldp(Entity):
                     _revision = '2016-05-16'
 
                     def __init__(self):
-                        super(Lldp.Interfaces.Interface.State.Counters, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Lldp.Interfaces.Interface.State.Counters, self).__init__()
 
                         self.yang_name = "counters"
                         self.yang_parent_name = "state"
@@ -742,7 +781,7 @@ class Lldp(Entity):
 
 
 
-            class Neighbors(Entity):
+            class Neighbors(_Entity_):
                 """
                 Enclosing container for list of LLDP neighbors on an
                 interface
@@ -762,7 +801,10 @@ class Lldp(Entity):
                 _revision = '2016-05-16'
 
                 def __init__(self):
-                    super(Lldp.Interfaces.Interface.Neighbors, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Lldp.Interfaces.Interface.Neighbors, self).__init__()
 
                     self.yang_name = "neighbors"
                     self.yang_parent_name = "interface"
@@ -780,7 +822,7 @@ class Lldp(Entity):
                     self._perform_setattr(Lldp.Interfaces.Interface.Neighbors, [], name, value)
 
 
-                class Neighbor(Entity):
+                class Neighbor(_Entity_):
                     """
                     List of LLDP neighbors
                     
@@ -829,7 +871,10 @@ class Lldp(Entity):
                     _revision = '2016-05-16'
 
                     def __init__(self):
-                        super(Lldp.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Lldp.Interfaces.Interface.Neighbors.Neighbor, self).__init__()
 
                         self.yang_name = "neighbor"
                         self.yang_parent_name = "neighbors"
@@ -864,7 +909,7 @@ class Lldp(Entity):
                         self._perform_setattr(Lldp.Interfaces.Interface.Neighbors.Neighbor, ['id'], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data 
                         
@@ -876,7 +921,10 @@ class Lldp(Entity):
                         _revision = '2016-05-16'
 
                         def __init__(self):
-                            super(Lldp.Interfaces.Interface.Neighbors.Neighbor.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lldp.Interfaces.Interface.Neighbors.Neighbor.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "neighbor"
@@ -890,7 +938,7 @@ class Lldp(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state data 
                         
@@ -996,7 +1044,10 @@ class Lldp(Entity):
                         _revision = '2016-05-16'
 
                         def __init__(self):
-                            super(Lldp.Interfaces.Interface.Neighbors.Neighbor.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lldp.Interfaces.Interface.Neighbors.Neighbor.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "neighbor"
@@ -1038,7 +1089,7 @@ class Lldp(Entity):
 
 
 
-                    class CustomTlvs(Entity):
+                    class CustomTlvs(_Entity_):
                         """
                         Enclosing container for list of custom TLVs from a
                         neighbor
@@ -1058,7 +1109,10 @@ class Lldp(Entity):
                         _revision = '2016-05-16'
 
                         def __init__(self):
-                            super(Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs, self).__init__()
 
                             self.yang_name = "custom-tlvs"
                             self.yang_parent_name = "neighbor"
@@ -1076,7 +1130,7 @@ class Lldp(Entity):
                             self._perform_setattr(Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs, [], name, value)
 
 
-                        class Tlv(Entity):
+                        class Tlv(_Entity_):
                             """
                             List of custom LLDP TLVs from a neighbor
                             
@@ -1131,7 +1185,10 @@ class Lldp(Entity):
                             _revision = '2016-05-16'
 
                             def __init__(self):
-                                super(Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv, self).__init__()
 
                                 self.yang_name = "tlv"
                                 self.yang_parent_name = "custom-tlvs"
@@ -1162,7 +1219,7 @@ class Lldp(Entity):
                                 self._perform_setattr(Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv, ['type', 'oui', 'oui_subtype'], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configuration data 
                                 
@@ -1174,7 +1231,10 @@ class Lldp(Entity):
                                 _revision = '2016-05-16'
 
                                 def __init__(self):
-                                    super(Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "tlv"
@@ -1188,7 +1248,7 @@ class Lldp(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Operational state data 
                                 
@@ -1230,7 +1290,10 @@ class Lldp(Entity):
                                 _revision = '2016-05-16'
 
                                 def __init__(self):
-                                    super(Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "tlv"
@@ -1258,7 +1321,7 @@ class Lldp(Entity):
 
 
 
-                    class Capabilities(Entity):
+                    class Capabilities(_Entity_):
                         """
                         Enclosing container for list of LLDP capabilities
                         
@@ -1277,7 +1340,10 @@ class Lldp(Entity):
                         _revision = '2016-05-16'
 
                         def __init__(self):
-                            super(Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities, self).__init__()
 
                             self.yang_name = "capabilities"
                             self.yang_parent_name = "neighbor"
@@ -1295,7 +1361,7 @@ class Lldp(Entity):
                             self._perform_setattr(Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities, [], name, value)
 
 
-                        class Capability(Entity):
+                        class Capability(_Entity_):
                             """
                             List of LLDP system capabilities advertised by the
                             neighbor
@@ -1329,7 +1395,10 @@ class Lldp(Entity):
                             _revision = '2016-05-16'
 
                             def __init__(self):
-                                super(Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability, self).__init__()
 
                                 self.yang_name = "capability"
                                 self.yang_parent_name = "capabilities"
@@ -1356,7 +1425,7 @@ class Lldp(Entity):
                                 self._perform_setattr(Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability, ['name'], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configuration data for LLDP capabilities
                                 
@@ -1368,7 +1437,10 @@ class Lldp(Entity):
                                 _revision = '2016-05-16'
 
                                 def __init__(self):
-                                    super(Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "capability"
@@ -1382,7 +1454,7 @@ class Lldp(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Operational state data for LLDP capabilities
                                 
@@ -1408,7 +1480,10 @@ class Lldp(Entity):
                                 _revision = '2016-05-16'
 
                                 def __init__(self):
-                                    super(Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "capability"

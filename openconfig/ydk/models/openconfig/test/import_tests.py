@@ -4,6 +4,35 @@ import unittest
 class ImportTest(unittest.TestCase):
 
 
+    def test_openconfig_aaa(self):
+        from ydk.models.openconfig.openconfig_aaa import TACACS
+        from ydk.models.openconfig.openconfig_aaa import RADIUS
+
+
+    def test_openconfig_aaa_radius(self):
+        pass
+
+
+    def test_openconfig_aaa_tacacs(self):
+        pass
+
+
+    def test_openconfig_aaa_types(self):
+        from ydk.models.openconfig.openconfig_aaa_types import AAASERVERTYPE
+        from ydk.models.openconfig.openconfig_aaa_types import SYSTEMDEFINEDROLES
+        from ydk.models.openconfig.openconfig_aaa_types import SYSTEMROLEADMIN
+        from ydk.models.openconfig.openconfig_aaa_types import AAAACCOUNTINGEVENTTYPE
+        from ydk.models.openconfig.openconfig_aaa_types import AAAACCOUNTINGEVENTCOMMAND
+        from ydk.models.openconfig.openconfig_aaa_types import AAAACCOUNTINGEVENTLOGIN
+        from ydk.models.openconfig.openconfig_aaa_types import AAAAUTHORIZATIONEVENTTYPE
+        from ydk.models.openconfig.openconfig_aaa_types import AAAAUTHORIZATIONEVENTCOMMAND
+        from ydk.models.openconfig.openconfig_aaa_types import AAAAUTHORIZATIONEVENTCONFIG
+        from ydk.models.openconfig.openconfig_aaa_types import AAAMETHODTYPE
+        from ydk.models.openconfig.openconfig_aaa_types import TACACSALL
+        from ydk.models.openconfig.openconfig_aaa_types import RADIUSALL
+        from ydk.models.openconfig.openconfig_aaa_types import LOCAL
+
+
     def test_openconfig_acl(self):
         from ydk.models.openconfig.openconfig_acl import ACLTYPE
         from ydk.models.openconfig.openconfig_acl import ACLIPV4
@@ -58,6 +87,30 @@ class ImportTest(unittest.TestCase):
 
     def test_openconfig_aft_types(self):
         from ydk.models.openconfig.openconfig_aft_types import EncapsulationHeaderType
+
+
+    def test_openconfig_alarm_types(self):
+        from ydk.models.openconfig.openconfig_alarm_types import OPENCONFIGALARMTYPEID
+        from ydk.models.openconfig.openconfig_alarm_types import AIS
+        from ydk.models.openconfig.openconfig_alarm_types import EQPT
+        from ydk.models.openconfig.openconfig_alarm_types import LOS
+        from ydk.models.openconfig.openconfig_alarm_types import OTS
+        from ydk.models.openconfig.openconfig_alarm_types import OPENCONFIGALARMSEVERITY
+        from ydk.models.openconfig.openconfig_alarm_types import UNKNOWN
+        from ydk.models.openconfig.openconfig_alarm_types import MINOR
+        from ydk.models.openconfig.openconfig_alarm_types import WARNING
+        from ydk.models.openconfig.openconfig_alarm_types import MAJOR
+        from ydk.models.openconfig.openconfig_alarm_types import CRITICAL
+
+
+    def test_openconfig_alarms(self):
+        pass
+
+
+    def test_openconfig_bfd(self):
+        from ydk.models.openconfig.openconfig_bfd import BfdSessionState
+        from ydk.models.openconfig.openconfig_bfd import BfdDiagnosticCode
+        from ydk.models.openconfig.openconfig_bfd import Bfd
 
 
     def test_openconfig_bgp(self):
@@ -157,8 +210,23 @@ class ImportTest(unittest.TestCase):
         from ydk.models.openconfig.openconfig_if_ip import NeighborOrigin
 
 
-    def test_openconfig_inet_types(self):
+    def test_openconfig_if_ip_ext(self):
         pass
+
+
+    def test_openconfig_if_types(self):
+        from ydk.models.openconfig.openconfig_if_types import INTERFACETYPE
+        from ydk.models.openconfig.openconfig_if_types import IFETHERNET
+        from ydk.models.openconfig.openconfig_if_types import IFAGGREGATE
+        from ydk.models.openconfig.openconfig_if_types import IFLOOPBACK
+        from ydk.models.openconfig.openconfig_if_types import IFROUTEDVLAN
+        from ydk.models.openconfig.openconfig_if_types import IFSONET
+        from ydk.models.openconfig.openconfig_if_types import IFTUNNELGRE4
+        from ydk.models.openconfig.openconfig_if_types import IFTUNNELGRE6
+
+
+    def test_openconfig_inet_types(self):
+        from ydk.models.openconfig.openconfig_inet_types import IpVersion
 
 
     def test_openconfig_interfaces(self):
@@ -180,6 +248,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.openconfig.openconfig_isis_lsdb_types import INSTANCEID
         from ydk.models.openconfig.openconfig_isis_lsdb_types import AUTHENTICATION
         from ydk.models.openconfig.openconfig_isis_lsdb_types import PURGEOI
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import LSPBUFFERSIZE
         from ydk.models.openconfig.openconfig_isis_lsdb_types import EXTENDEDISREACHABILITY
         from ydk.models.openconfig.openconfig_isis_lsdb_types import ISNEIGHBORATTRIBUTE
         from ydk.models.openconfig.openconfig_isis_lsdb_types import ISISALIASID
@@ -202,6 +271,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.openconfig.openconfig_isis_lsdb_types import MTIPV6REACHABILITY
         from ydk.models.openconfig.openconfig_isis_lsdb_types import ROUTERCAPABILITY
         from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYADMINGROUP
+        from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYLINKID
         from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYIPV4INTERFACEADDRESS
         from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYIPV4NEIGHBORADDRESS
         from ydk.models.openconfig.openconfig_isis_lsdb_types import ISREACHABILITYMAXLINKBANDWIDTH
@@ -434,6 +504,12 @@ class ImportTest(unittest.TestCase):
         from ydk.models.openconfig.openconfig_optical_amplifier import OPTICALAMPLIFIERMODE
         from ydk.models.openconfig.openconfig_optical_amplifier import CONSTANTPOWER
         from ydk.models.openconfig.openconfig_optical_amplifier import CONSTANTGAIN
+        from ydk.models.openconfig.openconfig_optical_amplifier import FIBERTYPEPROFILE
+        from ydk.models.openconfig.openconfig_optical_amplifier import DSF
+        from ydk.models.openconfig.openconfig_optical_amplifier import LEAF
+        from ydk.models.openconfig.openconfig_optical_amplifier import SSMF
+        from ydk.models.openconfig.openconfig_optical_amplifier import TWC
+        from ydk.models.openconfig.openconfig_optical_amplifier import TWRS
         from ydk.models.openconfig.openconfig_optical_amplifier import OpticalAmplifier
 
 
@@ -476,6 +552,30 @@ class ImportTest(unittest.TestCase):
         from ydk.models.openconfig.openconfig_platform import Components
 
 
+    def test_openconfig_platform_cpu(self):
+        pass
+
+
+    def test_openconfig_platform_ext(self):
+        pass
+
+
+    def test_openconfig_platform_fan(self):
+        pass
+
+
+    def test_openconfig_platform_linecard(self):
+        pass
+
+
+    def test_openconfig_platform_port(self):
+        pass
+
+
+    def test_openconfig_platform_psu(self):
+        pass
+
+
     def test_openconfig_platform_transceiver(self):
         pass
 
@@ -485,15 +585,31 @@ class ImportTest(unittest.TestCase):
         from ydk.models.openconfig.openconfig_platform_types import OPENCONFIGSOFTWARECOMPONENT
         from ydk.models.openconfig.openconfig_platform_types import CHASSIS
         from ydk.models.openconfig.openconfig_platform_types import BACKPLANE
+        from ydk.models.openconfig.openconfig_platform_types import FABRIC
         from ydk.models.openconfig.openconfig_platform_types import POWERSUPPLY
         from ydk.models.openconfig.openconfig_platform_types import FAN
         from ydk.models.openconfig.openconfig_platform_types import SENSOR
-        from ydk.models.openconfig.openconfig_platform_types import MODULE
+        from ydk.models.openconfig.openconfig_platform_types import FRU
         from ydk.models.openconfig.openconfig_platform_types import LINECARD
+        from ydk.models.openconfig.openconfig_platform_types import CONTROLLERCARD
         from ydk.models.openconfig.openconfig_platform_types import PORT
         from ydk.models.openconfig.openconfig_platform_types import TRANSCEIVER
         from ydk.models.openconfig.openconfig_platform_types import CPU
+        from ydk.models.openconfig.openconfig_platform_types import STORAGE
+        from ydk.models.openconfig.openconfig_platform_types import INTEGRATEDCIRCUIT
         from ydk.models.openconfig.openconfig_platform_types import OPERATINGSYSTEM
+        from ydk.models.openconfig.openconfig_platform_types import COMPONENTOPERSTATUS
+        from ydk.models.openconfig.openconfig_platform_types import ACTIVE
+        from ydk.models.openconfig.openconfig_platform_types import INACTIVE
+        from ydk.models.openconfig.openconfig_platform_types import DISABLED
+        from ydk.models.openconfig.openconfig_platform_types import FECMODETYPE
+        from ydk.models.openconfig.openconfig_platform_types import FECENABLED
+        from ydk.models.openconfig.openconfig_platform_types import FECDISABLED
+        from ydk.models.openconfig.openconfig_platform_types import FECAUTO
+        from ydk.models.openconfig.openconfig_platform_types import FECSTATUSTYPE
+        from ydk.models.openconfig.openconfig_platform_types import FECSTATUSLOCKED
+        from ydk.models.openconfig.openconfig_platform_types import FECSTATUSUNLOCKED
+        from ydk.models.openconfig.openconfig_platform_types import ComponentPowerType
 
 
     def test_openconfig_policy_types(self):
@@ -511,6 +627,10 @@ class ImportTest(unittest.TestCase):
         from ydk.models.openconfig.openconfig_policy_types import LOCALAGGREGATE
         from ydk.models.openconfig.openconfig_policy_types import MatchSetOptionsType
         from ydk.models.openconfig.openconfig_policy_types import MatchSetOptionsRestrictedType
+
+
+    def test_openconfig_procmon(self):
+        pass
 
 
     def test_openconfig_rib_bgp(self):
@@ -538,6 +658,7 @@ class ImportTest(unittest.TestCase):
 
     def test_openconfig_routing_policy(self):
         from ydk.models.openconfig.openconfig_routing_policy import DefaultPolicyType
+        from ydk.models.openconfig.openconfig_routing_policy import PolicyResultType
         from ydk.models.openconfig.openconfig_routing_policy import RoutingPolicy
 
 
@@ -548,6 +669,49 @@ class ImportTest(unittest.TestCase):
     def test_openconfig_segment_routing(self):
         from ydk.models.openconfig.openconfig_segment_routing import SrDataplaneType
         from ydk.models.openconfig.openconfig_segment_routing import MplsLabel
+
+
+    def test_openconfig_system(self):
+        from ydk.models.openconfig.openconfig_system import NTPAUTHTYPE
+        from ydk.models.openconfig.openconfig_system import NTPAUTHMD5
+        from ydk.models.openconfig.openconfig_system import System
+
+
+    def test_openconfig_system_logging(self):
+        from ydk.models.openconfig.openconfig_system_logging import SYSLOGFACILITY
+        from ydk.models.openconfig.openconfig_system_logging import ALL
+        from ydk.models.openconfig.openconfig_system_logging import KERNEL
+        from ydk.models.openconfig.openconfig_system_logging import USER
+        from ydk.models.openconfig.openconfig_system_logging import MAIL
+        from ydk.models.openconfig.openconfig_system_logging import SYSTEMDAEMON
+        from ydk.models.openconfig.openconfig_system_logging import AUTH
+        from ydk.models.openconfig.openconfig_system_logging import SYSLOG
+        from ydk.models.openconfig.openconfig_system_logging import AUTHPRIV
+        from ydk.models.openconfig.openconfig_system_logging import NTP
+        from ydk.models.openconfig.openconfig_system_logging import AUDIT
+        from ydk.models.openconfig.openconfig_system_logging import CONSOLE
+        from ydk.models.openconfig.openconfig_system_logging import LOCAL0
+        from ydk.models.openconfig.openconfig_system_logging import LOCAL1
+        from ydk.models.openconfig.openconfig_system_logging import LOCAL2
+        from ydk.models.openconfig.openconfig_system_logging import LOCAL3
+        from ydk.models.openconfig.openconfig_system_logging import LOCAL4
+        from ydk.models.openconfig.openconfig_system_logging import LOCAL5
+        from ydk.models.openconfig.openconfig_system_logging import LOCAL6
+        from ydk.models.openconfig.openconfig_system_logging import LOCAL7
+        from ydk.models.openconfig.openconfig_system_logging import LOGDESTINATIONTYPE
+        from ydk.models.openconfig.openconfig_system_logging import DESTCONSOLE
+        from ydk.models.openconfig.openconfig_system_logging import DESTBUFFER
+        from ydk.models.openconfig.openconfig_system_logging import DESTFILE
+        from ydk.models.openconfig.openconfig_system_logging import DESTREMOTE
+        from ydk.models.openconfig.openconfig_system_logging import SyslogSeverity
+
+
+    def test_openconfig_system_management(self):
+        pass
+
+
+    def test_openconfig_system_terminal(self):
+        pass
 
 
     def test_openconfig_telemetry(self):
@@ -576,6 +740,17 @@ class ImportTest(unittest.TestCase):
 
 
     def test_openconfig_transport_types(self):
+        from ydk.models.openconfig.openconfig_transport_types import FRAMEMAPPINGPROTOCOL
+        from ydk.models.openconfig.openconfig_transport_types import AMP
+        from ydk.models.openconfig.openconfig_transport_types import GMP
+        from ydk.models.openconfig.openconfig_transport_types import BMP
+        from ydk.models.openconfig.openconfig_transport_types import CBR
+        from ydk.models.openconfig.openconfig_transport_types import GFPT
+        from ydk.models.openconfig.openconfig_transport_types import GFPF
+        from ydk.models.openconfig.openconfig_transport_types import TRIBUTARYSLOTGRANULARITY
+        from ydk.models.openconfig.openconfig_transport_types import TRIBSLOT1DOT25G
+        from ydk.models.openconfig.openconfig_transport_types import TRIBSLOT2DOT5G
+        from ydk.models.openconfig.openconfig_transport_types import TRIBSLOT5G
         from ydk.models.openconfig.openconfig_transport_types import TRIBUTARYPROTOCOLTYPE
         from ydk.models.openconfig.openconfig_transport_types import PROT1GE
         from ydk.models.openconfig.openconfig_transport_types import PROTOC48
@@ -598,6 +773,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.openconfig.openconfig_transport_types import PROT100GMLG
         from ydk.models.openconfig.openconfig_transport_types import PROTOTU4
         from ydk.models.openconfig.openconfig_transport_types import PROTOTUCN
+        from ydk.models.openconfig.openconfig_transport_types import PROTODUCN
         from ydk.models.openconfig.openconfig_transport_types import PROTODU4
         from ydk.models.openconfig.openconfig_transport_types import TRANSCEIVERFORMFACTORTYPE
         from ydk.models.openconfig.openconfig_transport_types import CFP
@@ -605,7 +781,9 @@ class ImportTest(unittest.TestCase):
         from ydk.models.openconfig.openconfig_transport_types import CFP2ACO
         from ydk.models.openconfig.openconfig_transport_types import CFP4
         from ydk.models.openconfig.openconfig_transport_types import QSFP
+        from ydk.models.openconfig.openconfig_transport_types import QSFPPLUS
         from ydk.models.openconfig.openconfig_transport_types import QSFP28
+        from ydk.models.openconfig.openconfig_transport_types import CPAK
         from ydk.models.openconfig.openconfig_transport_types import SFP
         from ydk.models.openconfig.openconfig_transport_types import SFPPLUS
         from ydk.models.openconfig.openconfig_transport_types import XFP
@@ -656,10 +834,33 @@ class ImportTest(unittest.TestCase):
         from ydk.models.openconfig.openconfig_transport_types import TRIBRATE10G
         from ydk.models.openconfig.openconfig_transport_types import TRIBRATE40G
         from ydk.models.openconfig.openconfig_transport_types import TRIBRATE100G
+        from ydk.models.openconfig.openconfig_transport_types import TRIBRATE150G
+        from ydk.models.openconfig.openconfig_transport_types import TRIBRATE200G
+        from ydk.models.openconfig.openconfig_transport_types import TRIBRATE250G
+        from ydk.models.openconfig.openconfig_transport_types import TRIBRATE300G
+        from ydk.models.openconfig.openconfig_transport_types import TRIBRATE400G
+        from ydk.models.openconfig.openconfig_transport_types import TRIBRATE500G
+        from ydk.models.openconfig.openconfig_transport_types import TRIBRATE600G
+        from ydk.models.openconfig.openconfig_transport_types import TRIBRATE700G
+        from ydk.models.openconfig.openconfig_transport_types import TRIBRATE800G
+        from ydk.models.openconfig.openconfig_transport_types import TRIBRATE900G
+        from ydk.models.openconfig.openconfig_transport_types import TRIBRATE1000G
+        from ydk.models.openconfig.openconfig_transport_types import TRIBRATE1100G
         from ydk.models.openconfig.openconfig_transport_types import LOGICALELEMENTPROTOCOLTYPE
         from ydk.models.openconfig.openconfig_transport_types import PROTETHERNET
         from ydk.models.openconfig.openconfig_transport_types import PROTOTN
         from ydk.models.openconfig.openconfig_transport_types import OPTICALCHANNEL
+        from ydk.models.openconfig.openconfig_transport_types import FIBERJUMPERTYPE
+        from ydk.models.openconfig.openconfig_transport_types import FIBERJUMPERSIMPLEX
+        from ydk.models.openconfig.openconfig_transport_types import FIBERJUMPERMULTIFIBERSTRAND
+        from ydk.models.openconfig.openconfig_transport_types import OPTICALPORTTYPE
+        from ydk.models.openconfig.openconfig_transport_types import INGRESS
+        from ydk.models.openconfig.openconfig_transport_types import EGRESS
+        from ydk.models.openconfig.openconfig_transport_types import ADD
+        from ydk.models.openconfig.openconfig_transport_types import DROP
+        from ydk.models.openconfig.openconfig_transport_types import MONITOR
+        from ydk.models.openconfig.openconfig_transport_types import TERMINALCLIENT
+        from ydk.models.openconfig.openconfig_transport_types import TERMINALLINE
         from ydk.models.openconfig.openconfig_transport_types import AdminStateType
         from ydk.models.openconfig.openconfig_transport_types import LoopbackModeType
 

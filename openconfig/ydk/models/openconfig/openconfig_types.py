@@ -5,8 +5,11 @@ are used across OpenConfig models. It can be imported by modules
 that make use of these types.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -24,10 +27,13 @@ class ADDRESSFAMILY(Identity):
     """
 
     _prefix = 'oc-types'
-    _revision = '2017-01-13'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/openconfig-types", pref="openconfig-types", tag="openconfig-types:ADDRESS_FAMILY"):
-        super(ADDRESSFAMILY, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ADDRESSFAMILY, self).__init__(ns, pref, tag)
 
 
 
@@ -40,10 +46,13 @@ class IPV4(ADDRESSFAMILY):
     """
 
     _prefix = 'oc-types'
-    _revision = '2017-01-13'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/openconfig-types", pref="openconfig-types", tag="openconfig-types:IPV4"):
-        super(IPV4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPV4, self).__init__(ns, pref, tag)
 
 
 
@@ -56,10 +65,13 @@ class IPV6(ADDRESSFAMILY):
     """
 
     _prefix = 'oc-types'
-    _revision = '2017-01-13'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/openconfig-types", pref="openconfig-types", tag="openconfig-types:IPV6"):
-        super(IPV6, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPV6, self).__init__(ns, pref, tag)
 
 
 
@@ -72,10 +84,13 @@ class MPLS(ADDRESSFAMILY):
     """
 
     _prefix = 'oc-types'
-    _revision = '2017-01-13'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/openconfig-types", pref="openconfig-types", tag="openconfig-types:MPLS"):
-        super(MPLS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MPLS, self).__init__(ns, pref, tag)
 
 
 
@@ -88,10 +103,13 @@ class L2ETHERNET(ADDRESSFAMILY):
     """
 
     _prefix = 'oc-types'
-    _revision = '2017-01-13'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/openconfig-types", pref="openconfig-types", tag="openconfig-types:L2_ETHERNET"):
-        super(L2ETHERNET, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(L2ETHERNET, self).__init__(ns, pref, tag)
 
 
 

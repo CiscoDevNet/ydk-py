@@ -4,8 +4,11 @@ This module contains general data definitions for use in ISIS YANG
 model.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -200,10 +203,13 @@ class OVERLOADRESETTRIGGERTYPE(Identity):
     """
 
     _prefix = 'oc-isis-types'
-    _revision = '2017-05-15'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:OVERLOAD_RESET_TRIGGER_TYPE"):
-        super(OVERLOADRESETTRIGGERTYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OVERLOADRESETTRIGGERTYPE, self).__init__(ns, pref, tag)
 
 
 
@@ -216,10 +222,13 @@ class MTTYPE(Identity):
     """
 
     _prefix = 'oc-isis-types'
-    _revision = '2017-05-15'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:MT_TYPE"):
-        super(MTTYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MTTYPE, self).__init__(ns, pref, tag)
 
 
 
@@ -232,10 +241,13 @@ class SAFITYPE(Identity):
     """
 
     _prefix = 'oc-isis-types'
-    _revision = '2017-05-15'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:SAFI_TYPE"):
-        super(SAFITYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SAFITYPE, self).__init__(ns, pref, tag)
 
 
 
@@ -248,10 +260,13 @@ class AFITYPE(Identity):
     """
 
     _prefix = 'oc-isis-types'
-    _revision = '2017-05-15'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:AFI_TYPE"):
-        super(AFITYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AFITYPE, self).__init__(ns, pref, tag)
 
 
 
@@ -264,10 +279,13 @@ class AFISAFITYPE(Identity):
     """
 
     _prefix = 'oc-isis-types'
-    _revision = '2017-05-15'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:AFI_SAFI_TYPE"):
-        super(AFISAFITYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AFISAFITYPE, self).__init__(ns, pref, tag)
 
 
 
@@ -280,10 +298,13 @@ class WAITFORBGP(OVERLOADRESETTRIGGERTYPE):
     """
 
     _prefix = 'oc-isis-types'
-    _revision = '2017-05-15'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:WAIT_FOR_BGP"):
-        super(WAITFORBGP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(WAITFORBGP, self).__init__(ns, pref, tag)
 
 
 
@@ -297,10 +318,13 @@ class WAITFORSYSTEM(OVERLOADRESETTRIGGERTYPE):
     """
 
     _prefix = 'oc-isis-types'
-    _revision = '2017-05-15'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:WAIT_FOR_SYSTEM"):
-        super(WAITFORSYSTEM, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(WAITFORSYSTEM, self).__init__(ns, pref, tag)
 
 
 
@@ -313,10 +337,13 @@ class IPV4UNICAST(AFISAFITYPE):
     """
 
     _prefix = 'oc-isis-types'
-    _revision = '2017-05-15'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:IPV4_UNICAST"):
-        super(IPV4UNICAST, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPV4UNICAST, self).__init__(ns, pref, tag)
 
 
 
@@ -329,10 +356,13 @@ class IPV6MULTICAST(AFISAFITYPE):
     """
 
     _prefix = 'oc-isis-types'
-    _revision = '2017-05-15'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:IPV6_MULTICAST"):
-        super(IPV6MULTICAST, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPV6MULTICAST, self).__init__(ns, pref, tag)
 
 
 
@@ -345,10 +375,13 @@ class IPV4MULTICAST(AFISAFITYPE):
     """
 
     _prefix = 'oc-isis-types'
-    _revision = '2017-05-15'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:IPV4_MULTICAST"):
-        super(IPV4MULTICAST, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPV4MULTICAST, self).__init__(ns, pref, tag)
 
 
 
@@ -361,10 +394,13 @@ class IPV6UNICAST(AFISAFITYPE):
     """
 
     _prefix = 'oc-isis-types'
-    _revision = '2017-05-15'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:IPV6_UNICAST"):
-        super(IPV6UNICAST, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPV6UNICAST, self).__init__(ns, pref, tag)
 
 
 
@@ -377,10 +413,13 @@ class UNICAST(SAFITYPE):
     """
 
     _prefix = 'oc-isis-types'
-    _revision = '2017-05-15'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:UNICAST"):
-        super(UNICAST, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(UNICAST, self).__init__(ns, pref, tag)
 
 
 
@@ -393,10 +432,13 @@ class MULTICAST(SAFITYPE):
     """
 
     _prefix = 'oc-isis-types'
-    _revision = '2017-05-15'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:MULTICAST"):
-        super(MULTICAST, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MULTICAST, self).__init__(ns, pref, tag)
 
 
 
@@ -409,10 +451,13 @@ class IPV4(AFITYPE):
     """
 
     _prefix = 'oc-isis-types'
-    _revision = '2017-05-15'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:IPV4"):
-        super(IPV4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPV4, self).__init__(ns, pref, tag)
 
 
 
@@ -425,10 +470,13 @@ class IPV6(AFITYPE):
     """
 
     _prefix = 'oc-isis-types'
-    _revision = '2017-05-15'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:IPV6"):
-        super(IPV6, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(IPV6, self).__init__(ns, pref, tag)
 
 
 

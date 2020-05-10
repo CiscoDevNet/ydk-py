@@ -6,8 +6,11 @@ managing aggregate interfaces.   It works in conjunction with
 the OpenConfig interfaces and aggregate interfaces models.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -120,7 +123,7 @@ class LacpTimeoutType(Enum):
 
 
 
-class Lacp(Entity):
+class Lacp(_Entity_):
     """
     Configuration and operational state data for LACP protocol
     operation on the aggregate interface
@@ -147,10 +150,13 @@ class Lacp(Entity):
     """
 
     _prefix = 'oc-lacp'
-    _revision = '2016-05-26'
+    _revision = '2017-05-05'
 
     def __init__(self):
-        super(Lacp, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Lacp, self).__init__()
         self._top_entity = None
 
         self.yang_name = "lacp"
@@ -179,7 +185,7 @@ class Lacp(Entity):
         self._perform_setattr(Lacp, [], name, value)
 
 
-    class Config(Entity):
+    class Config(_Entity_):
         """
         Configuration data for LACP
         
@@ -195,10 +201,13 @@ class Lacp(Entity):
         """
 
         _prefix = 'oc-lacp'
-        _revision = '2016-05-26'
+        _revision = '2017-05-05'
 
         def __init__(self):
-            super(Lacp.Config, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Lacp.Config, self).__init__()
 
             self.yang_name = "config"
             self.yang_parent_name = "lacp"
@@ -219,7 +228,7 @@ class Lacp(Entity):
 
 
 
-    class State(Entity):
+    class State(_Entity_):
         """
         Operational state data for LACP
         
@@ -237,10 +246,13 @@ class Lacp(Entity):
         """
 
         _prefix = 'oc-lacp'
-        _revision = '2016-05-26'
+        _revision = '2017-05-05'
 
         def __init__(self):
-            super(Lacp.State, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Lacp.State, self).__init__()
 
             self.yang_name = "state"
             self.yang_parent_name = "lacp"
@@ -261,7 +273,7 @@ class Lacp(Entity):
 
 
 
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         Enclosing container for the list of LACP\-enabled
         interfaces
@@ -276,10 +288,13 @@ class Lacp(Entity):
         """
 
         _prefix = 'oc-lacp'
-        _revision = '2016-05-26'
+        _revision = '2017-05-05'
 
         def __init__(self):
-            super(Lacp.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Lacp.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "lacp"
@@ -298,7 +313,7 @@ class Lacp(Entity):
             self._perform_setattr(Lacp.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             List of aggregate interfaces managed by LACP
             
@@ -333,10 +348,13 @@ class Lacp(Entity):
             """
 
             _prefix = 'oc-lacp'
-            _revision = '2016-05-26'
+            _revision = '2017-05-05'
 
             def __init__(self):
-                super(Lacp.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Lacp.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -368,7 +386,7 @@ class Lacp(Entity):
                 self._perform_setattr(Lacp.Interfaces.Interface, ['name'], name, value)
 
 
-            class Config(Entity):
+            class Config(_Entity_):
                 """
                 Configuration data for each LACP aggregate interface
                 
@@ -398,7 +416,7 @@ class Lacp(Entity):
                 	The MAC address portion of the node's System ID. This is combined with the system priority to construct the 8\-octet system\-id
                 	**type**\: str
                 
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                	**pattern:** ^[0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}$
                 
                 .. attribute:: system_priority
                 
@@ -412,10 +430,13 @@ class Lacp(Entity):
                 """
 
                 _prefix = 'oc-lacp'
-                _revision = '2016-05-26'
+                _revision = '2017-05-05'
 
                 def __init__(self):
-                    super(Lacp.Interfaces.Interface.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Lacp.Interfaces.Interface.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "interface"
@@ -443,7 +464,7 @@ class Lacp(Entity):
 
 
 
-            class State(Entity):
+            class State(_Entity_):
                 """
                 Operational state data for each LACP aggregate
                 interface
@@ -480,7 +501,7 @@ class Lacp(Entity):
                 	The MAC address portion of the node's System ID. This is combined with the system priority to construct the 8\-octet system\-id
                 	**type**\: str
                 
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                	**pattern:** ^[0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}$
                 
                 	**config**\: False
                 
@@ -498,10 +519,13 @@ class Lacp(Entity):
                 """
 
                 _prefix = 'oc-lacp'
-                _revision = '2016-05-26'
+                _revision = '2017-05-05'
 
                 def __init__(self):
-                    super(Lacp.Interfaces.Interface.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Lacp.Interfaces.Interface.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "interface"
@@ -529,7 +553,7 @@ class Lacp(Entity):
 
 
 
-            class Members(Entity):
+            class Members(_Entity_):
                 """
                 Enclosing container for the list of members interfaces of
                 the aggregate. This list is considered operational state
@@ -547,10 +571,13 @@ class Lacp(Entity):
                 """
 
                 _prefix = 'oc-lacp'
-                _revision = '2016-05-26'
+                _revision = '2017-05-05'
 
                 def __init__(self):
-                    super(Lacp.Interfaces.Interface.Members, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Lacp.Interfaces.Interface.Members, self).__init__()
 
                     self.yang_name = "members"
                     self.yang_parent_name = "interface"
@@ -568,7 +595,7 @@ class Lacp(Entity):
                     self._perform_setattr(Lacp.Interfaces.Interface.Members, [], name, value)
 
 
-                class Member(Entity):
+                class Member(_Entity_):
                     """
                     List of member interfaces and their associated status for
                     a LACP\-controlled aggregate interface.  Member list is not
@@ -596,10 +623,13 @@ class Lacp(Entity):
                     """
 
                     _prefix = 'oc-lacp'
-                    _revision = '2016-05-26'
+                    _revision = '2017-05-05'
 
                     def __init__(self):
-                        super(Lacp.Interfaces.Interface.Members.Member, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Lacp.Interfaces.Interface.Members.Member, self).__init__()
 
                         self.yang_name = "member"
                         self.yang_parent_name = "members"
@@ -622,7 +652,7 @@ class Lacp(Entity):
                         self._perform_setattr(Lacp.Interfaces.Interface.Members.Member, ['interface'], name, value)
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state data for aggregate members
                         
@@ -682,7 +712,7 @@ class Lacp(Entity):
                         	MAC address that defines the local system ID for the aggregate interface
                         	**type**\: str
                         
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        	**pattern:** ^[0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}$
                         
                         	**config**\: False
                         
@@ -700,13 +730,31 @@ class Lacp(Entity):
                         	MAC address representing the protocol partner's interface system ID
                         	**type**\: str
                         
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        	**pattern:** ^[0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}$
                         
                         	**config**\: False
                         
                         .. attribute:: partner_key
                         
                         	Operational value of the protocol partner's key
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: port_num
+                        
+                        	Port number of the local (actor) aggregation member
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        	**config**\: False
+                        
+                        .. attribute:: partner_port_num
+                        
+                        	Port number of the partner (remote) port for this member port
                         	**type**\: int
                         
                         	**range:** 0..65535
@@ -725,10 +773,13 @@ class Lacp(Entity):
                         """
 
                         _prefix = 'oc-lacp'
-                        _revision = '2016-05-26'
+                        _revision = '2017-05-05'
 
                         def __init__(self):
-                            super(Lacp.Interfaces.Interface.Members.Member.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Lacp.Interfaces.Interface.Members.Member.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "member"
@@ -748,6 +799,8 @@ class Lacp(Entity):
                                 ('oper_key', (YLeaf(YType.uint16, 'oper-key'), ['int'])),
                                 ('partner_id', (YLeaf(YType.str, 'partner-id'), ['str'])),
                                 ('partner_key', (YLeaf(YType.uint16, 'partner-key'), ['int'])),
+                                ('port_num', (YLeaf(YType.uint16, 'port-num'), ['int'])),
+                                ('partner_port_num', (YLeaf(YType.uint16, 'partner-port-num'), ['int'])),
                             ])
                             self.interface = None
                             self.activity = None
@@ -760,6 +813,8 @@ class Lacp(Entity):
                             self.oper_key = None
                             self.partner_id = None
                             self.partner_key = None
+                            self.port_num = None
+                            self.partner_port_num = None
 
                             self.counters = Lacp.Interfaces.Interface.Members.Member.State.Counters()
                             self.counters.parent = self
@@ -768,10 +823,10 @@ class Lacp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lacp.Interfaces.Interface.Members.Member.State, ['interface', 'activity', 'timeout', 'synchronization', 'aggregatable', 'collecting', 'distributing', 'system_id', 'oper_key', 'partner_id', 'partner_key'], name, value)
+                            self._perform_setattr(Lacp.Interfaces.Interface.Members.Member.State, ['interface', 'activity', 'timeout', 'synchronization', 'aggregatable', 'collecting', 'distributing', 'system_id', 'oper_key', 'partner_id', 'partner_key', 'port_num', 'partner_port_num'], name, value)
 
 
-                        class Counters(Entity):
+                        class Counters(_Entity_):
                             """
                             LACP protocol counters
                             
@@ -834,10 +889,13 @@ class Lacp(Entity):
                             """
 
                             _prefix = 'oc-lacp'
-                            _revision = '2016-05-26'
+                            _revision = '2017-05-05'
 
                             def __init__(self):
-                                super(Lacp.Interfaces.Interface.Members.Member.State.Counters, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Lacp.Interfaces.Interface.Members.Member.State.Counters, self).__init__()
 
                                 self.yang_name = "counters"
                                 self.yang_parent_name = "state"

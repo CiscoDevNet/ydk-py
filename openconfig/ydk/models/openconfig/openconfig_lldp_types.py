@@ -3,8 +3,11 @@
 This module defines types related to the LLDP protocol model.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -178,7 +181,10 @@ class LLDPSYSTEMCAPABILITY(Identity):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:LLDP_SYSTEM_CAPABILITY"):
-        super(LLDPSYSTEMCAPABILITY, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LLDPSYSTEMCAPABILITY, self).__init__(ns, pref, tag)
 
 
 
@@ -194,7 +200,10 @@ class LLDPTLV(Identity):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:LLDP_TLV"):
-        super(LLDPTLV, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LLDPTLV, self).__init__(ns, pref, tag)
 
 
 
@@ -210,7 +219,10 @@ class OTHER(LLDPSYSTEMCAPABILITY):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:OTHER"):
-        super(OTHER, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OTHER, self).__init__(ns, pref, tag)
 
 
 
@@ -226,7 +238,10 @@ class REPEATER(LLDPSYSTEMCAPABILITY):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:REPEATER"):
-        super(REPEATER, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(REPEATER, self).__init__(ns, pref, tag)
 
 
 
@@ -242,7 +257,10 @@ class MACBRIDGE(LLDPSYSTEMCAPABILITY):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:MAC_BRIDGE"):
-        super(MACBRIDGE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MACBRIDGE, self).__init__(ns, pref, tag)
 
 
 
@@ -258,7 +276,10 @@ class WLANACCESSPOINT(LLDPSYSTEMCAPABILITY):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:WLAN_ACCESS_POINT"):
-        super(WLANACCESSPOINT, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(WLANACCESSPOINT, self).__init__(ns, pref, tag)
 
 
 
@@ -274,7 +295,10 @@ class ROUTER(LLDPSYSTEMCAPABILITY):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:ROUTER"):
-        super(ROUTER, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ROUTER, self).__init__(ns, pref, tag)
 
 
 
@@ -290,7 +314,10 @@ class TELEPHONE(LLDPSYSTEMCAPABILITY):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:TELEPHONE"):
-        super(TELEPHONE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TELEPHONE, self).__init__(ns, pref, tag)
 
 
 
@@ -306,7 +333,10 @@ class DOCSISCABLEDEVICE(LLDPSYSTEMCAPABILITY):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:DOCSIS_CABLE_DEVICE"):
-        super(DOCSISCABLEDEVICE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DOCSISCABLEDEVICE, self).__init__(ns, pref, tag)
 
 
 
@@ -324,7 +354,10 @@ class STATIONONLY(LLDPSYSTEMCAPABILITY):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:STATION_ONLY"):
-        super(STATIONONLY, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(STATIONONLY, self).__init__(ns, pref, tag)
 
 
 
@@ -340,7 +373,10 @@ class CVLAN(LLDPSYSTEMCAPABILITY):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:C_VLAN"):
-        super(CVLAN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CVLAN, self).__init__(ns, pref, tag)
 
 
 
@@ -356,7 +392,10 @@ class SVLAN(LLDPSYSTEMCAPABILITY):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:S_VLAN"):
-        super(SVLAN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SVLAN, self).__init__(ns, pref, tag)
 
 
 
@@ -372,7 +411,10 @@ class TWOPORTMACRELAY(LLDPSYSTEMCAPABILITY):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:TWO_PORT_MAC_RELAY"):
-        super(TWOPORTMACRELAY, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TWOPORTMACRELAY, self).__init__(ns, pref, tag)
 
 
 
@@ -389,7 +431,10 @@ class CHASSISID(LLDPTLV):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:CHASSIS_ID"):
-        super(CHASSISID, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CHASSISID, self).__init__(ns, pref, tag)
 
 
 
@@ -406,7 +451,10 @@ class PORTID(LLDPTLV):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:PORT_ID"):
-        super(PORTID, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PORTID, self).__init__(ns, pref, tag)
 
 
 
@@ -423,7 +471,10 @@ class PORTDESCRIPTION(LLDPTLV):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:PORT_DESCRIPTION"):
-        super(PORTDESCRIPTION, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PORTDESCRIPTION, self).__init__(ns, pref, tag)
 
 
 
@@ -440,7 +491,10 @@ class SYSTEMNAME(LLDPTLV):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:SYSTEM_NAME"):
-        super(SYSTEMNAME, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SYSTEMNAME, self).__init__(ns, pref, tag)
 
 
 
@@ -457,7 +511,10 @@ class SYSTEMDESCRIPTION(LLDPTLV):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:SYSTEM_DESCRIPTION"):
-        super(SYSTEMDESCRIPTION, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SYSTEMDESCRIPTION, self).__init__(ns, pref, tag)
 
 
 
@@ -474,7 +531,10 @@ class SYSTEMCAPABILITIES(LLDPTLV):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:SYSTEM_CAPABILITIES"):
-        super(SYSTEMCAPABILITIES, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SYSTEMCAPABILITIES, self).__init__(ns, pref, tag)
 
 
 
@@ -492,7 +552,10 @@ class MANAGEMENTADDRESS(LLDPTLV):
     _revision = '2016-05-16'
 
     def __init__(self, ns="http://openconfig.net/yang/lldp/types", pref="openconfig-lldp-types", tag="openconfig-lldp-types:MANAGEMENT_ADDRESS"):
-        super(MANAGEMENTADDRESS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MANAGEMENTADDRESS, self).__init__(ns, pref, tag)
 
 
 

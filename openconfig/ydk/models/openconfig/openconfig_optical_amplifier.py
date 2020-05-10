@@ -5,8 +5,11 @@ for optical amplifiers, deployed as part of a transport
 line system.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -24,10 +27,13 @@ class OPTICALAMPLIFIERTYPE(Identity):
     """
 
     _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:OPTICAL_AMPLIFIER_TYPE"):
-        super(OPTICALAMPLIFIERTYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OPTICALAMPLIFIERTYPE, self).__init__(ns, pref, tag)
 
 
 
@@ -43,10 +49,13 @@ class GAINRANGE(Identity):
     """
 
     _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:GAIN_RANGE"):
-        super(GAINRANGE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(GAINRANGE, self).__init__(ns, pref, tag)
 
 
 
@@ -60,14 +69,36 @@ class OPTICALAMPLIFIERMODE(Identity):
     """
 
     _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:OPTICAL_AMPLIFIER_MODE"):
-        super(OPTICALAMPLIFIERMODE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(OPTICALAMPLIFIERMODE, self).__init__(ns, pref, tag)
 
 
 
-class OpticalAmplifier(Entity):
+class FIBERTYPEPROFILE(Identity):
+    """
+    Type definition for different profiles of fiber types
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-amp'
+    _revision = '2018-11-21'
+
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:FIBER_TYPE_PROFILE"):
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FIBERTYPEPROFILE, self).__init__(ns, pref, tag)
+
+
+
+class OpticalAmplifier(_Entity_):
     """
     Enclosing container for amplifiers and supervisory channels
     
@@ -86,10 +117,13 @@ class OpticalAmplifier(Entity):
     """
 
     _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
+    _revision = '2018-11-21'
 
     def __init__(self):
-        super(OpticalAmplifier, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(OpticalAmplifier, self).__init__()
         self._top_entity = None
 
         self.yang_name = "optical-amplifier"
@@ -114,7 +148,7 @@ class OpticalAmplifier(Entity):
         self._perform_setattr(OpticalAmplifier, [], name, value)
 
 
-    class Amplifiers(Entity):
+    class Amplifiers(_Entity_):
         """
         Enclosing container for list of amplifiers
         
@@ -128,10 +162,13 @@ class OpticalAmplifier(Entity):
         """
 
         _prefix = 'oc-opt-amp'
-        _revision = '2017-07-08'
+        _revision = '2018-11-21'
 
         def __init__(self):
-            super(OpticalAmplifier.Amplifiers, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(OpticalAmplifier.Amplifiers, self).__init__()
 
             self.yang_name = "amplifiers"
             self.yang_parent_name = "optical-amplifier"
@@ -150,7 +187,7 @@ class OpticalAmplifier(Entity):
             self._perform_setattr(OpticalAmplifier.Amplifiers, [], name, value)
 
 
-        class Amplifier(Entity):
+        class Amplifier(_Entity_):
             """
             List of optical amplifiers present in the device
             
@@ -178,10 +215,13 @@ class OpticalAmplifier(Entity):
             """
 
             _prefix = 'oc-opt-amp'
-            _revision = '2017-07-08'
+            _revision = '2018-11-21'
 
             def __init__(self):
-                super(OpticalAmplifier.Amplifiers.Amplifier, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(OpticalAmplifier.Amplifiers.Amplifier, self).__init__()
 
                 self.yang_name = "amplifier"
                 self.yang_parent_name = "amplifiers"
@@ -209,7 +249,7 @@ class OpticalAmplifier(Entity):
                 self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier, ['name'], name, value)
 
 
-            class Config(Entity):
+            class Config(_Entity_):
                 """
                 Configuration data for the amplifier
                 
@@ -265,15 +305,23 @@ class OpticalAmplifier(Entity):
                 	Turns power on / off to the amplifiers gain module
                 	**type**\: bool
                 
+                .. attribute:: fiber_type_profile
+                
+                	The fiber type profile specifies details about the fiber type which are needed to accurately determine the gain and perform efficient amplification. This is only needed for Raman type amplifiers
+                	**type**\:  :py:class:`FIBERTYPEPROFILE <ydk.models.openconfig.openconfig_optical_amplifier.FIBERTYPEPROFILE>`
+                
                 
 
                 """
 
                 _prefix = 'oc-opt-amp'
-                _revision = '2017-07-08'
+                _revision = '2018-11-21'
 
                 def __init__(self):
-                    super(OpticalAmplifier.Amplifiers.Amplifier.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(OpticalAmplifier.Amplifiers.Amplifier.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "amplifier"
@@ -290,6 +338,7 @@ class OpticalAmplifier(Entity):
                         ('amp_mode', (YLeaf(YType.identityref, 'amp-mode'), [('ydk.models.openconfig.openconfig_optical_amplifier', 'OPTICALAMPLIFIERMODE')])),
                         ('target_output_power', (YLeaf(YType.str, 'target-output-power'), ['Decimal64'])),
                         ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                        ('fiber_type_profile', (YLeaf(YType.identityref, 'fiber-type-profile'), [('ydk.models.openconfig.openconfig_optical_amplifier', 'FIBERTYPEPROFILE')])),
                     ])
                     self.name = None
                     self.type = None
@@ -299,15 +348,16 @@ class OpticalAmplifier(Entity):
                     self.amp_mode = None
                     self.target_output_power = None
                     self.enabled = None
+                    self.fiber_type_profile = None
                     self._segment_path = lambda: "config"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.Config, ['name', 'type', 'target_gain', 'target_gain_tilt', 'gain_range', 'amp_mode', 'target_output_power', 'enabled'], name, value)
+                    self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.Config, ['name', 'type', 'target_gain', 'target_gain_tilt', 'gain_range', 'amp_mode', 'target_output_power', 'enabled', 'fiber_type_profile'], name, value)
 
 
 
-            class State(Entity):
+            class State(_Entity_):
                 """
                 Operational state data for the amplifier
                 
@@ -376,6 +426,22 @@ class OpticalAmplifier(Entity):
                 
                 	Turns power on / off to the amplifiers gain module
                 	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: fiber_type_profile
+                
+                	The fiber type profile specifies details about the fiber type which are needed to accurately determine the gain and perform efficient amplification. This is only needed for Raman type amplifiers
+                	**type**\:  :py:class:`FIBERTYPEPROFILE <ydk.models.openconfig.openconfig_optical_amplifier.FIBERTYPEPROFILE>`
+                
+                	**config**\: False
+                
+                .. attribute:: component
+                
+                	Reference to the system\-supplied physical component that the amplifier gain block is contained within. Multiple amplifier gain blocks may be contained within the same physical component
+                	**type**\: str
+                
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                 
                 	**config**\: False
                 
@@ -472,10 +538,13 @@ class OpticalAmplifier(Entity):
                 """
 
                 _prefix = 'oc-opt-amp'
-                _revision = '2017-07-08'
+                _revision = '2018-11-21'
 
                 def __init__(self):
-                    super(OpticalAmplifier.Amplifiers.Amplifier.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(OpticalAmplifier.Amplifiers.Amplifier.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "amplifier"
@@ -492,6 +561,8 @@ class OpticalAmplifier(Entity):
                         ('amp_mode', (YLeaf(YType.identityref, 'amp-mode'), [('ydk.models.openconfig.openconfig_optical_amplifier', 'OPTICALAMPLIFIERMODE')])),
                         ('target_output_power', (YLeaf(YType.str, 'target-output-power'), ['Decimal64'])),
                         ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                        ('fiber_type_profile', (YLeaf(YType.identityref, 'fiber-type-profile'), [('ydk.models.openconfig.openconfig_optical_amplifier', 'FIBERTYPEPROFILE')])),
+                        ('component', (YLeaf(YType.str, 'component'), ['str'])),
                         ('ingress_port', (YLeaf(YType.str, 'ingress-port'), ['str'])),
                         ('egress_port', (YLeaf(YType.str, 'egress-port'), ['str'])),
                     ])
@@ -503,6 +574,8 @@ class OpticalAmplifier(Entity):
                     self.amp_mode = None
                     self.target_output_power = None
                     self.enabled = None
+                    self.fiber_type_profile = None
+                    self.component = None
                     self.ingress_port = None
                     self.egress_port = None
 
@@ -549,10 +622,10 @@ class OpticalAmplifier(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State, ['name', 'type', 'target_gain', 'target_gain_tilt', 'gain_range', 'amp_mode', 'target_output_power', 'enabled', 'ingress_port', 'egress_port'], name, value)
+                    self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State, ['name', 'type', 'target_gain', 'target_gain_tilt', 'gain_range', 'amp_mode', 'target_output_power', 'enabled', 'fiber_type_profile', 'component', 'ingress_port', 'egress_port'], name, value)
 
 
-                class ActualGain(Entity):
+                class ActualGain(_Entity_):
                     """
                     The actual gain applied by the amplifier in units of
                     0.01dB. If avg/min/max statistics are not supported,
@@ -571,7 +644,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: avg
                     
-                    	The arithmetic mean value of the statistic over the sampling period
+                    	The arithmetic mean value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -582,7 +655,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: min
                     
-                    	The minimum value of the statistic over the sampling period
+                    	The minimum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -593,7 +666,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: max
                     
-                    	The maximum value of the statistic over the sampling period
+                    	The maximum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -602,15 +675,45 @@ class OpticalAmplifier(Entity):
                     
                     	**units**\: dB
                     
+                    .. attribute:: interval
+                    
+                    	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: min_time
+                    
+                    	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: max_time
+                    
+                    	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'oc-opt-amp'
-                    _revision = '2017-07-08'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(OpticalAmplifier.Amplifiers.Amplifier.State.ActualGain, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticalAmplifier.Amplifiers.Amplifier.State.ActualGain, self).__init__()
 
                         self.yang_name = "actual-gain"
                         self.yang_parent_name = "state"
@@ -623,20 +726,26 @@ class OpticalAmplifier(Entity):
                             ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                             ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                             ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                            ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                            ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                            ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
+                        self.interval = None
+                        self.min_time = None
+                        self.max_time = None
                         self._segment_path = lambda: "actual-gain"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.ActualGain, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.ActualGain, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
-                class ActualGainTilt(Entity):
+                class ActualGainTilt(_Entity_):
                     """
                     The actual tilt applied by the amplifier in units of
                     0.01dB. If avg/min/max statistics are not supported,
@@ -655,7 +764,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: avg
                     
-                    	The arithmetic mean value of the statistic over the sampling period
+                    	The arithmetic mean value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -666,7 +775,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: min
                     
-                    	The minimum value of the statistic over the sampling period
+                    	The minimum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -677,7 +786,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: max
                     
-                    	The maximum value of the statistic over the sampling period
+                    	The maximum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -686,15 +795,45 @@ class OpticalAmplifier(Entity):
                     
                     	**units**\: dB
                     
+                    .. attribute:: interval
+                    
+                    	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: min_time
+                    
+                    	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: max_time
+                    
+                    	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'oc-opt-amp'
-                    _revision = '2017-07-08'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(OpticalAmplifier.Amplifiers.Amplifier.State.ActualGainTilt, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticalAmplifier.Amplifiers.Amplifier.State.ActualGainTilt, self).__init__()
 
                         self.yang_name = "actual-gain-tilt"
                         self.yang_parent_name = "state"
@@ -707,20 +846,26 @@ class OpticalAmplifier(Entity):
                             ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                             ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                             ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                            ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                            ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                            ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
+                        self.interval = None
+                        self.min_time = None
+                        self.max_time = None
                         self._segment_path = lambda: "actual-gain-tilt"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.ActualGainTilt, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.ActualGainTilt, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
-                class InputPowerTotal(Entity):
+                class InputPowerTotal(_Entity_):
                     """
                     The total input optical power of this port in units
                     of 0.01dBm. If avg/min/max statistics are not supported,
@@ -739,7 +884,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: avg
                     
-                    	The arithmetic mean value of the statistic over the sampling period
+                    	The arithmetic mean value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -750,7 +895,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: min
                     
-                    	The minimum value of the statistic over the sampling period
+                    	The minimum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -761,7 +906,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: max
                     
-                    	The maximum value of the statistic over the sampling period
+                    	The maximum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -770,15 +915,45 @@ class OpticalAmplifier(Entity):
                     
                     	**units**\: dBm
                     
+                    .. attribute:: interval
+                    
+                    	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: min_time
+                    
+                    	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: max_time
+                    
+                    	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'oc-opt-amp'
-                    _revision = '2017-07-08'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerTotal, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerTotal, self).__init__()
 
                         self.yang_name = "input-power-total"
                         self.yang_parent_name = "state"
@@ -791,20 +966,26 @@ class OpticalAmplifier(Entity):
                             ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                             ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                             ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                            ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                            ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                            ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
+                        self.interval = None
+                        self.min_time = None
+                        self.max_time = None
                         self._segment_path = lambda: "input-power-total"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerTotal, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerTotal, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
-                class InputPowerCBand(Entity):
+                class InputPowerCBand(_Entity_):
                     """
                     The C band (consisting of approximately 191 to 195 THz or
                     1530nm to 1565 nm) input optical power of this port in units
@@ -824,7 +1005,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: avg
                     
-                    	The arithmetic mean value of the statistic over the sampling period
+                    	The arithmetic mean value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -835,7 +1016,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: min
                     
-                    	The minimum value of the statistic over the sampling period
+                    	The minimum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -846,7 +1027,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: max
                     
-                    	The maximum value of the statistic over the sampling period
+                    	The maximum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -855,15 +1036,45 @@ class OpticalAmplifier(Entity):
                     
                     	**units**\: dBm
                     
+                    .. attribute:: interval
+                    
+                    	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: min_time
+                    
+                    	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: max_time
+                    
+                    	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'oc-opt-amp'
-                    _revision = '2017-07-08'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerCBand, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerCBand, self).__init__()
 
                         self.yang_name = "input-power-c-band"
                         self.yang_parent_name = "state"
@@ -876,20 +1087,26 @@ class OpticalAmplifier(Entity):
                             ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                             ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                             ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                            ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                            ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                            ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
+                        self.interval = None
+                        self.min_time = None
+                        self.max_time = None
                         self._segment_path = lambda: "input-power-c-band"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerCBand, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerCBand, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
-                class InputPowerLBand(Entity):
+                class InputPowerLBand(_Entity_):
                     """
                     The L band (consisting of approximately 184 to 191 THz or
                     1565 to 1625 nm) input optical power of this port in units
@@ -909,7 +1126,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: avg
                     
-                    	The arithmetic mean value of the statistic over the sampling period
+                    	The arithmetic mean value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -920,7 +1137,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: min
                     
-                    	The minimum value of the statistic over the sampling period
+                    	The minimum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -931,7 +1148,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: max
                     
-                    	The maximum value of the statistic over the sampling period
+                    	The maximum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -940,15 +1157,45 @@ class OpticalAmplifier(Entity):
                     
                     	**units**\: dBm
                     
+                    .. attribute:: interval
+                    
+                    	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: min_time
+                    
+                    	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: max_time
+                    
+                    	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'oc-opt-amp'
-                    _revision = '2017-07-08'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerLBand, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerLBand, self).__init__()
 
                         self.yang_name = "input-power-l-band"
                         self.yang_parent_name = "state"
@@ -961,20 +1208,26 @@ class OpticalAmplifier(Entity):
                             ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                             ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                             ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                            ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                            ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                            ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
+                        self.interval = None
+                        self.min_time = None
+                        self.max_time = None
                         self._segment_path = lambda: "input-power-l-band"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerLBand, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerLBand, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
-                class OutputPowerTotal(Entity):
+                class OutputPowerTotal(_Entity_):
                     """
                     The total output optical power of this port in units
                     of 0.01dBm. If avg/min/max statistics are not supported,
@@ -993,7 +1246,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: avg
                     
-                    	The arithmetic mean value of the statistic over the sampling period
+                    	The arithmetic mean value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1004,7 +1257,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: min
                     
-                    	The minimum value of the statistic over the sampling period
+                    	The minimum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1015,7 +1268,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: max
                     
-                    	The maximum value of the statistic over the sampling period
+                    	The maximum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1024,15 +1277,45 @@ class OpticalAmplifier(Entity):
                     
                     	**units**\: dBm
                     
+                    .. attribute:: interval
+                    
+                    	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: min_time
+                    
+                    	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: max_time
+                    
+                    	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'oc-opt-amp'
-                    _revision = '2017-07-08'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerTotal, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerTotal, self).__init__()
 
                         self.yang_name = "output-power-total"
                         self.yang_parent_name = "state"
@@ -1045,20 +1328,26 @@ class OpticalAmplifier(Entity):
                             ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                             ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                             ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                            ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                            ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                            ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
+                        self.interval = None
+                        self.min_time = None
+                        self.max_time = None
                         self._segment_path = lambda: "output-power-total"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerTotal, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerTotal, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
-                class OutputPowerCBand(Entity):
+                class OutputPowerCBand(_Entity_):
                     """
                     The C band (consisting of approximately 191 to 195 THz or
                     1530nm to 1565 nm)output optical power of this port in units
@@ -1078,7 +1367,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: avg
                     
-                    	The arithmetic mean value of the statistic over the sampling period
+                    	The arithmetic mean value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1089,7 +1378,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: min
                     
-                    	The minimum value of the statistic over the sampling period
+                    	The minimum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1100,7 +1389,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: max
                     
-                    	The maximum value of the statistic over the sampling period
+                    	The maximum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1109,15 +1398,45 @@ class OpticalAmplifier(Entity):
                     
                     	**units**\: dBm
                     
+                    .. attribute:: interval
+                    
+                    	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: min_time
+                    
+                    	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: max_time
+                    
+                    	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'oc-opt-amp'
-                    _revision = '2017-07-08'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerCBand, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerCBand, self).__init__()
 
                         self.yang_name = "output-power-c-band"
                         self.yang_parent_name = "state"
@@ -1130,20 +1449,26 @@ class OpticalAmplifier(Entity):
                             ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                             ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                             ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                            ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                            ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                            ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
+                        self.interval = None
+                        self.min_time = None
+                        self.max_time = None
                         self._segment_path = lambda: "output-power-c-band"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerCBand, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerCBand, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
-                class OutputPowerLBand(Entity):
+                class OutputPowerLBand(_Entity_):
                     """
                     The L band (consisting of approximately 184 to 191 THz or
                     1565 to 1625 nm)output optical power of this port in units
@@ -1163,7 +1488,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: avg
                     
-                    	The arithmetic mean value of the statistic over the sampling period
+                    	The arithmetic mean value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1174,7 +1499,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: min
                     
-                    	The minimum value of the statistic over the sampling period
+                    	The minimum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1185,7 +1510,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: max
                     
-                    	The maximum value of the statistic over the sampling period
+                    	The maximum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1194,15 +1519,45 @@ class OpticalAmplifier(Entity):
                     
                     	**units**\: dBm
                     
+                    .. attribute:: interval
+                    
+                    	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: min_time
+                    
+                    	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: max_time
+                    
+                    	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'oc-opt-amp'
-                    _revision = '2017-07-08'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerLBand, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerLBand, self).__init__()
 
                         self.yang_name = "output-power-l-band"
                         self.yang_parent_name = "state"
@@ -1215,20 +1570,26 @@ class OpticalAmplifier(Entity):
                             ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                             ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                             ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                            ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                            ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                            ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
+                        self.interval = None
+                        self.min_time = None
+                        self.max_time = None
                         self._segment_path = lambda: "output-power-l-band"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerLBand, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerLBand, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
-                class LaserBiasCurrent(Entity):
+                class LaserBiasCurrent(_Entity_):
                     """
                     The current applied by the system to the transmit laser to
                     achieve the output power. The current is expressed in mA
@@ -1248,7 +1609,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: avg
                     
-                    	The arithmetic mean value of the statistic over the sampling period
+                    	The arithmetic mean value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1259,7 +1620,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: min
                     
-                    	The minimum value of the statistic over the sampling period
+                    	The minimum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1270,7 +1631,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: max
                     
-                    	The maximum value of the statistic over the sampling period
+                    	The maximum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1279,15 +1640,45 @@ class OpticalAmplifier(Entity):
                     
                     	**units**\: mA
                     
+                    .. attribute:: interval
+                    
+                    	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: min_time
+                    
+                    	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: max_time
+                    
+                    	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'oc-opt-amp'
-                    _revision = '2017-07-08'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(OpticalAmplifier.Amplifiers.Amplifier.State.LaserBiasCurrent, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticalAmplifier.Amplifiers.Amplifier.State.LaserBiasCurrent, self).__init__()
 
                         self.yang_name = "laser-bias-current"
                         self.yang_parent_name = "state"
@@ -1300,20 +1691,26 @@ class OpticalAmplifier(Entity):
                             ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                             ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                             ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                            ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                            ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                            ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
+                        self.interval = None
+                        self.min_time = None
+                        self.max_time = None
                         self._segment_path = lambda: "laser-bias-current"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.LaserBiasCurrent, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.LaserBiasCurrent, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
-                class OpticalReturnLoss(Entity):
+                class OpticalReturnLoss(_Entity_):
                     """
                     The optical return loss (ORL) is the ratio of the light
                     reflected back into the port to the light launched out of
@@ -1333,7 +1730,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: avg
                     
-                    	The arithmetic mean value of the statistic over the sampling period
+                    	The arithmetic mean value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1344,7 +1741,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: min
                     
-                    	The minimum value of the statistic over the sampling period
+                    	The minimum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1355,7 +1752,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: max
                     
-                    	The maximum value of the statistic over the sampling period
+                    	The maximum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1364,15 +1761,45 @@ class OpticalAmplifier(Entity):
                     
                     	**units**\: dBm
                     
+                    .. attribute:: interval
+                    
+                    	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: min_time
+                    
+                    	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: max_time
+                    
+                    	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'oc-opt-amp'
-                    _revision = '2017-07-08'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(OpticalAmplifier.Amplifiers.Amplifier.State.OpticalReturnLoss, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticalAmplifier.Amplifiers.Amplifier.State.OpticalReturnLoss, self).__init__()
 
                         self.yang_name = "optical-return-loss"
                         self.yang_parent_name = "state"
@@ -1385,23 +1812,29 @@ class OpticalAmplifier(Entity):
                             ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                             ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                             ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                            ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                            ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                            ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
+                        self.interval = None
+                        self.min_time = None
+                        self.max_time = None
                         self._segment_path = lambda: "optical-return-loss"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OpticalReturnLoss, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OpticalReturnLoss, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
 
 
 
-    class SupervisoryChannels(Entity):
+    class SupervisoryChannels(_Entity_):
         """
         Enclosing container for list of supervisory channels
         
@@ -1415,10 +1848,13 @@ class OpticalAmplifier(Entity):
         """
 
         _prefix = 'oc-opt-amp'
-        _revision = '2017-07-08'
+        _revision = '2018-11-21'
 
         def __init__(self):
-            super(OpticalAmplifier.SupervisoryChannels, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(OpticalAmplifier.SupervisoryChannels, self).__init__()
 
             self.yang_name = "supervisory-channels"
             self.yang_parent_name = "optical-amplifier"
@@ -1437,7 +1873,7 @@ class OpticalAmplifier(Entity):
             self._perform_setattr(OpticalAmplifier.SupervisoryChannels, [], name, value)
 
 
-        class SupervisoryChannel(Entity):
+        class SupervisoryChannel(_Entity_):
             """
             List of supervisory channels
             
@@ -1465,10 +1901,13 @@ class OpticalAmplifier(Entity):
             """
 
             _prefix = 'oc-opt-amp'
-            _revision = '2017-07-08'
+            _revision = '2018-11-21'
 
             def __init__(self):
-                super(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel, self).__init__()
 
                 self.yang_name = "supervisory-channel"
                 self.yang_parent_name = "supervisory-channels"
@@ -1496,14 +1935,14 @@ class OpticalAmplifier(Entity):
                 self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel, ['interface'], name, value)
 
 
-            class Config(Entity):
+            class Config(_Entity_):
                 """
                 Configuration data for OSCs
                 
                 .. attribute:: interface
                 
-                	List of references to OSC interfaces
-                	**type**\: list of str
+                	Reference to an OSC interface
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
@@ -1512,10 +1951,13 @@ class OpticalAmplifier(Entity):
                 """
 
                 _prefix = 'oc-opt-amp'
-                _revision = '2017-07-08'
+                _revision = '2018-11-21'
 
                 def __init__(self):
-                    super(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "supervisory-channel"
@@ -1524,9 +1966,9 @@ class OpticalAmplifier(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface', (YLeafList(YType.str, 'interface'), ['str'])),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                     ])
-                    self.interface = []
+                    self.interface = None
                     self._segment_path = lambda: "config"
                     self._is_frozen = True
 
@@ -1535,14 +1977,14 @@ class OpticalAmplifier(Entity):
 
 
 
-            class State(Entity):
+            class State(_Entity_):
                 """
                 Operational state data for OSCs
                 
                 .. attribute:: interface
                 
-                	List of references to OSC interfaces
-                	**type**\: list of str
+                	Reference to an OSC interface
+                	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
@@ -1569,15 +2011,27 @@ class OpticalAmplifier(Entity):
                 
                 	**config**\: False
                 
+                .. attribute:: output_frequency
+                
+                	The frequency in MHz of the individual physical channel (e.g. ITU C50 \- 195.0THz and would be reported as 195,000,000 MHz in this model). This attribute is not configurable on most client ports
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                	**config**\: False
+                
                 
 
                 """
 
                 _prefix = 'oc-opt-amp'
-                _revision = '2017-07-08'
+                _revision = '2018-11-21'
 
                 def __init__(self):
-                    super(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "supervisory-channel"
@@ -1586,9 +2040,11 @@ class OpticalAmplifier(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("input-power", ("input_power", OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.InputPower)), ("output-power", ("output_power", OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.OutputPower)), ("laser-bias-current", ("laser_bias_current", OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.LaserBiasCurrent))])
                     self._leafs = OrderedDict([
-                        ('interface', (YLeafList(YType.str, 'interface'), ['str'])),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                        ('output_frequency', (YLeaf(YType.uint64, 'output-frequency'), ['int'])),
                     ])
-                    self.interface = []
+                    self.interface = None
+                    self.output_frequency = None
 
                     self.input_power = OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.InputPower()
                     self.input_power.parent = self
@@ -1605,10 +2061,10 @@ class OpticalAmplifier(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State, ['interface'], name, value)
+                    self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State, ['interface', 'output_frequency'], name, value)
 
 
-                class InputPower(Entity):
+                class InputPower(_Entity_):
                     """
                     The input optical power of this port in units
                     of 0.01dBm. If avg/min/max statistics are not supported,
@@ -1627,7 +2083,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: avg
                     
-                    	The arithmetic mean value of the statistic over the sampling period
+                    	The arithmetic mean value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1638,7 +2094,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: min
                     
-                    	The minimum value of the statistic over the sampling period
+                    	The minimum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1649,7 +2105,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: max
                     
-                    	The maximum value of the statistic over the sampling period
+                    	The maximum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1658,15 +2114,45 @@ class OpticalAmplifier(Entity):
                     
                     	**units**\: dBm
                     
+                    .. attribute:: interval
+                    
+                    	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: min_time
+                    
+                    	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: max_time
+                    
+                    	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'oc-opt-amp'
-                    _revision = '2017-07-08'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.InputPower, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.InputPower, self).__init__()
 
                         self.yang_name = "input-power"
                         self.yang_parent_name = "state"
@@ -1679,20 +2165,26 @@ class OpticalAmplifier(Entity):
                             ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                             ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                             ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                            ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                            ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                            ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
+                        self.interval = None
+                        self.min_time = None
+                        self.max_time = None
                         self._segment_path = lambda: "input-power"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.InputPower, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.InputPower, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
-                class OutputPower(Entity):
+                class OutputPower(_Entity_):
                     """
                     The output optical power of this port in units
                     of 0.01dBm. If avg/min/max statistics are not supported,
@@ -1711,7 +2203,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: avg
                     
-                    	The arithmetic mean value of the statistic over the sampling period
+                    	The arithmetic mean value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1722,7 +2214,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: min
                     
-                    	The minimum value of the statistic over the sampling period
+                    	The minimum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1733,7 +2225,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: max
                     
-                    	The maximum value of the statistic over the sampling period
+                    	The maximum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1742,15 +2234,45 @@ class OpticalAmplifier(Entity):
                     
                     	**units**\: dBm
                     
+                    .. attribute:: interval
+                    
+                    	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: min_time
+                    
+                    	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: max_time
+                    
+                    	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'oc-opt-amp'
-                    _revision = '2017-07-08'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.OutputPower, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.OutputPower, self).__init__()
 
                         self.yang_name = "output-power"
                         self.yang_parent_name = "state"
@@ -1763,20 +2285,26 @@ class OpticalAmplifier(Entity):
                             ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                             ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                             ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                            ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                            ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                            ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
+                        self.interval = None
+                        self.min_time = None
+                        self.max_time = None
                         self._segment_path = lambda: "output-power"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.OutputPower, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.OutputPower, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
-                class LaserBiasCurrent(Entity):
+                class LaserBiasCurrent(_Entity_):
                     """
                     The current applied by the system to the transmit laser to
                     achieve the output power. The current is expressed in mA
@@ -1797,7 +2325,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: avg
                     
-                    	The arithmetic mean value of the statistic over the sampling period
+                    	The arithmetic mean value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1808,7 +2336,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: min
                     
-                    	The minimum value of the statistic over the sampling period
+                    	The minimum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1819,7 +2347,7 @@ class OpticalAmplifier(Entity):
                     
                     .. attribute:: max
                     
-                    	The maximum value of the statistic over the sampling period
+                    	The maximum value of the statistic over the time interval
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
@@ -1828,15 +2356,45 @@ class OpticalAmplifier(Entity):
                     
                     	**units**\: mA
                     
+                    .. attribute:: interval
+                    
+                    	If supported by the system, this reports the time interval over which the min/max/average statistics are computed by the system
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: min_time
+                    
+                    	The absolute time at which the minimum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: max_time
+                    
+                    	The absolute time at which the maximum value occurred. The value is the timestamp in nanoseconds relative to  the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
+                    
                     
 
                     """
 
                     _prefix = 'oc-opt-amp'
-                    _revision = '2017-07-08'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.LaserBiasCurrent, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.LaserBiasCurrent, self).__init__()
 
                         self.yang_name = "laser-bias-current"
                         self.yang_parent_name = "state"
@@ -1849,16 +2407,22 @@ class OpticalAmplifier(Entity):
                             ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
                             ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
                             ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                            ('interval', (YLeaf(YType.uint64, 'interval'), ['int'])),
+                            ('min_time', (YLeaf(YType.uint64, 'min-time'), ['int'])),
+                            ('max_time', (YLeaf(YType.uint64, 'max-time'), ['int'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
+                        self.interval = None
+                        self.min_time = None
+                        self.max_time = None
                         self._segment_path = lambda: "laser-bias-current"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.LaserBiasCurrent, ['instant', 'avg', 'min', 'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.LaserBiasCurrent, ['instant', 'avg', 'min', 'max', 'interval', 'min_time', 'max_time'], name, value)
 
 
 
@@ -1879,10 +2443,13 @@ class EDFA(OPTICALAMPLIFIERTYPE):
     """
 
     _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:EDFA"):
-        super(EDFA, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(EDFA, self).__init__(ns, pref, tag)
 
 
 
@@ -1895,10 +2462,13 @@ class FORWARDRAMAN(OPTICALAMPLIFIERTYPE):
     """
 
     _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:FORWARD_RAMAN"):
-        super(FORWARDRAMAN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FORWARDRAMAN, self).__init__(ns, pref, tag)
 
 
 
@@ -1911,10 +2481,13 @@ class BACKWARDRAMAN(OPTICALAMPLIFIERTYPE):
     """
 
     _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:BACKWARD_RAMAN"):
-        super(BACKWARDRAMAN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(BACKWARDRAMAN, self).__init__(ns, pref, tag)
 
 
 
@@ -1927,10 +2500,13 @@ class HYBRID(OPTICALAMPLIFIERTYPE):
     """
 
     _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:HYBRID"):
-        super(HYBRID, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(HYBRID, self).__init__(ns, pref, tag)
 
 
 
@@ -1943,10 +2519,13 @@ class LOWGAINRANGE(GAINRANGE):
     """
 
     _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:LOW_GAIN_RANGE"):
-        super(LOWGAINRANGE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LOWGAINRANGE, self).__init__(ns, pref, tag)
 
 
 
@@ -1959,10 +2538,13 @@ class MIDGAINRANGE(GAINRANGE):
     """
 
     _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:MID_GAIN_RANGE"):
-        super(MIDGAINRANGE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MIDGAINRANGE, self).__init__(ns, pref, tag)
 
 
 
@@ -1975,10 +2557,13 @@ class HIGHGAINRANGE(GAINRANGE):
     """
 
     _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:HIGH_GAIN_RANGE"):
-        super(HIGHGAINRANGE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(HIGHGAINRANGE, self).__init__(ns, pref, tag)
 
 
 
@@ -1991,10 +2576,13 @@ class FIXEDGAINRANGE(GAINRANGE):
     """
 
     _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:FIXED_GAIN_RANGE"):
-        super(FIXEDGAINRANGE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FIXEDGAINRANGE, self).__init__(ns, pref, tag)
 
 
 
@@ -2007,10 +2595,13 @@ class CONSTANTPOWER(OPTICALAMPLIFIERMODE):
     """
 
     _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:CONSTANT_POWER"):
-        super(CONSTANTPOWER, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CONSTANTPOWER, self).__init__(ns, pref, tag)
 
 
 
@@ -2023,10 +2614,108 @@ class CONSTANTGAIN(OPTICALAMPLIFIERMODE):
     """
 
     _prefix = 'oc-opt-amp'
-    _revision = '2017-07-08'
+    _revision = '2018-11-21'
 
     def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:CONSTANT_GAIN"):
-        super(CONSTANTGAIN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(CONSTANTGAIN, self).__init__(ns, pref, tag)
+
+
+
+class DSF(FIBERTYPEPROFILE):
+    """
+    Dispersion shifted fiber
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-amp'
+    _revision = '2018-11-21'
+
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:DSF"):
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DSF, self).__init__(ns, pref, tag)
+
+
+
+class LEAF(FIBERTYPEPROFILE):
+    """
+    Large effective area fiber
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-amp'
+    _revision = '2018-11-21'
+
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:LEAF"):
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LEAF, self).__init__(ns, pref, tag)
+
+
+
+class SSMF(FIBERTYPEPROFILE):
+    """
+    Standard single mode fiber
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-amp'
+    _revision = '2018-11-21'
+
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:SSMF"):
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SSMF, self).__init__(ns, pref, tag)
+
+
+
+class TWC(FIBERTYPEPROFILE):
+    """
+    True wave classic
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-amp'
+    _revision = '2018-11-21'
+
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:TWC"):
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TWC, self).__init__(ns, pref, tag)
+
+
+
+class TWRS(FIBERTYPEPROFILE):
+    """
+    True wave reduced slope
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-amp'
+    _revision = '2018-11-21'
+
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:TWRS"):
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TWRS, self).__init__(ns, pref, tag)
 
 
 

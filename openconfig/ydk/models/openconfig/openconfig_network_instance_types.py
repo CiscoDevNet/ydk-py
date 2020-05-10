@@ -3,8 +3,11 @@
 Types associated with a network instance
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -26,7 +29,10 @@ class NETWORKINSTANCETYPE(Identity):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:NETWORK_INSTANCE_TYPE"):
-        super(NETWORKINSTANCETYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(NETWORKINSTANCETYPE, self).__init__(ns, pref, tag)
 
 
 
@@ -43,7 +49,10 @@ class ENDPOINTTYPE(Identity):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:ENDPOINT_TYPE"):
-        super(ENDPOINTTYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ENDPOINTTYPE, self).__init__(ns, pref, tag)
 
 
 
@@ -60,7 +69,10 @@ class LABELALLOCATIONMODE(Identity):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:LABEL_ALLOCATION_MODE"):
-        super(LABELALLOCATIONMODE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LABELALLOCATIONMODE, self).__init__(ns, pref, tag)
 
 
 
@@ -77,7 +89,10 @@ class ENCAPSULATION(Identity):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:ENCAPSULATION"):
-        super(ENCAPSULATION, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ENCAPSULATION, self).__init__(ns, pref, tag)
 
 
 
@@ -94,7 +109,10 @@ class SIGNALLINGPROTOCOL(Identity):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:SIGNALLING_PROTOCOL"):
-        super(SIGNALLINGPROTOCOL, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(SIGNALLINGPROTOCOL, self).__init__(ns, pref, tag)
 
 
 
@@ -111,7 +129,10 @@ class DEFAULTINSTANCE(NETWORKINSTANCETYPE):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:DEFAULT_INSTANCE"):
-        super(DEFAULTINSTANCE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DEFAULTINSTANCE, self).__init__(ns, pref, tag)
 
 
 
@@ -128,7 +149,10 @@ class L3VRF(NETWORKINSTANCETYPE):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:L3VRF"):
-        super(L3VRF, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(L3VRF, self).__init__(ns, pref, tag)
 
 
 
@@ -145,7 +169,10 @@ class L2VSI(NETWORKINSTANCETYPE):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:L2VSI"):
-        super(L2VSI, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(L2VSI, self).__init__(ns, pref, tag)
 
 
 
@@ -162,7 +189,10 @@ class L2P2P(NETWORKINSTANCETYPE):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:L2P2P"):
-        super(L2P2P, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(L2P2P, self).__init__(ns, pref, tag)
 
 
 
@@ -178,7 +208,10 @@ class L2L3(NETWORKINSTANCETYPE):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:L2L3"):
-        super(L2L3, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(L2L3, self).__init__(ns, pref, tag)
 
 
 
@@ -194,7 +227,10 @@ class LOCAL(ENDPOINTTYPE):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:LOCAL"):
-        super(LOCAL, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LOCAL, self).__init__(ns, pref, tag)
 
 
 
@@ -211,7 +247,10 @@ class REMOTE(ENDPOINTTYPE):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:REMOTE"):
-        super(REMOTE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(REMOTE, self).__init__(ns, pref, tag)
 
 
 
@@ -228,7 +267,10 @@ class PERPREFIX(LABELALLOCATIONMODE):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:PER_PREFIX"):
-        super(PERPREFIX, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PERPREFIX, self).__init__(ns, pref, tag)
 
 
 
@@ -245,7 +287,10 @@ class PERNEXTHOP(LABELALLOCATIONMODE):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:PER_NEXTHOP"):
-        super(PERNEXTHOP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(PERNEXTHOP, self).__init__(ns, pref, tag)
 
 
 
@@ -261,7 +306,10 @@ class INSTANCELABEL(LABELALLOCATIONMODE):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:INSTANCE_LABEL"):
-        super(INSTANCELABEL, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(INSTANCELABEL, self).__init__(ns, pref, tag)
 
 
 
@@ -277,7 +325,10 @@ class MPLS(ENCAPSULATION):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:MPLS"):
-        super(MPLS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(MPLS, self).__init__(ns, pref, tag)
 
 
 
@@ -294,7 +345,10 @@ class VXLAN(ENCAPSULATION):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:VXLAN"):
-        super(VXLAN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(VXLAN, self).__init__(ns, pref, tag)
 
 
 
@@ -313,7 +367,10 @@ class LDP(SIGNALLINGPROTOCOL):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:LDP"):
-        super(LDP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LDP, self).__init__(ns, pref, tag)
 
 
 
@@ -330,7 +387,10 @@ class BGPVPLS(SIGNALLINGPROTOCOL):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:BGP_VPLS"):
-        super(BGPVPLS, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(BGPVPLS, self).__init__(ns, pref, tag)
 
 
 
@@ -347,7 +407,10 @@ class BGPEVPN(SIGNALLINGPROTOCOL):
     _revision = '2016-12-15'
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:BGP_EVPN"):
-        super(BGPEVPN, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(BGPEVPN, self).__init__(ns, pref, tag)
 
 
 

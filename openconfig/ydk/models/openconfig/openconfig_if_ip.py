@@ -1,14 +1,33 @@
 """ openconfig_if_ip 
 
-Model for managing IP interfaces.
+This model defines data for managing configuration and
+operational state on IP (IPv4 and IPv6) interfaces.
 
-This model reuses most of the IETF YANG model for IP management
-described by RFC 7277.  The primary differences are in the
-structure of configuration and state data.
+This model reuses data items defined in the IETF YANG model for
+interfaces described by RFC 7277 with an alternate structure
+(particularly for operational state data) and with
+additional configuration items.
+
+Portions of this code were derived from IETF RFC 7277.
+Please reproduce this note if possible.
+
+IETF code is subject to the following copyright and license\:
+Copyright (c) IETF Trust and the persons identified as authors of
+the code.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, is permitted pursuant to, and subject to the license
+terms contained in, the Simplified BSD License set forth in
+Section 4.c of the IETF Trust's Legal Provisions Relating
+to IETF Documents (http\://trustee.ietf.org/license\-info).
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -50,8 +69,6 @@ class IpAddressOrigin(Enum):
 
     .. data:: RANDOM = 4
 
-    	[adapted from RFC 7277]
-
     	Indicates an address chosen by the system at
 
     	random, e.g., an IPv4 address within 169.254/16, an
@@ -92,8 +109,6 @@ class NeighborOrigin(Enum):
     	Interface.
 
     .. data:: DYNAMIC = 2
-
-    	[adapted from RFC 7277]
 
     	Indicates that the mapping has been dynamically resolved
 

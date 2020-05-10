@@ -5,8 +5,11 @@ channel monitor (OCM) for optical transport line system
 elements such as wavelength routers (ROADMs) and amplifiers.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -15,7 +18,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class ChannelMonitors(Entity):
+class ChannelMonitors(_Entity_):
     """
     Top\-level container for optical channel monitors
     
@@ -29,10 +32,13 @@ class ChannelMonitors(Entity):
     """
 
     _prefix = 'oc-chan-monitor'
-    _revision = '2017-07-08'
+    _revision = '2018-11-21'
 
     def __init__(self):
-        super(ChannelMonitors, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(ChannelMonitors, self).__init__()
         self._top_entity = None
 
         self.yang_name = "channel-monitors"
@@ -51,7 +57,7 @@ class ChannelMonitors(Entity):
         self._perform_setattr(ChannelMonitors, [], name, value)
 
 
-    class ChannelMonitor(Entity):
+    class ChannelMonitor(_Entity_):
         """
         List of channel monitors, keyed by channel monitor name.
         
@@ -84,10 +90,13 @@ class ChannelMonitors(Entity):
         """
 
         _prefix = 'oc-chan-monitor'
-        _revision = '2017-07-08'
+        _revision = '2018-11-21'
 
         def __init__(self):
-            super(ChannelMonitors.ChannelMonitor, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(ChannelMonitors.ChannelMonitor, self).__init__()
 
             self.yang_name = "channel-monitor"
             self.yang_parent_name = "channel-monitors"
@@ -119,7 +128,7 @@ class ChannelMonitors(Entity):
             self._perform_setattr(ChannelMonitors.ChannelMonitor, ['name'], name, value)
 
 
-        class Config(Entity):
+        class Config(_Entity_):
             """
             Configuration data 
             
@@ -142,10 +151,13 @@ class ChannelMonitors(Entity):
             """
 
             _prefix = 'oc-chan-monitor'
-            _revision = '2017-07-08'
+            _revision = '2018-11-21'
 
             def __init__(self):
-                super(ChannelMonitors.ChannelMonitor.Config, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ChannelMonitors.ChannelMonitor.Config, self).__init__()
 
                 self.yang_name = "config"
                 self.yang_parent_name = "channel-monitor"
@@ -167,7 +179,7 @@ class ChannelMonitors(Entity):
 
 
 
-        class State(Entity):
+        class State(_Entity_):
             """
             Operational state data 
             
@@ -194,10 +206,13 @@ class ChannelMonitors(Entity):
             """
 
             _prefix = 'oc-chan-monitor'
-            _revision = '2017-07-08'
+            _revision = '2018-11-21'
 
             def __init__(self):
-                super(ChannelMonitors.ChannelMonitor.State, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ChannelMonitors.ChannelMonitor.State, self).__init__()
 
                 self.yang_name = "state"
                 self.yang_parent_name = "channel-monitor"
@@ -219,7 +234,7 @@ class ChannelMonitors(Entity):
 
 
 
-        class Channels(Entity):
+        class Channels(_Entity_):
             """
             Enclosing container for the list of values describing
             the power spectral density distribution
@@ -236,10 +251,13 @@ class ChannelMonitors(Entity):
             """
 
             _prefix = 'oc-chan-monitor'
-            _revision = '2017-07-08'
+            _revision = '2018-11-21'
 
             def __init__(self):
-                super(ChannelMonitors.ChannelMonitor.Channels, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(ChannelMonitors.ChannelMonitor.Channels, self).__init__()
 
                 self.yang_name = "channels"
                 self.yang_parent_name = "channel-monitor"
@@ -257,7 +275,7 @@ class ChannelMonitors(Entity):
                 self._perform_setattr(ChannelMonitors.ChannelMonitor.Channels, [], name, value)
 
 
-            class Channel(Entity):
+            class Channel(_Entity_):
                 """
                 List of tuples describing the PSD distribution
                 
@@ -295,10 +313,13 @@ class ChannelMonitors(Entity):
                 """
 
                 _prefix = 'oc-chan-monitor'
-                _revision = '2017-07-08'
+                _revision = '2018-11-21'
 
                 def __init__(self):
-                    super(ChannelMonitors.ChannelMonitor.Channels.Channel, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(ChannelMonitors.ChannelMonitor.Channels.Channel, self).__init__()
 
                     self.yang_name = "channel"
                     self.yang_parent_name = "channels"
@@ -323,7 +344,7 @@ class ChannelMonitors(Entity):
                     self._perform_setattr(ChannelMonitors.ChannelMonitor.Channels.Channel, ['lower_frequency', 'upper_frequency'], name, value)
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     Operational state data for PSD
                     
@@ -350,7 +371,7 @@ class ChannelMonitors(Entity):
                     	Power spectral density expressed in nanowatts per megahertz, nW/MHz.  These units allow the value to often be greater than 1.0.  It also avoids dealing with zero values for 0dBm.  For example, a 40GHz wide channel with 0dBm power would be\:  0dBm = 1mW = 10^6nW  40GHz = 40,000MHz  0dBm/40GHz = 10^6nW/40,000MHz = 1000/40 = 25
                     	**type**\: str
                     
-                    	**length:** 32..32
+                    	**length:** 4..4
                     
                     	**config**\: False
                     
@@ -361,10 +382,13 @@ class ChannelMonitors(Entity):
                     """
 
                     _prefix = 'oc-chan-monitor'
-                    _revision = '2017-07-08'
+                    _revision = '2018-11-21'
 
                     def __init__(self):
-                        super(ChannelMonitors.ChannelMonitor.Channels.Channel.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(ChannelMonitors.ChannelMonitor.Channels.Channel.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "channel"

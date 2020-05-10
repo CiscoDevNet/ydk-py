@@ -4,8 +4,11 @@ Data model which creates the configuration for the telemetry
 systems and functions on the device.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -37,7 +40,7 @@ class TelemetryStreamProtocol(Enum):
 
 
 
-class TelemetrySystem(Entity):
+class TelemetrySystem(_Entity_):
     """
     Top level configuration and state for the
     device's telemetry system.
@@ -65,7 +68,10 @@ class TelemetrySystem(Entity):
     _revision = '2016-02-04'
 
     def __init__(self):
-        super(TelemetrySystem, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(TelemetrySystem, self).__init__()
         self._top_entity = None
 
         self.yang_name = "telemetry-system"
@@ -94,7 +100,7 @@ class TelemetrySystem(Entity):
         self._perform_setattr(TelemetrySystem, [], name, value)
 
 
-    class SensorGroups(Entity):
+    class SensorGroups(_Entity_):
         """
         Top level container for sensor\-groups.
         
@@ -111,7 +117,10 @@ class TelemetrySystem(Entity):
         _revision = '2016-02-04'
 
         def __init__(self):
-            super(TelemetrySystem.SensorGroups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TelemetrySystem.SensorGroups, self).__init__()
 
             self.yang_name = "sensor-groups"
             self.yang_parent_name = "telemetry-system"
@@ -130,7 +139,7 @@ class TelemetrySystem(Entity):
             self._perform_setattr(TelemetrySystem.SensorGroups, [], name, value)
 
 
-        class SensorGroup(Entity):
+        class SensorGroup(_Entity_):
             """
             List of telemetry sensory groups on the local
             system, where a sensor grouping represents a resuable
@@ -168,7 +177,10 @@ class TelemetrySystem(Entity):
             _revision = '2016-02-04'
 
             def __init__(self):
-                super(TelemetrySystem.SensorGroups.SensorGroup, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TelemetrySystem.SensorGroups.SensorGroup, self).__init__()
 
                 self.yang_name = "sensor-group"
                 self.yang_parent_name = "sensor-groups"
@@ -200,7 +212,7 @@ class TelemetrySystem(Entity):
                 self._perform_setattr(TelemetrySystem.SensorGroups.SensorGroup, ['sensor_group_id'], name, value)
 
 
-            class Config(Entity):
+            class Config(_Entity_):
                 """
                 Configuration parameters relating to the
                 telemetry sensor grouping
@@ -218,7 +230,10 @@ class TelemetrySystem(Entity):
                 _revision = '2016-02-04'
 
                 def __init__(self):
-                    super(TelemetrySystem.SensorGroups.SensorGroup.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetrySystem.SensorGroups.SensorGroup.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "sensor-group"
@@ -238,7 +253,7 @@ class TelemetrySystem(Entity):
 
 
 
-            class State(Entity):
+            class State(_Entity_):
                 """
                 State information relating to the telemetry
                 sensor group
@@ -258,7 +273,10 @@ class TelemetrySystem(Entity):
                 _revision = '2016-02-04'
 
                 def __init__(self):
-                    super(TelemetrySystem.SensorGroups.SensorGroup.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetrySystem.SensorGroups.SensorGroup.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "sensor-group"
@@ -278,7 +296,7 @@ class TelemetrySystem(Entity):
 
 
 
-            class SensorPaths(Entity):
+            class SensorPaths(_Entity_):
                 """
                 Top level container to hold a set of sensor
                 paths grouped together
@@ -296,7 +314,10 @@ class TelemetrySystem(Entity):
                 _revision = '2016-02-04'
 
                 def __init__(self):
-                    super(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths, self).__init__()
 
                     self.yang_name = "sensor-paths"
                     self.yang_parent_name = "sensor-group"
@@ -314,7 +335,7 @@ class TelemetrySystem(Entity):
                     self._perform_setattr(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths, [], name, value)
 
 
-                class SensorPath(Entity):
+                class SensorPath(_Entity_):
                     """
                     List of paths in the model which together
                     comprise a sensor grouping. Filters for each path
@@ -347,7 +368,10 @@ class TelemetrySystem(Entity):
                     _revision = '2016-02-04'
 
                     def __init__(self):
-                        super(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath, self).__init__()
 
                         self.yang_name = "sensor-path"
                         self.yang_parent_name = "sensor-paths"
@@ -374,7 +398,7 @@ class TelemetrySystem(Entity):
                         self._perform_setattr(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath, ['path'], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration parameters to configure a set
                         of data model paths as a sensor grouping
@@ -397,7 +421,10 @@ class TelemetrySystem(Entity):
                         _revision = '2016-02-04'
 
                         def __init__(self):
-                            super(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "sensor-path"
@@ -419,7 +446,7 @@ class TelemetrySystem(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Configuration parameters to configure a set
                         of data model paths as a sensor grouping
@@ -446,7 +473,10 @@ class TelemetrySystem(Entity):
                         _revision = '2016-02-04'
 
                         def __init__(self):
-                            super(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "sensor-path"
@@ -472,7 +502,7 @@ class TelemetrySystem(Entity):
 
 
 
-    class DestinationGroups(Entity):
+    class DestinationGroups(_Entity_):
         """
         Top level container for destination group configuration
         and state.
@@ -490,7 +520,10 @@ class TelemetrySystem(Entity):
         _revision = '2016-02-04'
 
         def __init__(self):
-            super(TelemetrySystem.DestinationGroups, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TelemetrySystem.DestinationGroups, self).__init__()
 
             self.yang_name = "destination-groups"
             self.yang_parent_name = "telemetry-system"
@@ -509,7 +542,7 @@ class TelemetrySystem(Entity):
             self._perform_setattr(TelemetrySystem.DestinationGroups, [], name, value)
 
 
-        class DestinationGroup(Entity):
+        class DestinationGroup(_Entity_):
             """
             List of destination\-groups. Destination groups allow the
             reuse of common telemetry destinations across the
@@ -552,7 +585,10 @@ class TelemetrySystem(Entity):
             _revision = '2016-02-04'
 
             def __init__(self):
-                super(TelemetrySystem.DestinationGroups.DestinationGroup, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TelemetrySystem.DestinationGroups.DestinationGroup, self).__init__()
 
                 self.yang_name = "destination-group"
                 self.yang_parent_name = "destination-groups"
@@ -584,7 +620,7 @@ class TelemetrySystem(Entity):
                 self._perform_setattr(TelemetrySystem.DestinationGroups.DestinationGroup, ['group_id'], name, value)
 
 
-            class Config(Entity):
+            class Config(_Entity_):
                 """
                 Top level config container for destination groups
                 
@@ -601,7 +637,10 @@ class TelemetrySystem(Entity):
                 _revision = '2016-02-04'
 
                 def __init__(self):
-                    super(TelemetrySystem.DestinationGroups.DestinationGroup.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetrySystem.DestinationGroups.DestinationGroup.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "destination-group"
@@ -621,7 +660,7 @@ class TelemetrySystem(Entity):
 
 
 
-            class State(Entity):
+            class State(_Entity_):
                 """
                 Top level state container for destination groups
                 
@@ -640,7 +679,10 @@ class TelemetrySystem(Entity):
                 _revision = '2016-02-04'
 
                 def __init__(self):
-                    super(TelemetrySystem.DestinationGroups.DestinationGroup.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetrySystem.DestinationGroups.DestinationGroup.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "destination-group"
@@ -660,7 +702,7 @@ class TelemetrySystem(Entity):
 
 
 
-            class Destinations(Entity):
+            class Destinations(_Entity_):
                 """
                 The destination container lists the destination
                 information such as IP address and port of the
@@ -679,7 +721,10 @@ class TelemetrySystem(Entity):
                 _revision = '2016-02-04'
 
                 def __init__(self):
-                    super(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations, self).__init__()
 
                     self.yang_name = "destinations"
                     self.yang_parent_name = "destination-group"
@@ -697,7 +742,7 @@ class TelemetrySystem(Entity):
                     self._perform_setattr(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations, [], name, value)
 
 
-                class Destination(Entity):
+                class Destination(_Entity_):
                     """
                     List of telemetry stream destinations
                     
@@ -745,7 +790,10 @@ class TelemetrySystem(Entity):
                     _revision = '2016-02-04'
 
                     def __init__(self):
-                        super(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination, self).__init__()
 
                         self.yang_name = "destination"
                         self.yang_parent_name = "destinations"
@@ -774,7 +822,7 @@ class TelemetrySystem(Entity):
                         self._perform_setattr(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination, ['destination_address', 'destination_port'], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration parameters relating to
                         telemetry destinations
@@ -812,7 +860,10 @@ class TelemetrySystem(Entity):
                         _revision = '2016-02-04'
 
                         def __init__(self):
-                            super(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "destination"
@@ -836,7 +887,7 @@ class TelemetrySystem(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         State information associated with
                         telemetry destinations
@@ -880,7 +931,10 @@ class TelemetrySystem(Entity):
                         _revision = '2016-02-04'
 
                         def __init__(self):
-                            super(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "destination"
@@ -908,7 +962,7 @@ class TelemetrySystem(Entity):
 
 
 
-    class Subscriptions(Entity):
+    class Subscriptions(_Entity_):
         """
         This container holds information for both persistent
         and dynamic telemetry subscriptions.
@@ -931,7 +985,10 @@ class TelemetrySystem(Entity):
         _revision = '2016-02-04'
 
         def __init__(self):
-            super(TelemetrySystem.Subscriptions, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(TelemetrySystem.Subscriptions, self).__init__()
 
             self.yang_name = "subscriptions"
             self.yang_parent_name = "telemetry-system"
@@ -956,7 +1013,7 @@ class TelemetrySystem(Entity):
             self._perform_setattr(TelemetrySystem.Subscriptions, [], name, value)
 
 
-        class Persistent(Entity):
+        class Persistent(_Entity_):
             """
             This container holds information relating to persistent
             telemetry subscriptions. A persistent telemetry
@@ -977,7 +1034,10 @@ class TelemetrySystem(Entity):
             _revision = '2016-02-04'
 
             def __init__(self):
-                super(TelemetrySystem.Subscriptions.Persistent, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TelemetrySystem.Subscriptions.Persistent, self).__init__()
 
                 self.yang_name = "persistent"
                 self.yang_parent_name = "subscriptions"
@@ -996,7 +1056,7 @@ class TelemetrySystem(Entity):
                 self._perform_setattr(TelemetrySystem.Subscriptions.Persistent, [], name, value)
 
 
-            class Subscription(Entity):
+            class Subscription(_Entity_):
                 """
                 List of telemetry subscriptions. A telemetry
                 subscription consists of a set of collection
@@ -1042,7 +1102,10 @@ class TelemetrySystem(Entity):
                 _revision = '2016-02-04'
 
                 def __init__(self):
-                    super(TelemetrySystem.Subscriptions.Persistent.Subscription, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetrySystem.Subscriptions.Persistent.Subscription, self).__init__()
 
                     self.yang_name = "subscription"
                     self.yang_parent_name = "persistent"
@@ -1078,7 +1141,7 @@ class TelemetrySystem(Entity):
                     self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription, ['subscription_id'], name, value)
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Config parameters relating to the telemetry
                     subscriptions on the local device
@@ -1118,7 +1181,10 @@ class TelemetrySystem(Entity):
                     _revision = '2016-02-04'
 
                     def __init__(self):
-                        super(TelemetrySystem.Subscriptions.Persistent.Subscription.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetrySystem.Subscriptions.Persistent.Subscription.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "subscription"
@@ -1142,7 +1208,7 @@ class TelemetrySystem(Entity):
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     State parameters relating to the telemetry
                     subscriptions on the local device
@@ -1188,7 +1254,10 @@ class TelemetrySystem(Entity):
                     _revision = '2016-02-04'
 
                     def __init__(self):
-                        super(TelemetrySystem.Subscriptions.Persistent.Subscription.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetrySystem.Subscriptions.Persistent.Subscription.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "subscription"
@@ -1212,7 +1281,7 @@ class TelemetrySystem(Entity):
 
 
 
-                class SensorProfiles(Entity):
+                class SensorProfiles(_Entity_):
                     """
                     A sensor profile is a set of sensor groups or
                     individual sensor paths which are associated with a
@@ -1233,7 +1302,10 @@ class TelemetrySystem(Entity):
                     _revision = '2016-02-04'
 
                     def __init__(self):
-                        super(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles, self).__init__()
 
                         self.yang_name = "sensor-profiles"
                         self.yang_parent_name = "subscription"
@@ -1251,7 +1323,7 @@ class TelemetrySystem(Entity):
                         self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles, [], name, value)
 
 
-                    class SensorProfile(Entity):
+                    class SensorProfile(_Entity_):
                         """
                         List of telemetry sensor groups used
                         in the subscription
@@ -1283,7 +1355,10 @@ class TelemetrySystem(Entity):
                         _revision = '2016-02-04'
 
                         def __init__(self):
-                            super(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile, self).__init__()
 
                             self.yang_name = "sensor-profile"
                             self.yang_parent_name = "sensor-profiles"
@@ -1310,7 +1385,7 @@ class TelemetrySystem(Entity):
                             self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile, ['sensor_group'], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration parameters related to the sensor
                             profile for a subscription
@@ -1349,7 +1424,10 @@ class TelemetrySystem(Entity):
                             _revision = '2016-02-04'
 
                             def __init__(self):
-                                super(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "sensor-profile"
@@ -1375,7 +1453,7 @@ class TelemetrySystem(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State information relating to the sensor profile
                             for a subscription
@@ -1422,7 +1500,10 @@ class TelemetrySystem(Entity):
                             _revision = '2016-02-04'
 
                             def __init__(self):
-                                super(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "sensor-profile"
@@ -1450,7 +1531,7 @@ class TelemetrySystem(Entity):
 
 
 
-                class DestinationGroups(Entity):
+                class DestinationGroups(_Entity_):
                     """
                     A subscription may specify destination addresses.
                     If the subscription supplies destination addresses,
@@ -1484,7 +1565,10 @@ class TelemetrySystem(Entity):
                     _revision = '2016-02-04'
 
                     def __init__(self):
-                        super(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups, self).__init__()
 
                         self.yang_name = "destination-groups"
                         self.yang_parent_name = "subscription"
@@ -1502,7 +1586,7 @@ class TelemetrySystem(Entity):
                         self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups, [], name, value)
 
 
-                    class DestinationGroup(Entity):
+                    class DestinationGroup(_Entity_):
                         """
                         Identifier of the previously defined destination
                         group
@@ -1532,7 +1616,10 @@ class TelemetrySystem(Entity):
                         _revision = '2016-02-04'
 
                         def __init__(self):
-                            super(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup, self).__init__()
 
                             self.yang_name = "destination-group"
                             self.yang_parent_name = "destination-groups"
@@ -1559,7 +1646,7 @@ class TelemetrySystem(Entity):
                             self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup, ['group_id'], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration parameters related to telemetry
                             destinations.
@@ -1579,7 +1666,10 @@ class TelemetrySystem(Entity):
                             _revision = '2016-02-04'
 
                             def __init__(self):
-                                super(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "destination-group"
@@ -1599,7 +1689,7 @@ class TelemetrySystem(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State information related to telemetry
                             destinations
@@ -1619,7 +1709,10 @@ class TelemetrySystem(Entity):
                             _revision = '2016-02-04'
 
                             def __init__(self):
-                                super(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "destination-group"
@@ -1643,7 +1736,7 @@ class TelemetrySystem(Entity):
 
 
 
-        class Dynamic(Entity):
+        class Dynamic(_Entity_):
             """
             This container holds information relating to dynamic
             telemetry subscriptions. A dynamic subscription is
@@ -1666,7 +1759,10 @@ class TelemetrySystem(Entity):
             _revision = '2016-02-04'
 
             def __init__(self):
-                super(TelemetrySystem.Subscriptions.Dynamic, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(TelemetrySystem.Subscriptions.Dynamic, self).__init__()
 
                 self.yang_name = "dynamic"
                 self.yang_parent_name = "subscriptions"
@@ -1685,7 +1781,7 @@ class TelemetrySystem(Entity):
                 self._perform_setattr(TelemetrySystem.Subscriptions.Dynamic, [], name, value)
 
 
-            class Subscription(Entity):
+            class Subscription(_Entity_):
                 """
                 List representation of telemetry subscriptions that
                 are configured via an inline RPC, otherwise known
@@ -1724,7 +1820,10 @@ class TelemetrySystem(Entity):
                 _revision = '2016-02-04'
 
                 def __init__(self):
-                    super(TelemetrySystem.Subscriptions.Dynamic.Subscription, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(TelemetrySystem.Subscriptions.Dynamic.Subscription, self).__init__()
 
                     self.yang_name = "subscription"
                     self.yang_parent_name = "dynamic"
@@ -1752,7 +1851,7 @@ class TelemetrySystem(Entity):
                     self._perform_setattr(TelemetrySystem.Subscriptions.Dynamic.Subscription, ['subscription_id'], name, value)
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     State information relating to dynamic telemetry
                     subscriptions.
@@ -1839,7 +1938,10 @@ class TelemetrySystem(Entity):
                     _revision = '2016-02-04'
 
                     def __init__(self):
-                        super(TelemetrySystem.Subscriptions.Dynamic.Subscription.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetrySystem.Subscriptions.Dynamic.Subscription.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "subscription"
@@ -1873,7 +1975,7 @@ class TelemetrySystem(Entity):
 
 
 
-                class SensorPaths(Entity):
+                class SensorPaths(_Entity_):
                     """
                     Top level container to hold a set of sensor
                     paths grouped together
@@ -1893,7 +1995,10 @@ class TelemetrySystem(Entity):
                     _revision = '2016-02-04'
 
                     def __init__(self):
-                        super(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths, self).__init__()
 
                         self.yang_name = "sensor-paths"
                         self.yang_parent_name = "subscription"
@@ -1911,7 +2016,7 @@ class TelemetrySystem(Entity):
                         self._perform_setattr(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths, [], name, value)
 
 
-                    class SensorPath(Entity):
+                    class SensorPath(_Entity_):
                         """
                         List of paths in the model which together
                         comprise a sensor grouping. Filters for each path
@@ -1941,7 +2046,10 @@ class TelemetrySystem(Entity):
                         _revision = '2016-02-04'
 
                         def __init__(self):
-                            super(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath, self).__init__()
 
                             self.yang_name = "sensor-path"
                             self.yang_parent_name = "sensor-paths"
@@ -1964,7 +2072,7 @@ class TelemetrySystem(Entity):
                             self._perform_setattr(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath, ['path'], name, value)
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State information for a dynamic subscription's
                             paths of interest
@@ -1991,7 +2099,10 @@ class TelemetrySystem(Entity):
                             _revision = '2016-02-04'
 
                             def __init__(self):
-                                super(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "sensor-path"

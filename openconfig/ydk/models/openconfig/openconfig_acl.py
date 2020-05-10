@@ -14,8 +14,11 @@ packets should be handled. Entries have a type that indicates
 the type of match criteria, e.g., MAC layer, IPv4, IPv6, etc.
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -36,7 +39,10 @@ class ACLTYPE(Identity):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_TYPE"):
-        super(ACLTYPE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ACLTYPE, self).__init__(ns, pref, tag)
 
 
 
@@ -52,7 +58,10 @@ class FORWARDINGACTION(Identity):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:FORWARDING_ACTION"):
-        super(FORWARDINGACTION, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(FORWARDINGACTION, self).__init__(ns, pref, tag)
 
 
 
@@ -69,7 +78,10 @@ class LOGACTION(Identity):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:LOG_ACTION"):
-        super(LOGACTION, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LOGACTION, self).__init__(ns, pref, tag)
 
 
 
@@ -86,11 +98,14 @@ class ACLCOUNTERCAPABILITY(Identity):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_COUNTER_CAPABILITY"):
-        super(ACLCOUNTERCAPABILITY, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ACLCOUNTERCAPABILITY, self).__init__(ns, pref, tag)
 
 
 
-class Acl(Entity):
+class Acl(_Entity_):
     """
     Top level enclosing container for ACL model config
     and operational state data
@@ -125,7 +140,10 @@ class Acl(Entity):
     _revision = '2017-05-26'
 
     def __init__(self):
-        super(Acl, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(Acl, self).__init__()
         self._top_entity = None
 
         self.yang_name = "acl"
@@ -158,7 +176,7 @@ class Acl(Entity):
         self._perform_setattr(Acl, [], name, value)
 
 
-    class Config(Entity):
+    class Config(_Entity_):
         """
         Global config data for ACLs
         
@@ -170,7 +188,10 @@ class Acl(Entity):
         _revision = '2017-05-26'
 
         def __init__(self):
-            super(Acl.Config, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Acl.Config, self).__init__()
 
             self.yang_name = "config"
             self.yang_parent_name = "acl"
@@ -185,7 +206,7 @@ class Acl(Entity):
 
 
 
-    class State(Entity):
+    class State(_Entity_):
         """
         Global operational state data for ACLs
         
@@ -204,7 +225,10 @@ class Acl(Entity):
         _revision = '2017-05-26'
 
         def __init__(self):
-            super(Acl.State, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Acl.State, self).__init__()
 
             self.yang_name = "state"
             self.yang_parent_name = "acl"
@@ -225,7 +249,7 @@ class Acl(Entity):
 
 
 
-    class AclSets(Entity):
+    class AclSets(_Entity_):
         """
         Access list entries variables enclosing container
         
@@ -242,7 +266,10 @@ class Acl(Entity):
         _revision = '2017-05-26'
 
         def __init__(self):
-            super(Acl.AclSets, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Acl.AclSets, self).__init__()
 
             self.yang_name = "acl-sets"
             self.yang_parent_name = "acl"
@@ -261,7 +288,7 @@ class Acl(Entity):
             self._perform_setattr(Acl.AclSets, [], name, value)
 
 
-        class AclSet(Entity):
+        class AclSet(_Entity_):
             """
             List of ACL sets, each comprising of a list of ACL
             entries
@@ -303,7 +330,10 @@ class Acl(Entity):
             _revision = '2017-05-26'
 
             def __init__(self):
-                super(Acl.AclSets.AclSet, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Acl.AclSets.AclSet, self).__init__()
 
                 self.yang_name = "acl-set"
                 self.yang_parent_name = "acl-sets"
@@ -337,7 +367,7 @@ class Acl(Entity):
                 self._perform_setattr(Acl.AclSets.AclSet, ['name', 'type'], name, value)
 
 
-            class Config(Entity):
+            class Config(_Entity_):
                 """
                 Access list config
                 
@@ -364,7 +394,10 @@ class Acl(Entity):
                 _revision = '2017-05-26'
 
                 def __init__(self):
-                    super(Acl.AclSets.AclSet.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Acl.AclSets.AclSet.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "acl-set"
@@ -388,7 +421,7 @@ class Acl(Entity):
 
 
 
-            class State(Entity):
+            class State(_Entity_):
                 """
                 Access list state information
                 
@@ -421,7 +454,10 @@ class Acl(Entity):
                 _revision = '2017-05-26'
 
                 def __init__(self):
-                    super(Acl.AclSets.AclSet.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Acl.AclSets.AclSet.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "acl-set"
@@ -445,7 +481,7 @@ class Acl(Entity):
 
 
 
-            class AclEntries(Entity):
+            class AclEntries(_Entity_):
                 """
                 Access list entries container
                 
@@ -462,7 +498,10 @@ class Acl(Entity):
                 _revision = '2017-05-26'
 
                 def __init__(self):
-                    super(Acl.AclSets.AclSet.AclEntries, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Acl.AclSets.AclSet.AclEntries, self).__init__()
 
                     self.yang_name = "acl-entries"
                     self.yang_parent_name = "acl-set"
@@ -480,7 +519,7 @@ class Acl(Entity):
                     self._perform_setattr(Acl.AclSets.AclSet.AclEntries, [], name, value)
 
 
-                class AclEntry(Entity):
+                class AclEntry(_Entity_):
                     """
                     List of ACL entries comprising an ACL set
                     
@@ -543,7 +582,10 @@ class Acl(Entity):
                     _revision = '2017-05-26'
 
                     def __init__(self):
-                        super(Acl.AclSets.AclSet.AclEntries.AclEntry, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Acl.AclSets.AclSet.AclEntries.AclEntry, self).__init__()
 
                         self.yang_name = "acl-entry"
                         self.yang_parent_name = "acl-entries"
@@ -594,7 +636,7 @@ class Acl(Entity):
                         self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry, ['sequence_id'], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Access list entries config
                         
@@ -618,7 +660,10 @@ class Acl(Entity):
                         _revision = '2017-05-26'
 
                         def __init__(self):
-                            super(Acl.AclSets.AclSet.AclEntries.AclEntry.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "acl-entry"
@@ -640,7 +685,7 @@ class Acl(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         State information for ACL entries
                         
@@ -686,7 +731,10 @@ class Acl(Entity):
                         _revision = '2017-05-26'
 
                         def __init__(self):
-                            super(Acl.AclSets.AclSet.AclEntries.AclEntry.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "acl-entry"
@@ -712,7 +760,7 @@ class Acl(Entity):
 
 
 
-                    class L2(Entity):
+                    class L2(_Entity_):
                         """
                         Ethernet header fields
                         
@@ -736,7 +784,10 @@ class Acl(Entity):
                         _revision = '2017-05-26'
 
                         def __init__(self):
-                            super(Acl.AclSets.AclSet.AclEntries.AclEntry.L2, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.L2, self).__init__()
 
                             self.yang_name = "l2"
                             self.yang_parent_name = "acl-entry"
@@ -760,7 +811,7 @@ class Acl(Entity):
                             self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.L2, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration data
                             
@@ -811,7 +862,10 @@ class Acl(Entity):
                             _revision = '2017-05-26'
 
                             def __init__(self):
-                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.L2.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Acl.AclSets.AclSet.AclEntries.AclEntry.L2.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "l2"
@@ -839,7 +893,7 @@ class Acl(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State Information.
                             
@@ -900,7 +954,10 @@ class Acl(Entity):
                             _revision = '2017-05-26'
 
                             def __init__(self):
-                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.L2.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Acl.AclSets.AclSet.AclEntries.AclEntry.L2.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "l2"
@@ -929,7 +986,7 @@ class Acl(Entity):
 
 
 
-                    class Ipv4(Entity):
+                    class Ipv4(_Entity_):
                         """
                         Top level container for IPv4 match field data
                         
@@ -953,7 +1010,10 @@ class Acl(Entity):
                         _revision = '2017-05-26'
 
                         def __init__(self):
-                            super(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv4, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv4, self).__init__()
 
                             self.yang_name = "ipv4"
                             self.yang_parent_name = "acl-entry"
@@ -977,7 +1037,7 @@ class Acl(Entity):
                             self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv4, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration data for IPv4 match fields
                             
@@ -1028,7 +1088,10 @@ class Acl(Entity):
                             _revision = '2017-05-26'
 
                             def __init__(self):
-                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv4.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv4.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "ipv4"
@@ -1056,7 +1119,7 @@ class Acl(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State information for IPv4 match fields
                             
@@ -1117,7 +1180,10 @@ class Acl(Entity):
                             _revision = '2017-05-26'
 
                             def __init__(self):
-                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv4.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv4.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "ipv4"
@@ -1146,7 +1212,7 @@ class Acl(Entity):
 
 
 
-                    class Ipv6(Entity):
+                    class Ipv6(_Entity_):
                         """
                         Top\-level container for IPv6 match field data
                         
@@ -1170,7 +1236,10 @@ class Acl(Entity):
                         _revision = '2017-05-26'
 
                         def __init__(self):
-                            super(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv6, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv6, self).__init__()
 
                             self.yang_name = "ipv6"
                             self.yang_parent_name = "acl-entry"
@@ -1194,7 +1263,7 @@ class Acl(Entity):
                             self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv6, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration data for IPv6 match fields
                             
@@ -1259,7 +1328,10 @@ class Acl(Entity):
                             _revision = '2017-05-26'
 
                             def __init__(self):
-                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv6.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv6.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "ipv6"
@@ -1291,7 +1363,7 @@ class Acl(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             Operational state data for IPv6 match fields
                             
@@ -1370,7 +1442,10 @@ class Acl(Entity):
                             _revision = '2017-05-26'
 
                             def __init__(self):
-                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv6.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv6.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "ipv6"
@@ -1403,7 +1478,7 @@ class Acl(Entity):
 
 
 
-                    class Transport(Entity):
+                    class Transport(_Entity_):
                         """
                         Transport fields container
                         
@@ -1427,7 +1502,10 @@ class Acl(Entity):
                         _revision = '2017-05-26'
 
                         def __init__(self):
-                            super(Acl.AclSets.AclSet.AclEntries.AclEntry.Transport, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.Transport, self).__init__()
 
                             self.yang_name = "transport"
                             self.yang_parent_name = "acl-entry"
@@ -1451,7 +1529,7 @@ class Acl(Entity):
                             self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Transport, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration data
                             
@@ -1498,7 +1576,10 @@ class Acl(Entity):
                             _revision = '2017-05-26'
 
                             def __init__(self):
-                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.Transport.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Acl.AclSets.AclSet.AclEntries.AclEntry.Transport.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "transport"
@@ -1522,7 +1603,7 @@ class Acl(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State data
                             
@@ -1575,7 +1656,10 @@ class Acl(Entity):
                             _revision = '2017-05-26'
 
                             def __init__(self):
-                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.Transport.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Acl.AclSets.AclSet.AclEntries.AclEntry.Transport.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "transport"
@@ -1600,7 +1684,7 @@ class Acl(Entity):
 
 
 
-                    class InputInterface(Entity):
+                    class InputInterface(_Entity_):
                         """
                         Input interface container
                         
@@ -1629,7 +1713,10 @@ class Acl(Entity):
                         _revision = '2017-05-26'
 
                         def __init__(self):
-                            super(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface, self).__init__()
 
                             self.yang_name = "input-interface"
                             self.yang_parent_name = "acl-entry"
@@ -1657,7 +1744,7 @@ class Acl(Entity):
                             self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Config data
                             
@@ -1669,7 +1756,10 @@ class Acl(Entity):
                             _revision = '2017-05-26'
 
                             def __init__(self):
-                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "input-interface"
@@ -1683,7 +1773,7 @@ class Acl(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State information
                             
@@ -1695,7 +1785,10 @@ class Acl(Entity):
                             _revision = '2017-05-26'
 
                             def __init__(self):
-                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "input-interface"
@@ -1709,7 +1802,7 @@ class Acl(Entity):
 
 
 
-                        class InterfaceRef(Entity):
+                        class InterfaceRef(_Entity_):
                             """
                             Reference to an interface or subinterface
                             
@@ -1733,7 +1826,10 @@ class Acl(Entity):
                             _revision = '2017-05-26'
 
                             def __init__(self):
-                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef, self).__init__()
 
                                 self.yang_name = "interface-ref"
                                 self.yang_parent_name = "input-interface"
@@ -1757,7 +1853,7 @@ class Acl(Entity):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef, [], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configured reference to interface / subinterface
                                 
@@ -1785,7 +1881,10 @@ class Acl(Entity):
                                 _revision = '2017-05-26'
 
                                 def __init__(self):
-                                    super(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "interface-ref"
@@ -1807,7 +1906,7 @@ class Acl(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Operational state for interface\-ref
                                 
@@ -1839,7 +1938,10 @@ class Acl(Entity):
                                 _revision = '2017-05-26'
 
                                 def __init__(self):
-                                    super(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "interface-ref"
@@ -1863,7 +1965,7 @@ class Acl(Entity):
 
 
 
-                    class Actions(Entity):
+                    class Actions(_Entity_):
                         """
                         Enclosing container for list of ACL actions associated
                         with an entry
@@ -1888,7 +1990,10 @@ class Acl(Entity):
                         _revision = '2017-05-26'
 
                         def __init__(self):
-                            super(Acl.AclSets.AclSet.AclEntries.AclEntry.Actions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.Actions, self).__init__()
 
                             self.yang_name = "actions"
                             self.yang_parent_name = "acl-entry"
@@ -1912,7 +2017,7 @@ class Acl(Entity):
                             self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Actions, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Config data for ACL actions
                             
@@ -1938,7 +2043,10 @@ class Acl(Entity):
                             _revision = '2017-05-26'
 
                             def __init__(self):
-                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.Actions.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Acl.AclSets.AclSet.AclEntries.AclEntry.Actions.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "actions"
@@ -1960,7 +2068,7 @@ class Acl(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             State information for ACL actions
                             
@@ -1990,7 +2098,10 @@ class Acl(Entity):
                             _revision = '2017-05-26'
 
                             def __init__(self):
-                                super(Acl.AclSets.AclSet.AclEntries.AclEntry.Actions.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Acl.AclSets.AclSet.AclEntries.AclEntry.Actions.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "actions"
@@ -2017,7 +2128,7 @@ class Acl(Entity):
 
 
 
-    class Interfaces(Entity):
+    class Interfaces(_Entity_):
         """
         Enclosing container for the list of interfaces on which
         ACLs are set
@@ -2035,7 +2146,10 @@ class Acl(Entity):
         _revision = '2017-05-26'
 
         def __init__(self):
-            super(Acl.Interfaces, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(Acl.Interfaces, self).__init__()
 
             self.yang_name = "interfaces"
             self.yang_parent_name = "acl"
@@ -2054,7 +2168,7 @@ class Acl(Entity):
             self._perform_setattr(Acl.Interfaces, [], name, value)
 
 
-        class Interface(Entity):
+        class Interface(_Entity_):
             """
             List of interfaces on which ACLs are set
             
@@ -2100,7 +2214,10 @@ class Acl(Entity):
             _revision = '2017-05-26'
 
             def __init__(self):
-                super(Acl.Interfaces.Interface, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(Acl.Interfaces.Interface, self).__init__()
 
                 self.yang_name = "interface"
                 self.yang_parent_name = "interfaces"
@@ -2140,7 +2257,7 @@ class Acl(Entity):
                 self._perform_setattr(Acl.Interfaces.Interface, ['id'], name, value)
 
 
-            class Config(Entity):
+            class Config(_Entity_):
                 """
                 Configuration for ACL per\-interface data
                 
@@ -2157,7 +2274,10 @@ class Acl(Entity):
                 _revision = '2017-05-26'
 
                 def __init__(self):
-                    super(Acl.Interfaces.Interface.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Acl.Interfaces.Interface.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "interface"
@@ -2177,7 +2297,7 @@ class Acl(Entity):
 
 
 
-            class State(Entity):
+            class State(_Entity_):
                 """
                 Operational state for ACL per\-interface data
                 
@@ -2196,7 +2316,10 @@ class Acl(Entity):
                 _revision = '2017-05-26'
 
                 def __init__(self):
-                    super(Acl.Interfaces.Interface.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Acl.Interfaces.Interface.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "interface"
@@ -2216,7 +2339,7 @@ class Acl(Entity):
 
 
 
-            class InterfaceRef(Entity):
+            class InterfaceRef(_Entity_):
                 """
                 Reference to an interface or subinterface
                 
@@ -2240,7 +2363,10 @@ class Acl(Entity):
                 _revision = '2017-05-26'
 
                 def __init__(self):
-                    super(Acl.Interfaces.Interface.InterfaceRef, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Acl.Interfaces.Interface.InterfaceRef, self).__init__()
 
                     self.yang_name = "interface-ref"
                     self.yang_parent_name = "interface"
@@ -2264,7 +2390,7 @@ class Acl(Entity):
                     self._perform_setattr(Acl.Interfaces.Interface.InterfaceRef, [], name, value)
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Configured reference to interface / subinterface
                     
@@ -2292,7 +2418,10 @@ class Acl(Entity):
                     _revision = '2017-05-26'
 
                     def __init__(self):
-                        super(Acl.Interfaces.Interface.InterfaceRef.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Acl.Interfaces.Interface.InterfaceRef.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "interface-ref"
@@ -2314,7 +2443,7 @@ class Acl(Entity):
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     Operational state for interface\-ref
                     
@@ -2346,7 +2475,10 @@ class Acl(Entity):
                     _revision = '2017-05-26'
 
                     def __init__(self):
-                        super(Acl.Interfaces.Interface.InterfaceRef.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Acl.Interfaces.Interface.InterfaceRef.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "interface-ref"
@@ -2369,7 +2501,7 @@ class Acl(Entity):
 
 
 
-            class IngressAclSets(Entity):
+            class IngressAclSets(_Entity_):
                 """
                 Enclosing container the list of ingress ACLs on the
                 interface
@@ -2387,7 +2519,10 @@ class Acl(Entity):
                 _revision = '2017-05-26'
 
                 def __init__(self):
-                    super(Acl.Interfaces.Interface.IngressAclSets, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Acl.Interfaces.Interface.IngressAclSets, self).__init__()
 
                     self.yang_name = "ingress-acl-sets"
                     self.yang_parent_name = "interface"
@@ -2405,7 +2540,7 @@ class Acl(Entity):
                     self._perform_setattr(Acl.Interfaces.Interface.IngressAclSets, [], name, value)
 
 
-                class IngressAclSet(Entity):
+                class IngressAclSet(_Entity_):
                     """
                     List of ingress ACLs on the interface
                     
@@ -2448,7 +2583,10 @@ class Acl(Entity):
                     _revision = '2017-05-26'
 
                     def __init__(self):
-                        super(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet, self).__init__()
 
                         self.yang_name = "ingress-acl-set"
                         self.yang_parent_name = "ingress-acl-sets"
@@ -2481,7 +2619,7 @@ class Acl(Entity):
                         self._perform_setattr(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet, ['set_name', 'type'], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data 
                         
@@ -2505,7 +2643,10 @@ class Acl(Entity):
                         _revision = '2017-05-26'
 
                         def __init__(self):
-                            super(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "ingress-acl-set"
@@ -2527,7 +2668,7 @@ class Acl(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state data for interface ingress ACLs
                         
@@ -2555,7 +2696,10 @@ class Acl(Entity):
                         _revision = '2017-05-26'
 
                         def __init__(self):
-                            super(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "ingress-acl-set"
@@ -2577,7 +2721,7 @@ class Acl(Entity):
 
 
 
-                    class AclEntries(Entity):
+                    class AclEntries(_Entity_):
                         """
                         Enclosing container for list of references to ACLs
                         
@@ -2596,7 +2740,10 @@ class Acl(Entity):
                         _revision = '2017-05-26'
 
                         def __init__(self):
-                            super(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries, self).__init__()
 
                             self.yang_name = "acl-entries"
                             self.yang_parent_name = "ingress-acl-set"
@@ -2614,7 +2761,7 @@ class Acl(Entity):
                             self._perform_setattr(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries, [], name, value)
 
 
-                        class AclEntry(Entity):
+                        class AclEntry(_Entity_):
                             """
                             List of ACL entries assigned to an interface
                             
@@ -2644,7 +2791,10 @@ class Acl(Entity):
                             _revision = '2017-05-26'
 
                             def __init__(self):
-                                super(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry, self).__init__()
 
                                 self.yang_name = "acl-entry"
                                 self.yang_parent_name = "acl-entries"
@@ -2667,7 +2817,7 @@ class Acl(Entity):
                                 self._perform_setattr(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry, ['sequence_id'], name, value)
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Operational state data for per\-interface ACL entries
                                 
@@ -2708,7 +2858,10 @@ class Acl(Entity):
                                 _revision = '2017-05-26'
 
                                 def __init__(self):
-                                    super(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "acl-entry"
@@ -2736,7 +2889,7 @@ class Acl(Entity):
 
 
 
-            class EgressAclSets(Entity):
+            class EgressAclSets(_Entity_):
                 """
                 Enclosing container the list of egress ACLs on the
                 interface
@@ -2754,7 +2907,10 @@ class Acl(Entity):
                 _revision = '2017-05-26'
 
                 def __init__(self):
-                    super(Acl.Interfaces.Interface.EgressAclSets, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(Acl.Interfaces.Interface.EgressAclSets, self).__init__()
 
                     self.yang_name = "egress-acl-sets"
                     self.yang_parent_name = "interface"
@@ -2772,7 +2928,7 @@ class Acl(Entity):
                     self._perform_setattr(Acl.Interfaces.Interface.EgressAclSets, [], name, value)
 
 
-                class EgressAclSet(Entity):
+                class EgressAclSet(_Entity_):
                     """
                     List of egress ACLs on the interface
                     
@@ -2815,7 +2971,10 @@ class Acl(Entity):
                     _revision = '2017-05-26'
 
                     def __init__(self):
-                        super(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet, self).__init__()
 
                         self.yang_name = "egress-acl-set"
                         self.yang_parent_name = "egress-acl-sets"
@@ -2848,7 +3007,7 @@ class Acl(Entity):
                         self._perform_setattr(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet, ['set_name', 'type'], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data 
                         
@@ -2872,7 +3031,10 @@ class Acl(Entity):
                         _revision = '2017-05-26'
 
                         def __init__(self):
-                            super(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "egress-acl-set"
@@ -2894,7 +3056,7 @@ class Acl(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state data for interface egress ACLs
                         
@@ -2922,7 +3084,10 @@ class Acl(Entity):
                         _revision = '2017-05-26'
 
                         def __init__(self):
-                            super(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "egress-acl-set"
@@ -2944,7 +3109,7 @@ class Acl(Entity):
 
 
 
-                    class AclEntries(Entity):
+                    class AclEntries(_Entity_):
                         """
                         Enclosing container for list of references to ACLs
                         
@@ -2963,7 +3128,10 @@ class Acl(Entity):
                         _revision = '2017-05-26'
 
                         def __init__(self):
-                            super(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries, self).__init__()
 
                             self.yang_name = "acl-entries"
                             self.yang_parent_name = "egress-acl-set"
@@ -2981,7 +3149,7 @@ class Acl(Entity):
                             self._perform_setattr(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries, [], name, value)
 
 
-                        class AclEntry(Entity):
+                        class AclEntry(_Entity_):
                             """
                             List of ACL entries assigned to an interface
                             
@@ -3011,7 +3179,10 @@ class Acl(Entity):
                             _revision = '2017-05-26'
 
                             def __init__(self):
-                                super(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry, self).__init__()
 
                                 self.yang_name = "acl-entry"
                                 self.yang_parent_name = "acl-entries"
@@ -3034,7 +3205,7 @@ class Acl(Entity):
                                 self._perform_setattr(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry, ['sequence_id'], name, value)
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Operational state data for per\-interface ACL entries
                                 
@@ -3075,7 +3246,10 @@ class Acl(Entity):
                                 _revision = '2017-05-26'
 
                                 def __init__(self):
-                                    super(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "acl-entry"
@@ -3122,7 +3296,10 @@ class ACLIPV4(ACLTYPE):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_IPV4"):
-        super(ACLIPV4, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ACLIPV4, self).__init__(ns, pref, tag)
 
 
 
@@ -3138,7 +3315,10 @@ class ACLIPV6(ACLTYPE):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_IPV6"):
-        super(ACLIPV6, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ACLIPV6, self).__init__(ns, pref, tag)
 
 
 
@@ -3154,7 +3334,10 @@ class ACLL2(ACLTYPE):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_L2"):
-        super(ACLL2, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ACLL2, self).__init__(ns, pref, tag)
 
 
 
@@ -3172,7 +3355,10 @@ class ACLMIXED(ACLTYPE):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_MIXED"):
-        super(ACLMIXED, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ACLMIXED, self).__init__(ns, pref, tag)
 
 
 
@@ -3188,7 +3374,10 @@ class ACCEPT(FORWARDINGACTION):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACCEPT"):
-        super(ACCEPT, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(ACCEPT, self).__init__(ns, pref, tag)
 
 
 
@@ -3204,7 +3393,10 @@ class DROP(FORWARDINGACTION):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:DROP"):
-        super(DROP, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(DROP, self).__init__(ns, pref, tag)
 
 
 
@@ -3220,7 +3412,10 @@ class REJECT(FORWARDINGACTION):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:REJECT"):
-        super(REJECT, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(REJECT, self).__init__(ns, pref, tag)
 
 
 
@@ -3236,7 +3431,10 @@ class LOGSYSLOG(LOGACTION):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:LOG_SYSLOG"):
-        super(LOGSYSLOG, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LOGSYSLOG, self).__init__(ns, pref, tag)
 
 
 
@@ -3252,7 +3450,10 @@ class LOGNONE(LOGACTION):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:LOG_NONE"):
-        super(LOGNONE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(LOGNONE, self).__init__(ns, pref, tag)
 
 
 
@@ -3268,7 +3469,10 @@ class INTERFACEONLY(ACLCOUNTERCAPABILITY):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:INTERFACE_ONLY"):
-        super(INTERFACEONLY, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(INTERFACEONLY, self).__init__(ns, pref, tag)
 
 
 
@@ -3285,7 +3489,10 @@ class AGGREGATEONLY(ACLCOUNTERCAPABILITY):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:AGGREGATE_ONLY"):
-        super(AGGREGATEONLY, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(AGGREGATEONLY, self).__init__(ns, pref, tag)
 
 
 
@@ -3302,7 +3509,10 @@ class INTERFACEAGGREGATE(ACLCOUNTERCAPABILITY):
     _revision = '2017-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:INTERFACE_AGGREGATE"):
-        super(INTERFACEAGGREGATE, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(INTERFACEAGGREGATE, self).__init__(ns, pref, tag)
 
 
 

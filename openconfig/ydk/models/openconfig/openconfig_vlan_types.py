@@ -4,8 +4,11 @@ This module defines configuration and state variables for VLANs,
 in addition to VLAN parameters associated with interfaces
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -48,7 +51,10 @@ class TPIDTYPES(Identity):
     _revision = '2016-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/vlan-types", pref="openconfig-vlan-types", tag="openconfig-vlan-types:TPID_TYPES"):
-        super(TPIDTYPES, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TPIDTYPES, self).__init__(ns, pref, tag)
 
 
 
@@ -64,7 +70,10 @@ class TPID0x8100(TPIDTYPES):
     _revision = '2016-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/vlan-types", pref="openconfig-vlan-types", tag="openconfig-vlan-types:TPID_0x8100"):
-        super(TPID0x8100, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TPID0x8100, self).__init__(ns, pref, tag)
 
 
 
@@ -81,7 +90,10 @@ class TPID0x8A88(TPIDTYPES):
     _revision = '2016-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/vlan-types", pref="openconfig-vlan-types", tag="openconfig-vlan-types:TPID_0x8A88"):
-        super(TPID0x8A88, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TPID0x8A88, self).__init__(ns, pref, tag)
 
 
 
@@ -97,7 +109,10 @@ class TPID0x9100(TPIDTYPES):
     _revision = '2016-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/vlan-types", pref="openconfig-vlan-types", tag="openconfig-vlan-types:TPID_0x9100"):
-        super(TPID0x9100, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TPID0x9100, self).__init__(ns, pref, tag)
 
 
 
@@ -113,7 +128,10 @@ class TPID0X9200(TPIDTYPES):
     _revision = '2016-05-26'
 
     def __init__(self, ns="http://openconfig.net/yang/vlan-types", pref="openconfig-vlan-types", tag="openconfig-vlan-types:TPID_0X9200"):
-        super(TPID0X9200, self).__init__(ns, pref, tag)
+        if sys.version_info > (3,):
+            super().__init__(ns, pref, tag)
+        else:
+            super(TPID0X9200, self).__init__(ns, pref, tag)
 
 
 

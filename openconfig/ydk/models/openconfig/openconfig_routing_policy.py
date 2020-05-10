@@ -8,24 +8,19 @@ how routes are imported, exported, and modified across different
 routing protocols.  This module is intended to be used in
 conjunction with routing protocol configuration models (e.g.,
 BGP) defined in other modules.
-
 Route policy expression\:
-
 Policies are expressed as a set of top\-level policy definitions,
 each of which consists of a sequence of policy statements. Policy
 statements consist of simple condition\-action tuples. Conditions
 may include mutiple match or comparison operations, and similarly
 actions may be multitude of changes to route attributes or a
 final disposition of accepting or rejecting the route.
-
 Route policy evaluation\:
-
 Policy definitions are referenced in routing protocol
 configurations using import and export configuration statements.
 The arguments are members of an ordered list of named policy
 definitions which comprise a policy chain, and optionally, an
 explicit default policy action (i.e., reject or accept).
-
 Evaluation of each policy definition proceeds by evaluating its
 corresponding individual policy statements in order.  When a
 condition statement in a policy statement is satisfied, the
@@ -33,7 +28,6 @@ corresponding action statement is executed.  If the action
 statement has either accept\-route or reject\-route actions, policy
 evaluation of the current policy definition stops, and no further
 policy definitions in the chain are evaluated.
-
 If the condition is not satisfied, then evaluation proceeds to
 the next policy statement.  If none of the policy statement
 conditions are satisfied, then evaluation of the current policy
@@ -42,7 +36,6 @@ evaluated.  When the end of the policy chain is reached, the
 default route disposition action is performed (i.e., reject\-route
 unless an an alternate default action is specified for the
 chain).
-
 Policy 'subroutines' (or nested policies) are supported by
 allowing policy statement conditions to reference another policy
 definition which applies conditions and actions from the
@@ -56,8 +49,11 @@ the remaining conditions (using a modified route if the
 subroutine performed any changes to the route).
 
 """
+import sys
 from collections import OrderedDict
 
+from ydk.types import Entity as _Entity_
+from ydk.types import EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
@@ -69,17 +65,40 @@ class DefaultPolicyType(Enum):
     """
     DefaultPolicyType (Enum Class)
 
-    type used to specify default route disposition in
+    Type used to specify route disposition in
 
     a policy chain
 
     .. data:: ACCEPT_ROUTE = 0
 
-    	default policy to accept the route
+    	Default policy to accept the route
 
     .. data:: REJECT_ROUTE = 1
 
-    	default policy to reject the route
+    	Default policy to reject the route
+
+    """
+
+    ACCEPT_ROUTE = Enum.YLeaf(0, "ACCEPT_ROUTE")
+
+    REJECT_ROUTE = Enum.YLeaf(1, "REJECT_ROUTE")
+
+
+class PolicyResultType(Enum):
+    """
+    PolicyResultType (Enum Class)
+
+    Type used to specify route disposition in
+
+    a policy chain
+
+    .. data:: ACCEPT_ROUTE = 0
+
+    	Policy accepts the route
+
+    .. data:: REJECT_ROUTE = 1
+
+    	Policy rejects the route
 
     """
 
@@ -89,7 +108,7 @@ class DefaultPolicyType(Enum):
 
 
 
-class RoutingPolicy(Entity):
+class RoutingPolicy(_Entity_):
     """
     Top\-level container for all routing policy configuration
     
@@ -108,10 +127,13 @@ class RoutingPolicy(Entity):
     """
 
     _prefix = 'oc-rpol'
-    _revision = '2016-05-12'
+    _revision = '2018-06-05'
 
     def __init__(self):
-        super(RoutingPolicy, self).__init__()
+        if sys.version_info > (3,):
+            super().__init__()
+        else:
+            super(RoutingPolicy, self).__init__()
         self._top_entity = None
 
         self.yang_name = "routing-policy"
@@ -136,7 +158,7 @@ class RoutingPolicy(Entity):
         self._perform_setattr(RoutingPolicy, [], name, value)
 
 
-    class DefinedSets(Entity):
+    class DefinedSets(_Entity_):
         """
         Predefined sets of attributes used in policy match
         statements
@@ -166,10 +188,13 @@ class RoutingPolicy(Entity):
         """
 
         _prefix = 'oc-rpol'
-        _revision = '2016-05-12'
+        _revision = '2018-06-05'
 
         def __init__(self):
-            super(RoutingPolicy.DefinedSets, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RoutingPolicy.DefinedSets, self).__init__()
 
             self.yang_name = "defined-sets"
             self.yang_parent_name = "routing-policy"
@@ -202,7 +227,7 @@ class RoutingPolicy(Entity):
             self._perform_setattr(RoutingPolicy.DefinedSets, [], name, value)
 
 
-        class PrefixSets(Entity):
+        class PrefixSets(_Entity_):
             """
             Enclosing container 
             
@@ -216,10 +241,13 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'oc-rpol'
-            _revision = '2016-05-12'
+            _revision = '2018-06-05'
 
             def __init__(self):
-                super(RoutingPolicy.DefinedSets.PrefixSets, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.DefinedSets.PrefixSets, self).__init__()
 
                 self.yang_name = "prefix-sets"
                 self.yang_parent_name = "defined-sets"
@@ -238,16 +266,16 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets, [], name, value)
 
 
-            class PrefixSet(Entity):
+            class PrefixSet(_Entity_):
                 """
                 List of the defined prefix sets
                 
-                .. attribute:: prefix_set_name  (key)
+                .. attribute:: name  (key)
                 
                 	Reference to prefix name list key
                 	**type**\: str
                 
-                	**refers to**\:  :py:class:`prefix_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config>`
                 
                 .. attribute:: config
                 
@@ -271,21 +299,24 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'oc-rpol'
-                _revision = '2016-05-12'
+                _revision = '2018-06-05'
 
                 def __init__(self):
-                    super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet, self).__init__()
 
                     self.yang_name = "prefix-set"
                     self.yang_parent_name = "prefix-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self.ylist_key_names = ['prefix_set_name']
+                    self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config)), ("state", ("state", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State)), ("prefixes", ("prefixes", RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes))])
                     self._leafs = OrderedDict([
-                        ('prefix_set_name', (YLeaf(YType.str, 'prefix-set-name'), ['str'])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
-                    self.prefix_set_name = None
+                    self.name = None
 
                     self.config = RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config()
                     self.config.parent = self
@@ -298,32 +329,40 @@ class RoutingPolicy(Entity):
                     self.prefixes = RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes()
                     self.prefixes.parent = self
                     self._children_name_map["prefixes"] = "prefixes"
-                    self._segment_path = lambda: "prefix-set" + "[prefix-set-name='" + str(self.prefix_set_name) + "']"
+                    self._segment_path = lambda: "prefix-set" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/prefix-sets/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet, ['prefix_set_name'], name, value)
+                    self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet, ['name'], name, value)
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Configuration data for prefix sets
                     
-                    .. attribute:: prefix_set_name
+                    .. attribute:: name
                     
                     	name / label of the prefix set \-\- this is used to reference the set in match conditions
                     	**type**\: str
+                    
+                    .. attribute:: mode
+                    
+                    	Indicates the mode of the prefix set, in terms of which address families (IPv4, IPv6, or both) are present.  The mode provides a hint, but the device must validate that all prefixes are of the indicated type, and is expected to reject the configuration if there is a discrepancy.  The MIXED mode may not be supported on devices that require prefix sets to be of only one address family
+                    	**type**\:  :py:class:`Mode <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config.Mode>`
                     
                     
 
                     """
 
                     _prefix = 'oc-rpol'
-                    _revision = '2016-05-12'
+                    _revision = '2018-06-05'
 
                     def __init__(self):
-                        super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "prefix-set"
@@ -332,25 +371,73 @@ class RoutingPolicy(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('prefix_set_name', (YLeaf(YType.str, 'prefix-set-name'), ['str'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.openconfig.openconfig_routing_policy', 'RoutingPolicy', 'DefinedSets.PrefixSets.PrefixSet.Config.Mode')])),
                         ])
-                        self.prefix_set_name = None
+                        self.name = None
+                        self.mode = None
                         self._segment_path = lambda: "config"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config, ['prefix_set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config, ['name', 'mode'], name, value)
+
+                    class Mode(Enum):
+                        """
+                        Mode (Enum Class)
+
+                        Indicates the mode of the prefix set, in terms of which
+
+                        address families (IPv4, IPv6, or both) are present.  The
+
+                        mode provides a hint, but the device must validate that all
+
+                        prefixes are of the indicated type, and is expected to
+
+                        reject the configuration if there is a discrepancy.  The
+
+                        MIXED mode may not be supported on devices that require
+
+                        prefix sets to be of only one address family.
+
+                        .. data:: IPV4 = 0
+
+                        	Prefix set contains IPv4 prefixes only
+
+                        .. data:: IPV6 = 1
+
+                        	Prefix set contains IPv6 prefixes only
+
+                        .. data:: MIXED = 2
+
+                        	Prefix set contains mixed IPv4 and IPv6 prefixes
+
+                        """
+
+                        IPV4 = Enum.YLeaf(0, "IPV4")
+
+                        IPV6 = Enum.YLeaf(1, "IPV6")
+
+                        MIXED = Enum.YLeaf(2, "MIXED")
 
 
 
-                class State(Entity):
+
+                class State(_Entity_):
                     """
                     Operational state data 
                     
-                    .. attribute:: prefix_set_name
+                    .. attribute:: name
                     
                     	name / label of the prefix set \-\- this is used to reference the set in match conditions
                     	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: mode
+                    
+                    	Indicates the mode of the prefix set, in terms of which address families (IPv4, IPv6, or both) are present.  The mode provides a hint, but the device must validate that all prefixes are of the indicated type, and is expected to reject the configuration if there is a discrepancy.  The MIXED mode may not be supported on devices that require prefix sets to be of only one address family
+                    	**type**\:  :py:class:`Mode <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State.Mode>`
                     
                     	**config**\: False
                     
@@ -359,10 +446,13 @@ class RoutingPolicy(Entity):
                     """
 
                     _prefix = 'oc-rpol'
-                    _revision = '2016-05-12'
+                    _revision = '2018-06-05'
 
                     def __init__(self):
-                        super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "prefix-set"
@@ -371,18 +461,59 @@ class RoutingPolicy(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('prefix_set_name', (YLeaf(YType.str, 'prefix-set-name'), ['str'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.openconfig.openconfig_routing_policy', 'RoutingPolicy', 'DefinedSets.PrefixSets.PrefixSet.State.Mode')])),
                         ])
-                        self.prefix_set_name = None
+                        self.name = None
+                        self.mode = None
                         self._segment_path = lambda: "state"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State, ['prefix_set_name'], name, value)
+                        self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.State, ['name', 'mode'], name, value)
+
+                    class Mode(Enum):
+                        """
+                        Mode (Enum Class)
+
+                        Indicates the mode of the prefix set, in terms of which
+
+                        address families (IPv4, IPv6, or both) are present.  The
+
+                        mode provides a hint, but the device must validate that all
+
+                        prefixes are of the indicated type, and is expected to
+
+                        reject the configuration if there is a discrepancy.  The
+
+                        MIXED mode may not be supported on devices that require
+
+                        prefix sets to be of only one address family.
+
+                        .. data:: IPV4 = 0
+
+                        	Prefix set contains IPv4 prefixes only
+
+                        .. data:: IPV6 = 1
+
+                        	Prefix set contains IPv6 prefixes only
+
+                        .. data:: MIXED = 2
+
+                        	Prefix set contains mixed IPv4 and IPv6 prefixes
+
+                        """
+
+                        IPV4 = Enum.YLeaf(0, "IPV4")
+
+                        IPV6 = Enum.YLeaf(1, "IPV6")
+
+                        MIXED = Enum.YLeaf(2, "MIXED")
 
 
 
-                class Prefixes(Entity):
+
+                class Prefixes(_Entity_):
                     """
                     Enclosing container for the list of prefixes in a policy
                     prefix list
@@ -397,10 +528,13 @@ class RoutingPolicy(Entity):
                     """
 
                     _prefix = 'oc-rpol'
-                    _revision = '2016-05-12'
+                    _revision = '2018-06-05'
 
                     def __init__(self):
-                        super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes, self).__init__()
 
                         self.yang_name = "prefixes"
                         self.yang_parent_name = "prefix-set"
@@ -418,7 +552,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes, [], name, value)
 
 
-                    class Prefix(Entity):
+                    class Prefix(_Entity_):
                         """
                         List of prefixes in the prefix set
                         
@@ -429,11 +563,11 @@ class RoutingPolicy(Entity):
                         
                         		**type**\: str
                         
-                        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                        			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))$
                         
                         		**type**\: str
                         
-                        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                        			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))/(12[0\-8]\|1[0\-1][0\-9]\|[1\-9][0\-9]\|[0\-9])$
                         
                         	**refers to**\:  :py:class:`ip_prefix <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config>`
                         
@@ -463,10 +597,13 @@ class RoutingPolicy(Entity):
                         """
 
                         _prefix = 'oc-rpol'
-                        _revision = '2016-05-12'
+                        _revision = '2018-06-05'
 
                         def __init__(self):
-                            super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix, self).__init__()
 
                             self.yang_name = "prefix"
                             self.yang_parent_name = "prefixes"
@@ -495,7 +632,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix, ['ip_prefix', 'masklength_range'], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration data for prefix definition
                             
@@ -506,17 +643,17 @@ class RoutingPolicy(Entity):
                             
                             		**type**\: str
                             
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))$
                             
                             		**type**\: str
                             
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))/(12[0\-8]\|1[0\-1][0\-9]\|[1\-9][0\-9]\|[0\-9])$
                             
                             	**mandatory**\: True
                             
                             .. attribute:: masklength_range
                             
-                            	Defines a range for the masklength, or 'exact' if the prefix has an exact length.  Example\: 10.3.192.0/21 through 10.3.192.0/24 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: 21..24.  Example\: 10.3.192.0/21 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: exact
+                            	Defines a range for the masklength, or 'exact' if the prefix has an exact length. Example\: 10.3.192.0/21 through 10.3.192.0/24 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: 21..24. Example\: 10.3.192.0/21 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: exact
                             	**type**\: str
                             
                             	**pattern:** ^([0\-9]+\\.\\.[0\-9]+)\|exact$
@@ -526,10 +663,13 @@ class RoutingPolicy(Entity):
                             """
 
                             _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
+                            _revision = '2018-06-05'
 
                             def __init__(self):
-                                super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "prefix"
@@ -551,7 +691,7 @@ class RoutingPolicy(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             Operational state data for prefix definition
                             
@@ -562,11 +702,11 @@ class RoutingPolicy(Entity):
                             
                             		**type**\: str
                             
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                            			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))$
                             
                             		**type**\: str
                             
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                            			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))/(12[0\-8]\|1[0\-1][0\-9]\|[1\-9][0\-9]\|[0\-9])$
                             
                             	**mandatory**\: True
                             
@@ -574,7 +714,7 @@ class RoutingPolicy(Entity):
                             
                             .. attribute:: masklength_range
                             
-                            	Defines a range for the masklength, or 'exact' if the prefix has an exact length.  Example\: 10.3.192.0/21 through 10.3.192.0/24 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: 21..24.  Example\: 10.3.192.0/21 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: exact
+                            	Defines a range for the masklength, or 'exact' if the prefix has an exact length. Example\: 10.3.192.0/21 through 10.3.192.0/24 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: 21..24. Example\: 10.3.192.0/21 would be expressed as prefix\: 10.3.192.0/21, masklength\-range\: exact
                             	**type**\: str
                             
                             	**pattern:** ^([0\-9]+\\.\\.[0\-9]+)\|exact$
@@ -586,10 +726,13 @@ class RoutingPolicy(Entity):
                             """
 
                             _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
+                            _revision = '2018-06-05'
 
                             def __init__(self):
-                                super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefixes.Prefix.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "prefix"
@@ -615,7 +758,7 @@ class RoutingPolicy(Entity):
 
 
 
-        class NeighborSets(Entity):
+        class NeighborSets(_Entity_):
             """
             Enclosing container for the list of neighbor set
             definitions
@@ -630,10 +773,13 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'oc-rpol'
-            _revision = '2016-05-12'
+            _revision = '2018-06-05'
 
             def __init__(self):
-                super(RoutingPolicy.DefinedSets.NeighborSets, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.DefinedSets.NeighborSets, self).__init__()
 
                 self.yang_name = "neighbor-sets"
                 self.yang_parent_name = "defined-sets"
@@ -652,16 +798,16 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets, [], name, value)
 
 
-            class NeighborSet(Entity):
+            class NeighborSet(_Entity_):
                 """
                 List of defined neighbor sets for use in policies.
                 
-                .. attribute:: neighbor_set_name  (key)
+                .. attribute:: name  (key)
                 
                 	Reference to the neighbor set name list key
                 	**type**\: str
                 
-                	**refers to**\:  :py:class:`neighbor_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Config>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Config>`
                 
                 .. attribute:: config
                 
@@ -680,21 +826,24 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'oc-rpol'
-                _revision = '2016-05-12'
+                _revision = '2018-06-05'
 
                 def __init__(self):
-                    super(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet, self).__init__()
 
                     self.yang_name = "neighbor-set"
                     self.yang_parent_name = "neighbor-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self.ylist_key_names = ['neighbor_set_name']
+                    self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Config)), ("state", ("state", RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.State))])
                     self._leafs = OrderedDict([
-                        ('neighbor_set_name', (YLeaf(YType.str, 'neighbor-set-name'), ['str'])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
-                    self.neighbor_set_name = None
+                    self.name = None
 
                     self.config = RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Config()
                     self.config.parent = self
@@ -703,19 +852,19 @@ class RoutingPolicy(Entity):
                     self.state = RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._segment_path = lambda: "neighbor-set" + "[neighbor-set-name='" + str(self.neighbor_set_name) + "']"
+                    self._segment_path = lambda: "neighbor-set" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/neighbor-sets/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet, ['neighbor_set_name'], name, value)
+                    self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet, ['name'], name, value)
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Configuration data for neighbor sets.
                     
-                    .. attribute:: neighbor_set_name
+                    .. attribute:: name
                     
                     	name / label of the neighbor set \-\- this is used to reference the set in match conditions
                     	**type**\: str
@@ -727,21 +876,24 @@ class RoutingPolicy(Entity):
                     
                     		**type**\: list of str
                     
-                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                     
                     		**type**\: list of str
                     
-                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                     
                     
 
                     """
 
                     _prefix = 'oc-rpol'
-                    _revision = '2016-05-12'
+                    _revision = '2018-06-05'
 
                     def __init__(self):
-                        super(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "neighbor-set"
@@ -750,24 +902,24 @@ class RoutingPolicy(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('neighbor_set_name', (YLeaf(YType.str, 'neighbor-set-name'), ['str'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                             ('address', (YLeafList(YType.str, 'address'), ['str','str'])),
                         ])
-                        self.neighbor_set_name = None
+                        self.name = None
                         self.address = []
                         self._segment_path = lambda: "config"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Config, ['neighbor_set_name', 'address'], name, value)
+                        self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Config, ['name', 'address'], name, value)
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     Operational state data for neighbor sets.
                     
-                    .. attribute:: neighbor_set_name
+                    .. attribute:: name
                     
                     	name / label of the neighbor set \-\- this is used to reference the set in match conditions
                     	**type**\: str
@@ -781,11 +933,11 @@ class RoutingPolicy(Entity):
                     
                     		**type**\: list of str
                     
-                    			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    			**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])$
                     
                     		**type**\: list of str
                     
-                    			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                     
                     	**config**\: False
                     
@@ -794,10 +946,13 @@ class RoutingPolicy(Entity):
                     """
 
                     _prefix = 'oc-rpol'
-                    _revision = '2016-05-12'
+                    _revision = '2018-06-05'
 
                     def __init__(self):
-                        super(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "neighbor-set"
@@ -806,22 +961,22 @@ class RoutingPolicy(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('neighbor_set_name', (YLeaf(YType.str, 'neighbor-set-name'), ['str'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                             ('address', (YLeafList(YType.str, 'address'), ['str','str'])),
                         ])
-                        self.neighbor_set_name = None
+                        self.name = None
                         self.address = []
                         self._segment_path = lambda: "state"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.State, ['neighbor_set_name', 'address'], name, value)
+                        self._perform_setattr(RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.State, ['name', 'address'], name, value)
 
 
 
 
 
-        class TagSets(Entity):
+        class TagSets(_Entity_):
             """
             Enclosing container for the list of tag sets.
             
@@ -835,10 +990,13 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'oc-rpol'
-            _revision = '2016-05-12'
+            _revision = '2018-06-05'
 
             def __init__(self):
-                super(RoutingPolicy.DefinedSets.TagSets, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.DefinedSets.TagSets, self).__init__()
 
                 self.yang_name = "tag-sets"
                 self.yang_parent_name = "defined-sets"
@@ -857,16 +1015,16 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.DefinedSets.TagSets, [], name, value)
 
 
-            class TagSet(Entity):
+            class TagSet(_Entity_):
                 """
                 List of tag set definitions.
                 
-                .. attribute:: tag_set_name  (key)
+                .. attribute:: name  (key)
                 
                 	Reference to the tag set name list key
                 	**type**\: str
                 
-                	**refers to**\:  :py:class:`tag_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets.TagSet.Config>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets.TagSet.Config>`
                 
                 .. attribute:: config
                 
@@ -885,21 +1043,24 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'oc-rpol'
-                _revision = '2016-05-12'
+                _revision = '2018-06-05'
 
                 def __init__(self):
-                    super(RoutingPolicy.DefinedSets.TagSets.TagSet, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.DefinedSets.TagSets.TagSet, self).__init__()
 
                     self.yang_name = "tag-set"
                     self.yang_parent_name = "tag-sets"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self.ylist_key_names = ['tag_set_name']
+                    self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.DefinedSets.TagSets.TagSet.Config)), ("state", ("state", RoutingPolicy.DefinedSets.TagSets.TagSet.State))])
                     self._leafs = OrderedDict([
-                        ('tag_set_name', (YLeaf(YType.str, 'tag-set-name'), ['str'])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
-                    self.tag_set_name = None
+                    self.name = None
 
                     self.config = RoutingPolicy.DefinedSets.TagSets.TagSet.Config()
                     self.config.parent = self
@@ -908,19 +1069,19 @@ class RoutingPolicy(Entity):
                     self.state = RoutingPolicy.DefinedSets.TagSets.TagSet.State()
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
-                    self._segment_path = lambda: "tag-set" + "[tag-set-name='" + str(self.tag_set_name) + "']"
+                    self._segment_path = lambda: "tag-set" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "openconfig-routing-policy:routing-policy/defined-sets/tag-sets/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RoutingPolicy.DefinedSets.TagSets.TagSet, ['tag_set_name'], name, value)
+                    self._perform_setattr(RoutingPolicy.DefinedSets.TagSets.TagSet, ['name'], name, value)
 
 
-                class Config(Entity):
+                class Config(_Entity_):
                     """
                     Configuration data for tag sets
                     
-                    .. attribute:: tag_set_name
+                    .. attribute:: name
                     
                     	name / label of the tag set \-\- this is used to reference the set in match conditions
                     	**type**\: str
@@ -943,10 +1104,13 @@ class RoutingPolicy(Entity):
                     """
 
                     _prefix = 'oc-rpol'
-                    _revision = '2016-05-12'
+                    _revision = '2018-06-05'
 
                     def __init__(self):
-                        super(RoutingPolicy.DefinedSets.TagSets.TagSet.Config, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.DefinedSets.TagSets.TagSet.Config, self).__init__()
 
                         self.yang_name = "config"
                         self.yang_parent_name = "tag-set"
@@ -955,24 +1119,24 @@ class RoutingPolicy(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('tag_set_name', (YLeaf(YType.str, 'tag-set-name'), ['str'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                             ('tag_value', (YLeafList(YType.str, 'tag-value'), ['int','str'])),
                         ])
-                        self.tag_set_name = None
+                        self.name = None
                         self.tag_value = []
                         self._segment_path = lambda: "config"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.TagSets.TagSet.Config, ['tag_set_name', 'tag_value'], name, value)
+                        self._perform_setattr(RoutingPolicy.DefinedSets.TagSets.TagSet.Config, ['name', 'tag_value'], name, value)
 
 
 
-                class State(Entity):
+                class State(_Entity_):
                     """
                     Operational state data for tag sets
                     
-                    .. attribute:: tag_set_name
+                    .. attribute:: name
                     
                     	name / label of the tag set \-\- this is used to reference the set in match conditions
                     	**type**\: str
@@ -999,10 +1163,13 @@ class RoutingPolicy(Entity):
                     """
 
                     _prefix = 'oc-rpol'
-                    _revision = '2016-05-12'
+                    _revision = '2018-06-05'
 
                     def __init__(self):
-                        super(RoutingPolicy.DefinedSets.TagSets.TagSet.State, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.DefinedSets.TagSets.TagSet.State, self).__init__()
 
                         self.yang_name = "state"
                         self.yang_parent_name = "tag-set"
@@ -1011,22 +1178,22 @@ class RoutingPolicy(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('tag_set_name', (YLeaf(YType.str, 'tag-set-name'), ['str'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                             ('tag_value', (YLeafList(YType.str, 'tag-value'), ['int','str'])),
                         ])
-                        self.tag_set_name = None
+                        self.name = None
                         self.tag_value = []
                         self._segment_path = lambda: "state"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(RoutingPolicy.DefinedSets.TagSets.TagSet.State, ['tag_set_name', 'tag_value'], name, value)
+                        self._perform_setattr(RoutingPolicy.DefinedSets.TagSets.TagSet.State, ['name', 'tag_value'], name, value)
 
 
 
 
 
-        class BgpDefinedSets(Entity):
+        class BgpDefinedSets(_Entity_):
             """
             BGP\-related set definitions for policy match conditions
             
@@ -1050,10 +1217,13 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'oc-bgp-pol'
-            _revision = '2017-02-02'
+            _revision = '2017-07-30'
 
             def __init__(self):
-                super(RoutingPolicy.DefinedSets.BgpDefinedSets, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.DefinedSets.BgpDefinedSets, self).__init__()
 
                 self.yang_name = "bgp-defined-sets"
                 self.yang_parent_name = "defined-sets"
@@ -1082,7 +1252,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets, [], name, value)
 
 
-            class CommunitySets(Entity):
+            class CommunitySets(_Entity_):
                 """
                 Enclosing container for list of defined BGP community sets
                 
@@ -1096,10 +1266,13 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'oc-bgp-pol'
-                _revision = '2017-02-02'
+                _revision = '2017-07-30'
 
                 def __init__(self):
-                    super(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets, self).__init__()
 
                     self.yang_name = "community-sets"
                     self.yang_parent_name = "bgp-defined-sets"
@@ -1118,7 +1291,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets, [], name, value)
 
 
-                class CommunitySet(Entity):
+                class CommunitySet(_Entity_):
                     """
                     List of defined BGP community sets
                     
@@ -1146,10 +1319,13 @@ class RoutingPolicy(Entity):
                     """
 
                     _prefix = 'oc-bgp-pol'
-                    _revision = '2017-02-02'
+                    _revision = '2017-07-30'
 
                     def __init__(self):
-                        super(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet, self).__init__()
 
                         self.yang_name = "community-set"
                         self.yang_parent_name = "community-sets"
@@ -1177,7 +1353,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet, ['community_set_name'], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data for BGP community sets
                         
@@ -1210,10 +1386,13 @@ class RoutingPolicy(Entity):
                         """
 
                         _prefix = 'oc-bgp-pol'
-                        _revision = '2017-02-02'
+                        _revision = '2017-07-30'
 
                         def __init__(self):
-                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "community-set"
@@ -1235,7 +1414,7 @@ class RoutingPolicy(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state data for BGP community sets
                         
@@ -1272,10 +1451,13 @@ class RoutingPolicy(Entity):
                         """
 
                         _prefix = 'oc-bgp-pol'
-                        _revision = '2017-02-02'
+                        _revision = '2017-07-30'
 
                         def __init__(self):
-                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "community-set"
@@ -1299,7 +1481,7 @@ class RoutingPolicy(Entity):
 
 
 
-            class ExtCommunitySets(Entity):
+            class ExtCommunitySets(_Entity_):
                 """
                 Enclosing container for list of extended BGP community
                 sets
@@ -1314,10 +1496,13 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'oc-bgp-pol'
-                _revision = '2017-02-02'
+                _revision = '2017-07-30'
 
                 def __init__(self):
-                    super(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets, self).__init__()
 
                     self.yang_name = "ext-community-sets"
                     self.yang_parent_name = "bgp-defined-sets"
@@ -1336,7 +1521,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets, [], name, value)
 
 
-                class ExtCommunitySet(Entity):
+                class ExtCommunitySet(_Entity_):
                     """
                     List of defined extended BGP community sets
                     
@@ -1364,10 +1549,13 @@ class RoutingPolicy(Entity):
                     """
 
                     _prefix = 'oc-bgp-pol'
-                    _revision = '2017-02-02'
+                    _revision = '2017-07-30'
 
                     def __init__(self):
-                        super(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet, self).__init__()
 
                         self.yang_name = "ext-community-set"
                         self.yang_parent_name = "ext-community-sets"
@@ -1395,7 +1583,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet, ['ext_community_set_name'], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data for extended BGP community sets
                         
@@ -1452,10 +1640,13 @@ class RoutingPolicy(Entity):
                         """
 
                         _prefix = 'oc-bgp-pol'
-                        _revision = '2017-02-02'
+                        _revision = '2017-07-30'
 
                         def __init__(self):
-                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "ext-community-set"
@@ -1477,7 +1668,7 @@ class RoutingPolicy(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state data for extended BGP community sets
                         
@@ -1538,10 +1729,13 @@ class RoutingPolicy(Entity):
                         """
 
                         _prefix = 'oc-bgp-pol'
-                        _revision = '2017-02-02'
+                        _revision = '2017-07-30'
 
                         def __init__(self):
-                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "ext-community-set"
@@ -1565,7 +1759,7 @@ class RoutingPolicy(Entity):
 
 
 
-            class AsPathSets(Entity):
+            class AsPathSets(_Entity_):
                 """
                 Enclosing container for list of define AS path sets
                 
@@ -1579,10 +1773,13 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'oc-bgp-pol'
-                _revision = '2017-02-02'
+                _revision = '2017-07-30'
 
                 def __init__(self):
-                    super(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets, self).__init__()
 
                     self.yang_name = "as-path-sets"
                     self.yang_parent_name = "bgp-defined-sets"
@@ -1601,7 +1798,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets, [], name, value)
 
 
-                class AsPathSet(Entity):
+                class AsPathSet(_Entity_):
                     """
                     List of defined AS path sets
                     
@@ -1629,10 +1826,13 @@ class RoutingPolicy(Entity):
                     """
 
                     _prefix = 'oc-bgp-pol'
-                    _revision = '2017-02-02'
+                    _revision = '2017-07-30'
 
                     def __init__(self):
-                        super(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet, self).__init__()
 
                         self.yang_name = "as-path-set"
                         self.yang_parent_name = "as-path-sets"
@@ -1660,7 +1860,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet, ['as_path_set_name'], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data for AS path sets
                         
@@ -1679,10 +1879,13 @@ class RoutingPolicy(Entity):
                         """
 
                         _prefix = 'oc-bgp-pol'
-                        _revision = '2017-02-02'
+                        _revision = '2017-07-30'
 
                         def __init__(self):
-                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "as-path-set"
@@ -1704,7 +1907,7 @@ class RoutingPolicy(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state data for AS path sets
                         
@@ -1727,10 +1930,13 @@ class RoutingPolicy(Entity):
                         """
 
                         _prefix = 'oc-bgp-pol'
-                        _revision = '2017-02-02'
+                        _revision = '2017-07-30'
 
                         def __init__(self):
-                            super(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "as-path-set"
@@ -1756,7 +1962,7 @@ class RoutingPolicy(Entity):
 
 
 
-    class PolicyDefinitions(Entity):
+    class PolicyDefinitions(_Entity_):
         """
         Enclosing container for the list of top\-level policy
          definitions
@@ -1771,10 +1977,13 @@ class RoutingPolicy(Entity):
         """
 
         _prefix = 'oc-rpol'
-        _revision = '2016-05-12'
+        _revision = '2018-06-05'
 
         def __init__(self):
-            super(RoutingPolicy.PolicyDefinitions, self).__init__()
+            if sys.version_info > (3,):
+                super().__init__()
+            else:
+                super(RoutingPolicy.PolicyDefinitions, self).__init__()
 
             self.yang_name = "policy-definitions"
             self.yang_parent_name = "routing-policy"
@@ -1793,7 +2002,7 @@ class RoutingPolicy(Entity):
             self._perform_setattr(RoutingPolicy.PolicyDefinitions, [], name, value)
 
 
-        class PolicyDefinition(Entity):
+        class PolicyDefinition(_Entity_):
             """
             List of top\-level policy definitions, keyed by unique
             name.  These policy definitions are expected to be
@@ -1829,10 +2038,13 @@ class RoutingPolicy(Entity):
             """
 
             _prefix = 'oc-rpol'
-            _revision = '2016-05-12'
+            _revision = '2018-06-05'
 
             def __init__(self):
-                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition, self).__init__()
+                if sys.version_info > (3,):
+                    super().__init__()
+                else:
+                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition, self).__init__()
 
                 self.yang_name = "policy-definition"
                 self.yang_parent_name = "policy-definitions"
@@ -1864,7 +2076,7 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition, ['name'], name, value)
 
 
-            class Config(Entity):
+            class Config(_Entity_):
                 """
                 Configuration data for policy defintions
                 
@@ -1878,10 +2090,13 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'oc-rpol'
-                _revision = '2016-05-12'
+                _revision = '2018-06-05'
 
                 def __init__(self):
-                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Config, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Config, self).__init__()
 
                     self.yang_name = "config"
                     self.yang_parent_name = "policy-definition"
@@ -1901,7 +2116,7 @@ class RoutingPolicy(Entity):
 
 
 
-            class State(Entity):
+            class State(_Entity_):
                 """
                 Operational state data for policy definitions
                 
@@ -1917,10 +2132,13 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'oc-rpol'
-                _revision = '2016-05-12'
+                _revision = '2018-06-05'
 
                 def __init__(self):
-                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.State, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.State, self).__init__()
 
                     self.yang_name = "state"
                     self.yang_parent_name = "policy-definition"
@@ -1940,7 +2158,7 @@ class RoutingPolicy(Entity):
 
 
 
-            class Statements(Entity):
+            class Statements(_Entity_):
                 """
                 Enclosing container for policy statements
                 
@@ -1954,10 +2172,13 @@ class RoutingPolicy(Entity):
                 """
 
                 _prefix = 'oc-rpol'
-                _revision = '2016-05-12'
+                _revision = '2018-06-05'
 
                 def __init__(self):
-                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements, self).__init__()
+                    if sys.version_info > (3,):
+                        super().__init__()
+                    else:
+                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements, self).__init__()
 
                     self.yang_name = "statements"
                     self.yang_parent_name = "policy-definition"
@@ -1975,7 +2196,7 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements, [], name, value)
 
 
-                class Statement(Entity):
+                class Statement(_Entity_):
                     """
                     Policy statements group conditions and actions
                     within a policy definition.  They are evaluated in
@@ -2016,10 +2237,13 @@ class RoutingPolicy(Entity):
                     """
 
                     _prefix = 'oc-rpol'
-                    _revision = '2016-05-12'
+                    _revision = '2018-06-05'
 
                     def __init__(self):
-                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement, self).__init__()
+                        if sys.version_info > (3,):
+                            super().__init__()
+                        else:
+                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement, self).__init__()
 
                         self.yang_name = "statement"
                         self.yang_parent_name = "statements"
@@ -2054,7 +2278,7 @@ class RoutingPolicy(Entity):
                         self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement, ['name'], name, value)
 
 
-                    class Config(Entity):
+                    class Config(_Entity_):
                         """
                         Configuration data for policy statements
                         
@@ -2068,10 +2292,13 @@ class RoutingPolicy(Entity):
                         """
 
                         _prefix = 'oc-rpol'
-                        _revision = '2016-05-12'
+                        _revision = '2018-06-05'
 
                         def __init__(self):
-                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Config, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Config, self).__init__()
 
                             self.yang_name = "config"
                             self.yang_parent_name = "statement"
@@ -2091,7 +2318,7 @@ class RoutingPolicy(Entity):
 
 
 
-                    class State(Entity):
+                    class State(_Entity_):
                         """
                         Operational state data for policy statements
                         
@@ -2107,10 +2334,13 @@ class RoutingPolicy(Entity):
                         """
 
                         _prefix = 'oc-rpol'
-                        _revision = '2016-05-12'
+                        _revision = '2018-06-05'
 
                         def __init__(self):
-                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.State, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.State, self).__init__()
 
                             self.yang_name = "state"
                             self.yang_parent_name = "statement"
@@ -2130,7 +2360,7 @@ class RoutingPolicy(Entity):
 
 
 
-                    class Conditions(Entity):
+                    class Conditions(_Entity_):
                         """
                         Condition statements for the current policy statement
                         
@@ -2166,37 +2396,35 @@ class RoutingPolicy(Entity):
                         	Match a referenced tag set according to the logic defined in the match\-options\-set leaf
                         	**type**\:  :py:class:`MatchTagSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet>`
                         
-                        .. attribute:: igp_conditions
+                        .. attribute:: isis_conditions
                         
-                        	Policy conditions for IGP attributes
-                        	**type**\:  :py:class:`IgpConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions>`
+                        	Match conditions relating to the IS\-IS protocol
+                        	**type**\:  :py:class:`IsisConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions>`
                         
                         .. attribute:: bgp_conditions
                         
                         	Top\-level container 
                         	**type**\:  :py:class:`BgpConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions>`
                         
-                        .. attribute:: isis_conditions
-                        
-                        	Match conditions relating to the IS\-IS protocol
-                        	**type**\:  :py:class:`IsisConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions>`
-                        
                         
 
                         """
 
                         _prefix = 'oc-rpol'
-                        _revision = '2016-05-12'
+                        _revision = '2018-06-05'
 
                         def __init__(self):
-                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions, self).__init__()
 
                             self.yang_name = "conditions"
                             self.yang_parent_name = "statement"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State)), ("match-interface", ("match_interface", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface)), ("match-prefix-set", ("match_prefix_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet)), ("match-neighbor-set", ("match_neighbor_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet)), ("match-tag-set", ("match_tag_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet)), ("igp-conditions", ("igp_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions)), ("openconfig-bgp-policy:bgp-conditions", ("bgp_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions)), ("openconfig-isis-policy:isis-conditions", ("isis_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions))])
+                            self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State)), ("match-interface", ("match_interface", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface)), ("match-prefix-set", ("match_prefix_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet)), ("match-neighbor-set", ("match_neighbor_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet)), ("match-tag-set", ("match_tag_set", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet)), ("openconfig-isis-policy:isis-conditions", ("isis_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions)), ("openconfig-bgp-policy:bgp-conditions", ("bgp_conditions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions))])
                             self._leafs = OrderedDict()
 
                             self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config()
@@ -2223,17 +2451,13 @@ class RoutingPolicy(Entity):
                             self.match_tag_set.parent = self
                             self._children_name_map["match_tag_set"] = "match-tag-set"
 
-                            self.igp_conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions()
-                            self.igp_conditions.parent = self
-                            self._children_name_map["igp_conditions"] = "igp-conditions"
+                            self.isis_conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions()
+                            self.isis_conditions.parent = self
+                            self._children_name_map["isis_conditions"] = "openconfig-isis-policy:isis-conditions"
 
                             self.bgp_conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions()
                             self.bgp_conditions.parent = self
                             self._children_name_map["bgp_conditions"] = "openconfig-bgp-policy:bgp-conditions"
-
-                            self.isis_conditions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions()
-                            self.isis_conditions.parent = self
-                            self._children_name_map["isis_conditions"] = "openconfig-isis-policy:isis-conditions"
                             self._segment_path = lambda: "conditions"
                             self._is_frozen = True
 
@@ -2241,7 +2465,7 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration data for policy conditions
                             
@@ -2262,10 +2486,13 @@ class RoutingPolicy(Entity):
                             """
 
                             _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
+                            _revision = '2018-06-05'
 
                             def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "conditions"
@@ -2287,7 +2514,7 @@ class RoutingPolicy(Entity):
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             Operational state data for policy conditions
                             
@@ -2312,10 +2539,13 @@ class RoutingPolicy(Entity):
                             """
 
                             _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
+                            _revision = '2018-06-05'
 
                             def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "conditions"
@@ -2337,7 +2567,7 @@ class RoutingPolicy(Entity):
 
 
 
-                        class MatchInterface(Entity):
+                        class MatchInterface(_Entity_):
                             """
                             Top\-level container for interface match conditions
                             
@@ -2358,10 +2588,13 @@ class RoutingPolicy(Entity):
                             """
 
                             _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
+                            _revision = '2018-06-05'
 
                             def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface, self).__init__()
 
                                 self.yang_name = "match-interface"
                                 self.yang_parent_name = "conditions"
@@ -2385,7 +2618,7 @@ class RoutingPolicy(Entity):
                                 self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface, [], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configuration data for interface match conditions
                                 
@@ -2410,10 +2643,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
+                                _revision = '2018-06-05'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "match-interface"
@@ -2435,7 +2671,7 @@ class RoutingPolicy(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Operational state data for interface match conditions
                                 
@@ -2464,10 +2700,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
+                                _revision = '2018-06-05'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchInterface.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "match-interface"
@@ -2490,7 +2729,7 @@ class RoutingPolicy(Entity):
 
 
 
-                        class MatchPrefixSet(Entity):
+                        class MatchPrefixSet(_Entity_):
                             """
                             Match a referenced prefix\-set according to the logic
                             defined in the match\-set\-options leaf
@@ -2512,10 +2751,13 @@ class RoutingPolicy(Entity):
                             """
 
                             _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
+                            _revision = '2018-06-05'
 
                             def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet, self).__init__()
 
                                 self.yang_name = "match-prefix-set"
                                 self.yang_parent_name = "conditions"
@@ -2539,7 +2781,7 @@ class RoutingPolicy(Entity):
                                 self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet, [], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configuration data for a prefix\-set condition
                                 
@@ -2548,11 +2790,11 @@ class RoutingPolicy(Entity):
                                 	References a defined prefix set
                                 	**type**\: str
                                 
-                                	**refers to**\:  :py:class:`prefix_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet>`
+                                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config>`
                                 
                                 .. attribute:: match_set_options
                                 
-                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
+                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported
                                 	**type**\:  :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
                                 
                                 
@@ -2560,10 +2802,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
+                                _revision = '2018-06-05'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "match-prefix-set"
@@ -2585,7 +2830,7 @@ class RoutingPolicy(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Operational state data for a prefix\-set condition
                                 
@@ -2594,13 +2839,13 @@ class RoutingPolicy(Entity):
                                 	References a defined prefix set
                                 	**type**\: str
                                 
-                                	**refers to**\:  :py:class:`prefix_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet>`
+                                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Config>`
                                 
                                 	**config**\: False
                                 
                                 .. attribute:: match_set_options
                                 
-                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
+                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported
                                 	**type**\:  :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
                                 
                                 	**config**\: False
@@ -2610,10 +2855,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
+                                _revision = '2018-06-05'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "match-prefix-set"
@@ -2636,7 +2884,7 @@ class RoutingPolicy(Entity):
 
 
 
-                        class MatchNeighborSet(Entity):
+                        class MatchNeighborSet(_Entity_):
                             """
                             Match a referenced neighbor set according to the logic
                             defined in the match\-set\-options\-leaf
@@ -2658,10 +2906,13 @@ class RoutingPolicy(Entity):
                             """
 
                             _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
+                            _revision = '2018-06-05'
 
                             def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet, self).__init__()
 
                                 self.yang_name = "match-neighbor-set"
                                 self.yang_parent_name = "conditions"
@@ -2685,7 +2936,7 @@ class RoutingPolicy(Entity):
                                 self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet, [], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configuration data 
                                 
@@ -2694,11 +2945,11 @@ class RoutingPolicy(Entity):
                                 	References a defined neighbor set
                                 	**type**\: str
                                 
-                                	**refers to**\:  :py:class:`neighbor_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet>`
+                                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet>`
                                 
                                 .. attribute:: match_set_options
                                 
-                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
+                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported
                                 	**type**\:  :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
                                 
                                 
@@ -2706,10 +2957,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
+                                _revision = '2018-06-05'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "match-neighbor-set"
@@ -2731,7 +2985,7 @@ class RoutingPolicy(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Operational state data 
                                 
@@ -2740,13 +2994,13 @@ class RoutingPolicy(Entity):
                                 	References a defined neighbor set
                                 	**type**\: str
                                 
-                                	**refers to**\:  :py:class:`neighbor_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet>`
+                                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet>`
                                 
                                 	**config**\: False
                                 
                                 .. attribute:: match_set_options
                                 
-                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
+                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported
                                 	**type**\:  :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
                                 
                                 	**config**\: False
@@ -2756,10 +3010,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
+                                _revision = '2018-06-05'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "match-neighbor-set"
@@ -2782,7 +3039,7 @@ class RoutingPolicy(Entity):
 
 
 
-                        class MatchTagSet(Entity):
+                        class MatchTagSet(_Entity_):
                             """
                             Match a referenced tag set according to the logic defined
                             in the match\-options\-set leaf
@@ -2804,10 +3061,13 @@ class RoutingPolicy(Entity):
                             """
 
                             _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
+                            _revision = '2018-06-05'
 
                             def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet, self).__init__()
 
                                 self.yang_name = "match-tag-set"
                                 self.yang_parent_name = "conditions"
@@ -2831,7 +3091,7 @@ class RoutingPolicy(Entity):
                                 self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet, [], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configuration data for tag\-set conditions
                                 
@@ -2840,11 +3100,11 @@ class RoutingPolicy(Entity):
                                 	References a defined tag set
                                 	**type**\: str
                                 
-                                	**refers to**\:  :py:class:`tag_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets.TagSet>`
+                                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets.TagSet>`
                                 
                                 .. attribute:: match_set_options
                                 
-                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
+                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported
                                 	**type**\:  :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
                                 
                                 
@@ -2852,10 +3112,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
+                                _revision = '2018-06-05'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "match-tag-set"
@@ -2877,7 +3140,7 @@ class RoutingPolicy(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Operational state data tag\-set conditions
                                 
@@ -2886,13 +3149,13 @@ class RoutingPolicy(Entity):
                                 	References a defined tag set
                                 	**type**\: str
                                 
-                                	**refers to**\:  :py:class:`tag_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets.TagSet>`
+                                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets.TagSet>`
                                 
                                 	**config**\: False
                                 
                                 .. attribute:: match_set_options
                                 
-                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
+                                	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported
                                 	**type**\:  :py:class:`MatchSetOptionsRestrictedType <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedType>`
                                 
                                 	**config**\: False
@@ -2902,10 +3165,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
+                                _revision = '2018-06-05'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "match-tag-set"
@@ -2928,33 +3194,147 @@ class RoutingPolicy(Entity):
 
 
 
-                        class IgpConditions(Entity):
+                        class IsisConditions(_Entity_):
                             """
-                            Policy conditions for IGP attributes
+                            Match conditions relating to the IS\-IS protocol
+                            
+                            .. attribute:: config
+                            
+                            	Configuration parameters relating to IS\-IS match conditions
+                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config>`
+                            
+                            .. attribute:: state
+                            
+                            	Operational state parameters relating to IS\-IS match conditions
+                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State>`
+                            
+                            	**config**\: False
                             
                             
 
                             """
 
-                            _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
+                            _prefix = 'oc-isis-pol'
+                            _revision = '2018-11-21'
 
                             def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions, self).__init__()
 
-                                self.yang_name = "igp-conditions"
+                                self.yang_name = "isis-conditions"
                                 self.yang_parent_name = "conditions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State))])
                                 self._leafs = OrderedDict()
-                                self._segment_path = lambda: "igp-conditions"
+
+                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config()
+                                self.config.parent = self
+                                self._children_name_map["config"] = "config"
+
+                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State()
+                                self.state.parent = self
+                                self._children_name_map["state"] = "state"
+                                self._segment_path = lambda: "openconfig-isis-policy:isis-conditions"
                                 self._is_frozen = True
 
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions, [], name, value)
 
 
-                        class BgpConditions(Entity):
+                            class Config(_Entity_):
+                                """
+                                Configuration parameters relating to IS\-IS match
+                                conditions
+                                
+                                .. attribute:: level_eq
+                                
+                                	Match the level that the IS\-IS prefix is within. This can be used in the case that import or export policies refer to an IS\-IS instance that has multiple levels configured within it
+                                	**type**\: int
+                                
+                                	**range:** 1..2
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-isis-pol'
+                                _revision = '2018-11-21'
+
+                                def __init__(self):
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config, self).__init__()
+
+                                    self.yang_name = "config"
+                                    self.yang_parent_name = "isis-conditions"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level_eq', (YLeaf(YType.uint8, 'level-eq'), ['int'])),
+                                    ])
+                                    self.level_eq = None
+                                    self._segment_path = lambda: "config"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config, ['level_eq'], name, value)
+
+
+
+                            class State(_Entity_):
+                                """
+                                Operational state parameters relating to IS\-IS match
+                                conditions
+                                
+                                .. attribute:: level_eq
+                                
+                                	Match the level that the IS\-IS prefix is within. This can be used in the case that import or export policies refer to an IS\-IS instance that has multiple levels configured within it
+                                	**type**\: int
+                                
+                                	**range:** 1..2
+                                
+                                	**config**\: False
+                                
+                                
+
+                                """
+
+                                _prefix = 'oc-isis-pol'
+                                _revision = '2018-11-21'
+
+                                def __init__(self):
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State, self).__init__()
+
+                                    self.yang_name = "state"
+                                    self.yang_parent_name = "isis-conditions"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('level_eq', (YLeaf(YType.uint8, 'level-eq'), ['int'])),
+                                    ])
+                                    self.level_eq = None
+                                    self._segment_path = lambda: "state"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State, ['level_eq'], name, value)
+
+
+
+
+                        class BgpConditions(_Entity_):
                             """
                             Top\-level container 
                             
@@ -3000,10 +3380,13 @@ class RoutingPolicy(Entity):
                             """
 
                             _prefix = 'oc-bgp-pol'
-                            _revision = '2017-02-02'
+                            _revision = '2017-07-30'
 
                             def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions, self).__init__()
 
                                 self.yang_name = "bgp-conditions"
                                 self.yang_parent_name = "conditions"
@@ -3047,7 +3430,7 @@ class RoutingPolicy(Entity):
                                 self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions, [], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configuration data for BGP\-specific policy conditions
                                 
@@ -3074,7 +3457,7 @@ class RoutingPolicy(Entity):
                                 
                                 		**type**\: list of str
                                 
-                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                 
                                 .. attribute:: afi_safi_in
                                 
@@ -3098,10 +3481,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-bgp-pol'
-                                _revision = '2017-02-02'
+                                _revision = '2017-07-30'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "bgp-conditions"
@@ -3152,7 +3538,7 @@ class RoutingPolicy(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Operational state data for BGP\-specific policy
                                 conditions
@@ -3184,7 +3570,7 @@ class RoutingPolicy(Entity):
                                 
                                 		**type**\: list of str
                                 
-                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                 
                                 	**config**\: False
                                 
@@ -3216,10 +3602,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-bgp-pol'
-                                _revision = '2017-02-02'
+                                _revision = '2017-07-30'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "bgp-conditions"
@@ -3270,7 +3659,7 @@ class RoutingPolicy(Entity):
 
 
 
-                            class CommunityCount(Entity):
+                            class CommunityCount(_Entity_):
                                 """
                                 Value and comparison operations for conditions based on the
                                 number of communities in the route update
@@ -3292,10 +3681,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-bgp-pol'
-                                _revision = '2017-02-02'
+                                _revision = '2017-07-30'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount, self).__init__()
 
                                     self.yang_name = "community-count"
                                     self.yang_parent_name = "bgp-conditions"
@@ -3319,7 +3711,7 @@ class RoutingPolicy(Entity):
                                     self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount, [], name, value)
 
 
-                                class Config(Entity):
+                                class Config(_Entity_):
                                     """
                                     Configuration data for community count condition
                                     
@@ -3340,10 +3732,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "community-count"
@@ -3365,7 +3760,7 @@ class RoutingPolicy(Entity):
 
 
 
-                                class State(Entity):
+                                class State(_Entity_):
                                     """
                                     Operational state data for community count condition
                                     
@@ -3390,10 +3785,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "community-count"
@@ -3416,7 +3814,7 @@ class RoutingPolicy(Entity):
 
 
 
-                            class AsPathLength(Entity):
+                            class AsPathLength(_Entity_):
                                 """
                                 Value and comparison operations for conditions based on the
                                 length of the AS path in the route update
@@ -3438,10 +3836,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-bgp-pol'
-                                _revision = '2017-02-02'
+                                _revision = '2017-07-30'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength, self).__init__()
 
                                     self.yang_name = "as-path-length"
                                     self.yang_parent_name = "bgp-conditions"
@@ -3465,7 +3866,7 @@ class RoutingPolicy(Entity):
                                     self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength, [], name, value)
 
 
-                                class Config(Entity):
+                                class Config(_Entity_):
                                     """
                                     Configuration data for AS path length condition
                                     
@@ -3486,10 +3887,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "as-path-length"
@@ -3511,7 +3915,7 @@ class RoutingPolicy(Entity):
 
 
 
-                                class State(Entity):
+                                class State(_Entity_):
                                     """
                                     Operational state data for AS path length condition
                                     
@@ -3536,10 +3940,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "as-path-length"
@@ -3562,7 +3969,7 @@ class RoutingPolicy(Entity):
 
 
 
-                            class MatchCommunitySet(Entity):
+                            class MatchCommunitySet(_Entity_):
                                 """
                                 Top\-level container for match conditions on communities.
                                 Match a referenced community\-set according to the logic
@@ -3585,10 +3992,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-bgp-pol'
-                                _revision = '2017-02-02'
+                                _revision = '2017-07-30'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet, self).__init__()
 
                                     self.yang_name = "match-community-set"
                                     self.yang_parent_name = "bgp-conditions"
@@ -3612,7 +4022,7 @@ class RoutingPolicy(Entity):
                                     self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet, [], name, value)
 
 
-                                class Config(Entity):
+                                class Config(_Entity_):
                                     """
                                     Configuration data for match conditions on communities
                                     
@@ -3633,10 +4043,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "match-community-set"
@@ -3658,7 +4071,7 @@ class RoutingPolicy(Entity):
 
 
 
-                                class State(Entity):
+                                class State(_Entity_):
                                     """
                                     Operational state data 
                                     
@@ -3683,10 +4096,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "match-community-set"
@@ -3709,7 +4125,7 @@ class RoutingPolicy(Entity):
 
 
 
-                            class MatchExtCommunitySet(Entity):
+                            class MatchExtCommunitySet(_Entity_):
                                 """
                                 Match a referenced extended community\-set according to the
                                 logic defined in the match\-set\-options leaf
@@ -3731,10 +4147,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-bgp-pol'
-                                _revision = '2017-02-02'
+                                _revision = '2017-07-30'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet, self).__init__()
 
                                     self.yang_name = "match-ext-community-set"
                                     self.yang_parent_name = "bgp-conditions"
@@ -3758,7 +4177,7 @@ class RoutingPolicy(Entity):
                                     self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet, [], name, value)
 
 
-                                class Config(Entity):
+                                class Config(_Entity_):
                                     """
                                     Configuration data for match conditions on extended
                                     communities
@@ -3780,10 +4199,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "match-ext-community-set"
@@ -3805,7 +4227,7 @@ class RoutingPolicy(Entity):
 
 
 
-                                class State(Entity):
+                                class State(_Entity_):
                                     """
                                     Operational state data for match conditions on extended
                                     communities
@@ -3831,10 +4253,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "match-ext-community-set"
@@ -3857,7 +4282,7 @@ class RoutingPolicy(Entity):
 
 
 
-                            class MatchAsPathSet(Entity):
+                            class MatchAsPathSet(_Entity_):
                                 """
                                 Match a referenced as\-path set according to the logic
                                 defined in the match\-set\-options leaf
@@ -3879,10 +4304,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-bgp-pol'
-                                _revision = '2017-02-02'
+                                _revision = '2017-07-30'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet, self).__init__()
 
                                     self.yang_name = "match-as-path-set"
                                     self.yang_parent_name = "bgp-conditions"
@@ -3906,7 +4334,7 @@ class RoutingPolicy(Entity):
                                     self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet, [], name, value)
 
 
-                                class Config(Entity):
+                                class Config(_Entity_):
                                     """
                                     Configuration data for match conditions on AS path set
                                     
@@ -3927,10 +4355,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "match-as-path-set"
@@ -3952,7 +4383,7 @@ class RoutingPolicy(Entity):
 
 
 
-                                class State(Entity):
+                                class State(_Entity_):
                                     """
                                     Operational state data for match conditions on AS
                                     path set
@@ -3978,10 +4409,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "match-as-path-set"
@@ -4005,139 +4439,8 @@ class RoutingPolicy(Entity):
 
 
 
-                        class IsisConditions(Entity):
-                            """
-                            Match conditions relating to the IS\-IS protocol
-                            
-                            .. attribute:: config
-                            
-                            	Configuration parameters relating to IS\-IS match conditions
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config>`
-                            
-                            .. attribute:: state
-                            
-                            	Operational state parameters relating to IS\-IS match conditions
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State>`
-                            
-                            	**config**\: False
-                            
-                            
 
-                            """
-
-                            _prefix = 'oc-isis-pol'
-                            _revision = '2017-05-15'
-
-                            def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions, self).__init__()
-
-                                self.yang_name = "isis-conditions"
-                                self.yang_parent_name = "conditions"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State))])
-                                self._leafs = OrderedDict()
-
-                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config()
-                                self.config.parent = self
-                                self._children_name_map["config"] = "config"
-
-                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State()
-                                self.state.parent = self
-                                self._children_name_map["state"] = "state"
-                                self._segment_path = lambda: "openconfig-isis-policy:isis-conditions"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions, [], name, value)
-
-
-                            class Config(Entity):
-                                """
-                                Configuration parameters relating to IS\-IS match
-                                conditions
-                                
-                                .. attribute:: level_eq
-                                
-                                	Match the level that the IS\-IS prefix is within. This can be used in the case that import or export policies refer to an IS\-IS instance that has multiple levels configured within it
-                                	**type**\: int
-                                
-                                	**range:** 1..2
-                                
-                                
-
-                                """
-
-                                _prefix = 'oc-isis-pol'
-                                _revision = '2017-05-15'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config, self).__init__()
-
-                                    self.yang_name = "config"
-                                    self.yang_parent_name = "isis-conditions"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('level_eq', (YLeaf(YType.uint8, 'level-eq'), ['int'])),
-                                    ])
-                                    self.level_eq = None
-                                    self._segment_path = lambda: "config"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.Config, ['level_eq'], name, value)
-
-
-
-                            class State(Entity):
-                                """
-                                Operational state parameters relating to IS\-IS match
-                                conditions
-                                
-                                .. attribute:: level_eq
-                                
-                                	Match the level that the IS\-IS prefix is within. This can be used in the case that import or export policies refer to an IS\-IS instance that has multiple levels configured within it
-                                	**type**\: int
-                                
-                                	**range:** 1..2
-                                
-                                	**config**\: False
-                                
-                                
-
-                                """
-
-                                _prefix = 'oc-isis-pol'
-                                _revision = '2017-05-15'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State, self).__init__()
-
-                                    self.yang_name = "state"
-                                    self.yang_parent_name = "isis-conditions"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('level_eq', (YLeaf(YType.uint8, 'level-eq'), ['int'])),
-                                    ])
-                                    self.level_eq = None
-                                    self._segment_path = lambda: "state"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IsisConditions.State, ['level_eq'], name, value)
-
-
-
-
-
-                    class Actions(Entity):
+                    class Actions(_Entity_):
                         """
                         Top\-level container for policy action statements
                         
@@ -4153,37 +4456,35 @@ class RoutingPolicy(Entity):
                         
                         	**config**\: False
                         
-                        .. attribute:: igp_actions
+                        .. attribute:: isis_actions
                         
-                        	Actions to set IGP route attributes; these actions apply to multiple IGPs
-                        	**type**\:  :py:class:`IgpActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions>`
+                        	Actions that can be performed by IS\-IS within a policy
+                        	**type**\:  :py:class:`IsisActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions>`
                         
                         .. attribute:: bgp_actions
                         
                         	Top\-level container for BGP\-specific actions
                         	**type**\:  :py:class:`BgpActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions>`
                         
-                        .. attribute:: isis_actions
-                        
-                        	Actions that can be performed by IS\-IS within a policy
-                        	**type**\:  :py:class:`IsisActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions>`
-                        
                         
 
                         """
 
                         _prefix = 'oc-rpol'
-                        _revision = '2016-05-12'
+                        _revision = '2018-06-05'
 
                         def __init__(self):
-                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions, self).__init__()
+                            if sys.version_info > (3,):
+                                super().__init__()
+                            else:
+                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions, self).__init__()
 
                             self.yang_name = "actions"
                             self.yang_parent_name = "statement"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State)), ("igp-actions", ("igp_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions)), ("openconfig-bgp-policy:bgp-actions", ("bgp_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions)), ("openconfig-isis-policy:isis-actions", ("isis_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions))])
+                            self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State)), ("openconfig-isis-policy:isis-actions", ("isis_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions)), ("openconfig-bgp-policy:bgp-actions", ("bgp_actions", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions))])
                             self._leafs = OrderedDict()
 
                             self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config()
@@ -4194,17 +4495,13 @@ class RoutingPolicy(Entity):
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
 
-                            self.igp_actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions()
-                            self.igp_actions.parent = self
-                            self._children_name_map["igp_actions"] = "igp-actions"
+                            self.isis_actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions()
+                            self.isis_actions.parent = self
+                            self._children_name_map["isis_actions"] = "openconfig-isis-policy:isis-actions"
 
                             self.bgp_actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions()
                             self.bgp_actions.parent = self
                             self._children_name_map["bgp_actions"] = "openconfig-bgp-policy:bgp-actions"
-
-                            self.isis_actions = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions()
-                            self.isis_actions.parent = self
-                            self._children_name_map["isis_actions"] = "openconfig-isis-policy:isis-actions"
                             self._segment_path = lambda: "actions"
                             self._is_frozen = True
 
@@ -4212,29 +4509,27 @@ class RoutingPolicy(Entity):
                             self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions, [], name, value)
 
 
-                        class Config(Entity):
+                        class Config(_Entity_):
                             """
                             Configuration data for policy actions
                             
-                            .. attribute:: accept_route
+                            .. attribute:: policy_result
                             
-                            	accepts the route into the routing table
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                            
-                            .. attribute:: reject_route
-                            
-                            	rejects the route
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            	Select the final disposition for the route, either accept or reject
+                            	**type**\:  :py:class:`PolicyResultType <ydk.models.openconfig.openconfig_routing_policy.PolicyResultType>`
                             
                             
 
                             """
 
                             _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
+                            _revision = '2018-06-05'
 
                             def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config, self).__init__()
 
                                 self.yang_name = "config"
                                 self.yang_parent_name = "actions"
@@ -4243,34 +4538,25 @@ class RoutingPolicy(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('accept_route', (YLeaf(YType.empty, 'accept-route'), ['Empty'])),
-                                    ('reject_route', (YLeaf(YType.empty, 'reject-route'), ['Empty'])),
+                                    ('policy_result', (YLeaf(YType.enumeration, 'policy-result'), [('ydk.models.openconfig.openconfig_routing_policy', 'PolicyResultType', '')])),
                                 ])
-                                self.accept_route = None
-                                self.reject_route = None
+                                self.policy_result = None
                                 self._segment_path = lambda: "config"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config, ['accept_route', 'reject_route'], name, value)
+                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.Config, ['policy_result'], name, value)
 
 
 
-                        class State(Entity):
+                        class State(_Entity_):
                             """
                             Operational state data for policy actions
                             
-                            .. attribute:: accept_route
+                            .. attribute:: policy_result
                             
-                            	accepts the route into the routing table
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-                            
-                            	**config**\: False
-                            
-                            .. attribute:: reject_route
-                            
-                            	rejects the route
-                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            	Select the final disposition for the route, either accept or reject
+                            	**type**\:  :py:class:`PolicyResultType <ydk.models.openconfig.openconfig_routing_policy.PolicyResultType>`
                             
                             	**config**\: False
                             
@@ -4279,10 +4565,13 @@ class RoutingPolicy(Entity):
                             """
 
                             _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
+                            _revision = '2018-06-05'
 
                             def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State, self).__init__()
 
                                 self.yang_name = "state"
                                 self.yang_parent_name = "actions"
@@ -4291,33 +4580,30 @@ class RoutingPolicy(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('accept_route', (YLeaf(YType.empty, 'accept-route'), ['Empty'])),
-                                    ('reject_route', (YLeaf(YType.empty, 'reject-route'), ['Empty'])),
+                                    ('policy_result', (YLeaf(YType.enumeration, 'policy-result'), [('ydk.models.openconfig.openconfig_routing_policy', 'PolicyResultType', '')])),
                                 ])
-                                self.accept_route = None
-                                self.reject_route = None
+                                self.policy_result = None
                                 self._segment_path = lambda: "state"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State, ['accept_route', 'reject_route'], name, value)
+                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.State, ['policy_result'], name, value)
 
 
 
-                        class IgpActions(Entity):
+                        class IsisActions(_Entity_):
                             """
-                            Actions to set IGP route attributes; these actions
-                            apply to multiple IGPs
+                            Actions that can be performed by IS\-IS within a policy
                             
                             .. attribute:: config
                             
-                            	Configuration data 
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config>`
+                            	Configuration parameters relating to IS\-IS actions
+                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config>`
                             
                             .. attribute:: state
                             
-                            	Operational state data 
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State>`
+                            	Operational state associated with IS\-IS actions
+                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State>`
                             
                             	**config**\: False
                             
@@ -4325,95 +4611,125 @@ class RoutingPolicy(Entity):
 
                             """
 
-                            _prefix = 'oc-rpol'
-                            _revision = '2016-05-12'
+                            _prefix = 'oc-isis-pol'
+                            _revision = '2018-11-21'
 
                             def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions, self).__init__()
 
-                                self.yang_name = "igp-actions"
+                                self.yang_name = "isis-actions"
                                 self.yang_parent_name = "actions"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State))])
+                                self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State))])
                                 self._leafs = OrderedDict()
 
-                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config()
+                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config()
                                 self.config.parent = self
                                 self._children_name_map["config"] = "config"
 
-                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State()
+                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State()
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
-                                self._segment_path = lambda: "igp-actions"
+                                self._segment_path = lambda: "openconfig-isis-policy:isis-actions"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions, [], name, value)
+                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions, [], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
-                                Configuration data 
+                                Configuration parameters relating to IS\-IS actions
                                 
-                                .. attribute:: set_tag
+                                .. attribute:: set_level
                                 
-                                	Set the tag value for OSPF or IS\-IS routes
-                                	**type**\: union of the below types:
+                                	Set the level that a prefix is to be imported into
+                                	**type**\: int
                                 
-                                		**type**\: int
+                                	**range:** 1..2
                                 
-                                			**range:** 0..4294967295
+                                .. attribute:: set_metric_type
                                 
-                                		**type**\: str
+                                	Set the type of metric that is to be specified when the set metric leaf is specified
+                                	**type**\: int
                                 
-                                			**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                	**range:** 1..2
+                                
+                                .. attribute:: set_metric
+                                
+                                	Set the metric of the IS\-IS prefix
+                                	**type**\: int
+                                
+                                	**range:** 1..16777215
                                 
                                 
 
                                 """
 
-                                _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
+                                _prefix = 'oc-isis-pol'
+                                _revision = '2018-11-21'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config, self).__init__()
 
                                     self.yang_name = "config"
-                                    self.yang_parent_name = "igp-actions"
+                                    self.yang_parent_name = "isis-actions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('set_tag', (YLeaf(YType.str, 'set-tag'), ['int','str'])),
+                                        ('set_level', (YLeaf(YType.uint8, 'set-level'), ['int'])),
+                                        ('set_metric_type', (YLeaf(YType.uint8, 'set-metric-type'), ['int'])),
+                                        ('set_metric', (YLeaf(YType.uint32, 'set-metric'), ['int'])),
                                     ])
-                                    self.set_tag = None
+                                    self.set_level = None
+                                    self.set_metric_type = None
+                                    self.set_metric = None
                                     self._segment_path = lambda: "config"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.Config, ['set_tag'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config, ['set_level', 'set_metric_type', 'set_metric'], name, value)
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
-                                Operational state data 
+                                Operational state associated with IS\-IS actions
                                 
-                                .. attribute:: set_tag
+                                .. attribute:: set_level
                                 
-                                	Set the tag value for OSPF or IS\-IS routes
-                                	**type**\: union of the below types:
+                                	Set the level that a prefix is to be imported into
+                                	**type**\: int
                                 
-                                		**type**\: int
+                                	**range:** 1..2
                                 
-                                			**range:** 0..4294967295
+                                	**config**\: False
                                 
-                                		**type**\: str
+                                .. attribute:: set_metric_type
                                 
-                                			**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                	Set the type of metric that is to be specified when the set metric leaf is specified
+                                	**type**\: int
+                                
+                                	**range:** 1..2
+                                
+                                	**config**\: False
+                                
+                                .. attribute:: set_metric
+                                
+                                	Set the metric of the IS\-IS prefix
+                                	**type**\: int
+                                
+                                	**range:** 1..16777215
                                 
                                 	**config**\: False
                                 
@@ -4421,32 +4737,39 @@ class RoutingPolicy(Entity):
 
                                 """
 
-                                _prefix = 'oc-rpol'
-                                _revision = '2016-05-12'
+                                _prefix = 'oc-isis-pol'
+                                _revision = '2018-11-21'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State, self).__init__()
 
                                     self.yang_name = "state"
-                                    self.yang_parent_name = "igp-actions"
+                                    self.yang_parent_name = "isis-actions"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('set_tag', (YLeaf(YType.str, 'set-tag'), ['int','str'])),
+                                        ('set_level', (YLeaf(YType.uint8, 'set-level'), ['int'])),
+                                        ('set_metric_type', (YLeaf(YType.uint8, 'set-metric-type'), ['int'])),
+                                        ('set_metric', (YLeaf(YType.uint32, 'set-metric'), ['int'])),
                                     ])
-                                    self.set_tag = None
+                                    self.set_level = None
+                                    self.set_metric_type = None
+                                    self.set_metric = None
                                     self._segment_path = lambda: "state"
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions.State, ['set_tag'], name, value)
+                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State, ['set_level', 'set_metric_type', 'set_metric'], name, value)
 
 
 
 
-                        class BgpActions(Entity):
+                        class BgpActions(_Entity_):
                             """
                             Top\-level container for BGP\-specific actions
                             
@@ -4464,7 +4787,7 @@ class RoutingPolicy(Entity):
                             
                             .. attribute:: set_as_path_prepend
                             
-                            	action to prepend local AS number to the AS\-path a specified number of times
+                            	Action to prepend the specified AS number to the AS\-path a specified number of times
                             	**type**\:  :py:class:`SetAsPathPrepend <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend>`
                             
                             .. attribute:: set_community
@@ -4482,10 +4805,13 @@ class RoutingPolicy(Entity):
                             """
 
                             _prefix = 'oc-bgp-pol'
-                            _revision = '2017-02-02'
+                            _revision = '2017-07-30'
 
                             def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions, self).__init__()
+                                if sys.version_info > (3,):
+                                    super().__init__()
+                                else:
+                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions, self).__init__()
 
                                 self.yang_name = "bgp-actions"
                                 self.yang_parent_name = "actions"
@@ -4521,7 +4847,7 @@ class RoutingPolicy(Entity):
                                 self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions, [], name, value)
 
 
-                            class Config(Entity):
+                            class Config(_Entity_):
                                 """
                                 Configuration data for BGP\-specific actions
                                 
@@ -4548,7 +4874,7 @@ class RoutingPolicy(Entity):
                                 
                                 		**type**\: str
                                 
-                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                 
                                 		**type**\:  :py:class:`BgpNextHopType <ydk.models.openconfig.openconfig_bgp_policy.BgpNextHopType>`
                                 
@@ -4563,7 +4889,7 @@ class RoutingPolicy(Entity):
                                 
                                 		**type**\: str
                                 
-                                			**pattern:** ^[+\-][0\-9]+
+                                			**pattern:** ^[+\-][0\-9]+$
                                 
                                 		**type**\:  :py:class:`BgpSetMedType <ydk.models.openconfig.openconfig_bgp_policy.BgpSetMedType>`
                                 
@@ -4572,10 +4898,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-bgp-pol'
-                                _revision = '2017-02-02'
+                                _revision = '2017-07-30'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.Config, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.Config, self).__init__()
 
                                     self.yang_name = "config"
                                     self.yang_parent_name = "bgp-actions"
@@ -4601,7 +4930,7 @@ class RoutingPolicy(Entity):
 
 
 
-                            class State(Entity):
+                            class State(_Entity_):
                                 """
                                 Operational state data for BGP\-specific actions
                                 
@@ -4632,7 +4961,7 @@ class RoutingPolicy(Entity):
                                 
                                 		**type**\: str
                                 
-                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
+                                			**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))$
                                 
                                 		**type**\:  :py:class:`BgpNextHopType <ydk.models.openconfig.openconfig_bgp_policy.BgpNextHopType>`
                                 
@@ -4649,7 +4978,7 @@ class RoutingPolicy(Entity):
                                 
                                 		**type**\: str
                                 
-                                			**pattern:** ^[+\-][0\-9]+
+                                			**pattern:** ^[+\-][0\-9]+$
                                 
                                 		**type**\:  :py:class:`BgpSetMedType <ydk.models.openconfig.openconfig_bgp_policy.BgpSetMedType>`
                                 
@@ -4660,10 +4989,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-bgp-pol'
-                                _revision = '2017-02-02'
+                                _revision = '2017-07-30'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.State, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.State, self).__init__()
 
                                     self.yang_name = "state"
                                     self.yang_parent_name = "bgp-actions"
@@ -4689,9 +5021,9 @@ class RoutingPolicy(Entity):
 
 
 
-                            class SetAsPathPrepend(Entity):
+                            class SetAsPathPrepend(_Entity_):
                                 """
-                                action to prepend local AS number to the AS\-path a
+                                Action to prepend the specified AS number to the AS\-path a
                                 specified number of times
                                 
                                 .. attribute:: config
@@ -4711,10 +5043,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-bgp-pol'
-                                _revision = '2017-02-02'
+                                _revision = '2017-07-30'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend, self).__init__()
 
                                     self.yang_name = "set-as-path-prepend"
                                     self.yang_parent_name = "bgp-actions"
@@ -4738,26 +5073,36 @@ class RoutingPolicy(Entity):
                                     self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend, [], name, value)
 
 
-                                class Config(Entity):
+                                class Config(_Entity_):
                                     """
                                     Configuration data for the AS path prepend action
                                     
                                     .. attribute:: repeat_n
                                     
-                                    	Number of times to prepend the local AS number to the AS path.  The value should be between 1 and the maximum supported by the implementation
+                                    	Number of times to prepend the value specified in the asn leaf to the AS path. If no value is specified by the asn leaf, the local AS number of the system is used. The value should be between 1 and the maximum supported by the implementation
                                     	**type**\: int
                                     
                                     	**range:** 1..255
+                                    
+                                    .. attribute:: asn
+                                    
+                                    	The AS number to prepend to the AS path. If this leaf is not specified and repeat\-n is set, then the local AS number will be used for prepending
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
                                     
                                     
 
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "set-as-path-prepend"
@@ -4767,26 +5112,37 @@ class RoutingPolicy(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('repeat_n', (YLeaf(YType.uint8, 'repeat-n'), ['int'])),
+                                            ('asn', (YLeaf(YType.uint32, 'asn'), ['int'])),
                                         ])
                                         self.repeat_n = None
+                                        self.asn = None
                                         self._segment_path = lambda: "config"
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config, ['repeat_n'], name, value)
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.Config, ['repeat_n', 'asn'], name, value)
 
 
 
-                                class State(Entity):
+                                class State(_Entity_):
                                     """
                                     Operational state data for the AS path prepend action
                                     
                                     .. attribute:: repeat_n
                                     
-                                    	Number of times to prepend the local AS number to the AS path.  The value should be between 1 and the maximum supported by the implementation
+                                    	Number of times to prepend the value specified in the asn leaf to the AS path. If no value is specified by the asn leaf, the local AS number of the system is used. The value should be between 1 and the maximum supported by the implementation
                                     	**type**\: int
                                     
                                     	**range:** 1..255
+                                    
+                                    	**config**\: False
+                                    
+                                    .. attribute:: asn
+                                    
+                                    	The AS number to prepend to the AS path. If this leaf is not specified and repeat\-n is set, then the local AS number will be used for prepending
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
                                     
                                     	**config**\: False
                                     
@@ -4795,10 +5151,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "set-as-path-prepend"
@@ -4808,18 +5167,20 @@ class RoutingPolicy(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
                                             ('repeat_n', (YLeaf(YType.uint8, 'repeat-n'), ['int'])),
+                                            ('asn', (YLeaf(YType.uint32, 'asn'), ['int'])),
                                         ])
                                         self.repeat_n = None
+                                        self.asn = None
                                         self._segment_path = lambda: "state"
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.State, ['repeat_n'], name, value)
+                                        self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend.State, ['repeat_n', 'asn'], name, value)
 
 
 
 
-                            class SetCommunity(Entity):
+                            class SetCommunity(_Entity_):
                                 """
                                 Action to set the community attributes of the route, along
                                 with options to modify how the community is modified.
@@ -4853,10 +5214,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-bgp-pol'
-                                _revision = '2017-02-02'
+                                _revision = '2017-07-30'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity, self).__init__()
 
                                     self.yang_name = "set-community"
                                     self.yang_parent_name = "bgp-actions"
@@ -4888,7 +5252,7 @@ class RoutingPolicy(Entity):
                                     self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity, [], name, value)
 
 
-                                class Config(Entity):
+                                class Config(_Entity_):
                                     """
                                     Configuration data for the set\-community action
                                     
@@ -4907,10 +5271,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "set-community"
@@ -4959,7 +5326,7 @@ class RoutingPolicy(Entity):
 
 
 
-                                class State(Entity):
+                                class State(_Entity_):
                                     """
                                     Operational state data for the set\-community action
                                     
@@ -4982,10 +5349,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "set-community"
@@ -5034,7 +5404,7 @@ class RoutingPolicy(Entity):
 
 
 
-                                class Inline(Entity):
+                                class Inline(_Entity_):
                                     """
                                     Set the community values for the action inline with
                                     a list.
@@ -5056,10 +5426,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline, self).__init__()
 
                                         self.yang_name = "inline"
                                         self.yang_parent_name = "set-community"
@@ -5083,7 +5456,7 @@ class RoutingPolicy(Entity):
                                         self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline, [], name, value)
 
 
-                                    class Config(Entity):
+                                    class Config(_Entity_):
                                         """
                                         Configuration data or inline specification of set\-community
                                         action
@@ -5108,10 +5481,13 @@ class RoutingPolicy(Entity):
                                         """
 
                                         _prefix = 'oc-bgp-pol'
-                                        _revision = '2017-02-02'
+                                        _revision = '2017-07-30'
 
                                         def __init__(self):
-                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.Config, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.Config, self).__init__()
 
                                             self.yang_name = "config"
                                             self.yang_parent_name = "inline"
@@ -5131,7 +5507,7 @@ class RoutingPolicy(Entity):
 
 
 
-                                    class State(Entity):
+                                    class State(_Entity_):
                                         """
                                         Operational state data or inline specification of
                                         set\-community action
@@ -5158,10 +5534,13 @@ class RoutingPolicy(Entity):
                                         """
 
                                         _prefix = 'oc-bgp-pol'
-                                        _revision = '2017-02-02'
+                                        _revision = '2017-07-30'
 
                                         def __init__(self):
-                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.State, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Inline.State, self).__init__()
 
                                             self.yang_name = "state"
                                             self.yang_parent_name = "inline"
@@ -5182,7 +5561,7 @@ class RoutingPolicy(Entity):
 
 
 
-                                class Reference(Entity):
+                                class Reference(_Entity_):
                                     """
                                     Provide a reference to a defined community set for the
                                     set\-community action
@@ -5204,10 +5583,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference, self).__init__()
 
                                         self.yang_name = "reference"
                                         self.yang_parent_name = "set-community"
@@ -5231,7 +5613,7 @@ class RoutingPolicy(Entity):
                                         self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference, [], name, value)
 
 
-                                    class Config(Entity):
+                                    class Config(_Entity_):
                                         """
                                         Configuration data for referening a community\-set in the
                                         set\-community action
@@ -5248,10 +5630,13 @@ class RoutingPolicy(Entity):
                                         """
 
                                         _prefix = 'oc-bgp-pol'
-                                        _revision = '2017-02-02'
+                                        _revision = '2017-07-30'
 
                                         def __init__(self):
-                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.Config, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.Config, self).__init__()
 
                                             self.yang_name = "config"
                                             self.yang_parent_name = "reference"
@@ -5271,7 +5656,7 @@ class RoutingPolicy(Entity):
 
 
 
-                                    class State(Entity):
+                                    class State(_Entity_):
                                         """
                                         Operational state data for referening a community\-set
                                         in the set\-community action
@@ -5290,10 +5675,13 @@ class RoutingPolicy(Entity):
                                         """
 
                                         _prefix = 'oc-bgp-pol'
-                                        _revision = '2017-02-02'
+                                        _revision = '2017-07-30'
 
                                         def __init__(self):
-                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.State, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity.Reference.State, self).__init__()
 
                                             self.yang_name = "state"
                                             self.yang_parent_name = "reference"
@@ -5315,7 +5703,7 @@ class RoutingPolicy(Entity):
 
 
 
-                            class SetExtCommunity(Entity):
+                            class SetExtCommunity(_Entity_):
                                 """
                                 Action to set the extended community attributes of the
                                 route, along with options to modify how the community is
@@ -5350,10 +5738,13 @@ class RoutingPolicy(Entity):
                                 """
 
                                 _prefix = 'oc-bgp-pol'
-                                _revision = '2017-02-02'
+                                _revision = '2017-07-30'
 
                                 def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity, self).__init__()
+                                    if sys.version_info > (3,):
+                                        super().__init__()
+                                    else:
+                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity, self).__init__()
 
                                     self.yang_name = "set-ext-community"
                                     self.yang_parent_name = "bgp-actions"
@@ -5385,7 +5776,7 @@ class RoutingPolicy(Entity):
                                     self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity, [], name, value)
 
 
-                                class Config(Entity):
+                                class Config(_Entity_):
                                     """
                                     Configuration data for the set\-ext\-community action
                                     
@@ -5404,10 +5795,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Config, self).__init__()
 
                                         self.yang_name = "config"
                                         self.yang_parent_name = "set-ext-community"
@@ -5456,7 +5850,7 @@ class RoutingPolicy(Entity):
 
 
 
-                                class State(Entity):
+                                class State(_Entity_):
                                     """
                                     Operational state data for the set\-ext\-community action
                                     
@@ -5479,10 +5873,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.State, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.State, self).__init__()
 
                                         self.yang_name = "state"
                                         self.yang_parent_name = "set-ext-community"
@@ -5531,7 +5928,7 @@ class RoutingPolicy(Entity):
 
 
 
-                                class Inline(Entity):
+                                class Inline(_Entity_):
                                     """
                                     Set the extended community values for the action inline with
                                     a list.
@@ -5553,10 +5950,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline, self).__init__()
 
                                         self.yang_name = "inline"
                                         self.yang_parent_name = "set-ext-community"
@@ -5580,7 +5980,7 @@ class RoutingPolicy(Entity):
                                         self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline, [], name, value)
 
 
-                                    class Config(Entity):
+                                    class Config(_Entity_):
                                         """
                                         Configuration data or inline specification of
                                         set\-ext\-community action
@@ -5633,10 +6033,13 @@ class RoutingPolicy(Entity):
                                         """
 
                                         _prefix = 'oc-bgp-pol'
-                                        _revision = '2017-02-02'
+                                        _revision = '2017-07-30'
 
                                         def __init__(self):
-                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.Config, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.Config, self).__init__()
 
                                             self.yang_name = "config"
                                             self.yang_parent_name = "inline"
@@ -5656,7 +6059,7 @@ class RoutingPolicy(Entity):
 
 
 
-                                    class State(Entity):
+                                    class State(_Entity_):
                                         """
                                         Operational state data or inline specification of
                                         set\-ext\-community action
@@ -5711,10 +6114,13 @@ class RoutingPolicy(Entity):
                                         """
 
                                         _prefix = 'oc-bgp-pol'
-                                        _revision = '2017-02-02'
+                                        _revision = '2017-07-30'
 
                                         def __init__(self):
-                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.State, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Inline.State, self).__init__()
 
                                             self.yang_name = "state"
                                             self.yang_parent_name = "inline"
@@ -5735,7 +6141,7 @@ class RoutingPolicy(Entity):
 
 
 
-                                class Reference(Entity):
+                                class Reference(_Entity_):
                                     """
                                     Provide a reference to an extended community set for the
                                     set\-ext\-community action
@@ -5757,10 +6163,13 @@ class RoutingPolicy(Entity):
                                     """
 
                                     _prefix = 'oc-bgp-pol'
-                                    _revision = '2017-02-02'
+                                    _revision = '2017-07-30'
 
                                     def __init__(self):
-                                        super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference, self).__init__()
+                                        if sys.version_info > (3,):
+                                            super().__init__()
+                                        else:
+                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference, self).__init__()
 
                                         self.yang_name = "reference"
                                         self.yang_parent_name = "set-ext-community"
@@ -5784,7 +6193,7 @@ class RoutingPolicy(Entity):
                                         self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference, [], name, value)
 
 
-                                    class Config(Entity):
+                                    class Config(_Entity_):
                                         """
                                         Configuration data for referening an extended
                                         community\-set in the set\-ext\-community action
@@ -5801,10 +6210,13 @@ class RoutingPolicy(Entity):
                                         """
 
                                         _prefix = 'oc-bgp-pol'
-                                        _revision = '2017-02-02'
+                                        _revision = '2017-07-30'
 
                                         def __init__(self):
-                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.Config, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.Config, self).__init__()
 
                                             self.yang_name = "config"
                                             self.yang_parent_name = "reference"
@@ -5824,7 +6236,7 @@ class RoutingPolicy(Entity):
 
 
 
-                                    class State(Entity):
+                                    class State(_Entity_):
                                         """
                                         Operational state data for referening an extended
                                         community\-set in the set\-ext\-community action
@@ -5843,10 +6255,13 @@ class RoutingPolicy(Entity):
                                         """
 
                                         _prefix = 'oc-bgp-pol'
-                                        _revision = '2017-02-02'
+                                        _revision = '2017-07-30'
 
                                         def __init__(self):
-                                            super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State, self).__init__()
+                                            if sys.version_info > (3,):
+                                                super().__init__()
+                                            else:
+                                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State, self).__init__()
 
                                             self.yang_name = "state"
                                             self.yang_parent_name = "reference"
@@ -5865,175 +6280,6 @@ class RoutingPolicy(Entity):
                                             self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity.Reference.State, ['ext_community_set_ref'], name, value)
 
 
-
-
-
-
-                        class IsisActions(Entity):
-                            """
-                            Actions that can be performed by IS\-IS within a policy
-                            
-                            .. attribute:: config
-                            
-                            	Configuration parameters relating to IS\-IS actions
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config>`
-                            
-                            .. attribute:: state
-                            
-                            	Operational state associated with IS\-IS actions
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State>`
-                            
-                            	**config**\: False
-                            
-                            
-
-                            """
-
-                            _prefix = 'oc-isis-pol'
-                            _revision = '2017-05-15'
-
-                            def __init__(self):
-                                super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions, self).__init__()
-
-                                self.yang_name = "isis-actions"
-                                self.yang_parent_name = "actions"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("config", ("config", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config)), ("state", ("state", RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State))])
-                                self._leafs = OrderedDict()
-
-                                self.config = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config()
-                                self.config.parent = self
-                                self._children_name_map["config"] = "config"
-
-                                self.state = RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State()
-                                self.state.parent = self
-                                self._children_name_map["state"] = "state"
-                                self._segment_path = lambda: "openconfig-isis-policy:isis-actions"
-                                self._is_frozen = True
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions, [], name, value)
-
-
-                            class Config(Entity):
-                                """
-                                Configuration parameters relating to IS\-IS actions
-                                
-                                .. attribute:: set_level
-                                
-                                	Set the level that a prefix is to be imported into
-                                	**type**\: int
-                                
-                                	**range:** 1..2
-                                
-                                .. attribute:: set_metric_type
-                                
-                                	Set the type of metric that is to be specified when the set metric leaf is specified
-                                	**type**\: int
-                                
-                                	**range:** 1..2
-                                
-                                .. attribute:: set_metric
-                                
-                                	Set the metric of the IS\-IS prefix
-                                	**type**\: int
-                                
-                                	**range:** 1..16777215
-                                
-                                
-
-                                """
-
-                                _prefix = 'oc-isis-pol'
-                                _revision = '2017-05-15'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config, self).__init__()
-
-                                    self.yang_name = "config"
-                                    self.yang_parent_name = "isis-actions"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('set_level', (YLeaf(YType.uint8, 'set-level'), ['int'])),
-                                        ('set_metric_type', (YLeaf(YType.uint8, 'set-metric-type'), ['int'])),
-                                        ('set_metric', (YLeaf(YType.uint32, 'set-metric'), ['int'])),
-                                    ])
-                                    self.set_level = None
-                                    self.set_metric_type = None
-                                    self.set_metric = None
-                                    self._segment_path = lambda: "config"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.Config, ['set_level', 'set_metric_type', 'set_metric'], name, value)
-
-
-
-                            class State(Entity):
-                                """
-                                Operational state associated with IS\-IS actions
-                                
-                                .. attribute:: set_level
-                                
-                                	Set the level that a prefix is to be imported into
-                                	**type**\: int
-                                
-                                	**range:** 1..2
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: set_metric_type
-                                
-                                	Set the type of metric that is to be specified when the set metric leaf is specified
-                                	**type**\: int
-                                
-                                	**range:** 1..2
-                                
-                                	**config**\: False
-                                
-                                .. attribute:: set_metric
-                                
-                                	Set the metric of the IS\-IS prefix
-                                	**type**\: int
-                                
-                                	**range:** 1..16777215
-                                
-                                	**config**\: False
-                                
-                                
-
-                                """
-
-                                _prefix = 'oc-isis-pol'
-                                _revision = '2017-05-15'
-
-                                def __init__(self):
-                                    super(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State, self).__init__()
-
-                                    self.yang_name = "state"
-                                    self.yang_parent_name = "isis-actions"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('set_level', (YLeaf(YType.uint8, 'set-level'), ['int'])),
-                                        ('set_metric_type', (YLeaf(YType.uint8, 'set-metric-type'), ['int'])),
-                                        ('set_metric', (YLeaf(YType.uint32, 'set-metric'), ['int'])),
-                                    ])
-                                    self.set_level = None
-                                    self.set_metric_type = None
-                                    self.set_metric = None
-                                    self._segment_path = lambda: "state"
-                                    self._is_frozen = True
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IsisActions.State, ['set_level', 'set_metric_type', 'set_metric'], name, value)
 
 
 
