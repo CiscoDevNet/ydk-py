@@ -5,6 +5,8 @@
     :alt: Docker Automated build
     :target: https://hub.docker.com/r/ydkdev/ydk-py/
 
+## This project has been archived and the repository will no longer be updated.
+
 =============================
 YANG Development Kit (Python)
 =============================
